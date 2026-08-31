@@ -4,7 +4,7 @@ import { GameSettingsService } from '../audio/GameSettingsService';
 import type { LevelCatalog, LevelData, LevelMapDefinition } from '../data/LevelTypes';
 import { SaveService, type StorageLike } from '../data/SaveService';
 import { GameplayView } from '../gameplay/GameplayView';
-import { createButton, createLabel, createPanel } from '../ui/UiFactory';
+import { createLabel, createPanel } from '../ui/UiFactory';
 import { clampPage, levelButtonState, nextLevelIndex, pageCount, pageLevelIndices, PageFlow, type AppRoute } from './PageFlow';
 
 const { ccclass } = _decorator;
@@ -63,6 +63,10 @@ export class GameApp extends Component {
   private transitioning = false;
   private audio: AudioService | null = null;
   private homePrefab: Prefab | null = null;
+  private mapPrefab: Prefab | null = null;
+  private mapCategoryPrefab: Prefab | null = null;
+  private mapCardPrefab: Prefab | null = null;
+  private mapBackPrefab: Prefab | null = null;
   private levelPrefab: Prefab | null = null;
   private gameplayPrefab: Prefab | null = null;
   private readonly levelItemPrefabs = new Map<'locked' | 'available' | 'completed', Prefab>();
@@ -78,12 +82,16 @@ export class GameApp extends Component {
     this.node.getComponent(UITransform)?.setContentSize(720, 1280);
     trace('load:begin');
     try {
-      const [catalogAsset, frames, music, win, homePrefab, levelPrefab, gameplayPrefab, lockedPrefab, availablePrefab, completedPrefab, winPrefab] = await Promise.all([
+      const [catalogAsset, frames, music, win, homePrefab, mapPrefab, mapCategoryPrefab, mapCardPrefab, mapBackPrefab, levelPrefab, gameplayPrefab, lockedPrefab, availablePrefab, completedPrefab, winPrefab] = await Promise.all([
         loadResource('data/catalog', JsonAsset),
         Promise.all(Array.from({ length: 18 }, (_, index) => loadResource(`gameplay/tiles/${index + 1}/spriteFrame`, SpriteFrame))),
         loadResource('audio/music', AudioClip),
         loadResource('audio/win', AudioClip),
         loadResource('prefabs/pages/HomePage', Prefab),
+        loadResource('prefabs/pages/MapPage', Prefab),
+        loadResource('prefabs/items/MapCategory', Prefab),
+        loadResource('prefabs/items/MapCard', Prefab),
+        loadResource('prefabs/items/MapBack', Prefab),
         loadResource('prefabs/pages/LevelPage', Prefab),
         loadResource('prefabs/pages/GameplayPage', Prefab),
         loadResource('prefabs/items/LevelLocked', Prefab),
@@ -95,6 +103,10 @@ export class GameApp extends Component {
       this.frames = new Map(frames.map((frame, index) => [`${index + 1}_png`, frame]));
       this.audio = new AudioService(this.node, music, win, this.settings);
       this.homePrefab = homePrefab;
+      this.mapPrefab = mapPrefab;
+      this.mapCategoryPrefab = mapCategoryPrefab;
+      this.mapCardPrefab = mapCardPrefab;
+      this.mapBackPrefab = mapBackPrefab;
       this.levelPrefab = levelPrefab;
       this.gameplayPrefab = gameplayPrefab;
       this.levelItemPrefabs.set('locked', lockedPrefab);
@@ -284,7 +296,7 @@ export class GameApp extends Component {
     const block = findNode(root, 'block_mc');
     trace('home:contract', { play: Boolean(play), sound: Boolean(sound), block: Boolean(block) });
     if (!play || !sound || !block) throw new Error('HomePage Prefab node contract is incomplete');
-    this.bind(play, () => { this.audio?.startMusic(); void this.navigate({ name: 'levels', mapId: 'novice', page: 0 }); });
+    this.bind(play, () => { this.audio?.startMusic(); void this.navigate({ name: 'maps' }); });
     this.configureSoundButton(sound);
     block.children.forEach((child, index) => {
       const start = child.position.clone();
@@ -301,25 +313,51 @@ export class GameApp extends Component {
   }
 
   private createMapPage(): Node {
-    const root = this.pageRoot('MapPage', 'CHOOSE A MAP');
-    const contentNodes: Node[] = [];
+    if (!this.mapPrefab || !this.mapCategoryPrefab || !this.mapCardPrefab || !this.mapBackPrefab) {
+      throw new Error('Map Prefabs are not loaded');
+    }
+    const root = instantiate(this.mapPrefab);
+    const sound = findNode(root, 's_btn');
+    const previous = findNode(root, 'l_btn');
+    const next = findNode(root, 'r_btn');
+    if (!sound || !previous || !next) throw new Error('MapPage Prefab node contract is incomplete');
+    previous.active = false;
+    next.active = false;
+    this.configureSoundButton(sound);
+
+    const category = instantiate(this.mapCategoryPrefab);
+    category.setParent(root);
+    category.setPosition(-360, 640);
+    const categoryTitle = findNode(category, 'title_txt')?.getComponent(Label);
+    const container = findNode(category, 'con_mc');
+    if (!categoryTitle || !container) throw new Error('MapCategory Prefab node contract is incomplete');
+    categoryTitle.string = this.catalog?.categories[0]?.name ?? 'Basic';
+
+    const contentNodes: Node[] = [category];
     this.maps().forEach((map, index) => {
       const completed = this.save.getMaxCompleted(map.id);
-      const button = createButton(`Map-${map.id}`, `${map.name}\n${completed} / ${map.levelCount}`, 470, 150);
-      const label = button.getChildByName(`Map-${map.id}-label`)?.getComponent(Label);
-      if (label) label.lineHeight = 34;
-      button.setParent(root); button.setPosition(0, 230 - index * 210);
-      contentNodes.push(button);
-      this.bind(button, () => { void this.navigate({ name: 'levels', mapId: map.id, page: 0 }); });
-      const detail = createLabel(`${map.id}-description`, map.description, 20, new Color(173, 185, 193, 255));
-      detail.setParent(root); detail.setPosition(0, 115 - index * 210);
-      contentNodes.push(detail);
+      const card = instantiate(this.mapCardPrefab);
+      card.name = `Map-${map.id}`;
+      card.setParent(container);
+      card.setPosition(63.5, -index * 185);
+      const title = findNode(card, 'txt1')?.getComponent(Label);
+      const description = findNode(card, 'txt2')?.getComponent(Label);
+      const progress = findNode(card, 'txt3')?.getComponent(Label);
+      if (!title || !description || !progress) throw new Error('MapCard Prefab node contract is incomplete');
+      title.string = map.name;
+      description.string = map.description;
+      progress.string = `${completed}/${map.levelCount}`;
+      this.bind(card, () => { void this.navigate({ name: 'levels', mapId: map.id, page: 0 }); });
     });
-    const back = createButton('MapBackButton', 'BACK', 180, 62); back.setParent(root); back.setPosition(0, -500);
+    const back = instantiate(this.mapBackPrefab);
+    back.name = 'MapBackButton';
+    back.setParent(root);
+    back.setPosition(-320, -515);
     this.bind(back, () => { void this.back(); });
     this.registerResponsivePage(root, [
       ...contentNodes.map((node) => ({ node, verticalFactor: 0.5 })),
       { node: back, verticalFactor: 1 },
+      { node: sound, verticalFactor: 1 },
     ]);
     return root;
   }

@@ -182,18 +182,17 @@ export class GameplayView {
       if (view.dragState === 'pending' && this.dragDistance(view, event) >= DRAG_SLOP) this.dragStart(view, event);
       if (view.dragState === 'dragging') this.dragMove(view, event);
     });
-    const endDrag = (event: EventTouch): void => {
+    const finishDrag = (event: EventTouch): void => {
       if (!this.isActiveTouch(view, event)) return;
-      if (view.dragState === 'dragging') this.dragEnd(view);
-      else this.resetDragState(view);
+      if (view.dragState === 'dragging') {
+        this.dragMove(view, event);
+        this.dragEnd(view);
+      } else {
+        this.resetDragState(view);
+      }
     };
-    const cancelDrag = (event: EventTouch): void => {
-      if (!this.isActiveTouch(view, event)) return;
-      if (view.dragState === 'dragging') this.cancelDrag(view);
-      else this.resetDragState(view);
-    };
-    hitArea.on(Node.EventType.TOUCH_END, endDrag);
-    hitArea.on(Node.EventType.TOUCH_CANCEL, cancelDrag);
+    hitArea.on(Node.EventType.TOUCH_END, finishDrag);
+    hitArea.on(Node.EventType.TOUCH_CANCEL, finishDrag);
   }
 
   private isPieceCellHit(cell: Node, event: EventTouch): boolean {
@@ -303,12 +302,6 @@ export class GameplayView {
     } else {
       this.returnHome(view);
     }
-    view.preview = null;
-  }
-
-  private cancelDrag(view: PieceView): void {
-    this.clearPreview();
-    this.returnHome(view);
     view.preview = null;
   }
 

@@ -26,7 +26,7 @@ export class PuzzleModel {
     const obstacles = level.filter((piece) => piece.type === 'edit_game_elements' && piece.texureName === '4_png');
     this.pieces = movable.map((source, index) => {
       const targetCells = source.data.map(cloneCoord);
-      const origin = { x2: source.tx * (115 - 26) * 2, y2: source.ty * 103 * 2 };
+      const origin = gridToPoint2({ tx: source.tx, ty: source.ty });
       const localPoints = targetCells.map((coord) => { const point = gridToPoint2(coord); return { x2: point.x2 - origin.x2, y2: point.y2 - origin.y2 }; });
       return { id: `piece-${index}-${source.texureName}`, textureName: source.texureName, source, targetCells, localPoints };
     });
