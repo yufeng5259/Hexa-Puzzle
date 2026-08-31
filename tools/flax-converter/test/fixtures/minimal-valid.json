@@ -1,0 +1,6 @@
+{
+  "metadata": { "app": "fixture", "version": 1, "format": 2, "textureFileName": "atlas.png", "realTextureFileName": "atlas.png", "image": "atlas.png", "size": "{10,10}", "fps": 24 },
+  "frames": { "frame_0000": { "frame": "{{0,0},{10,10}}", "offset": "{0,0}", "sourceSize": "{10,10}" } },
+  "displays": { "image": { "anchorX": 0, "anchorY": 1, "start": 0, "end": 0, "type": "null" } },
+  "mcs": { "root": { "anchorX": 0, "anchorY": 1, "totalFrames": 1, "rect": "0,0,10,10", "type": "null", "children": { "child": { "zIndex": 0, "class": "image", "frames": "0,10,0,1,1,1,0,0,0" } } } }
+}

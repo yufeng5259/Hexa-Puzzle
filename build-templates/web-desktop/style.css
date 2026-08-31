@@ -1,0 +1,67 @@
+:root {
+  --safe-top: env(safe-area-inset-top);
+  --safe-right: env(safe-area-inset-right);
+  --safe-bottom: env(safe-area-inset-bottom);
+  --safe-left: env(safe-area-inset-left);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #05080a;
+}
+
+body,
+canvas,
+div {
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#Cocos3dGameContainer,
+#GameCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+#orientation-lock {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  color: #b4edff;
+  background: #0d161d;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+#orientation-lock strong { font-size: 32px; }
+
+@media (orientation: landscape) and (pointer: coarse) {
+  #orientation-lock { display: flex; }
+}
+
+#GameDiv {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: min(100vw, calc(100vh * 0.5625));
+  transform: translateX(-50%);
+}
+
+#GameCanvas {
+  display: block;
+  background: #05080a;
+}

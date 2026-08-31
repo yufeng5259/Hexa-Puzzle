@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "maps": [
+        {
+          "id": "classic",
+          "name": "Classic",
+          "description": "Block 3 to 5 levels",
+          "levelCount": 80,
+          "resource": "data/levels/classic"
+        },
+        {
+          "id": "novice",
+          "name": "Novice",
+          "description": "Block 5 to 7 levels",
+          "levelCount": 80,
+          "resource": "data/levels/novice"
+        }
+      ]
+    }
+  ]
+}

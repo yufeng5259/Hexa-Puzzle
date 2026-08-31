@@ -1,0 +1,11 @@
+{
+  "name": "Project",
+  "uuid": "65f074e9-e1ce-4545-b832-6cdfac8e3f24",
+  "creator": {
+    "version": "3.8.8"
+  },
+  "scripts": {
+    "test": "node tools/tests/run-all.mjs",
+    "audit": "node tools/tests/final-asset-audit.mjs"
+  }
+}

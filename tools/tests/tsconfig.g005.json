@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "../../.omx/tmp/g005-tests",
+    "rootDir": "../../assets/scripts",
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": ["ES2022", "DOM"]
+  },
+  "include": ["../../assets/scripts/data/*.ts", "../../assets/scripts/model/*.ts", "../../assets/scripts/app/PageFlow.ts", "../../assets/scripts/audio/GameSettingsService.ts"]
+}

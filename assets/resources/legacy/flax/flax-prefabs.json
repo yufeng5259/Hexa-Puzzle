@@ -1,0 +1,488 @@
+{
+  "version": 1,
+  "generatedBy": "tools/flax-prefab-generator/generate.mjs",
+  "prefabs": [
+    {
+      "id": "a23",
+      "uuid": "38d6900c-36f7-45b2-a2de-5acd78eb3332",
+      "file": "prefabs/legacy/a23.prefab",
+      "objectCount": 17,
+      "rootChildren": 2,
+      "totalFrames": 1
+    },
+    {
+      "id": "a24",
+      "uuid": "00129ad1-5bfd-4ab9-a34b-c3b555a18f71",
+      "file": "prefabs/legacy/a24.prefab",
+      "objectCount": 17,
+      "rootChildren": 2,
+      "totalFrames": 1
+    },
+    {
+      "id": "a25",
+      "uuid": "3d95f2e8-f9c0-4e3f-a8b5-6d1f2d07dcbf",
+      "file": "prefabs/legacy/a25.prefab",
+      "objectCount": 29,
+      "rootChildren": 4,
+      "totalFrames": 2
+    },
+    {
+      "id": "con1",
+      "uuid": "d8eb59df-7712-4e63-a0b5-cc0958ea48f2",
+      "file": "prefabs/legacy/con1.prefab",
+      "objectCount": 5,
+      "rootChildren": 0,
+      "totalFrames": 1
+    },
+    {
+      "id": "index",
+      "uuid": "299803bb-5c57-4ef4-a4a4-b39c69b4950d",
+      "file": "prefabs/legacy/index.prefab",
+      "objectCount": 85,
+      "rootChildren": 13,
+      "totalFrames": 1
+    },
+    {
+      "id": "itemrender1",
+      "uuid": "dfc4e92b-40eb-4b09-a1f8-f030f32be57a",
+      "file": "prefabs/legacy/itemrender1.prefab",
+      "objectCount": 41,
+      "rootChildren": 6,
+      "totalFrames": 1
+    },
+    {
+      "id": "itemrender2",
+      "uuid": "a2c24e55-6ad7-46ef-a1d9-61a2c19ff5fe",
+      "file": "prefabs/legacy/itemrender2.prefab",
+      "objectCount": 35,
+      "rootChildren": 5,
+      "totalFrames": 3
+    },
+    {
+      "id": "list1",
+      "uuid": "8c0dd0f4-e5b9-4cb2-a339-83d21cd5f798",
+      "file": "prefabs/legacy/list1.prefab",
+      "objectCount": 15,
+      "rootChildren": 2,
+      "totalFrames": 1
+    },
+    {
+      "id": "loading",
+      "uuid": "ae8972c7-4129-43cb-af87-b705fc6e163e",
+      "file": "prefabs/legacy/loading.prefab",
+      "objectCount": 51,
+      "rootChildren": 7,
+      "totalFrames": 1
+    },
+    {
+      "id": "music",
+      "uuid": "95a86d47-92c6-4318-a110-63df9e8fbae5",
+      "file": "prefabs/legacy/music.prefab",
+      "objectCount": 17,
+      "rootChildren": 2,
+      "totalFrames": 2
+    },
+    {
+      "id": "scene1",
+      "uuid": "7d037e2b-d69a-431e-ae58-32445e97d89a",
+      "file": "prefabs/legacy/scene1.prefab",
+      "objectCount": 47,
+      "rootChildren": 5,
+      "totalFrames": 1
+    },
+    {
+      "id": "scene2",
+      "uuid": "5321ba19-11bb-43d2-a177-b7d2571f8eb8",
+      "file": "prefabs/legacy/scene2.prefab",
+      "objectCount": 69,
+      "rootChildren": 7,
+      "totalFrames": 1
+    },
+    {
+      "id": "scene3",
+      "uuid": "22aff83b-3c4e-4ccf-a00c-76531470ed3c",
+      "file": "prefabs/legacy/scene3.prefab",
+      "objectCount": 89,
+      "rootChildren": 5,
+      "totalFrames": 1
+    },
+    {
+      "id": "winbk",
+      "uuid": "3d09729b-e6b5-4b8d-ab13-947f0e5c8390",
+      "file": "prefabs/legacy/winbk.prefab",
+      "objectCount": 85,
+      "rootChildren": 15,
+      "totalFrames": 1
+    },
+    {
+      "id": "winpl",
+      "uuid": "496bf4df-18ab-4671-a394-be9c62946282",
+      "file": "prefabs/legacy/winpl.prefab",
+      "objectCount": 109,
+      "rootChildren": 4,
+      "totalFrames": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "game_0000",
+      "uuid": "ab3b409c-77ac-4253-af50-6127d07c914a",
+      "spriteUuid": "ab3b409c-77ac-4253-af50-6127d07c914a@f9941",
+      "width": 120,
+      "height": 120,
+      "file": "legacy/flax/frames/game_0000.png"
+    },
+    {
+      "id": "game_0001",
+      "uuid": "6983b6cb-3bae-44d6-a72f-e25c118f23f2",
+      "spriteUuid": "6983b6cb-3bae-44d6-a72f-e25c118f23f2@f9941",
+      "width": 194,
+      "height": 65,
+      "file": "legacy/flax/frames/game_0001.png"
+    },
+    {
+      "id": "game_0002",
+      "uuid": "6a76aa1a-1f64-46c8-a49c-57721a948b5e",
+      "spriteUuid": "6a76aa1a-1f64-46c8-a49c-57721a948b5e@f9941",
+      "width": 189,
+      "height": 195,
+      "file": "legacy/flax/frames/game_0002.png"
+    },
+    {
+      "id": "game_0003",
+      "uuid": "09aad9c3-4775-4907-a1be-dbd7ac065320",
+      "spriteUuid": "09aad9c3-4775-4907-a1be-dbd7ac065320@f9941",
+      "width": 51,
+      "height": 70,
+      "file": "legacy/flax/frames/game_0003.png"
+    },
+    {
+      "id": "game_0004",
+      "uuid": "100da3d9-021d-4340-af48-78f2c89d04b9",
+      "spriteUuid": "100da3d9-021d-4340-af48-78f2c89d04b9@f9941",
+      "width": 47,
+      "height": 69,
+      "file": "legacy/flax/frames/game_0004.png"
+    },
+    {
+      "id": "game_0005",
+      "uuid": "d3bd3fad-a406-4b4f-ab5a-81d42a34c84d",
+      "spriteUuid": "d3bd3fad-a406-4b4f-ab5a-81d42a34c84d@f9941",
+      "width": 55,
+      "height": 58,
+      "file": "legacy/flax/frames/game_0005.png"
+    },
+    {
+      "id": "game_0006",
+      "uuid": "c96025d8-3b08-4045-a348-91bca1d31233",
+      "spriteUuid": "c96025d8-3b08-4045-a348-91bca1d31233@f9941",
+      "width": 160,
+      "height": 149,
+      "file": "legacy/flax/frames/game_0006.png"
+    },
+    {
+      "id": "game_0007",
+      "uuid": "40d6d39b-ec84-4980-abb8-1b0a3e6287c3",
+      "spriteUuid": "40d6d39b-ec84-4980-abb8-1b0a3e6287c3@f9941",
+      "width": 137,
+      "height": 155,
+      "file": "legacy/flax/frames/game_0007.png"
+    },
+    {
+      "id": "game_0008",
+      "uuid": "f1a55be1-ba06-43bb-a973-5627f7f0c065",
+      "spriteUuid": "f1a55be1-ba06-43bb-a973-5627f7f0c065@f9941",
+      "width": 160,
+      "height": 158,
+      "file": "legacy/flax/frames/game_0008.png"
+    },
+    {
+      "id": "game_0009",
+      "uuid": "9fe03be6-1943-4618-a5b2-b0c8f1b8588b",
+      "spriteUuid": "9fe03be6-1943-4618-a5b2-b0c8f1b8588b@f9941",
+      "width": 143,
+      "height": 131,
+      "file": "legacy/flax/frames/game_0009.png"
+    },
+    {
+      "id": "game_0010",
+      "uuid": "de4b64ff-5089-4e1f-af1b-cd5bdbd0a524",
+      "spriteUuid": "de4b64ff-5089-4e1f-af1b-cd5bdbd0a524@f9941",
+      "width": 720,
+      "height": 310,
+      "file": "legacy/flax/frames/game_0010.png"
+    },
+    {
+      "id": "game_0011",
+      "uuid": "3b502e35-4991-40bd-ae69-feb27423e290",
+      "spriteUuid": "3b502e35-4991-40bd-ae69-feb27423e290@f9941",
+      "width": 121,
+      "height": 120,
+      "file": "legacy/flax/frames/game_0011.png"
+    },
+    {
+      "id": "game_0012",
+      "uuid": "c3635f3b-e9ea-4d5b-a7c0-fed83f807dc3",
+      "spriteUuid": "c3635f3b-e9ea-4d5b-a7c0-fed83f807dc3@f9941",
+      "width": 64,
+      "height": 48,
+      "file": "legacy/flax/frames/game_0012.png"
+    },
+    {
+      "id": "game_0013",
+      "uuid": "c69849b3-a0b2-4582-a790-d4898e32c2bb",
+      "spriteUuid": "c69849b3-a0b2-4582-a790-d4898e32c2bb@f9941",
+      "width": 56,
+      "height": 62,
+      "file": "legacy/flax/frames/game_0013.png"
+    },
+    {
+      "id": "game_0014",
+      "uuid": "9135b21d-d5ed-4c30-afb6-0e18be621fd3",
+      "spriteUuid": "9135b21d-d5ed-4c30-afb6-0e18be621fd3@f9941",
+      "width": 120,
+      "height": 120,
+      "file": "legacy/flax/frames/game_0014.png"
+    },
+    {
+      "id": "game_0015",
+      "uuid": "6d7990ff-fa83-4dc0-a25f-d61aa3caf2cf",
+      "spriteUuid": "6d7990ff-fa83-4dc0-a25f-d61aa3caf2cf@f9941",
+      "width": 58,
+      "height": 57,
+      "file": "legacy/flax/frames/game_0015.png"
+    },
+    {
+      "id": "game_0016",
+      "uuid": "ef0ed3fc-1bc4-480d-a0bc-798fb2e2b984",
+      "spriteUuid": "ef0ed3fc-1bc4-480d-a0bc-798fb2e2b984@f9941",
+      "width": 456,
+      "height": 159,
+      "file": "legacy/flax/frames/game_0016.png"
+    },
+    {
+      "id": "game_0017",
+      "uuid": "7f262f3f-0d02-4dcb-a060-d10b686b6181",
+      "spriteUuid": "7f262f3f-0d02-4dcb-a060-d10b686b6181@f9941",
+      "width": 596,
+      "height": 207,
+      "file": "legacy/flax/frames/game_0017.png"
+    },
+    {
+      "id": "game_0018",
+      "uuid": "2cbe7fc3-8876-478c-a756-5aa7fef08960",
+      "spriteUuid": "2cbe7fc3-8876-478c-a756-5aa7fef08960@f9941",
+      "width": 251,
+      "height": 242,
+      "file": "legacy/flax/frames/game_0018.png"
+    },
+    {
+      "id": "game_0019",
+      "uuid": "d6deefd3-c81d-48ef-ab06-4efac01f8d90",
+      "spriteUuid": "d6deefd3-c81d-48ef-ab06-4efac01f8d90@f9941",
+      "width": 466,
+      "height": 483,
+      "file": "legacy/flax/frames/game_0019.png"
+    },
+    {
+      "id": "game_0020",
+      "uuid": "5fcac609-bd00-460c-ab97-927229df5ca1",
+      "spriteUuid": "5fcac609-bd00-460c-ab97-927229df5ca1@f9941",
+      "width": 216,
+      "height": 202,
+      "file": "legacy/flax/frames/game_0020.png"
+    },
+    {
+      "id": "game_0021",
+      "uuid": "4bfbc055-976e-40eb-a8d0-7f4a2d03c4e1",
+      "spriteUuid": "4bfbc055-976e-40eb-a8d0-7f4a2d03c4e1@f9941",
+      "width": 198,
+      "height": 211,
+      "file": "legacy/flax/frames/game_0021.png"
+    },
+    {
+      "id": "game_0022",
+      "uuid": "50c8cb6b-b194-44f6-a42f-673a43096e25",
+      "spriteUuid": "50c8cb6b-b194-44f6-a42f-673a43096e25@f9941",
+      "width": 213,
+      "height": 202,
+      "file": "legacy/flax/frames/game_0022.png"
+    },
+    {
+      "id": "game_0023",
+      "uuid": "0765fb42-5e68-4d5c-ac0f-7bf9bf165faf",
+      "spriteUuid": "0765fb42-5e68-4d5c-ac0f-7bf9bf165faf@f9941",
+      "width": 230,
+      "height": 205,
+      "file": "legacy/flax/frames/game_0023.png"
+    },
+    {
+      "id": "game_0024",
+      "uuid": "c402a04d-8759-47ee-a880-355eee388c07",
+      "spriteUuid": "c402a04d-8759-47ee-a880-355eee388c07@f9941",
+      "width": 133,
+      "height": 216,
+      "file": "legacy/flax/frames/game_0024.png"
+    },
+    {
+      "id": "game_0025",
+      "uuid": "6bf6cc4e-d857-4520-a541-1730e02af41f",
+      "spriteUuid": "6bf6cc4e-d857-4520-a541-1730e02af41f@f9941",
+      "width": 217,
+      "height": 184,
+      "file": "legacy/flax/frames/game_0025.png"
+    },
+    {
+      "id": "game_0026",
+      "uuid": "65f33f5f-8136-491a-a1c0-1ecc4fa12c36",
+      "spriteUuid": "65f33f5f-8136-491a-a1c0-1ecc4fa12c36@f9941",
+      "width": 431,
+      "height": 404,
+      "file": "legacy/flax/frames/game_0026.png"
+    },
+    {
+      "id": "game_0027",
+      "uuid": "f6d33ce7-7fc2-45bb-aacf-479803d7fb29",
+      "spriteUuid": "f6d33ce7-7fc2-45bb-aacf-479803d7fb29@f9941",
+      "width": 210,
+      "height": 193,
+      "file": "legacy/flax/frames/game_0027.png"
+    },
+    {
+      "id": "game_0028",
+      "uuid": "db15368b-e8b7-421c-a5a0-0b0d000708c8",
+      "spriteUuid": "db15368b-e8b7-421c-a5a0-0b0d000708c8@f9941",
+      "width": 120,
+      "height": 118,
+      "file": "legacy/flax/frames/game_0028.png"
+    },
+    {
+      "id": "game_0029",
+      "uuid": "16991d36-9b22-45da-a4ff-865a1a56cc91",
+      "spriteUuid": "16991d36-9b22-45da-a4ff-865a1a56cc91@f9941",
+      "width": 240,
+      "height": 228,
+      "file": "legacy/flax/frames/game_0029.png"
+    },
+    {
+      "id": "game_0030",
+      "uuid": "84b51854-baa7-43e5-a375-50b006c3d920",
+      "spriteUuid": "84b51854-baa7-43e5-a375-50b006c3d920@f9941",
+      "width": 171,
+      "height": 160,
+      "file": "legacy/flax/frames/game_0030.png"
+    },
+    {
+      "id": "game_0031",
+      "uuid": "11fae6c6-ce39-4ff0-a040-985931941a82",
+      "spriteUuid": "11fae6c6-ce39-4ff0-a040-985931941a82@f9941",
+      "width": 171,
+      "height": 160,
+      "file": "legacy/flax/frames/game_0031.png"
+    },
+    {
+      "id": "game_0032",
+      "uuid": "b62e2b51-b0bf-47f9-ad73-349eda8f6fd7",
+      "spriteUuid": "b62e2b51-b0bf-47f9-ad73-349eda8f6fd7@f9941",
+      "width": 20,
+      "height": 20,
+      "file": "legacy/flax/frames/game_0032.png"
+    },
+    {
+      "id": "game_0033",
+      "uuid": "2087ff84-31fc-43a1-a993-93f10295a941",
+      "spriteUuid": "2087ff84-31fc-43a1-a993-93f10295a941@f9941",
+      "width": 593,
+      "height": 185,
+      "file": "legacy/flax/frames/game_0033.png"
+    },
+    {
+      "id": "game_0034",
+      "uuid": "8b445747-3372-4696-a93c-7baf4978f2a1",
+      "spriteUuid": "8b445747-3372-4696-a93c-7baf4978f2a1@f9941",
+      "width": 74,
+      "height": 101,
+      "file": "legacy/flax/frames/game_0034.png"
+    },
+    {
+      "id": "game_0035",
+      "uuid": "93430467-874d-4e16-a9c2-a4c66c8cf1d7",
+      "spriteUuid": "93430467-874d-4e16-a9c2-a4c66c8cf1d7@f9941",
+      "width": 50,
+      "height": 50,
+      "file": "legacy/flax/frames/game_0035.png"
+    },
+    {
+      "id": "game_0036",
+      "uuid": "396a1235-e117-4edc-a201-a56f240ff7d3",
+      "spriteUuid": "396a1235-e117-4edc-a201-a56f240ff7d3@f9941",
+      "width": 508,
+      "height": 357,
+      "file": "legacy/flax/frames/game_0036.png"
+    },
+    {
+      "id": "game_0037",
+      "uuid": "c25f32d8-f867-40c9-ae0b-9d168ea40489",
+      "spriteUuid": "c25f32d8-f867-40c9-ae0b-9d168ea40489@f9941",
+      "width": 171,
+      "height": 160,
+      "file": "legacy/flax/frames/game_0037.png"
+    },
+    {
+      "id": "game_0038",
+      "uuid": "7e7c00ff-0116-4bbc-a284-ee5aa0531711",
+      "spriteUuid": "7e7c00ff-0116-4bbc-a284-ee5aa0531711@f9941",
+      "width": 171,
+      "height": 160,
+      "file": "legacy/flax/frames/game_0038.png"
+    },
+    {
+      "id": "game_0039",
+      "uuid": "b259950d-5073-4c4e-a1d1-86292727ed74",
+      "spriteUuid": "b259950d-5073-4c4e-a1d1-86292727ed74@f9941",
+      "width": 456,
+      "height": 159,
+      "file": "legacy/flax/frames/game_0039.png"
+    },
+    {
+      "id": "game_0040",
+      "uuid": "5762d8ef-4ec6-4de2-a8ce-dc6c91d4b132",
+      "spriteUuid": "5762d8ef-4ec6-4de2-a8ce-dc6c91d4b132@f9941",
+      "width": 171,
+      "height": 160,
+      "file": "legacy/flax/frames/game_0040.png"
+    },
+    {
+      "id": "game_0041",
+      "uuid": "b49fee27-797f-4366-abf4-fdf971753b39",
+      "spriteUuid": "b49fee27-797f-4366-abf4-fdf971753b39@f9941",
+      "width": 763,
+      "height": 302,
+      "file": "legacy/flax/frames/game_0041.png"
+    },
+    {
+      "id": "a2",
+      "uuid": "3b9aaf21-ce12-4422-addb-f103026d7888",
+      "spriteUuid": "3b9aaf21-ce12-4422-addb-f103026d7888@f9941",
+      "height": 1280,
+      "width": 720,
+      "file": "legacy/external/a2.jpg"
+    },
+    {
+      "id": "a29",
+      "uuid": "6cd900de-3339-4216-aef2-92de00678871",
+      "spriteUuid": "6cd900de-3339-4216-aef2-92de00678871@f9941",
+      "width": 880,
+      "height": 275,
+      "file": "legacy/external/a29.png"
+    },
+    {
+      "id": "bk2",
+      "uuid": "33cc0df5-454e-4ab3-af35-79e4f6e17565",
+      "spriteUuid": "33cc0df5-454e-4ab3-af35-79e4f6e17565@f9941",
+      "width": 763,
+      "height": 723,
+      "file": "legacy/external/bk2.png"
+    }
+  ]
+}
