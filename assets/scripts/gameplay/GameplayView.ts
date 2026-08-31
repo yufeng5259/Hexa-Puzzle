@@ -46,9 +46,20 @@ export class GameplayView {
   private readonly targetNodes = new Map<string, Node>();
   private readonly boardScale = 0.82;
   private readonly boardOrigin = new Vec3(-328, 447, 0);
+  private readonly trayOrigin = new Vec3(0, -230, 0);
   private hintButton: Node | null = null;
   private activeDrag: PieceView | null = null;
   private won = false;
+  private visibleHeight = 1280;
+  private winLayout: {
+    overlay: Node;
+    content: Node;
+    background: Node | null;
+    footer: Node | null;
+    backgroundPosition: Vec3 | null;
+    backgroundScale: Vec3 | null;
+    footerPosition: Vec3 | null;
+  } | null = null;
 
   public constructor(
     private readonly level: LevelData,
@@ -127,7 +138,7 @@ export class GameplayView {
   }
 
   private buildPieces(): void {
-    this.tray.layer = 1 << 25; this.tray.setParent(this.node); this.tray.setPosition(0, -230);
+    this.tray.layer = 1 << 25; this.tray.setParent(this.node); this.tray.setPosition(this.trayOrigin);
     this.tray.addComponent(UITransform).setContentSize(680, 320);
     const pieces = [...this.model.pieces].sort((a, b) => a.source.x - b.source.x);
     for (const definition of pieces) {
@@ -255,8 +266,9 @@ export class GameplayView {
     position.add(view.grabOffset);
     position.y += view.liftOffset;
     view.node.setPosition(position);
-    const localX = (position.x - this.boardOrigin.x) / this.boardScale;
-    const localY = -(position.y - this.boardOrigin.y) / this.boardScale;
+    const boardPosition = this.board.position;
+    const localX = (position.x - boardPosition.x) / this.boardScale;
+    const localY = -(position.y - boardPosition.y) / this.boardScale;
     let bestPreview: PlacementPreview | null = null;
     let bestDistance = Number.POSITIVE_INFINITY;
     for (let index = 0; index < view.definition.localPoints.length; index += 1) {
@@ -377,24 +389,58 @@ export class GameplayView {
   public reset(): void {
     this.won = false; this.model.reset(); this.clearPreview();
     this.node.getChildByName('WinOverlay')?.destroy();
+    this.winLayout = null;
     for (const view of this.pieceViews.values()) { view.preview = null; this.returnHome(view); }
+  }
+
+  public layoutResponsive(visibleHeight: number): void {
+    this.visibleHeight = Math.max(1280, visibleHeight);
+    const extraHeight = this.visibleHeight - 1280;
+    this.board.setPosition(this.boardOrigin.x, this.boardOrigin.y - extraHeight / 2, this.boardOrigin.z);
+    this.tray.setPosition(this.trayOrigin.x, this.trayOrigin.y - extraHeight / 2, this.trayOrigin.z);
+    if (!this.winLayout) return;
+    const { overlay, content, background, footer, backgroundPosition, backgroundScale, footerPosition } = this.winLayout;
+    overlay.getComponent(UITransform)?.setContentSize(720, this.visibleHeight);
+    overlay.setPosition(0, -extraHeight / 2);
+    content.setPosition(-360, 640);
+    if (background && backgroundPosition && backgroundScale) {
+      background.setPosition(backgroundPosition.x, backgroundPosition.y + extraHeight / 2, backgroundPosition.z);
+      background.setScale(backgroundScale.x, backgroundScale.y * this.visibleHeight / 1280, backgroundScale.z);
+    }
+    if (footer && footerPosition) footer.setPosition(footerPosition.x, footerPosition.y - extraHeight / 2, footerPosition.z);
   }
 
   private showWin(): void {
     if (this.won) return; this.won = true;
     this.onSolved?.();
-    const overlay = instantiate(this.winPrefab);
-    overlay.name = 'WinOverlay';
+    const overlay = new Node('WinOverlay');
+    overlay.layer = this.node.layer;
+    overlay.addComponent(UITransform).setContentSize(720, 1280);
     overlay.setParent(this.node);
     overlay.setPosition(0, 0);
+    const content = instantiate(this.winPrefab);
+    content.name = 'WinOverlayContent';
+    content.setParent(overlay);
+    const background = findNode(content, 'bk1');
+    const footer = findNode(content, 'bk3');
+    this.winLayout = {
+      overlay,
+      content,
+      background,
+      footer,
+      backgroundPosition: background?.position.clone() ?? null,
+      backgroundScale: background?.scale.clone() ?? null,
+      footerPosition: footer?.position.clone() ?? null,
+    };
+    this.layoutResponsive(this.visibleHeight);
     let advancing = false;
     const advance = (): void => {
       if (advancing) return;
       advancing = true;
       this.onWin?.();
     };
-    const next = findNode(overlay, 'next_btn');
-    const ok = findNode(overlay, 'ok_btn');
+    const next = findNode(content, 'next_btn');
+    const ok = findNode(content, 'ok_btn');
     if (next) this.bind(next, advance);
     if (ok) this.bind(ok, advance);
   }

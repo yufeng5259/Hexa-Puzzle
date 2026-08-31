@@ -14,11 +14,17 @@ interface ResponsiveNodeState {
   node: Node;
   position: Vec3;
   scale: Vec3;
+  verticalFactor: number;
 }
 
 interface ResponsivePageState {
   background: ResponsiveNodeState | null;
-  bottomControls: ResponsiveNodeState[];
+  nodes: ResponsiveNodeState[];
+}
+
+interface ResponsiveRegistration {
+  node: Node;
+  verticalFactor: number;
 }
 
 function loadResource<T>(path: string, type: new (...args: never[]) => T): Promise<T> {
@@ -200,20 +206,17 @@ export class GameApp extends Component {
     this.layoutResponsivePage(page);
   }
 
-  private registerResponsivePage(page: Node, bottomControlNames: string[]): void {
-    const stateFor = (node: Node): ResponsiveNodeState => ({
+  private registerResponsivePage(page: Node, registrations: ResponsiveRegistration[]): void {
+    const stateFor = (node: Node, verticalFactor: number): ResponsiveNodeState => ({
       node,
       position: node.position.clone(),
       scale: node.scale.clone(),
+      verticalFactor,
     });
     const background = findNode(page, 'background');
-    const bottomControls = bottomControlNames
-      .map((name) => findNode(page, name))
-      .filter((node): node is Node => Boolean(node))
-      .map(stateFor);
     this.responsivePages.set(page, {
-      background: background ? stateFor(background) : null,
-      bottomControls,
+      background: background ? stateFor(background, 0.5) : null,
+      nodes: registrations.map(({ node, verticalFactor }) => stateFor(node, verticalFactor)),
     });
   }
 
@@ -228,10 +231,11 @@ export class GameApp extends Component {
       node.setPosition(position.x, position.y - extraHeight / 2, position.z);
       node.setScale(scale.x * coverScale, scale.y * coverScale, scale.z);
     }
-    for (const { node, position, scale } of state.bottomControls) {
-      node.setPosition(position.x, position.y - extraHeight, position.z);
+    for (const { node, position, scale, verticalFactor } of state.nodes) {
+      node.setPosition(position.x, position.y - extraHeight * verticalFactor, position.z);
       node.setScale(scale);
     }
+    if (this.gameplay?.node === page) this.gameplay.layoutResponsive(visibleHeight);
   }
 
   private async createPage(route: AppRoute): Promise<Node> {
@@ -287,25 +291,36 @@ export class GameApp extends Component {
       const raised = new Vec3(start.x, start.y + 10 + index * 2, start.z);
       tween(child).to(0.9 + index * 0.05, { position: raised }).to(0.9 + index * 0.05, { position: start }).union().repeatForever().start();
     });
-    this.registerResponsivePage(root, ['s_btn']);
+    this.registerResponsivePage(root, [
+      { node: block, verticalFactor: 0.5 },
+      { node: play, verticalFactor: 0.5 },
+      { node: sound, verticalFactor: 1 },
+    ]);
     trace('home:create:complete', { root: root.name, descendantsReady: true });
     return root;
   }
 
   private createMapPage(): Node {
     const root = this.pageRoot('MapPage', 'CHOOSE A MAP');
+    const contentNodes: Node[] = [];
     this.maps().forEach((map, index) => {
       const completed = this.save.getMaxCompleted(map.id);
       const button = createButton(`Map-${map.id}`, `${map.name}\n${completed} / ${map.levelCount}`, 470, 150);
       const label = button.getChildByName(`Map-${map.id}-label`)?.getComponent(Label);
       if (label) label.lineHeight = 34;
       button.setParent(root); button.setPosition(0, 230 - index * 210);
+      contentNodes.push(button);
       this.bind(button, () => { void this.navigate({ name: 'levels', mapId: map.id, page: 0 }); });
       const detail = createLabel(`${map.id}-description`, map.description, 20, new Color(173, 185, 193, 255));
       detail.setParent(root); detail.setPosition(0, 115 - index * 210);
+      contentNodes.push(detail);
     });
     const back = createButton('MapBackButton', 'BACK', 180, 62); back.setParent(root); back.setPosition(0, -500);
     this.bind(back, () => { void this.back(); });
+    this.registerResponsivePage(root, [
+      ...contentNodes.map((node) => ({ node, verticalFactor: 0.5 })),
+      { node: back, verticalFactor: 1 },
+    ]);
     return root;
   }
 
@@ -328,6 +343,7 @@ export class GameApp extends Component {
     score.string = String(maxCompleted);
     const columns = [-234, -81, 72, 227];
     const rows = [290, 141, -8, -158, -308];
+    const levelButtons: Node[] = [];
     for (const [slot, levelIndex] of pageLevelIndices(page, map.levelCount).entries()) {
       const column = slot % 4;
       const row = Math.floor(slot / 4);
@@ -338,6 +354,7 @@ export class GameApp extends Component {
       button.name = `Level-${levelIndex + 1}`;
       button.setParent(root);
       button.setPosition(columns[column], rows[row]);
+      levelButtons.push(button);
       const label = findNode(button, 'txt')?.getComponent(Label);
       if (label) label.string = String(levelIndex + 1);
       if (state === 'locked') {
@@ -352,7 +369,13 @@ export class GameApp extends Component {
     if (page + 1 < pageCount(map.levelCount)) this.bind(next, () => { void this.navigate({ name: 'levels', mapId, page: page + 1 }, 'replace'); });
     this.bind(back, () => { void this.back(); });
     this.configureSoundButton(sound);
-    this.registerResponsivePage(root, ['back_btn', 's_btn']);
+    this.registerResponsivePage(root, [
+      ...levelButtons.map((node) => ({ node, verticalFactor: 0.5 })),
+      { node: previous, verticalFactor: 0.5 },
+      { node: next, verticalFactor: 0.5 },
+      { node: back, verticalFactor: 1 },
+      { node: sound, verticalFactor: 1 },
+    ]);
     return root;
   }
 
@@ -376,7 +399,14 @@ export class GameApp extends Component {
       if (next === null) void this.navigate({ name: 'levels', mapId, page: Math.floor(levelIndex / 20) }, 'replace');
       else void this.navigate({ name: 'gameplay', mapId, levelIndex: next }, 'replace');
     };
-    this.registerResponsivePage(this.gameplay.node, ['back_btn', 'replay_btn', 's_btn', 'tip_btn']);
+    const gameplayNodes = [
+      { node: findNode(this.gameplay.node, 'trayBackground'), verticalFactor: 0.5 },
+      { node: findNode(this.gameplay.node, 'back_btn'), verticalFactor: 1 },
+      { node: findNode(this.gameplay.node, 'replay_btn'), verticalFactor: 1 },
+      { node: findNode(this.gameplay.node, 's_btn'), verticalFactor: 1 },
+      { node: findNode(this.gameplay.node, 'tip_btn'), verticalFactor: 1 },
+    ].filter((item): item is ResponsiveRegistration => Boolean(item.node));
+    this.registerResponsivePage(this.gameplay.node, gameplayNodes);
     return this.gameplay.node;
   }
 
@@ -386,6 +416,7 @@ export class GameApp extends Component {
     const root = this.pageRoot('FatalErrorPage', 'LOAD FAILED');
     const message = createLabel('FatalErrorMessage', 'Game resources could not be loaded.', 24, new Color(255, 150, 150, 255));
     message.setParent(root); message.setPosition(0, 0);
+    this.registerResponsivePage(root, [{ node: message, verticalFactor: 0.5 }]);
     root.setParent(this.node);
     this.currentPage = root;
   }
