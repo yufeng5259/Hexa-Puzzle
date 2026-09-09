@@ -1,0 +1,1500 @@
+{
+  "version": 4,
+  "assetRoot": "assets/resources/ui/toybox-v4",
+  "textPolicy": "All text uses Cocos Label; no text-bearing sprite exceptions.",
+  "spriteMode": "SIMPLE",
+  "trimType": "none",
+  "excludedReferenceAssets": [
+    "buttons/language-unselected.png",
+    "game/challenge-board-example.png",
+    "game/classic-board-example.png",
+    "game/piece-brown-example.png",
+    "game/piece-pink-example.png",
+    "textfree-extras/game/05-classic-gameplay-board-base.png",
+    "textfree-extras/game/05-classic-gameplay-tray-base.png",
+    "textfree-extras/game/06-challenge-gameplay-board-base.png",
+    "textfree-extras/game/06-challenge-gameplay-tray-base.png",
+    "textfree-extras/game/10-challenge-result-rating.png",
+    "textfree-extras/game/15-persistent-hint-board-base.png",
+    "textfree-extras/game/15-persistent-hint-tray-base.png",
+    "textfree-extras/game/20-challenge-assisted-rating.png"
+  ],
+  "assets": [
+    {
+      "file": "buttons/home-primary.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/home-primary.png",
+      "resourcePath": "ui/toybox-v4/buttons/home-primary",
+      "spriteFrameUuid": "69399005-7c78-3b07-7290-5f81847cef42@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/home-primary.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        426,
+        362
+      ],
+      "sha256": "675795199623141e6e08128bc51b1dcec0c0aa040c3fb0825b49aa05b4f26762",
+      "derived": false
+    },
+    {
+      "file": "buttons/home-secondary.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/home-secondary.png",
+      "resourcePath": "ui/toybox-v4/buttons/home-secondary",
+      "spriteFrameUuid": "51d4e977-e851-a74b-b7b9-3297b0427a16@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/home-secondary.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        349,
+        209
+      ],
+      "sha256": "69093c58d2cd31f18b19c76b3240d87e73a586b8269def6c37028121c90e519f",
+      "derived": false
+    },
+    {
+      "file": "panels/resource-pill.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/resource-pill.png",
+      "resourcePath": "ui/toybox-v4/panels/resource-pill",
+      "spriteFrameUuid": "6d2b48fc-1f02-b15e-4303-1c8b330c8996@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/resource-pill.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        221,
+        104
+      ],
+      "sha256": "c32db4e213ab42c1555035bb7d4b70d822c1fb987b9a3e319b9bdbe7fb7f8999",
+      "derived": false
+    },
+    {
+      "file": "panels/daily-strip.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/daily-strip.png",
+      "resourcePath": "ui/toybox-v4/panels/daily-strip",
+      "spriteFrameUuid": "cbe9d595-ae8f-90c8-a3ec-2fdb12316564@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/daily-strip.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        348,
+        104
+      ],
+      "sha256": "6e1816e862a09d576481b3e12b30f86767d4d1fadf0e235dd9311372f396fa2d",
+      "derived": false
+    },
+    {
+      "file": "buttons/claim.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/claim.png",
+      "resourcePath": "ui/toybox-v4/buttons/claim",
+      "spriteFrameUuid": "f3ef4131-9cfb-cbf5-43bf-74fee6f3e97a@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/claim.png",
+      "origin": "reconstructed-alpha-refined",
+      "containsText": false,
+      "size": [
+        139,
+        80
+      ],
+      "sha256": "b367a4d4ca557895f235040d93417ea7971224b48fa4742a78d634c43ad17af2",
+      "derived": false
+    },
+    {
+      "file": "buttons/reward.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/reward.png",
+      "resourcePath": "ui/toybox-v4/buttons/reward",
+      "spriteFrameUuid": "23e364ea-1d20-041e-33fe-e522307dbd2a@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/reward.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        463,
+        119
+      ],
+      "sha256": "6699234482f34db42c8ba586d6aa3da41e6cf7d3f65d527006405981714df7d8",
+      "derived": false
+    },
+    {
+      "file": "buttons/secondary.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/secondary.png",
+      "resourcePath": "ui/toybox-v4/buttons/secondary",
+      "spriteFrameUuid": "2b3da702-20d4-8a6b-06e8-441e01d7f3d2@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/secondary.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        244,
+        78
+      ],
+      "sha256": "7b22a95db57596a8b53b8f69b0bf94acdede79225fbbd5fe1d853cf3a9760f00",
+      "derived": false
+    },
+    {
+      "file": "buttons/levels.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/levels.png",
+      "resourcePath": "ui/toybox-v4/buttons/levels",
+      "spriteFrameUuid": "4284631c-fdba-b3ae-333d-98acb89aa5d3@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/levels.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        273,
+        122
+      ],
+      "sha256": "a1d468956bff625e7e287272eb5745bdc7e90698dbf5ff78edd33d0106244b20",
+      "derived": false
+    },
+    {
+      "file": "buttons/reward-disabled.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/reward-disabled.png",
+      "resourcePath": "ui/toybox-v4/buttons/reward-disabled",
+      "spriteFrameUuid": "5afec285-5491-5db8-c43d-f75f33140409@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/reward-disabled.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        465,
+        119
+      ],
+      "sha256": "6cdbb9ac6b374dbd602d7b03f48181bb37e3b3b298f14636c285ff4c1ab67455",
+      "derived": false
+    },
+    {
+      "file": "levels/completed.png",
+      "assetPath": "assets/resources/ui/toybox-v4/levels/completed.png",
+      "resourcePath": "ui/toybox-v4/levels/completed",
+      "spriteFrameUuid": "c94790b0-39de-be45-ae74-f8ba0e342bc3@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/levels/completed.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        143,
+        153
+      ],
+      "sha256": "a8765f440da5da2eadd013952c50330d0db1c3e1a45855417d9ad9979d925667",
+      "derived": false
+    },
+    {
+      "file": "levels/current.png",
+      "assetPath": "assets/resources/ui/toybox-v4/levels/current.png",
+      "resourcePath": "ui/toybox-v4/levels/current",
+      "spriteFrameUuid": "920a752e-dc6f-02b7-be57-61a2ed9cd566@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/levels/current.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        138,
+        143
+      ],
+      "sha256": "837e57868a5342ac830d2a0ac2a5eda097f09a55e06bcaaebe9d996af8461cd0",
+      "derived": false
+    },
+    {
+      "file": "levels/locked.png",
+      "assetPath": "assets/resources/ui/toybox-v4/levels/locked.png",
+      "resourcePath": "ui/toybox-v4/levels/locked",
+      "spriteFrameUuid": "64ded1b8-e1bb-0c80-17a1-e7af62eeb55b@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/levels/locked.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        139,
+        143
+      ],
+      "sha256": "0e90f7f09c7ff2c9659bf888d85099932534831f7ac24b95d0a365f5b091c3c2",
+      "derived": false
+    },
+    {
+      "file": "panels/modal.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/modal.png",
+      "resourcePath": "ui/toybox-v4/panels/modal",
+      "spriteFrameUuid": "50d8dd51-cbd6-4f23-2d26-037aad7de01e@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/modal.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        566,
+        650
+      ],
+      "sha256": "ae7f7950d02681f3111219168a60591f41509d90e995f669341c7173cef73637",
+      "derived": false
+    },
+    {
+      "file": "panels/stats.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/stats.png",
+      "resourcePath": "ui/toybox-v4/panels/stats",
+      "spriteFrameUuid": "b91416a1-d412-566e-9f19-342f15ce3476@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/stats.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        204,
+        120
+      ],
+      "sha256": "31c5a3f7df97111f20643fbe7e3dc1650e36a8e49669643137cb3d9001ab383b",
+      "derived": false
+    },
+    {
+      "file": "panels/tray.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/tray.png",
+      "resourcePath": "ui/toybox-v4/panels/tray",
+      "spriteFrameUuid": "bf2bbbdf-3e81-e396-a190-d1e6bea0c3db@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/tray.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        592,
+        244
+      ],
+      "sha256": "c3b069dcb9e2e1fdc97122eb9dc0afd80cb1d2b059e7cda496f1db78d7a1818f",
+      "derived": false
+    },
+    {
+      "file": "buttons/back.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/back.png",
+      "resourcePath": "ui/toybox-v4/buttons/back",
+      "spriteFrameUuid": "f3b0bce7-0074-a655-a4c7-9f8d710c1a7e@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/back.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        95,
+        94
+      ],
+      "sha256": "e3cf3f0859f7ef56920ab28616e0d23700be3cf5f3fbb9a9dacebcde129f469a",
+      "derived": false
+    },
+    {
+      "file": "backgrounds/home-loading.png",
+      "assetPath": "assets/resources/ui/toybox-v4/backgrounds/home-loading.png",
+      "resourcePath": "ui/toybox-v4/backgrounds/home-loading",
+      "spriteFrameUuid": "91cdfbc1-5517-e035-4850-a3221ce6c529@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/backgrounds/home-loading.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        720,
+        1280
+      ],
+      "sha256": "ac860a56fcfa2616f84810ca7b63f26f5ed01613d522683861190cfdb5ca08d0",
+      "derived": false
+    },
+    {
+      "file": "backgrounds/game-blue.png",
+      "assetPath": "assets/resources/ui/toybox-v4/backgrounds/game-blue.png",
+      "resourcePath": "ui/toybox-v4/backgrounds/game-blue",
+      "spriteFrameUuid": "7a99c19e-b74d-ff02-3b8f-05917e74ef6f@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/backgrounds/game-blue.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        720,
+        1280
+      ],
+      "sha256": "0a232a3187597460fd006af67be22a34f1fc472b56229a20e4de5d11928d5fbc",
+      "derived": false
+    },
+    {
+      "file": "backgrounds/result.png",
+      "assetPath": "assets/resources/ui/toybox-v4/backgrounds/result.png",
+      "resourcePath": "ui/toybox-v4/backgrounds/result",
+      "spriteFrameUuid": "7cf9e459-e21d-25a0-b8d8-05f24da7d4d6@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/backgrounds/result.png",
+      "origin": "reconstructed",
+      "containsText": false,
+      "size": [
+        720,
+        1280
+      ],
+      "sha256": "d09c3f75e8d94b3db750ec017d0f99bfea64be0ef84c048ac8710e39e80ab83f",
+      "derived": false
+    },
+    {
+      "file": "icons/hint-bulb.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/hint-bulb.png",
+      "resourcePath": "ui/toybox-v4/icons/hint-bulb",
+      "spriteFrameUuid": "e18a7871-0d0d-64bf-9058-1fd8e3047523@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/hint-bulb.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        58,
+        75
+      ],
+      "sha256": "88e7e38f04c37c4e736f6fff8c87a3f1f342e8d63fb6f88ee1fa4a42914de90e",
+      "derived": false
+    },
+    {
+      "file": "icons/gear.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/gear.png",
+      "resourcePath": "ui/toybox-v4/icons/gear",
+      "spriteFrameUuid": "297e9af3-936f-5902-4e35-9309e972fcd0@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/gear.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        59,
+        60
+      ],
+      "sha256": "0378b3fe40926d769e85d0938a864c75c092f9cf173604bd21bb43a6b80b2c05",
+      "derived": false
+    },
+    {
+      "file": "icons/play.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/play.png",
+      "resourcePath": "ui/toybox-v4/icons/play",
+      "spriteFrameUuid": "79e02f07-a42d-b376-8f82-025f9bd04f95@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/play.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        122,
+        146
+      ],
+      "sha256": "4fa885a872ed0a98e2f00abc6c0dac0ce1218edda2ba33ad215f84645d026ba6",
+      "derived": false
+    },
+    {
+      "file": "icons/world-crest-forest.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/world-crest-forest.png",
+      "resourcePath": "ui/toybox-v4/icons/world-crest-forest",
+      "spriteFrameUuid": "ece1ebe0-e307-3f18-d242-86aeffeb693e@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/world-crest-forest.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        180,
+        173
+      ],
+      "sha256": "f1c6c2e9a3996413295bd5fc5a5023524609c4512f4c5a260e3c7bf6911efcaf",
+      "derived": false
+    },
+    {
+      "file": "icons/world-crest-winter.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/world-crest-winter.png",
+      "resourcePath": "ui/toybox-v4/icons/world-crest-winter",
+      "spriteFrameUuid": "4f58c553-ff81-3dc3-14d0-e34c1f6cacc4@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/world-crest-winter.png",
+      "origin": "source-alpha-refined",
+      "containsText": false,
+      "size": [
+        193,
+        190
+      ],
+      "sha256": "bd4be976eb61be0e566c9da2960ef76a14ab5803c51fb0cce6b93209186846f4",
+      "derived": false
+    },
+    {
+      "file": "icons/check.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/check.png",
+      "resourcePath": "ui/toybox-v4/icons/check",
+      "spriteFrameUuid": "71a5027e-18e8-bbe8-0e7a-599b8f6942a7@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/check.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        38,
+        40
+      ],
+      "sha256": "ba7aaa5c0ff68809e076db8e3359a039d60ad1bf89649303b54b873fdb9e43e5",
+      "derived": false
+    },
+    {
+      "file": "icons/lock.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/lock.png",
+      "resourcePath": "ui/toybox-v4/icons/lock",
+      "spriteFrameUuid": "a9889351-2a59-4973-f5a9-6535df39a47e@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/lock.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        33,
+        40
+      ],
+      "sha256": "ae554394561d0d7a1e128471314409cc2e885252594d8662f37a10437e88ced4",
+      "derived": false
+    },
+    {
+      "file": "buttons/page-previous-disabled.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/page-previous-disabled.png",
+      "resourcePath": "ui/toybox-v4/buttons/page-previous-disabled",
+      "spriteFrameUuid": "46b6a40d-d639-d2f2-d63a-14ab8b5a8f10@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/page-previous-disabled.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        110,
+        114
+      ],
+      "sha256": "ccbbe60656d5389475d58aa6fc69562a05dfdb00b9ad4128edbd9307e495062b",
+      "derived": false
+    },
+    {
+      "file": "buttons/page-next.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/page-next.png",
+      "resourcePath": "ui/toybox-v4/buttons/page-next",
+      "spriteFrameUuid": "32b7ba58-06df-7d12-5a1e-3ab93998f3fa@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/page-next.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        111,
+        116
+      ],
+      "sha256": "f3d3048b0cb7cd4c6e57160b29356a3d37b29d3b76d53f9a2f6bbe9468553522",
+      "derived": false
+    },
+    {
+      "file": "icons/restart.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/restart.png",
+      "resourcePath": "ui/toybox-v4/icons/restart",
+      "spriteFrameUuid": "9c453576-b575-8e06-2cb1-b18a31e29f6d@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/restart.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        54,
+        64
+      ],
+      "sha256": "5f5bcc1dd8545d9896d33fb0f1199801ee645c48d4330f6ef6a21b1e780fc2d1",
+      "derived": false
+    },
+    {
+      "file": "icons/reward-bulb.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/reward-bulb.png",
+      "resourcePath": "ui/toybox-v4/icons/reward-bulb",
+      "spriteFrameUuid": "6908592e-3199-833a-5034-4eec3a31f5a1@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/reward-bulb.png",
+      "origin": "source-alpha-refined",
+      "containsText": false,
+      "size": [
+        255,
+        231
+      ],
+      "sha256": "0b5d5b0af65104afb17db524190f904885305622f71d5d23ae7fd14a5e91fac4",
+      "derived": false
+    },
+    {
+      "file": "icons/reward-video.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/reward-video.png",
+      "resourcePath": "ui/toybox-v4/icons/reward-video",
+      "spriteFrameUuid": "644d47b6-4b8f-a0e0-aa38-e62ea6519937@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/reward-video.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        77,
+        59
+      ],
+      "sha256": "24c5193fdb176d6c95b811b7b9d3c9c8489c6eb026d20bf517ffa522420e06b3",
+      "derived": false
+    },
+    {
+      "file": "buttons/close-blue.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/close-blue.png",
+      "resourcePath": "ui/toybox-v4/buttons/close-blue",
+      "spriteFrameUuid": "e78aaeab-9b20-e394-22d4-9377f2b96b01@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/close-blue.png",
+      "origin": "source-alpha-refined",
+      "containsText": false,
+      "size": [
+        97,
+        99
+      ],
+      "sha256": "d6b3d22ff350719efdf8703412139db7c596b0ce15291415beef7f44abab7f4b",
+      "derived": false
+    },
+    {
+      "file": "settings/music.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/music.png",
+      "resourcePath": "ui/toybox-v4/settings/music",
+      "spriteFrameUuid": "097009e8-81ea-8bef-5564-053ff76db74e@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/music.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        76,
+        67
+      ],
+      "sha256": "ef740defa0e3acaf42dbc293ab7be3e9cddda42b2b77e27dc19818b8bec8c402",
+      "derived": false
+    },
+    {
+      "file": "settings/sound.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/sound.png",
+      "resourcePath": "ui/toybox-v4/settings/sound",
+      "spriteFrameUuid": "635e3b9d-6489-a672-a3ab-f53aa0e10f78@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/sound.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        77,
+        67
+      ],
+      "sha256": "f942fc0cce82e45b27335b5410a2eed07af90c1c568bbf8d9f7b4e4be04151a7",
+      "derived": false
+    },
+    {
+      "file": "settings/vibration.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/vibration.png",
+      "resourcePath": "ui/toybox-v4/settings/vibration",
+      "spriteFrameUuid": "f4b36fa6-de7f-2e35-46d6-67ae5b763a79@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/vibration.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        76,
+        68
+      ],
+      "sha256": "764078951adf214eef7dac7fdc0f0c372c7f158682b1eb4c65e8e04b86e8fd17",
+      "derived": false
+    },
+    {
+      "file": "settings/language.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/language.png",
+      "resourcePath": "ui/toybox-v4/settings/language",
+      "spriteFrameUuid": "c61a88ef-7c05-8eaa-6af0-c6dc2b09cba9@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/language.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        65,
+        66
+      ],
+      "sha256": "34c97bcf2b30839cc407a74454d30f8d3cf9cf07c74f75498050654e1255a158",
+      "derived": false
+    },
+    {
+      "file": "settings/privacy.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/privacy.png",
+      "resourcePath": "ui/toybox-v4/settings/privacy",
+      "spriteFrameUuid": "232f678b-c603-0477-0e73-7dc57211ccf0@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/privacy.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        62,
+        69
+      ],
+      "sha256": "8012204dd19dd1fc147e0c11f59123d4bda195cac399316e98e9f5173b7046bf",
+      "derived": false
+    },
+    {
+      "file": "settings/legacy.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/legacy.png",
+      "resourcePath": "ui/toybox-v4/settings/legacy",
+      "spriteFrameUuid": "aeef85be-3bce-ae19-5098-cd334640762c@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/legacy.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        64,
+        71
+      ],
+      "sha256": "d3000b922f9a795ff1a62255d24fc8652460d7f1565e0516d782fefe51037368",
+      "derived": false
+    },
+    {
+      "file": "settings/chevron.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/chevron.png",
+      "resourcePath": "ui/toybox-v4/settings/chevron",
+      "spriteFrameUuid": "f7ecb31d-fbd6-17ec-07e4-2b3feec0ba1b@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/chevron.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        23,
+        33
+      ],
+      "sha256": "7e1e1b3a8f6500c9733c99b1f3d5f4ed696a904caa7515152f5649d714c6852c",
+      "derived": false
+    },
+    {
+      "file": "settings/toggle-on.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/toggle-on.png",
+      "resourcePath": "ui/toybox-v4/settings/toggle-on",
+      "spriteFrameUuid": "76f15a0c-f68d-72fd-5931-e81c2d3e1ac5@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/toggle-on.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        109,
+        62
+      ],
+      "sha256": "167b48bae925135ae951244a6e89d1c54d3ac348aca4bb03db1ed95d8443d737",
+      "derived": false
+    },
+    {
+      "file": "settings/toggle-off.png",
+      "assetPath": "assets/resources/ui/toybox-v4/settings/toggle-off.png",
+      "resourcePath": "ui/toybox-v4/settings/toggle-off",
+      "spriteFrameUuid": "9e875c11-28ff-cea0-68a6-ed4696dc655e@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/settings/toggle-off.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        109,
+        60
+      ],
+      "sha256": "955e195027aca34a621fe0eebd08f2d36aee6a7858a267ce535c76e920736ab8",
+      "derived": false
+    },
+    {
+      "file": "icons/star-gold.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/star-gold.png",
+      "resourcePath": "ui/toybox-v4/icons/star-gold",
+      "spriteFrameUuid": "88f44bf6-a96a-65b6-a515-9e149eacbf01@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/star-gold.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        177,
+        174
+      ],
+      "sha256": "c327ffba320e798f95bb4a8f9cfef322a343baf57367a8bf79eef626c19ea99e",
+      "derived": false
+    },
+    {
+      "file": "icons/star-empty.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/star-empty.png",
+      "resourcePath": "ui/toybox-v4/icons/star-empty",
+      "spriteFrameUuid": "8ddfdb13-65fc-d811-97e5-f6a5634f36fb@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/star-empty.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        177,
+        174
+      ],
+      "sha256": "66b20fa98bfb6d40bf6089487cae8da16ede9b52ce2f144adc5ea0171dfec024",
+      "derived": false
+    },
+    {
+      "file": "icons/level-grid.png",
+      "assetPath": "assets/resources/ui/toybox-v4/icons/level-grid.png",
+      "resourcePath": "ui/toybox-v4/icons/level-grid",
+      "spriteFrameUuid": "838f59c2-998b-7107-1781-f3554e5e4903@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/icons/level-grid.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        55,
+        52
+      ],
+      "sha256": "c1fc9962c4d692e39bbeb7a6cb5a1967c318523ed3937a6916dcce32cdb9f82d",
+      "derived": false
+    },
+    {
+      "file": "backgrounds/decor-pink.png",
+      "assetPath": "assets/resources/ui/toybox-v4/backgrounds/decor-pink.png",
+      "resourcePath": "ui/toybox-v4/backgrounds/decor-pink",
+      "spriteFrameUuid": "744c1851-da53-0562-7cbf-441c0d41eb95@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/backgrounds/decor-pink.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        104,
+        116
+      ],
+      "sha256": "267c4065351ac1b44bd146227d768e35cc0a61a829af9b6a1080e40ca1dd98b4",
+      "derived": false
+    },
+    {
+      "file": "backgrounds/decor-purple.png",
+      "assetPath": "assets/resources/ui/toybox-v4/backgrounds/decor-purple.png",
+      "resourcePath": "ui/toybox-v4/backgrounds/decor-purple",
+      "spriteFrameUuid": "3b2c02a2-bfef-803f-49b3-2faa1c2082ea@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/backgrounds/decor-purple.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        117,
+        131
+      ],
+      "sha256": "4c9df3e133ccef2c033840e55aa53c26c151d32149aa171ff61a159eb166f6d4",
+      "derived": false
+    },
+    {
+      "file": "backgrounds/decor-lime.png",
+      "assetPath": "assets/resources/ui/toybox-v4/backgrounds/decor-lime.png",
+      "resourcePath": "ui/toybox-v4/backgrounds/decor-lime",
+      "spriteFrameUuid": "e8a2e691-c892-7b8a-028d-faf974825139@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/backgrounds/decor-lime.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        119,
+        137
+      ],
+      "sha256": "4bb02cf7645a495536ecc4fba949d228b3a37038d3f6b48c5d7bd4f6e15adce1",
+      "derived": false
+    },
+    {
+      "file": "game/tile-yellow.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tile-yellow.png",
+      "resourcePath": "ui/toybox-v4/game/tile-yellow",
+      "spriteFrameUuid": "0a33ef1b-5eca-6ef0-cae4-d2af4e5cf270@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/game/tile-yellow.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "641e616b20e608387078be3d528a95e3d7ee3e9397afd98b0ca72f799c13a86a",
+      "derived": false
+    },
+    {
+      "file": "game/board-obstacle.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/board-obstacle.png",
+      "resourcePath": "ui/toybox-v4/game/board-obstacle",
+      "spriteFrameUuid": "07b919fd-6689-7c58-65ca-c399d2de1ad2@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/game/board-obstacle.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        109,
+        99
+      ],
+      "sha256": "a0c05f2d0141a24559ad4ba3bbc213928fd184858dff64d0c8407548e18609a2",
+      "derived": false
+    },
+    {
+      "file": "worlds/forest-card.png",
+      "assetPath": "assets/resources/ui/toybox-v4/worlds/forest-card.png",
+      "resourcePath": "ui/toybox-v4/worlds/forest-card",
+      "spriteFrameUuid": "baa3bc74-d15a-bd82-c52d-c7b7326da7ef@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/worlds/forest-card.png",
+      "origin": "reference-reuse",
+      "containsText": false,
+      "size": [
+        992,
+        494
+      ],
+      "sha256": "a5194fe4bb583aa8b1805da87e79e2ab17fded8125a690a8de3670d8315e1059",
+      "derived": false
+    },
+    {
+      "file": "worlds/winter-card.png",
+      "assetPath": "assets/resources/ui/toybox-v4/worlds/winter-card.png",
+      "resourcePath": "ui/toybox-v4/worlds/winter-card",
+      "spriteFrameUuid": "5f0457fe-40c5-9510-6926-d76ba15e3362@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/worlds/winter-card.png",
+      "origin": "reference-reuse",
+      "containsText": false,
+      "size": [
+        992,
+        492
+      ],
+      "sha256": "116e893f58fb6741f79e1a28a71cfb913d20bf0cabcdc6bf107f830d320560d3",
+      "derived": false
+    },
+    {
+      "file": "panels/settings-row.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/settings-row.png",
+      "resourcePath": "ui/toybox-v4/panels/settings-row",
+      "spriteFrameUuid": "8b7e3afa-c7ba-436c-0699-3bb3b1ae5ea5@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/settings-row.png",
+      "origin": "reference-reuse",
+      "containsText": false,
+      "size": [
+        346,
+        167
+      ],
+      "sha256": "4c8a2754fc45ad8cc29e673fbf2a2dbe27442bcecec03ba7f13803b9a00c221d",
+      "derived": false
+    },
+    {
+      "file": "panels/title-tab.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/title-tab.png",
+      "resourcePath": "ui/toybox-v4/panels/title-tab",
+      "spriteFrameUuid": "2d66697d-13e3-f89e-6c38-716179d9158e@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/title-tab.png",
+      "origin": "reference-reuse",
+      "containsText": false,
+      "size": [
+        327,
+        122
+      ],
+      "sha256": "ee3644c44f461491c6993670e63191507f2ec16a8e9b9c4cdefcf2baadafbb6c",
+      "derived": false
+    },
+    {
+      "file": "buttons/language-selected.png",
+      "assetPath": "assets/resources/ui/toybox-v4/buttons/language-selected.png",
+      "resourcePath": "ui/toybox-v4/buttons/language-selected",
+      "spriteFrameUuid": "7d666e4c-26b8-0cbc-76f9-d148d441034e@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/buttons/language-selected.png",
+      "origin": "reference-reuse",
+      "containsText": false,
+      "size": [
+        334,
+        156
+      ],
+      "sha256": "631ff5de2ec638d3e1e83218bbdfb0a6b3ac8b9e526bdafb53ae352a05f32caa",
+      "derived": false
+    },
+    {
+      "file": "loading/progress-track.png",
+      "assetPath": "assets/resources/ui/toybox-v4/loading/progress-track.png",
+      "resourcePath": "ui/toybox-v4/loading/progress-track",
+      "spriteFrameUuid": "a160b50e-013a-5b2e-4c4f-7e4af61cb818@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/loading/progress-track.png",
+      "origin": "reference-reuse",
+      "containsText": false,
+      "size": [
+        528,
+        56
+      ],
+      "sha256": "e60095e31eacd06223193329c47f18ff08b7c3591ff940369b408a75027d827d",
+      "derived": false
+    },
+    {
+      "file": "loading/progress-fill.png",
+      "assetPath": "assets/resources/ui/toybox-v4/loading/progress-fill.png",
+      "resourcePath": "ui/toybox-v4/loading/progress-fill",
+      "spriteFrameUuid": "145a0001-08ca-f216-e33e-4cea7dea8d76@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/loading/progress-fill.png",
+      "origin": "reference-reuse",
+      "containsText": false,
+      "size": [
+        492,
+        32
+      ],
+      "sha256": "9a9cbdbafed5ff4a7811d415bec899add694bab170a65e24b25300946c5cabdc",
+      "derived": false
+    },
+    {
+      "file": "results/next-button.png",
+      "assetPath": "assets/resources/ui/toybox-v4/results/next-button.png",
+      "resourcePath": "ui/toybox-v4/results/next-button",
+      "spriteFrameUuid": "86b7e97f-2972-7946-1e18-544e26b71325@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/results/next-button.png",
+      "origin": "reference-reuse",
+      "containsText": false,
+      "size": [
+        456,
+        113
+      ],
+      "sha256": "db6c6c1ea0019a9c53f0b8867033ca7b3fe93b8cf5c09a62ccfbb848c6b5703d",
+      "derived": false
+    },
+    {
+      "file": "panels/page-heading.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/page-heading.png",
+      "resourcePath": "ui/toybox-v4/panels/page-heading",
+      "spriteFrameUuid": "9443fc90-2131-7f10-6e70-f26e9b829641@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/page-heading.png",
+      "origin": "reference-adapted",
+      "containsText": false,
+      "size": [
+        423,
+        118
+      ],
+      "sha256": "a7209f90c4d89b5df7be863335e71b080ceca8a39e4b940846680b35144dab97",
+      "derived": false
+    },
+    {
+      "file": "panels/level-banner.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/level-banner.png",
+      "resourcePath": "ui/toybox-v4/panels/level-banner",
+      "spriteFrameUuid": "55fc138e-022e-c35a-d10b-44a4d0276eea@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/level-banner.png",
+      "origin": "reference-adapted",
+      "containsText": false,
+      "size": [
+        433,
+        100
+      ],
+      "sha256": "6db989dbb48b2141f2a801162cd5bf7363f14e697d6b0829ef3664d0c981336f",
+      "derived": false
+    },
+    {
+      "file": "game/board-empty.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/board-empty.png",
+      "resourcePath": "ui/toybox-v4/game/board-empty",
+      "spriteFrameUuid": "ca042e23-5e23-4370-ef33-3116c64e878c@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/game/board-empty.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        115,
+        101
+      ],
+      "sha256": "23c73dd02449320c125ec6d1c7f08092a399f0c24c215f86bb4757135a0f79a0",
+      "derived": false
+    },
+    {
+      "file": "game/board-preview.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/board-preview.png",
+      "resourcePath": "ui/toybox-v4/game/board-preview",
+      "spriteFrameUuid": "18e6f7af-2ef2-a654-097a-a6714a535dad@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/game/board-preview.png",
+      "origin": "original-cutout",
+      "containsText": false,
+      "size": [
+        115,
+        101
+      ],
+      "sha256": "4df0e7209e5243cb3cdcd0205c80537dd7e23b375b4d57c0e11489207d426e24",
+      "derived": false
+    },
+    {
+      "file": "panels/modal-shade.png",
+      "assetPath": "assets/resources/ui/toybox-v4/panels/modal-shade.png",
+      "resourcePath": "ui/toybox-v4/panels/modal-shade",
+      "spriteFrameUuid": "cb677f87-68df-f2bf-c690-a3d9c24cbb89@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/panels/modal-shade.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        720,
+        1280
+      ],
+      "sha256": "3a48d058bb2b8dbdc798dbc09469a6f482d394e7d4acec40bbbe72bd777f27b6",
+      "derived": false
+    },
+    {
+      "file": "textfree-extras/game/09-classic-result-classic-complete-badge.png",
+      "assetPath": "assets/resources/ui/toybox-v4/textfree-extras/game/09-classic-result-classic-complete-badge.png",
+      "resourcePath": "ui/toybox-v4/textfree-extras/game/09-classic-result-classic-complete-badge",
+      "spriteFrameUuid": "88127bc8-6cea-a604-4563-27a2949a71ed@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/textfree-extras/game/09-classic-result-classic-complete-badge.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        234,
+        197
+      ],
+      "sha256": "5b8beac70133724bed65a1e3927e485696cc8499baa94799e4b5987eaa4809e6",
+      "derived": false
+    },
+    {
+      "file": "textfree-extras/game/budget-strip.png",
+      "assetPath": "assets/resources/ui/toybox-v4/textfree-extras/game/budget-strip.png",
+      "resourcePath": "ui/toybox-v4/textfree-extras/game/budget-strip",
+      "spriteFrameUuid": "462d7063-6f3f-8b4d-d142-0ed0d9e6d441@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/textfree-extras/game/budget-strip.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        285,
+        48
+      ],
+      "sha256": "460d3354233c36a507be94195eb1834bbbb42f42463da5e6e0dc6f1dca32056c",
+      "derived": false
+    },
+    {
+      "file": "textfree-extras/game/challenge-result-panel.png",
+      "assetPath": "assets/resources/ui/toybox-v4/textfree-extras/game/challenge-result-panel.png",
+      "resourcePath": "ui/toybox-v4/textfree-extras/game/challenge-result-panel",
+      "spriteFrameUuid": "ce0540a0-561e-5cf1-7bde-37ab0ea81591@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/textfree-extras/game/challenge-result-panel.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        632,
+        235
+      ],
+      "sha256": "a874b0ba281193d141590d6cdb4f7364c4d2dc6a584e4d4dc6daedfe71753456",
+      "derived": false
+    },
+    {
+      "file": "textfree-extras/game/classic-result-panel.png",
+      "assetPath": "assets/resources/ui/toybox-v4/textfree-extras/game/classic-result-panel.png",
+      "resourcePath": "ui/toybox-v4/textfree-extras/game/classic-result-panel",
+      "spriteFrameUuid": "fc926b90-1118-cf29-9247-0ddc066926ec@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/textfree-extras/game/classic-result-panel.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        636,
+        218
+      ],
+      "sha256": "ae8860fd75d4e2a55a9197890d676b48632ae3134950c0e95e6526768d611321",
+      "derived": false
+    },
+    {
+      "file": "textfree-extras/game/divider-blue.png",
+      "assetPath": "assets/resources/ui/toybox-v4/textfree-extras/game/divider-blue.png",
+      "resourcePath": "ui/toybox-v4/textfree-extras/game/divider-blue",
+      "spriteFrameUuid": "67ec5366-27e6-532c-c3fa-aa6142d26966@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/textfree-extras/game/divider-blue.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        1,
+        1
+      ],
+      "sha256": "ed1bf319a21cf3478c730bd1f10c13e689d10d4a49131ce926319d3a6c4caec3",
+      "derived": false
+    },
+    {
+      "file": "textfree-extras/modals/continue-video.png",
+      "assetPath": "assets/resources/ui/toybox-v4/textfree-extras/modals/continue-video.png",
+      "resourcePath": "ui/toybox-v4/textfree-extras/modals/continue-video",
+      "spriteFrameUuid": "0fe2368e-835b-fc93-5335-1e9240f7ff4c@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/textfree-extras/modals/continue-video.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        90,
+        69
+      ],
+      "sha256": "7844c49a426b92c49c9e8de349ebad9d9f1da3ebebdefeeb94a92b2ccb59c1de",
+      "derived": false
+    },
+    {
+      "file": "textfree-extras/modals/record-star-empty.png",
+      "assetPath": "assets/resources/ui/toybox-v4/textfree-extras/modals/record-star-empty.png",
+      "resourcePath": "ui/toybox-v4/textfree-extras/modals/record-star-empty",
+      "spriteFrameUuid": "8fbeb8f0-7491-0c35-c064-762f1e9bb044@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/textfree-extras/modals/record-star-empty.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        50,
+        51
+      ],
+      "sha256": "93c4d82b5a0b50b9b7cda080c488849edf9fd5c716f63652687b094481c51a21",
+      "derived": false
+    },
+    {
+      "file": "textfree-extras/modals/record-star-gold.png",
+      "assetPath": "assets/resources/ui/toybox-v4/textfree-extras/modals/record-star-gold.png",
+      "resourcePath": "ui/toybox-v4/textfree-extras/modals/record-star-gold",
+      "spriteFrameUuid": "05ca697d-3efa-636e-8675-d456568fdc21@f9941",
+      "source": "arts/方案B-清新玩具/UI素材补齐-v4/textfree-extras/modals/record-star-gold.png",
+      "origin": "text-free-sprite",
+      "containsText": false,
+      "size": [
+        50,
+        49
+      ],
+      "sha256": "edc706bb062bdde7748bb96bdeb3d861e5a8a2efebe310ebc072ec7da35eae11",
+      "derived": false
+    },
+    {
+      "file": "game/tiles/1.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/1.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/1",
+      "spriteFrameUuid": "2f4a50e1-68cc-ba4d-afa0-7c5599ec5074@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "80d50bc99dee81828d487ce3e99035d15ebb71de64657252eec253198a349161",
+      "derived": true,
+      "logicalMaterialId": "1_png",
+      "paletteHsv": [
+        0.12197392923649908,
+        0.7019607843137254,
+        1.0
+      ],
+      "paletteReference": "legacy gameplay/tiles/1.png center median HSV"
+    },
+    {
+      "file": "game/tiles/2.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/2.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/2",
+      "spriteFrameUuid": "2b024075-b89c-1090-3feb-cb532f577354@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "26c5f54572ad2e39aa5ee704a583408b2a3ed80e42d3991368d38870b23a21cc",
+      "derived": true,
+      "logicalMaterialId": "2_png",
+      "paletteHsv": [
+        0.6021505376344086,
+        0.8493150684931506,
+        0.28627450980392155
+      ],
+      "paletteReference": "legacy gameplay/tiles/2.png center median HSV"
+    },
+    {
+      "file": "game/tiles/3.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/3.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/3",
+      "spriteFrameUuid": "8e509366-c28c-064b-21eb-1b5948065784@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "ccf05bee73d4250a7faa004345ccb312c28bd2f74fa1bbc2ee620bbcce2de536",
+      "derived": true,
+      "logicalMaterialId": "3_png",
+      "paletteHsv": [
+        0.0471976401179941,
+        0.6312849162011173,
+        0.7019607843137254
+      ],
+      "paletteReference": "legacy gameplay/tiles/3.png center median HSV"
+    },
+    {
+      "file": "game/tiles/4.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/4.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/4",
+      "spriteFrameUuid": "e74a8da4-67ab-cea4-4701-29ac48d5991b@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "3aca3423710943dfc990b39cf7404f34ea8d3ffd5410c7e18cd6772cb336db90",
+      "derived": true,
+      "logicalMaterialId": "4_png",
+      "paletteHsv": [
+        0.0,
+        0.0,
+        0.5372549019607843
+      ],
+      "paletteReference": "legacy gameplay/tiles/4.png center median HSV"
+    },
+    {
+      "file": "game/tiles/5.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/5.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/5",
+      "spriteFrameUuid": "9186dd0f-3992-0fa3-537d-4671083426a0@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "946cf7fa824489af5e66b800cc9a927e652907ce1376af46f269f72e5d07608d",
+      "derived": true,
+      "logicalMaterialId": "5_png",
+      "paletteHsv": [
+        0.5608465608465609,
+        1.0,
+        0.7411764705882353
+      ],
+      "paletteReference": "legacy gameplay/tiles/5.png center median HSV"
+    },
+    {
+      "file": "game/tiles/6.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/6.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/6",
+      "spriteFrameUuid": "2635b861-bc61-a072-c003-70b0b314f168@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "d5cb9181eca46d731eeec8f0dc6167a9c7395c0d00942fdb2193736b137aedd8",
+      "derived": true,
+      "logicalMaterialId": "6_png",
+      "paletteHsv": [
+        0.9392156862745098,
+        0.6995884773662552,
+        0.9529411764705882
+      ],
+      "paletteReference": "legacy gameplay/tiles/6.png center median HSV"
+    },
+    {
+      "file": "game/tiles/7.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/7.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/7",
+      "spriteFrameUuid": "efa391d0-b337-de26-d0fe-4666dde8dbd5@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "1a3443262d1210fa1389dde0cf052a38ef0332d0d7cc96ed824aa2a2ff0337ae",
+      "derived": true,
+      "logicalMaterialId": "7_png",
+      "paletteHsv": [
+        0.09963768115942029,
+        0.9019607843137255,
+        1.0
+      ],
+      "paletteReference": "legacy gameplay/tiles/7.png center median HSV"
+    },
+    {
+      "file": "game/tiles/8.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/8.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/8",
+      "spriteFrameUuid": "aed9f1fc-1a13-e0a6-4b3f-81a9d4ef2e21@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "70834e3f59161db8916835e4f953b3bc053be8fc346c66fb74c19a81add8c159",
+      "derived": true,
+      "logicalMaterialId": "8_png",
+      "paletteHsv": [
+        0.24117647058823524,
+        0.6995884773662552,
+        0.9529411764705882
+      ],
+      "paletteReference": "legacy gameplay/tiles/8.png center median HSV"
+    },
+    {
+      "file": "game/tiles/9.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/9.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/9",
+      "spriteFrameUuid": "06f2c5da-a6c8-2eb1-f4c0-a3a3304ee570@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "5ff8a295a63ac68961dee7b2d5f57d91a13fca4ed01b7dee89f2da1b9625398d",
+      "derived": true,
+      "logicalMaterialId": "9_png",
+      "paletteHsv": [
+        0.5300387596899224,
+        0.7078189300411523,
+        0.9529411764705882
+      ],
+      "paletteReference": "legacy gameplay/tiles/9.png center median HSV"
+    },
+    {
+      "file": "game/tiles/10.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/10.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/10",
+      "spriteFrameUuid": "9f9e877f-16d6-8ed5-88f4-dc94f9de3e88@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "ef5705395ec0734fa622706545097187f5a504f382c670a5e96e9e8f2925c2f9",
+      "derived": true,
+      "logicalMaterialId": "10_png",
+      "paletteHsv": [
+        0.8343137254901961,
+        0.6995884773662552,
+        0.9529411764705882
+      ],
+      "paletteReference": "legacy gameplay/tiles/10.png center median HSV"
+    },
+    {
+      "file": "game/tiles/11.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/11.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/11",
+      "spriteFrameUuid": "f3e712a8-ab7c-79e9-2e5e-34e83b26df47@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "6a9532e69915b75b86beeabb40cbd31c9ca8ccddf03942343f3ecc3f7c0a07d6",
+      "derived": true,
+      "logicalMaterialId": "11_png",
+      "paletteHsv": [
+        0.0,
+        0.0,
+        0.6588235294117647
+      ],
+      "paletteReference": "legacy gameplay/tiles/11.png center median HSV"
+    },
+    {
+      "file": "game/tiles/12.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/12.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/12",
+      "spriteFrameUuid": "a0109060-c573-8fb1-ca9b-8538281c82cb@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "cbdfdd8c0f9b400b292ede3e1ab3520a48831e2086e01925d72312139e6bfdb6",
+      "derived": true,
+      "logicalMaterialId": "12_png",
+      "paletteHsv": [
+        0.07013201320132013,
+        0.8211382113821138,
+        0.9647058823529412
+      ],
+      "paletteReference": "legacy gameplay/tiles/12.png center median HSV"
+    },
+    {
+      "file": "game/tiles/13.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/13.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/13",
+      "spriteFrameUuid": "310c629d-9031-55c3-8a82-4cd7d3e3d3df@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "cbf5eab6c61c45ee60051ed44a3249e47b027f4156f1387f879affbe78484d8c",
+      "derived": true,
+      "logicalMaterialId": "13_png",
+      "paletteHsv": [
+        0.7189922480620154,
+        0.7078189300411523,
+        0.9529411764705882
+      ],
+      "paletteReference": "legacy gameplay/tiles/13.png center median HSV"
+    },
+    {
+      "file": "game/tiles/14.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/14.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/14",
+      "spriteFrameUuid": "4a8fab69-3c80-242b-59c4-2a0de180f7b9@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "eed174e53c9124f1424e7a9c1daea2562c31c13828702669f21a80db127575df",
+      "derived": true,
+      "logicalMaterialId": "14_png",
+      "paletteHsv": [
+        0.010784313725490194,
+        0.6995884773662552,
+        0.9529411764705882
+      ],
+      "paletteReference": "legacy gameplay/tiles/14.png center median HSV"
+    },
+    {
+      "file": "game/tiles/15.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/15.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/15",
+      "spriteFrameUuid": "ab67a65f-3050-30e2-a707-fb44f70e05cc@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "9ba05a5bbfbb554d908882c840b102db367c743a8f60c9d26f4b9b15e5dc4d50",
+      "derived": true,
+      "logicalMaterialId": "15_png",
+      "paletteHsv": [
+        0.4441176470588235,
+        0.6995884773662552,
+        0.9529411764705882
+      ],
+      "paletteReference": "legacy gameplay/tiles/15.png center median HSV"
+    },
+    {
+      "file": "game/tiles/16.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/16.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/16",
+      "spriteFrameUuid": "5944e121-da04-538a-46b8-2f14d06aeaa2@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "4646b169bde2362877bf3cdb5382fef478f74e5b275e7da23664fa1c4dff263d",
+      "derived": true,
+      "logicalMaterialId": "16_png",
+      "paletteHsv": [
+        0.5909436834094368,
+        0.8830645161290323,
+        0.9725490196078431
+      ],
+      "paletteReference": "legacy gameplay/tiles/16.png center median HSV"
+    },
+    {
+      "file": "game/tiles/17.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/17.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/17",
+      "spriteFrameUuid": "761ce421-2b14-e0a1-7037-4b1b6fb28e9c@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "59dfbba308bc6f512ebad38c6f059932c3f718bd2990c82463761e6702b957fe",
+      "derived": true,
+      "logicalMaterialId": "17_png",
+      "paletteHsv": [
+        0.0,
+        0.0,
+        0.19607843137254902
+      ],
+      "paletteReference": "legacy gameplay/tiles/17.png center median HSV"
+    },
+    {
+      "file": "game/tiles/18.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/tiles/18.png",
+      "resourcePath": "ui/toybox-v4/game/tiles/18",
+      "spriteFrameUuid": "e02a445e-36c0-9ce9-5aef-b45a6cb89b22@f9941",
+      "source": "game/tile-yellow.png",
+      "origin": "derived-v4-material",
+      "containsText": false,
+      "size": [
+        110,
+        95
+      ],
+      "sha256": "7f2ba2c743094383580f7bcb134252bf653774f40e8e7b6c23953dd6d61f59ac",
+      "derived": true,
+      "logicalMaterialId": "18_png",
+      "paletteHsv": [
+        0.5756013745704468,
+        0.5187165775401069,
+        0.7333333333333333
+      ],
+      "paletteReference": "legacy gameplay/tiles/18.png center median HSV"
+    },
+    {
+      "file": "game/board-fill.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/board-fill.png",
+      "resourcePath": "ui/toybox-v4/game/board-fill",
+      "spriteFrameUuid": "a9a0cf38-7494-a301-3d55-f0efdf17a41b@f9941",
+      "source": "v4 dark-blue board palette; logical hex polygon 115x103",
+      "origin": "derived-v4-board-fill",
+      "containsText": false,
+      "size": [
+        115,
+        103
+      ],
+      "sha256": "0ae797a266e6bfebc78b17a74c9c81a508ebac15577472a36a769d8df0af1cae",
+      "derived": true
+    },
+    {
+      "file": "game/border-white.png",
+      "assetPath": "assets/resources/ui/toybox-v4/game/border-white.png",
+      "resourcePath": "ui/toybox-v4/game/border-white",
+      "spriteFrameUuid": "d231e1e0-1c8f-2373-f88d-b9741365dfc6@f9941",
+      "source": "solid white pixel for six-edge Prefab border segments",
+      "origin": "derived-border-pixel",
+      "containsText": false,
+      "size": [
+        1,
+        1
+      ],
+      "sha256": "d5a51b6aed15684ec8c123e30fe5703155359d6543b6d7b47cb5766ef44939de",
+      "derived": true
+    }
+  ]
+}

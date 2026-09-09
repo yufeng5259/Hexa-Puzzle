@@ -1,11 +1,12 @@
-import type { LevelCatalog, LevelData, LevelMapDefinition } from './LevelTypes';
-import { assertValidLevels, validateCatalog } from './LevelValidator';
+import type { LevelCatalog, LevelData, LevelMapDefinition, LevelMetadata } from './LevelTypes';
+import { assertValidLevels, validateCatalog, validateLevelMetadata } from './LevelValidator';
 
 export type JsonLoader = (resource: string) => Promise<unknown>;
 
 export class LevelRepository {
   private catalog: LevelCatalog | null = null;
   private readonly cache = new Map<string, LevelData[]>();
+  private readonly metadataCache = new Map<string, LevelMetadata[]>();
 
   public constructor(private readonly loadJson: JsonLoader) {}
 
@@ -42,5 +43,25 @@ export class LevelRepository {
     const levels = await this.getLevels(mapId);
     if (!Number.isInteger(levelIndex) || levelIndex < 0 || levelIndex >= levels.length) throw new RangeError(`关卡索引越界: ${levelIndex}`);
     return levels[levelIndex];
+  }
+
+  public async getMetadata(mapId: string): Promise<LevelMetadata[]> {
+    const cached = this.metadataCache.get(mapId);
+    if (cached) return cached;
+    const map = await this.getMap(mapId);
+    if (!map.metadataResource) throw new Error(`Missing metadata resource: ${mapId}`);
+    const levels = await this.getLevels(mapId);
+    const value = await this.loadJson(map.metadataResource);
+    const issues = validateLevelMetadata(value, map, levels);
+    if (issues.length) throw new Error(issues.map((issue) => `${issue.path}: ${issue.message}`).join('\n'));
+    const metadata = value as LevelMetadata[];
+    this.metadataCache.set(mapId, metadata);
+    return metadata;
+  }
+
+  public async getLevelMetadata(mapId: string, levelIndex: number): Promise<LevelMetadata> {
+    const metadata = await this.getMetadata(mapId);
+    if (!Number.isInteger(levelIndex) || levelIndex < 0 || levelIndex >= metadata.length) throw new RangeError(`Invalid level index: ${levelIndex}`);
+    return metadata[levelIndex];
   }
 }

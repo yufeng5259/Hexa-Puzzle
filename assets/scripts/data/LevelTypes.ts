@@ -27,12 +27,34 @@ export interface LevelPieceData {
 
 export type LevelData = LevelPieceData[];
 
+export type GameMode = 'relaxed' | 'challenge';
+
+export interface SolutionStep {
+  pieceId: string;
+  anchor: { tx: number; ty: number };
+  anchorIndex: number;
+}
+
+export interface LevelMetadata {
+  levelId: string;
+  mode: GameMode;
+  contentVersion: number;
+  pieceCount: number;
+  moveLimit: number | null;
+  perfectMoveTarget: number;
+  solutionWitness: SolutionStep[];
+}
+
 export interface LevelMapDefinition {
   id: string;
   name: string;
   description: string;
   levelCount: number;
   resource: string;
+  mode?: GameMode;
+  pageSize?: number;
+  metadataResource?: string;
+  levelIds?: string[];
 }
 
 export interface LevelCategoryDefinition {

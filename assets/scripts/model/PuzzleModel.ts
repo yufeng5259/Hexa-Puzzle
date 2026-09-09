@@ -21,7 +21,7 @@ export class PuzzleModel {
   private readonly placements = new Map<PieceId, PieceState>();
   private remainingHints: string[];
 
-  public constructor(level: LevelData) {
+  public constructor(private readonly level: LevelData) {
     const movable = level.filter((piece) => piece.type === 'edit_game_elements' && piece.texureName !== '4_png');
     const obstacles = level.filter((piece) => piece.type === 'edit_game_elements' && piece.texureName === '4_png');
     this.pieces = movable.map((source, index) => {
@@ -121,6 +121,7 @@ export class PuzzleModel {
 
   public returnToTray(pieceId: PieceId): boolean { return this.beginMove(pieceId); }
   public nextHint(): { textureName: string; pieceId: PieceId; cells: GridCoord[] } | null {
+    if (this.isWon) return null;
     while (this.remainingHints.length) {
       const textureName = this.remainingHints[this.remainingHints.length - 1];
       const piece = this.pieces.find((item) => item.textureName === textureName);
@@ -131,6 +132,31 @@ export class PuzzleModel {
   }
   public get isWon(): boolean { return this.occupied.size === this.targetCells.length && this.placements.size === this.pieces.length; }
   public reset(): void { this.occupied.clear(); this.placements.clear(); this.remainingHints = this.pieces.map((piece) => piece.textureName); }
+  public restore(snapshot: PuzzleSnapshot): void {
+    const restored = new PuzzleModel(this.level);
+    if (!snapshot || !Array.isArray(snapshot.pieces) || snapshot.pieces.length !== this.pieces.length) throw new Error('Invalid puzzle snapshot');
+    const seen = new Set<string>();
+    for (const state of snapshot.pieces) {
+      const piece = restored.getPiece(state.id);
+      if (!piece || seen.has(state.id) || state.textureName !== piece.textureName || !Array.isArray(state.cells) || typeof state.placed !== 'boolean') throw new Error('Invalid puzzle piece');
+      seen.add(state.id);
+      if (!state.placed) {
+        if (state.cells.length || state.correctlyMatched) throw new Error('Invalid unplaced puzzle piece');
+        continue;
+      }
+      if (state.cells.length !== piece.localPoints.length || state.cells.some((cell) => !cell || !Number.isInteger(cell.tx) || !Number.isInteger(cell.ty))) throw new Error('Invalid puzzle placement');
+      const preview = restored.previewPlacement(piece.id, state.cells[0], 0);
+      const keys = state.cells.map(coordKey).sort().join('|');
+      if (!preview.valid || keys !== preview.cells.map(coordKey).sort().join('|') || state.correctlyMatched !== preview.correctlyMatched || !restored.place(piece.id, preview)) throw new Error('Invalid puzzle placement');
+    }
+    const expected = restored.snapshot();
+    if (!snapshot.occupied || Object.keys(snapshot.occupied).length !== Object.keys(expected.occupied).length || Object.keys(expected.occupied).some((key) => snapshot.occupied[key] !== expected.occupied[key]) || snapshot.won !== expected.won) throw new Error('Invalid puzzle occupancy');
+    if (!Array.isArray(snapshot.remainingHints) || snapshot.remainingHints.slice().sort().join('|') !== expected.remainingHints.slice().sort().join('|')) throw new Error('Invalid puzzle hint state');
+    this.reset();
+    restored.occupied.forEach((id, key) => this.occupied.set(key, id));
+    restored.placements.forEach((state, id) => this.placements.set(id, state));
+    this.remainingHints = snapshot.remainingHints.slice();
+  }
   public snapshot(): PuzzleSnapshot {
     return {
       pieces: this.pieces.map((piece) => this.placements.get(piece.id) ?? { id: piece.id, textureName: piece.textureName, placed: false, cells: [], correctlyMatched: false }).map((state) => ({ ...state, cells: state.cells.map(cloneCoord) })),

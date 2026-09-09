@@ -5,7 +5,8 @@ export class AudioService {
   private readonly musicSource: AudioSource;
   private readonly effectsSource: AudioSource;
   private musicStarted = false;
-  private suspended = false;
+  private readonly pauseReasons = new Set<'background' | 'advertisement'>();
+  private get suspended(): boolean { return this.pauseReasons.size > 0; }
 
   public constructor(node: Node, music: AudioClip, private readonly win: AudioClip, private readonly settings: GameSettingsService) {
     this.musicSource = node.addComponent(AudioSource);
@@ -33,13 +34,22 @@ export class AudioService {
   }
 
   private pause(): void {
-    this.suspended = true;
-    if (this.musicSource.playing) this.musicSource.pause();
+    this.setPaused('background', true);
   }
 
   private resume(): void {
-    this.suspended = false;
-    if (this.musicStarted && this.settings.snapshot().musicEnabled && !this.musicSource.playing) this.musicSource.play();
+    this.setPaused('background', false);
+  }
+
+  public setAdCovered(covered: boolean): void { this.setPaused('advertisement', covered); }
+
+  private setPaused(reason: 'background' | 'advertisement', paused: boolean): void {
+    if (paused) this.pauseReasons.add(reason);
+    else this.pauseReasons.delete(reason);
+    if (this.suspended) {
+      if (this.musicSource.playing) this.musicSource.pause();
+      this.effectsSource.stop();
+    } else this.applySettings();
   }
 
   public destroy(): void {

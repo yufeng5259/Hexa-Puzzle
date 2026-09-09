@@ -8,17 +8,18 @@ export type AppRoute =
 
 export type LevelButtonState = 'completed' | 'available' | 'locked';
 
-export function pageCount(levelCount: number): number {
-  return Math.max(1, Math.ceil(levelCount / LEVELS_PER_PAGE));
+export function pageCount(levelCount: number, pageSize = LEVELS_PER_PAGE): number {
+  if (!Number.isInteger(pageSize) || pageSize < 1 || pageSize > LEVELS_PER_PAGE) throw new RangeError('Invalid level page size');
+  return Math.max(1, Math.ceil(levelCount / pageSize));
 }
 
-export function clampPage(page: number, levelCount: number): number {
-  return Math.max(0, Math.min(pageCount(levelCount) - 1, Math.trunc(page)));
+export function clampPage(page: number, levelCount: number, pageSize = LEVELS_PER_PAGE): number {
+  return Math.max(0, Math.min(pageCount(levelCount, pageSize) - 1, Math.trunc(page)));
 }
 
-export function pageLevelIndices(page: number, levelCount: number): number[] {
-  const start = clampPage(page, levelCount) * LEVELS_PER_PAGE;
-  return Array.from({ length: Math.min(LEVELS_PER_PAGE, levelCount - start) }, (_, index) => start + index);
+export function pageLevelIndices(page: number, levelCount: number, pageSize = LEVELS_PER_PAGE): number[] {
+  const start = clampPage(page, levelCount, pageSize) * pageSize;
+  return Array.from({ length: Math.min(pageSize, levelCount - start) }, (_, index) => start + index);
 }
 
 export function levelButtonState(levelIndex: number, maxCompleted: number): LevelButtonState {
