@@ -7,10 +7,71 @@ temp/
 local/
 build/
 profiles/
-native/
+
+# Keep customized Android/common native sources; ignore generated platforms.
+native/*
+!native/engine/
+native/engine/*
+!native/engine/android/
+!native/engine/common/
+# Unused Instant App template; the standard Android app is kept above.
+/native/engine/android/instantapp/
+native/**/.gradle/
+native/**/.cxx/
+native/**/.externalNativeBuild/
+native/**/build/
+native/**/local.properties
+native/**/localCfg.cmake
+native/**/*.jks
+native/**/*.keystore
+native/**/signing.properties
+native/**/key.properties
+native/**/ad-config.release.properties
+native/**/ad-config.local.properties
 .creator/
 .omx/
-docs/
+
+# Local builds, exports and temporary work (not build-templates).
+/output/
+/dist/
+/tmp/
+/evidence/
+*.apk
+*.aab
+*.apks
+*.idsig
+
+# Local documentation, historical archives and development tools.
+/docs/
+/archive/
+/archieve/
+/tools/
+
+# Generated test output.
+/test-results/
+/playwright-report/
+/blob-report/
+/coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Python caches from asset tooling.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Machine-local environment values; examples remain shareable.
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.template
+
 #//////////////////////////
 # NPM
 #//////////////////////////
@@ -18,6 +79,9 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+*.log
+*.log.*
 
 #//////////////////////////
 # OS generated files
@@ -25,6 +89,12 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 desktop.ini
+Thumbs.db:encryptable
+$RECYCLE.BIN/
+~$*
+*.swp
+*.swo
+*~
 
 #//////////////////////////
 # VSCode

@@ -1,10 +1,12 @@
-import { Button, Color, EventTouch, input, Input, instantiate, Node, Prefab, Sprite, SpriteFrame, tween, Tween, UITransform, UIOpacity, Vec3, view } from 'cc';
+import { Button, Color, EventMouse, EventTouch, input, Input, instantiate, Node, Prefab, Sprite, SpriteFrame, tween, Tween, UITransform, UIOpacity, Vec3, view } from 'cc';
 import type { LevelData, LevelMetadata } from '../data/LevelTypes';
 import type { AttemptSave } from '../data/SaveTypes';
-import { DRAG_SCALE, TILE_HEIGHT, TILE_WIDTH, TRAY_SCALE } from '../data/LevelTypes';
-import { coordKey, gridToPoint2, nearestGrid, type GridCoord } from '../model/HexGrid';
+import { TILE_HEIGHT, TILE_WIDTH, TRAY_SCALE } from '../data/LevelTypes';
+import { coordKey, gridToPoint2, type GridCoord } from '../model/HexGrid';
 import { isPointInFlatHexagon } from '../model/HexHitTest';
+import { pickPiece, PIECE_PICK_PADDING, type PiecePickBounds, type PiecePickCandidate } from '../model/PiecePicking';
 import type { PieceDefinition, PlacementPreview } from '../model/PuzzleModel';
+import { resolveSnap } from '../model/SnapSelection';
 import type { I18nKey, I18nParams, Locale } from '../i18n/I18nService';
 import { FeedbackPresenter } from './FeedbackPresenter';
 import { GameplaySession, type CompletionSnapshot } from './GameplaySession';
@@ -27,8 +29,13 @@ interface PieceView {
   touchId: number | null;
   touchStart: Vec3;
   touchStartUi: Vec3;
-  grabOffset: Vec3;
+  grabPoint: Vec3;
+  pointerRoot: Vec3;
+  liftProgress: { value: number };
   liftOffset: number;
+  isMouseDrag: boolean;
+  hitArea: UITransform | null;
+  pickBounds: PiecePickBounds | null;
 }
 
 const DRAG_SLOP = 12;
@@ -36,8 +43,6 @@ const MIN_LIFT = 90;
 const MAX_LIFT = 150;
 const PICKUP_TIME = 0.1;
 const SNAP_TIME = 0.12;
-const MAX_SNAP_DISTANCE = 36;
-const PREVIEW_GRACE_DISTANCE = 16;
 
 export class GameplayView {
   public readonly node = new Node('GameplayView');
@@ -72,14 +77,18 @@ export class GameplayView {
   private boardMount: Node = this.node;
   private trayMount: Node = this.node;
   private hintButtons: Button[] = [];
+  private chromeRoot: Node | null = null;
   private chromeContent: Node | null = null;
   private renderedPreviewKey = '';
   private activeDrag: PieceView | null = null;
+  private mousePointerDown = false;
+  private mouseStartUi: Vec3 | null = null;
   private won = false;
   private resultActionCommitted = false;
   private visibleHeight = 1280;
   private winLayout: {
     overlay: Node;
+    completion: CompletionSnapshot;
     background: Node | null;
     backgroundPosition: Vec3 | null;
     backgroundScale: Vec3 | null;
@@ -97,7 +106,7 @@ export class GameplayView {
     private readonly translate: Translate,
     private readonly metadata: LevelMetadata,
     private attempt: AttemptSave,
-    private readonly locale: Locale,
+    private locale: Locale,
     private readonly cellPrefab: Prefab,
   ) {
     this.session = new GameplaySession(level, metadata, attempt);
@@ -117,6 +126,8 @@ export class GameplayView {
     this.updateStats();
     input.on(Input.EventType.TOUCH_END, this.finishGlobalTouch, this);
     input.on(Input.EventType.TOUCH_CANCEL, this.cancelGlobalTouch, this);
+    input.on(Input.EventType.MOUSE_DOWN, this.trackMouseDown, this);
+    input.on(Input.EventType.MOUSE_UP, this.trackMouseUp, this);
   }
 
   public resume(): void {
@@ -131,6 +142,13 @@ export class GameplayView {
   }
 
   public get attemptId(): string { return this.attempt.attemptId; }
+
+  public setLocale(locale: Locale): void {
+    if (locale === this.locale) return;
+    this.locale = locale;
+    this.refreshChromeLocale();
+    this.refreshWinLocale();
+  }
 
   public setAdCovered(covered: boolean): void {
     if (this.adCovered === covered) return;
@@ -164,6 +182,7 @@ export class GameplayView {
 
   private buildChrome(chromePrefab: Prefab, onSettings: () => void): void {
     const chrome = instantiate(chromePrefab);
+    this.chromeRoot = chrome;
     chrome.setParent(this.node);
     const content = selectVariant(chrome, this.metadata.mode === 'challenge' ? '06-challenge-gameplay' : '05-classic-gameplay', this.locale);
     this.chromeContent = content;
@@ -183,6 +202,21 @@ export class GameplayView {
     this.bind(content, 'settings', onSettings);
     this.hintButtons = this.bind(content, 'hint', () => this.requestHint());
     this.hintButtons.push(...this.bind(content, 'hint-inventory', () => this.requestHint()));
+    this.refreshChromeText();
+    this.updateHintButton();
+  }
+
+  private refreshChromeLocale(): void {
+    if (!this.chromeRoot) return;
+    this.chromeContent = selectVariant(this.chromeRoot, this.metadata.mode === 'challenge' ? '06-challenge-gameplay' : '05-classic-gameplay', this.locale);
+    this.refreshChromeText();
+    this.renderStatsText();
+    this.updateHintButton();
+  }
+
+  private refreshChromeText(): void {
+    const content = this.chromeContent;
+    if (!content) return;
     const levelNumber = this.title.match(/\d+/)?.[0] ?? this.metadata.levelId;
     setText(content, 'level-number', levelNumber);
     if (this.metadata.mode === 'challenge') {
@@ -190,7 +224,6 @@ export class GameplayView {
       setText(content, 'mode-label', this.locale === 'en' ? `CHALLENGE \u00b7 GROUP ${group}` : `\u9650\u6b65\u6311\u6218 \u00b7 \u7b2c${group}\u7ec4`);
       setText(content, 'budget-count', String(this.metadata.moveLimit));
     }
-    this.updateHintButton();
   }
 
   private bind(root: Node, action: string, handler: () => void): Button[] {
@@ -239,7 +272,8 @@ export class GameplayView {
       }
       const view: PieceView = {
         definition, node, cells, home, preview: null, dragState: 'idle', touchId: null,
-        touchStart: new Vec3(), touchStartUi: new Vec3(), grabOffset: new Vec3(), liftOffset: MIN_LIFT,
+        touchStart: new Vec3(), touchStartUi: new Vec3(), grabPoint: new Vec3(), pointerRoot: new Vec3(),
+        liftProgress: { value: 0 }, liftOffset: MIN_LIFT, isMouseDrag: false, hitArea: null, pickBounds: null,
       };
       this.pieceViews.set(definition.id, view);
       this.createPieceHitArea(view, cells);
@@ -265,21 +299,29 @@ export class GameplayView {
     hitArea.layer = 1 << 25;
     hitArea.setParent(view.node);
     hitArea.setPosition((minX + maxX) / 2, (minY + maxY) / 2);
-    hitArea.addComponent(UITransform).setContentSize(maxX - minX, maxY - minY);
+    view.pickBounds = { minX, maxX, minY, maxY };
+    view.hitArea = hitArea.addComponent(UITransform);
+    this.updatePieceHitArea(view);
     hitArea.on(Node.EventType.TOUCH_START, (event: EventTouch) => {
-      if (!cells.some((cell) => this.isPieceCellHit(cell, event))) return;
-      this.prepareDrag(view, event, maxY - minY);
+      if (this.activeDrag || this.adCovered || this.session.snapshot().status !== 'active') return;
+      const selected = this.pickPieceAt(event);
+      if (!selected?.pickBounds) return;
+      this.prepareDrag(selected, event, selected.pickBounds.maxY - selected.pickBounds.minY);
     });
     hitArea.on(Node.EventType.TOUCH_MOVE, (event: EventTouch) => {
-      if (!this.isActiveTouch(view, event)) return;
-      if (view.dragState === 'pending' && this.dragDistance(view, event) >= DRAG_SLOP) this.dragStart(view, event);
-      if (view.dragState === 'dragging') this.dragMove(view, event);
+      // Overlapping hit rectangles may capture through a different piece's node.
+      // Continue the gesture on the piece selected at TOUCH_START, never retarget.
+      const selected = this.activeDrag;
+      if (!selected || !this.isActiveTouch(selected, event)) return;
+      if (selected.dragState === 'pending' && this.dragDistance(selected, event) >= DRAG_SLOP) this.dragStart(selected, event);
+      if (selected.dragState === 'dragging') this.dragMove(selected, event);
     });
     // Creator can change an outside release to node TOUCH_CANCEL and swallow the
     // simulated mouse touch before global input sees it. Resolve the preserved
     // original input code here; the global callbacks also cover unclaimed touches.
     const finishNodeTouch = (event: EventTouch): void => {
-      if (!this.isActiveTouch(view, event)) return;
+      const selected = this.activeDrag;
+      if (!selected || !this.isActiveTouch(selected, event)) return;
       const originalType = event.getEventCode();
       if (originalType === Input.EventType.TOUCH_CANCEL) this.cancelGlobalTouch(event);
       else if (originalType === Input.EventType.TOUCH_END) this.finishGlobalTouch(event);
@@ -294,7 +336,7 @@ export class GameplayView {
     if (piece.dragState !== 'pending' && piece.dragState !== 'dragging') return;
     if (this.adCovered) { this.cancelDragForAdCoverage(); return; }
     if (piece.dragState === 'dragging') {
-      this.dragMove(piece, event);
+      this.dragMove(piece, event, true);
       this.dragEnd(piece, event);
     } else {
       this.resetDragState(piece);
@@ -320,6 +362,52 @@ export class GameplayView {
     return isPointInFlatHexagon(local.x, local.y, transform.contentSize.width, transform.contentSize.height);
   }
 
+  private pointInGame(node: Node, local = new Vec3()): Vec3 {
+    const world = node.getComponent(UITransform)!.convertToWorldSpaceAR(local);
+    return this.node.getComponent(UITransform)!.convertToNodeSpaceAR(world);
+  }
+
+  private updatePieceHitArea(piece: PieceView): void {
+    if (!piece.hitArea || !piece.pickBounds) return;
+    const origin = this.pointInGame(piece.node);
+    const xAxis = this.pointInGame(piece.node, new Vec3(1, 0));
+    const yAxis = this.pointInGame(piece.node, new Vec3(0, 1));
+    const scaleX = Math.hypot(xAxis.x - origin.x, xAxis.y - origin.y);
+    const scaleY = Math.hypot(yAxis.x - origin.x, yAxis.y - origin.y);
+    if (scaleX <= 0 || scaleY <= 0) return;
+    piece.hitArea.setContentSize(
+      piece.pickBounds.maxX - piece.pickBounds.minX + 2 * PIECE_PICK_PADDING / scaleX,
+      piece.pickBounds.maxY - piece.pickBounds.minY + 2 * PIECE_PICK_PADDING / scaleY,
+    );
+  }
+
+  private pickPieceAt(event: EventTouch): PieceView | null {
+    const point = this.eventPosition(event);
+    const candidates: PiecePickCandidate[] = [];
+    for (const piece of this.pieceViews.values()) {
+      if (piece.dragState !== 'idle' || !piece.node.activeInHierarchy || !piece.pickBounds) continue;
+      const bounds = piece.pickBounds;
+      const corners = [
+        this.pointInGame(piece.node, new Vec3(bounds.minX, bounds.minY)),
+        this.pointInGame(piece.node, new Vec3(bounds.minX, bounds.maxY)),
+        this.pointInGame(piece.node, new Vec3(bounds.maxX, bounds.minY)),
+        this.pointInGame(piece.node, new Vec3(bounds.maxX, bounds.maxY)),
+      ];
+      const centers = piece.cells.map((cell) => this.pointInGame(cell));
+      candidates.push({
+        id: piece.definition.id,
+        bounds: {
+          minX: Math.min(...corners.map((corner) => corner.x)), maxX: Math.max(...corners.map((corner) => corner.x)),
+          minY: Math.min(...corners.map((corner) => corner.y)), maxY: Math.max(...corners.map((corner) => corner.y)),
+        },
+        onCell: piece.cells.some((cell) => this.isPieceCellHit(cell, event)),
+        distanceSquared: Math.min(...centers.map((center) => (center.x - point.x) ** 2 + (center.y - point.y) ** 2)),
+      });
+    }
+    const id = pickPiece(point, candidates);
+    return id === null ? null : this.pieceViews.get(id) ?? null;
+  }
+
   private createCell(name: string, textureName: string, alpha: number, scale = this.boardScale): Node {
     const node = instantiate(this.cellPrefab);
     node.name = name;
@@ -338,6 +426,25 @@ export class GameplayView {
 
   private createBoardTexture(name: string, textureName: string): Node {
     return this.createCell(name, textureName, 1);
+  }
+
+  private createHintOutline(): Node {
+    const node = this.createCell('HintOutline', 'v3-board-preview', 1);
+    const sprite = node.getComponent(Sprite);
+    if (sprite) {
+      sprite.color = new Color(75, 224, 216, 255);
+      sprite.enabled = false;
+    }
+    const edges = findNode(node, 'border_edges');
+    if (edges) {
+      edges.active = true;
+      for (const edge of edges.children) {
+        edge.active = true;
+        const edgeSprite = edge.getComponent(Sprite);
+        if (edgeSprite) edgeSprite.color = new Color(75, 224, 216, 255);
+      }
+    }
+    return node;
   }
 
   private showBoardBoundary(cell: Node, coord: GridCoord, occupied: ReadonlySet<string>): void {
@@ -369,6 +476,11 @@ export class GameplayView {
     return rootTransform.convertToNodeSpaceAR(new Vec3(location.x, location.y));
   }
 
+  private nodeLocalFromUi(node: Node, x: number, y: number): Vec3 {
+    const transform = node.getComponent(UITransform)!;
+    return transform.convertToNodeSpaceAR(new Vec3(x, y));
+  }
+
   private prepareDrag(view: PieceView, event: EventTouch, pieceHeight: number): void {
     if (this.adCovered) return;
     if (this.session.snapshot().status !== 'active' || view.dragState !== 'idle' || this.activeDrag) return;
@@ -378,7 +490,11 @@ export class GameplayView {
     view.touchStart.set(this.eventPosition(event));
     const uiLocation = event.getUILocation();
     view.touchStartUi.set(uiLocation.x, uiLocation.y, 0);
-    view.liftOffset = Math.max(MIN_LIFT, Math.min(MAX_LIFT, pieceHeight * DRAG_SCALE * 0.55));
+    view.grabPoint.set(this.nodeLocalFromUi(view.node, uiLocation.x, uiLocation.y));
+    view.pointerRoot.set(this.eventPosition(event));
+    view.liftOffset = Math.max(MIN_LIFT, Math.min(MAX_LIFT, pieceHeight * this.boardScale));
+    view.liftProgress.value = 0;
+    view.isMouseDrag = false;
     this.feedback.pulse(view.node, 'pickup');
     this.setPieceVisualState(view, 'pickup');
   }
@@ -388,49 +504,40 @@ export class GameplayView {
     if (this.won || view.dragState !== 'pending') return;
     if (!this.session.beginMove(view.definition.id)) return;
     this.feedback.stopNode(view.node);
+    Tween.stopAllByTarget(view.liftProgress);
+    view.isMouseDrag = this.isMouseSimulatedTouch(event);
+    if (view.isMouseDrag) view.liftOffset = 0;
+    view.liftProgress.value = view.isMouseDrag ? 1 : 0;
     view.node.setParent(this.node, true);
     view.node.setSiblingIndex(this.node.children.length - 1);
-    view.grabOffset.set(view.node.position).subtract(view.touchStart);
+    view.node.setScale(this.boardScale, this.boardScale, 1);
+    this.updatePieceHitArea(view);
     view.dragState = 'dragging';
-    tween(view.node).to(PICKUP_TIME, { scale: new Vec3(DRAG_SCALE, DRAG_SCALE, 1) }, { easing: 'quadOut' }).start();
     this.clearPreview();
+    this.showHint();
     this.setPieceVisualState(view, 'dragging');
     this.dragMove(view, event);
+    if (!view.isMouseDrag) {
+      tween(view.liftProgress)
+        .to(PICKUP_TIME, { value: 1 }, { easing: 'quadOut', onUpdate: () => this.refreshDrag(view, false) })
+        .call(() => this.refreshDrag(view, false))
+        .start();
+    }
   }
 
-  private dragMove(view: PieceView, event: EventTouch): void {
+  private dragMove(view: PieceView, event: EventTouch, release = false): void {
     if (this.adCovered) { this.cancelDragForAdCoverage(); return; }
     if (this.won) return;
-    const position = this.eventPosition(event);
-    position.add(view.grabOffset);
-    position.y += view.liftOffset;
-    view.node.setPosition(position);
-    const boardPosition = positionInAncestor(this.board, this.node);
-    const localX = (position.x - boardPosition.x) / this.boardScale + this.boardCenter.x;
-    const localY = -(position.y - boardPosition.y) / this.boardScale + this.boardCenter.y;
-    let bestPreview: PlacementPreview | null = null;
-    let bestDistance = Number.POSITIVE_INFINITY;
-    for (let index = 0; index < view.definition.localPoints.length; index += 1) {
-      const localPoint = view.definition.localPoints[index];
-      const anchor = nearestGrid({ x: localX + localPoint.x2 / 2, y: localY + localPoint.y2 / 2 });
-      const candidate = this.session.findPlacement(view.definition.id, anchor, index);
-      if (!candidate.valid) continue;
-      const dx = candidate.translation.x2 / 2 - localX;
-      const dy = candidate.translation.y2 / 2 - localY;
-      const distance = dx * dx + dy * dy;
-      if (distance < bestDistance) { bestPreview = candidate; bestDistance = distance; }
+    view.pointerRoot.set(this.eventPosition(event));
+    if (release) {
+      Tween.stopAllByTarget(view.liftProgress);
     }
-    if (bestPreview && bestDistance <= MAX_SNAP_DISTANCE * MAX_SNAP_DISTANCE) {
-      view.preview = bestPreview;
-    } else if (!view.preview || this.previewDistance(view.preview, localX, localY) > PREVIEW_GRACE_DISTANCE) {
-      view.preview = null;
-    }
-    this.renderPreview(view.preview);
-    this.setPieceVisualState(view, view.preview ? 'valid-preview' : 'dragging');
+    this.refreshDrag(view, release);
   }
 
   private dragEnd(view: PieceView, event: EventTouch): void {
     if (this.adCovered) { this.cancelDragForAdCoverage(); return; }
+    Tween.stopAllByTarget(view.liftProgress);
     this.clearPreview();
     if (view.preview && this.session.previewPlacement(view.definition.id, view.preview)) {
       this.session.recordDrop('correct');
@@ -447,6 +554,7 @@ export class GameplayView {
       tween(view.node)
         .to(SNAP_TIME, { position: target, scale: new Vec3(this.boardScale, this.boardScale, 1) }, { easing: 'quadOut' })
         .call(() => {
+          this.updatePieceHitArea(view);
           this.feedback.pulse(view.node, 'correct-drop');
           this.resetDragState(view);
           this.showHint();
@@ -466,6 +574,43 @@ export class GameplayView {
     view.preview = null;
   }
 
+  private refreshDrag(view: PieceView, release: boolean): void {
+    if (view.dragState !== 'dragging') return;
+    this.positionDraggedPiece(view);
+    const origin = this.dragOriginInBoard(view);
+    const preview = (release || view.liftProgress.value >= 1)
+      ? resolveSnap(this.session.model, view.definition.id, origin, view.preview, release)
+      : null;
+    view.preview = preview;
+    this.renderPreview(preview);
+    this.setPieceVisualState(view, preview ? 'valid-preview' : 'dragging');
+  }
+
+  private positionDraggedPiece(view: PieceView): void {
+    view.node.setScale(this.boardScale, this.boardScale, 1);
+    const rootTransform = this.node.getComponent(UITransform)!;
+    const nodeTransform = view.node.getComponent(UITransform)!;
+    const desiredRoot = new Vec3(view.pointerRoot.x, view.pointerRoot.y + view.liftOffset * view.liftProgress.value, 0);
+    const actualWorld = nodeTransform.convertToWorldSpaceAR(view.grabPoint);
+    const actualRoot = rootTransform.convertToNodeSpaceAR(actualWorld);
+    view.node.setPosition(
+      view.node.position.x + desiredRoot.x - actualRoot.x,
+      view.node.position.y + desiredRoot.y - actualRoot.y,
+      view.node.position.z,
+    );
+  }
+
+  private dragOriginInBoard(view: PieceView): { x: number; y: number } {
+    const nodeTransform = view.node.getComponent(UITransform)!;
+    const boardTransform = this.board.getComponent(UITransform)!;
+    const originWorld = nodeTransform.convertToWorldSpaceAR(new Vec3());
+    const boardLocal = boardTransform.convertToNodeSpaceAR(originWorld);
+    return {
+      x: boardLocal.x / this.boardScale + this.boardCenter.x,
+      y: this.boardCenter.y - boardLocal.y / this.boardScale,
+    };
+  }
+
   private dragDistance(view: PieceView, event: EventTouch): number {
     const position = event.getUILocation();
     return Math.hypot(position.x - view.touchStartUi.x, position.y - view.touchStartUi.y);
@@ -477,15 +622,34 @@ export class GameplayView {
     return view.dragState !== 'idle' && view.touchId === this.touchId(event);
   }
 
-  private previewDistance(preview: PlacementPreview, localX: number, localY: number): number {
-    return Math.hypot(preview.translation.x2 / 2 - localX, preview.translation.y2 / 2 - localY);
+  private isMouseSimulatedTouch(event: EventTouch): boolean {
+    if (event.simulate === true) return true;
+    if (!this.mousePointerDown || !this.mouseStartUi) return false;
+    const start = event.getUIStartLocation();
+    return Math.hypot(start.x - this.mouseStartUi.x, start.y - this.mouseStartUi.y) <= 1;
+  }
+
+  private trackMouseDown(event: EventMouse): void {
+    if (event.getButton() === EventMouse.BUTTON_LEFT || event.getButton() === EventMouse.BUTTON_MISSING) {
+      this.mousePointerDown = true;
+      const location = event.getUILocation();
+      this.mouseStartUi = new Vec3(location.x, location.y, 0);
+    }
+  }
+
+  private trackMouseUp(): void {
+    this.mousePointerDown = false;
+    this.mouseStartUi = null;
   }
 
   private resetDragState(view: PieceView): void {
+    Tween.stopAllByTarget(view.liftProgress);
+    view.liftProgress.value = 0;
     if (this.activeDrag === view) this.activeDrag = null;
     view.dragState = 'idle';
     view.touchId = null;
     view.preview = null;
+    view.isMouseDrag = false;
   }
 
   private cancelDragForAdCoverage(): void {
@@ -517,6 +681,7 @@ export class GameplayView {
         view.node.setPosition(view.home);
         view.node.setScale(this.trayScale, this.trayScale, 1);
       }
+      this.updatePieceHitArea(view);
       this.setPieceVisualState(view, 'idle');
       this.resetDragState(view);
     }
@@ -612,12 +777,12 @@ export class GameplayView {
     for (const view of this.pieceViews.values()) if (view.dragState === 'idle') this.setPieceVisualState(view, 'idle');
     const hint = this.session.snapshot().activeHint;
     if (!hint) return;
+    if (this.activeDrag?.definition.id === hint.pieceId) return;
     this.hintLayer.setSiblingIndex(this.board.children.length - 1);
     for (const coord of hint.cells) {
-      const outline = this.createCell('HintOutline', 'v3-board-preview', 0.65);
+      const outline = this.createHintOutline();
       outline.setParent(this.hintLayer);
       outline.setPosition(this.coordPosition(coord));
-      outline.getComponent(Sprite)!.color = new Color(75, 224, 216, 255);
     }
     const selected = this.pieceViews.get(hint.pieceId);
     if (selected && selected.dragState === 'idle') this.setPieceVisualState(selected, 'valid-preview');
@@ -689,13 +854,11 @@ export class GameplayView {
     overlay.name = 'WinOverlay';
     overlay.setParent(this.node);
     const completion = this.session.complete();
-    const unassisted = completion.stats.hintsUsed === 0 && completion.continuesUsed === 0;
-    const page = this.metadata.mode !== 'challenge' ? '09-classic-result'
-      : unassisted ? '10-challenge-result' : '20-challenge-assisted';
-    const content = selectVariant(overlay, page, this.locale);
+    const content = selectVariant(overlay, this.resultPage(completion), this.locale);
     const background = findNode(content, 'img_background');
     this.winLayout = {
       overlay,
+      completion,
       background,
       backgroundPosition: background?.position.clone() ?? null,
       backgroundScale: background?.scale.clone() ?? null,
@@ -703,6 +866,28 @@ export class GameplayView {
     this.layoutResponsive(view.getVisibleSize().height);
     this.feedback.fadeIn(overlay, 0.25);
     const advance = (action: ResultAction): void => this.commitResultAction(action);
+    this.refreshWinText(content, completion);
+    this.bind(content, 'next', () => advance(this.hasNextLevel ? 'next' : 'levels'));
+    this.bind(content, 'replay', () => advance('replay'));
+    this.bind(content, 'levels', () => advance('levels'));
+    this.bind(content, 'settings', this.onSettings);
+  }
+
+  private refreshWinLocale(): void {
+    if (!this.winLayout) return;
+    const completion = this.winLayout.completion;
+    const content = selectVariant(this.winLayout.overlay, this.resultPage(completion), this.locale);
+    this.refreshWinText(content, completion);
+  }
+
+  private resultPage(completion: CompletionSnapshot): string {
+    if (this.metadata.mode !== 'challenge') return '09-classic-result';
+    const unassisted = completion.stats.hintsUsed === 0 && completion.continuesUsed === 0;
+    return unassisted ? '10-challenge-result' : '20-challenge-assisted';
+  }
+
+  private refreshWinText(content: Node, completion: CompletionSnapshot): void {
+    const unassisted = completion.stats.hintsUsed === 0 && completion.continuesUsed === 0;
     setText(content, 'level-number', this.title.match(/\d+/)?.[0] ?? this.metadata.levelId);
     setText(content, 'hint-count', compactNumber(this.hintCount));
     setText(content, 'step-count', String(completion.stats.moves));
@@ -733,43 +918,35 @@ export class GameplayView {
       if (gray) gray.active = index > completion.score.stars;
     }
     if (!this.hasNextLevel) setText(content, 'next-level-label', this.translate('gameplay.levels'));
-    this.bind(content, 'next', () => advance(this.hasNextLevel ? 'next' : 'levels'));
-    this.bind(content, 'replay', () => advance('replay'));
-    this.bind(content, 'levels', () => advance('levels'));
-    this.bind(content, 'settings', this.onSettings);
   }
 
   public destroy(): void {
     input.off(Input.EventType.TOUCH_END, this.finishGlobalTouch, this);
     input.off(Input.EventType.TOUCH_CANCEL, this.cancelGlobalTouch, this);
+    input.off(Input.EventType.MOUSE_DOWN, this.trackMouseDown, this);
+    input.off(Input.EventType.MOUSE_UP, this.trackMouseUp, this);
     this.cancelDragForAdCoverage();
+    for (const piece of this.pieceViews.values()) Tween.stopAllByTarget(piece.liftProgress);
     Tween.stopAllByTarget(this.node);
     this.node.destroy();
   }
 
   private updateStats(): void {
+    this.renderStatsText();
+    this.updateHintButton();
+    this.notifyFailure();
+  }
+
+  private renderStatsText(): void {
     const snapshot = this.session.snapshot();
     if (this.chromeContent) {
       setText(this.chromeContent, 'step-count', String(snapshot.remainingMoves ?? snapshot.stats.moves));
       setText(this.chromeContent, 'used-hint-count', String(snapshot.stats.hintsUsed));
       setText(this.chromeContent, 'continue-count', `${snapshot.continuesUsed}/1`);
     }
-    this.updateHintButton();
-    this.notifyFailure();
   }
 
   private notifyFailure(): void {
     if (this.session.snapshot().status === 'failed') this.onFailed?.(this.attempt);
   }
-}
-
-
-function positionInAncestor(node: Node, ancestor: Node): Vec3 {
-  const result = new Vec3();
-  let current: Node | null = node;
-  while (current && current !== ancestor) {
-    result.add(current.position);
-    current = current.parent;
-  }
-  return result;
 }

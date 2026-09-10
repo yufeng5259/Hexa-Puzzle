@@ -27,11 +27,12 @@ export interface RewardedAdService {
 }
 
 export class UnavailableRewardedAdService implements RewardedAdService {
+  public constructor(private readonly errorCode = 'unsupported_platform') {}
   public readonly state = 'unavailable' as const;
   public readonly presentationActive = false;
   public async prepare(): Promise<RewardedAdState> { return this.state; }
   public async show(request: RewardRequest): Promise<RewardedAdResult> {
-    return { state: 'unavailable', requestId: request.requestId, presentationEnded: true, settlementPending: false, errorCode: 'unsupported_platform' };
+    return { state: 'unavailable', requestId: request.requestId, presentationEnded: true, settlementPending: false, errorCode: this.errorCode };
   }
   public async recoverReceipts(): Promise<NativeRewardReceipt[]> { return []; }
   public async acknowledge(_receipt: RewardAcknowledgement): Promise<boolean> { return false; }

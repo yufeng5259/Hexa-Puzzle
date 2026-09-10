@@ -7,7 +7,7 @@ export interface NativeReply {
 
 export interface NativeEnvironment {
     isAndroid: boolean;
-    reflection?: { callStaticMethod(...args: any[]): any };
+    reflection?: { callStaticMethod(className: string, method: string, signature: string, payload: string): any };
     host: { nativeClientCall?: (payload: unknown) => void };
 }
 
@@ -30,7 +30,9 @@ const ASYNC_METHODS = new Map<string, string[]>([
 let nextBridgeId = 0;
 const runtimeId = Array.from({ length: 4 }, () => Math.floor(Math.random() * 0x100000000).toString(16)).join('-');
 
-/** Controlled JSON transport; the platform factory installs the host callback once. */
+/** Android JNI reflection transport, with JSON replies through nativeClientCall.
+ * The platform factory supplies native.reflection and installs the callback once.
+ */
 export class NativeWrap {
     private readonly bridgeId = ++nextBridgeId;
     private nextCallId = 0;

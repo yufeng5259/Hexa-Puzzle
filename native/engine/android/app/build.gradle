@@ -1,0 +1,237 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+import groovy.json.JsonOutput
+
+apply plugin: 'com.android.application'
+
+def testAds = new Properties()
+file('ad-config.test.properties').withInputStream { testAds.load(it) }
+def productionAdmobAppId = providers.gradleProperty('IAA_ADMOB_APP_ID').orElse('').get()
+def productionRewardedId = providers.gradleProperty('IAA_REWARDED_AD_UNIT_ID').orElse('').get()
+// Temporarily disable real ads until production IDs are configured.
+def adsEnabled = providers.gradleProperty('IAA_ADS_ENABLED').orElse('false').get().toBoolean()
+def IAA_ANDROID_APPLICATION_ID = 'com.world.hexapuzzle'
+def IAA_ANDROID_COMPILE_SDK = 36
+def IAA_ANDROID_TARGET_SDK = 36
+def IAA_ANDROID_MIN_SDK = 23
+def IAA_ANDROID_BUILD_TOOLS = '35.0.0'
+def IAA_ANDROID_ABIS = ['arm64-v8a', 'armeabi-v7a']
+
+RES_PATH = RES_PATH.replace("\\", "/")
+COCOS_ENGINE_PATH = COCOS_ENGINE_PATH.replace("\\", "/")
+
+buildDir = "${RES_PATH}/proj/build/${project.name ==~ /^[_a-zA-Z0-9-]+$/ ? project.name : 'CocosGame'}"
+android {
+    compileSdkVersion IAA_ANDROID_COMPILE_SDK
+    buildToolsVersion IAA_ANDROID_BUILD_TOOLS
+    ndkVersion PROP_NDK_VERSION
+    namespace IAA_ANDROID_APPLICATION_ID
+    buildFeatures { buildConfig true }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId IAA_ANDROID_APPLICATION_ID
+        minSdkVersion IAA_ANDROID_MIN_SDK
+        targetSdkVersion IAA_ANDROID_TARGET_SDK
+        versionCode 1
+        versionName "1.0"
+        buildConfigField 'boolean', 'IAA_ADS_ENABLED', adsEnabled.toString()
+        manifestPlaceholders = [iaaAdsEnabled: adsEnabled.toString()]
+
+        externalNativeBuild {
+            cmake {
+                targets "cocos"
+                arguments "-DRES_DIR=${RES_PATH}", "-DANDROID_STL=c++_static", "-DANDROID_TOOLCHAIN=clang", "-DANDROID_ARM_NEON=TRUE"
+            }
+            ndk { abiFilters(*IAA_ANDROID_ABIS) }
+        }
+    }
+
+    sourceSets.main {
+        java.srcDirs "../src", "src"
+        java.exclude '**/AdGoogleProvider.java'
+        res.srcDirs "../res", 'res', "${RES_PATH}/proj/res"
+        jniLibs.srcDirs "../libs", 'libs'
+        manifest.srcFile "AndroidManifest.xml"
+        assets.srcDir "${RES_PATH}/data"
+        jniLibs {
+            // Vulkan validation layer
+            // srcDir "${android.ndkDirectory}/sources/third_party/vulkan/src/build-android/jniLibs"
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging Boolean.parseBoolean(PROP_ENABLE_COMPRESS_SO)
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            version "3.22.1"
+            path "../CMakeLists.txt"
+            buildStagingDirectory "${RES_PATH}/proj/build"
+        }
+    }
+
+    signingConfigs {
+
+       release {
+            if (project.hasProperty("RELEASE_STORE_FILE") && !RELEASE_STORE_FILE.isEmpty()) {
+                storeFile file(RELEASE_STORE_FILE)
+                storePassword RELEASE_STORE_PASSWORD
+                keyAlias RELEASE_KEY_ALIAS
+                keyPassword RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            buildConfigField 'boolean', 'IAA_TEST_ADS', 'false'
+            resValue 'string', 'admob_app_id', productionAdmobAppId
+            resValue 'string', 'rewarded_ad_unit_id', productionRewardedId
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (project.hasProperty("RELEASE_STORE_FILE")) {
+                signingConfig signingConfigs.release
+            }
+                        
+            externalNativeBuild {
+                cmake {
+                    // switch HIDE_SYMBOLS to OFF to skip compilation flag `-fvisibility=hidden`
+                    arguments "-DHIDE_SYMBOLS=ON"
+                }
+            }
+
+            if (!Boolean.parseBoolean(PROP_IS_DEBUG)) {
+                getIsDefault().set(true)
+            }
+
+        }
+
+        debug {
+            buildConfigField 'boolean', 'IAA_TEST_ADS', 'true'
+            resValue 'string', 'admob_app_id', testAds.getProperty('admob_app_id')
+            resValue 'string', 'rewarded_ad_unit_id', testAds.getProperty('rewarded_ad_unit_id')
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+            // resValue  "string", "app_name", "${PROP_APP_NAME}-dbg"
+            // applicationIdSuffix ".debug"
+        }
+        qa {
+            initWith release
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
+            buildConfigField 'boolean', 'IAA_TEST_ADS', 'true'
+            resValue 'string', 'admob_app_id', testAds.getProperty('admob_app_id')
+            resValue 'string', 'rewarded_ad_unit_id', testAds.getProperty('rewarded_ad_unit_id')
+        }
+        simulation {
+            initWith qa
+            // Keep the explicit local simulation usable without starting the Google SDK.
+            buildConfigField 'boolean', 'IAA_ADS_ENABLED', 'true'
+            manifestPlaceholders = [iaaAdsEnabled: 'false']
+            matchingFallbacks = ['release']
+            versionNameSuffix '-simulation'
+            resValue 'string', 'app_name', 'Hexa Puzzle Simulation'
+        }
+    }
+
+    // The simulated provider is a separate compile-time source, never a runtime production switch.
+    ['debug', 'qa', 'release'].each { variant ->
+        sourceSets.getByName(variant).java {
+            srcDir 'src/com/world/hexapuzzle/yzad'
+            include 'AdGoogleProvider.java'
+        }
+    }
+    sourceSets.simulation.java.srcDir 'simulation/java'
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-ads:24.5.0'
+    implementation 'com.google.android.ump:user-messaging-platform:3.2.0'
+    implementation fileTree(dir: '../libs', include: ['*.jar','*.aar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+    implementation fileTree(dir: "${COCOS_ENGINE_PATH}/cocos/platform/android/java/libs", include: ['*.jar'])
+    implementation project(':libservice')
+    implementation project(':libcocos')
+    if (Boolean.parseBoolean(PROP_ENABLE_INPUTSDK)) {
+        implementation 'com.google.android.libraries.play.games:inputmapping:1.1.0-beta'
+        implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
+    }
+}
+
+def validateReleaseAds = tasks.register('validateReleaseAds') {
+    onlyIf { adsEnabled }
+    doLast {
+        if (!(productionAdmobAppId ==~ /ca-app-pub-\d{16}~\d{10}/)
+                || !(productionRewardedId ==~ /ca-app-pub-\d{16}\/\d{10}/)
+                || productionAdmobAppId.startsWith('ca-app-pub-3940256099942544')
+                || productionRewardedId.startsWith('ca-app-pub-3940256099942544')) {
+            throw new GradleException('Release requires valid production IAA_ADMOB_APP_ID and IAA_REWARDED_AD_UNIT_ID; demo IDs are not allowed.')
+        }
+    }
+}
+tasks.matching { it.name == 'preReleaseBuild' }.configureEach { dependsOn validateReleaseAds }
+
+['Debug', 'Qa', 'Release', 'Simulation'].each { variant ->
+    tasks.matching { it.name == "compile${variant}JavaWithJavac" }.configureEach {
+        doFirst {
+            def providers = source.files.findAll { it.name == 'AdGoogleProvider.java' }
+            def providerPath = variant == 'Simulation'
+                    ? 'simulation/java/com/world/hexapuzzle/yzad/AdGoogleProvider.java'
+                    : 'src/com/world/hexapuzzle/yzad/AdGoogleProvider.java'
+            if (providers.size() != 1 || providers.first().canonicalFile != file(providerPath).canonicalFile) {
+                throw new GradleException("Unexpected rewarded provider sources for ${variant}: ${providers}")
+            }
+            logger.lifecycle("IAA provider source ${variant}: ${providerPath}")
+        }
+    }
+}
+
+tasks.register('assertIaaAndroidConfig') {
+    doLast {
+        def expected = [
+            applicationId: IAA_ANDROID_APPLICATION_ID,
+            namespace: IAA_ANDROID_APPLICATION_ID,
+            compileSdk: IAA_ANDROID_COMPILE_SDK,
+            targetSdk: IAA_ANDROID_TARGET_SDK,
+            minSdk: IAA_ANDROID_MIN_SDK,
+            buildTools: IAA_ANDROID_BUILD_TOOLS,
+            abis: IAA_ANDROID_ABIS
+        ]
+        def actual = [
+            applicationId: android.defaultConfig.applicationId,
+            namespace: android.namespace,
+            compileSdk: android.compileSdkVersion.toString().replace('android-', '').toInteger(),
+            targetSdk: android.defaultConfig.targetSdkVersion.apiLevel,
+            minSdk: android.defaultConfig.minSdkVersion.apiLevel,
+            buildTools: android.buildToolsVersion,
+            abis: android.defaultConfig.ndk.abiFilters.toList().sort()
+        ]
+        if (actual != expected) {
+            throw new GradleException("IAA Android config drift: expected ${expected}, actual ${actual}")
+        }
+        def reportPath = providers.gradleProperty('iaaAndroidConfigReport').orElse('').get()
+        if (!reportPath.isEmpty()) {
+            def reportFile = file(reportPath)
+            reportFile.parentFile.mkdirs()
+            reportFile.text = JsonOutput.prettyPrint(JsonOutput.toJson([
+                checkedAt: new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone('UTC')),
+                status: 'pass',
+                expected: expected,
+                actual: actual
+            ])) + System.lineSeparator()
+        }
+        logger.lifecycle("IAA Android config OK: ${actual}")
+    }
+}

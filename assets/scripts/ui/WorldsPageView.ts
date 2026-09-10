@@ -12,7 +12,9 @@ export interface WorldsPageViewModel {
 }
 @ccclass('WorldsPageView')
 export class WorldsPageView extends Component {
+  private model: WorldsPageViewModel | null = null;
   public async setup(model: WorldsPageViewModel): Promise<Node[]> {
+    this.model = model;
     const page = selectVariant(this.node, '02-worlds', model.locale);
     (this.node.getComponent(TopBarView) ?? this.node.addComponent(TopBarView)).setup(model);
     for (const map of model.maps) {
@@ -22,5 +24,11 @@ export class WorldsPageView extends Component {
     }
     bindAction(page, 'back', model.onBack);
     return [page];
+  }
+  public setLocale(locale: Locale): void {
+    const model = this.model;
+    if (!model) return;
+    this.model = { ...model, locale };
+    selectVariant(this.node, '02-worlds', locale);
   }
 }

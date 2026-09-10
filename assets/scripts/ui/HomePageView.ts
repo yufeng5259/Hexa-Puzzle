@@ -13,6 +13,7 @@ export interface HomePageViewModel {
 @ccclass('HomePageView')
 export class HomePageView extends Component {
   private model: HomePageViewModel | null = null;
+  private dailyAvailable = true;
   public async setup(model: HomePageViewModel): Promise<Node[]> {
     this.model = model;
     (this.node.getComponent(TopBarView) ?? this.node.addComponent(TopBarView)).setup(model);
@@ -22,9 +23,20 @@ export class HomePageView extends Component {
     this.setDailyAvailable(model.dailyAvailable);
     return this.node.children.filter((node) => node.name.startsWith('view_'));
   }
-  public setDailyAvailable(available: boolean): void {
+  public setLocale(locale: Locale): void {
     const model = this.model;
     if (!model) return;
+    this.model = { ...model, locale };
+    this.render();
+  }
+  public setDailyAvailable(available: boolean): void {
+    this.dailyAvailable = available;
+    this.render();
+  }
+  private render(): void {
+    const model = this.model;
+    if (!model) return;
+    const available = this.dailyAvailable;
     selectVariant(this.node, available ? '01-home' : '14-home-claimed', model.locale);
     setText(this.node, 'play-title', model.t(model.cta.labelKey));
     setLabelVisible(this.node, 'continue-level', Boolean(model.cta.subtitleKey), model.locale);

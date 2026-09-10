@@ -1,13 +1,12 @@
-import { _decorator, AudioClip, Color, Component, game, Game, instantiate, JsonAsset, native, Node, Prefab, profiler, ResolutionPolicy, resources, SpriteFrame, sys, tween, UITransform, UIOpacity, Vec3, view } from 'cc';
+import { _decorator, AudioClip, Color, Component, game, Game, instantiate, JsonAsset, Node, Prefab, profiler, ResolutionPolicy, resources, SpriteFrame, tween, UITransform, UIOpacity, Vec3, view } from 'cc';
 import { AudioService } from '../audio/AudioService';
 import type { RewardedAdService } from '../ads/RewardedAdService';
-import { createRewardedAdService } from '../ads/RewardedAdFactory';
-import type { NativeEnvironment } from '../ads/NativeWrap';
+import { createPlatformServices } from '../platform/PlatformServices';
 import { RewardCoordinator, type RewardAttemptResult } from '../ads/RewardCoordinator';
 import { GameSettingsService } from '../audio/GameSettingsService';
 import type { LevelCatalog, LevelData, LevelMapDefinition } from '../data/LevelTypes';
 import { LevelRepository } from '../data/LevelRepository';
-import { SaveService, type LegacyLevelMap, type StorageLike } from '../data/SaveService';
+import { SaveService, type LegacyLevelMap } from '../data/SaveService';
 import type { AttemptSave, SaveData } from '../data/SaveTypes';
 import { GameplaySession } from '../gameplay/GameplaySession';
 import { GameplayView, type ResultAction } from '../gameplay/GameplayView';
@@ -71,18 +70,12 @@ function trace(stage: string, detail?: unknown): void {
   else console.log(`[GameApp][${stage}]`, detail);
 }
 
-function browserStorage(): StorageLike {
-  if (sys.localStorage) return sys.localStorage;
-  if (typeof window !== 'undefined' && window.localStorage) return window.localStorage;
-  const values = new Map<string, string>();
-  return { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => { values.set(key, value); } };
-}
-
 @ccclass('GameApp')
 export class GameApp extends Component {
   private readonly flow = new PageFlow();
   private save!: SaveService;
-  private readonly settings = new GameSettingsService(browserStorage());
+  private readonly platformServices = createPlatformServices();
+  private readonly settings = new GameSettingsService(this.platformServices.storage);
   private readonly i18n = new I18nService(this.settings.snapshot().locale);
   private currentPage: Node | null = null;
   private gameplay: GameplayView | null = null;
@@ -107,11 +100,7 @@ export class GameApp extends Component {
   private rewardDialog: { node: Node; view: RewardHintDialogView; requestId: string | null } | null = null;
   private privacyActive = false;
   private rewardHintDialogPrefab: Prefab | null = null;
-  private readonly rewardedAds: RewardedAdService = createRewardedAdService({
-    isAndroid: sys.isNative && sys.os === sys.OS.ANDROID,
-    reflection: sys.isNative ? native.reflection : undefined,
-    host: window as unknown as NativeEnvironment['host'],
-  });
+  private readonly rewardedAds: RewardedAdService = this.platformServices.rewardedAds;
   private rewardCoordinator: RewardCoordinator | null = null;
   private readonly rewardUnsubscribers: (() => void)[] = [];
   private adCovered = false;
@@ -132,7 +121,7 @@ export class GameApp extends Component {
   };
 
   protected async start(): Promise<void> {
-    trace('start', { node: this.node.name, active: this.node.activeInHierarchy });
+    trace('start', { node: this.node.name, active: this.node.activeInHierarchy, platform: this.platformServices.platform });
     profiler.hideStats();
     view.setDesignResolutionSize(720, 1280, ResolutionPolicy.FIXED_WIDTH);
     view.on('canvas-resize', this.handleCanvasResize, this);
@@ -169,7 +158,7 @@ export class GameApp extends Component {
         loadResource('prefabs/common/TopBar', Prefab),
       ]);
       this.catalog = catalogAsset.json as LevelCatalog;
-      this.save = new SaveService(browserStorage(), this.catalog, legacyMapAsset.json as LegacyLevelMap);
+      this.save = new SaveService(this.platformServices.storage, this.catalog, legacyMapAsset.json as LegacyLevelMap);
       this.configureRewardCoordinator();
       this.homePrefab = homePrefab;
       this.topBarPrefab = topBarPrefab;
@@ -486,13 +475,17 @@ export class GameApp extends Component {
     return this.i18n.t(key, params);
   }
 
-  private async setLocale(locale: Locale, reopenSettings = false): Promise<void> {
+  private setLocale(locale: Locale): void {
     if (this.transitioning || this.adCovered || this.privacyActive) return;
-    this.clearOverlays();
+    if (locale === this.i18n.currentLocale) return;
     this.settings.setLocale(locale);
     this.i18n.setLocale(locale);
-    await this.render(this.flow.current, false);
-    if (reopenSettings) await this.showSettingsPanel();
+    this.loading?.setLocale(locale);
+    this.currentPage?.getComponent(HomePageView)?.setLocale(locale);
+    this.currentPage?.getComponent(WorldsPageView)?.setLocale(locale);
+    this.currentPage?.getComponent(LevelsPageView)?.setLocale(locale);
+    this.gameplay?.setLocale(locale);
+    this.settingLayer?.getChildByName('SettingsPanel')?.getComponent(SettingsPanelView)?.setLocale(locale);
   }
 
   private async showSettingsPanel(): Promise<void> {
@@ -523,8 +516,7 @@ export class GameApp extends Component {
       },
       onToggleEffects: () => this.settings.setEffectsEnabled(!this.settings.snapshot().effectsEnabled),
       onToggleVibration: () => this.settings.setVibrationEnabled(!this.settings.snapshot().vibrationEnabled),
-      onLocale: (locale) => { void this.setLocale(locale, true); },
-      onLegacy: () => this.showLegacyRecords(),
+      onLocale: (locale) => this.setLocale(locale),
       privacyRequired: false,
       onPrivacy: async () => {
         if (this.privacyActive || this.rewardedAds.presentationActive || this.rewardCoordinator?.busy) return;

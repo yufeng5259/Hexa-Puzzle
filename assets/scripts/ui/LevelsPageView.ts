@@ -17,10 +17,16 @@ export interface LevelsPageViewModel {
 }
 @ccclass('LevelsPageView')
 export class LevelsPageView extends Component {
+  private model: LevelsPageViewModel | null = null;
+  private page = 0;
+  private challenge = false;
   public async setup(model: LevelsPageViewModel): Promise<Node[]> {
+    this.model = model;
     const challenge = model.map.mode === 'challenge' || model.mapId === 'challenge';
     const pageSize = model.map.pageSize ?? (challenge ? 10 : 20);
     const page = clampPage(model.requestedPage, model.map.levelCount, pageSize);
+    this.challenge = challenge;
+    this.page = page;
     const root = selectVariant(this.node, challenge ? '04-challenge-levels' : '03-classic-levels', model.locale);
     (this.node.getComponent(TopBarView) ?? this.node.addComponent(TopBarView)).setup(model);
     const progress = model.save.maps[model.mapId];
@@ -30,8 +36,7 @@ export class LevelsPageView extends Component {
     const complete = levelIds.filter((id) => progress.levels[id]?.completed).length;
     setText(root, 'classic-progress', `${complete}/${model.map.levelCount}`);
     setText(root, 'group-progress', `${complete} / ${model.map.levelCount}`);
-    setText(root, 'group-title', model.locale === 'en' ? `Group ${page + 1}` : `第${['一', '二', '三'][page] ?? page + 1}组`);
-    setText(root, 'group-rule', model.locale === 'en' ? `Pieces +${Math.max(1, 3 - page)} moves` : `拼块数 +${Math.max(1, 3 - page)} 步`);
+    this.updateGroupText(root, model.locale);
     setText(root, 'page-indicator', `${page + 1}/${pageCount(model.map.levelCount, pageSize)}`);
     const [completedFrame, currentFrame, lockedFrame, gold, empty] = await Promise.all([
       loadFrame('levels/completed'), loadFrame('levels/current'), loadFrame('levels/locked'),
@@ -64,5 +69,16 @@ export class LevelsPageView extends Component {
     setActionEnabled(root, 'next', page + 1 < pageCount(model.map.levelCount, pageSize));
     bindAction(root, 'back', model.onBack);
     return [root];
+  }
+  public setLocale(locale: Locale): void {
+    const model = this.model;
+    if (!model) return;
+    this.model = { ...model, locale };
+    const root = selectVariant(this.node, this.challenge ? '04-challenge-levels' : '03-classic-levels', locale);
+    this.updateGroupText(root, locale);
+  }
+  private updateGroupText(root: Node, locale: Locale): void {
+    setText(root, 'group-title', locale === 'en' ? `Group ${this.page + 1}` : `第${['一', '二', '三'][this.page] ?? this.page + 1}组`);
+    setText(root, 'group-rule', locale === 'en' ? `Pieces +${Math.max(1, 3 - this.page)} moves` : `拼块数 +${Math.max(1, 3 - this.page)} 步`);
   }
 }
