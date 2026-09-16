@@ -21,7 +21,7 @@ interface PendingCall {
     timer?: unknown;
 }
 
-const ANDROID_PACKAGE = 'com/world/hexapuzzle/';
+const ANDROID_PACKAGE = 'com/hexa/block/puzzlegame/';
 const DEFAULT_TIMEOUT = 15000;
 const ASYNC_METHODS = new Map<string, string[]>([
     ['yzad/ADCenter', ['initAd', 'prepareVideo', 'showVideo']],

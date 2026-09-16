@@ -32,7 +32,7 @@ import android.view.WindowManager;
 
 import com.cocos.service.SDKWrapper;
 import com.cocos.lib.CocosActivity;
-import com.world.hexapuzzle.SDKHandleClass;
+import com.hexa.block.puzzlegame.SDKHandleClass;
 
 public class AppActivity extends CocosActivity {
     // Window brightness uses 0..1. Keep a readable baseline in dark environments.

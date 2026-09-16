@@ -27,13 +27,13 @@
 
 # SDK libraries supply their own consumer rules. Only these game JNI entry points
 # are addressed by name from JavaScript.
--keep class com.world.hexapuzzle.yzad.ADCenter {
+-keep class com.hexa.block.puzzlegame.yzad.ADCenter {
     public static void initAd(java.lang.String);
     public static void prepareVideo(java.lang.String);
     public static void showVideo(java.lang.String);
     public static java.lang.String isVideoPrepared(java.lang.String);
 }
--keep class com.world.hexapuzzle.SDKHandleClass {
+-keep class com.hexa.block.puzzlegame.SDKHandleClass {
     public static void getRewardReceipts(java.lang.String);
     public static void acknowledgeReward(java.lang.String);
     public static void getPresentationState(java.lang.String);

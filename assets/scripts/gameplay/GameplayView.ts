@@ -7,9 +7,11 @@ import { isPointInFlatHexagon } from '../model/HexHitTest';
 import { pickPiece, PIECE_PICK_PADDING, type PiecePickBounds, type PiecePickCandidate } from '../model/PiecePicking';
 import type { PieceDefinition, PlacementPreview } from '../model/PuzzleModel';
 import { resolveSnap } from '../model/SnapSelection';
+import { isTrayDrop } from '../model/TrayDrop';
 import type { I18nKey, I18nParams, Locale } from '../i18n/I18nService';
 import { FeedbackPresenter } from './FeedbackPresenter';
 import { GameplaySession, type CompletionSnapshot } from './GameplaySession';
+import { gameplayLayout, TRAY_ART_HEIGHTS } from './GameplayLayout';
 import { layoutTray } from './TrayLayout';
 import { compactNumber } from '../ui/UiNumbers';
 import { exposedBoardEdges } from './BoardBoundary';
@@ -25,6 +27,7 @@ interface PieceView {
   cells: Node[];
   home: Vec3;
   preview: PlacementPreview | null;
+  returningToTray: boolean;
   dragState: DragState;
   touchId: number | null;
   touchStart: Vec3;
@@ -76,6 +79,7 @@ export class GameplayView {
   private readonly trayOrigin = new Vec3(0, 0, 0);
   private boardMount: Node = this.node;
   private trayMount: Node = this.node;
+  private trayPanel: Node | null = null;
   private hintButtons: Button[] = [];
   private chromeRoot: Node | null = null;
   private chromeContent: Node | null = null;
@@ -86,6 +90,7 @@ export class GameplayView {
   private won = false;
   private resultActionCommitted = false;
   private visibleHeight = 1280;
+  private appliedLayoutHeight = 0;
   private winLayout: {
     overlay: Node;
     completion: CompletionSnapshot;
@@ -114,20 +119,23 @@ export class GameplayView {
     this.node.layer = 1 << 25;
     this.node.addComponent(UITransform).setContentSize(720, 1280);
     this.buildChrome(chromePrefab, onSettings);
-    const boardSize = this.boardMount.getComponent(UITransform)!.contentSize;
-    const boardPoints = this.session.model.targetCells.concat(this.session.model.obstacleCells).map(gridToPoint2);
-    this.boardScale = Math.min(this.boardScale,
-      (boardSize.width - 24) / ((Math.max(...boardPoints.map((point) => point.x2)) - Math.min(...boardPoints.map((point) => point.x2))) / 2 + TILE_WIDTH),
-      (boardSize.height - 24) / ((Math.max(...boardPoints.map((point) => point.y2)) - Math.min(...boardPoints.map((point) => point.y2))) / 2 + TILE_HEIGHT));
+    this.updateBoardScale();
     this.buildBoard();
     this.buildPieces();
-    this.syncPieces();
-    this.showHint();
+    this.layoutResponsive(view.getVisibleSize().height);
     this.updateStats();
     input.on(Input.EventType.TOUCH_END, this.finishGlobalTouch, this);
     input.on(Input.EventType.TOUCH_CANCEL, this.cancelGlobalTouch, this);
     input.on(Input.EventType.MOUSE_DOWN, this.trackMouseDown, this);
     input.on(Input.EventType.MOUSE_UP, this.trackMouseUp, this);
+  }
+
+  private updateBoardScale(): void {
+    const boardSize = this.boardMount.getComponent(UITransform)!.contentSize;
+    const boardPoints = this.session.model.targetCells.concat(this.session.model.obstacleCells).map(gridToPoint2);
+    this.boardScale = Math.min(1.18,
+      (boardSize.width - 24) / ((Math.max(...boardPoints.map((point) => point.x2)) - Math.min(...boardPoints.map((point) => point.x2))) / 2 + TILE_WIDTH),
+      (boardSize.height - 24) / ((Math.max(...boardPoints.map((point) => point.y2)) - Math.min(...boardPoints.map((point) => point.y2))) / 2 + TILE_HEIGHT));
   }
 
   public resume(): void {
@@ -193,6 +201,7 @@ export class GameplayView {
     }
     this.boardMount = boardMount;
     this.trayMount = trayMount;
+    this.trayPanel = findNode(content, 'img_tray-base');
     for (const name of ['editor_board_preview', 'editor_tray_preview']) {
       const preview = findNode(content, name);
       if (preview) preview.active = false;
@@ -246,8 +255,13 @@ export class GameplayView {
     }
     for (const coord of this.session.model.obstacleCells) {
       const position = this.coordPosition(coord);
-      const texture = this.createBoardTexture('ObstacleCell', 'v3-board-obstacle');
+      const texture = this.createBoardTexture('ObstacleCell', 'v3-board-boundary');
       texture.setParent(this.textureLayer); texture.setPosition(position);
+      // Keep a full board cell behind the metal's transparent, antialiased edge.
+      const obstacle = this.createCell('ObstacleVisual', 'v3-board-obstacle', 1, 1);
+      const obstacleBorder = findNode(obstacle, 'border_edges');
+      obstacleBorder?.removeFromParent(); obstacleBorder?.destroy();
+      obstacle.setParent(texture); obstacle.setPosition(0, 0, 0); obstacle.setSiblingIndex(0);
       this.showBoardBoundary(texture, coord, occupied);
     }
   }
@@ -271,13 +285,19 @@ export class GameplayView {
         cells.push(sprite);
       }
       const view: PieceView = {
-        definition, node, cells, home, preview: null, dragState: 'idle', touchId: null,
+        definition, node, cells, home, preview: null, returningToTray: false, dragState: 'idle', touchId: null,
         touchStart: new Vec3(), touchStartUi: new Vec3(), grabPoint: new Vec3(), pointerRoot: new Vec3(),
         liftProgress: { value: 0 }, liftOffset: MIN_LIFT, isMouseDrag: false, hitArea: null, pickBounds: null,
       };
       this.pieceViews.set(definition.id, view);
       this.createPieceHitArea(view, cells);
     }
+    this.layoutTrayPieces();
+  }
+
+  private layoutTrayPieces(): void {
+    const size = this.trayMount.getComponent(UITransform)!.contentSize;
+    this.tray.getComponent(UITransform)!.setContentSize(size);
     const bounds = Array.from(this.pieceViews.values()).map((piece) => ({
       id: piece.definition.id,
       minX: Math.min(...piece.cells.map((cell) => cell.position.x)) - TILE_WIDTH / 2,
@@ -285,7 +305,7 @@ export class GameplayView {
       minY: Math.min(...piece.cells.map((cell) => cell.position.y)) - TILE_HEIGHT / 2,
       maxY: Math.max(...piece.cells.map((cell) => cell.position.y)) + TILE_HEIGHT / 2,
     }));
-    const layout = layoutTray(bounds, size.width - 24, size.height - 24, 0.5);
+    const layout = layoutTray(bounds, size.width - 24, size.height - 24, 0.65);
     this.trayScale = layout.scale;
     for (const item of layout.items) this.pieceViews.get(item.id)!.home.set(item.x, item.y, 0);
   }
@@ -539,7 +559,26 @@ export class GameplayView {
     if (this.adCovered) { this.cancelDragForAdCoverage(); return; }
     Tween.stopAllByTarget(view.liftProgress);
     this.clearPreview();
-    if (view.preview && this.session.previewPlacement(view.definition.id, view.preview)) {
+    this.highlightTray(false);
+    if (view.returningToTray) {
+      this.session.returnToTray(view.definition.id);
+      if (!this.persistAttempt()) return;
+      view.preview = null;
+      view.returningToTray = false;
+      view.dragState = 'settling';
+      this.setPieceVisualState(view, 'idle');
+      view.node.setParent(this.tray, true);
+      Tween.stopAllByTarget(view.node);
+      tween(view.node)
+        .to(SNAP_TIME, { position: view.home.clone(), scale: new Vec3(this.trayScale, this.trayScale, 1) }, { easing: 'quadOut' })
+        .call(() => {
+          this.updatePieceHitArea(view);
+          this.resetDragState(view);
+          this.showHint();
+        })
+        .start();
+      this.updateStats();
+    } else if (view.preview && this.session.previewPlacement(view.definition.id, view.preview)) {
       this.session.recordDrop('correct');
       if (!this.persistAttempt()) return;
       this.updateStats();
@@ -562,10 +601,7 @@ export class GameplayView {
         })
         .start();
     } else {
-      const location = event.getUILocation();
-      const trayBounds = this.tray.getComponent(UITransform)!.getBoundingBoxToWorld();
-      if (trayBounds.contains(location)) this.session.returnToTray(view.definition.id);
-      else this.session.recordDrop('invalid-return');
+      this.session.recordDrop('invalid-return');
       if (!this.persistAttempt()) return;
       this.updateStats();
       this.syncPieces();
@@ -578,12 +614,34 @@ export class GameplayView {
     if (view.dragState !== 'dragging') return;
     this.positionDraggedPiece(view);
     const origin = this.dragOriginInBoard(view);
-    const preview = (release || view.liftProgress.value >= 1)
-      ? resolveSnap(this.session.model, view.definition.id, origin, view.preview, release)
-      : null;
+    const candidate = resolveSnap(this.session.model, view.definition.id, origin, view.preview, release);
+    view.returningToTray = this.isOverTray(view, !!candidate);
+    this.highlightTray(view.returningToTray);
+    const preview = !view.returningToTray && (release || view.liftProgress.value >= 1) ? candidate : null;
     view.preview = preview;
     this.renderPreview(preview);
     this.setPieceVisualState(view, preview ? 'valid-preview' : 'dragging');
+  }
+
+  private isOverTray(view: PieceView, hasBoardCandidate = false): boolean {
+    const panel = this.trayPanel;
+    const transform = panel?.getComponent(UITransform);
+    if (!panel || !transform) return false;
+    const { width, height } = transform.contentSize;
+    const { x, y } = transform.anchorPoint;
+    const corners = [
+      new Vec3(-x * width, -y * height), new Vec3((1 - x) * width, -y * height),
+      new Vec3(-x * width, (1 - y) * height), new Vec3((1 - x) * width, (1 - y) * height),
+    ].map((point) => this.pointInGame(panel, point));
+    return isTrayDrop(view.pointerRoot, view.cells.map((cell) => this.pointInGame(cell)), {
+      minX: Math.min(...corners.map((point) => point.x)), maxX: Math.max(...corners.map((point) => point.x)),
+      minY: Math.min(...corners.map((point) => point.y)), maxY: Math.max(...corners.map((point) => point.y)),
+    }, hasBoardCandidate);
+  }
+
+  private highlightTray(active: boolean): void {
+    const sprite = this.trayPanel?.getComponent(Sprite);
+    if (sprite) sprite.color = active ? new Color(175, 255, 210, 255) : Color.WHITE;
   }
 
   private positionDraggedPiece(view: PieceView): void {
@@ -649,6 +707,8 @@ export class GameplayView {
     view.dragState = 'idle';
     view.touchId = null;
     view.preview = null;
+    view.returningToTray = false;
+    this.highlightTray(false);
     view.isMouseDrag = false;
   }
 
@@ -816,10 +876,44 @@ export class GameplayView {
   }
 
   public layoutResponsive(visibleHeight: number): void {
-    this.visibleHeight = Math.max(1280, visibleHeight);
+    const layout = gameplayLayout(visibleHeight);
+    this.visibleHeight = layout.height;
     const pageBackground = this.chromeContent ? findNode(this.chromeContent, 'img_background') : null;
     pageBackground?.setScale(this.visibleHeight / 1280, this.visibleHeight / 1280, 1);
     pageBackground?.setPosition(0, 0);
+    if (this.appliedLayoutHeight !== layout.height && this.chromeContent) {
+      // Resizing invalidates the pointer-to-piece transform. Roll back an active
+      // gesture before reflowing; a committed settling move remains committed.
+      this.cancelDragForAdCoverage();
+      this.node.getComponent(UITransform)!.setContentSize(720, layout.height);
+      const header = findNode(this.chromeContent, 'header_anchor');
+      header?.setPosition(0, layout.headerY);
+      header?.setScale(layout.headerScale, layout.headerScale, 1);
+      findNode(this.chromeContent, 'footer_anchor')?.setPosition(0, layout.footerY);
+      this.boardMount.setPosition(layout.board.x, layout.board.y);
+      this.boardMount.getComponent(UITransform)!.setContentSize(layout.board.width, layout.board.height);
+      this.trayMount.setPosition(layout.tray.x, layout.tray.y);
+      this.trayMount.getComponent(UITransform)!.setContentSize(layout.tray.width - 40, layout.tray.height - 36);
+      // Complete authored images keep their corners and reflections at native size.
+      // Select a canvas covering the logical tray and keep its bottom edge fixed.
+      const artHeight = TRAY_ART_HEIGHTS.find(height => height >= layout.tray.height) ?? 288;
+      this.trayPanel?.setPosition(layout.tray.x, layout.tray.y + (artHeight - layout.tray.height) / 2);
+      this.trayPanel?.getComponent(UITransform)?.setContentSize(layout.tray.width, artHeight);
+      const traySprite = this.trayPanel?.getComponent(Sprite);
+      const trayFrame = this.frames.get(`v4-tray-${artHeight}`);
+      if (traySprite && trayFrame) traySprite.spriteFrame = trayFrame;
+      this.updateBoardScale();
+      const coords = this.session.model.targetCells.concat(this.session.model.obstacleCells);
+      this.textureLayer.children.forEach((cell, index) => {
+        cell.setPosition(this.coordPosition(coords[index]));
+        cell.setScale(this.boardScale, this.boardScale, 1);
+      });
+      this.layoutTrayPieces();
+      this.clearPreview();
+      this.syncPieces();
+      this.showHint();
+      this.appliedLayoutHeight = layout.height;
+    }
     this.board.setPosition(this.boardOrigin);
     this.tray.setPosition(this.trayOrigin);
     if (!this.winLayout) return;

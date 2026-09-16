@@ -50,7 +50,7 @@ export const PREFAB_CONTRACTS: readonly PrefabContract[] = [
     ...view('04-challenge-levels', Array.from({ length: 10 }, (_, index) => `hit_level-${('0' + (index + 1)).slice(-2)}`)),
   ]),
   active('GameplayPage', 'pages', states(['05-classic-gameplay', '06-challenge-gameplay', '15-persistent-hint'],
-    ['board_mount', 'tray_mount', 'editor_board_preview', 'editor_tray_preview', 'hit_hint', 'hit_back']), ['Board', 'Tray', 'PlacementPreview']),
+    ['board_mount', 'tray_mount', 'editor_board_preview', 'editor_tray_preview', 'header_anchor', 'footer_anchor', 'footer_anchor/hit_hint', 'header_anchor/hit_back']), ['Board', 'Tray', 'PlacementPreview']),
   active('SettingsPanel', 'items', view('11-settings', [
     'hit_close', 'hit_music', 'hit_sound', 'hit_vibration', 'hit_language-zh', 'hit_language-en', 'hit_privacy', 'hit_legacy',
     'img_music-toggle-on', 'img_music-toggle-off',

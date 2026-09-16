@@ -1,5 +1,24 @@
 import org.apache.tools.ant.taskdefs.condition.Os
 import groovy.json.JsonOutput
+import com.android.build.api.artifact.SingleArtifact
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
+abstract class NameReleaseBundle extends DefaultTask {
+    @InputFile
+    @PathSensitive(PathSensitivity.NONE)
+    abstract RegularFileProperty getInputBundle()
+
+    @OutputFile
+    abstract RegularFileProperty getOutputBundle()
+
+    @TaskAction
+    void copyBundle() {
+        def destination = outputBundle.get().asFile.toPath()
+        Files.createDirectories(destination.parent)
+        Files.copy(inputBundle.get().asFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING)
+    }
+}
 
 apply plugin: 'com.android.application'
 
@@ -9,7 +28,7 @@ def productionAdmobAppId = providers.gradleProperty('IAA_ADMOB_APP_ID').orElse('
 def productionRewardedId = providers.gradleProperty('IAA_REWARDED_AD_UNIT_ID').orElse('').get()
 // Temporarily disable real ads until production IDs are configured.
 def adsEnabled = providers.gradleProperty('IAA_ADS_ENABLED').orElse('false').get().toBoolean()
-def IAA_ANDROID_APPLICATION_ID = 'com.world.hexapuzzle'
+def IAA_ANDROID_APPLICATION_ID = 'com.hexa.block.puzzlegame'
 def IAA_ANDROID_COMPILE_SDK = 36
 def IAA_ANDROID_TARGET_SDK = 36
 def IAA_ANDROID_MIN_SDK = 23
@@ -37,7 +56,7 @@ android {
         minSdkVersion IAA_ANDROID_MIN_SDK
         targetSdkVersion IAA_ANDROID_TARGET_SDK
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         buildConfigField 'boolean', 'IAA_ADS_ENABLED', adsEnabled.toString()
         manifestPlaceholders = [iaaAdsEnabled: adsEnabled.toString()]
 
@@ -149,11 +168,38 @@ android {
     // The simulated provider is a separate compile-time source, never a runtime production switch.
     ['debug', 'qa', 'release'].each { variant ->
         sourceSets.getByName(variant).java {
-            srcDir 'src/com/world/hexapuzzle/yzad'
+            srcDir 'src/com/hexa/block/puzzlegame/yzad'
             include 'AdGoogleProvider.java'
         }
     }
     sourceSets.simulation.java.srcDir 'simulation/java'
+}
+
+// Derive filenames from the app label and version; strip Windows-invalid characters.
+def releaseAppName = new XmlSlurper().parse(file('../res/values/strings.xml'))
+        .string.find { it.@name == 'app_name' }.text()
+        .replaceAll(/[<>:"\/\\|?*\x00-\x1F]/, '').trim()
+if (releaseAppName.isEmpty()) {
+    throw new GradleException('app_name must provide a valid release artifact filename.')
+}
+
+// AGP 8.10 exposes APK filenames through the legacy variant API.
+android.applicationVariants.all { variant ->
+    if (variant.buildType.name == 'release') {
+        variant.outputs.all { output ->
+            output.outputFileName = "${releaseAppName}_release_${variant.versionName}.apk"
+        }
+    }
+}
+
+// Register the renamed AAB as the final artifact so bundleRelease and IDE consumers use it.
+androidComponents.onVariants(androidComponents.selector().withBuildType('release')) { variant ->
+    def bundleName = "${releaseAppName}_release_${variant.outputs.first().versionName.get()}.aab"
+    def renameBundle = tasks.register("name${variant.name.capitalize()}Bundle", NameReleaseBundle)
+    variant.artifacts.use(renameBundle)
+            .wiredWithFiles({ it.inputBundle }, { it.outputBundle })
+            .withName(bundleName)
+            .toTransform(SingleArtifact.BUNDLE.INSTANCE)
 }
 
 dependencies {
@@ -188,8 +234,8 @@ tasks.matching { it.name == 'preReleaseBuild' }.configureEach { dependsOn valida
         doFirst {
             def providers = source.files.findAll { it.name == 'AdGoogleProvider.java' }
             def providerPath = variant == 'Simulation'
-                    ? 'simulation/java/com/world/hexapuzzle/yzad/AdGoogleProvider.java'
-                    : 'src/com/world/hexapuzzle/yzad/AdGoogleProvider.java'
+                    ? 'simulation/java/com/hexa/block/puzzlegame/yzad/AdGoogleProvider.java'
+                    : 'src/com/hexa/block/puzzlegame/yzad/AdGoogleProvider.java'
             if (providers.size() != 1 || providers.first().canonicalFile != file(providerPath).canonicalFile) {
                 throw new GradleException("Unexpected rewarded provider sources for ${variant}: ${providers}")
             }

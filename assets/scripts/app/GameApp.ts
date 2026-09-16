@@ -10,6 +10,7 @@ import { SaveService, type LegacyLevelMap } from '../data/SaveService';
 import type { AttemptSave, SaveData } from '../data/SaveTypes';
 import { GameplaySession } from '../gameplay/GameplaySession';
 import { GameplayView, type ResultAction } from '../gameplay/GameplayView';
+import { TRAY_ART_HEIGHTS } from '../gameplay/GameplayLayout';
 import { I18nService, type I18nKey, type Locale } from '../i18n/I18nService';
 import { createLabel, createPanel, findNodeByPath } from '../ui/UiFactory';
 import { HomePageView } from '../ui/HomePageView';
@@ -182,7 +183,7 @@ export class GameApp extends Component {
   private async loadDeferredResources(): Promise<void> {
     this.deferredError = null;
     try {
-      const [frames, boardFrames, music, win, mapPrefab, levelPrefab, gameplayPrefab, settingsPanelPrefab, winPrefab, toastPrefab, rewardHintDialogPrefab, challengeFailurePrefab, legacyRecordsPrefab, cellPrefab] = await Promise.all([
+      const [frames, boardFrames, music, win, mapPrefab, levelPrefab, gameplayPrefab, settingsPanelPrefab, winPrefab, toastPrefab, rewardHintDialogPrefab, challengeFailurePrefab, legacyRecordsPrefab, cellPrefab, trayFrames] = await Promise.all([
         Promise.all(Array.from({ length: 18 }, (_, index) => loadResource(`ui/toybox-v4/game/tiles/${index + 1}/spriteFrame`, SpriteFrame))),
         Promise.all([
           loadResource('ui/toybox-v4/game/board-empty/spriteFrame', SpriteFrame),
@@ -202,12 +203,18 @@ export class GameApp extends Component {
         loadResource('prefabs/items/ChallengeFailurePanel', Prefab),
         loadResource('prefabs/items/LegacyRecordsPanel', Prefab),
         loadResource('prefabs/items/CellVisual', Prefab),
+        Promise.all([
+          loadResource('ui/toybox-v4/fixed-size/tray-672x228/spriteFrame', SpriteFrame),
+          loadResource('ui/toybox-v4/fixed-size/tray-672x258/spriteFrame', SpriteFrame),
+          loadResource('ui/toybox-v4/fixed-size/tray-672x288/spriteFrame', SpriteFrame),
+        ]),
       ]);
       this.frames = new Map(frames.map((frame, index) => [`${index + 1}_png`, frame]));
       this.frames.set('v3-board-empty', boardFrames[0]);
       this.frames.set('v3-board-obstacle', boardFrames[1]);
       this.frames.set('v3-board-preview', boardFrames[2]);
       this.frames.set('v3-board-boundary', boardFrames[3]);
+      TRAY_ART_HEIGHTS.forEach((height, index) => this.frames.set(`v4-tray-${height}`, trayFrames[index]));
       this.audio = new AudioService(this.node, music, win, this.settings);
       this.audio.setAdCovered(this.adCovered || this.rewardedAds.presentationActive);
       this.mapPrefab = mapPrefab;
@@ -429,6 +436,11 @@ export class GameApp extends Component {
   }
 
   private layoutResponsivePage(page: Node): void {
+    if (this.gameplay?.node === page) {
+      page.setPosition(0, 0, 0);
+      this.gameplay.layoutResponsive(view.getVisibleSize().height);
+      return;
+    }
     if (prefabNodes(page).some((node) => node.name.startsWith('view_'))) {
       const size = view.getVisibleSize();
       const cover = Math.max(1, size.width / 720, size.height / 1280);
@@ -452,7 +464,6 @@ export class GameApp extends Component {
       node.setPosition(position.x, position.y - extraHeight * verticalFactor, position.z);
       node.setScale(scale);
     }
-    if (this.gameplay?.node === page) this.gameplay.layoutResponsive(visibleHeight);
   }
 
   private async createPage(route: AppRoute): Promise<Node> {
@@ -755,7 +766,15 @@ export class GameApp extends Component {
       t: (key, params) => this.t(key, params),
       onBack: () => { void this.back(); },
       onSettings: () => { void this.showSettingsPanel(); },
-      onPage: (page) => { void this.navigate({ name: 'levels', mapId, page }, 'replace'); },
+      canChangePage: () => this.currentPage === root && !this.transitioning && !this.adCovered && !this.privacyActive,
+      onPage: (page) => {
+        // Paging stays inside this view. Only update the history entry so a
+        // later return from gameplay restores the page without rebuilding it.
+        const current = this.flow.current;
+        if (this.currentPage === root && current.name === 'levels' && current.mapId === mapId) {
+          this.flow.replace({ name: 'levels', mapId, page });
+        }
+      },
       onSelectLevel: (levelIndex) => { void this.navigate({ name: 'gameplay', mapId, levelIndex }); },
     });
     this.registerResponsivePage(root, []);
