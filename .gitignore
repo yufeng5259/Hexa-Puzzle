@@ -20,6 +20,9 @@ native/**/.gradle/
 native/**/.cxx/
 native/**/.externalNativeBuild/
 native/**/build/
+native/**/app/debug/
+native/**/app/release/
+native/**/captures/
 native/**/local.properties
 native/**/localCfg.cmake
 native/**/*.jks
@@ -30,6 +33,10 @@ native/**/ad-config.release.properties
 native/**/ad-config.local.properties
 .creator/
 .omx/
+.cache/
+
+# WeChat DevTools preferences are private to each developer.
+project.private.config.json
 
 # Local builds, exports and temporary work (not build-templates).
 /output/
@@ -105,3 +112,5 @@ $RECYCLE.BIN/
 # WebStorm
 #//////////////////////////
 .idea/
+.vs/
+.history/

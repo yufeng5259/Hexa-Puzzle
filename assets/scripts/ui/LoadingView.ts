@@ -1,4 +1,4 @@
-import { _decorator, BlockInputEvents, Component, Node, Sprite, tween, UIOpacity, UITransform, view } from 'cc';
+import { _decorator, BlockInputEvents, Component, Node, Sprite, sys, tween, UIOpacity, UITransform, view } from 'cc';
 import type { Locale } from '../i18n/I18nService';
 import { bindAction, findImage, findNode, selectVariant, setLabelVisible, setText, setVisible } from './PrefabUi';
 const { ccclass } = _decorator;
@@ -32,6 +32,13 @@ export class LoadingView extends Component {
     this.setProgress(0, model.startText);
     this.layout();
     this.showRetry(false);
+
+    let welabelNode = findNode(this.node, 'Label_wechat');
+    if (sys.platform === sys.Platform.WECHAT_GAME) {
+      welabelNode.active = true;
+    } else {
+      welabelNode.active = false;
+    }
   }
   public setLocale(locale: Locale): void {
     this.locale = locale;

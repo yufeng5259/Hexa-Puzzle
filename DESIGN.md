@@ -3,7 +3,9 @@
 ## Source of truth
 
 - Status: Active for IAA Android V2; implementation/acceptance authority is `docs/version-1/iaa-android-v2/implementation-plan.md` and `acceptance-review.md`.
-- Last refreshed: 2026-09-07
+- Last refreshed: 2026-09-13
+- Artwork authority: approved `arts/方案B-清新玩具/统一校正-v4` original effects, with the confirmed2026-09-12 gameplay layout for geometry. The user's2026-09-13 requirement is complete fixed-size PNGs with original highlights/bevels/shadows, no nine-slice and no anisotropic artwork scaling. This requirement supersedes earlier palette/radius guidance where it differs from those effects.
+- Production artwork bindings: `assets/resources/ui/toybox-v4/meta/asset-manifest.json` (`fixedArtBindings`, `fixedArtSources`). All current `tools/ui-v4` import/prefab generators preserve these bindings; do not restore the archived shared bases or old sliced gameplay panels.
 - Primary product surfaces: Home with daily hint, Map, Levels, Gameplay, Results, Settings/privacy options, rewarded hint, challenge failure, Legacy Records.
 - Evidence reviewed: `docs/version-1/*`, `docs/migration/visual-fix/*`, `docs/migration/g008/*`, `assets/resources/prefabs`, `assets/resources/gameplay`, `assets/_legacy-ui/resources/external`, `assets/scripts/app/GameApp.ts`, `assets/scripts/gameplay/GameplayView.ts`
 
@@ -88,6 +90,9 @@ Tradeoff: preserve the recognizable glossy toy identity while reducing legacy pl
 
 ## Implementation constraints
 
+- Localized brand titles (2026-09-16): use transparent `titles/logo-en.png` (“Hexa Mosaic Block Puzzle”, without a colon) and `titles/logo-zh.png` (“六角拼图”) in both Home variants and LoadingPage. Replace the original brand Labels with SIMPLE Sprites at 620×339 and (15, 251.5), with full padding, no trimming or nine-slicing. `img_en_brand-logo` / `img_zh_brand-logo` follow the existing locale selector. These two brand images are the only v4 text-bearing image exceptions. Regeneration and reimport must preserve their glossy highlights, approved pixels and bindings.
+- Level pagination (2026-09-14): keep the LevelPage instance, background, header and pager plate mounted. Animate only grouped authored level visuals/hits inside a grid Mask and the shared bilingual page-number container inside its own Mask. Next moves left/out then right/in, previous reverses, columns stagger 15ms; lock hits until completion. Update PageFlow with the visible page without navigating/recreating the page. Load the four original-size arrow states once per view; image state must match the boundary hit state. Tween the active shared container, never the hidden language label; cancel tracked node/opacity targets without traversing destroyed children.
+- Hex artwork (2026-09-14): retain the logical 89px column step, 103px row step and 51.5px odd-column offset. Tiles, obstacle, empty and green placement-preview PNGs use complete 115×103 canvases and the board polygon's parallel 2px inward contour, giving a 4px normal seam. Preserve their glossy RGB detail; checking the canvas dimensions alone is insufficient. Cyan persistent-hint lines continue to trace the full board boundary. Run `tools/tests/hex-art-geometry.test.py` and `tools/ui-v4/hex-cell-geometry-smoke.cjs` when replacing these assets.
 - Framework/styling system: Cocos Creator 3.8.8 and TypeScript; the Phase A HTML/CSS prototype is reference-only.
 - Design-token constraints: no dependency or broad design-system framework; prefer existing Prefabs/assets and centralized semantic contracts.
 - Performance constraints: no full-screen post-processing; animation state is interruptible and leaves no residual nodes.

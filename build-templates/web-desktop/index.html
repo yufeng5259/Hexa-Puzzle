@@ -30,6 +30,19 @@
     <!-- Import map -->
     <script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"></script>
     <script>
+      // Cocos SubFrame detects inline size changes. CSS-only min() resizing
+      // changes clientSize without notifying its render buffer or UI view.
+      // Register before engine startup so its resize listener sees fresh sizes.
+      (function () {
+        var gameFrame = document.getElementById('GameDiv');
+        function resizeGameFrame() {
+          var frameHeight = Math.max(1, window.innerHeight);
+          gameFrame.style.width = Math.min(window.innerWidth, frameHeight * 0.5625) + 'px';
+          gameFrame.style.height = frameHeight + 'px';
+        }
+        resizeGameFrame();
+        window.addEventListener('resize', resizeGameFrame);
+      }());
       System.import('./index.js').catch(function (error) { console.error(error); });
     </script>
   </body>
