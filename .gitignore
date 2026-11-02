@@ -1,6 +1,7 @@
 # Track only the Cocos project; all other root entries stay local.
 /*
 !/.gitignore
+!/.gitattributes
 !/assets/
 !/build-templates/
 !/native/
@@ -121,3 +122,33 @@ $RECYCLE.BIN/
 .idea/
 .vs/
 .history/
+
+# Keep the new foundation reproducible without enrolling historical local tools.
+!/tools/
+/tools/*
+!/tools/prefab-foundation/
+/tools/prefab-foundation/*
+!/tools/prefab-foundation/*.mjs
+!/tools/prefab-foundation/raster.py
+!/tools/prefab-foundation/generated-files.json
+!/tools/prefab-foundation/core-actions.json
+!/tools/prefab-foundation/layout-manifest.json
+!/tools/prefab-foundation/tests/
+/tools/prefab-foundation/tests/*
+!/tools/prefab-foundation/tests/*.mjs
+!/tools/prefab-foundation/tests/fixtures/
+/tools/prefab-foundation/tests/fixtures/*
+!/tools/prefab-foundation/tests/fixtures/authored-visuals-before.json
+!/docs/
+/docs/*
+!/docs/prefab-foundation.md
+!/docs/level-prefabs.md
+!/docs/single-level-play.md
+!/docs/ui-integration.md
+!/docs/loading-page.md
+!/docs/mainline-page.md
+!/docs/mainline-sidebar.md
+!/docs/repository-maintenance.md
+!/docs/source-inputs.json
+!/docs/策划/
+!/AGENTS.md

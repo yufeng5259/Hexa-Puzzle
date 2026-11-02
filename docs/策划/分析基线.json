@@ -1,0 +1,46 @@
+{
+  "observedAt": "2026-10-28T15:48:36.526636+00:00",
+  "basis": "read-only inspection of current rebuilt Project/assets",
+  "existingEvidenceOnly": true,
+  "newTestsOrCreatorRunsExecuted": false,
+  "fingerprintVerification": {
+    "source": "prototype/review/cocos-production/prefab-foundation/source-fingerprints.json",
+    "files": 1119,
+    "missing": [],
+    "changed": []
+  },
+  "existingTests": {
+    "tests": 206,
+    "passed": 206,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "singleLevelNative": {
+    "file": "prototype/review/cocos-production/prefab-foundation/single-level-play/native-report.json",
+    "status": "PASS",
+    "createdAt": "2026-10-28T14:35:40.426Z",
+    "finishedAt": "2026-10-28T14:37:04.109Z",
+    "checks": 129,
+    "screenshotRecords": 17,
+    "screenshots": 33,
+    "screenshotCounting": "Unique file and outcomeFile values; 16 before/result pairs and one failure-state screenshot, not 17 PNG",
+    "errors": [],
+    "warnings": [],
+    "failedResources": [],
+    "limitations": [
+      {
+        "kind": "creator-noncancelable-touchcancel",
+        "detail": "Chrome CDP touchCancel produces cancelable=false. Creator 3.8.8 pal/input/web/touch-input.js unconditionally calls preventDefault for canvas touch events, producing a browser console error. This verifier keeps all error collection unchanged and applies no engine patch. Native multitouch cancellation is tested via the real pause lifecycle; the separate DOM touchcancel branch is synthetic and explicitly cancelable, not trusted hardware input.",
+        "previousFailure": "earlier-noncancelable-touchcancel-failure.json"
+      }
+    ]
+  },
+  "featureCounts": {
+    "基础已具备": 6,
+    "部分实现": 9,
+    "业务未接入": 50
+  },
+  "prototypeRoutes": 73,
+  "prefabs": 82
+}

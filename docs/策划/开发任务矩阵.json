@@ -1,0 +1,2339 @@
+{
+  "schema": "hexa.full-feature-development-plan.v1",
+  "date": "2026-10-29",
+  "planningOnly": true,
+  "executionStarted": false,
+  "catalogSha256": "83efcf00a1c2946ef921851a8e5884d60d0b5d97a84a513fb5d943f62147c233",
+  "counts": {
+    "features": 65,
+    "foundationRechecks": 6,
+    "remaining": 59,
+    "partialClosure": 9,
+    "businessIntegration": 50,
+    "routes": 73
+  },
+  "progressAuthority": "功能完成目录.md",
+  "phaseCounts": {
+    "P00": 6,
+    "P01": 17,
+    "P02": 9,
+    "P03": 7,
+    "P04": 12,
+    "P05": 8,
+    "P06": 6
+  },
+  "tasks": [
+    {
+      "id": "F001",
+      "title": "启动与Loading",
+      "phase": "P00",
+      "sequence": null,
+      "baselineStatus": "基础已具备",
+      "workKind": "基础范围复验与后续联动",
+      "dependencies": [],
+      "document": "功能/F001_启动与Loading.md",
+      "stageGate": "G00",
+      "integrationGates": [
+        "G01：启动装载/恢复失败与唯一存档装配"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "loading"
+      ],
+      "prefabIds": [
+        "loading"
+      ],
+      "acceptanceCriteria": [
+        "新安装仅一个Loading，资源与目录成功后进入地图，不出现登录菜单。",
+        "模拟题库装载失败：保留失败提示，不显示可点击半成品地图。",
+        "加载中销毁入口，晚到回调不创建页面且scope被释放。",
+        "重复启动/重试不产生第二入口，不重复写入初始余额。",
+        "存在有效档/损坏档时分别恢复/保留备份，未保存成功不宣布就绪。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F002",
+      "title": "页面弹窗导航与返回栈",
+      "phase": "P00",
+      "sequence": null,
+      "baselineStatus": "基础已具备",
+      "workKind": "基础范围复验与后续联动",
+      "dependencies": [
+        "F001"
+      ],
+      "document": "功能/F002_页面弹窗导航与返回栈.md",
+      "stageGate": "G00",
+      "integrationGates": [
+        "G06：全页返回/暂停栈不改变活跃局"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "拼图→暂停→帮助→返回逐层回原局，attempt和步数完全一致。",
+        "快速选择6、12、96，仅最终有效选择提交，旧请求实例释放。",
+        "新页加载失败保留旧页与来源上下文，可再次点击重试。",
+        "覆盖层存在时底页拖放和旧按钮均无作用，关闭后恢复一次。",
+        "反复开关设置十次不叠加监听，dispose后无可用入口。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F003",
+      "title": "资源加载与页面所有权",
+      "phase": "P00",
+      "sequence": null,
+      "baselineStatus": "基础已具备",
+      "workKind": "基础范围复验与后续联动",
+      "dependencies": [],
+      "document": "功能/F003_资源加载与页面所有权.md",
+      "stageGate": "G00",
+      "integrationGates": [
+        "G06：全业务跨bundle资源所有权"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "两个页面同时读同一资源，关闭一个后另一个仍正常显示。",
+        "装载中关闭页面，晚到结果不挂节点，最终引用不残留。",
+        "首次bundle失败后重试成功，没有永久失败Promise。",
+        "错误UUID/类型/未登记ID返回明确错误，不使用替身图。",
+        "重复close/release及子先销毁不抛异常，实例先于资源释放。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F004",
+      "title": "通用Prefab组件与绑定",
+      "phase": "P00",
+      "sequence": null,
+      "baselineStatus": "基础已具备",
+      "workKind": "基础范围复验与后续联动",
+      "dependencies": [
+        "F003"
+      ],
+      "document": "功能/F004_通用Prefab组件与绑定.md",
+      "stageGate": "G00",
+      "integrationGates": [
+        "G06：正式Prefab字段/事件和meta完整"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "button",
+        "icon-button",
+        "resource-hud",
+        "resource-counter",
+        "title-bar",
+        "dialog-frame",
+        "progress",
+        "setting-toggle",
+        "toast"
+      ],
+      "acceptanceCriteria": [
+        "逐个正式Prefab实例化校验，缺任一必填字段时报组件与字段名。",
+        "HUD绑定0和大数后切页再回，数值来自统一快照且无旧图残留。",
+        "按钮连击由调用方事务只提交一次，禁用时不触发。",
+        "开关保存失败回旧态并提示，不能显示已保存。",
+        "反复show/hide/close和图片迟到回调无监听增长、无复活节点。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F005",
+      "title": "虚拟列表与节点复用",
+      "phase": "P00",
+      "sequence": null,
+      "baselineStatus": "基础已具备",
+      "workKind": "基础范围复验与后续联动",
+      "dependencies": [
+        "F003",
+        "F004"
+      ],
+      "document": "功能/F005_虚拟列表与节点复用.md",
+      "stageGate": "G00",
+      "integrationGates": [
+        "G06：业务长列表复用/迟到身份"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "virtual-list"
+      ],
+      "acceptanceCriteria": [
+        "空、单项、1000项依次设数，驻留数量随视窗而非1000增长。",
+        "短→长→空→长反复切换，旧文字、选择和回调不残留。",
+        "纵向首末跳转、横向首末跳转均落在对应数据。",
+        "缩小/放大视窗保持合法滚动，缩小后池不永久保留旧容量。",
+        "快速复用时晚到图片不能覆盖新item；禁用销毁后监听清零。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F006",
+      "title": "题库导入与96关映射",
+      "phase": "P00",
+      "sequence": null,
+      "baselineStatus": "基础已具备",
+      "workKind": "基础范围复验与后续联动",
+      "dependencies": [],
+      "document": "功能/F006_题库导入与96关映射.md",
+      "stageGate": "G00",
+      "integrationGates": [
+        "G01：F015补perfectMoveTarget稳定来源"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "逐题核对110稳定ID与原题几何、障碍及moveLimit一致。",
+        "1、6、7、12、91、96分别映射正确普通/限步原题。",
+        "96主线无重复无空洞，14储备题产品地图不可达。",
+        "未知ID、非法格点、重复目标或障碍重叠明确报错。",
+        "原题配色不同的合法解仍能被规则接受，不以来源答案约束玩家。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F017",
+      "title": "持久化玩家存档与写失败回滚",
+      "phase": "P01",
+      "sequence": 1,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [],
+      "document": "功能/F017_持久化玩家存档与写失败回滚.md",
+      "stageGate": "G01",
+      "integrationGates": [
+        "MIG：F018验收前，识别旧档只读阻断，禁止新档覆盖"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "首次初始化只一次得到默认数据，重启不再赠120/5。",
+        "合法动作后冷启恢复完整快照，重试不会重复扣发。",
+        "模拟每个写阶段失败，重启读旧完整档或新完整档，无半笔奖励。",
+        "两个并发消费不会透支或丢失更新，revision单调。",
+        "损坏/未来schema档保留备份并走明确恢复，不静默重置。",
+        "建设、签到、任务、广告回调均经同一服务，View没有余额赋值。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F019",
+      "title": "花蜜提示钱包与原子交易",
+      "phase": "P01",
+      "sequence": 2,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017"
+      ],
+      "document": "功能/F019_花蜜提示钱包与原子交易.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "resource-hud",
+        "resource-counter",
+        "reward-item"
+      ],
+      "acceptanceCriteria": [
+        "新档120/5，冷启/切页/重复初始化不再赠送。",
+        "余额恰好等于价格消费成功；少1拒绝且效果和余额均不变。",
+        "负价格、小数、NaN、溢出和未知资源整笔拒绝。",
+        "同领取键回调十次只一笔，两个并发消费不透支。",
+        "写失败建筑/提示效果及余额全部回滚，重试成功一次。",
+        "HUD跨页更新一致，星级不进入可消费资源栏。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F010",
+      "title": "普通异形拼图规则与拖放",
+      "phase": "P01",
+      "sequence": 3,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F003",
+        "F006"
+      ],
+      "document": "功能/F010_普通异形拼图规则与拖放.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "puzzle",
+        "puzzle-six"
+      ],
+      "prefabIds": [
+        "puzzle",
+        "puzzle-piece",
+        "tray-slot",
+        "hex-cell"
+      ],
+      "acceptanceCriteria": [
+        "实拖普通3块及6块完整解题，最后一格触发真实completed。",
+        "越界、障碍、重叠均回原位且不计步。",
+        "同一块合法换位计一次，不同配色合法解也成功。",
+        "四尺寸盘面拾取与视觉一致，缩略托盘无残影且完整形状可见。",
+        "双指、弹窗、后台和resize取消不提交，恢复单指正常。",
+        "重复终态回调只开一个结果且F020只结算一次。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F011",
+      "title": "限步计步胜负与免费重试",
+      "phase": "P01",
+      "sequence": 4,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F006",
+        "F010"
+      ],
+      "document": "功能/F011_限步计步胜负与免费重试.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "challenge",
+        "challenge-seven",
+        "challenge-fail"
+      ],
+      "prefabIds": [
+        "puzzle",
+        "challenge-fail"
+      ],
+      "acceptanceCriteria": [
+        "预算最后一步完成判成功，未完成才判失败。",
+        "各做非法、原位、取消、空取回，moves均不变。",
+        "落盘后取回moves+1，合法移位再+1。",
+        "耗尽后禁止拖放，免费重试变新attempt且moves=0。",
+        "连续点重试/资源失败不生成已接受双局，不扣花蜜。",
+        "帮助及暂停往返预算不变，储备7块清楚标记开发审阅。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F012",
+      "title": "拼块取回与输入取消",
+      "phase": "P01",
+      "sequence": 5,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F010"
+      ],
+      "document": "功能/F012_拼块取回与输入取消.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "puzzle-piece",
+        "tray-slot"
+      ],
+      "acceptanceCriteria": [
+        "放两块后空白点击取回按最近顺序，选中已放块后优先取选中块。",
+        "已放块盘内非法松手保持原位，盘外主动松手只取回一次。",
+        "拖动中cancel、后台、resize、暂停各恢复原快照且不耗步。",
+        "双指过程中第二指不能接管，第一指取消后新单指可用。",
+        "捕获与全局重复派发同一end不双计步；销毁后全部监听清零。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F020",
+      "title": "首通奖励与统一幂等结算",
+      "phase": "P01",
+      "sequence": 6,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F006",
+        "F017",
+        "F019"
+      ],
+      "document": "功能/F020_首通奖励与统一幂等结算.md",
+      "stageGate": "G01",
+      "integrationGates": [
+        "TX：解锁/奖励/事件ID同次持久提交"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "puzzle-result",
+        "challenge-result",
+        "reward-item"
+      ],
+      "acceptanceCriteria": [
+        "普通首次80，限步首次无论1/2/3星都只120。",
+        "同稳定题不同attempt复玩不再发首通，按复玩/星差规则给实得。",
+        "同attempt终态回调、结果重开、冷启重试均一笔。",
+        "写入失败钱包/首通/解锁/事件都不变，重试成功一次。",
+        "保存后、事件分发前崩溃，恢复后任务/成长仅计一次。",
+        "开发演示、failed局和未知attempt不能伪造成功奖励。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F008",
+      "title": "主线解锁与96关终点",
+      "phase": "P01",
+      "sequence": 7,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F006",
+        "F017",
+        "F020"
+      ],
+      "document": "功能/F008_主线解锁与96关终点.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "mainline-map"
+      ],
+      "acceptanceCriteria": [
+        "新档直接请求关2或储备题均拒绝，关1可开。",
+        "关1失败、取消、退出各不解锁2；真实完成并保存后才解锁。",
+        "已通关1重复玩不再发首通但可正常进入。",
+        "重复结算与重启后关号、已通集合保持一致。",
+        "关96完成后按钮回地图，不产生97或越界目录访问。",
+        "旧档非连续已通保持可复玩，历史领奖不补发。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F007",
+      "title": "综合地图分页与关卡展示",
+      "phase": "P01",
+      "sequence": 8,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F002",
+        "F004",
+        "F006"
+      ],
+      "document": "功能/F007_综合地图分页与关卡展示.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "levels"
+      ],
+      "prefabIds": [
+        "mainline-map",
+        "level-node"
+      ],
+      "acceptanceCriteria": [
+        "首/末页显示1..8及89..96，边界按钮状态正确。",
+        "新玩家仅关1可开；通关6后关7可开，其他入口遵守同一权限。",
+        "点击6/12/96开预览显示正确原题及模式，取消不改底下原局。",
+        "从第12页进入关卡再返回，页码与选择态一致。",
+        "快速翻页与资源失败不混题，重开页面无重复回调。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F013",
+      "title": "活跃局续玩重开与退出确认",
+      "phase": "P01",
+      "sequence": 9,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F002",
+        "F010",
+        "F017"
+      ],
+      "document": "功能/F013_活跃局续玩重开与退出确认.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "resume-puzzle",
+        "exit-confirm",
+        "restart-confirm"
+      ],
+      "prefabIds": [
+        "puzzle-resume",
+        "confirmation"
+      ],
+      "acceptanceCriteria": [
+        "局中暂停/帮助/设置/返回再进，原ID、摆放、步数一致。",
+        "杀进程重启恢复同一attempt及最近取回顺序。",
+        "退出保存失败仍在原局，成功后回来源并可续玩。",
+        "取消重开不变，确认重开清盘并生成不碰撞新ID。",
+        "重开页面加载失败保留旧局，不丢已保存快照。",
+        "旧储备题活跃局允许兼容恢复但不新增产品入口。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F009",
+      "title": "普通与限步开局预览",
+      "phase": "P01",
+      "sequence": 10,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F006",
+        "F008",
+        "F013",
+        "F020"
+      ],
+      "document": "功能/F009_普通与限步开局预览.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "level-preview",
+        "challenge-preview"
+      ],
+      "prefabIds": [
+        "puzzle-preview"
+      ],
+      "acceptanceCriteria": [
+        "分别选1、6，显示正确普通/限步、块数、预算与主线号。",
+        "首次普通预告80、首次限步120，已通普通按每日额度预告20或0。",
+        "同题已有活跃局时开始不悄悄清空，明确重开才换attempt。",
+        "取消另一关预览后原局题ID、摆放和步数不变。",
+        "开始阶段加载失败保留旧页与旧attempt，重复点不双建局。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F014",
+      "title": "真实胜利结算与下一关",
+      "phase": "P01",
+      "sequence": 11,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F008",
+        "F010",
+        "F011",
+        "F020"
+      ],
+      "document": "功能/F014_真实胜利结算与下一关.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "puzzle-win"
+      ],
+      "prefabIds": [
+        "puzzle-result",
+        "reward-item"
+      ],
+      "acceptanceCriteria": [
+        "普通首次真实完成：先落盘80，再展示本次实得及下一关。",
+        "同attempt重复回调/重开结果/冷启仅一笔奖励和一次业务事件。",
+        "复玩额度满展示0且仍可回家/下一合法入口。",
+        "结算写入失败无余额/解锁变化，重试同attempt成功一次。",
+        "结果页资源失败可点击恢复，布局和步数不变。",
+        "96关成功回地图，不访问97，演示结算不发奖励。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F015",
+      "title": "限步星级与历史最佳",
+      "phase": "P01",
+      "sequence": 12,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F011",
+        "F017",
+        "F019",
+        "F020"
+      ],
+      "document": "功能/F015_限步星级与历史最佳.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "challenge-win"
+      ],
+      "prefabIds": [
+        "challenge-result"
+      ],
+      "acceptanceCriteria": [
+        "未提示未续关且刚好perfectMoveTarget步完成得3星。",
+        "超过完美目标但未耗尽预算得2星，不能以moveLimit判3星。",
+        "用提示无续关得2星；续关后任何合法完成得1星。",
+        "首次3星仅120；之后1→3补40、2→3补20、3→2补0。",
+        "重复结算和冷启不重复补差，历史最佳只增不减。",
+        "缺perfectMoveTarget时配置明确失败且不误发三星/差额。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F016",
+      "title": "提示库存与真实目标轮廓",
+      "phase": "P01",
+      "sequence": 13,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F010",
+        "F017",
+        "F019"
+      ],
+      "document": "功能/F016_提示库存与真实目标轮廓.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "puzzle-hint",
+        "hint-empty"
+      ],
+      "prefabIds": [
+        "puzzle",
+        "hint-empty"
+      ],
+      "acceptanceCriteria": [
+        "库存5首次提示后变4，轮廓对应本题一块合法位置且未自动摆放。",
+        "原提示有效连点十次仍只扣1，移动步数不变。",
+        "改变局面后旧提示失效，重新申请只在有效结果保存后扣。",
+        "库存0打开不足页，关闭后原局摆放与预算不变。",
+        "保存失败/无合法目标不扣库存、不增加hintsUsed。",
+        "切题或销毁后迟到提示不能显示或扣款；限步使用后按F015评2星。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F018",
+      "title": "旧档迁移与稳定身份兼容",
+      "phase": "P01",
+      "sequence": 14,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F006",
+        "F017"
+      ],
+      "document": "功能/F018_旧档迁移与稳定身份兼容.md",
+      "stageGate": "G01",
+      "integrationGates": [
+        "MIG：真实旧档接入前必须完成迁移；不导入旧assets"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "旧普通80/限步最佳及花蜜建筑完整保留，映射到正确96主线。",
+        "同一档迁移两次字节等价或语义等价，不新增奖励回执。",
+        "旧限步17..30活跃局可恢复，产品地图仍没有97/储备入口。",
+        "旧待处理广告迟到仍归原attempt，不写当前新局。",
+        "迁移写失败原档/备份可恢复，余额与claims不半更新。",
+        "非连续旧已通保留可复玩，未知字段按兼容策略保留或记录。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F022",
+      "title": "业务时钟与跨日跨周",
+      "phase": "P01",
+      "sequence": 15,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017"
+      ],
+      "document": "功能/F022_业务时钟与跨日跨周.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "23:59完成与次日00:00完成分别落入正确日额，单attempt不跨日重发。",
+        "周日→周一同时刷新日/周，周二只刷新日。",
+        "启动/回前台/领取重复触发只rollover一次。",
+        "回拨到昨天不重置当日次数或重复签到，前进后按规则恢复。",
+        "跨日保存失败旧周期完整保留，成功重试后只刷新一次。",
+        "测试Clock推进日期不改OS，生产档与测试档记录相互隔离。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F021",
+      "title": "普通复玩与每日精选",
+      "phase": "P01",
+      "sequence": 16,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F008",
+        "F020",
+        "F022"
+      ],
+      "document": "功能/F021_普通复玩与每日精选.md",
+      "stageGate": "G01",
+      "integrationGates": [
+        "G04：F041精选与满园替换任务联动"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "featured"
+      ],
+      "prefabIds": [
+        "featured",
+        "featured-item"
+      ],
+      "acceptanceCriteria": [
+        "已通0/1/2/多道普通题时展示0/1/2/最多3个不重复题。",
+        "普通地图复玩3次+精选2次共100，第6次0仍可练习。",
+        "普通首通80不占当日5次复玩次数，限步不混入精选。",
+        "同attempt重复结算不多扣额度，失败与退出不消耗。",
+        "跨日刷新列表与额度，回拨不重新获得当日5次。",
+        "写失败余额、次数及精选完成标记一起不变。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F065",
+      "title": "本地存档摘要与安全恢复界面",
+      "phase": "P01",
+      "sequence": 17,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F013",
+        "F017",
+        "F018"
+      ],
+      "document": "功能/F065_本地存档摘要与安全恢复界面.md",
+      "stageGate": "G01",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "local-save"
+      ],
+      "prefabIds": [
+        "local-save"
+      ],
+      "acceptanceCriteria": [
+        "新档、96关终点、三园完成与普通/限步/无尽活跃档摘要均与权威数据一致。",
+        "手动保存成功后冷启动继续同attempt/run及随机快照，失败不显示已保存。",
+        "坏档/缺题/错profile/不兼容版本恢复拒绝，原档和原始迁移备份不被覆盖。",
+        "有新活跃局和旧广告恢复记录时明确选择，迟到回执不自动切回旧局。",
+        "连续点保存/恢复、同时奖励提交按序执行，重启无半提交或重复奖。",
+        "最小屏大字摘要和免费返回/继续可达，关闭后异步结果不改当前页。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F046",
+      "title": "局内暂停与图示帮助",
+      "phase": "P02",
+      "sequence": 18,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F002",
+        "F010"
+      ],
+      "document": "功能/F046_局内暂停与图示帮助.md",
+      "stageGate": "G02",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "pause",
+        "help",
+        "puzzle-help",
+        "endless-help",
+        "build-help"
+      ],
+      "prefabIds": [
+        "pause",
+        "help-index",
+        "help-detail",
+        "puzzle-tutorial",
+        "endless-tutorial",
+        "garden-tutorial"
+      ],
+      "acceptanceCriteria": [
+        "暂停前后比较attemptId、已摆放块与步数完全一致，遮罩期间触摸不落块。",
+        "暂停→帮助→设置→返回逐层恢复；广告或GM令牌仍在时不能误恢复操作。",
+        "三类图示与原稿逐页对照，减少动效无循环拖影，试一试不自动解题。",
+        "第4关前无尽试一试不可进入；已解锁回原run而非生成新run。",
+        "连开关20次监听数量稳定，加载途中关闭不复活帮助页，缺绑定明确报错。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F047",
+      "title": "五设置与音频震动服务",
+      "phase": "P02",
+      "sequence": 19,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017"
+      ],
+      "document": "功能/F047_五设置与音频震动服务.md",
+      "stageGate": "G02",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "settings"
+      ],
+      "prefabIds": [
+        "settings",
+        "setting-toggle"
+      ],
+      "acceptanceCriteria": [
+        "逐项开关后冷启动检查值与真实行为，关闭音效不影响BGM。",
+        "后台恢复与反复切页无双BGM、无关闭后迟到音效。",
+        "震动禁用及设备不支持两种情况均可正常游玩。",
+        "减少动效时引导、建设与结算静态替代可理解，奖励到账不等待动画。",
+        "四尺寸开大字后关闭/免费动作可达，正文可滚到末尾。",
+        "注入写盘失败时开关与服务回到原值，prod/dev互不污染。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F023",
+      "title": "家园五建筑直接升级",
+      "phase": "P02",
+      "sequence": 20,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F019"
+      ],
+      "document": "功能/F023_家园五建筑直接升级.md",
+      "stageGate": "G02",
+      "integrationGates": [
+        "G02：F048使用真实扣发事件"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "home"
+      ],
+      "prefabIds": [
+        "garden",
+        "building",
+        "building-price"
+      ],
+      "acceptanceCriteria": [
+        "余额40、树屋0级：点实体后余额0、树屋1级、进度1/25；冷启动保持结果。",
+        "同一回执从实体和价签重复提交两次：只扣40、升一级、建设事件一次。",
+        "每园五栋连续升满，逐次核对价格与累计1600/2600/4600。",
+        "提交持久化失败后重试：失败前后余额等级一致，成功仅变更一次。",
+        "施工中返回、后台再恢复：不丢升级，不补扣，不新增排队动作。",
+        "任意栋先升到5，其他四栋仍可独立升级，照片与任务只接收成功事件。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F024",
+      "title": "三园建筑阶段与水车动效",
+      "phase": "P02",
+      "sequence": 21,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F003",
+        "F023"
+      ],
+      "document": "功能/F024_三园建筑阶段与水车动效.md",
+      "stageGate": "G02",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "build-upgrade"
+      ],
+      "prefabIds": [
+        "garden",
+        "building"
+      ],
+      "acceptanceCriteria": [
+        "逐园逐栋查看0至5级，生成90状态记录并核对素材ID，禁止只有数字变化。",
+        "完成三园75次真实升级，每次显示对应新阶段，价格变化与F023一致。",
+        "检查15个转子轴心与层序；动效不带动主体或遮挡价签触区。",
+        "开启减少动效：无持续旋转和施工闪动，最终图、进度与普通模式相同。",
+        "加载新图时切园/关闭，再让旧请求返回：不能把旧园素材写回新页面。",
+        "模拟缺素材及重试：明确错误，不创建替身节点，不回滚已保存等级。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F025",
+      "title": "建筑不足满级与进度反馈",
+      "phase": "P02",
+      "sequence": 22,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F019",
+        "F023"
+      ],
+      "document": "功能/F025_建筑不足满级与进度反馈.md",
+      "stageGate": "G02",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "home-max",
+        "build-short"
+      ],
+      "prefabIds": [
+        "garden",
+        "building-price"
+      ],
+      "acceptanceCriteria": [
+        "余额15、向阳树屋0级：显示还差25，连点不扣款不增级。",
+        "余额补至40后返回：不足提示消失，仍在原园，升级成功余额0。",
+        "一栋5级其余0级：进度5/25、满级无价格，其他四栋可操作。",
+        "从24/25升至25/25：进度不超过25，转入未领奖状态。",
+        "花蜜不足时关闭页面再开：差额按最新余额计算，不能显示旧值。",
+        "直接打开home-max或build-short展示状态：不改存档，不触发完工奖励。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F026",
+      "title": "整园完工唯一奖励",
+      "phase": "P02",
+      "sequence": 23,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F019",
+        "F023"
+      ],
+      "document": "功能/F026_整园完工唯一奖励.md",
+      "stageGate": "G02",
+      "integrationGates": [
+        "G04：F039照片与章节领取事件联动"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "chapter-complete"
+      ],
+      "prefabIds": [
+        "chapter-reward",
+        "reward-item"
+      ],
+      "acceptanceCriteria": [
+        "24/25时伪造领取请求：返回未满足，库存、回执、合影全不变。",
+        "25/25首次领取：花蜜+100、提示+1、合影+1，同次保存。",
+        "双击、重开及冷启动后重放同一领取命令：三项奖励均只到账一次。",
+        "在事务保存失败位置注入失败：不能出现只有花蜜或只有回执的半成品。",
+        "满级后关闭弹窗，回家园仍可领取；领取后出发按钮才可用。",
+        "三园分别领取，三个chapter键独立，合影不串园。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F027",
+      "title": "下一主题解锁与世界地图",
+      "phase": "P02",
+      "sequence": 24,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F023",
+        "F026"
+      ],
+      "document": "功能/F027_下一主题解锁与世界地图.md",
+      "stageGate": "G02",
+      "integrationGates": [
+        "D07：蜂友/野餐同一解锁事实"
+      ],
+      "decisionGates": [
+        "D07"
+      ],
+      "routes": [
+        "chapter-next",
+        "world-map"
+      ],
+      "prefabIds": [
+        "chapter-next",
+        "world-map",
+        "theme-card"
+      ],
+      "acceptanceCriteria": [
+        "前园24/25及满级未领奖两种档：出发均被拒绝，不能变chapter。",
+        "向阳领奖后出发：chapter1、五栋0级、钱包不扣，旧园照片保留。",
+        "同一个出发命令重复两次：停在chapter1，不越到chapter2。",
+        "世界地图旧园去第1册、当前园回家园、未来园点按只显示解锁说明。",
+        "第三园完成后再请求next：进入完成提示，无第四卡、无索引越界。",
+        "切园加载中返回，再让旧资源返回：不复活新页面或覆盖当前园。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F028",
+      "title": "全部内容完成与无消费回流",
+      "phase": "P02",
+      "sequence": 25,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F008",
+        "F026",
+        "F027"
+      ],
+      "document": "功能/F028_全部内容完成与无消费回流.md",
+      "stageGate": "G02",
+      "integrationGates": [
+        "G05：满园后补给入口与免费提示分离"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "journey-complete",
+        "home-finished"
+      ],
+      "prefabIds": [
+        "journey-complete",
+        "garden"
+      ],
+      "acceptanceCriteria": [
+        "96关完成但第三园仍24/25：保留升级和花蜜消费相关正常入口。",
+        "三园25/25但主线未完：仍能进入未通主线，不显示主线全通。",
+        "末园未领奖与已领奖分别进入：前者可拿100+1+合影，后者不再发。",
+        "三园满级查看结算与补给：无花蜜广告邀请，免费游戏入口仍可用。",
+        "重启及重复开完成页：花蜜、提示、领取回执、主线记录均不变。",
+        "进入精选、无尽、相册及蜂友后返回：回到实际来源，无第四园跳转。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F048",
+      "title": "首轮建设与拼图事件式引导",
+      "phase": "P02",
+      "sequence": 26,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F008",
+        "F016",
+        "F017",
+        "F020",
+        "F023",
+        "F046"
+      ],
+      "document": "功能/F048_首轮建设与拼图事件式引导.md",
+      "stageGate": "G02",
+      "integrationGates": [
+        "G02：120→80→160→120真实事件链"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "guide-garden-entry",
+        "guide-home",
+        "guide-menu",
+        "guide-puzzle",
+        "guide-return",
+        "guide-upgrade",
+        "guide-complete"
+      ],
+      "prefabIds": [
+        "guide-overlay"
+      ],
+      "acceptanceCriteria": [
+        "清洁新档真机手动完成120→80→160→120，核对树屋0→1→2和2/25。",
+        "每一步前后杀进程，恢复无重复扣款、无重复80奖励、原局身份不变。",
+        "连续点击升级或结算按钮只提交一次；保存失败不推进高亮。",
+        "每一步跳过后均能正常去地图/家园并自由操作，不补奖。",
+        "四尺寸及大字下镂空与真实触区一致，减少动效只显示静态箭头。",
+        "引导隐藏/销毁解除事件订阅，迟到资源不遮住新页。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F029",
+      "title": "无尽入口解锁与保局",
+      "phase": "P03",
+      "sequence": 27,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F008",
+        "F017"
+      ],
+      "document": "功能/F029_无尽入口解锁与保局.md",
+      "stageGate": "G03",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "endless-intro"
+      ],
+      "prefabIds": [
+        "endless-intro"
+      ],
+      "acceptanceCriteria": [
+        "只选中第4关、但未通关：入口仍锁；真实完成后立即解锁。",
+        "活跃run退出再进：id、棋盘、三个候选、分数与随机状态一致。",
+        "继续按钮快速双击或加载失败重试：不创建第二run。",
+        "活跃局点击新局后取消：棋盘与撤回次数不变。",
+        "确认新局：旧run不被当有效完成刷任务，新run只创建一次。",
+        "首两局固定种子与存档恢复可重现，第三局规则按确认后的起算口径验证。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F030",
+      "title": "37格无尽发牌放置与三轴消除",
+      "phase": "P03",
+      "sequence": 28,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F029"
+      ],
+      "document": "功能/F030_37格无尽发牌放置与三轴消除.md",
+      "stageGate": "G03",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "endless"
+      ],
+      "prefabIds": [
+        "endless",
+        "hex-cell",
+        "puzzle-piece",
+        "tray-slot"
+      ],
+      "acceptanceCriteria": [
+        "枚举坐标恰为37格，各轴线长度依盘边界变化，不要求每条7格。",
+        "越界/重叠放置拒绝且候选、分数、随机序列不变。",
+        "单轴、双轴、三轴交叉满线同次清除，交叉格无残留。",
+        "使用两槽后不补牌，第三槽用完才恰好再发3块。",
+        "发牌前后保存冷启：同seed/rngState生成一致的下一轮。",
+        "棋盘缩放及320×568下，拖放命中与视觉格一致且全部候选可见。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F031",
+      "title": "无尽分数连击与本机纪录",
+      "phase": "P03",
+      "sequence": 29,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F030"
+      ],
+      "document": "功能/F031_无尽分数连击与本机纪录.md",
+      "stageGate": "G03",
+      "integrationGates": [],
+      "decisionGates": [
+        "D01"
+      ],
+      "routes": [],
+      "prefabIds": [
+        "endless",
+        "endless-result"
+      ],
+      "acceptanceCriteria": [
+        "放1/3/5格无消线分别得10/30/50，连击归零。",
+        "同次两线基础消线200+多线100，三线300+多线300，再独立加放置分。",
+        "构造连续两次消线夹具，输出策划+50与原型+25差异，D01签定后锁唯一预期。",
+        "一消除→一无消除→再消除，第三步视为新的首消，无连击奖。",
+        "结算分数5000再结算4000：本机纪录仍5000；重复结算不重复BestChanged。",
+        "非法放置和界面重绘均不改变分数；撤回还原放置前分数与combo。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F032",
+      "title": "无尽单局免费撤回",
+      "phase": "P03",
+      "sequence": 30,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F030",
+        "F031"
+      ],
+      "document": "功能/F032_无尽单局免费撤回.md",
+      "stageGate": "G03",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "endless"
+      ],
+      "acceptanceCriteria": [
+        "新run未放时点击：无快照，状态不变且提示原因。",
+        "放置形成双线后撤回：交叉清线全复原、分数与combo复原。",
+        "使用第三候选触发新轮后撤回：恢复旧轮三槽状态及原rngState。",
+        "撤回一次后继续放置再点：第二次拒绝，重启也不能重获次数。",
+        "放置6次撤回最后一次后结算：最终5次，不满足6次有效局门槛。",
+        "撤回保存失败后重试：资格与棋盘不能出现一改一未改。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F033",
+      "title": "无尽无位置与可验证清理方案",
+      "phase": "P03",
+      "sequence": 31,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F030"
+      ],
+      "document": "功能/F033_无尽无位置与可验证清理方案.md",
+      "stageGate": "G03",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "endless-revive"
+      ],
+      "prefabIds": [
+        "endless-revive"
+      ],
+      "acceptanceCriteria": [
+        "候选A无位而B可放：不能弹无位置，且B可正常放下。",
+        "全部候选无位时显示结束选择，免费收获可触达。",
+        "给定清理方案，模拟后以见证slot/anchor重新合法校验为true。",
+        "无验证方案或已经续局一次：续局不可用且解释原因。",
+        "广告取消/失败不改棋盘、不消耗成功次数，仍可结束。",
+        "同成功回执两次及旧run迟到回执：最多清一次，不能清新局。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F034",
+      "title": "无尽主动收获与花蜜结算",
+      "phase": "P03",
+      "sequence": 32,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F019",
+        "F020",
+        "F022",
+        "F030",
+        "F031"
+      ],
+      "document": "功能/F034_无尽主动收获与花蜜结算.md",
+      "stageGate": "G03",
+      "integrationGates": [
+        "G04：无尽有效局只结算一次任务进度"
+      ],
+      "decisionGates": [
+        "D02"
+      ],
+      "routes": [
+        "endless-confirm",
+        "endless-result"
+      ],
+      "prefabIds": [
+        "confirmation",
+        "endless-result",
+        "reward-item"
+      ],
+      "acceptanceCriteria": [
+        "分数99/100/2400/3000的毛额为0/5/120/120。",
+        "当天已发235、本局毛额120：实得5；已发240再结算实得0。",
+        "同run确认两次、冷启动重放一次：钱包与任务只累计一次。",
+        "5次摆放200分和6次摆放99分：均不计任务有效局；6次100分计一次。",
+        "确认页取消：仍可继续放置，候选及随机状态不变。",
+        "事务写入失败重试：钱包、额度、纪录、run终态和事件回执一致。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F049",
+      "title": "限步与无尽首次轻引导",
+      "phase": "P03",
+      "sequence": 33,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F011",
+        "F017",
+        "F030",
+        "F046",
+        "F048"
+      ],
+      "document": "功能/F049_限步与无尽首次轻引导.md",
+      "stageGate": "G03",
+      "integrationGates": [],
+      "decisionGates": [
+        "D03"
+      ],
+      "routes": [
+        "guide-endless"
+      ],
+      "prefabIds": [
+        "guide-overlay",
+        "endless-tutorial"
+      ],
+      "acceptanceCriteria": [
+        "第5→6→7关仅第6首次出现真实预算提示，查看/关闭不计步。",
+        "首次摆放但未消线与首次真实消线分别记录，测试不能把两者合成一个通过项。",
+        "点击我来试试、跳过、帮助重看三条路径分别恢复原run和分数。",
+        "无尽未解锁帮助可看但试玩拒绝，正常免费拼图可达。",
+        "后台/重启保存seen与skipped；存储失败不把教学标记提前完成。",
+        "四尺寸静态/动态示范均不遮托盘和免费退出。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F041",
+      "title": "每日三任务与有效事件累计",
+      "phase": "P04",
+      "sequence": 34,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F019",
+        "F022",
+        "F020",
+        "F021",
+        "F023",
+        "F029",
+        "F034"
+      ],
+      "document": "功能/F041_每日三任务与有效事件累计.md",
+      "stageGate": "G04",
+      "integrationGates": [
+        "AFF：核心先验，F036接通前亲密联动保持待验"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "tasks"
+      ],
+      "prefabIds": [
+        "daily-tasks",
+        "task-item"
+      ],
+      "acceptanceCriteria": [
+        "同一真实通关事件重复两次：play只+1，第三个不同完成后可领120。",
+        "无尽5次200分收获不计任务；6次100分计1局及6摆放，两个有效局累计12。",
+        "三园满级后build行变精选；当天先领建设再变分支仍不可二领40。",
+        "无尽未解锁显示拼图1次，解锁后分支切换不重复领取同任务。",
+        "三项领取花蜜合计180，双击不重复奖；F036接入后再复验当前蜂友最多+3及花蜜/亲密同事务失败回滚，成长未接时不得显示已获亲密。",
+        "跨日旧页面点击领取：按新dayKey重判，不把昨日资格变今日奖励。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F035",
+      "title": "蜂友解锁列表与跟随",
+      "phase": "P04",
+      "sequence": 35,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F027"
+      ],
+      "document": "功能/F035_蜂友解锁列表与跟随.md",
+      "stageGate": "G04",
+      "integrationGates": [
+        "G04：F036领取瞬间选中蜂友"
+      ],
+      "decisionGates": [
+        "D07"
+      ],
+      "routes": [
+        "bee-home"
+      ],
+      "prefabIds": [
+        "companion-list",
+        "companion-card",
+        "scene-companion"
+      ],
+      "acceptanceCriteria": [
+        "初始档个体小蜜可认识，花花/阿工锁定且来源说明正确。",
+        "只浏览阿工详情：selectedBee不变；未解锁直接提交选择命令被拒绝。",
+        "进入第二园选择花花，返回家园/冷启动后仍跟随花花。",
+        "先后选择不同蜂友，亲密各自保留，不把当前显示值覆盖其他人。",
+        "卡片重复绑定和快速切换：角色图与选择状态不串，监听不叠加。",
+        "首园满级、领奖未出发、已出发三档分别记录入口状态，与D07最终决策一致。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F036",
+      "title": "亲密度成长与里程碑",
+      "phase": "P04",
+      "sequence": 36,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F022",
+        "F035",
+        "F041"
+      ],
+      "document": "功能/F036_亲密度成长与里程碑.md",
+      "stageGate": "G04",
+      "integrationGates": [
+        "AFF：与F041同次提交钱包/亲密/领取键/日额度"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "bee-detail"
+      ],
+      "prefabIds": [
+        "companion-detail",
+        "affinity-node"
+      ],
+      "acceptanceCriteria": [
+        "一天领取3项任务给同蜂：+3；伪造第4个重复领取无增量。",
+        "前两项跟随小蜜、第三项花花：分别+2/+1，全局额度3。",
+        "亲密4/14/29各领任务：达到5/15/30时对应动作可用。",
+        "亲密30时领任务：仍得花蜜、不加亲密且不消耗该次亲密额度。",
+        "跨天后总亲密保留，今日额度归零；旧任务回执重放不再加。",
+        "连点招手、关页、换蜂友：旧动画不写回新角色，无数值变化。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F037",
+      "title": "章节剧情与亲密故事回看",
+      "phase": "P04",
+      "sequence": 37,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F027",
+        "F035"
+      ],
+      "document": "功能/F037_章节剧情与亲密故事回看.md",
+      "stageGate": "G04",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "story",
+        "bee-story"
+      ],
+      "prefabIds": [
+        "story"
+      ],
+      "acceptanceCriteria": [
+        "第二园出发后关闭剧情：新园五栋仍0级、chapter保持1，不重新扣费。",
+        "亲密14请求蜂友故事拒绝，15可看；另一蜂友14不能借已看故事越权。",
+        "查看任意已获故事十次：钱包、亲密、任务、章节进度均不变。",
+        "未解锁蜂友直接传故事ID：显示来源提示并安全返回。",
+        "大字和小屏完整阅读三步，稍后与返回动作始终可达。",
+        "翻页加载中关闭再打开另一故事：旧图与自动播放回调不能串页。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F038",
+      "title": "专属装饰与外观衣柜",
+      "phase": "P04",
+      "sequence": 38,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F035",
+        "F036"
+      ],
+      "document": "功能/F038_专属装饰与外观衣柜.md",
+      "stageGate": "G04",
+      "integrationGates": [
+        "G04：F040/F043外观解锁不重复发奖"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "bee-decor",
+        "wardrobe"
+      ],
+      "prefabIds": [
+        "companion-decor",
+        "wardrobe",
+        "outfit-item"
+      ],
+      "acceptanceCriteria": [
+        "新档仅围巾可装；未持有野餐帽点使用去签到且装备不变。",
+        "第3册获云朵胸针后装备，家园、衣柜与冷启动一致。",
+        "预览未持有外观再返回：ownedOutfits和selectedOutfit不变。",
+        "蜂友29亲密戴饰物拒绝，30可戴取且无数值增益。",
+        "小蜜戴饰物→换花花→换回：小蜜原装配保留，不能串给花花。",
+        "快速切五件外观并关页：迟到图不覆盖新装备，引用无持续增长。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F039",
+      "title": "照片收集与照片详情",
+      "phase": "P04",
+      "sequence": 39,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F023",
+        "F026"
+      ],
+      "document": "功能/F039_照片收集与照片详情.md",
+      "stageGate": "G04",
+      "integrationGates": [
+        "G04：建设/章节事件生成18照片"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "album",
+        "album-detail"
+      ],
+      "prefabIds": [
+        "album",
+        "photo-item",
+        "photo-detail"
+      ],
+      "acceptanceCriteria": [
+        "向阳树屋0→1获photo0，继续1→5仍只有同一张且来源不变。",
+        "五栋全5但未领奖：5/6；领完工后恰为6/6并获photo5。",
+        "第二、三园首建与合影ID为6至11、12至17，不串第一册。",
+        "未获照片详情显示占位与条件，不能展示已收藏标识或写持有。",
+        "世界地图回看旧册后返回家园：当前chapter/buildings保持。",
+        "快速切册及详情开关：图片、标题、锁态一致，无旧请求覆盖。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F040",
+      "title": "三册集齐唯一奖励",
+      "phase": "P04",
+      "sequence": 40,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F019",
+        "F038",
+        "F039"
+      ],
+      "document": "功能/F040_三册集齐唯一奖励.md",
+      "stageGate": "G04",
+      "integrationGates": [
+        "G04：相册奖励/衣柜库存同事务"
+      ],
+      "decisionGates": [],
+      "routes": [
+        "album-reward",
+        "album-water-reward",
+        "album-cloud-reward"
+      ],
+      "prefabIds": [
+        "album-reward",
+        "reward-item"
+      ],
+      "acceptanceCriteria": [
+        "某册5/6时直接提交领取：提示、外观、回执全部不变。",
+        "向阳6/6领取一次：提示+1且仅花朵帽入库，钱包不变。",
+        "双击、返回再领及冷启重放：提示增量总计1，外观无重复项。",
+        "三册逐一领取：共3提示，三件外观都能在衣柜实际装备。",
+        "事务失败：不能出现有外观无提示或有领取键无奖励，重试可成功。",
+        "切换不同册奖励页及关页中断：领取归正确册，不能串state补发。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F042",
+      "title": "每周目标与纪念印记",
+      "phase": "P04",
+      "sequence": 41,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F019",
+        "F022",
+        "F041"
+      ],
+      "document": "功能/F042_每周目标与纪念印记.md",
+      "stageGate": "G04",
+      "integrationGates": [],
+      "decisionGates": [
+        "D06"
+      ],
+      "routes": [
+        "weekly-tasks",
+        "weekly-stamp"
+      ],
+      "prefabIds": [
+        "weekly-tasks",
+        "weekly-stamp"
+      ],
+      "acceptanceCriteria": [
+        "14局4天、15局3天均不可领，15局4天可领300及一枚印记。",
+        "同一天登录多次/重复完成事件：活跃最多1天，局数按不同真实回执累计。",
+        "领取命令双击、重开和冷启：同周只发300，印记一枚。",
+        "查看已获两周印记：展示选中周不改钱包；未获周不得伪装已收藏。",
+        "周一边界旧页面点击：必须核对命令周，不按新周凭空补发。",
+        "按D06分别构造登录无完成、完成不重复、上周达标未领三档并记录两种策略差异。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F043",
+      "title": "七日累计签到礼物",
+      "phase": "P04",
+      "sequence": 42,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F019",
+        "F022"
+      ],
+      "document": "功能/F043_七日累计签到礼物.md",
+      "stageGate": "G04",
+      "integrationGates": [],
+      "decisionGates": [
+        "D05"
+      ],
+      "routes": [
+        "signin"
+      ],
+      "prefabIds": [
+        "signin",
+        "signin-cell"
+      ],
+      "acceptanceCriteria": [
+        "逐格正常领取七次：总480花蜜、2提示、1野餐帽，衣柜可装备。",
+        "同格双击、重开及冷启动重放：只领一次，不能重复第7帽子奖励。",
+        "未到第7格直接提交第7请求拒绝，库存与回执不变。",
+        "断一天后再访问：已领奖格保留，不连续登录也不清空七日进度。",
+        "第7格领完再跨日：保持终态，不出现循环或signin:8。",
+        "登录第1日未领、下次访问已第2格：分别记录当前原型旧格不能补领与待定策略，决策后锁定预期。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F044",
+      "title": "本地成就与纪录徽章",
+      "phase": "P04",
+      "sequence": 43,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F008",
+        "F017",
+        "F027",
+        "F031"
+      ],
+      "document": "功能/F044_本地成就与纪录徽章.md",
+      "stageGate": "G04",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "achievements"
+      ],
+      "prefabIds": [
+        "achievements",
+        "achievement-item"
+      ],
+      "acceptanceCriteria": [
+        "9个不同主线通关且复玩其中一关：仍9/10；第10个真实完成后可收藏。",
+        "无尽最高4990与5000：前者未达，后者可藏；低分新局不降纪录。",
+        "首园满级未出发：第二园成就未达；出发成功chapter1后达标。",
+        "三项各收藏一次：只有徽章键变化，花蜜与提示完全不增。",
+        "同徽章连点/冷启重放：一条领取记录，显示已收藏。",
+        "未解锁无尽去挑战不能绕锁，返回后成就状态与来源一致。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F045",
+      "title": "包内花园野餐活动",
+      "phase": "P04",
+      "sequence": 44,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F019",
+        "F027",
+        "F041"
+      ],
+      "document": "功能/F045_包内花园野餐活动.md",
+      "stageGate": "G04",
+      "integrationGates": [],
+      "decisionGates": [
+        "D07"
+      ],
+      "routes": [
+        "events",
+        "event-detail",
+        "event-reward"
+      ],
+      "prefabIds": [
+        "events",
+        "event-detail",
+        "event-reward",
+        "event-card",
+        "milestone-item"
+      ],
+      "acceptanceCriteria": [
+        "未开放档从入口及直接路由进入均按D07拒绝，不能靠预览解锁。",
+        "同一拼图完成回执重复两次只+1，失败/秒退/拖动均不加。",
+        "无尽5次200分不加，6次100分且收获加1；保存继续不加。",
+        "进度4→5、9→10、14→15：只有刻度变化，钱包不加。",
+        "19→20可领100，双击/重开/冷启均只发一次且进度不超过20。",
+        "跨日跨周：进度和event:picnic回执保留，不开启第二轮活动。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F050",
+      "title": "本地信箱与信件已读",
+      "phase": "P04",
+      "sequence": 45,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F005",
+        "F017"
+      ],
+      "document": "功能/F050_本地信箱与信件已读.md",
+      "stageGate": "G04",
+      "integrationGates": [],
+      "decisionGates": [
+        "D04（已消歧，无附件）"
+      ],
+      "routes": [
+        "mailbox",
+        "mail-detail"
+      ],
+      "prefabIds": [
+        "mailbox",
+        "mail-item",
+        "mail-detail"
+      ],
+      "acceptanceCriteria": [
+        "新档显示一封未读欢迎信，正文无附件和虚假领取入口。",
+        "仅打开/关闭仍未读，点击我知道啦后列表红点消失，重启仍已读。",
+        "重复点击、重读和返回不改花蜜/提示/任务计数。",
+        "空列表测试夹具与单封信均无空指针；旧mailRead=true迁移后无重复新信。",
+        "大字最小屏正文滚达最后签名，关闭按钮可达且不触发底层页面。",
+        "模拟保存失败保留未读；快速返回与列表复用不显示旧项状态。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F052",
+      "title": "激励广告事务状态与频控",
+      "phase": "P05",
+      "sequence": 46,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F019",
+        "F020",
+        "F022"
+      ],
+      "document": "功能/F052_激励广告事务状态与频控.md",
+      "stageGate": "G05",
+      "integrationGates": [
+        "ADS：5位×双平台回执，durable commit先于ACK"
+      ],
+      "decisionGates": [
+        "D08"
+      ],
+      "routes": [
+        "ad-loading",
+        "ad-unavailable",
+        "ad-pending",
+        "ad-cooldown"
+      ],
+      "prefabIds": [
+        "ad-status"
+      ],
+      "acceptanceCriteria": [
+        "五位分别测success/cancel/error/no-fill/未完整观看，只有成功提交占额。",
+        "第6次后第7次禁用；119秒禁用、120秒恢复，倒计时不改变盘面。",
+        "回执双发、乱序、写盘失败及重启重放只奖一次，ACK严格晚于持久成功。",
+        "切局/切profile后迟到仍归原身份，当前新局不变，未知身份不ACK。",
+        "跨日及时间回拨用统一Clock测，保留请求日/确认日证据。",
+        "加载失败/确认中/冷却均有免费继续、返回或重试；正常奖励不撤回。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F053",
+      "title": "提示补充广告位",
+      "phase": "P05",
+      "sequence": 47,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F016",
+        "F052"
+      ],
+      "document": "功能/F053_提示补充广告位.md",
+      "stageGate": "G05",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "hint-empty",
+        "ad-status"
+      ],
+      "acceptanceCriteria": [
+        "库存0且存在有效提示才出现可用视频入口；库存>0直接正常使用提示。",
+        "同attempt第1/2次成功各+1，第3次禁用；取消不占次数。",
+        "观看成功只增加库存，不自动摆块，不扣该提示。",
+        "换局后迟到仅入原profile及原attempt计数，新局不被自动提示。",
+        "重复/重启回执、写盘失败重试最终只+1，免费提示键独立。",
+        "广告不可用和冷却时自己再试试与每日免费入口可达且保原局。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F054",
+      "title": "限步续关广告位",
+      "phase": "P05",
+      "sequence": 48,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F011",
+        "F015",
+        "F052"
+      ],
+      "document": "功能/F054_限步续关广告位.md",
+      "stageGate": "G05",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "challenge-fail",
+        "ad-status"
+      ],
+      "acceptanceCriteria": [
+        "最后一步完成时不出现广告续关；普通局绝不产生步数失败。",
+        "耗尽原局成功广告后仅+3预算、continuesUsed=1，盘面和已耗步数不变。",
+        "再次耗尽无第二次续关，免费重试和返回仍可用。",
+        "续关完成展示1星；历史3星仍保留，奖励差额不重复发。",
+        "失败页期间重试新局，再收迟到回执，新局预算不变且旧局可恢复。",
+        "取消/无填充/写盘失败保持失败局，重复/重启回执只恢复一次。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F055",
+      "title": "无尽续局广告位",
+      "phase": "P05",
+      "sequence": 49,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F033",
+        "F052"
+      ],
+      "document": "功能/F055_无尽续局广告位.md",
+      "stageGate": "G05",
+      "integrationGates": [
+        "D09：已结算旧run迟到续局不得重复发币"
+      ],
+      "decisionGates": [
+        "D09"
+      ],
+      "routes": [],
+      "prefabIds": [
+        "endless-revive",
+        "ad-status"
+      ],
+      "acceptanceCriteria": [
+        "构造无位置盘，预览格与实际清理格完全一致，清后真实可放至少一块。",
+        "无有效方案或已续过时无可用广告，免费收获仍能进入结算。",
+        "续局保留runId、分数、候选、种子、撤回使用状态，清理不加分/计摆放。",
+        "清理后再次无位置不可第二次续，正常结束可达。",
+        "切新run后迟到、重复回执、重启恢复均不清新盘且旧奖励只应用一次。",
+        "写盘失败不半清盘、不占成功次数，后台恢复不重复清理。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F056",
+      "title": "结算追加广告位",
+      "phase": "P05",
+      "sequence": 50,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F014",
+        "F020",
+        "F028",
+        "F034",
+        "F052"
+      ],
+      "document": "功能/F056_结算追加广告位.md",
+      "stageGate": "G05",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "puzzle-result",
+        "challenge-result",
+        "endless-result",
+        "ad-status"
+      ],
+      "acceptanceCriteria": [
+        "普通80/限步120/复玩20/基础0依次验证追加40/60/10/无入口。",
+        "同settlement双击、重复回执、重启仅一次；每日第3次禁用并显示原因。",
+        "无尽日封顶导致实得缩水时按真实到账计算，不能按原始奖励套50%。",
+        "基础奖先到账且广告取消/失败不回滚；冷却时下一关/家园仍可操作。",
+        "三园完成及前3普通关检查无主动邀请，已存花蜜保留。",
+        "换新局/新结果再收旧回执，当前结果数字与局身份不被旧请求覆盖。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F057",
+      "title": "每日补给与免费提示",
+      "phase": "P05",
+      "sequence": 51,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F016",
+        "F019",
+        "F022",
+        "F028",
+        "F052"
+      ],
+      "document": "功能/F057_每日补给与免费提示.md",
+      "stageGate": "G05",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "supply"
+      ],
+      "prefabIds": [
+        "daily-supply",
+        "ad-status"
+      ],
+      "acceptanceCriteria": [
+        "新一天主动领免费1提示，双击/重启再领无增量；跨月/跨年/回拨不刷同日键。",
+        "广告断网/无填充/冷却时免费提示仍可领，自行闯关返回可达。",
+        "每天2次视频各60，第3次禁用且全局配额一致。",
+        "三园完成后免费提示保留，视频60邀请隐藏，原花蜜不清零。",
+        "写盘失败既不加库存也不记已领；重试成功只一次。",
+        "切profile/跨日迟到按F052冻结归属处理，当前页不显示另一档余额。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F058",
+      "title": "Android激励广告平台适配",
+      "phase": "P05",
+      "sequence": 52,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F052"
+      ],
+      "document": "功能/F058_Android激励广告平台适配.md",
+      "stageGate": "G05",
+      "integrationGates": [
+        "G05/G06：Android真实SDK与正式包证据"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "授权Android设备用测试广告ID真测完整观看一次到账，记录SDK/包版本与requestId脱敏证据。",
+        "取消、无填充、加载/展示异常均无成功额、无奖励，免费返回可用。",
+        "重复/迟到回执、Activity重建、后台及进程重启重放只提交一次。",
+        "注入TS存储失败验证原生回执仍在，成功重试后才ACK。",
+        "prod pending期间切dev，prod归属不变；未知旧请求留待诊断。",
+        "IAA关闭包不初始化SDK但游戏可启动；生产ID/授权/正式包另行实测。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F059",
+      "title": "微信激励广告平台适配",
+      "phase": "P05",
+      "sequence": 53,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F052"
+      ],
+      "document": "功能/F059_微信激励广告平台适配.md",
+      "stageGate": "G05",
+      "integrationGates": [
+        "G05/G06：微信真实SDK与正式包证据"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "微信开发者工具仅验证装配与mock，报告明确模拟；授权真机另测完整观看与真实回执。",
+        "isEnded=false、无填充、load/show错误、SDK不支持均无奖且免费返回可达。",
+        "重复开关/重复加载20次监听不叠加，旧onClose不消费新request。",
+        "前后台/退出再进、存储失败重试、重复迟到回执奖励仅一次。",
+        "切profile后仍按原归属落盘，未知身份保留诊断，不发给当前档。",
+        "真机核对广告位资质/SDK基础库版本及网络，生产配置未知时明确未验。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F060",
+      "title": "GM入口命令与测试档隔离",
+      "phase": "P06",
+      "sequence": 54,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F002",
+        "F005",
+        "F017",
+        "F022"
+      ],
+      "document": "功能/F060_GM入口命令与测试档隔离.md",
+      "stageGate": "G06",
+      "integrationGates": [
+        "G06：F063真实release包无GM入口/命令/资源引用"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "gm-panel",
+        "gm-command"
+      ],
+      "acceptanceCriteria": [
+        "双门禁分别关闭及正式构建均无入口/监听/可调用port，源码DEBUG假不能替产物审核。",
+        "连续开关20次G/触屏入口不叠加，最小屏键盘和命令滚动可达。",
+        "命令非法值及未实现功能无副作用，正常命令before/after与HUD和重启一致。",
+        "GM打开/关闭仅释放自身暂停；页面切换不恢复旧局。",
+        "dev调资源、日期、设置均不改prod；prod真实迟到回执不被dev ACK。",
+        "并发点两个命令按序执行，失败保持原档，日志仅白名单信息。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F061",
+      "title": "GM真实通关夹具与备份恢复",
+      "phase": "P06",
+      "sequence": 55,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F010",
+        "F017",
+        "F018",
+        "F020",
+        "F060"
+      ],
+      "document": "功能/F061_GM真实通关夹具与备份恢复.md",
+      "stageGate": "G06",
+      "integrationGates": [
+        "G06：夹具走Session/统一结算，测试档隔离"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [
+        "gm-panel",
+        "gm-command"
+      ],
+      "acceptanceCriteria": [
+        "空盘、错位残局、正在拖拽、耗尽失败和预算不足逐项dry-run；拒绝时原局不变。",
+        "允许的真通关逐步经Session及同一结算，重复只一份奖励。",
+        "跳关/解锁/批量fixture与真通关分开，默认批量不发奖不刷任务。",
+        "资源/阶段/日期/无尽夹具校验整体一致性，普通局不造步数失败。",
+        "损坏/超大/跨profile/不兼容备份拒绝，恢复前备份且写失败全量回滚。",
+        "dev模拟success/cancel/late/duplicate经统一回执，prod真实pending不消费不ACK。",
+        "同时导入和奖励提交必须串行，导出无SDK队列，重启摘要一致。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F051",
+      "title": "隐私与本机数据说明",
+      "phase": "P06",
+      "sequence": 56,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F017",
+        "F047",
+        "F058",
+        "F059"
+      ],
+      "document": "功能/F051_隐私与本机数据说明.md",
+      "stageGate": "G06",
+      "integrationGates": [],
+      "decisionGates": [],
+      "routes": [
+        "privacy"
+      ],
+      "prefabIds": [
+        "privacy"
+      ],
+      "acceptanceCriteria": [
+        "Android/微信各自文案与实际SDK依赖、权限、网络行为逐条核对。",
+        "无SDK测试包清楚标示模拟，正式包无“原型已接真广告”误导。",
+        "最小屏大字可读到最后一段且返回原设置，不重置活跃局。",
+        "缺正文/ScrollView绑定初始化报错；正文异步迟到不写入已销毁页面。",
+        "隐私版本升级时按已审核规则重取真实同意，保存失败不伪造同意。",
+        "对外隐私链接、主体与联系方式如尚未提供，发布验收明确未完成。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F062",
+      "title": "四尺寸适配与易用性收口",
+      "phase": "P06",
+      "sequence": 57,
+      "baselineStatus": "部分实现",
+      "workKind": "现有实现收口",
+      "dependencies": [
+        "F004",
+        "F010",
+        "F047"
+      ],
+      "document": "功能/F062_四尺寸适配与易用性收口.md",
+      "stageGate": "G06",
+      "integrationGates": [
+        "G06：73状态×4尺寸默认模式，关键交互另验大字/减少动效"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "四尺寸×默认/大字/减少动效逐页截图与真实操作，不仅测宽高数值。",
+        "3/4/6/7块、普通/限步、37格无尽的完整边界及触区命中一致。",
+        "最小屏弹窗滚动到末尾，免费继续/重试/关闭可达且无遮罩穿透。",
+        "拖动中resize/后台/暂停正确取消，恢复单指后只提交一次、不耗额外步。",
+        "保留CDP不可取消原始失败，单列合成分支及双端硬件取消未验项。",
+        "反复横竖切换/安全区改变及隐藏销毁无监听或资源增长，不裁切关键文本。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F063",
+      "title": "双端构建分包与GM产物隔离",
+      "phase": "P06",
+      "sequence": 58,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F003",
+        "F058",
+        "F059",
+        "F060",
+        "F061"
+      ],
+      "document": "功能/F063_双端构建分包与GM产物隔离.md",
+      "stageGate": "G06",
+      "integrationGates": [
+        "G06：包哈希/源码哈希/真机记录同源"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "同源码实际Android安装启动、微信开发者工具导入并在真机启动，记录失败及缺配置。",
+        "扫描真实包资源/脚本/依赖确认无可执行GM及debug引用，运行尝试调用命令被拒绝。",
+        "首包/分包/纹理体积与平台限制逐项报告，循环切页资源可释放。",
+        "断网、无广告、冷启动和升级存档恢复都可进入正常玩法。",
+        "测试与真实广告Adapter/广告ID配置有可追溯差异，release不走模拟奖励。",
+        "构建产物hash和运行证据同源，不能拿旧包或源码DEBUG=false替验收。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    },
+    {
+      "id": "F064",
+      "title": "全页视觉真机性能与生命周期验收",
+      "phase": "P06",
+      "sequence": 59,
+      "baselineStatus": "业务未接入",
+      "workKind": "业务接入",
+      "dependencies": [
+        "F007",
+        "F023",
+        "F030",
+        "F035",
+        "F041",
+        "F047",
+        "F052",
+        "F062",
+        "F063"
+      ],
+      "document": "功能/F064_全页视觉真机性能与生命周期验收.md",
+      "stageGate": "G06",
+      "integrationGates": [
+        "G06：全部65项、73状态及跨域闸门逐项闭合"
+      ],
+      "decisionGates": [],
+      "routes": [],
+      "prefabIds": [],
+      "acceptanceCriteria": [
+        "全页原稿/PSD/Creator三列齐全，核对层序、锚点、透明度、文字槽、九宫格与动态数据。",
+        "四尺寸真实手动走首建/首关/回家再升、限步失败续关、无尽清线、设置和存档恢复。",
+        "Android/微信真机分别测启动、触控、安全区、后台/来电/广告打断、长后台恢复。",
+        "记录拖动帧时间与10轮地图/家园/玩法内存/引用曲线，不用截图证明性能。",
+        "无填充/取消/重复迟到回执/切档与存储失败按事务验收，免费路径始终可达。",
+        "逐项保留FAIL/未验/历史通过的构建身份，touchcancel原始失败不被合成事件结果覆盖。"
+      ],
+      "acceptanceAuthority": "完整原策划全部验收条目；矩阵摘录不缩减范围",
+      "progressAuthority": "功能完成目录.md"
+    }
+  ],
+  "routeOwners": {
+    "loading": "F001",
+    "levels": "F007",
+    "level-preview": "F009",
+    "challenge-preview": "F009",
+    "puzzle": "F010",
+    "puzzle-six": "F010",
+    "challenge": "F011",
+    "challenge-seven": "F011",
+    "challenge-fail": "F011",
+    "resume-puzzle": "F013",
+    "exit-confirm": "F013",
+    "restart-confirm": "F013",
+    "puzzle-win": "F014",
+    "challenge-win": "F015",
+    "puzzle-hint": "F016",
+    "hint-empty": "F016",
+    "featured": "F021",
+    "home": "F023",
+    "build-upgrade": "F024",
+    "home-max": "F025",
+    "build-short": "F025",
+    "chapter-complete": "F026",
+    "chapter-next": "F027",
+    "world-map": "F027",
+    "journey-complete": "F028",
+    "home-finished": "F028",
+    "endless-intro": "F029",
+    "endless": "F030",
+    "endless-revive": "F033",
+    "endless-confirm": "F034",
+    "endless-result": "F034",
+    "bee-home": "F035",
+    "bee-detail": "F036",
+    "story": "F037",
+    "bee-story": "F037",
+    "bee-decor": "F038",
+    "wardrobe": "F038",
+    "album": "F039",
+    "album-detail": "F039",
+    "album-reward": "F040",
+    "album-water-reward": "F040",
+    "album-cloud-reward": "F040",
+    "tasks": "F041",
+    "weekly-tasks": "F042",
+    "weekly-stamp": "F042",
+    "signin": "F043",
+    "achievements": "F044",
+    "events": "F045",
+    "event-detail": "F045",
+    "event-reward": "F045",
+    "pause": "F046",
+    "help": "F046",
+    "puzzle-help": "F046",
+    "endless-help": "F046",
+    "build-help": "F046",
+    "settings": "F047",
+    "guide-garden-entry": "F048",
+    "guide-home": "F048",
+    "guide-menu": "F048",
+    "guide-puzzle": "F048",
+    "guide-return": "F048",
+    "guide-upgrade": "F048",
+    "guide-complete": "F048",
+    "guide-endless": "F049",
+    "mailbox": "F050",
+    "mail-detail": "F050",
+    "privacy": "F051",
+    "ad-loading": "F052",
+    "ad-unavailable": "F052",
+    "ad-pending": "F052",
+    "ad-cooldown": "F052",
+    "supply": "F057",
+    "local-save": "F065"
+  }
+}

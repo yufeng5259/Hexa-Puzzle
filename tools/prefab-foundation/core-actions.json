@@ -1,0 +1,1049 @@
+{
+  "schema": "hexa.ui-actions.v1",
+  "source": "Current prototype runtime action mappings; display/navigation only",
+  "configs": [
+    {
+      "id": "loading",
+      "sourcePage": "主图",
+      "buttons": []
+    },
+    {
+      "id": "mainline-map",
+      "sourcePage": "微信图片_20261019173444_81_187",
+      "buttons": [
+        {
+          "name": "每日签到",
+          "occurrence": 0,
+          "action": "notice:signin"
+        },
+        {
+          "name": "排行榜",
+          "occurrence": 0,
+          "action": "notice:achievements"
+        },
+        {
+          "name": "每日任务",
+          "occurrence": 0,
+          "action": "notice:tasks"
+        },
+        {
+          "name": "好友",
+          "occurrence": 0,
+          "action": "notice:bee-home"
+        },
+        {
+          "name": "超值礼包",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "限时活动",
+          "occurrence": 0,
+          "action": "notice:events"
+        },
+        {
+          "name": "新手礼包",
+          "occurrence": 0,
+          "action": "open:help-index"
+        },
+        {
+          "name": "建造花园",
+          "occurrence": 0,
+          "action": "nav:garden"
+        },
+        {
+          "name": "无尽模式",
+          "occurrence": 0,
+          "action": "notice:endless-intro"
+        },
+        {
+          "name": "蜂蜜货币",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "额外货币图标",
+          "occurrence": 0,
+          "action": "notice:supply"
+        }
+      ]
+    },
+    {
+      "id": "garden",
+      "sourcePage": "T15-01_家园_五级建设基础",
+      "buttons": [
+        {
+          "name": "蜂友头像",
+          "occurrence": 0,
+          "action": "notice:bee-home"
+        },
+        {
+          "name": "设置",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "建造帮助",
+          "occurrence": 0,
+          "action": "help:build"
+        },
+        {
+          "name": "旅行相册入口",
+          "occurrence": 0,
+          "action": "notice:album"
+        },
+        {
+          "name": "任务入口",
+          "occurrence": 0,
+          "action": "notice:tasks"
+        },
+        {
+          "name": "树屋空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:0"
+        },
+        {
+          "name": "树屋直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:0"
+        },
+        {
+          "name": "花园空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "花园直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "蜂蜜工坊空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "蜂蜜工坊直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "小溪水车空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "小溪水车直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "温室空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "温室直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "返回综合地图",
+          "occurrence": 0,
+          "action": "nav:mainline-map"
+        },
+        {
+          "name": "整园完工礼物",
+          "occurrence": 0,
+          "action": "notice:world-map"
+        }
+      ]
+    },
+    {
+      "id": "garden",
+      "sourcePage": "T15-02_家园_单栋满级",
+      "buttons": [
+        {
+          "name": "蜂友头像",
+          "occurrence": 0,
+          "action": "notice:bee-home"
+        },
+        {
+          "name": "设置",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "建造帮助",
+          "occurrence": 0,
+          "action": "help:build"
+        },
+        {
+          "name": "旅行相册入口",
+          "occurrence": 0,
+          "action": "notice:album"
+        },
+        {
+          "name": "任务入口",
+          "occurrence": 0,
+          "action": "notice:tasks"
+        },
+        {
+          "name": "树屋空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:0"
+        },
+        {
+          "name": "花园空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "花园直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "蜂蜜工坊空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "蜂蜜工坊直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "小溪水车空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "小溪水车直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "温室空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "温室直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "返回综合地图",
+          "occurrence": 0,
+          "action": "nav:mainline-map"
+        },
+        {
+          "name": "整园完工礼物",
+          "occurrence": 0,
+          "action": "notice:world-map"
+        }
+      ]
+    },
+    {
+      "id": "garden",
+      "sourcePage": "T15-03_家园_升级动画关键帧",
+      "buttons": [
+        {
+          "name": "蜂友头像",
+          "occurrence": 0,
+          "action": "notice:bee-home"
+        },
+        {
+          "name": "设置",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "建造帮助",
+          "occurrence": 0,
+          "action": "help:build"
+        },
+        {
+          "name": "旅行相册入口",
+          "occurrence": 0,
+          "action": "notice:album"
+        },
+        {
+          "name": "任务入口",
+          "occurrence": 0,
+          "action": "notice:tasks"
+        },
+        {
+          "name": "树屋空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:0"
+        },
+        {
+          "name": "树屋直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:0"
+        },
+        {
+          "name": "花园空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "花园直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "蜂蜜工坊空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "蜂蜜工坊直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "小溪水车空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "小溪水车直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "温室空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "温室直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "返回综合地图",
+          "occurrence": 0,
+          "action": "nav:mainline-map"
+        },
+        {
+          "name": "整园完工礼物",
+          "occurrence": 0,
+          "action": "notice:world-map"
+        }
+      ]
+    },
+    {
+      "id": "garden",
+      "sourcePage": "T15-04_家园_花蜜不足回流",
+      "buttons": [
+        {
+          "name": "蜂友头像",
+          "occurrence": 0,
+          "action": "notice:bee-home"
+        },
+        {
+          "name": "设置",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "建造帮助",
+          "occurrence": 0,
+          "action": "help:build"
+        },
+        {
+          "name": "旅行相册入口",
+          "occurrence": 0,
+          "action": "notice:album"
+        },
+        {
+          "name": "任务入口",
+          "occurrence": 0,
+          "action": "notice:tasks"
+        },
+        {
+          "name": "树屋空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:0"
+        },
+        {
+          "name": "树屋直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:0"
+        },
+        {
+          "name": "花园空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "花园直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "蜂蜜工坊空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "蜂蜜工坊直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "小溪水车空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "小溪水车直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "温室空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "温室直接升级按钮",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "返回综合地图",
+          "occurrence": 0,
+          "action": "nav:mainline-map"
+        },
+        {
+          "name": "整园完工礼物",
+          "occurrence": 0,
+          "action": "notice:world-map"
+        }
+      ]
+    },
+    {
+      "id": "garden",
+      "sourcePage": "T15-05_家园_第三园全部完成",
+      "buttons": [
+        {
+          "name": "蜂友头像",
+          "occurrence": 0,
+          "action": "notice:bee-home"
+        },
+        {
+          "name": "设置",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "建造帮助",
+          "occurrence": 0,
+          "action": "help:build"
+        },
+        {
+          "name": "旅行相册入口",
+          "occurrence": 0,
+          "action": "notice:album"
+        },
+        {
+          "name": "任务入口",
+          "occurrence": 0,
+          "action": "notice:tasks"
+        },
+        {
+          "name": "树屋空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:0"
+        },
+        {
+          "name": "花园空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:1"
+        },
+        {
+          "name": "蜂蜜工坊空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:2"
+        },
+        {
+          "name": "小溪水车空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:3"
+        },
+        {
+          "name": "温室空白进度牌",
+          "occurrence": 0,
+          "action": "demo:building:4"
+        },
+        {
+          "name": "返回综合地图",
+          "occurrence": 0,
+          "action": "nav:mainline-map"
+        },
+        {
+          "name": "整园完工礼物",
+          "occurrence": 0,
+          "action": "notice:world-map"
+        }
+      ]
+    },
+    {
+      "id": "puzzle-preview",
+      "sourcePage": "T01-01_普通拼图开局",
+      "buttons": [
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "免费开始_无字按钮",
+          "occurrence": 0,
+          "action": "nav:puzzle"
+        },
+        {
+          "name": "返回地图",
+          "occurrence": 0,
+          "action": "nav:mainline-map"
+        }
+      ]
+    },
+    {
+      "id": "puzzle-preview",
+      "sourcePage": "T04-01_限步关开局",
+      "buttons": [
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "免费开始_无字按钮",
+          "occurrence": 0,
+          "action": "nav:puzzle"
+        },
+        {
+          "name": "返回地图",
+          "occurrence": 0,
+          "action": "nav:mainline-map"
+        }
+      ]
+    },
+    {
+      "id": "puzzle",
+      "sourcePage": "T02-01_普通异形拼图_三块",
+      "buttons": [
+        {
+          "name": "原生头像",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:pause"
+        },
+        {
+          "name": "提示空底板",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "提示轮廓木圆按钮",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "取回拼块木圆按钮",
+          "occurrence": 0,
+          "action": "demo:return-piece"
+        },
+        {
+          "name": "图示帮助木圆按钮",
+          "occurrence": 0,
+          "action": "help:puzzle"
+        }
+      ]
+    },
+    {
+      "id": "puzzle",
+      "sourcePage": "T02-02_普通异形拼图_六块托盘",
+      "buttons": [
+        {
+          "name": "原生头像",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:pause"
+        },
+        {
+          "name": "提示空底板",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "提示轮廓木圆按钮",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "取回拼块木圆按钮",
+          "occurrence": 0,
+          "action": "demo:return-piece"
+        },
+        {
+          "name": "图示帮助木圆按钮",
+          "occurrence": 0,
+          "action": "help:puzzle"
+        }
+      ]
+    },
+    {
+      "id": "puzzle",
+      "sourcePage": "T03-01_拼图提示轮廓",
+      "buttons": [
+        {
+          "name": "原生头像",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:pause"
+        },
+        {
+          "name": "提示空底板",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "提示轮廓木圆按钮",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "取回拼块木圆按钮",
+          "occurrence": 0,
+          "action": "demo:return-piece"
+        },
+        {
+          "name": "图示帮助木圆按钮",
+          "occurrence": 0,
+          "action": "help:puzzle"
+        }
+      ]
+    },
+    {
+      "id": "puzzle",
+      "sourcePage": "T05-01_限步异形拼图_局内",
+      "buttons": [
+        {
+          "name": "原生头像",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:pause"
+        },
+        {
+          "name": "提示空底板",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "提示轮廓木圆按钮",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "取回拼块木圆按钮",
+          "occurrence": 0,
+          "action": "demo:return-piece"
+        },
+        {
+          "name": "图示帮助木圆按钮",
+          "occurrence": 0,
+          "action": "help:puzzle"
+        }
+      ]
+    },
+    {
+      "id": "puzzle",
+      "sourcePage": "T05-02_限步拼图_七块托盘规格",
+      "buttons": [
+        {
+          "name": "原生头像",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:pause"
+        },
+        {
+          "name": "提示空底板",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "提示轮廓木圆按钮",
+          "occurrence": 0,
+          "action": "demo:hint"
+        },
+        {
+          "name": "取回拼块木圆按钮",
+          "occurrence": 0,
+          "action": "demo:return-piece"
+        },
+        {
+          "name": "图示帮助木圆按钮",
+          "occurrence": 0,
+          "action": "help:puzzle"
+        }
+      ]
+    },
+    {
+      "id": "puzzle-result",
+      "sourcePage": "T06-01_普通拼图成功",
+      "buttons": [
+        {
+          "name": "下一关_原生按钮",
+          "occurrence": 0,
+          "action": "play:next"
+        },
+        {
+          "name": "视频加领 +40_原生按钮",
+          "occurrence": 0,
+          "action": "notice:bonus-ad"
+        },
+        {
+          "name": "返回上一页",
+          "occurrence": 0,
+          "action": "nav:mainline-map"
+        },
+        {
+          "name": "回家园",
+          "occurrence": 0,
+          "action": "nav:garden"
+        }
+      ]
+    },
+    {
+      "id": "pause",
+      "sourcePage": "T36-01_局内暂停",
+      "buttons": [
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "继续玩_无字按钮",
+          "occurrence": 0,
+          "action": "close"
+        },
+        {
+          "name": "设置_无字按钮",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "重新开始_无字按钮",
+          "occurrence": 0,
+          "action": "open:confirmation-restart"
+        },
+        {
+          "name": "保存回主界面_无字按钮",
+          "occurrence": 0,
+          "action": "open:confirmation-exit"
+        }
+      ]
+    },
+    {
+      "id": "settings",
+      "sourcePage": "T39-01_声音与易用设置",
+      "buttons": [
+        {
+          "name": "设置",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "开关_原生厚底",
+          "occurrence": 0,
+          "action": "notice:toggle-setting"
+        },
+        {
+          "name": "开关_原生厚底",
+          "occurrence": 1,
+          "action": "notice:toggle-setting"
+        },
+        {
+          "name": "开关_原生厚底",
+          "occurrence": 2,
+          "action": "notice:toggle-setting"
+        },
+        {
+          "name": "开关_原生厚底",
+          "occurrence": 3,
+          "action": "notice:toggle-setting"
+        },
+        {
+          "name": "开关_原生厚底",
+          "occurrence": 4,
+          "action": "notice:toggle-setting"
+        },
+        {
+          "name": "看图帮助_原生按钮",
+          "occurrence": 0,
+          "action": "open:help-index"
+        },
+        {
+          "name": "本地存档_原生按钮",
+          "occurrence": 0,
+          "action": "notice:local-save"
+        },
+        {
+          "name": "隐私说明_原生按钮",
+          "occurrence": 0,
+          "action": "notice:privacy"
+        },
+        {
+          "name": "返回游戏_原生按钮",
+          "occurrence": 0,
+          "action": "back"
+        }
+      ]
+    },
+    {
+      "id": "confirmation",
+      "sourcePage": "T37-01_退出本局确认",
+      "buttons": [
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "保存并返回_无字按钮",
+          "occurrence": 0,
+          "action": "confirm:exit"
+        },
+        {
+          "name": "继续这一局_无字按钮",
+          "occurrence": 0,
+          "action": "close"
+        }
+      ]
+    },
+    {
+      "id": "confirmation",
+      "sourcePage": "T38-01_重新开始确认",
+      "buttons": [
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "确认重开_无字按钮",
+          "occurrence": 0,
+          "action": "confirm:restart"
+        },
+        {
+          "name": "继续这一局_无字按钮",
+          "occurrence": 0,
+          "action": "close"
+        }
+      ]
+    },
+    {
+      "id": "confirmation",
+      "sourcePage": "T13-01_无尽主动收获确认",
+      "buttons": [
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "玩法帮助_无字按钮",
+          "occurrence": 0,
+          "action": "help:endless"
+        },
+        {
+          "name": "收获花蜜_无字按钮",
+          "occurrence": 0,
+          "action": "notice:end-endless"
+        },
+        {
+          "name": "继续这一局_无字按钮",
+          "occurrence": 0,
+          "action": "close"
+        },
+        {
+          "name": "收获并结束_无字按钮",
+          "occurrence": 0,
+          "action": "notice:settle-endless"
+        }
+      ]
+    },
+    {
+      "id": "help-index",
+      "sourcePage": "T40-01_图示帮助_目录",
+      "buttons": [
+        {
+          "name": "添加按钮",
+          "occurrence": 0,
+          "action": "notice:supply"
+        },
+        {
+          "name": "设置木质齿轮",
+          "occurrence": 0,
+          "action": "open:settings"
+        },
+        {
+          "name": "看图学习_无字按钮",
+          "occurrence": 0,
+          "action": "help:puzzle"
+        },
+        {
+          "name": "看图学习_无字按钮",
+          "occurrence": 1,
+          "action": "help:endless"
+        },
+        {
+          "name": "看图学习_无字按钮",
+          "occurrence": 2,
+          "action": "help:build"
+        },
+        {
+          "name": "返回设置_无字按钮",
+          "occurrence": 0,
+          "action": "back"
+        }
+      ]
+    },
+    {
+      "id": "help-detail",
+      "sourcePage": "T40-02_图示帮助_拖放拼图",
+      "buttons": [
+        {
+          "name": "返回_无字按钮",
+          "occurrence": 0,
+          "action": "back"
+        },
+        {
+          "name": "我来试试_无字按钮",
+          "occurrence": 0,
+          "action": "notice:help-demo"
+        }
+      ]
+    },
+    {
+      "id": "help-detail",
+      "sourcePage": "T40-03_图示帮助_三轴消除",
+      "buttons": [
+        {
+          "name": "返回_无字按钮",
+          "occurrence": 0,
+          "action": "back"
+        },
+        {
+          "name": "我来试试_无字按钮",
+          "occurrence": 0,
+          "action": "notice:help-demo"
+        }
+      ]
+    },
+    {
+      "id": "help-detail",
+      "sourcePage": "T40-04_图示帮助_五级建设",
+      "buttons": [
+        {
+          "name": "知道了_无字按钮",
+          "occurrence": 0,
+          "action": "back"
+        },
+        {
+          "name": "升级  40 花蜜_无字按钮",
+          "occurrence": 0,
+          "action": "notice:help-demo"
+        }
+      ]
+    }
+  ]
+}
