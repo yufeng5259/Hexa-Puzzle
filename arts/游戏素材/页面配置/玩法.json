@@ -1,0 +1,2797 @@
+{
+  "page": "玩法",
+  "size": [
+    853,
+    1844
+  ],
+  "runtime": {
+    "board_empty": true,
+    "piece_layer_group": "棋盘状态",
+    "tray_empty": true,
+    "cell_changes": [
+      "place",
+      "remove",
+      "clear",
+      "animate"
+    ],
+    "dynamic_text_implementation": "PSD真实文本层，参数见texts",
+    "board_state": [
+      {
+        "asset": "block_玩法_粉色花朵蜂窝",
+        "position": [
+          210,
+          578
+        ],
+        "center": [
+          272.0,
+          635.5
+        ]
+      },
+      {
+        "asset": "block_玩法_黄色花朵蜂窝",
+        "position": [
+          210,
+          700
+        ],
+        "center": [
+          272.0,
+          758.0
+        ]
+      },
+      {
+        "asset": "block_玩法_蓝色花朵蜂窝",
+        "position": [
+          413,
+          524
+        ],
+        "center": [
+          475.0,
+          582.0
+        ]
+      },
+      {
+        "asset": "block_玩法_紫色花朵蜂窝",
+        "position": [
+          513,
+          577
+        ],
+        "center": [
+          575.0,
+          635.5
+        ]
+      },
+      {
+        "asset": "block_玩法_绿色花朵蜂窝",
+        "position": [
+          513,
+          821
+        ],
+        "center": [
+          575.0,
+          880.0
+        ]
+      },
+      {
+        "asset": "block_玩法_粉色花朵蜂窝",
+        "position": [
+          111,
+          640
+        ],
+        "center": [
+          173.0,
+          697.5
+        ]
+      },
+      {
+        "asset": "block_玩法_粉色花朵蜂窝",
+        "position": [
+          413,
+          883
+        ],
+        "center": [
+          475.0,
+          940.5
+        ]
+      },
+      {
+        "asset": "block_玩法_粉色花朵蜂窝",
+        "position": [
+          413,
+          999
+        ],
+        "center": [
+          475.0,
+          1056.5
+        ]
+      },
+      {
+        "asset": "block_玩法_黄色花朵蜂窝",
+        "position": [
+          309,
+          760
+        ],
+        "center": [
+          371.0,
+          818.0
+        ]
+      },
+      {
+        "asset": "block_玩法_黄色花朵蜂窝",
+        "position": [
+          612,
+          883
+        ],
+        "center": [
+          674.0,
+          941.0
+        ]
+      },
+      {
+        "asset": "block_玩法_蓝色花朵蜂窝",
+        "position": [
+          413,
+          641
+        ],
+        "center": [
+          475.0,
+          699.0
+        ]
+      },
+      {
+        "asset": "block_玩法_蓝色花朵蜂窝",
+        "position": [
+          111,
+          997
+        ],
+        "center": [
+          173.0,
+          1055.0
+        ]
+      },
+      {
+        "asset": "block_玩法_蓝色花朵蜂窝",
+        "position": [
+          210,
+          1058
+        ],
+        "center": [
+          272.0,
+          1116.0
+        ]
+      },
+      {
+        "asset": "block_玩法_紫色花朵蜂窝",
+        "position": [
+          309,
+          1114
+        ],
+        "center": [
+          371.0,
+          1172.5
+        ]
+      },
+      {
+        "asset": "block_玩法_绿色花朵蜂窝",
+        "position": [
+          111,
+          880
+        ],
+        "center": [
+          173.0,
+          939.0
+        ]
+      },
+      {
+        "asset": "block_玩法_绿色花朵蜂窝",
+        "position": [
+          210,
+          939
+        ],
+        "center": [
+          272.0,
+          998.0
+        ]
+      },
+      {
+        "asset": "block_玩法_绿色花朵蜂窝",
+        "position": [
+          513,
+          938
+        ],
+        "center": [
+          575.0,
+          997.0
+        ]
+      }
+    ],
+    "grid_centers": [
+      [
+        174,
+        698
+      ],
+      [
+        174,
+        818
+      ],
+      [
+        174,
+        938
+      ],
+      [
+        174,
+        1058
+      ],
+      [
+        273,
+        637
+      ],
+      [
+        273,
+        757
+      ],
+      [
+        273,
+        877
+      ],
+      [
+        273,
+        997
+      ],
+      [
+        273,
+        1117
+      ],
+      [
+        373,
+        577
+      ],
+      [
+        373,
+        697
+      ],
+      [
+        373,
+        817
+      ],
+      [
+        373,
+        937
+      ],
+      [
+        373,
+        1057
+      ],
+      [
+        373,
+        1177
+      ],
+      [
+        474,
+        577
+      ],
+      [
+        474,
+        697
+      ],
+      [
+        474,
+        817
+      ],
+      [
+        474,
+        937
+      ],
+      [
+        474,
+        1057
+      ],
+      [
+        474,
+        1177
+      ],
+      [
+        574,
+        637
+      ],
+      [
+        574,
+        757
+      ],
+      [
+        574,
+        877
+      ],
+      [
+        574,
+        997
+      ],
+      [
+        574,
+        1117
+      ],
+      [
+        674,
+        698
+      ],
+      [
+        674,
+        818
+      ],
+      [
+        674,
+        938
+      ],
+      [
+        674,
+        1058
+      ]
+    ],
+    "clear_state": {
+      "asset": null,
+      "active": false,
+      "centers": [],
+      "related_assets": []
+    },
+    "text_bindings": {}
+  },
+  "runtime_shapes": [
+    {
+      "asset": "block_玩法_待放组合_黄色",
+      "cells": 3,
+      "interaction": "drag-composite",
+      "cell_centers_local": [
+        [
+          78,
+          36
+        ],
+        [
+          41,
+          89
+        ],
+        [
+          79,
+          147
+        ]
+      ],
+      "placement": "将三格中心映射到空棋盘格中心；移动或消除后更新board_state"
+    },
+    {
+      "asset": "block_玩法_待放组合_蓝色",
+      "cells": 3,
+      "interaction": "drag-composite",
+      "cell_centers_local": [
+        [
+          39,
+          38
+        ],
+        [
+          80,
+          88
+        ],
+        [
+          109,
+          149
+        ]
+      ],
+      "placement": "将三格中心映射到空棋盘格中心；移动或消除后更新board_state"
+    },
+    {
+      "asset": "block_玩法_待放组合_绿色",
+      "cells": 3,
+      "interaction": "drag-composite",
+      "cell_centers_local": [
+        [
+          77,
+          41
+        ],
+        [
+          37,
+          94
+        ],
+        [
+          77,
+          151
+        ]
+      ],
+      "placement": "将三格中心映射到空棋盘格中心；移动或消除后更新board_state"
+    }
+  ],
+  "canvas": [
+    853,
+    1844
+  ],
+  "layers": [
+    {
+      "asset": "block_background_玩法",
+      "position": [
+        0,
+        0
+      ],
+      "name": "完整裸背景",
+      "group": "背景",
+      "id": "block_background_玩法",
+      "file": "PNG/公共素材/玩法_完整裸背景_ee16e50f3e.png",
+      "z": 0,
+      "native_size": [
+        853,
+        1844
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_background_玩法"
+    },
+    {
+      "asset": "block_玩法_金编绳面板连接件",
+      "position": [
+        263,
+        279
+      ],
+      "name": "金编绳面板连接件",
+      "group": "UI",
+      "id": "block_玩法_金编绳面板连接件",
+      "file": "PNG/公共UI/金编绳面板连接件_da8ec15534.png",
+      "z": 1,
+      "native_size": [
+        50,
+        73
+      ],
+      "size": [
+        50,
+        73
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_金编绳面板连接件"
+    },
+    {
+      "asset": "block_玩法_金编绳面板连接件",
+      "position": [
+        566,
+        279
+      ],
+      "name": "右面板连接绳1",
+      "group": "UI",
+      "id": "block_玩法_金编绳面板连接件",
+      "file": "PNG/公共UI/金编绳面板连接件_da8ec15534.png",
+      "z": 2,
+      "native_size": [
+        50,
+        73
+      ],
+      "size": [
+        50,
+        73
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_金编绳面板连接件"
+    },
+    {
+      "asset": "block_玩法_关卡木牌",
+      "position": [
+        184,
+        170
+      ],
+      "name": "关卡木牌",
+      "group": "UI",
+      "id": "block_玩法_关卡木牌",
+      "file": "PNG/公共UI/关卡木牌_8cff2f5f7f.png",
+      "z": 3,
+      "native_size": [
+        487,
+        116
+      ],
+      "size": [
+        487,
+        116
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_关卡木牌"
+    },
+    {
+      "asset": "block_玩法_步数空底板",
+      "position": [
+        99,
+        295
+      ],
+      "name": "步数空底板",
+      "group": "UI",
+      "id": "block_玩法_步数空底板",
+      "file": "PNG/公共UI/步数空底板_5a6310dc09.png",
+      "z": 4,
+      "native_size": [
+        177,
+        155
+      ],
+      "size": [
+        177,
+        155
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_步数空底板"
+    },
+    {
+      "asset": "block_玩法_目标空底板",
+      "position": [
+        284,
+        296
+      ],
+      "name": "目标空底板",
+      "group": "UI",
+      "id": "block_玩法_目标空底板",
+      "file": "PNG/公共UI/目标空底板_b01188baaf.png",
+      "z": 5,
+      "native_size": [
+        297,
+        155
+      ],
+      "size": [
+        297,
+        155
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_目标空底板"
+    },
+    {
+      "asset": "block_玩法_目标蜂蜜",
+      "position": [
+        393,
+        315
+      ],
+      "name": "目标蜂蜜",
+      "group": "UI",
+      "id": "block_玩法_目标蜂蜜",
+      "file": "PNG/公共UI/目标蜂蜜_ebeab897f7.png",
+      "z": 6,
+      "native_size": [
+        76,
+        78
+      ],
+      "size": [
+        76,
+        78
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_目标蜂蜜"
+    },
+    {
+      "asset": "block_玩法_提示空底板",
+      "position": [
+        591,
+        296
+      ],
+      "name": "提示空底板",
+      "group": "UI",
+      "id": "block_玩法_提示空底板",
+      "file": "PNG/公共UI/提示空底板_375f7cd8a8.png",
+      "z": 7,
+      "native_size": [
+        163,
+        153
+      ],
+      "size": [
+        163,
+        153
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_提示空底板"
+    },
+    {
+      "asset": "block_玩法_提示灯泡",
+      "position": [
+        637,
+        315
+      ],
+      "name": "提示灯泡",
+      "group": "UI",
+      "id": "block_玩法_提示灯泡",
+      "file": "PNG/公共UI/提示灯泡_efc4438f15.png",
+      "z": 8,
+      "native_size": [
+        69,
+        88
+      ],
+      "size": [
+        69,
+        88
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_提示灯泡"
+    },
+    {
+      "asset": "block_玩法_提示增加按钮",
+      "position": [
+        634,
+        399
+      ],
+      "name": "提示增加按钮",
+      "group": "UI",
+      "id": "block_玩法_提示增加按钮",
+      "file": "PNG/公共UI/提示增加按钮_ae8c32bf27.png",
+      "z": 9,
+      "native_size": [
+        41,
+        33
+      ],
+      "size": [
+        41,
+        33
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_提示增加按钮"
+    },
+    {
+      "asset": "block_玩法_空蜂窝棋盘",
+      "position": [
+        77,
+        485
+      ],
+      "name": "空蜂窝棋盘",
+      "group": "其他素材",
+      "id": "block_玩法_空蜂窝棋盘",
+      "file": "PNG/页面素材/玩法/其他素材/空蜂窝棋盘_bcaa43298b.png",
+      "z": 10,
+      "native_size": [
+        697,
+        774
+      ],
+      "size": [
+        697,
+        774
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_空蜂窝棋盘"
+    },
+    {
+      "asset": "block_玩法_粉色花朵蜂窝",
+      "position": [
+        210,
+        578
+      ],
+      "name": "粉色花朵蜂窝",
+      "group": "其他素材",
+      "id": "block_玩法_粉色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/粉色花朵蜂窝_a4ca50f92e.png",
+      "z": 11,
+      "native_size": [
+        124,
+        115
+      ],
+      "size": [
+        124,
+        115
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_粉色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_黄色花朵蜂窝",
+      "position": [
+        210,
+        700
+      ],
+      "name": "黄色花朵蜂窝",
+      "group": "其他素材",
+      "id": "block_玩法_黄色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/黄色花朵蜂窝_d74f1dd3cf.png",
+      "z": 12,
+      "native_size": [
+        124,
+        116
+      ],
+      "size": [
+        124,
+        116
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_黄色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_蓝色花朵蜂窝",
+      "position": [
+        413,
+        524
+      ],
+      "name": "蓝色花朵蜂窝",
+      "group": "其他素材",
+      "id": "block_玩法_蓝色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/蓝色花朵蜂窝_b3fa4e7e84.png",
+      "z": 13,
+      "native_size": [
+        124,
+        116
+      ],
+      "size": [
+        124,
+        116
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_蓝色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_紫色花朵蜂窝",
+      "position": [
+        513,
+        577
+      ],
+      "name": "紫色花朵蜂窝",
+      "group": "其他素材",
+      "id": "block_玩法_紫色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/紫色花朵蜂窝_c4c7f3e708.png",
+      "z": 14,
+      "native_size": [
+        124,
+        117
+      ],
+      "size": [
+        124,
+        117
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_紫色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_绿色花朵蜂窝",
+      "position": [
+        513,
+        821
+      ],
+      "name": "绿色花朵蜂窝",
+      "group": "其他素材",
+      "id": "block_玩法_绿色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/绿色花朵蜂窝_fddee2b4df.png",
+      "z": 15,
+      "native_size": [
+        124,
+        118
+      ],
+      "size": [
+        124,
+        118
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_绿色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_粉色花朵蜂窝",
+      "position": [
+        111,
+        640
+      ],
+      "name": "粉色棋子1",
+      "group": "棋盘状态",
+      "id": "block_玩法_粉色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/粉色花朵蜂窝_a4ca50f92e.png",
+      "z": 16,
+      "native_size": [
+        124,
+        115
+      ],
+      "size": [
+        124,
+        115
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_粉色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_粉色花朵蜂窝",
+      "position": [
+        413,
+        883
+      ],
+      "name": "粉色棋子2",
+      "group": "棋盘状态",
+      "id": "block_玩法_粉色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/粉色花朵蜂窝_a4ca50f92e.png",
+      "z": 17,
+      "native_size": [
+        124,
+        115
+      ],
+      "size": [
+        124,
+        115
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_粉色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_粉色花朵蜂窝",
+      "position": [
+        413,
+        999
+      ],
+      "name": "粉色棋子3",
+      "group": "棋盘状态",
+      "id": "block_玩法_粉色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/粉色花朵蜂窝_a4ca50f92e.png",
+      "z": 18,
+      "native_size": [
+        124,
+        115
+      ],
+      "size": [
+        124,
+        115
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_粉色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_黄色花朵蜂窝",
+      "position": [
+        309,
+        760
+      ],
+      "name": "黄色棋子1",
+      "group": "棋盘状态",
+      "id": "block_玩法_黄色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/黄色花朵蜂窝_d74f1dd3cf.png",
+      "z": 19,
+      "native_size": [
+        124,
+        116
+      ],
+      "size": [
+        124,
+        116
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_黄色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_黄色花朵蜂窝",
+      "position": [
+        612,
+        883
+      ],
+      "name": "黄色棋子2",
+      "group": "棋盘状态",
+      "id": "block_玩法_黄色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/黄色花朵蜂窝_d74f1dd3cf.png",
+      "z": 20,
+      "native_size": [
+        124,
+        116
+      ],
+      "size": [
+        124,
+        116
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_黄色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_蓝色花朵蜂窝",
+      "position": [
+        413,
+        641
+      ],
+      "name": "蓝色棋子1",
+      "group": "棋盘状态",
+      "id": "block_玩法_蓝色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/蓝色花朵蜂窝_b3fa4e7e84.png",
+      "z": 21,
+      "native_size": [
+        124,
+        116
+      ],
+      "size": [
+        124,
+        116
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_蓝色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_蓝色花朵蜂窝",
+      "position": [
+        111,
+        997
+      ],
+      "name": "蓝色棋子2",
+      "group": "棋盘状态",
+      "id": "block_玩法_蓝色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/蓝色花朵蜂窝_b3fa4e7e84.png",
+      "z": 22,
+      "native_size": [
+        124,
+        116
+      ],
+      "size": [
+        124,
+        116
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_蓝色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_蓝色花朵蜂窝",
+      "position": [
+        210,
+        1058
+      ],
+      "name": "蓝色棋子3",
+      "group": "棋盘状态",
+      "id": "block_玩法_蓝色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/蓝色花朵蜂窝_b3fa4e7e84.png",
+      "z": 23,
+      "native_size": [
+        124,
+        116
+      ],
+      "size": [
+        124,
+        116
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_蓝色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_紫色花朵蜂窝",
+      "position": [
+        309,
+        1114
+      ],
+      "name": "紫色棋子1",
+      "group": "棋盘状态",
+      "id": "block_玩法_紫色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/紫色花朵蜂窝_c4c7f3e708.png",
+      "z": 24,
+      "native_size": [
+        124,
+        117
+      ],
+      "size": [
+        124,
+        117
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_紫色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_绿色花朵蜂窝",
+      "position": [
+        111,
+        880
+      ],
+      "name": "绿色棋子1",
+      "group": "棋盘状态",
+      "id": "block_玩法_绿色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/绿色花朵蜂窝_fddee2b4df.png",
+      "z": 25,
+      "native_size": [
+        124,
+        118
+      ],
+      "size": [
+        124,
+        118
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_绿色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_绿色花朵蜂窝",
+      "position": [
+        210,
+        939
+      ],
+      "name": "绿色棋子2",
+      "group": "棋盘状态",
+      "id": "block_玩法_绿色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/绿色花朵蜂窝_fddee2b4df.png",
+      "z": 26,
+      "native_size": [
+        124,
+        118
+      ],
+      "size": [
+        124,
+        118
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_绿色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_绿色花朵蜂窝",
+      "position": [
+        513,
+        938
+      ],
+      "name": "绿色棋子3",
+      "group": "棋盘状态",
+      "id": "block_玩法_绿色花朵蜂窝",
+      "file": "PNG/页面素材/玩法/其他素材/绿色花朵蜂窝_fddee2b4df.png",
+      "z": 27,
+      "native_size": [
+        124,
+        118
+      ],
+      "size": [
+        124,
+        118
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_绿色花朵蜂窝"
+    },
+    {
+      "asset": "block_玩法_底部木地台",
+      "position": [
+        0,
+        1557
+      ],
+      "name": "底部木地台",
+      "group": "其他素材",
+      "id": "block_玩法_底部木地台",
+      "file": "PNG/公共素材/底部木地台_911c4a1fac.png",
+      "z": 28,
+      "native_size": [
+        853,
+        287
+      ],
+      "size": [
+        853,
+        287
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_底部木地台"
+    },
+    {
+      "asset": "block_玩法_空待放托盘",
+      "position": [
+        17,
+        1277
+      ],
+      "name": "空待放托盘",
+      "group": "UI",
+      "id": "block_玩法_空待放托盘",
+      "file": "PNG/公共UI/空待放托盘_c9e3361e7c.png",
+      "z": 29,
+      "native_size": [
+        820,
+        317
+      ],
+      "size": [
+        820,
+        317
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_空待放托盘"
+    },
+    {
+      "asset": "block_玩法_待放组合_黄色",
+      "position": [
+        132,
+        1358
+      ],
+      "name": "待放组合_黄色",
+      "group": "其他素材",
+      "id": "block_玩法_待放组合_黄色",
+      "file": "PNG/页面素材/玩法/其他素材/待放组合_黄色_db892d6a01.png",
+      "z": 30,
+      "native_size": [
+        118,
+        188
+      ],
+      "size": [
+        118,
+        188
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_待放组合_黄色"
+    },
+    {
+      "asset": "block_玩法_待放组合_蓝色",
+      "position": [
+        354,
+        1360
+      ],
+      "name": "待放组合_蓝色",
+      "group": "其他素材",
+      "id": "block_玩法_待放组合_蓝色",
+      "file": "PNG/页面素材/玩法/其他素材/待放组合_蓝色_2d323acb48.png",
+      "z": 31,
+      "native_size": [
+        150,
+        188
+      ],
+      "size": [
+        150,
+        188
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_待放组合_蓝色"
+    },
+    {
+      "asset": "block_玩法_待放组合_绿色",
+      "position": [
+        594,
+        1356
+      ],
+      "name": "待放组合_绿色",
+      "group": "其他素材",
+      "id": "block_玩法_待放组合_绿色",
+      "file": "PNG/页面素材/玩法/其他素材/待放组合_绿色_c8ad16154d.png",
+      "z": 32,
+      "native_size": [
+        120,
+        191
+      ],
+      "size": [
+        120,
+        191
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_待放组合_绿色"
+    },
+    {
+      "asset": "block_玩法_道具空按钮",
+      "position": [
+        181,
+        1591
+      ],
+      "name": "道具空按钮",
+      "group": "UI",
+      "id": "block_玩法_道具空按钮",
+      "file": "PNG/公共UI/道具空按钮_cc8488e766.png",
+      "z": 33,
+      "native_size": [
+        147,
+        145
+      ],
+      "size": [
+        147,
+        145
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_道具空按钮"
+    },
+    {
+      "asset": "block_玩法_道具空按钮",
+      "position": [
+        354,
+        1590
+      ],
+      "name": "道具按钮底1",
+      "group": "UI",
+      "id": "block_玩法_道具空按钮",
+      "file": "PNG/公共UI/道具空按钮_cc8488e766.png",
+      "z": 34,
+      "native_size": [
+        147,
+        145
+      ],
+      "size": [
+        147,
+        145
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_道具空按钮"
+    },
+    {
+      "asset": "block_玩法_道具空按钮",
+      "position": [
+        527,
+        1590
+      ],
+      "name": "道具按钮底2",
+      "group": "UI",
+      "id": "block_玩法_道具空按钮",
+      "file": "PNG/公共UI/道具空按钮_cc8488e766.png",
+      "z": 35,
+      "native_size": [
+        147,
+        145
+      ],
+      "size": [
+        147,
+        145
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_道具空按钮"
+    },
+    {
+      "asset": "block_玩法_撤销道具图标",
+      "position": [
+        213,
+        1622
+      ],
+      "name": "撤销道具图标",
+      "group": "UI",
+      "id": "block_玩法_撤销道具图标",
+      "file": "PNG/公共UI/撤销道具图标_ed2773ab95.png",
+      "z": 36,
+      "native_size": [
+        73,
+        76
+      ],
+      "size": [
+        73,
+        76
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_撤销道具图标"
+    },
+    {
+      "asset": "block_玩法_刷新道具图标",
+      "position": [
+        386,
+        1622
+      ],
+      "name": "刷新道具图标",
+      "group": "UI",
+      "id": "block_玩法_刷新道具图标",
+      "file": "PNG/页面素材/玩法/UI/刷新道具图标_c64f6ae862.png",
+      "z": 37,
+      "native_size": [
+        72,
+        76
+      ],
+      "size": [
+        72,
+        76
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_刷新道具图标"
+    },
+    {
+      "asset": "block_玩法_锁定道具图标",
+      "position": [
+        577,
+        1621
+      ],
+      "name": "锁定道具图标",
+      "group": "UI",
+      "id": "block_玩法_锁定道具图标",
+      "file": "PNG/公共UI/锁定道具图标_3af59e5b0a.png",
+      "z": 38,
+      "native_size": [
+        47,
+        54
+      ],
+      "size": [
+        47,
+        54
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_锁定道具图标"
+    },
+    {
+      "asset": "block_玩法_撤销红色角标",
+      "position": [
+        276,
+        1590
+      ],
+      "name": "撤销红色角标",
+      "group": "UI",
+      "id": "block_玩法_撤销红色角标",
+      "file": "PNG/页面素材/玩法/UI/撤销红色角标_35d2ced8bd.png",
+      "z": 39,
+      "native_size": [
+        43,
+        44
+      ],
+      "size": [
+        43,
+        44
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_撤销红色角标"
+    },
+    {
+      "asset": "block_玩法_刷新上红色角标",
+      "position": [
+        448,
+        1590
+      ],
+      "name": "刷新上红色角标",
+      "group": "UI",
+      "id": "block_玩法_刷新上红色角标",
+      "file": "PNG/页面素材/玩法/UI/刷新上红色角标_1365e0e496.png",
+      "z": 40,
+      "native_size": [
+        44,
+        44
+      ],
+      "size": [
+        44,
+        44
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_刷新上红色角标"
+    },
+    {
+      "asset": "block_玩法_刷新下红色角标",
+      "position": [
+        448,
+        1674
+      ],
+      "name": "刷新下红色角标",
+      "group": "UI",
+      "id": "block_玩法_刷新下红色角标",
+      "file": "PNG/页面素材/玩法/UI/刷新下红色角标_bf027d6722.png",
+      "z": 41,
+      "native_size": [
+        44,
+        49
+      ],
+      "size": [
+        44,
+        49
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_玩法_刷新下红色角标"
+    },
+    {
+      "asset": "block_hud_玩法_头像空白等级",
+      "position": [
+        17,
+        25
+      ],
+      "target_size": [
+        151,
+        149
+      ],
+      "name": "玩家头像",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "z": 42,
+      "native_size": [
+        604,
+        596
+      ],
+      "size": [
+        151,
+        149
+      ],
+      "scale": [
+        0.25,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级"
+    },
+    {
+      "asset": "block_hud_透明计数底条",
+      "position": [
+        223,
+        60
+      ],
+      "target_size": [
+        178,
+        65
+      ],
+      "name": "体力计数底条",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "z": 43,
+      "native_size": [
+        224,
+        65
+      ],
+      "size": [
+        178,
+        65
+      ],
+      "scale": [
+        0.7946428571428571,
+        1.0
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条"
+    },
+    {
+      "asset": "block_hud_体力爱心空白",
+      "position": [
+        180,
+        54
+      ],
+      "target_size": [
+        85,
+        78
+      ],
+      "name": "体力心形",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_体力爱心空白",
+      "file": "PNG/公共UI/体力爱心空白_72f8be88e9.png",
+      "z": 44,
+      "native_size": [
+        340,
+        312
+      ],
+      "size": [
+        85,
+        78
+      ],
+      "scale": [
+        0.25,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_体力爱心空白"
+    },
+    {
+      "asset": "block_hud_透明计数底条",
+      "position": [
+        487,
+        60
+      ],
+      "target_size": [
+        237,
+        66
+      ],
+      "name": "蜂蜜计数底条",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "z": 45,
+      "native_size": [
+        224,
+        65
+      ],
+      "size": [
+        237,
+        66
+      ],
+      "scale": [
+        1.0580357142857142,
+        1.0153846153846153
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条"
+    },
+    {
+      "asset": "block_hud_蜂蜜货币",
+      "position": [
+        453,
+        52
+      ],
+      "target_size": [
+        72,
+        76
+      ],
+      "name": "蜂蜜货币",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "z": 46,
+      "native_size": [
+        288,
+        304
+      ],
+      "size": [
+        72,
+        76
+      ],
+      "scale": [
+        0.25,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币"
+    },
+    {
+      "asset": "block_hud_添加按钮",
+      "position": [
+        656,
+        58
+      ],
+      "target_size": [
+        69,
+        69
+      ],
+      "name": "增加蜂蜜",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_添加按钮",
+      "file": "PNG/公共UI/添加按钮_6cd07472ae.png",
+      "z": 47,
+      "native_size": [
+        276,
+        276
+      ],
+      "size": [
+        69,
+        69
+      ],
+      "scale": [
+        0.25,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_添加按钮"
+    },
+    {
+      "asset": "block_hud_设置木质齿轮",
+      "position": [
+        738,
+        45
+      ],
+      "target_size": [
+        97,
+        97
+      ],
+      "name": "设置",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "z": 48,
+      "native_size": [
+        388,
+        388
+      ],
+      "size": [
+        97,
+        97
+      ],
+      "scale": [
+        0.25,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮"
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "关卡号",
+      "text": "第 56 关",
+      "position": [
+        322,
+        200
+      ],
+      "box": [
+        308,
+        200,
+        548,
+        266
+      ],
+      "font_size": 54.0,
+      "color_rgb": [
+        255,
+        250,
+        237
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        83,
+        42,
+        19
+      ],
+      "purpose": "当前关卡，可变",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 54.0,
+      "id": "block_玩法_text_关卡号",
+      "text_role": "template",
+      "localization_key": "block.gameplay.level_title",
+      "message_template": "第 {level} 关",
+      "parameters": {
+        "level": {
+          "value": 56,
+          "binding": "game.level",
+          "format": "integer"
+        }
+      },
+      "value_binding": {
+        "level": "game.level"
+      },
+      "min_font_size": 30,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "default_text": "第 56 关",
+      "text_id": "block_玩法_text_关卡号",
+      "instance_id": "gameplay:block_玩法_text_关卡号",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        213,
+        59
+      ]
+    },
+    {
+      "layer_name": "剩余步数",
+      "text": "18",
+      "position": [
+        144,
+        351
+      ],
+      "box": [
+        135,
+        351,
+        238,
+        425
+      ],
+      "font_size": 68.0,
+      "color_rgb": [
+        101,
+        42,
+        9
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "每次有效操作后更新",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 68.0,
+      "id": "block_玩法_text_剩余步数",
+      "text_role": "number",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": "game.moves_remaining",
+      "min_font_size": 37,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "raw_value": 18,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale": "active_locale",
+        "locale_aware": true
+      },
+      "default_text": "18",
+      "text_id": "block_玩法_text_剩余步数",
+      "instance_id": "gameplay:block_玩法_text_剩余步数",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        84,
+        53
+      ]
+    },
+    {
+      "layer_name": "目标进度",
+      "text": "0/10",
+      "position": [
+        392,
+        393
+      ],
+      "box": [
+        384,
+        393,
+        480,
+        430
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        91,
+        39,
+        8
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "已收集/关卡目标",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "id": "block_玩法_text_目标进度",
+      "text_role": "number",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": "game.collection_progress",
+      "min_font_size": 19,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "raw_value": {
+        "current": 0,
+        "total": 10
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale": "active_locale",
+        "locale_aware": true
+      },
+      "default_text": "0/10",
+      "text_id": "block_玩法_text_目标进度",
+      "instance_id": "gameplay:block_玩法_text_目标进度",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        79,
+        31
+      ]
+    },
+    {
+      "layer_name": "提示数量",
+      "text": "3",
+      "position": [
+        676,
+        398
+      ],
+      "box": [
+        674,
+        398,
+        701,
+        434
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        89,
+        39,
+        8
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        255,
+        243,
+        204
+      ],
+      "purpose": "当前提示道具数量",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "id": "block_玩法_text_提示数量",
+      "text_role": "number",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": "inventory.hint",
+      "min_font_size": 14,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "raw_value": 3,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale": "active_locale",
+        "locale_aware": true
+      },
+      "default_text": "3",
+      "text_id": "block_玩法_text_提示数量",
+      "instance_id": "gameplay:block_玩法_text_提示数量",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        23,
+        29
+      ]
+    },
+    {
+      "layer_name": "撤销数量",
+      "text": "1",
+      "position": [
+        288,
+        1593
+      ],
+      "box": [
+        281,
+        1593,
+        314,
+        1631
+      ],
+      "font_size": 28.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        140,
+        4,
+        15
+      ],
+      "purpose": "道具剩余数量",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "id": "block_玩法_text_撤销数量",
+      "text_role": "number",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": "inventory.undo",
+      "min_font_size": 14,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "raw_value": 1,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale": "active_locale",
+        "locale_aware": true
+      },
+      "default_text": "1",
+      "text_id": "block_玩法_text_撤销数量",
+      "instance_id": "gameplay:block_玩法_text_撤销数量",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        20,
+        24
+      ]
+    },
+    {
+      "layer_name": "刷新上数量",
+      "text": "3",
+      "position": [
+        460,
+        1593
+      ],
+      "box": [
+        453,
+        1593,
+        487,
+        1631
+      ],
+      "font_size": 28.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        140,
+        4,
+        15
+      ],
+      "purpose": "道具剩余数量",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "id": "block_玩法_text_刷新上数量",
+      "text_role": "number",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": "inventory.refresh",
+      "min_font_size": 14,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "raw_value": 3,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale": "active_locale",
+        "locale_aware": true
+      },
+      "default_text": "3",
+      "text_id": "block_玩法_text_刷新上数量",
+      "instance_id": "gameplay:block_玩法_text_刷新上数量",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        20,
+        24
+      ]
+    },
+    {
+      "layer_name": "刷新下数量",
+      "text": "3",
+      "position": [
+        460,
+        1677
+      ],
+      "box": [
+        453,
+        1677,
+        487,
+        1720
+      ],
+      "font_size": 28.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        140,
+        4,
+        15
+      ],
+      "purpose": "道具剩余数量",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "id": "block_玩法_text_刷新下数量",
+      "text_role": "number",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": "inventory.refresh",
+      "min_font_size": 14,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "raw_value": 3,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale": "active_locale",
+        "locale_aware": true
+      },
+      "default_text": "3",
+      "text_id": "block_玩法_text_刷新下数量",
+      "instance_id": "gameplay:block_玩法_text_刷新下数量",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        20,
+        24
+      ]
+    },
+    {
+      "layer_name": "解锁等级",
+      "text": "Lv.20",
+      "position": [
+        572,
+        1676
+      ],
+      "box": [
+        563,
+        1676,
+        642,
+        1706
+      ],
+      "font_size": 21.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        42,
+        24,
+        15
+      ],
+      "purpose": "解锁所需等级",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 21.0,
+      "id": "block_玩法_text_解锁等级",
+      "text_role": "template",
+      "localization_key": "block.gameplay.unlock_level",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": {
+          "value": 20,
+          "binding": "inventory.lock.required_level",
+          "format": "integer"
+        }
+      },
+      "value_binding": {
+        "level": "inventory.lock.required_level"
+      },
+      "min_font_size": 18,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "default_text": "Lv.20",
+      "text_id": "block_玩法_text_解锁等级",
+      "instance_id": "gameplay:block_玩法_text_解锁等级",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        60,
+        21
+      ]
+    },
+    {
+      "layer_name": "剩余步数标签",
+      "text": "剩余步数",
+      "position": [
+        128,
+        311
+      ],
+      "box": [
+        110,
+        307,
+        264,
+        346
+      ],
+      "font_size": 29.0,
+      "color_rgb": [
+        101,
+        42,
+        9
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        255,
+        249,
+        221
+      ],
+      "purpose": "独立可本地化界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "id": "block_玩法_text_剩余步数标签",
+      "text_role": "message",
+      "localization_key": "block.gameplay.moves_remaining",
+      "message_template": null,
+      "parameters": {},
+      "value_binding": null,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "default_text": "剩余步数",
+      "text_id": "block_玩法_text_剩余步数标签",
+      "instance_id": "gameplay:block_玩法_text_剩余步数标签",
+      "page": "玩法",
+      "semantic_origin": "author",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        118,
+        31
+      ]
+    },
+    {
+      "layer_name": "玩家等级",
+      "text": "Lv.12",
+      "position": [
+        50,
+        137
+      ],
+      "box": [
+        42,
+        133,
+        142,
+        168
+      ],
+      "font_size": 30.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "fit": true,
+      "layout_locked": true,
+      "text_id": "block.text.gameplay.bf6705c67a81",
+      "instance_id": "gameplay:block.text.gameplay.bf6705c67a81",
+      "page": "玩法",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 12
+      },
+      "value_binding": {
+        "level": "player.level"
+      },
+      "localization_key": "block.hud.player_level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.12",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "min_font_size": 20.4,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "layout_overflow": false,
+      "measured_ink_size": [
+        83,
+        27
+      ]
+    },
+    {
+      "layer_name": "体力数量",
+      "text": "5",
+      "position": [
+        214,
+        74
+      ],
+      "box": [
+        210,
+        74,
+        241,
+        116
+      ],
+      "font_size": 32.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "text_id": "block.text.gameplay.5764058d91bb",
+      "instance_id": "gameplay:block.text.gameplay.5764058d91bb",
+      "page": "玩法",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "player.energy.current",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "min_font_size": 21.76,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        23,
+        28
+      ]
+    },
+    {
+      "layer_name": "体力状态",
+      "text": "已满",
+      "position": [
+        296,
+        72
+      ],
+      "box": [
+        277,
+        72,
+        387,
+        117
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "text_id": "block.text.gameplay.0eaed1b70770",
+      "instance_id": "gameplay:block.text.gameplay.0eaed1b70770",
+      "page": "玩法",
+      "text_role": "message",
+      "localization_key": "block.hud.energy_full",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "已满",
+      "parameters": {},
+      "value_binding": null,
+      "min_font_size": 23.12,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        71,
+        36
+      ]
+    },
+    {
+      "layer_name": "蜂蜜数量",
+      "text": "2,350",
+      "position": [
+        542,
+        70
+      ],
+      "box": [
+        537,
+        70,
+        643,
+        119
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "text_id": "block.text.gameplay.ee7fa8103c06",
+      "instance_id": "gameplay:block.text.gameplay.ee7fa8103c06",
+      "page": "玩法",
+      "text_role": "number",
+      "raw_value": 2350,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": true,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "player.currency.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2,350",
+      "parameters": {},
+      "localization_key": null,
+      "min_font_size": 23.12,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        97,
+        34
+      ]
+    }
+  ],
+  "source_sha256": "a64c745e71eaa12c49741505963ff9e238ac8a821044053e9697c6b1fa6137c5",
+  "background_note": "遮挡区依据原设计补绘，属于推断；裸背景不含控件、文字和固定玩法局面",
+  "coordinate_system": "像素；左上原点；z由底到顶；anchor为资源左上角归一化坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/zh-CN.json",
+      "qps-ploc": "本地化/qps-ploc.json"
+    }
+  },
+  "runtime_note": "非封面主标题文字均创建为独立文字组件，以localization_key取整句/模板并注入命名参数；number/player_input按value_binding取值，数字按number_format本地化。使用微软雅黑并遵守box/min_font_size/max_lines/overflow_policy；layers路径相对游戏素材根目录。qps-ploc仅为排版压力验证，不是正式译文。",
+  "comparison": {
+    "original": "页面对照/效果设计图/玩法.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832",
+    "psd_composite": "页面对照/PSD合成/玩法.png",
+    "psd_composite_sha256": "35e2a73e61a2add07f69ce012ed055d5199ee667b32206c5d0c5458a69673070",
+    "psd_sha256": "7fec2d03b3b11fdec81268da7fd8f4e0e52adb86a0f97ed9fe63948dcb14ead5",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "runtime_preview_max_channel_error": 1,
+    "composite_sha256": "35e2a73e61a2add07f69ce012ed055d5199ee667b32206c5d0c5458a69673070",
+    "original_label": "页面效果设计图",
+    "source_sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  }
+}

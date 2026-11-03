@@ -1,0 +1,106 @@
+{
+  "renderer": "block.hex.v1",
+  "role": "rim",
+  "cells": [
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      -1
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      5,
+      -2
+    ],
+    [
+      5,
+      -1
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      6,
+      -1
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      7,
+      0
+    ],
+    [
+      7,
+      -1
+    ],
+    [
+      3,
+      1
+    ]
+  ],
+  "bbox": [
+    75,
+    485,
+    703,
+    705
+  ],
+  "flip_y": true,
+  "padding": 24,
+  "supersample": 2,
+  "materials": {
+    "hex_wood_floor": {
+      "asset_id": "block_reuse_4832b910bd651938e53d",
+      "file": "../PNG/公共素材/hex_wood_floor_4832b910bd.png",
+      "sha256": "a314bfce0e5c37ca02aafb21a73df0245bdd88ead31d9192303ef5484bd78d80"
+    },
+    "hex_rail_profile": {
+      "asset_id": "block_reuse_7a2b1f797be2dce0dd8a",
+      "file": "../PNG/公共素材/hex_rail_profile_7a2b1f797b.png",
+      "sha256": "e0fcbbfd52445ed92ff525f997a2eff3e7c579cdc2da4a56aa6430c79a64c6a5"
+    }
+  },
+  "output": "untrimmed_rgba",
+  "runtime_png": false,
+  "cache_policy": "memory_by_materials_cells_size_version"
+}

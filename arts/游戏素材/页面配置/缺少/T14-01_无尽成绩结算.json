@@ -1,0 +1,1914 @@
+{
+  "page": "T14-01_无尽成绩结算",
+  "output_id": "T14-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "endless-result",
+      "title": "无尽成绩结算",
+      "url": "http://127.0.0.1:4291/index.html#endless-result",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\30-endless-result.png",
+      "screenshot_sha256": "5d2863c6c37a2a8ea58c358c6d5afdd6e981ef3f4f96fee36890c87e831f54de"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_结算",
+      "asset": "block_background_结算",
+      "file": "PNG/公共素材/结算_完整裸背景_8f4aa4054d.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_结算",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_空白主面板",
+      "asset": "block_结算_空白主面板",
+      "file": "PNG/公共UI/空白主面板_70248b0641.png",
+      "name": "结算原尺寸主框",
+      "z": 10,
+      "position": [
+        84,
+        511
+      ],
+      "size": [
+        684,
+        870
+      ],
+      "native_size": [
+        684,
+        883
+      ],
+      "render_transform": {
+        "resize": [
+          684,
+          883
+        ],
+        "alpha_crop": [
+          0,
+          6,
+          684,
+          876
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_空白主面板",
+      "metadata": {
+        "target_box": [
+          84,
+          505,
+          768,
+          1388
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          684,
+          883
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_排行榜",
+      "asset": "block_微信图片_20261019173444_81_187_排行榜",
+      "file": "PNG/公共UI/排行榜_a23231115e.png",
+      "name": "纪录奖杯",
+      "z": 11,
+      "position": [
+        306,
+        194
+      ],
+      "size": [
+        240,
+        239
+      ],
+      "native_size": [
+        1040,
+        1034
+      ],
+      "render_transform": {
+        "resize": [
+          240,
+          239
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          240,
+          239
+        ]
+      },
+      "group": "庆祝",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_排行榜",
+      "metadata": {
+        "target_box": [
+          300,
+          194,
+          553,
+          433
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1040,
+          1034
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_标题左花叶",
+      "asset": "block_结算_标题左花叶",
+      "file": "PNG/公共素材/标题左花叶_1c5d02ba2e.png",
+      "name": "左花叶",
+      "z": 12,
+      "position": [
+        92,
+        382
+      ],
+      "size": [
+        202,
+        246
+      ],
+      "native_size": [
+        202,
+        246
+      ],
+      "render_transform": {
+        "resize": [
+          202,
+          246
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          202,
+          246
+        ]
+      },
+      "group": "标题插画",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_标题左花叶",
+      "metadata": {
+        "target_box": [
+          92,
+          382,
+          294,
+          628
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          202,
+          246
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_标题右花叶",
+      "asset": "block_结算_标题右花叶",
+      "file": "PNG/公共素材/标题右花叶_7f7825fa96.png",
+      "name": "右花叶",
+      "z": 13,
+      "position": [
+        564,
+        382
+      ],
+      "size": [
+        202,
+        246
+      ],
+      "native_size": [
+        202,
+        246
+      ],
+      "render_transform": {
+        "resize": [
+          202,
+          246
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          202,
+          246
+        ]
+      },
+      "group": "标题插画",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_标题右花叶",
+      "metadata": {
+        "target_box": [
+          564,
+          382,
+          766,
+          628
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          202,
+          246
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_闯关成功红飘带",
+      "asset": "block_结算_闯关成功红飘带",
+      "file": "PNG/公共UI/闯关成功红飘带_62a679ad22.png",
+      "name": "结算原生红飘带",
+      "z": 14,
+      "position": [
+        70,
+        420
+      ],
+      "size": [
+        714,
+        244
+      ],
+      "native_size": [
+        714,
+        250
+      ],
+      "render_transform": {
+        "resize": [
+          714,
+          250
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          714,
+          247
+        ]
+      },
+      "group": "标题插画",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_闯关成功红飘带",
+      "metadata": {
+        "target_box": [
+          70,
+          417,
+          784,
+          667
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          714,
+          250
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.003",
+      "name": "页面标题",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.004",
+      "name": "本局得分标签",
+      "z": 16,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.005",
+      "name": "本局分数",
+      "z": 17,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.006",
+      "name": "本机最高",
+      "z": 18,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务空白行_1",
+      "asset": "block_每日任务_任务空白行_1",
+      "file": "PNG/公共UI/任务空白行_1_9ae425e5ca.png",
+      "name": "花蜜奖励卡",
+      "z": 19,
+      "position": [
+        175,
+        883
+      ],
+      "size": [
+        503,
+        121
+      ],
+      "native_size": [
+        628,
+        151
+      ],
+      "render_transform": {
+        "resize": [
+          503,
+          121
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          503,
+          121
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务空白行_1",
+      "metadata": {
+        "target_box": [
+          175,
+          883,
+          678,
+          1004
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          628,
+          151
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 20,
+      "position": [
+        239,
+        894
+      ],
+      "size": [
+        86,
+        94
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          89,
+          94
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          89,
+          94
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          236,
+          893,
+          325,
+          990
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.007",
+      "name": "实际花蜜",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.008",
+      "name": "已到账",
+      "z": 22,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "再来一局_原生按钮",
+      "z": 23,
+      "position": [
+        179,
+        1025
+      ],
+      "size": [
+        496,
+        141
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1022,
+          675,
+          1169
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "new-endless"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.009",
+      "name": "再来一局_文案",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "视频加领 +60_原生按钮",
+      "z": 25,
+      "position": [
+        179,
+        1174
+      ],
+      "size": [
+        496,
+        142
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          2,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1172,
+          675,
+          1319
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "bonus-ad"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T14-01.text.010",
+      "name": "视频加领 +60_文案",
+      "z": 26,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_欢呼蜜蜂",
+      "asset": "block_结算_欢呼蜜蜂",
+      "file": "PNG/公共素材/欢呼蜜蜂_76bf8b6bf3.png",
+      "name": "纪录庆祝小蜜",
+      "z": 27,
+      "position": [
+        424,
+        1281
+      ],
+      "size": [
+        428,
+        442
+      ],
+      "native_size": [
+        428,
+        451
+      ],
+      "render_transform": {
+        "resize": [
+          428,
+          451
+        ],
+        "alpha_crop": [
+          0,
+          4,
+          428,
+          446
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_欢呼蜜蜂",
+      "metadata": {
+        "target_box": [
+          424,
+          1277,
+          852,
+          1728
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          428,
+          451
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回上一页",
+      "z": 28,
+      "position": [
+        15,
+        1635
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          166
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          15,
+          1635,
+          179,
+          1801
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "levels"
+      }
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T14-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T14-01.text.000",
+      "instance_id": "6fd5045cc24d:T14-01.text.000",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "480",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 480,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T14-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T14-01.text.001",
+      "instance_id": "6fd5045cc24d:T14-01.text.001",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "number",
+      "raw_value": 480,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "480",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T14-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T14-01.text.002",
+      "instance_id": "6fd5045cc24d:T14-01.text.002",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "刷新纪录",
+      "position": [
+        304,
+        487
+      ],
+      "box": [
+        158,
+        446,
+        695,
+        591
+      ],
+      "font_size": 60.0,
+      "min_font_size": 48.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        244,
+        200
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        169,
+        71,
+        37
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "刷新纪录",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 60.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        244,
+        63
+      ],
+      "id": "T14-01.text.003",
+      "layout_box": [
+        158,
+        446,
+        695,
+        591
+      ],
+      "text_id": "T14-01.text.003",
+      "instance_id": "6fd5045cc24d:T14-01.text.003",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "刷新纪录",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.6fd5045cc24d.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "本局得分标签",
+      "text": "本局得分",
+      "position": [
+        368,
+        668
+      ],
+      "box": [
+        175,
+        656,
+        678,
+        710
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "本局得分",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        116,
+        29
+      ],
+      "id": "T14-01.text.004",
+      "layout_box": [
+        175,
+        656,
+        678,
+        710
+      ],
+      "text_id": "T14-01.text.004",
+      "instance_id": "6fd5045cc24d:T14-01.text.004",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "本局得分",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.6fd5045cc24d.text.3cab7659e353",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "本局分数",
+      "text": "3,450",
+      "position": [
+        327,
+        734
+      ],
+      "box": [
+        160,
+        716,
+        693,
+        817
+      ],
+      "font_size": 72.0,
+      "min_font_size": 57.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "endless.score",
+      "raw": 3450,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 72.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        199,
+        66
+      ],
+      "id": "T14-01.text.005",
+      "layout_box": [
+        160,
+        716,
+        693,
+        817
+      ],
+      "text_id": "T14-01.text.005",
+      "instance_id": "6fd5045cc24d:T14-01.text.005",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "number",
+      "raw_value": 3450,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": true,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "endless.score",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "3,450",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "本机最高",
+      "text": "本机最高 3,450",
+      "position": [
+        320,
+        834
+      ],
+      "box": [
+        180,
+        820,
+        673,
+        877
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "endlessBest",
+      "raw": "本机最高 3,450",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        212,
+        30
+      ],
+      "id": "T14-01.text.006",
+      "layout_box": [
+        180,
+        820,
+        673,
+        877
+      ],
+      "text_id": "T14-01.text.006",
+      "instance_id": "6fd5045cc24d:T14-01.text.006",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "template",
+      "message_template": "本机最高 {count}",
+      "parameters": {
+        "count": 3450
+      },
+      "value_binding": {
+        "count": "endlessBest"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "本机最高 3,450",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": true,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.6fd5045cc24d.text.3f68775fb6ca",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "实际花蜜",
+      "text": "+120",
+      "position": [
+        406,
+        908
+      ],
+      "box": [
+        330,
+        894,
+        609,
+        960
+      ],
+      "font_size": 49.0,
+      "min_font_size": 39.2,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "result.reward",
+      "raw": "+120",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 49.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        128,
+        39
+      ],
+      "id": "T14-01.text.007",
+      "layout_box": [
+        330,
+        894,
+        609,
+        960
+      ],
+      "text_id": "T14-01.text.007",
+      "instance_id": "6fd5045cc24d:T14-01.text.007",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "number",
+      "raw_value": 120,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "always",
+        "locale_aware": true
+      },
+      "value_binding": "result.reward",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "+120",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "已到账",
+      "text": "正常奖励已到账",
+      "position": [
+        388,
+        968
+      ],
+      "box": [
+        328,
+        960,
+        610,
+        1000
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "正常奖励已到账",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        161,
+        23
+      ],
+      "id": "T14-01.text.008",
+      "layout_box": [
+        328,
+        960,
+        610,
+        1000
+      ],
+      "text_id": "T14-01.text.008",
+      "instance_id": "6fd5045cc24d:T14-01.text.008",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "正常奖励已到账",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.6fd5045cc24d.text.e9f9c74a6be3",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "再来一局_文案",
+      "text": "再来一局",
+      "position": [
+        350,
+        1071
+      ],
+      "box": [
+        203,
+        1034,
+        651,
+        1147
+      ],
+      "font_size": 38.0,
+      "min_font_size": 30.400000000000002,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "再来一局",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        155,
+        39
+      ],
+      "id": "T14-01.text.009",
+      "layout_box": [
+        203,
+        1034,
+        651,
+        1147
+      ],
+      "text_id": "T14-01.text.009",
+      "instance_id": "6fd5045cc24d:T14-01.text.009",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "再来一局",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.6fd5045cc24d.text.4c8a25d2eb63",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "视频加领 +60_文案",
+      "text": "视频加领 +60",
+      "position": [
+        306,
+        1220
+      ],
+      "box": [
+        203,
+        1184,
+        651,
+        1297
+      ],
+      "font_size": 38.0,
+      "min_font_size": 30.400000000000002,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        105,
+        71,
+        38
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "视频加领 +60",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        242,
+        40
+      ],
+      "id": "T14-01.text.010",
+      "layout_box": [
+        203,
+        1184,
+        651,
+        1297
+      ],
+      "text_id": "T14-01.text.010",
+      "instance_id": "6fd5045cc24d:T14-01.text.010",
+      "page": "T14-01_无尽成绩结算",
+      "text_role": "template",
+      "message_template": "视频加领 {count}",
+      "parameters": {
+        "count": 60
+      },
+      "value_binding": {
+        "count": "page.6fd5045cc24d.text.dd00130371c3.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "视频加领 +60",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "always",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.6fd5045cc24d.text.dd00130371c3",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "endless-result"
+    ],
+    "requirements": "当前分数、个人最佳、本次实际花蜜分别展示；没有主线关号或限步成绩星；再来一局、回地图及可选追加。",
+    "actions": [
+      {
+        "layer": "再来一局_原生按钮",
+        "label": "再来一局",
+        "action": "new-endless",
+        "free": true,
+        "optional_video": false
+      },
+      {
+        "layer": "视频加领 +60_原生按钮",
+        "label": "视频加领 +60",
+        "action": "bonus-ad",
+        "free": false,
+        "optional_video": true
+      },
+      {
+        "layer": "返回上一页",
+        "label": "返回",
+        "action": "levels",
+        "free": true
+      }
+    ],
+    "ui_fact_route": "endless-result",
+    "style_family": "original_settlement",
+    "reward_credited": true,
+    "facts_file": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\界面事实\\ui_facts.json",
+    "layout_family": "endless_record"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T14-01_无尽成绩结算.png",
+    "composite": "页面对照/PSD合成/缺少/T14-01_无尽成绩结算.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "2102348d55503d9871b3ff465e658a2d9ab7c3fcb8b5eeec504a19c8b3a3e31b",
+    "psd_composite": "页面对照/PSD合成/缺少/T14-01_无尽成绩结算.png",
+    "psd_composite_sha256": "33d7f7d3cb2a9cae6395cac97ed2eb9746e287ba9cfdb062ee390a801b625c4a",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "2102348d55503d9871b3ff465e658a2d9ab7c3fcb8b5eeec504a19c8b3a3e31b",
+    "psd_sha256": "a041af7591bd8d29382d1c7d3a1c1680b1bf4db77b8742b756a6e350042a71b4",
+    "composite_sha256": "33d7f7d3cb2a9cae6395cac97ed2eb9746e287ba9cfdb062ee390a801b625c4a",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T14-01_无尽成绩结算.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

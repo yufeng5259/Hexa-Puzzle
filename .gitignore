@@ -3,6 +3,7 @@
 !/.gitignore
 !/.gitattributes
 !/assets/
+!/arts/
 !/build-templates/
 !/native/
 !/settings/
@@ -152,3 +153,6 @@ $RECYCLE.BIN/
 !/docs/source-inputs.json
 !/docs/策划/
 !/AGENTS.md
+
+# Editable PSD sources remain local; exported art stays versioned.
+*.[pP][sS][dD]

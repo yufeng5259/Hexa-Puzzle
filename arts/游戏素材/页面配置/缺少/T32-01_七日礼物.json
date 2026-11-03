@@ -1,0 +1,3953 @@
+{
+  "page": "T32-01_七日礼物",
+  "output_id": "T32-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "signin",
+      "title": "七日礼物",
+      "url": "http://127.0.0.1:4291/index.html#signin",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\54-signin.png",
+      "screenshot_sha256": "3d15940fbfce5c5c64a77bd92d42d192d963bd3f1e64f5c3e7f900f8cb8ba77e"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_每日任务",
+      "asset": "block_background_每日任务",
+      "file": "PNG/公共素材/每日任务_完整裸背景_0561eabbc8.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_每日任务",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_空白主面板",
+      "asset": "block_每日任务_空白主面板",
+      "file": "PNG/公共UI/空白主面板_b0d3223d89.png",
+      "name": "原生完整主框",
+      "z": 10,
+      "position": [
+        61,
+        335
+      ],
+      "size": [
+        731,
+        1200
+      ],
+      "native_size": [
+        731,
+        1206
+      ],
+      "render_transform": {
+        "resize": [
+          731,
+          1206
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          731,
+          1203
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_空白主面板",
+      "metadata": {
+        "target_box": [
+          61,
+          332,
+          792,
+          1538
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          731,
+          1206
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_每日奖励标题插画",
+      "asset": "block_每日任务_每日奖励标题插画",
+      "file": "PNG/公共UI/每日奖励标题插画_04c0c4cd1f.png",
+      "name": "红带花叶与小蜜完整标题插画",
+      "z": 11,
+      "position": [
+        68,
+        133
+      ],
+      "size": [
+        717,
+        294
+      ],
+      "native_size": [
+        717,
+        301
+      ],
+      "render_transform": {
+        "resize": [
+          717,
+          301
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          717,
+          297
+        ]
+      },
+      "group": "标题插画",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_每日奖励标题插画",
+      "metadata": {
+        "target_box": [
+          68,
+          130,
+          785,
+          431
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          717,
+          301
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.003",
+      "name": "页面标题",
+      "z": 12,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.004",
+      "name": "页面副标题",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回上一页",
+      "z": 14,
+      "position": [
+        15,
+        1635
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          166
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          15,
+          1635,
+          179,
+          1801
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "levels"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "第1天_原生奖励格",
+      "z": 15,
+      "position": [
+        111,
+        520
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          111,
+          520,
+          312,
+          718
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.005",
+      "name": "签到天0",
+      "z": 16,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 17,
+      "position": [
+        121,
+        594
+      ],
+      "size": [
+        76,
+        82
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          78,
+          82
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          78,
+          82
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          119,
+          593,
+          197,
+          678
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.006",
+      "name": "签到花蜜0",
+      "z": 18,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "check",
+      "z": 19,
+      "position": [
+        249,
+        680
+      ],
+      "size": [
+        55,
+        48
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          55,
+          49
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          55,
+          48
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          249,
+          680,
+          304,
+          729
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.007",
+      "name": "签到状态0",
+      "z": 20,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "第2天_原生奖励格",
+      "z": 21,
+      "position": [
+        326,
+        520
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          326,
+          520,
+          527,
+          718
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.008",
+      "name": "签到天1",
+      "z": 22,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 23,
+      "position": [
+        336,
+        594
+      ],
+      "size": [
+        76,
+        82
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          78,
+          82
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          78,
+          82
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          334,
+          593,
+          412,
+          678
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.009",
+      "name": "签到花蜜1",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "check",
+      "z": 25,
+      "position": [
+        464,
+        680
+      ],
+      "size": [
+        55,
+        48
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          55,
+          49
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          55,
+          48
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          464,
+          680,
+          519,
+          729
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.010",
+      "name": "签到状态1",
+      "z": 26,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "第3天_原生奖励格",
+      "z": 27,
+      "position": [
+        541,
+        520
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          541,
+          520,
+          742,
+          718
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.011",
+      "name": "签到天2",
+      "z": 28,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 29,
+      "position": [
+        559,
+        585
+      ],
+      "size": [
+        67,
+        72
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          68,
+          72
+        ],
+        "alpha_crop": [
+          1,
+          0,
+          68,
+          72
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          556,
+          585,
+          628,
+          657
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.012",
+      "name": "签到花蜜2",
+      "z": 30,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "bulb",
+      "z": 31,
+      "position": [
+        568,
+        664
+      ],
+      "size": [
+        36,
+        46
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          36,
+          46
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          36,
+          46
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          568,
+          663,
+          604,
+          711
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.013",
+      "name": "签到提示2",
+      "z": 32,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.014",
+      "name": "签到状态2",
+      "z": 33,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "第4天_原生奖励格",
+      "z": 34,
+      "position": [
+        111,
+        802
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          111,
+          802,
+          312,
+          1000
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.015",
+      "name": "签到天3",
+      "z": 35,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 36,
+      "position": [
+        121,
+        876
+      ],
+      "size": [
+        76,
+        82
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          78,
+          82
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          78,
+          82
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          119,
+          875,
+          197,
+          960
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.016",
+      "name": "签到花蜜3",
+      "z": 37,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.017",
+      "name": "签到状态3",
+      "z": 38,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "第5天_原生奖励格",
+      "z": 39,
+      "position": [
+        326,
+        802
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          326,
+          802,
+          527,
+          1000
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.018",
+      "name": "签到天4",
+      "z": 40,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 41,
+      "position": [
+        336,
+        876
+      ],
+      "size": [
+        76,
+        82
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          78,
+          82
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          78,
+          82
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          334,
+          875,
+          412,
+          960
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.019",
+      "name": "签到花蜜4",
+      "z": 42,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.020",
+      "name": "签到状态4",
+      "z": 43,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "第6天_原生奖励格",
+      "z": 44,
+      "position": [
+        541,
+        802
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          541,
+          802,
+          742,
+          1000
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.021",
+      "name": "签到天5",
+      "z": 45,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 46,
+      "position": [
+        551,
+        876
+      ],
+      "size": [
+        76,
+        82
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          78,
+          82
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          78,
+          82
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          549,
+          875,
+          627,
+          960
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.022",
+      "name": "签到花蜜5",
+      "z": 47,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.023",
+      "name": "签到状态5",
+      "z": 48,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务空白行_1",
+      "asset": "block_每日任务_任务空白行_1",
+      "file": "PNG/公共UI/任务空白行_1_9ae425e5ca.png",
+      "name": "第7天原生任务行",
+      "z": 49,
+      "position": [
+        112,
+        1102
+      ],
+      "size": [
+        628,
+        151
+      ],
+      "native_size": [
+        628,
+        151
+      ],
+      "render_transform": {
+        "resize": [
+          628,
+          151
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          628,
+          151
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务空白行_1",
+      "metadata": {
+        "target_box": [
+          112,
+          1102,
+          740,
+          1253
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          628,
+          151
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.024",
+      "name": "签到天6",
+      "z": 50,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 51,
+      "position": [
+        131,
+        1175
+      ],
+      "size": [
+        61,
+        65
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          62,
+          65
+        ],
+        "alpha_crop": [
+          1,
+          0,
+          62,
+          65
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          130,
+          1173,
+          192,
+          1242
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.025",
+      "name": "签到花蜜6",
+      "z": 52,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "bulb",
+      "z": 53,
+      "position": [
+        377,
+        1151
+      ],
+      "size": [
+        50,
+        64
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          50,
+          64
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          50,
+          64
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          377,
+          1147,
+          427,
+          1219
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.026",
+      "name": "签到提示6",
+      "z": 54,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_1b79f65e34a21c3f83ae",
+      "asset": "block_missing_1b79f65e34a21c3f83ae",
+      "file": "PNG/公共素材/outfit_picnic_hat_1b79f65e34.png",
+      "name": "outfit_picnic_hat",
+      "z": 55,
+      "position": [
+        544,
+        1115
+      ],
+      "size": [
+        129,
+        121
+      ],
+      "native_size": [
+        427,
+        402
+      ],
+      "render_transform": {
+        "resize": [
+          129,
+          121
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          129,
+          121
+        ]
+      },
+      "group": "签到外观奖励",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_1b79f65e34a21c3f83ae",
+      "metadata": {
+        "target_box": [
+          531,
+          1115,
+          687,
+          1236
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          427,
+          402
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.027",
+      "name": "签到尾注",
+      "z": 56,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "收下今日礼物_原生按钮",
+      "z": 57,
+      "position": [
+        179,
+        1369
+      ],
+      "size": [
+        496,
+        141
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1366,
+          675,
+          1513
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-signin"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T32-01.text.028",
+      "name": "收下今日礼物_文案",
+      "z": 58,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_抱蜜罐蜜蜂",
+      "asset": "block_每日任务_抱蜜罐蜜蜂",
+      "file": "PNG/公共素材/抱蜜罐蜜蜂_7602cc2421.png",
+      "name": "原每日奖励抱罐蜂",
+      "z": 59,
+      "position": [
+        361,
+        1490
+      ],
+      "size": [
+        358,
+        314
+      ],
+      "native_size": [
+        399,
+        348
+      ],
+      "render_transform": {
+        "resize": [
+          360,
+          314
+        ],
+        "alpha_crop": [
+          1,
+          0,
+          359,
+          314
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_抱蜜罐蜜蜂",
+      "metadata": {
+        "target_box": [
+          360,
+          1490,
+          720,
+          1804
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          399,
+          348
+        ]
+      }
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T32-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T32-01.text.000",
+      "instance_id": "c93ff5bc5bec:T32-01.text.000",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T32-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T32-01.text.001",
+      "instance_id": "c93ff5bc5bec:T32-01.text.001",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T32-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T32-01.text.002",
+      "instance_id": "c93ff5bc5bec:T32-01.text.002",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "七日礼物",
+      "position": [
+        304,
+        271
+      ],
+      "box": [
+        165,
+        235,
+        687,
+        369
+      ],
+      "font_size": 60.0,
+      "min_font_size": 48.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        244,
+        200
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        169,
+        71,
+        37
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "七日礼物",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 60.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        244,
+        62
+      ],
+      "id": "T32-01.text.003",
+      "layout_box": [
+        165,
+        235,
+        687,
+        369
+      ],
+      "text_id": "T32-01.text.003",
+      "instance_id": "c93ff5bc5bec:T32-01.text.003",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "七日礼物",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面副标题",
+      "text": "累计登录，漏签不回退",
+      "position": [
+        296,
+        456
+      ],
+      "box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "subtitle",
+      "purpose": "subtitle",
+      "binding": null,
+      "raw": "累计登录，漏签不回退",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        260,
+        26
+      ],
+      "id": "T32-01.text.004",
+      "layout_box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "text_id": "T32-01.text.004",
+      "instance_id": "c93ff5bc5bec:T32-01.text.004",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "累计登录，漏签不回退",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.13d7ce0196ca",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到天0",
+      "text": "第1天",
+      "position": [
+        174,
+        539
+      ],
+      "box": [
+        119,
+        524,
+        304,
+        583
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第1天",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        76,
+        29
+      ],
+      "id": "T32-01.text.005",
+      "layout_box": [
+        119,
+        524,
+        304,
+        583
+      ],
+      "text_id": "T32-01.text.005",
+      "instance_id": "c93ff5bc5bec:T32-01.text.005",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "第{count}天",
+      "parameters": {
+        "count": 1
+      },
+      "value_binding": {
+        "count": "page.c93ff5bc5bec.text.6b1b68fe262d.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第1天",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.c93ff5bc5bec.text.6b1b68fe262d",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到花蜜0",
+      "text": "40",
+      "position": [
+        224,
+        617
+      ],
+      "box": [
+        193,
+        597,
+        304,
+        668
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "signin.days[0].honey",
+      "raw": "40",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        48,
+        31
+      ],
+      "id": "T32-01.text.006",
+      "layout_box": [
+        193,
+        597,
+        304,
+        668
+      ],
+      "text_id": "T32-01.text.006",
+      "instance_id": "c93ff5bc5bec:T32-01.text.006",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 40,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "signin.days[0].honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "40",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到状态0",
+      "text": "已领取",
+      "position": [
+        174,
+        748
+      ],
+      "box": [
+        115,
+        733,
+        308,
+        787
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        117,
+        133,
+        44
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "已领取",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        75,
+        24
+      ],
+      "id": "T32-01.text.007",
+      "layout_box": [
+        115,
+        733,
+        308,
+        787
+      ],
+      "text_id": "T32-01.text.007",
+      "instance_id": "c93ff5bc5bec:T32-01.text.007",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "已领取",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.005e85599325",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到天1",
+      "text": "第2天",
+      "position": [
+        388,
+        539
+      ],
+      "box": [
+        334,
+        524,
+        519,
+        583
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第2天",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        76,
+        29
+      ],
+      "id": "T32-01.text.008",
+      "layout_box": [
+        334,
+        524,
+        519,
+        583
+      ],
+      "text_id": "T32-01.text.008",
+      "instance_id": "c93ff5bc5bec:T32-01.text.008",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "第{count}天",
+      "parameters": {
+        "count": 2
+      },
+      "value_binding": {
+        "count": "page.c93ff5bc5bec.text.32bf92e0d376.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第2天",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.c93ff5bc5bec.text.32bf92e0d376",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到花蜜1",
+      "text": "40",
+      "position": [
+        440,
+        617
+      ],
+      "box": [
+        408,
+        597,
+        519,
+        668
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "signin.days[1].honey",
+      "raw": "40",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        48,
+        31
+      ],
+      "id": "T32-01.text.009",
+      "layout_box": [
+        408,
+        597,
+        519,
+        668
+      ],
+      "text_id": "T32-01.text.009",
+      "instance_id": "c93ff5bc5bec:T32-01.text.009",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 40,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "signin.days[1].honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "40",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到状态1",
+      "text": "已领取",
+      "position": [
+        389,
+        748
+      ],
+      "box": [
+        330,
+        733,
+        523,
+        787
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        117,
+        133,
+        44
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "已领取",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        75,
+        24
+      ],
+      "id": "T32-01.text.010",
+      "layout_box": [
+        330,
+        733,
+        523,
+        787
+      ],
+      "text_id": "T32-01.text.010",
+      "instance_id": "c93ff5bc5bec:T32-01.text.010",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "已领取",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.10e180aa7b9a",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到天2",
+      "text": "第3天",
+      "position": [
+        604,
+        539
+      ],
+      "box": [
+        549,
+        524,
+        734,
+        583
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第3天",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        76,
+        29
+      ],
+      "id": "T32-01.text.011",
+      "layout_box": [
+        549,
+        524,
+        734,
+        583
+      ],
+      "text_id": "T32-01.text.011",
+      "instance_id": "c93ff5bc5bec:T32-01.text.011",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "第{count}天",
+      "parameters": {
+        "count": 3
+      },
+      "value_binding": {
+        "count": "page.c93ff5bc5bec.text.f2bb60d0bc7f.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第3天",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.c93ff5bc5bec.text.f2bb60d0bc7f",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到花蜜2",
+      "text": "60",
+      "position": [
+        654,
+        617
+      ],
+      "box": [
+        623,
+        597,
+        734,
+        668
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "signin.days[2].honey",
+      "raw": "60",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        48,
+        31
+      ],
+      "id": "T32-01.text.012",
+      "layout_box": [
+        623,
+        597,
+        734,
+        668
+      ],
+      "text_id": "T32-01.text.012",
+      "instance_id": "c93ff5bc5bec:T32-01.text.012",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 60,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "signin.days[2].honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "60",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到提示2",
+      "text": "+1",
+      "position": [
+        628,
+        680
+      ],
+      "box": [
+        608,
+        667,
+        680,
+        711
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "+1",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        33,
+        19
+      ],
+      "id": "T32-01.text.013",
+      "layout_box": [
+        608,
+        667,
+        680,
+        711
+      ],
+      "text_id": "T32-01.text.013",
+      "instance_id": "c93ff5bc5bec:T32-01.text.013",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 1,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "always",
+        "locale_aware": true
+      },
+      "value_binding": "page.c93ff5bc5bec.text.6b15800e467e",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "+1",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到状态2",
+      "text": "今日可领",
+      "position": [
+        592,
+        748
+      ],
+      "box": [
+        545,
+        733,
+        738,
+        787
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        117,
+        133,
+        44
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "今日可领",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        100,
+        25
+      ],
+      "id": "T32-01.text.014",
+      "layout_box": [
+        545,
+        733,
+        738,
+        787
+      ],
+      "text_id": "T32-01.text.014",
+      "instance_id": "c93ff5bc5bec:T32-01.text.014",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "今日可领",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.e10c0abcfa59",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到天3",
+      "text": "第4天",
+      "position": [
+        174,
+        821
+      ],
+      "box": [
+        119,
+        806,
+        304,
+        865
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第4天",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        76,
+        29
+      ],
+      "id": "T32-01.text.015",
+      "layout_box": [
+        119,
+        806,
+        304,
+        865
+      ],
+      "text_id": "T32-01.text.015",
+      "instance_id": "c93ff5bc5bec:T32-01.text.015",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "第{count}天",
+      "parameters": {
+        "count": 4
+      },
+      "value_binding": {
+        "count": "page.c93ff5bc5bec.text.cc00ac47136b.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第4天",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.c93ff5bc5bec.text.cc00ac47136b",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到花蜜3",
+      "text": "60",
+      "position": [
+        224,
+        899
+      ],
+      "box": [
+        193,
+        879,
+        304,
+        950
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "signin.days[3].honey",
+      "raw": "60",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        48,
+        31
+      ],
+      "id": "T32-01.text.016",
+      "layout_box": [
+        193,
+        879,
+        304,
+        950
+      ],
+      "text_id": "T32-01.text.016",
+      "instance_id": "c93ff5bc5bec:T32-01.text.016",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 60,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "signin.days[3].honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "60",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到状态3",
+      "text": "待签到",
+      "position": [
+        174,
+        1030
+      ],
+      "box": [
+        115,
+        1015,
+        308,
+        1069
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        143,
+        114,
+        78
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "待签到",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        75,
+        25
+      ],
+      "id": "T32-01.text.017",
+      "layout_box": [
+        115,
+        1015,
+        308,
+        1069
+      ],
+      "text_id": "T32-01.text.017",
+      "instance_id": "c93ff5bc5bec:T32-01.text.017",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "待签到",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.bb5f2aee9328",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到天4",
+      "text": "第5天",
+      "position": [
+        388,
+        821
+      ],
+      "box": [
+        334,
+        806,
+        519,
+        865
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第5天",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        76,
+        29
+      ],
+      "id": "T32-01.text.018",
+      "layout_box": [
+        334,
+        806,
+        519,
+        865
+      ],
+      "text_id": "T32-01.text.018",
+      "instance_id": "c93ff5bc5bec:T32-01.text.018",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "第{count}天",
+      "parameters": {
+        "count": 5
+      },
+      "value_binding": {
+        "count": "page.c93ff5bc5bec.text.fb0c8aab6a1f.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第5天",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.c93ff5bc5bec.text.fb0c8aab6a1f",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到花蜜4",
+      "text": "80",
+      "position": [
+        440,
+        899
+      ],
+      "box": [
+        408,
+        879,
+        519,
+        950
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "signin.days[4].honey",
+      "raw": "80",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        48,
+        31
+      ],
+      "id": "T32-01.text.019",
+      "layout_box": [
+        408,
+        879,
+        519,
+        950
+      ],
+      "text_id": "T32-01.text.019",
+      "instance_id": "c93ff5bc5bec:T32-01.text.019",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 80,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "signin.days[4].honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "80",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到状态4",
+      "text": "待签到",
+      "position": [
+        389,
+        1030
+      ],
+      "box": [
+        330,
+        1015,
+        523,
+        1069
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        143,
+        114,
+        78
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "待签到",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        75,
+        25
+      ],
+      "id": "T32-01.text.020",
+      "layout_box": [
+        330,
+        1015,
+        523,
+        1069
+      ],
+      "text_id": "T32-01.text.020",
+      "instance_id": "c93ff5bc5bec:T32-01.text.020",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "待签到",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.f4de50d54370",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到天5",
+      "text": "第6天",
+      "position": [
+        604,
+        821
+      ],
+      "box": [
+        549,
+        806,
+        734,
+        865
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第6天",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        76,
+        29
+      ],
+      "id": "T32-01.text.021",
+      "layout_box": [
+        549,
+        806,
+        734,
+        865
+      ],
+      "text_id": "T32-01.text.021",
+      "instance_id": "c93ff5bc5bec:T32-01.text.021",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "第{count}天",
+      "parameters": {
+        "count": 6
+      },
+      "value_binding": {
+        "count": "page.c93ff5bc5bec.text.35d5f282e579.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第6天",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.c93ff5bc5bec.text.35d5f282e579",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到花蜜5",
+      "text": "80",
+      "position": [
+        654,
+        899
+      ],
+      "box": [
+        623,
+        879,
+        734,
+        950
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "signin.days[5].honey",
+      "raw": "80",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        48,
+        31
+      ],
+      "id": "T32-01.text.022",
+      "layout_box": [
+        623,
+        879,
+        734,
+        950
+      ],
+      "text_id": "T32-01.text.022",
+      "instance_id": "c93ff5bc5bec:T32-01.text.022",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 80,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "signin.days[5].honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "80",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到状态5",
+      "text": "待签到",
+      "position": [
+        604,
+        1030
+      ],
+      "box": [
+        545,
+        1015,
+        738,
+        1069
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        143,
+        114,
+        78
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "待签到",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        75,
+        25
+      ],
+      "id": "T32-01.text.023",
+      "layout_box": [
+        545,
+        1015,
+        738,
+        1069
+      ],
+      "text_id": "T32-01.text.023",
+      "instance_id": "c93ff5bc5bec:T32-01.text.023",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "待签到",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.7a8879694a71",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到天6",
+      "text": "第7天",
+      "position": [
+        176,
+        1124
+      ],
+      "box": [
+        130,
+        1109,
+        304,
+        1170
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第7天",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        81,
+        30
+      ],
+      "id": "T32-01.text.024",
+      "layout_box": [
+        130,
+        1109,
+        304,
+        1170
+      ],
+      "text_id": "T32-01.text.024",
+      "instance_id": "c93ff5bc5bec:T32-01.text.024",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "第{count}天",
+      "parameters": {
+        "count": 7
+      },
+      "value_binding": {
+        "count": "page.c93ff5bc5bec.text.4fdfce0a050a.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第7天",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.c93ff5bc5bec.text.4fdfce0a050a",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到花蜜6",
+      "text": "120",
+      "position": [
+        246,
+        1196
+      ],
+      "box": [
+        197,
+        1179,
+        362,
+        1241
+      ],
+      "font_size": 36.0,
+      "min_font_size": 28.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "signin.days[6].honey",
+      "raw": "120",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        67,
+        29
+      ],
+      "id": "T32-01.text.025",
+      "layout_box": [
+        197,
+        1179,
+        362,
+        1241
+      ],
+      "text_id": "T32-01.text.025",
+      "instance_id": "c93ff5bc5bec:T32-01.text.025",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 120,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "signin.days[6].honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "120",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到提示6",
+      "text": "+1",
+      "position": [
+        446,
+        1182
+      ],
+      "box": [
+        431,
+        1163,
+        499,
+        1222
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "+1",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        39,
+        22
+      ],
+      "id": "T32-01.text.026",
+      "layout_box": [
+        431,
+        1163,
+        499,
+        1222
+      ],
+      "text_id": "T32-01.text.026",
+      "instance_id": "c93ff5bc5bec:T32-01.text.026",
+      "page": "T32-01_七日礼物",
+      "text_role": "number",
+      "raw_value": 1,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "always",
+        "locale_aware": true
+      },
+      "value_binding": "page.c93ff5bc5bec.text.4a5c5a0dad59",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "+1",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "签到尾注",
+      "text": "第7天野餐帽 · 不需广告补签",
+      "position": [
+        256,
+        1303
+      ],
+      "box": [
+        111,
+        1282,
+        743,
+        1351
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第7天野餐帽 · 不需广告补签",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        342,
+        27
+      ],
+      "id": "T32-01.text.027",
+      "layout_box": [
+        111,
+        1282,
+        743,
+        1351
+      ],
+      "text_id": "T32-01.text.027",
+      "instance_id": "c93ff5bc5bec:T32-01.text.027",
+      "page": "T32-01_七日礼物",
+      "text_role": "template",
+      "message_template": "第{count}天野餐帽 · 不需广告补签",
+      "parameters": {
+        "count": 7
+      },
+      "value_binding": {
+        "count": "page.c93ff5bc5bec.text.a6868dded0e8.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第7天野餐帽 · 不需广告补签",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.c93ff5bc5bec.text.a6868dded0e8",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "收下今日礼物_文案",
+      "text": "收下今日礼物",
+      "position": [
+        320,
+        1416
+      ],
+      "box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "收下今日礼物",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        213,
+        37
+      ],
+      "id": "T32-01.text.028",
+      "layout_box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "text_id": "T32-01.text.028",
+      "instance_id": "c93ff5bc5bec:T32-01.text.028",
+      "page": "T32-01_七日礼物",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "收下今日礼物",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.c93ff5bc5bec.text.6d234ac1fabe",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "signin"
+    ],
+    "requirements": "7格累计日；花蜜40/40/60/60/80/80/120，第3/7日各+1提示，第7日帽子。今日／已领／未来清楚；免费领取不做视频前置。",
+    "actions": [
+      {
+        "layer": "返回上一页",
+        "label": "返回",
+        "action": "levels",
+        "free": true
+      },
+      {
+        "layer": "收下今日礼物_原生按钮",
+        "label": "收下今日礼物",
+        "action": "meta-signin",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      }
+    ],
+    "recipe_layout": "seven_day_calendar",
+    "ui_fact_route": "signin",
+    "text_policy": "editable Microsoft YaHei; localized copy and bound numbers",
+    "style_family": "daily_original",
+    "facts_file": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\界面事实\\ui_facts.json",
+    "layout_family": "seven_day_calendar"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T32-01_七日礼物.png",
+    "composite": "页面对照/PSD合成/缺少/T32-01_七日礼物.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "ad88fd33e4a548601d3bd2adddf336af72604a837b5499284e3eead85840cfdd",
+    "psd_composite": "页面对照/PSD合成/缺少/T32-01_七日礼物.png",
+    "psd_composite_sha256": "7b8e651fef86c8e7411cf607ac6474a8ca8d7155ff9cc2157a786b76898b8be9",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "ad88fd33e4a548601d3bd2adddf336af72604a837b5499284e3eead85840cfdd",
+    "psd_sha256": "29a92f5271c180814b02a65ce27f7de7ba1387a6fe9dbbcb67186c229049fd3a",
+    "composite_sha256": "7b8e651fef86c8e7411cf607ac6474a8ca8d7155ff9cc2157a786b76898b8be9",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T32-01_七日礼物.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

@@ -1,0 +1,1947 @@
+{
+  "page": "T46-01_本地存档",
+  "output_id": "T46-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "local-save",
+      "title": "本地存档恢复",
+      "url": "http://127.0.0.1:4291/index.html#local-save",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\67-local-save.png",
+      "screenshot_sha256": "9c6e62694ddccf68250673cfe564917dd885fddefe3a4ba61b066ebf37cab783"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_好友界面",
+      "asset": "block_background_好友界面",
+      "file": "PNG/公共素材/好友界面_完整裸背景_3e77cdf8da.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_好友界面",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_空白主面板",
+      "asset": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "name": "原生完整主框",
+      "z": 10,
+      "position": [
+        63,
+        333
+      ],
+      "size": [
+        726,
+        1203
+      ],
+      "native_size": [
+        727,
+        1207
+      ],
+      "render_transform": {
+        "resize": [
+          726,
+          1206
+        ],
+        "alpha_crop": [
+          0,
+          1,
+          726,
+          1204
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板",
+      "metadata": {
+        "target_box": [
+          61,
+          332,
+          792,
+          1538
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          727,
+          1207
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_左悬绳",
+      "asset": "block_好友界面_左悬绳",
+      "file": "PNG/公共UI/左悬绳_a1cf9fcdc7.png",
+      "name": "左标题吊绳",
+      "z": 11,
+      "position": [
+        224,
+        168
+      ],
+      "size": [
+        25,
+        77
+      ],
+      "native_size": [
+        32,
+        77
+      ],
+      "render_transform": {
+        "resize": [
+          32,
+          77
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          28,
+          77
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_左悬绳",
+      "metadata": {
+        "target_box": [
+          221,
+          168,
+          253,
+          245
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          32,
+          77
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_右悬绳",
+      "asset": "block_好友界面_右悬绳",
+      "file": "PNG/公共UI/右悬绳_eda8460639.png",
+      "name": "右标题吊绳",
+      "z": 12,
+      "position": [
+        606,
+        168
+      ],
+      "size": [
+        26,
+        74
+      ],
+      "native_size": [
+        34,
+        74
+      ],
+      "render_transform": {
+        "resize": [
+          34,
+          74
+        ],
+        "alpha_crop": [
+          4,
+          0,
+          30,
+          74
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_右悬绳",
+      "metadata": {
+        "target_box": [
+          602,
+          168,
+          636,
+          242
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          34,
+          74
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友标题木牌",
+      "asset": "block_好友界面_好友标题木牌",
+      "file": "PNG/公共UI/好友标题木牌_b85a1c550c.png",
+      "name": "好友系原生标题木牌",
+      "z": 13,
+      "position": [
+        202,
+        215
+      ],
+      "size": [
+        449,
+        114
+      ],
+      "native_size": [
+        461,
+        114
+      ],
+      "render_transform": {
+        "resize": [
+          461,
+          114
+        ],
+        "alpha_crop": [
+          6,
+          0,
+          455,
+          114
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友标题木牌",
+      "metadata": {
+        "target_box": [
+          196,
+          215,
+          657,
+          329
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          461,
+          114
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.003",
+      "name": "页面标题",
+      "z": 14,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.004",
+      "name": "页面副标题",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回上一页",
+      "z": 16,
+      "position": [
+        15,
+        1635
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          166
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          15,
+          1635,
+          179,
+          1801
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "settings"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_主页按钮",
+      "asset": "block_结算_主页按钮",
+      "file": "PNG/公共UI/主页按钮_5b4a18209c.png",
+      "name": "本机家园",
+      "z": 17,
+      "position": [
+        306,
+        523
+      ],
+      "size": [
+        241,
+        237
+      ],
+      "native_size": [
+        169,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          241,
+          237
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          241,
+          237
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_主页按钮",
+      "metadata": {
+        "target_box": [
+          306,
+          523,
+          547,
+          760
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          169,
+          166
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.005",
+      "name": "存档关园",
+      "z": 18,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.006",
+      "name": "存档状态",
+      "z": 19,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "存档原生记录行",
+      "z": 20,
+      "position": [
+        99,
+        1012
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          656,
+          141
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          656,
+          141
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          99,
+          1012,
+          755,
+          1153
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.007",
+      "name": "建设进度",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 22,
+      "position": [
+        466,
+        1031
+      ],
+      "size": [
+        88,
+        96
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          91,
+          96
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          91,
+          96
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          463,
+          1029,
+          554,
+          1130
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.008",
+      "name": "存档花蜜",
+      "z": 23,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.009",
+      "name": "本地说明",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "保存当前进度_原生按钮",
+      "z": 25,
+      "position": [
+        179,
+        1369
+      ],
+      "size": [
+        496,
+        141
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1366,
+          675,
+          1513
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "save-local"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.010",
+      "name": "保存当前进度_文案",
+      "z": 26,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "继续上次一局_原生按钮",
+      "z": 27,
+      "position": [
+        179,
+        1552
+      ],
+      "size": [
+        496,
+        142
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          2,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1550,
+          675,
+          1697
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "puzzle"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T46-01.text.011",
+      "name": "继续上次一局_文案",
+      "z": 28,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T46-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T46-01.text.000",
+      "instance_id": "0e592132aa09:T46-01.text.000",
+      "page": "T46-01_本地存档",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T46-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T46-01.text.001",
+      "instance_id": "0e592132aa09:T46-01.text.001",
+      "page": "T46-01_本地存档",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T46-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T46-01.text.002",
+      "instance_id": "0e592132aa09:T46-01.text.002",
+      "page": "T46-01_本地存档",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "本地存档",
+      "position": [
+        345,
+        250
+      ],
+      "box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "font_size": 40.0,
+      "min_font_size": 32.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        244,
+        200
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.4,
+      "stroke_color": [
+        112,
+        69,
+        27
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "本地存档",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 40.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        163,
+        42
+      ],
+      "id": "T46-01.text.003",
+      "layout_box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "text_id": "T46-01.text.003",
+      "instance_id": "0e592132aa09:T46-01.text.003",
+      "page": "T46-01_本地存档",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "本地存档",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.0e592132aa09.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面副标题",
+      "text": "每次操作自动保存在本机",
+      "position": [
+        284,
+        456
+      ],
+      "box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "subtitle",
+      "purpose": "subtitle",
+      "binding": null,
+      "raw": "每次操作自动保存在本机",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        286,
+        26
+      ],
+      "id": "T46-01.text.004",
+      "layout_box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "text_id": "T46-01.text.004",
+      "instance_id": "0e592132aa09:T46-01.text.004",
+      "page": "T46-01_本地存档",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "每次操作自动保存在本机",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.0e592132aa09.text.13d7ce0196ca",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "存档关园",
+      "text": "第1关 · 第1园",
+      "position": [
+        298,
+        820
+      ],
+      "box": [
+        150,
+        798,
+        703,
+        881
+      ],
+      "font_size": 41.0,
+      "min_font_size": 32.800000000000004,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "save.mainline/chapter",
+      "raw": "第1关 · 第1园",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 41.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        257,
+        40
+      ],
+      "id": "T46-01.text.005",
+      "layout_box": [
+        150,
+        798,
+        703,
+        881
+      ],
+      "text_id": "T46-01.text.005",
+      "instance_id": "0e592132aa09:T46-01.text.005",
+      "page": "T46-01_本地存档",
+      "text_role": "template",
+      "message_template": "第{value_1}关 · 第{value_2}园",
+      "parameters": {
+        "value_1": 1,
+        "value_2": 1
+      },
+      "value_binding": {
+        "value_1": "page.0e592132aa09.text.f3cf00fd105c.value_1",
+        "value_2": "page.0e592132aa09.text.f3cf00fd105c.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第1关 · 第1园",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.0e592132aa09.text.f3cf00fd105c",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "存档状态",
+      "text": "原局已保存在本机",
+      "position": [
+        310,
+        912
+      ],
+      "box": [
+        145,
+        895,
+        708,
+        959
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "原局已保存在本机",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        232,
+        29
+      ],
+      "id": "T46-01.text.006",
+      "layout_box": [
+        145,
+        895,
+        708,
+        959
+      ],
+      "text_id": "T46-01.text.006",
+      "instance_id": "0e592132aa09:T46-01.text.006",
+      "page": "T46-01_本地存档",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "原局已保存在本机",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.0e592132aa09.text.1736655c9e0c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "建设进度",
+      "text": "建设 2/25",
+      "position": [
+        216,
+        1064
+      ],
+      "box": [
+        135,
+        1045,
+        444,
+        1115
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "save.buildingProgress",
+      "raw": "建设 2/25",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        148,
+        32
+      ],
+      "id": "T46-01.text.007",
+      "layout_box": [
+        135,
+        1045,
+        444,
+        1115
+      ],
+      "text_id": "T46-01.text.007",
+      "instance_id": "0e592132aa09:T46-01.text.007",
+      "page": "T46-01_本地存档",
+      "text_role": "template",
+      "message_template": "建设 {value_1}/{value_2}",
+      "parameters": {
+        "value_1": 2,
+        "value_2": 25
+      },
+      "value_binding": {
+        "value_1": "page.0e592132aa09.text.837b042bdc38.value_1",
+        "value_2": "page.0e592132aa09.text.837b042bdc38.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "建设 2/25",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.0e592132aa09.text.837b042bdc38",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "存档花蜜",
+      "text": "360",
+      "position": [
+        602,
+        1068
+      ],
+      "box": [
+        559,
+        1051,
+        713,
+        1115
+      ],
+      "font_size": 36.0,
+      "min_font_size": 28.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "wallet.honey",
+      "raw": "360",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        67,
+        29
+      ],
+      "id": "T46-01.text.008",
+      "layout_box": [
+        559,
+        1051,
+        713,
+        1115
+      ],
+      "text_id": "T46-01.text.008",
+      "instance_id": "0e592132aa09:T46-01.text.008",
+      "page": "T46-01_本地存档",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "本地说明",
+      "text": "不需要网络 · 下次接着玩",
+      "position": [
+        272,
+        1286
+      ],
+      "box": [
+        135,
+        1265,
+        718,
+        1335
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "不需要网络 · 下次接着玩",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        309,
+        28
+      ],
+      "id": "T46-01.text.009",
+      "layout_box": [
+        135,
+        1265,
+        718,
+        1335
+      ],
+      "text_id": "T46-01.text.009",
+      "instance_id": "0e592132aa09:T46-01.text.009",
+      "page": "T46-01_本地存档",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "不需要网络 · 下次接着玩",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.0e592132aa09.text.f942d64285f2",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "保存当前进度_文案",
+      "text": "保存当前进度",
+      "position": [
+        320,
+        1416
+      ],
+      "box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "保存当前进度",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        213,
+        37
+      ],
+      "id": "T46-01.text.010",
+      "layout_box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "text_id": "T46-01.text.010",
+      "instance_id": "0e592132aa09:T46-01.text.010",
+      "page": "T46-01_本地存档",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "保存当前进度",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.0e592132aa09.text.f2df02ddeaf6",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "继续上次一局_文案",
+      "text": "继续上次一局",
+      "position": [
+        320,
+        1600
+      ],
+      "box": [
+        203,
+        1562,
+        651,
+        1675
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        105,
+        71,
+        38
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "继续上次一局",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        213,
+        37
+      ],
+      "id": "T46-01.text.011",
+      "layout_box": [
+        203,
+        1562,
+        651,
+        1675
+      ],
+      "text_id": "T46-01.text.011",
+      "instance_id": "0e592132aa09:T46-01.text.011",
+      "page": "T46-01_本地存档",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "继续上次一局",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.0e592132aa09.text.8a8f329df468",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "local-save"
+    ],
+    "requirements": "仅本机自动保存、可恢复原局的说明／入口；不是启动流程，不做云档冲突、离线继续或账号登录。",
+    "actions": [
+      {
+        "layer": "返回上一页",
+        "label": "返回",
+        "action": "settings",
+        "free": true
+      },
+      {
+        "layer": "保存当前进度_原生按钮",
+        "label": "保存当前进度",
+        "action": "save-local",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      },
+      {
+        "layer": "继续上次一局_原生按钮",
+        "label": "继续上次一局",
+        "action": "puzzle",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      }
+    ],
+    "recipe_layout": "local_save_ledger",
+    "ui_fact_route": "local-save",
+    "text_policy": "editable Microsoft YaHei; localized copy and bound numbers",
+    "style_family": "friend_original",
+    "facts_file": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\界面事实\\ui_facts.json",
+    "layout_family": "local_save_ledger"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T46-01_本地存档.png",
+    "composite": "页面对照/PSD合成/缺少/T46-01_本地存档.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "cbcf246596a5cc8bd9a6a83b3dab6696a8af7e8c4d15a1a0de39d27105901f19",
+    "psd_composite": "页面对照/PSD合成/缺少/T46-01_本地存档.png",
+    "psd_composite_sha256": "437b36360054069cda60652256267f77163a707cd38b895e38b98ecb63340a6b",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "cbcf246596a5cc8bd9a6a83b3dab6696a8af7e8c4d15a1a0de39d27105901f19",
+    "psd_sha256": "fa511dfe679a200f5a738d15836ae20afa0317d35cca914a6f943ddae6a3aa9f",
+    "composite_sha256": "437b36360054069cda60652256267f77163a707cd38b895e38b98ecb63340a6b",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T46-01_本地存档.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

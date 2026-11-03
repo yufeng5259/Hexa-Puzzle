@@ -1,0 +1,3056 @@
+{
+  "page": "T23-01_外观衣柜",
+  "output_id": "T23-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "wardrobe",
+      "title": "外观",
+      "url": "http://127.0.0.1:4291/index.html#wardrobe",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\46-wardrobe.png",
+      "screenshot_sha256": "ca527c88f280a6bdffb6c317cae56f29dfa5b87f8a9a600988ab4eac42ef6bf2"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_好友界面",
+      "asset": "block_background_好友界面",
+      "file": "PNG/公共素材/好友界面_完整裸背景_3e77cdf8da.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_好友界面",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_空白主面板",
+      "asset": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "name": "原生完整主框",
+      "z": 10,
+      "position": [
+        63,
+        333
+      ],
+      "size": [
+        726,
+        1203
+      ],
+      "native_size": [
+        727,
+        1207
+      ],
+      "render_transform": {
+        "resize": [
+          726,
+          1206
+        ],
+        "alpha_crop": [
+          0,
+          1,
+          726,
+          1204
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板",
+      "metadata": {
+        "target_box": [
+          61,
+          332,
+          792,
+          1538
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          727,
+          1207
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_左悬绳",
+      "asset": "block_好友界面_左悬绳",
+      "file": "PNG/公共UI/左悬绳_a1cf9fcdc7.png",
+      "name": "左标题吊绳",
+      "z": 11,
+      "position": [
+        224,
+        168
+      ],
+      "size": [
+        25,
+        77
+      ],
+      "native_size": [
+        32,
+        77
+      ],
+      "render_transform": {
+        "resize": [
+          32,
+          77
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          28,
+          77
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_左悬绳",
+      "metadata": {
+        "target_box": [
+          221,
+          168,
+          253,
+          245
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          32,
+          77
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_右悬绳",
+      "asset": "block_好友界面_右悬绳",
+      "file": "PNG/公共UI/右悬绳_eda8460639.png",
+      "name": "右标题吊绳",
+      "z": 12,
+      "position": [
+        606,
+        168
+      ],
+      "size": [
+        26,
+        74
+      ],
+      "native_size": [
+        34,
+        74
+      ],
+      "render_transform": {
+        "resize": [
+          34,
+          74
+        ],
+        "alpha_crop": [
+          4,
+          0,
+          30,
+          74
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_右悬绳",
+      "metadata": {
+        "target_box": [
+          602,
+          168,
+          636,
+          242
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          34,
+          74
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友标题木牌",
+      "asset": "block_好友界面_好友标题木牌",
+      "file": "PNG/公共UI/好友标题木牌_b85a1c550c.png",
+      "name": "好友系原生标题木牌",
+      "z": 13,
+      "position": [
+        202,
+        215
+      ],
+      "size": [
+        449,
+        114
+      ],
+      "native_size": [
+        461,
+        114
+      ],
+      "render_transform": {
+        "resize": [
+          461,
+          114
+        ],
+        "alpha_crop": [
+          6,
+          0,
+          455,
+          114
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友标题木牌",
+      "metadata": {
+        "target_box": [
+          196,
+          215,
+          657,
+          329
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          461,
+          114
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.003",
+      "name": "页面标题",
+      "z": 14,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.004",
+      "name": "页面副标题",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回上一页",
+      "z": 16,
+      "position": [
+        15,
+        1635
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          166
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          15,
+          1635,
+          179,
+          1801
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "bee-home"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_9d264f3cf598a6a0d168",
+      "asset": "block_missing_9d264f3cf598a6a0d168",
+      "file": "PNG/公共素材/bee_xiaomi_9d264f3cf5.png",
+      "name": "角色主体",
+      "z": 17,
+      "position": [
+        150,
+        497
+      ],
+      "size": [
+        241,
+        304
+      ],
+      "native_size": [
+        1105,
+        1424
+      ],
+      "render_transform": {
+        "resize": [
+          241,
+          310
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          241,
+          304
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_9d264f3cf598a6a0d168",
+      "metadata": {
+        "target_box": [
+          139,
+          497,
+          402,
+          807
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1105,
+          1424
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_d03a0aa4e4d4197ef0d4",
+      "asset": "block_missing_d03a0aa4e4d4197ef0d4",
+      "file": "PNG/公共素材/bee_xiaomi_独立晴天围巾_d03a0aa4e4.png",
+      "name": "角色主体_独立晴天围巾",
+      "z": 18,
+      "position": [
+        233,
+        661
+      ],
+      "size": [
+        54,
+        65
+      ],
+      "native_size": [
+        336,
+        401
+      ],
+      "render_transform": {
+        "resize": [
+          54,
+          65
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          54,
+          65
+        ]
+      },
+      "group": "可替换外观",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_d03a0aa4e4d4197ef0d4",
+      "metadata": {
+        "target_box": [
+          208,
+          661,
+          313,
+          726
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": "角色主体",
+        "native_size": [
+          336,
+          401
+        ],
+        "binding": "state.selectedOutfit"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "当前装备展示格",
+      "z": 19,
+      "position": [
+        482,
+        549
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          482,
+          549,
+          683,
+          747
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_d03a0aa4e4d4197ef0d4",
+      "asset": "block_missing_d03a0aa4e4d4197ef0d4",
+      "file": "PNG/公共素材/bee_xiaomi_独立晴天围巾_d03a0aa4e4.png",
+      "name": "当前晴天围巾",
+      "z": 20,
+      "position": [
+        539,
+        563
+      ],
+      "size": [
+        87,
+        104
+      ],
+      "native_size": [
+        336,
+        401
+      ],
+      "render_transform": {
+        "resize": [
+          87,
+          104
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          87,
+          104
+        ]
+      },
+      "group": "外观物品",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_d03a0aa4e4d4197ef0d4",
+      "metadata": {
+        "target_box": [
+          511,
+          563,
+          655,
+          667
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          336,
+          401
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.005",
+      "name": "当前装备",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "衣柜原生物品格0",
+      "z": 22,
+      "position": [
+        112,
+        819
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          112,
+          819,
+          313,
+          1017
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_d03a0aa4e4d4197ef0d4",
+      "asset": "block_missing_d03a0aa4e4d4197ef0d4",
+      "file": "PNG/公共素材/bee_xiaomi_独立晴天围巾_d03a0aa4e4.png",
+      "name": "outfit_scarf",
+      "z": 23,
+      "position": [
+        167,
+        827
+      ],
+      "size": [
+        90,
+        108
+      ],
+      "native_size": [
+        336,
+        401
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          108
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          108
+        ]
+      },
+      "group": "外观物品",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_d03a0aa4e4d4197ef0d4",
+      "metadata": {
+        "target_box": [
+          143,
+          827,
+          282,
+          935
+        ],
+        "fit": "contain",
+        "state": "owned",
+        "parent": null,
+        "native_size": [
+          336,
+          401
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.006",
+      "name": "外观名0",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "check",
+      "z": 25,
+      "position": [
+        263,
+        984
+      ],
+      "size": [
+        48,
+        42
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          48,
+          43
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          48,
+          42
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          263,
+          983,
+          311,
+          1029
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.007",
+      "name": "外观状态与来源0",
+      "z": 26,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "衣柜原生物品格1",
+      "z": 27,
+      "position": [
+        327,
+        819
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          327,
+          819,
+          528,
+          1017
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_1b79f65e34a21c3f83ae",
+      "asset": "block_missing_1b79f65e34a21c3f83ae",
+      "file": "PNG/公共素材/outfit_picnic_hat_1b79f65e34.png",
+      "name": "outfit_picnic_hat",
+      "z": 28,
+      "position": [
+        370,
+        827
+      ],
+      "size": [
+        115,
+        108
+      ],
+      "native_size": [
+        427,
+        402
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          108
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          108
+        ]
+      },
+      "group": "外观物品",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_1b79f65e34a21c3f83ae",
+      "metadata": {
+        "target_box": [
+          358,
+          827,
+          497,
+          935
+        ],
+        "fit": "contain",
+        "state": "unowned",
+        "parent": null,
+        "native_size": [
+          427,
+          402
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.008",
+      "name": "外观名1",
+      "z": 29,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_模式锁",
+      "asset": "block_关卡选择_模式锁",
+      "file": "PNG/公共UI/模式锁_be4f044685.png",
+      "name": "未拥有锁1",
+      "z": 30,
+      "position": [
+        478,
+        984
+      ],
+      "size": [
+        45,
+        51
+      ],
+      "native_size": [
+        43,
+        48
+      ],
+      "render_transform": {
+        "resize": [
+          46,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          45,
+          51
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_模式锁",
+      "metadata": {
+        "target_box": [
+          478,
+          982,
+          524,
+          1037
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          43,
+          48
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.009",
+      "name": "外观状态与来源1",
+      "z": 31,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "衣柜原生物品格2",
+      "z": 32,
+      "position": [
+        542,
+        819
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          542,
+          819,
+          743,
+          1017
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_64797bd9bcf60fba9fe4",
+      "asset": "block_missing_64797bd9bcf60fba9fe4",
+      "file": "PNG/公共素材/outfit_flower_hat_64797bd9bc.png",
+      "name": "outfit_flower_hat",
+      "z": 33,
+      "position": [
+        573,
+        830
+      ],
+      "size": [
+        139,
+        102
+      ],
+      "native_size": [
+        442,
+        325
+      ],
+      "render_transform": {
+        "resize": [
+          139,
+          102
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          139,
+          102
+        ]
+      },
+      "group": "外观物品",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_64797bd9bcf60fba9fe4",
+      "metadata": {
+        "target_box": [
+          573,
+          827,
+          712,
+          935
+        ],
+        "fit": "contain",
+        "state": "unowned",
+        "parent": null,
+        "native_size": [
+          442,
+          325
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.010",
+      "name": "外观名2",
+      "z": 34,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_模式锁",
+      "asset": "block_关卡选择_模式锁",
+      "file": "PNG/公共UI/模式锁_be4f044685.png",
+      "name": "未拥有锁2",
+      "z": 35,
+      "position": [
+        693,
+        984
+      ],
+      "size": [
+        45,
+        51
+      ],
+      "native_size": [
+        43,
+        48
+      ],
+      "render_transform": {
+        "resize": [
+          46,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          45,
+          51
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_模式锁",
+      "metadata": {
+        "target_box": [
+          693,
+          982,
+          739,
+          1037
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          43,
+          48
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.011",
+      "name": "外观状态与来源2",
+      "z": 36,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "衣柜原生物品格3",
+      "z": 37,
+      "position": [
+        219,
+        1089
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          219,
+          1089,
+          420,
+          1287
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_e4e66a3425a4e1cc923a",
+      "asset": "block_missing_e4e66a3425a4e1cc923a",
+      "file": "PNG/公共素材/outfit_water_ribbon_e4e66a3425.png",
+      "name": "outfit_water_ribbon",
+      "z": 38,
+      "position": [
+        270,
+        1097
+      ],
+      "size": [
+        99,
+        108
+      ],
+      "native_size": [
+        345,
+        377
+      ],
+      "render_transform": {
+        "resize": [
+          99,
+          108
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          99,
+          108
+        ]
+      },
+      "group": "外观物品",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_e4e66a3425a4e1cc923a",
+      "metadata": {
+        "target_box": [
+          250,
+          1097,
+          389,
+          1205
+        ],
+        "fit": "contain",
+        "state": "unowned",
+        "parent": null,
+        "native_size": [
+          345,
+          377
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.012",
+      "name": "外观名3",
+      "z": 39,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_模式锁",
+      "asset": "block_关卡选择_模式锁",
+      "file": "PNG/公共UI/模式锁_be4f044685.png",
+      "name": "未拥有锁3",
+      "z": 40,
+      "position": [
+        370,
+        1254
+      ],
+      "size": [
+        45,
+        51
+      ],
+      "native_size": [
+        43,
+        48
+      ],
+      "render_transform": {
+        "resize": [
+          46,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          45,
+          51
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_模式锁",
+      "metadata": {
+        "target_box": [
+          370,
+          1252,
+          416,
+          1307
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          43,
+          48
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.013",
+      "name": "外观状态与来源3",
+      "z": 41,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_奖励格_1_1",
+      "asset": "block_每日任务_奖励格_1_1",
+      "file": "PNG/公共UI/奖励格_1_1_e275be38cb.png",
+      "name": "衣柜原生物品格4",
+      "z": 42,
+      "position": [
+        434,
+        1089
+      ],
+      "size": [
+        201,
+        198
+      ],
+      "native_size": [
+        133,
+        131
+      ],
+      "render_transform": {
+        "resize": [
+          201,
+          198
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          201,
+          198
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_奖励格_1_1",
+      "metadata": {
+        "target_box": [
+          434,
+          1089,
+          635,
+          1287
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          131
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_1d3539d4d455c20caa21",
+      "asset": "block_missing_1d3539d4d455c20caa21",
+      "file": "PNG/公共素材/outfit_cloud_brooch_1d3539d4d4.png",
+      "name": "outfit_cloud_brooch",
+      "z": 43,
+      "position": [
+        468,
+        1097
+      ],
+      "size": [
+        132,
+        108
+      ],
+      "native_size": [
+        351,
+        287
+      ],
+      "render_transform": {
+        "resize": [
+          132,
+          108
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          132,
+          108
+        ]
+      },
+      "group": "外观物品",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_1d3539d4d455c20caa21",
+      "metadata": {
+        "target_box": [
+          465,
+          1097,
+          604,
+          1205
+        ],
+        "fit": "contain",
+        "state": "unowned",
+        "parent": null,
+        "native_size": [
+          351,
+          287
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.014",
+      "name": "外观名4",
+      "z": 44,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_模式锁",
+      "asset": "block_关卡选择_模式锁",
+      "file": "PNG/公共UI/模式锁_be4f044685.png",
+      "name": "未拥有锁4",
+      "z": 45,
+      "position": [
+        585,
+        1254
+      ],
+      "size": [
+        45,
+        51
+      ],
+      "native_size": [
+        43,
+        48
+      ],
+      "render_transform": {
+        "resize": [
+          46,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          45,
+          51
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_模式锁",
+      "metadata": {
+        "target_box": [
+          585,
+          1252,
+          631,
+          1307
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          43,
+          48
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.015",
+      "name": "外观状态与来源4",
+      "z": 46,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "正在使用_原生按钮",
+      "z": 47,
+      "position": [
+        179,
+        1369
+      ],
+      "size": [
+        496,
+        141
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1366,
+          675,
+          1513
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-use-outfit"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T23-01.text.016",
+      "name": "正在使用_文案",
+      "z": 48,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T23-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T23-01.text.000",
+      "instance_id": "81aac8ddce5a:T23-01.text.000",
+      "page": "T23-01_外观衣柜",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T23-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T23-01.text.001",
+      "instance_id": "81aac8ddce5a:T23-01.text.001",
+      "page": "T23-01_外观衣柜",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T23-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T23-01.text.002",
+      "instance_id": "81aac8ddce5a:T23-01.text.002",
+      "page": "T23-01_外观衣柜",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "外观衣柜",
+      "position": [
+        345,
+        250
+      ],
+      "box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "font_size": 40.0,
+      "min_font_size": 32.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        244,
+        200
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.4,
+      "stroke_color": [
+        112,
+        69,
+        27
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "外观衣柜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 40.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        163,
+        43
+      ],
+      "id": "T23-01.text.003",
+      "layout_box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "text_id": "T23-01.text.003",
+      "instance_id": "81aac8ddce5a:T23-01.text.003",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "外观衣柜",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面副标题",
+      "text": "换个好心情",
+      "position": [
+        362,
+        456
+      ],
+      "box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "subtitle",
+      "purpose": "subtitle",
+      "binding": null,
+      "raw": "换个好心情",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        130,
+        26
+      ],
+      "id": "T23-01.text.004",
+      "layout_box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "text_id": "T23-01.text.004",
+      "instance_id": "81aac8ddce5a:T23-01.text.004",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "换个好心情",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.13d7ce0196ca",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "当前装备",
+      "text": "正在使用",
+      "position": [
+        528,
+        689
+      ],
+      "box": [
+        493,
+        674,
+        672,
+        731
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "正在使用",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T23-01.text.005",
+      "layout_box": [
+        493,
+        674,
+        672,
+        731
+      ],
+      "text_id": "T23-01.text.005",
+      "instance_id": "81aac8ddce5a:T23-01.text.005",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "正在使用",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.96dab22a52cd",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观名0",
+      "text": "晴天围巾",
+      "position": [
+        164,
+        955
+      ],
+      "box": [
+        119,
+        940,
+        306,
+        994
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "晴天围巾",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        96,
+        24
+      ],
+      "id": "T23-01.text.006",
+      "layout_box": [
+        119,
+        940,
+        306,
+        994
+      ],
+      "text_id": "T23-01.text.006",
+      "instance_id": "81aac8ddce5a:T23-01.text.006",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "晴天围巾",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.f9b2556cb876",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观状态与来源0",
+      "text": "正在使用",
+      "position": [
+        168,
+        1042
+      ],
+      "box": [
+        112,
+        1023,
+        313,
+        1083
+      ],
+      "font_size": 22.0,
+      "min_font_size": 17.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "正在使用",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 22.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        88,
+        22
+      ],
+      "id": "T23-01.text.007",
+      "layout_box": [
+        112,
+        1023,
+        313,
+        1083
+      ],
+      "text_id": "T23-01.text.007",
+      "instance_id": "81aac8ddce5a:T23-01.text.007",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "正在使用",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.5f87dbef88f4",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观名1",
+      "text": "野餐帽",
+      "position": [
+        392,
+        955
+      ],
+      "box": [
+        334,
+        940,
+        521,
+        994
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "野餐帽",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        72,
+        24
+      ],
+      "id": "T23-01.text.008",
+      "layout_box": [
+        334,
+        940,
+        521,
+        994
+      ],
+      "text_id": "T23-01.text.008",
+      "instance_id": "81aac8ddce5a:T23-01.text.008",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "野餐帽",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.ac1971380e4d",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观状态与来源1",
+      "text": "未拥有\r签到第7天",
+      "position": [
+        376,
+        1028
+      ],
+      "box": [
+        327,
+        1023,
+        528,
+        1083
+      ],
+      "font_size": 22.0,
+      "min_font_size": 17.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "未拥有\n签到第7天",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 22.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        102,
+        49
+      ],
+      "id": "T23-01.text.009",
+      "layout_box": [
+        327,
+        1023,
+        528,
+        1083
+      ],
+      "text_id": "T23-01.text.009",
+      "instance_id": "81aac8ddce5a:T23-01.text.009",
+      "page": "T23-01_外观衣柜",
+      "text_role": "template",
+      "message_template": "未拥有\r签到第{count}天",
+      "parameters": {
+        "count": 7
+      },
+      "value_binding": {
+        "count": "page.81aac8ddce5a.text.7a3037b885bb.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "未拥有\r签到第7天",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.81aac8ddce5a.text.7a3037b885bb",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观名2",
+      "text": "花朵帽",
+      "position": [
+        606,
+        955
+      ],
+      "box": [
+        549,
+        940,
+        736,
+        994
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "花朵帽",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        72,
+        24
+      ],
+      "id": "T23-01.text.010",
+      "layout_box": [
+        549,
+        940,
+        736,
+        994
+      ],
+      "text_id": "T23-01.text.010",
+      "instance_id": "81aac8ddce5a:T23-01.text.010",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花朵帽",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.8406b693252b",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观状态与来源2",
+      "text": "未拥有\r第1册相册",
+      "position": [
+        592,
+        1028
+      ],
+      "box": [
+        542,
+        1023,
+        743,
+        1083
+      ],
+      "font_size": 22.0,
+      "min_font_size": 17.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "未拥有\n第1册相册",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 22.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        102,
+        49
+      ],
+      "id": "T23-01.text.011",
+      "layout_box": [
+        542,
+        1023,
+        743,
+        1083
+      ],
+      "text_id": "T23-01.text.011",
+      "instance_id": "81aac8ddce5a:T23-01.text.011",
+      "page": "T23-01_外观衣柜",
+      "text_role": "template",
+      "message_template": "未拥有\r第{count}册相册",
+      "parameters": {
+        "count": 1
+      },
+      "value_binding": {
+        "count": "page.81aac8ddce5a.text.4093cb96b2b8.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "未拥有\r第1册相册",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.81aac8ddce5a.text.4093cb96b2b8",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观名3",
+      "text": "水湾丝带",
+      "position": [
+        272,
+        1225
+      ],
+      "box": [
+        226,
+        1210,
+        413,
+        1264
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "水湾丝带",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        96,
+        24
+      ],
+      "id": "T23-01.text.012",
+      "layout_box": [
+        226,
+        1210,
+        413,
+        1264
+      ],
+      "text_id": "T23-01.text.012",
+      "instance_id": "81aac8ddce5a:T23-01.text.012",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "水湾丝带",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.e5a9d37b1bfb",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观状态与来源3",
+      "text": "未拥有\r第2册相册",
+      "position": [
+        268,
+        1298
+      ],
+      "box": [
+        219,
+        1293,
+        420,
+        1353
+      ],
+      "font_size": 22.0,
+      "min_font_size": 17.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "未拥有\n第2册相册",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 22.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        102,
+        49
+      ],
+      "id": "T23-01.text.013",
+      "layout_box": [
+        219,
+        1293,
+        420,
+        1353
+      ],
+      "text_id": "T23-01.text.013",
+      "instance_id": "81aac8ddce5a:T23-01.text.013",
+      "page": "T23-01_外观衣柜",
+      "text_role": "template",
+      "message_template": "未拥有\r第{count}册相册",
+      "parameters": {
+        "count": 2
+      },
+      "value_binding": {
+        "count": "page.81aac8ddce5a.text.76057c0bf123.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "未拥有\r第2册相册",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.81aac8ddce5a.text.76057c0bf123",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观名4",
+      "text": "云朵胸针",
+      "position": [
+        486,
+        1225
+      ],
+      "box": [
+        441,
+        1210,
+        628,
+        1264
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "云朵胸针",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        96,
+        24
+      ],
+      "id": "T23-01.text.014",
+      "layout_box": [
+        441,
+        1210,
+        628,
+        1264
+      ],
+      "text_id": "T23-01.text.014",
+      "instance_id": "81aac8ddce5a:T23-01.text.014",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "云朵胸针",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.e5d9acaa2940",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "外观状态与来源4",
+      "text": "未拥有\r第3册相册",
+      "position": [
+        484,
+        1298
+      ],
+      "box": [
+        434,
+        1293,
+        635,
+        1353
+      ],
+      "font_size": 22.0,
+      "min_font_size": 17.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "未拥有\n第3册相册",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 22.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        102,
+        49
+      ],
+      "id": "T23-01.text.015",
+      "layout_box": [
+        434,
+        1293,
+        635,
+        1353
+      ],
+      "text_id": "T23-01.text.015",
+      "instance_id": "81aac8ddce5a:T23-01.text.015",
+      "page": "T23-01_外观衣柜",
+      "text_role": "template",
+      "message_template": "未拥有\r第{count}册相册",
+      "parameters": {
+        "count": 3
+      },
+      "value_binding": {
+        "count": "page.81aac8ddce5a.text.0b46941aeaa8.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "未拥有\r第3册相册",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.81aac8ddce5a.text.0b46941aeaa8",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "正在使用_文案",
+      "text": "正在使用",
+      "position": [
+        356,
+        1416
+      ],
+      "box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "正在使用",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        143,
+        37
+      ],
+      "id": "T23-01.text.016",
+      "layout_box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "text_id": "T23-01.text.016",
+      "instance_id": "81aac8ddce5a:T23-01.text.016",
+      "page": "T23-01_外观衣柜",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "正在使用",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.81aac8ddce5a.text.ad5ffd26cb5c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "wardrobe"
+    ],
+    "requirements": "已拥有、正在使用、未拥有及来源可识别；晴天围巾、野餐帽、花朵帽、水湾丝带、云朵胸针保持现有物品。不要商城购买。",
+    "actions": [
+      {
+        "layer": "返回上一页",
+        "label": "返回",
+        "action": "bee-home",
+        "free": true
+      },
+      {
+        "layer": "正在使用_原生按钮",
+        "label": "正在使用",
+        "action": "meta-use-outfit",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      }
+    ],
+    "recipe_layout": "wardrobe_five_slots",
+    "ui_fact_route": "wardrobe",
+    "text_policy": "editable Microsoft YaHei; localized copy and bound numbers",
+    "style_family": "friend_original",
+    "wardrobe_initial_scarf_embedded_in_master": false,
+    "equipped_outfit": {
+      "key": "outfit_scarf",
+      "parent": "角色主体",
+      "anchor": "neck",
+      "binding": "state.selectedOutfit"
+    },
+    "facts_file": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\界面事实\\ui_facts.json",
+    "layout_family": "wardrobe_five_slots"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T23-01_外观衣柜.png",
+    "composite": "页面对照/PSD合成/缺少/T23-01_外观衣柜.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "a38fde62ee4d0749b9b4799208419b436551bf02be11978fecd7d336e90dc433",
+    "psd_composite": "页面对照/PSD合成/缺少/T23-01_外观衣柜.png",
+    "psd_composite_sha256": "76867df328e88c4c59de977629b18aff4825dc87888d2447f7bb848d6e3f73e4",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "a38fde62ee4d0749b9b4799208419b436551bf02be11978fecd7d336e90dc433",
+    "psd_sha256": "39ea309313a90ca671b91504c838e8d928c7e4920d72d7b15c7e0def4a0212ee",
+    "composite_sha256": "76867df328e88c4c59de977629b18aff4825dc87888d2447f7bb848d6e3f73e4",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T23-01_外观衣柜.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

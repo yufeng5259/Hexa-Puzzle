@@ -1,0 +1,1924 @@
+{
+  "page": "T22-01_蜂友专属装饰",
+  "output_id": "T22-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "bee-decor",
+      "title": "蜂友专属装饰",
+      "url": "http://127.0.0.1:4291/index.html#bee-decor",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\40-bee-decor.png",
+      "screenshot_sha256": "c18eb36970a4191224425761bde64f91039599cead185198e76eead96e6a12c7"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_好友界面",
+      "asset": "block_background_好友界面",
+      "file": "PNG/公共素材/好友界面_完整裸背景_3e77cdf8da.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_好友界面",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_空白主面板",
+      "asset": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "name": "原生完整主框",
+      "z": 10,
+      "position": [
+        63,
+        333
+      ],
+      "size": [
+        726,
+        1203
+      ],
+      "native_size": [
+        727,
+        1207
+      ],
+      "render_transform": {
+        "resize": [
+          726,
+          1206
+        ],
+        "alpha_crop": [
+          0,
+          1,
+          726,
+          1204
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板",
+      "metadata": {
+        "target_box": [
+          61,
+          332,
+          792,
+          1538
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          727,
+          1207
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_左悬绳",
+      "asset": "block_好友界面_左悬绳",
+      "file": "PNG/公共UI/左悬绳_a1cf9fcdc7.png",
+      "name": "左标题吊绳",
+      "z": 11,
+      "position": [
+        224,
+        168
+      ],
+      "size": [
+        25,
+        77
+      ],
+      "native_size": [
+        32,
+        77
+      ],
+      "render_transform": {
+        "resize": [
+          32,
+          77
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          28,
+          77
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_左悬绳",
+      "metadata": {
+        "target_box": [
+          221,
+          168,
+          253,
+          245
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          32,
+          77
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_右悬绳",
+      "asset": "block_好友界面_右悬绳",
+      "file": "PNG/公共UI/右悬绳_eda8460639.png",
+      "name": "右标题吊绳",
+      "z": 12,
+      "position": [
+        606,
+        168
+      ],
+      "size": [
+        26,
+        74
+      ],
+      "native_size": [
+        34,
+        74
+      ],
+      "render_transform": {
+        "resize": [
+          34,
+          74
+        ],
+        "alpha_crop": [
+          4,
+          0,
+          30,
+          74
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_右悬绳",
+      "metadata": {
+        "target_box": [
+          602,
+          168,
+          636,
+          242
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          34,
+          74
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友标题木牌",
+      "asset": "block_好友界面_好友标题木牌",
+      "file": "PNG/公共UI/好友标题木牌_b85a1c550c.png",
+      "name": "好友系原生标题木牌",
+      "z": 13,
+      "position": [
+        202,
+        215
+      ],
+      "size": [
+        449,
+        114
+      ],
+      "native_size": [
+        461,
+        114
+      ],
+      "render_transform": {
+        "resize": [
+          461,
+          114
+        ],
+        "alpha_crop": [
+          6,
+          0,
+          455,
+          114
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友标题木牌",
+      "metadata": {
+        "target_box": [
+          196,
+          215,
+          657,
+          329
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          461,
+          114
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.003",
+      "name": "页面标题",
+      "z": 14,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.004",
+      "name": "页面副标题",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回上一页",
+      "z": 16,
+      "position": [
+        15,
+        1635
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          166
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          15,
+          1635,
+          179,
+          1801
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "bee-detail"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "饰物状态托板0",
+      "z": 17,
+      "position": [
+        112,
+        1112
+      ],
+      "size": [
+        293,
+        63
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          293,
+          63
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          293,
+          63
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          112,
+          1112,
+          405,
+          1175
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_7919a51c25f3e95dc173",
+      "asset": "block_missing_7919a51c25f3e95dc173",
+      "file": "PNG/公共素材/角色主体_7919a51c25.png",
+      "name": "花花_未佩戴",
+      "z": 18,
+      "position": [
+        117,
+        613
+      ],
+      "size": [
+        283,
+        383
+      ],
+      "native_size": [
+        501,
+        678
+      ],
+      "render_transform": {
+        "resize": [
+          283,
+          383
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          283,
+          383
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_7919a51c25f3e95dc173",
+      "metadata": {
+        "target_box": [
+          117,
+          601,
+          400,
+          1008
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          501,
+          678
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.005",
+      "name": "佩戴状态0",
+      "z": 19,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "饰物状态托板1",
+      "z": 20,
+      "position": [
+        449,
+        1112
+      ],
+      "size": [
+        293,
+        63
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          293,
+          63
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          293,
+          63
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          449,
+          1112,
+          742,
+          1175
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_7919a51c25f3e95dc173",
+      "asset": "block_missing_7919a51c25f3e95dc173",
+      "file": "PNG/公共素材/角色主体_7919a51c25.png",
+      "name": "花花_已佩戴",
+      "z": 21,
+      "position": [
+        454,
+        613
+      ],
+      "size": [
+        283,
+        383
+      ],
+      "native_size": [
+        501,
+        678
+      ],
+      "render_transform": {
+        "resize": [
+          283,
+          383
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          283,
+          383
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_7919a51c25f3e95dc173",
+      "metadata": {
+        "target_box": [
+          454,
+          601,
+          737,
+          1008
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          501,
+          678
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_标题左花叶",
+      "asset": "block_结算_标题左花叶",
+      "file": "PNG/公共素材/标题左花叶_1c5d02ba2e.png",
+      "name": "花花独立专属胸花",
+      "z": 22,
+      "position": [
+        627,
+        832
+      ],
+      "size": [
+        56,
+        68
+      ],
+      "native_size": [
+        202,
+        246
+      ],
+      "render_transform": {
+        "resize": [
+          56,
+          68
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          56,
+          68
+        ]
+      },
+      "group": "可替换装饰",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_标题左花叶",
+      "metadata": {
+        "target_box": [
+          626,
+          832,
+          684,
+          900
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": "花花_已佩戴",
+        "native_size": [
+          202,
+          246
+        ],
+        "binding": "state.companionDecoration.huahua",
+        "anchor": "upper_torso_side",
+        "equipped": true
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.006",
+      "name": "佩戴状态1",
+      "z": 23,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_929d91e1d9ee86f75e5c",
+      "asset": "block_missing_929d91e1d9ee86f75e5c",
+      "file": "PNG/公共UI/arrow_929d91e1d9.png",
+      "name": "arrow",
+      "z": 24,
+      "position": [
+        389,
+        787
+      ],
+      "size": [
+        76,
+        47
+      ],
+      "native_size": [
+        427,
+        264
+      ],
+      "render_transform": {
+        "resize": [
+          76,
+          47
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          76,
+          47
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_929d91e1d9ee86f75e5c",
+      "metadata": {
+        "target_box": [
+          389,
+          773,
+          465,
+          849
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          427,
+          264
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.007",
+      "name": "饰物说明",
+      "z": 25,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "取下_原生按钮",
+      "z": 26,
+      "position": [
+        179,
+        1369
+      ],
+      "size": [
+        496,
+        141
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1366,
+          675,
+          1513
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-companion-decoration"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.008",
+      "name": "取下_文案",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "回蜂友成长_原生按钮",
+      "z": 28,
+      "position": [
+        179,
+        1552
+      ],
+      "size": [
+        496,
+        142
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          2,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1550,
+          675,
+          1697
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "bee-detail"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T22-01.text.009",
+      "name": "回蜂友成长_文案",
+      "z": 29,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T22-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T22-01.text.000",
+      "instance_id": "3775287dfa71:T22-01.text.000",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T22-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T22-01.text.001",
+      "instance_id": "3775287dfa71:T22-01.text.001",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T22-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T22-01.text.002",
+      "instance_id": "3775287dfa71:T22-01.text.002",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "花花的纪念饰物",
+      "position": [
+        285,
+        250
+      ],
+      "box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "font_size": 40.0,
+      "min_font_size": 32.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        244,
+        200
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.4,
+      "stroke_color": [
+        112,
+        69,
+        27
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "花花的纪念饰物",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 40.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        283,
+        42
+      ],
+      "id": "T22-01.text.003",
+      "layout_box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "text_id": "T22-01.text.003",
+      "instance_id": "3775287dfa71:T22-01.text.003",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花花的纪念饰物",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.3775287dfa71.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面副标题",
+      "text": "亲密30已解锁 · 随蜂友一起出现",
+      "position": [
+        241,
+        456
+      ],
+      "box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "subtitle",
+      "purpose": "subtitle",
+      "binding": null,
+      "raw": "亲密30已解锁 · 随蜂友一起出现",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        371,
+        26
+      ],
+      "id": "T22-01.text.004",
+      "layout_box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "text_id": "T22-01.text.004",
+      "instance_id": "3775287dfa71:T22-01.text.004",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "template",
+      "message_template": "亲密{count}已解锁 · 随蜂友一起出现",
+      "parameters": {
+        "count": 30
+      },
+      "value_binding": {
+        "count": "page.3775287dfa71.text.13d7ce0196ca.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "亲密30已解锁 · 随蜂友一起出现",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.3775287dfa71.text.13d7ce0196ca",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "佩戴状态0",
+      "text": "未佩戴",
+      "position": [
+        214,
+        1126
+      ],
+      "box": [
+        127,
+        1116,
+        390,
+        1166
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "未佩戴",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        90,
+        29
+      ],
+      "id": "T22-01.text.005",
+      "layout_box": [
+        127,
+        1116,
+        390,
+        1166
+      ],
+      "text_id": "T22-01.text.005",
+      "instance_id": "3775287dfa71:T22-01.text.005",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "未佩戴",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.3775287dfa71.text.a5a0f82fe8d6",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "佩戴状态1",
+      "text": "已佩戴",
+      "position": [
+        550,
+        1126
+      ],
+      "box": [
+        464,
+        1116,
+        727,
+        1166
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "已佩戴",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        90,
+        29
+      ],
+      "id": "T22-01.text.006",
+      "layout_box": [
+        464,
+        1116,
+        727,
+        1166
+      ],
+      "text_id": "T22-01.text.006",
+      "instance_id": "3775287dfa71:T22-01.text.006",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "已佩戴",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.3775287dfa71.text.ae17ae38ad81",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "饰物说明",
+      "text": "花花的纪念饰物",
+      "position": [
+        297,
+        1254
+      ],
+      "box": [
+        140,
+        1235,
+        713,
+        1310
+      ],
+      "font_size": 37.0,
+      "min_font_size": 29.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "花花的纪念饰物",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 37.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        259,
+        36
+      ],
+      "id": "T22-01.text.007",
+      "layout_box": [
+        140,
+        1235,
+        713,
+        1310
+      ],
+      "text_id": "T22-01.text.007",
+      "instance_id": "3775287dfa71:T22-01.text.007",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花花的纪念饰物",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.3775287dfa71.text.dd85d2b603aa",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "取下_文案",
+      "text": "取下",
+      "position": [
+        390,
+        1417
+      ],
+      "box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "取下",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        73,
+        35
+      ],
+      "id": "T22-01.text.008",
+      "layout_box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "text_id": "T22-01.text.008",
+      "instance_id": "3775287dfa71:T22-01.text.008",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "取下",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.3775287dfa71.text.9a94b9239a19",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "回蜂友成长_文案",
+      "text": "回蜂友成长",
+      "position": [
+        338,
+        1600
+      ],
+      "box": [
+        203,
+        1562,
+        651,
+        1675
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        105,
+        71,
+        38
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "回蜂友成长",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        178,
+        37
+      ],
+      "id": "T22-01.text.009",
+      "layout_box": [
+        203,
+        1562,
+        651,
+        1675
+      ],
+      "text_id": "T22-01.text.009",
+      "instance_id": "3775287dfa71:T22-01.text.009",
+      "page": "T22-01_蜂友专属装饰",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "回蜂友成长",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.3775287dfa71.text.986ba0a0178b",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "bee-decor"
+    ],
+    "requirements": "亲密30已解锁饰物，戴上／取下有对照；随角色出现，不加收益倍率。",
+    "actions": [
+      {
+        "layer": "返回上一页",
+        "label": "返回",
+        "action": "bee-detail",
+        "free": true
+      },
+      {
+        "layer": "取下_原生按钮",
+        "label": "取下",
+        "action": "meta-companion-decoration",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      },
+      {
+        "layer": "回蜂友成长_原生按钮",
+        "label": "回蜂友成长",
+        "action": "bee-detail",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      }
+    ],
+    "recipe_layout": "decoration_comparison",
+    "ui_fact_route": "bee-decor",
+    "text_policy": "editable Microsoft YaHei; localized copy and bound numbers",
+    "style_family": "friend_original",
+    "decoration": "separate flower companion decoration; no reward multiplier",
+    "facts_file": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\界面事实\\ui_facts.json",
+    "layout_family": "decoration_comparison"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T22-01_蜂友专属装饰.png",
+    "composite": "页面对照/PSD合成/缺少/T22-01_蜂友专属装饰.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "cb82a2de9051d191423e92a58ff4fdd81f8016b34210ab9071418dbde732ca0d",
+    "psd_composite": "页面对照/PSD合成/缺少/T22-01_蜂友专属装饰.png",
+    "psd_composite_sha256": "6b0425c93fe554e5eba662754a5d45dba80f33312454844c4956ecd2b0fdc169",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "cb82a2de9051d191423e92a58ff4fdd81f8016b34210ab9071418dbde732ca0d",
+    "psd_sha256": "94c05427674766c05ded7647de4854451cbefc28b02c4e49352563ffa11fc3b8",
+    "composite_sha256": "6b0425c93fe554e5eba662754a5d45dba80f33312454844c4956ecd2b0fdc169",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T22-01_蜂友专属装饰.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

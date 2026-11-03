@@ -1,0 +1,2149 @@
+{
+  "page": "T40-04_图示帮助_五级建设",
+  "output_id": "T40-04",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "build-help",
+      "title": "建造图示帮助",
+      "url": "http://127.0.0.1:4291/index.html#build-help",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\69-build-help.png",
+      "screenshot_sha256": "68f964fa3103da46f0c9d395adc7b3e665a5ddd3d34c7dd2af514228e7742403"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_建造界面",
+      "asset": "block_background_建造界面",
+      "file": "PNG/公共素材/建造界面_完整裸背景_d917f27fcb.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_建造界面",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "原生头像",
+      "z": 1,
+      "position": [
+        17,
+        25
+      ],
+      "size": [
+        151,
+        149
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          151,
+          149
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          151,
+          149
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          17,
+          25,
+          168,
+          174
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.000",
+      "name": "头像进度等级",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "透明计数底条",
+      "z": 3,
+      "position": [
+        223,
+        60
+      ],
+      "size": [
+        178,
+        65
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          178,
+          65
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          178,
+          65
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          223,
+          60,
+          401,
+          125
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "透明计数底条",
+      "z": 4,
+      "position": [
+        487,
+        60
+      ],
+      "size": [
+        237,
+        66
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          237,
+          66
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          237,
+          66
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          487,
+          60,
+          724,
+          126
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示库存图标",
+      "z": 5,
+      "position": [
+        181,
+        49
+      ],
+      "size": [
+        69,
+        88
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          69,
+          88
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          69,
+          88
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          181,
+          49,
+          250,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.001",
+      "name": "提示库存值",
+      "z": 6,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.002",
+      "name": "提示库存标签",
+      "z": 7,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "蜂蜜货币",
+      "z": 8,
+      "position": [
+        455,
+        52
+      ],
+      "size": [
+        70,
+        76
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          76
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          72,
+          76
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          453,
+          52,
+          525,
+          128
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.003",
+      "name": "花蜜余额",
+      "z": 9,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_添加按钮",
+      "asset": "block_hud_添加按钮",
+      "file": "PNG/公共UI/添加按钮_6cd07472ae.png",
+      "name": "添加按钮",
+      "z": 10,
+      "position": [
+        656,
+        58
+      ],
+      "size": [
+        69,
+        69
+      ],
+      "native_size": [
+        276,
+        276
+      ],
+      "render_transform": {
+        "resize": [
+          69,
+          69
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          69,
+          69
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_添加按钮",
+      "metadata": {
+        "target_box": [
+          656,
+          58,
+          725,
+          127
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          276,
+          276
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置木质齿轮",
+      "z": 11,
+      "position": [
+        738,
+        45
+      ],
+      "size": [
+        97,
+        97
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          97,
+          97
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          97,
+          97
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          738,
+          45,
+          835,
+          142
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_关卡木牌",
+      "asset": "block_玩法_关卡木牌",
+      "file": "PNG/公共UI/关卡木牌_8cff2f5f7f.png",
+      "name": "原生花叶木牌",
+      "z": 12,
+      "position": [
+        185,
+        171
+      ],
+      "size": [
+        485,
+        114
+      ],
+      "native_size": [
+        487,
+        116
+      ],
+      "render_transform": {
+        "resize": [
+          487,
+          116
+        ],
+        "alpha_crop": [
+          1,
+          1,
+          486,
+          115
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_关卡木牌",
+      "metadata": {
+        "target_box": [
+          184,
+          170,
+          671,
+          286
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          487,
+          116
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.004",
+      "name": "页面标题",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_空白主面板",
+      "asset": "block_结算_空白主面板",
+      "file": "PNG/公共UI/空白主面板_70248b0641.png",
+      "name": "无字面板_cream",
+      "z": 14,
+      "position": [
+        60,
+        386
+      ],
+      "size": [
+        733,
+        1087
+      ],
+      "native_size": [
+        684,
+        883
+      ],
+      "render_transform": {
+        "resize": [
+          733,
+          1100
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          6,
+          733,
+          1093
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_空白主面板",
+      "metadata": {
+        "target_box": [
+          60,
+          380,
+          793,
+          1480
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          684,
+          883
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_6d5cc2735de1ba5df3c9",
+      "asset": "block_missing_6d5cc2735de1ba5df3c9",
+      "file": "PNG/公共素材/向阳花园_树屋_1级_原生母件_6d5cc2735d.png",
+      "name": "树屋真实第一阶",
+      "z": 15,
+      "position": [
+        100,
+        507
+      ],
+      "size": [
+        285,
+        275
+      ],
+      "native_size": [
+        348,
+        336
+      ],
+      "render_transform": {
+        "resize": [
+          285,
+          275
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          285,
+          275
+        ]
+      },
+      "group": "教学插画",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_6d5cc2735de1ba5df3c9",
+      "metadata": {
+        "target_box": [
+          100,
+          485,
+          385,
+          805
+        ],
+        "fit": "contain",
+        "state": {
+          "building_id": 0,
+          "level": 1
+        },
+        "parent": null,
+        "native_size": [
+          348,
+          336
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_3391800f580e204d0f64",
+      "asset": "block_missing_3391800f580e204d0f64",
+      "file": "PNG/公共素材/向阳花园_树屋_2级_原生母件_3391800f58.png",
+      "name": "树屋真实第二阶",
+      "z": 16,
+      "position": [
+        470,
+        508
+      ],
+      "size": [
+        285,
+        273
+      ],
+      "native_size": [
+        367,
+        351
+      ],
+      "render_transform": {
+        "resize": [
+          285,
+          273
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          285,
+          273
+        ]
+      },
+      "group": "教学插画",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_3391800f580e204d0f64",
+      "metadata": {
+        "target_box": [
+          470,
+          485,
+          755,
+          805
+        ],
+        "fit": "contain",
+        "state": {
+          "building_id": 0,
+          "level": 2
+        },
+        "parent": null,
+        "native_size": [
+          367,
+          351
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_929d91e1d9ee86f75e5c",
+      "asset": "block_missing_929d91e1d9ee86f75e5c",
+      "file": "PNG/公共UI/arrow_929d91e1d9.png",
+      "name": "真实阶段提升",
+      "z": 17,
+      "position": [
+        392,
+        630
+      ],
+      "size": [
+        66,
+        41
+      ],
+      "native_size": [
+        427,
+        264
+      ],
+      "render_transform": {
+        "resize": [
+          66,
+          41
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          66,
+          41
+        ]
+      },
+      "group": "教学箭头",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_929d91e1d9ee86f75e5c",
+      "metadata": {
+        "native_key": "style_arrow",
+        "fit": "contain",
+        "source_resize": [
+          66,
+          41
+        ],
+        "rotation_degrees": -0.0,
+        "start": [
+          390,
+          650
+        ],
+        "end": [
+          460,
+          650
+        ],
+        "animation_path": true,
+        "proportion_preserved": true
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.005",
+      "name": "建设当前等级",
+      "z": 18,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.006",
+      "name": "建设下一等级",
+      "z": 19,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "升级  40 花蜜_无字按钮",
+      "z": 20,
+      "position": [
+        235,
+        905
+      ],
+      "size": [
+        383,
+        105
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          383,
+          105
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          383,
+          105
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          235,
+          905,
+          618,
+          1010
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "demo-build-only"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.007",
+      "name": "升级  40 花蜜_文案",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_929d91e1d9ee86f75e5c",
+      "asset": "block_missing_929d91e1d9ee86f75e5c",
+      "file": "PNG/公共UI/arrow_929d91e1d9.png",
+      "name": "升级一级",
+      "z": 22,
+      "position": [
+        404,
+        1081
+      ],
+      "size": [
+        41,
+        66
+      ],
+      "native_size": [
+        427,
+        264
+      ],
+      "render_transform": {
+        "resize": [
+          66,
+          41
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          41,
+          66
+        ],
+        "rotation_degrees": -90.0
+      },
+      "group": "教学箭头",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_929d91e1d9ee86f75e5c",
+      "metadata": {
+        "native_key": "style_arrow",
+        "fit": "contain",
+        "source_resize": [
+          66,
+          41
+        ],
+        "rotation_degrees": -90.0,
+        "start": [
+          425,
+          1070
+        ],
+        "end": [
+          425,
+          1158
+        ],
+        "animation_path": true,
+        "proportion_preserved": true
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.008",
+      "name": "建设结果",
+      "z": 23,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_树屋进度容器",
+      "asset": "block_建造界面_树屋进度容器",
+      "file": "PNG/公共UI/树屋进度容器_da22a15373.png",
+      "name": "原生五级进度容器",
+      "z": 24,
+      "position": [
+        297,
+        1280
+      ],
+      "size": [
+        258,
+        83
+      ],
+      "native_size": [
+        258,
+        83
+      ],
+      "render_transform": {
+        "resize": [
+          258,
+          83
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          258,
+          83
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_树屋进度容器",
+      "metadata": {
+        "target_box": [
+          297,
+          1280,
+          555,
+          1363
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          258,
+          83
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_树屋进度底轨",
+      "asset": "block_建造界面_树屋进度底轨",
+      "file": "PNG/公共UI/树屋进度底轨_012a85b35f.png",
+      "name": "五级进度底轨",
+      "z": 25,
+      "position": [
+        318,
+        1320
+      ],
+      "size": [
+        216,
+        31
+      ],
+      "native_size": [
+        216,
+        31
+      ],
+      "render_transform": {
+        "resize": [
+          216,
+          31
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          216,
+          31
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_树屋进度底轨",
+      "metadata": {
+        "target_box": [
+          318,
+          1320,
+          534,
+          1351
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          216,
+          31
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_树屋进度填充",
+      "asset": "block_建造界面_树屋进度填充",
+      "file": "PNG/公共UI/树屋进度填充_3deb7df2a6.png",
+      "name": "真实2/5进度",
+      "z": 26,
+      "position": [
+        318,
+        1320
+      ],
+      "size": [
+        86,
+        30
+      ],
+      "native_size": [
+        61,
+        31
+      ],
+      "render_transform": {
+        "resize": [
+          86,
+          31
+        ],
+        "nine_slice": {
+          "insets": [
+            15,
+            8,
+            15,
+            8
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          86,
+          30
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_树屋进度填充",
+      "metadata": {
+        "target_box": [
+          318,
+          1320,
+          404,
+          1351
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          15,
+          8,
+          15,
+          8
+        ],
+        "native_size": [
+          61,
+          31
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.009",
+      "name": "五级进度数量",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.010",
+      "name": "建设等级上限",
+      "z": 28,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "知道了_无字按钮",
+      "z": 29,
+      "position": [
+        185,
+        1570
+      ],
+      "size": [
+        483,
+        120
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          483,
+          120
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          483,
+          120
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          185,
+          1570,
+          668,
+          1690
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "close-build-help"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-04.text.011",
+      "name": "知道了_文案",
+      "z": 30,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "头像进度等级",
+      "text": "Lv.1",
+      "position": [
+        60,
+        135
+      ],
+      "box": [
+        34,
+        130,
+        150,
+        168
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        37,
+        82,
+        13
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": "profile.mainline_reachable",
+      "raw": 1,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        65,
+        28
+      ],
+      "id": "T40-04.text.000",
+      "layout_box": [
+        34,
+        130,
+        150,
+        168
+      ],
+      "text_id": "T40-04.text.000",
+      "instance_id": "9afa1990d313:T40-04.text.000",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 1
+      },
+      "value_binding": {
+        "level": "profile.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.1",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存值",
+      "text": "5",
+      "position": [
+        260,
+        78
+      ],
+      "box": [
+        248,
+        68,
+        296,
+        119
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        24,
+        30
+      ],
+      "id": "T40-04.text.001",
+      "layout_box": [
+        248,
+        68,
+        296,
+        119
+      ],
+      "text_id": "T40-04.text.001",
+      "instance_id": "9afa1990d313:T40-04.text.001",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存标签",
+      "text": "提示",
+      "position": [
+        314,
+        80
+      ],
+      "box": [
+        296,
+        72,
+        389,
+        116
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "label",
+      "purpose": "label",
+      "binding": null,
+      "raw": "提示",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        58,
+        28
+      ],
+      "id": "T40-04.text.002",
+      "layout_box": [
+        296,
+        72,
+        389,
+        116
+      ],
+      "text_id": "T40-04.text.002",
+      "instance_id": "9afa1990d313:T40-04.text.002",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "提示",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.9afa1990d313.text.3a7b9e292b57",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜余额",
+      "text": "160",
+      "position": [
+        556,
+        78
+      ],
+      "box": [
+        528,
+        67,
+        651,
+        119
+      ],
+      "font_size": 36.0,
+      "min_font_size": 28.8,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 160,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        67,
+        29
+      ],
+      "id": "T40-04.text.003",
+      "layout_box": [
+        528,
+        67,
+        651,
+        119
+      ],
+      "text_id": "T40-04.text.003",
+      "instance_id": "9afa1990d313:T40-04.text.003",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "number",
+      "raw_value": 160,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "160",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "家园升级",
+      "position": [
+        320,
+        200
+      ],
+      "box": [
+        255,
+        192,
+        611,
+        267
+      ],
+      "font_size": 55.0,
+      "min_font_size": 44.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        96,
+        52,
+        15
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "家园升级",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 55.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        226,
+        60
+      ],
+      "id": "T40-04.text.004",
+      "layout_box": [
+        255,
+        192,
+        611,
+        267
+      ],
+      "text_id": "T40-04.text.004",
+      "instance_id": "9afa1990d313:T40-04.text.004",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "家园升级",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.9afa1990d313.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "建设当前等级",
+      "text": "Lv.1",
+      "position": [
+        206,
+        826
+      ],
+      "box": [
+        100,
+        805,
+        385,
+        875
+      ],
+      "font_size": 36.0,
+      "min_font_size": 28.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": null,
+      "raw": 1,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        73,
+        29
+      ],
+      "id": "T40-04.text.005",
+      "layout_box": [
+        100,
+        805,
+        385,
+        875
+      ],
+      "text_id": "T40-04.text.005",
+      "instance_id": "9afa1990d313:T40-04.text.005",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 1
+      },
+      "value_binding": {
+        "level": "page.9afa1990d313.text.72e224c7fcfd"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.1",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "建设下一等级",
+      "text": "Lv.2",
+      "position": [
+        576,
+        826
+      ],
+      "box": [
+        470,
+        805,
+        755,
+        875
+      ],
+      "font_size": 36.0,
+      "min_font_size": 28.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": null,
+      "raw": 2,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        73,
+        29
+      ],
+      "id": "T40-04.text.006",
+      "layout_box": [
+        470,
+        805,
+        755,
+        875
+      ],
+      "text_id": "T40-04.text.006",
+      "instance_id": "9afa1990d313:T40-04.text.006",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 2
+      },
+      "value_binding": {
+        "level": "page.9afa1990d313.text.60dbadf8b2eb"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.2",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "升级  40 花蜜_文案",
+      "text": "升级  40 花蜜",
+      "position": [
+        326,
+        938
+      ],
+      "box": [
+        259,
+        917,
+        594,
+        993
+      ],
+      "font_size": 32.5,
+      "min_font_size": 26.04,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        54,
+        121,
+        42
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "升级  40 花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.55,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        202,
+        34
+      ],
+      "id": "T40-04.text.007",
+      "layout_box": [
+        259,
+        917,
+        594,
+        993
+      ],
+      "text_id": "T40-04.text.007",
+      "instance_id": "9afa1990d313:T40-04.text.007",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "template",
+      "message_template": "升级  {count} 花蜜",
+      "parameters": {
+        "count": 40
+      },
+      "value_binding": {
+        "count": "page.9afa1990d313.text.17276c117092.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "升级  40 花蜜",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.9afa1990d313.text.17276c117092",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "建设结果",
+      "text": "Lv.2  ·  花蜜 160 → 120",
+      "position": [
+        234,
+        1210
+      ],
+      "box": [
+        105,
+        1185,
+        748,
+        1270
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": null,
+      "raw": "Lv.2  ·  花蜜 160 → 120",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        384,
+        34
+      ],
+      "id": "T40-04.text.008",
+      "layout_box": [
+        105,
+        1185,
+        748,
+        1270
+      ],
+      "text_id": "T40-04.text.008",
+      "instance_id": "9afa1990d313:T40-04.text.008",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "template",
+      "message_template": "Lv.{value_1}  ·  花蜜 {value_2} → {value_3}",
+      "parameters": {
+        "value_1": 2,
+        "value_2": 160,
+        "value_3": 120
+      },
+      "value_binding": {
+        "value_1": "page.9afa1990d313.text.df9ca19f977f.value_1",
+        "value_2": "page.9afa1990d313.text.df9ca19f977f.value_2",
+        "value_3": "page.9afa1990d313.text.df9ca19f977f.value_3"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.2  ·  花蜜 160 → 120",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_3": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.9afa1990d313.text.df9ca19f977f",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "五级进度数量",
+      "text": "2 / 5",
+      "position": [
+        397,
+        1291
+      ],
+      "box": [
+        320,
+        1288,
+        532,
+        1317
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": "building.level_progress",
+      "raw": {
+        "level": 2,
+        "max": 5
+      },
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        58,
+        23
+      ],
+      "id": "T40-04.text.009",
+      "layout_box": [
+        320,
+        1288,
+        532,
+        1317
+      ],
+      "text_id": "T40-04.text.009",
+      "instance_id": "9afa1990d313:T40-04.text.009",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "template",
+      "message_template": "{value_1} / {value_2}",
+      "parameters": {
+        "value_1": 2,
+        "value_2": 5
+      },
+      "value_binding": {
+        "value_1": "page.9afa1990d313.text.a58b99117aac.value_1",
+        "value_2": "page.9afa1990d313.text.a58b99117aac.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2 / 5",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.9afa1990d313.text.a58b99117aac",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "建设等级上限",
+      "text": "每栋最多 5 级，不需要等待",
+      "position": [
+        262,
+        1392
+      ],
+      "box": [
+        118,
+        1382,
+        735,
+        1428
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "每栋最多 5 级，不需要等待",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        330,
+        27
+      ],
+      "id": "T40-04.text.010",
+      "layout_box": [
+        118,
+        1382,
+        735,
+        1428
+      ],
+      "text_id": "T40-04.text.010",
+      "instance_id": "9afa1990d313:T40-04.text.010",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "template",
+      "message_template": "每栋最多 {count} 级，不需要等待",
+      "parameters": {
+        "count": 5
+      },
+      "value_binding": {
+        "count": "page.9afa1990d313.text.a639a521913c.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "每栋最多 5 级，不需要等待",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.9afa1990d313.text.a639a521913c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "知道了_文案",
+      "text": "知道了",
+      "position": [
+        374,
+        1610
+      ],
+      "box": [
+        209,
+        1582,
+        644,
+        1673
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        54,
+        121,
+        42
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "知道了",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        104,
+        36
+      ],
+      "id": "T40-04.text.011",
+      "layout_box": [
+        209,
+        1582,
+        644,
+        1673
+      ],
+      "text_id": "T40-04.text.011",
+      "instance_id": "9afa1990d313:T40-04.text.011",
+      "page": "T40-04_图示帮助_五级建设",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "知道了",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.9afa1990d313.text.8499fdf9c8ad",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "build-help"
+    ],
+    "requirements": "帮助目录和三种玩法分开；拼图整块拖放不旋转；无尽三方向满线；建设点击升级每栋5级。图片／箭头／手指为主，少文字。动画至少定义起点→动作→结果，可用现有素材分层演示，不伪造视频文件。",
+    "actions": [
+      {
+        "layer": "升级  40 花蜜_无字按钮",
+        "label": "升级  40 花蜜",
+        "action": "demo-build-only"
+      },
+      {
+        "layer": "知道了_无字按钮",
+        "label": "知道了",
+        "action": "close-build-help"
+      }
+    ],
+    "animation": {
+      "demonstration_only": true,
+      "keyframes": [
+        {
+          "at": 0,
+          "level": 1,
+          "honey": 160
+        },
+        {
+          "at": 500,
+          "action": "click_build",
+          "price": 40
+        },
+        {
+          "at": 650,
+          "save_first": true,
+          "level": 2,
+          "honey": 120
+        },
+        {
+          "at": 1450,
+          "finish_fx": true
+        }
+      ],
+      "building_stage_art_note": "A separately generated and approved real stage asset; do not substitute reward gift or mature background."
+    },
+    "production_owner": "block_missing_gameplay.py"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T40-04_图示帮助_五级建设.png",
+    "composite": "页面对照/PSD合成/缺少/T40-04_图示帮助_五级建设.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "b1356de04474bc97ee61a7da2ffde2b3074066c8928e710807a31f9de8b1d322",
+    "psd_composite": "页面对照/PSD合成/缺少/T40-04_图示帮助_五级建设.png",
+    "psd_composite_sha256": "941956420c119d0701050a08f7b83dc8c2d635b5dfdf4e7bbc0cca7043d13a6a",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "b1356de04474bc97ee61a7da2ffde2b3074066c8928e710807a31f9de8b1d322",
+    "psd_sha256": "9e86ca317ace2d979106babe5d13011987383203e94e85d32d0f9720b5f0fd8b",
+    "composite_sha256": "941956420c119d0701050a08f7b83dc8c2d635b5dfdf4e7bbc0cca7043d13a6a",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T40-04_图示帮助_五级建设.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

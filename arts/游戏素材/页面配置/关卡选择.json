@@ -1,0 +1,3017 @@
+{
+  "page": "关卡选择",
+  "size": [
+    853,
+    1844
+  ],
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/zh-CN.json",
+      "qps-ploc": "本地化/qps-ploc.json"
+    }
+  },
+  "canvas": [
+    853,
+    1844
+  ],
+  "layers": [
+    {
+      "asset": "block_background_关卡选择",
+      "position": [
+        0,
+        0
+      ],
+      "name": "完整裸背景",
+      "group": "背景",
+      "id": "block_background_关卡选择",
+      "file": "PNG/公共素材/关卡选择_完整裸背景_81feb6b295.png",
+      "z": 0,
+      "native_size": [
+        853,
+        1844
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_background_关卡选择"
+    },
+    {
+      "asset": "block_关卡选择_关卡选择标题",
+      "position": [
+        218,
+        160
+      ],
+      "name": "关卡选择标题",
+      "group": "UI",
+      "id": "block_关卡选择_关卡选择标题",
+      "file": "PNG/页面素材/关卡选择/UI/关卡选择标题_8a5720ca2f.png",
+      "z": 1,
+      "native_size": [
+        420,
+        127
+      ],
+      "size": [
+        420,
+        127
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_关卡选择标题"
+    },
+    {
+      "asset": "block_关卡选择_普通关卡选项",
+      "position": [
+        161,
+        304
+      ],
+      "name": "普通关卡选项",
+      "group": "UI",
+      "id": "block_关卡选择_普通关卡选项",
+      "file": "PNG/页面素材/关卡选择/UI/普通关卡选项_1b89224034.png",
+      "z": 2,
+      "native_size": [
+        266,
+        93
+      ],
+      "size": [
+        266,
+        93
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_普通关卡选项"
+    },
+    {
+      "asset": "block_关卡选择_步数限制选项",
+      "position": [
+        425,
+        304
+      ],
+      "name": "步数限制选项",
+      "group": "UI",
+      "id": "block_关卡选择_步数限制选项",
+      "file": "PNG/页面素材/关卡选择/UI/步数限制选项_1c317462cc.png",
+      "z": 3,
+      "native_size": [
+        267,
+        93
+      ],
+      "size": [
+        267,
+        93
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_步数限制选项"
+    },
+    {
+      "asset": "block_关卡选择_模式锁",
+      "position": [
+        656,
+        290
+      ],
+      "name": "模式锁",
+      "group": "UI",
+      "id": "block_关卡选择_模式锁",
+      "file": "PNG/公共UI/模式锁_be4f044685.png",
+      "z": 4,
+      "native_size": [
+        43,
+        48
+      ],
+      "size": [
+        43,
+        48
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_模式锁"
+    },
+    {
+      "asset": "block_关卡选择_左吊绳",
+      "position": [
+        284,
+        119
+      ],
+      "name": "左吊绳",
+      "group": "UI",
+      "id": "block_关卡选择_左吊绳",
+      "file": "PNG/页面素材/关卡选择/UI/左吊绳_7ad7173a3e.png",
+      "z": 5,
+      "native_size": [
+        35,
+        75
+      ],
+      "size": [
+        35,
+        75
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_左吊绳"
+    },
+    {
+      "asset": "block_关卡选择_右吊绳",
+      "position": [
+        535,
+        120
+      ],
+      "name": "右吊绳",
+      "group": "UI",
+      "id": "block_关卡选择_右吊绳",
+      "file": "PNG/页面素材/关卡选择/UI/右吊绳_a45a603473.png",
+      "z": 6,
+      "native_size": [
+        34,
+        74
+      ],
+      "size": [
+        34,
+        74
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_右吊绳"
+    },
+    {
+      "asset": "block_关卡选择_返回",
+      "position": [
+        23,
+        1675
+      ],
+      "name": "返回",
+      "group": "UI",
+      "id": "block_关卡选择_返回",
+      "file": "PNG/页面素材/关卡选择/UI/返回_251dc8273b.png",
+      "z": 7,
+      "native_size": [
+        148,
+        131
+      ],
+      "size": [
+        148,
+        131
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_返回"
+    },
+    {
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "position": [
+        216,
+        442
+      ],
+      "target_size": [
+        118,
+        119
+      ],
+      "target_box": [
+        208,
+        442,
+        341,
+        561
+      ],
+      "name": "关卡60底板",
+      "group": "UI",
+      "state": "locked",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "z": 8,
+      "native_size": [
+        1142,
+        1154
+      ],
+      "size": [
+        118,
+        119
+      ],
+      "scale": [
+        0.10332749562171628,
+        0.10311958405545928
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件"
+    },
+    {
+      "asset": "block_关卡选择_灰色星级母件",
+      "position": [
+        219,
+        536
+      ],
+      "target_size": [
+        38,
+        37
+      ],
+      "target_box": [
+        219,
+        535,
+        257,
+        574
+      ],
+      "name": "关卡60星1",
+      "group": "UI",
+      "state": "unearned",
+      "parent": "关卡60底板",
+      "id": "block_关卡选择_灰色星级母件",
+      "file": "PNG/公共UI/灰色星级母件_f430e91c0a.png",
+      "z": 9,
+      "native_size": [
+        1138,
+        1095
+      ],
+      "size": [
+        38,
+        37
+      ],
+      "scale": [
+        0.033391915641476276,
+        0.033789954337899546
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_灰色星级母件",
+      "position": [
+        255,
+        535
+      ],
+      "target_size": [
+        40,
+        38
+      ],
+      "target_box": [
+        255,
+        535,
+        295,
+        574
+      ],
+      "name": "关卡60星2",
+      "group": "UI",
+      "state": "unearned",
+      "parent": "关卡60底板",
+      "id": "block_关卡选择_灰色星级母件",
+      "file": "PNG/公共UI/灰色星级母件_f430e91c0a.png",
+      "z": 10,
+      "native_size": [
+        1138,
+        1095
+      ],
+      "size": [
+        40,
+        38
+      ],
+      "scale": [
+        0.0351493848857645,
+        0.034703196347031964
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_灰色星级母件",
+      "position": [
+        291,
+        535
+      ],
+      "target_size": [
+        39,
+        38
+      ],
+      "target_box": [
+        291,
+        535,
+        330,
+        574
+      ],
+      "name": "关卡60星3",
+      "group": "UI",
+      "state": "unearned",
+      "parent": "关卡60底板",
+      "id": "block_关卡选择_灰色星级母件",
+      "file": "PNG/公共UI/灰色星级母件_f430e91c0a.png",
+      "z": 11,
+      "native_size": [
+        1138,
+        1095
+      ],
+      "size": [
+        39,
+        38
+      ],
+      "scale": [
+        0.03427065026362039,
+        0.034703196347031964
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "position": [
+        437,
+        546
+      ],
+      "target_size": [
+        123,
+        124
+      ],
+      "target_box": [
+        431,
+        546,
+        566,
+        670
+      ],
+      "name": "关卡59底板",
+      "group": "UI",
+      "state": "locked",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "z": 12,
+      "native_size": [
+        1142,
+        1154
+      ],
+      "size": [
+        123,
+        124
+      ],
+      "scale": [
+        0.10770577933450087,
+        0.10745233968804159
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        443,
+        643
+      ],
+      "target_size": [
+        39,
+        37
+      ],
+      "target_box": [
+        443,
+        643,
+        482,
+        681
+      ],
+      "name": "关卡59星1",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡59底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 13,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        39,
+        37
+      ],
+      "scale": [
+        0.034728406055209264,
+        0.03457943925233645
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        480,
+        643
+      ],
+      "target_size": [
+        40,
+        38
+      ],
+      "target_box": [
+        480,
+        643,
+        520,
+        682
+      ],
+      "name": "关卡59星2",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡59底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 14,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        40,
+        38
+      ],
+      "scale": [
+        0.03561887800534283,
+        0.03551401869158879
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        517,
+        643
+      ],
+      "target_size": [
+        40,
+        38
+      ],
+      "target_box": [
+        517,
+        643,
+        557,
+        681
+      ],
+      "name": "关卡59星3",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡59底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 15,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        40,
+        38
+      ],
+      "scale": [
+        0.03561887800534283,
+        0.03551401869158879
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色关卡盾牌母件",
+      "position": [
+        325,
+        695
+      ],
+      "target_size": [
+        127,
+        120
+      ],
+      "target_box": [
+        319,
+        695,
+        457,
+        815
+      ],
+      "name": "关卡58底板",
+      "group": "UI",
+      "state": "complete",
+      "id": "block_关卡选择_金色关卡盾牌母件",
+      "file": "PNG/公共UI/金色关卡盾牌母件_747dc74440.png",
+      "z": 16,
+      "native_size": [
+        1243,
+        1176
+      ],
+      "size": [
+        127,
+        120
+      ],
+      "scale": [
+        0.10217216411906678,
+        0.10204081632653061
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色关卡盾牌母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        333,
+        790
+      ],
+      "target_size": [
+        39,
+        37
+      ],
+      "target_box": [
+        333,
+        788,
+        372,
+        828
+      ],
+      "name": "关卡58星1",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡58底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 17,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        39,
+        37
+      ],
+      "scale": [
+        0.034728406055209264,
+        0.03457943925233645
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        369,
+        789
+      ],
+      "target_size": [
+        40,
+        38
+      ],
+      "target_box": [
+        369,
+        788,
+        409,
+        828
+      ],
+      "name": "关卡58星2",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡58底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 18,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        40,
+        38
+      ],
+      "scale": [
+        0.03561887800534283,
+        0.03551401869158879
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        406,
+        789
+      ],
+      "target_size": [
+        40,
+        38
+      ],
+      "target_box": [
+        406,
+        788,
+        446,
+        828
+      ],
+      "name": "关卡58星3",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡58底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 19,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        40,
+        38
+      ],
+      "scale": [
+        0.03561887800534283,
+        0.03551401869158879
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色关卡盾牌母件",
+      "position": [
+        142,
+        811
+      ],
+      "target_size": [
+        135,
+        128
+      ],
+      "target_box": [
+        140,
+        811,
+        279,
+        939
+      ],
+      "name": "关卡57底板",
+      "group": "UI",
+      "state": "complete",
+      "id": "block_关卡选择_金色关卡盾牌母件",
+      "file": "PNG/公共UI/金色关卡盾牌母件_747dc74440.png",
+      "z": 20,
+      "native_size": [
+        1243,
+        1176
+      ],
+      "size": [
+        135,
+        128
+      ],
+      "scale": [
+        0.1086082059533387,
+        0.10884353741496598
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色关卡盾牌母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        151,
+        912
+      ],
+      "target_size": [
+        39,
+        37
+      ],
+      "target_box": [
+        151,
+        910,
+        190,
+        952
+      ],
+      "name": "关卡57星1",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡57底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 21,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        39,
+        37
+      ],
+      "scale": [
+        0.034728406055209264,
+        0.03457943925233645
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        188,
+        912
+      ],
+      "target_size": [
+        40,
+        38
+      ],
+      "target_box": [
+        188,
+        910,
+        228,
+        952
+      ],
+      "name": "关卡57星2",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡57底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 22,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        40,
+        38
+      ],
+      "scale": [
+        0.03561887800534283,
+        0.03551401869158879
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        225,
+        912
+      ],
+      "target_size": [
+        40,
+        38
+      ],
+      "target_box": [
+        225,
+        910,
+        265,
+        952
+      ],
+      "name": "关卡57星3",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡57底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 23,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        40,
+        38
+      ],
+      "scale": [
+        0.03561887800534283,
+        0.03551401869158879
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_当前关卡高亮光晕",
+      "position": [
+        264,
+        974
+      ],
+      "name": "当前关卡高亮光晕",
+      "group": "UI",
+      "id": "block_关卡选择_当前关卡高亮光晕",
+      "file": "PNG/页面素材/关卡选择/UI/当前关卡高亮光晕_852fc53a57.png",
+      "z": 24,
+      "native_size": [
+        242,
+        234
+      ],
+      "size": [
+        242,
+        234
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_当前关卡高亮光晕"
+    },
+    {
+      "asset": "block_关卡选择_金色关卡盾牌母件",
+      "position": [
+        312,
+        1022
+      ],
+      "target_size": [
+        146,
+        138
+      ],
+      "target_box": [
+        304,
+        1022,
+        465,
+        1160
+      ],
+      "name": "关卡56底板",
+      "group": "UI",
+      "state": "current",
+      "id": "block_关卡选择_金色关卡盾牌母件",
+      "file": "PNG/公共UI/金色关卡盾牌母件_747dc74440.png",
+      "z": 25,
+      "native_size": [
+        1243,
+        1176
+      ],
+      "size": [
+        146,
+        138
+      ],
+      "scale": [
+        0.11745776347546259,
+        0.11734693877551021
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色关卡盾牌母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        323,
+        1126
+      ],
+      "target_size": [
+        43,
+        41
+      ],
+      "target_box": [
+        323,
+        1125,
+        366,
+        1168
+      ],
+      "name": "关卡56星1",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡56底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 26,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        43,
+        41
+      ],
+      "scale": [
+        0.03829029385574354,
+        0.038317757009345796
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        363,
+        1125
+      ],
+      "target_size": [
+        44,
+        42
+      ],
+      "target_box": [
+        363,
+        1125,
+        407,
+        1168
+      ],
+      "name": "关卡56星2",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡56底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 27,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        44,
+        42
+      ],
+      "scale": [
+        0.039180765805877114,
+        0.03925233644859813
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        404,
+        1127
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        404,
+        1125,
+        446,
+        1168
+      ],
+      "name": "关卡56星3",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡56底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 28,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色关卡盾牌母件",
+      "position": [
+        528,
+        1148
+      ],
+      "target_size": [
+        142,
+        134
+      ],
+      "target_box": [
+        525,
+        1148,
+        673,
+        1282
+      ],
+      "name": "关卡55底板",
+      "group": "UI",
+      "state": "complete",
+      "id": "block_关卡选择_金色关卡盾牌母件",
+      "file": "PNG/公共UI/金色关卡盾牌母件_747dc74440.png",
+      "z": 29,
+      "native_size": [
+        1243,
+        1176
+      ],
+      "size": [
+        142,
+        134
+      ],
+      "scale": [
+        0.11423974255832663,
+        0.11394557823129252
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色关卡盾牌母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        539,
+        1257
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        539,
+        1256,
+        581,
+        1298
+      ],
+      "name": "关卡55星1",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡55底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 30,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        578,
+        1257
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        578,
+        1256,
+        620,
+        1298
+      ],
+      "name": "关卡55星2",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡55底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 31,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        617,
+        1257
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        617,
+        1256,
+        659,
+        1298
+      ],
+      "name": "关卡55星3",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡55底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 32,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "position": [
+        422,
+        1321
+      ],
+      "target_size": [
+        130,
+        131
+      ],
+      "target_box": [
+        414,
+        1321,
+        560,
+        1452
+      ],
+      "name": "关卡54底板",
+      "group": "UI",
+      "state": "locked",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "z": 33,
+      "native_size": [
+        1142,
+        1154
+      ],
+      "size": [
+        130,
+        131
+      ],
+      "scale": [
+        0.1138353765323993,
+        0.11351819757365685
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        429,
+        1419
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        429,
+        1417,
+        471,
+        1462
+      ],
+      "name": "关卡54星1",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡54底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 34,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        468,
+        1419
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        468,
+        1417,
+        510,
+        1462
+      ],
+      "name": "关卡54星2",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡54底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 35,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        507,
+        1420
+      ],
+      "target_size": [
+        41,
+        39
+      ],
+      "target_box": [
+        507,
+        1417,
+        548,
+        1462
+      ],
+      "name": "关卡54星3",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡54底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 36,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        41,
+        39
+      ],
+      "scale": [
+        0.0365093499554764,
+        0.03644859813084112
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "position": [
+        183,
+        1481
+      ],
+      "target_size": [
+        133,
+        134
+      ],
+      "target_box": [
+        177,
+        1481,
+        323,
+        1615
+      ],
+      "name": "关卡53底板",
+      "group": "UI",
+      "state": "locked",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "z": 37,
+      "native_size": [
+        1142,
+        1154
+      ],
+      "size": [
+        133,
+        134
+      ],
+      "scale": [
+        0.11646234676007006,
+        0.11611785095320624
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        191,
+        1585
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        191,
+        1583,
+        233,
+        1627
+      ],
+      "name": "关卡53星1",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡53底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 38,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        230,
+        1585
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        230,
+        1583,
+        272,
+        1627
+      ],
+      "name": "关卡53星2",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡53底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 39,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_金色星级母件",
+      "position": [
+        269,
+        1585
+      ],
+      "target_size": [
+        42,
+        40
+      ],
+      "target_box": [
+        269,
+        1583,
+        311,
+        1627
+      ],
+      "name": "关卡53星3",
+      "group": "UI",
+      "state": "earned",
+      "parent": "关卡53底板",
+      "id": "block_关卡选择_金色星级母件",
+      "file": "PNG/公共UI/金色星级母件_c3b3c58c59.png",
+      "z": 40,
+      "native_size": [
+        1123,
+        1070
+      ],
+      "size": [
+        42,
+        40
+      ],
+      "scale": [
+        0.037399821905609976,
+        0.037383177570093455
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色星级母件"
+    },
+    {
+      "asset": "block_关卡选择_当前关卡头像标记",
+      "position": [
+        331,
+        920
+      ],
+      "name": "当前关卡头像标记",
+      "group": "UI",
+      "id": "block_关卡选择_当前关卡头像标记",
+      "file": "PNG/页面素材/关卡选择/UI/当前关卡头像标记_4f240726b3.png",
+      "z": 41,
+      "native_size": [
+        115,
+        127
+      ],
+      "size": [
+        115,
+        127
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_当前关卡头像标记"
+    },
+    {
+      "asset": "block_关卡选择_抱蜜罐蜜蜂",
+      "position": [
+        666,
+        861
+      ],
+      "name": "抱蜜罐蜜蜂",
+      "group": "其他素材",
+      "target_size": [
+        137,
+        146
+      ],
+      "target_box": [
+        666,
+        861,
+        803,
+        1008
+      ],
+      "id": "block_关卡选择_抱蜜罐蜜蜂",
+      "file": "PNG/页面素材/关卡选择/其他素材/抱蜜罐蜜蜂_add197b8f6.png",
+      "z": 42,
+      "native_size": [
+        1087,
+        1155
+      ],
+      "size": [
+        137,
+        146
+      ],
+      "scale": [
+        0.12603495860165592,
+        0.1264069264069264
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_抱蜜罐蜜蜂"
+    },
+    {
+      "asset": "block_关卡选择_模式选项木质横托",
+      "position": [
+        145,
+        386
+      ],
+      "name": "模式选项木质横托",
+      "group": "UI",
+      "id": "block_关卡选择_模式选项木质横托",
+      "file": "PNG/页面素材/关卡选择/UI/模式选项木质横托_7e78b9dc52.png",
+      "z": 43,
+      "native_size": [
+        568,
+        14
+      ],
+      "size": [
+        568,
+        14
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_关卡选择_模式选项木质横托"
+    },
+    {
+      "asset": "block_hud_关卡选择_头像空白等级",
+      "position": [
+        25,
+        22
+      ],
+      "target_size": [
+        143,
+        152
+      ],
+      "name": "玩家头像",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_关卡选择_头像空白等级",
+      "file": "PNG/公共UI/关卡选择_头像空白等级_8ac4a06033.png",
+      "z": 44,
+      "native_size": [
+        572,
+        608
+      ],
+      "size": [
+        143,
+        152
+      ],
+      "scale": [
+        0.25,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_关卡选择_头像空白等级"
+    },
+    {
+      "asset": "block_hud_透明计数底条",
+      "position": [
+        222,
+        61
+      ],
+      "target_size": [
+        180,
+        65
+      ],
+      "name": "体力计数底条",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "z": 45,
+      "native_size": [
+        224,
+        65
+      ],
+      "size": [
+        180,
+        65
+      ],
+      "scale": [
+        0.8035714285714286,
+        1.0
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条"
+    },
+    {
+      "asset": "block_hud_体力爱心空白",
+      "position": [
+        179,
+        57
+      ],
+      "target_size": [
+        84,
+        75
+      ],
+      "name": "体力心形",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_体力爱心空白",
+      "file": "PNG/公共UI/体力爱心空白_72f8be88e9.png",
+      "z": 46,
+      "native_size": [
+        340,
+        312
+      ],
+      "size": [
+        84,
+        75
+      ],
+      "scale": [
+        0.24705882352941178,
+        0.2403846153846154
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_体力爱心空白"
+    },
+    {
+      "asset": "block_hud_透明计数底条",
+      "position": [
+        488,
+        61
+      ],
+      "target_size": [
+        235,
+        66
+      ],
+      "name": "蜂蜜计数底条",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "z": 47,
+      "native_size": [
+        224,
+        65
+      ],
+      "size": [
+        235,
+        66
+      ],
+      "scale": [
+        1.0491071428571428,
+        1.0153846153846153
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条"
+    },
+    {
+      "asset": "block_hud_蜂蜜货币",
+      "position": [
+        451,
+        53
+      ],
+      "target_size": [
+        73,
+        76
+      ],
+      "name": "蜂蜜货币",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "z": 48,
+      "native_size": [
+        288,
+        304
+      ],
+      "size": [
+        73,
+        76
+      ],
+      "scale": [
+        0.2534722222222222,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币"
+    },
+    {
+      "asset": "block_hud_添加按钮",
+      "position": [
+        653,
+        60
+      ],
+      "target_size": [
+        72,
+        68
+      ],
+      "name": "增加蜂蜜",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_添加按钮",
+      "file": "PNG/公共UI/添加按钮_6cd07472ae.png",
+      "z": 49,
+      "native_size": [
+        276,
+        276
+      ],
+      "size": [
+        72,
+        68
+      ],
+      "scale": [
+        0.2608695652173913,
+        0.2463768115942029
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_添加按钮"
+    },
+    {
+      "asset": "block_hud_设置木质齿轮",
+      "position": [
+        735,
+        46
+      ],
+      "target_size": [
+        100,
+        99
+      ],
+      "name": "设置",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "z": 50,
+      "native_size": [
+        388,
+        388
+      ],
+      "size": [
+        100,
+        99
+      ],
+      "scale": [
+        0.25773195876288657,
+        0.2551546391752577
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮"
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "关卡60号码",
+      "text": "60",
+      "position": [
+        242,
+        477
+      ],
+      "box": [
+        227,
+        465,
+        322,
+        534
+      ],
+      "font_size": 46.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        65,
+        65,
+        65
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 46.0,
+      "layout_locked": true,
+      "source_white_ink_box": [
+        247,
+        480,
+        302,
+        516
+      ],
+      "quality_repair_20261021": "按原图可见白字墨迹实测字号与位置；position为字形左上，不再由发布端自动按box重排",
+      "text_role": "number",
+      "default_text": "60",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": {
+        "path": "map.levels.60.number",
+        "type": "integer",
+        "format": "decimal",
+        "raw_value": 60
+      },
+      "min_font_size": 31.28,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "text_id": "block.map.text.关卡60号码",
+      "instance_id": "map:block.map.text.关卡60号码",
+      "page": "关卡选择",
+      "semantic_origin": "author",
+      "raw_value": 60,
+      "number_format": {
+        "type": "decimal",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        63,
+        42
+      ]
+    },
+    {
+      "layer_name": "关卡59号码",
+      "text": "59",
+      "position": [
+        466,
+        586
+      ],
+      "box": [
+        451,
+        570,
+        546,
+        642
+      ],
+      "font_size": 46.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        65,
+        65,
+        65
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 46.0,
+      "layout_locked": true,
+      "source_white_ink_box": [
+        472,
+        589,
+        525,
+        625
+      ],
+      "quality_repair_20261021": "按原图可见白字墨迹实测字号与位置；position为字形左上，不再由发布端自动按box重排",
+      "text_role": "number",
+      "default_text": "59",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": {
+        "path": "map.levels.59.number",
+        "type": "integer",
+        "format": "decimal",
+        "raw_value": 59
+      },
+      "min_font_size": 31.28,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "text_id": "block.map.text.关卡59号码",
+      "instance_id": "map:block.map.text.关卡59号码",
+      "page": "关卡选择",
+      "semantic_origin": "author",
+      "raw_value": 59,
+      "number_format": {
+        "type": "decimal",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        63,
+        42
+      ]
+    },
+    {
+      "layer_name": "关卡58号码",
+      "text": "58",
+      "position": [
+        355,
+        728
+      ],
+      "box": [
+        339,
+        719,
+        437,
+        788
+      ],
+      "font_size": 47.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        143,
+        57,
+        16
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 47.0,
+      "layout_locked": true,
+      "source_white_ink_box": [
+        361,
+        731,
+        415,
+        768
+      ],
+      "quality_repair_20261021": "按原图可见白字墨迹实测字号与位置；position为字形左上，不再由发布端自动按box重排",
+      "text_role": "number",
+      "default_text": "58",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": {
+        "path": "map.levels.58.number",
+        "type": "integer",
+        "format": "decimal",
+        "raw_value": 58
+      },
+      "min_font_size": 31.96,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "text_id": "block.map.text.关卡58号码",
+      "instance_id": "map:block.map.text.关卡58号码",
+      "page": "关卡选择",
+      "semantic_origin": "author",
+      "raw_value": 58,
+      "number_format": {
+        "type": "decimal",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        64,
+        43
+      ]
+    },
+    {
+      "layer_name": "关卡57号码",
+      "text": "57",
+      "position": [
+        178,
+        855
+      ],
+      "box": [
+        160,
+        836,
+        259,
+        910
+      ],
+      "font_size": 48.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        143,
+        57,
+        16
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 48.0,
+      "layout_locked": true,
+      "source_white_ink_box": [
+        185,
+        858,
+        238,
+        895
+      ],
+      "quality_repair_20261021": "按原图可见白字墨迹实测字号与位置；position为字形左上，不再由发布端自动按box重排",
+      "text_role": "number",
+      "default_text": "57",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": {
+        "path": "map.levels.57.number",
+        "type": "integer",
+        "format": "decimal",
+        "raw_value": 57
+      },
+      "min_font_size": 32.64,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "text_id": "block.map.text.关卡57号码",
+      "instance_id": "map:block.map.text.关卡57号码",
+      "page": "关卡选择",
+      "semantic_origin": "author",
+      "raw_value": 57,
+      "number_format": {
+        "type": "decimal",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        65,
+        43
+      ]
+    },
+    {
+      "layer_name": "关卡56号码",
+      "text": "56",
+      "position": [
+        348,
+        1058
+      ],
+      "box": [
+        328,
+        1049,
+        441,
+        1129
+      ],
+      "font_size": 53.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        143,
+        57,
+        16
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 53.0,
+      "layout_locked": true,
+      "source_white_ink_box": [
+        355,
+        1061,
+        416,
+        1103
+      ],
+      "quality_repair_20261021": "按原图可见白字墨迹实测字号与位置；position为字形左上，不再由发布端自动按box重排",
+      "text_role": "number",
+      "default_text": "56",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": {
+        "path": "map.levels.56.number",
+        "type": "integer",
+        "format": "decimal",
+        "raw_value": 56
+      },
+      "min_font_size": 36.04,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "text_id": "block.map.text.关卡56号码",
+      "instance_id": "map:block.map.text.关卡56号码",
+      "page": "关卡选择",
+      "semantic_origin": "author",
+      "raw_value": 56,
+      "number_format": {
+        "type": "decimal",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        72,
+        48
+      ]
+    },
+    {
+      "layer_name": "关卡55号码",
+      "text": "55",
+      "position": [
+        564,
+        1194
+      ],
+      "box": [
+        547,
+        1174,
+        651,
+        1252
+      ],
+      "font_size": 51.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        143,
+        57,
+        16
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 51.0,
+      "layout_locked": true,
+      "source_white_ink_box": [
+        572,
+        1197,
+        627,
+        1235
+      ],
+      "quality_repair_20261021": "按原图可见白字墨迹实测字号与位置；position为字形左上，不再由发布端自动按box重排",
+      "text_role": "number",
+      "default_text": "55",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": {
+        "path": "map.levels.55.number",
+        "type": "integer",
+        "format": "decimal",
+        "raw_value": 55
+      },
+      "min_font_size": 34.68,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "text_id": "block.map.text.关卡55号码",
+      "instance_id": "map:block.map.text.关卡55号码",
+      "page": "关卡选择",
+      "semantic_origin": "author",
+      "raw_value": 55,
+      "number_format": {
+        "type": "decimal",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        69,
+        45
+      ]
+    },
+    {
+      "layer_name": "关卡54号码",
+      "text": "54",
+      "position": [
+        452,
+        1364
+      ],
+      "box": [
+        435,
+        1347,
+        539,
+        1423
+      ],
+      "font_size": 49.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        65,
+        65,
+        65
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 49.0,
+      "layout_locked": true,
+      "source_white_ink_box": [
+        459,
+        1367,
+        515,
+        1405
+      ],
+      "quality_repair_20261021": "按原图可见白字墨迹实测字号与位置；position为字形左上，不再由发布端自动按box重排",
+      "text_role": "number",
+      "default_text": "54",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": {
+        "path": "map.levels.54.number",
+        "type": "integer",
+        "format": "decimal",
+        "raw_value": 54
+      },
+      "min_font_size": 33.32,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "text_id": "block.map.text.关卡54号码",
+      "instance_id": "map:block.map.text.关卡54号码",
+      "page": "关卡选择",
+      "semantic_origin": "author",
+      "raw_value": 54,
+      "number_format": {
+        "type": "decimal",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        67,
+        44
+      ]
+    },
+    {
+      "layer_name": "关卡53号码",
+      "text": "53",
+      "position": [
+        216,
+        1526
+      ],
+      "box": [
+        198,
+        1507,
+        302,
+        1585
+      ],
+      "font_size": 48.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        65,
+        65,
+        65
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 48.0,
+      "layout_locked": true,
+      "source_white_ink_box": [
+        222,
+        1529,
+        277,
+        1567
+      ],
+      "quality_repair_20261021": "按原图可见白字墨迹实测字号与位置；position为字形左上，不再由发布端自动按box重排",
+      "text_role": "number",
+      "default_text": "53",
+      "localization_key": null,
+      "message_template": null,
+      "parameters": {},
+      "value_binding": {
+        "path": "map.levels.53.number",
+        "type": "integer",
+        "format": "decimal",
+        "raw_value": 53
+      },
+      "min_font_size": 32.64,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "text_id": "block.map.text.关卡53号码",
+      "instance_id": "map:block.map.text.关卡53号码",
+      "page": "关卡选择",
+      "semantic_origin": "author",
+      "raw_value": 53,
+      "number_format": {
+        "type": "decimal",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        65,
+        44
+      ]
+    },
+    {
+      "layer_name": "关卡选择标题文案",
+      "text": "关卡选择",
+      "position": [
+        350,
+        198
+      ],
+      "box": [
+        279,
+        192,
+        598,
+        249
+      ],
+      "font_size": 43.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        82,
+        34,
+        10
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 43.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        176,
+        46
+      ],
+      "fit": true,
+      "text_role": "message",
+      "default_text": "关卡选择",
+      "localization_key": "block.map.title",
+      "message_template": null,
+      "parameters": {},
+      "value_binding": null,
+      "min_font_size": 29.24,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "layout_locked": true,
+      "text_id": "block.map.text.关卡选择标题文案",
+      "instance_id": "map:block.map.text.关卡选择标题文案",
+      "page": "关卡选择",
+      "semantic_origin": "author"
+    },
+    {
+      "layer_name": "普通关卡固定标题文案",
+      "text": "普通关卡",
+      "position": [
+        230,
+        333
+      ],
+      "box": [
+        193,
+        326,
+        396,
+        375
+      ],
+      "font_size": 31.0,
+      "color_rgb": [
+        99,
+        41,
+        13
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        255,
+        233,
+        183
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        128,
+        35
+      ],
+      "fit": true,
+      "text_role": "message",
+      "default_text": "普通关卡",
+      "localization_key": "block.map.normal",
+      "message_template": null,
+      "parameters": {},
+      "value_binding": null,
+      "min_font_size": 21.08,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "layout_locked": true,
+      "text_id": "block.map.text.普通关卡固定标题文案",
+      "instance_id": "map:block.map.text.普通关卡固定标题文案",
+      "page": "关卡选择",
+      "semantic_origin": "author"
+    },
+    {
+      "layer_name": "步数限制固定标题文案",
+      "text": "步数限制",
+      "position": [
+        491,
+        333
+      ],
+      "box": [
+        461,
+        326,
+        649,
+        375
+      ],
+      "font_size": 31.0,
+      "color_rgb": [
+        222,
+        222,
+        222
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        80,
+        80,
+        80
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        128,
+        35
+      ],
+      "fit": true,
+      "text_role": "message",
+      "default_text": "步数限制",
+      "localization_key": "block.map.limited",
+      "message_template": null,
+      "parameters": {},
+      "value_binding": null,
+      "min_font_size": 21.08,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "layout_locked": true,
+      "text_id": "block.map.text.步数限制固定标题文案",
+      "instance_id": "map:block.map.text.步数限制固定标题文案",
+      "page": "关卡选择",
+      "semantic_origin": "author"
+    },
+    {
+      "layer_name": "玩家等级",
+      "text": "Lv.12",
+      "position": [
+        54,
+        134
+      ],
+      "box": [
+        45,
+        128,
+        147,
+        167
+      ],
+      "font_size": 30.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "fit": true,
+      "layout_locked": true,
+      "text_id": "block.text.map.bf6705c67a81",
+      "instance_id": "map:block.text.map.bf6705c67a81",
+      "page": "关卡选择",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 12
+      },
+      "value_binding": {
+        "level": "player.level"
+      },
+      "localization_key": "block.hud.player_level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.12",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "min_font_size": 20.4,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "layout_overflow": false,
+      "measured_ink_size": [
+        83,
+        27
+      ]
+    },
+    {
+      "layer_name": "体力数量",
+      "text": "5",
+      "position": [
+        212,
+        77
+      ],
+      "box": [
+        208,
+        77,
+        239,
+        117
+      ],
+      "font_size": 32.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "text_id": "block.text.map.5764058d91bb",
+      "instance_id": "map:block.text.map.5764058d91bb",
+      "page": "关卡选择",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "player.energy.current",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "min_font_size": 21.76,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        23,
+        28
+      ]
+    },
+    {
+      "layer_name": "体力状态",
+      "text": "已满",
+      "position": [
+        296,
+        73
+      ],
+      "box": [
+        275,
+        73,
+        388,
+        118
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "text_id": "block.text.map.0eaed1b70770",
+      "instance_id": "map:block.text.map.0eaed1b70770",
+      "page": "关卡选择",
+      "text_role": "message",
+      "localization_key": "block.hud.energy_full",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "已满",
+      "parameters": {},
+      "value_binding": null,
+      "min_font_size": 23.12,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        71,
+        36
+      ]
+    },
+    {
+      "layer_name": "蜂蜜数量",
+      "text": "2,350",
+      "position": [
+        540,
+        71
+      ],
+      "box": [
+        536,
+        71,
+        640,
+        120
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "text_id": "block.text.map.ee7fa8103c06",
+      "instance_id": "map:block.text.map.ee7fa8103c06",
+      "page": "关卡选择",
+      "text_role": "number",
+      "raw_value": 2350,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": true,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "player.currency.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2,350",
+      "parameters": {},
+      "localization_key": null,
+      "min_font_size": 23.12,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        97,
+        34
+      ]
+    }
+  ],
+  "source_sha256": "739beec7e4717ed7815400f3ae7b1d0c1603a0da4a2b873d8d724ade677b89f8",
+  "background_note": "遮挡区依据原设计补绘，属于推断；裸背景不含控件、文字和固定玩法局面",
+  "coordinate_system": "像素；左上原点；z由底到顶；anchor为资源左上角归一化坐标",
+  "runtime_note": "非封面主标题文字均创建为独立文字组件，以localization_key取整句/模板并注入命名参数；number/player_input按value_binding取值，数字按number_format本地化。使用微软雅黑并遵守box/min_font_size/max_lines/overflow_policy；layers路径相对游戏素材根目录。qps-ploc仅为排版压力验证，不是正式译文。",
+  "comparison": {
+    "original": "页面对照/效果设计图/关卡选择.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf",
+    "psd_composite": "页面对照/PSD合成/关卡选择.png",
+    "psd_composite_sha256": "784b75dec04d9b0cfe3cbb8d3e68a8539d1431d1ad7973dcff5931b330379e2f",
+    "psd_sha256": "e7b8df7c3c546260d0054ba1dedd99444883517d774d35985d851c28a0ce5286",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "runtime_preview_max_channel_error": 2,
+    "composite_sha256": "784b75dec04d9b0cfe3cbb8d3e68a8539d1431d1ad7973dcff5931b330379e2f",
+    "original_label": "页面效果设计图",
+    "source_sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  }
+}

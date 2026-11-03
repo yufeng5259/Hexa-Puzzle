@@ -1,0 +1,3411 @@
+{
+  "page": "好友界面",
+  "size": [
+    853,
+    1844
+  ],
+  "canvas": [
+    853,
+    1844
+  ],
+  "layers": [
+    {
+      "asset": "block_background_好友界面",
+      "position": [
+        0,
+        0
+      ],
+      "name": "完整裸背景",
+      "group": "背景",
+      "id": "block_background_好友界面",
+      "file": "PNG/公共素材/好友界面_完整裸背景_3e77cdf8da.png",
+      "z": 0,
+      "native_size": [
+        853,
+        1844
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_background_好友界面"
+    },
+    {
+      "asset": "block_好友界面_空白主面板",
+      "position": [
+        64,
+        408
+      ],
+      "name": "空白主面板",
+      "group": "UI",
+      "id": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "z": 1,
+      "native_size": [
+        727,
+        1207
+      ],
+      "size": [
+        727,
+        1207
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板"
+    },
+    {
+      "asset": "block_好友界面_页签木质背框",
+      "position": [
+        80,
+        292
+      ],
+      "name": "页签木质背框",
+      "group": "UI",
+      "id": "block_好友界面_页签木质背框",
+      "file": "PNG/公共UI/页签木质背框_8efcc02704.png",
+      "z": 2,
+      "native_size": [
+        697,
+        136
+      ],
+      "size": [
+        697,
+        136
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_页签木质背框"
+    },
+    {
+      "asset": "block_好友界面_我的好友_选中页签",
+      "position": [
+        111,
+        309
+      ],
+      "name": "我的好友_选中页签",
+      "group": "UI",
+      "text_layers": [
+        "我的好友页签文案"
+      ],
+      "id": "block_好友界面_我的好友_选中页签",
+      "file": "PNG/公共UI/我的好友_选中页签_dc3ecbc337.png",
+      "z": 3,
+      "native_size": [
+        315,
+        103
+      ],
+      "size": [
+        315,
+        103
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_我的好友_选中页签"
+    },
+    {
+      "asset": "block_好友界面_添加好友_未选中页签",
+      "position": [
+        442,
+        309
+      ],
+      "name": "添加好友_未选中页签",
+      "group": "UI",
+      "text_layers": [
+        "添加好友页签文案"
+      ],
+      "id": "block_好友界面_添加好友_未选中页签",
+      "file": "PNG/公共UI/添加好友_未选中页签_69a281099f.png",
+      "z": 4,
+      "native_size": [
+        312,
+        103
+      ],
+      "size": [
+        312,
+        103
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_添加好友_未选中页签"
+    },
+    {
+      "asset": "block_好友界面_好友标题木牌",
+      "position": [
+        198,
+        172
+      ],
+      "name": "好友标题木牌",
+      "group": "UI",
+      "text_layers": [
+        "好友标题"
+      ],
+      "id": "block_好友界面_好友标题木牌",
+      "file": "PNG/公共UI/好友标题木牌_b85a1c550c.png",
+      "z": 5,
+      "native_size": [
+        461,
+        114
+      ],
+      "size": [
+        461,
+        114
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友标题木牌"
+    },
+    {
+      "asset": "block_好友界面_左悬绳",
+      "position": [
+        267,
+        122
+      ],
+      "name": "左悬绳",
+      "group": "UI",
+      "id": "block_好友界面_左悬绳",
+      "file": "PNG/公共UI/左悬绳_a1cf9fcdc7.png",
+      "z": 6,
+      "native_size": [
+        32,
+        77
+      ],
+      "size": [
+        32,
+        77
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_左悬绳"
+    },
+    {
+      "asset": "block_好友界面_右悬绳",
+      "position": [
+        552,
+        121
+      ],
+      "name": "右悬绳",
+      "group": "UI",
+      "id": "block_好友界面_右悬绳",
+      "file": "PNG/公共UI/右悬绳_eda8460639.png",
+      "z": 7,
+      "native_size": [
+        34,
+        74
+      ],
+      "size": [
+        34,
+        74
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_右悬绳"
+    },
+    {
+      "asset": "block_好友界面_好友行底板_1",
+      "position": [
+        100,
+        445
+      ],
+      "name": "好友行底板_1",
+      "group": "UI",
+      "id": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "z": 8,
+      "native_size": [
+        656,
+        141
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1"
+    },
+    {
+      "asset": "block_好友界面_好友行底板_2",
+      "position": [
+        100,
+        593
+      ],
+      "name": "好友行底板_2",
+      "group": "UI",
+      "id": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "z": 9,
+      "native_size": [
+        656,
+        141
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1"
+    },
+    {
+      "asset": "block_好友界面_好友行底板_3",
+      "position": [
+        100,
+        742
+      ],
+      "name": "好友行底板_3",
+      "group": "UI",
+      "id": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "z": 10,
+      "native_size": [
+        656,
+        141
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1"
+    },
+    {
+      "asset": "block_好友界面_好友行底板_4",
+      "position": [
+        100,
+        891
+      ],
+      "name": "好友行底板_4",
+      "group": "UI",
+      "id": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "z": 11,
+      "native_size": [
+        656,
+        141
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1"
+    },
+    {
+      "asset": "block_好友界面_好友行底板_5",
+      "position": [
+        100,
+        1040
+      ],
+      "name": "好友行底板_5",
+      "group": "UI",
+      "id": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "z": 12,
+      "native_size": [
+        656,
+        141
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1"
+    },
+    {
+      "asset": "block_好友界面_好友行底板_6",
+      "position": [
+        100,
+        1187
+      ],
+      "name": "好友行底板_6",
+      "group": "UI",
+      "id": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "z": 13,
+      "native_size": [
+        656,
+        141
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1"
+    },
+    {
+      "asset": "block_好友界面_好友头像_1",
+      "position": [
+        120,
+        456
+      ],
+      "name": "好友头像_1",
+      "group": "UI",
+      "id": "block_好友界面_好友头像_1",
+      "file": "PNG/页面素材/好友界面/UI/好友头像_1_ca5f59972e.png",
+      "z": 14,
+      "native_size": [
+        124,
+        118
+      ],
+      "size": [
+        124,
+        118
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友头像_1"
+    },
+    {
+      "asset": "block_好友界面_赠送按钮_1",
+      "position": [
+        540,
+        475
+      ],
+      "name": "赠送按钮_1",
+      "group": "UI",
+      "text_layers": [
+        "赠送按钮文案_1"
+      ],
+      "id": "block_好友界面_赠送按钮_1",
+      "file": "PNG/页面素材/好友界面/UI/赠送按钮_1_7594b429d2.png",
+      "z": 15,
+      "native_size": [
+        196,
+        85
+      ],
+      "size": [
+        196,
+        85
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送按钮_1"
+    },
+    {
+      "asset": "block_好友界面_好友头像_2",
+      "position": [
+        120,
+        603
+      ],
+      "name": "好友头像_2",
+      "group": "UI",
+      "id": "block_好友界面_好友头像_2",
+      "file": "PNG/页面素材/好友界面/UI/好友头像_2_6f42a9b2ab.png",
+      "z": 16,
+      "native_size": [
+        124,
+        120
+      ],
+      "size": [
+        124,
+        120
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友头像_2"
+    },
+    {
+      "asset": "block_好友界面_赠送按钮_2",
+      "position": [
+        540,
+        623
+      ],
+      "name": "赠送按钮_2",
+      "group": "UI",
+      "text_layers": [
+        "赠送按钮文案_2"
+      ],
+      "id": "block_好友界面_赠送按钮_1",
+      "file": "PNG/页面素材/好友界面/UI/赠送按钮_1_7594b429d2.png",
+      "z": 17,
+      "native_size": [
+        196,
+        85
+      ],
+      "size": [
+        196,
+        85
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送按钮_1"
+    },
+    {
+      "asset": "block_好友界面_好友头像_3",
+      "position": [
+        120,
+        752
+      ],
+      "name": "好友头像_3",
+      "group": "UI",
+      "id": "block_好友界面_好友头像_3",
+      "file": "PNG/页面素材/好友界面/UI/好友头像_3_f98f01596a.png",
+      "z": 18,
+      "native_size": [
+        124,
+        120
+      ],
+      "size": [
+        124,
+        120
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友头像_3"
+    },
+    {
+      "asset": "block_好友界面_赠送按钮_3",
+      "position": [
+        540,
+        772
+      ],
+      "name": "赠送按钮_3",
+      "group": "UI",
+      "text_layers": [
+        "赠送按钮文案_3"
+      ],
+      "id": "block_好友界面_赠送按钮_3",
+      "file": "PNG/页面素材/好友界面/UI/赠送按钮_3_b8f5f9b4f0.png",
+      "z": 19,
+      "native_size": [
+        196,
+        88
+      ],
+      "size": [
+        196,
+        88
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送按钮_3"
+    },
+    {
+      "asset": "block_好友界面_好友头像_4",
+      "position": [
+        120,
+        901
+      ],
+      "name": "好友头像_4",
+      "group": "UI",
+      "id": "block_好友界面_好友头像_4",
+      "file": "PNG/页面素材/好友界面/UI/好友头像_4_686e963aa6.png",
+      "z": 20,
+      "native_size": [
+        124,
+        120
+      ],
+      "size": [
+        124,
+        120
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友头像_4"
+    },
+    {
+      "asset": "block_好友界面_赠送按钮_4",
+      "position": [
+        540,
+        921
+      ],
+      "name": "赠送按钮_4",
+      "group": "UI",
+      "text_layers": [
+        "赠送按钮文案_4"
+      ],
+      "id": "block_好友界面_赠送按钮_1",
+      "file": "PNG/页面素材/好友界面/UI/赠送按钮_1_7594b429d2.png",
+      "z": 21,
+      "native_size": [
+        196,
+        85
+      ],
+      "size": [
+        196,
+        85
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送按钮_1"
+    },
+    {
+      "asset": "block_好友界面_好友头像_5",
+      "position": [
+        120,
+        1049
+      ],
+      "name": "好友头像_5",
+      "group": "UI",
+      "id": "block_好友界面_好友头像_5",
+      "file": "PNG/页面素材/好友界面/UI/好友头像_5_b8fc1b1d19.png",
+      "z": 22,
+      "native_size": [
+        124,
+        119
+      ],
+      "size": [
+        124,
+        119
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友头像_5"
+    },
+    {
+      "asset": "block_好友界面_赠送按钮_5",
+      "position": [
+        540,
+        1070
+      ],
+      "name": "赠送按钮_5",
+      "group": "UI",
+      "text_layers": [
+        "赠送按钮文案_5"
+      ],
+      "id": "block_好友界面_赠送按钮_1",
+      "file": "PNG/页面素材/好友界面/UI/赠送按钮_1_7594b429d2.png",
+      "z": 23,
+      "native_size": [
+        196,
+        85
+      ],
+      "size": [
+        196,
+        85
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送按钮_1"
+    },
+    {
+      "asset": "block_好友界面_好友头像_6",
+      "position": [
+        120,
+        1197
+      ],
+      "name": "好友头像_6",
+      "group": "UI",
+      "id": "block_好友界面_好友头像_6",
+      "file": "PNG/页面素材/好友界面/UI/好友头像_6_35f17666b6.png",
+      "z": 24,
+      "native_size": [
+        124,
+        117
+      ],
+      "size": [
+        124,
+        117
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友头像_6"
+    },
+    {
+      "asset": "block_好友界面_赠送按钮_6",
+      "position": [
+        540,
+        1217
+      ],
+      "name": "赠送按钮_6",
+      "group": "UI",
+      "text_layers": [
+        "赠送按钮文案_6"
+      ],
+      "id": "block_好友界面_赠送按钮_1",
+      "file": "PNG/页面素材/好友界面/UI/赠送按钮_1_7594b429d2.png",
+      "z": 25,
+      "native_size": [
+        196,
+        85
+      ],
+      "size": [
+        196,
+        85
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送按钮_1"
+    },
+    {
+      "asset": "block_好友界面_赠送进度区底板",
+      "position": [
+        100,
+        1341
+      ],
+      "name": "赠送进度区底板",
+      "group": "UI",
+      "id": "block_好友界面_赠送进度区底板",
+      "file": "PNG/页面素材/好友界面/UI/赠送进度区底板_32471eced3.png",
+      "z": 26,
+      "native_size": [
+        656,
+        126
+      ],
+      "size": [
+        656,
+        126
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送进度区底板"
+    },
+    {
+      "asset": "block_好友界面_赠送进度空槽",
+      "position": [
+        154,
+        1408
+      ],
+      "name": "赠送进度空槽",
+      "group": "UI",
+      "id": "block_好友界面_赠送进度空槽",
+      "file": "PNG/公共UI/赠送进度空槽_4abc304474.png",
+      "z": 27,
+      "native_size": [
+        523,
+        34
+      ],
+      "size": [
+        523,
+        34
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送进度空槽"
+    },
+    {
+      "asset": "block_好友界面_赠送进度填充",
+      "position": [
+        154,
+        1408
+      ],
+      "name": "赠送进度填充",
+      "group": "UI",
+      "id": "block_好友界面_赠送进度填充",
+      "file": "PNG/公共UI/赠送进度填充_d129faa740.png",
+      "z": 28,
+      "native_size": [
+        237,
+        34
+      ],
+      "size": [
+        237,
+        34
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送进度填充"
+    },
+    {
+      "asset": "block_好友界面_进度蜂蜜罐",
+      "position": [
+        624,
+        1355
+      ],
+      "name": "进度蜂蜜罐",
+      "group": "UI",
+      "id": "block_好友界面_进度蜂蜜罐",
+      "file": "PNG/页面素材/好友界面/UI/进度蜂蜜罐_ee6453c7c2.png",
+      "z": 29,
+      "native_size": [
+        85,
+        102
+      ],
+      "size": [
+        85,
+        102
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_进度蜂蜜罐"
+    },
+    {
+      "asset": "block_好友界面_一键赠送按钮",
+      "position": [
+        223,
+        1460
+      ],
+      "name": "一键赠送按钮",
+      "group": "UI",
+      "text_layers": [
+        "一键赠送文案"
+      ],
+      "id": "block_好友界面_一键赠送按钮",
+      "file": "PNG/页面素材/好友界面/UI/一键赠送按钮_b9f89b8956.png",
+      "z": 30,
+      "native_size": [
+        408,
+        114
+      ],
+      "size": [
+        408,
+        114
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_一键赠送按钮"
+    },
+    {
+      "asset": "block_好友界面_返回按钮",
+      "position": [
+        17,
+        1648
+      ],
+      "name": "返回按钮",
+      "group": "UI",
+      "id": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "z": 31,
+      "native_size": [
+        164,
+        166
+      ],
+      "size": [
+        164,
+        166
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮"
+    },
+    {
+      "asset": "block_好友界面_抱蜜罐蜜蜂",
+      "position": [
+        576,
+        1470
+      ],
+      "name": "抱蜜罐蜜蜂",
+      "group": "其他素材",
+      "id": "block_好友界面_抱蜜罐蜜蜂",
+      "file": "PNG/公共素材/抱蜜罐蜜蜂_fd6d56ac2d.png",
+      "z": 32,
+      "native_size": [
+        276,
+        322
+      ],
+      "size": [
+        276,
+        322
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_好友界面_抱蜜罐蜜蜂"
+    },
+    {
+      "asset": "block_hud_好友界面_头像空白等级",
+      "position": [
+        18,
+        25
+      ],
+      "target_size": [
+        151,
+        159
+      ],
+      "name": "玩家头像",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_好友界面_头像空白等级",
+      "file": "PNG/公共UI/好友界面_头像空白等级_764f295416.png",
+      "z": 33,
+      "native_size": [
+        604,
+        636
+      ],
+      "size": [
+        151,
+        159
+      ],
+      "scale": [
+        0.25,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_好友界面_头像空白等级"
+    },
+    {
+      "asset": "block_hud_透明计数底条",
+      "position": [
+        219,
+        60
+      ],
+      "target_size": [
+        186,
+        66
+      ],
+      "name": "体力计数底条",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "z": 34,
+      "native_size": [
+        224,
+        65
+      ],
+      "size": [
+        186,
+        66
+      ],
+      "scale": [
+        0.8303571428571429,
+        1.0153846153846153
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条"
+    },
+    {
+      "asset": "block_hud_体力爱心空白",
+      "position": [
+        178,
+        54
+      ],
+      "target_size": [
+        86,
+        78
+      ],
+      "name": "体力心形",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_体力爱心空白",
+      "file": "PNG/公共UI/体力爱心空白_72f8be88e9.png",
+      "z": 35,
+      "native_size": [
+        340,
+        312
+      ],
+      "size": [
+        86,
+        78
+      ],
+      "scale": [
+        0.2529411764705882,
+        0.25
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_体力爱心空白"
+    },
+    {
+      "asset": "block_hud_透明计数底条",
+      "position": [
+        478,
+        61
+      ],
+      "target_size": [
+        234,
+        67
+      ],
+      "name": "蜂蜜计数底条",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "z": 36,
+      "native_size": [
+        224,
+        65
+      ],
+      "size": [
+        234,
+        67
+      ],
+      "scale": [
+        1.0446428571428572,
+        1.0307692307692307
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条"
+    },
+    {
+      "asset": "block_hud_蜂蜜货币",
+      "position": [
+        439,
+        54
+      ],
+      "target_size": [
+        75,
+        77
+      ],
+      "name": "蜂蜜货币",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "z": 37,
+      "native_size": [
+        288,
+        304
+      ],
+      "size": [
+        75,
+        77
+      ],
+      "scale": [
+        0.2604166666666667,
+        0.2532894736842105
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币"
+    },
+    {
+      "asset": "block_hud_添加按钮",
+      "position": [
+        645,
+        62
+      ],
+      "target_size": [
+        70,
+        67
+      ],
+      "name": "增加蜂蜜",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_添加按钮",
+      "file": "PNG/公共UI/添加按钮_6cd07472ae.png",
+      "z": 38,
+      "native_size": [
+        276,
+        276
+      ],
+      "size": [
+        70,
+        67
+      ],
+      "scale": [
+        0.2536231884057971,
+        0.2427536231884058
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_添加按钮"
+    },
+    {
+      "asset": "block_hud_设置木质齿轮",
+      "position": [
+        733,
+        48
+      ],
+      "target_size": [
+        102,
+        100
+      ],
+      "name": "设置",
+      "group": "公共HUD",
+      "anchor": [
+        0,
+        0
+      ],
+      "id": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "z": 39,
+      "native_size": [
+        388,
+        388
+      ],
+      "size": [
+        102,
+        100
+      ],
+      "scale": [
+        0.26288659793814434,
+        0.25773195876288657
+      ],
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮"
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "好友昵称_1",
+      "text": "小蜜桃",
+      "position": [
+        272,
+        463
+      ],
+      "box": [
+        272,
+        463,
+        527,
+        501
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        89,
+        30,
+        10
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友昵称",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        102,
+        34
+      ],
+      "text_role": "player_input",
+      "value_binding": "friends[0].display_name",
+      "default_value": "小蜜桃",
+      "translate": false,
+      "min_font_size": 22,
+      "localization_key": null,
+      "truncate_display_only": true,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_ellipsis",
+      "fit": true,
+      "default_text": "小蜜桃",
+      "text_id": "block.text.friends.c0d60f619693",
+      "instance_id": "friends:block.text.friends.c0d60f619693",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "raw_value": "小蜜桃"
+    },
+    {
+      "layer_name": "好友等级_1",
+      "text": "Lv.25",
+      "position": [
+        273,
+        506
+      ],
+      "box": [
+        273,
+        506,
+        527,
+        532
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        181,
+        151,
+        111
+      ],
+      "align": "left",
+      "weight": "regular",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友等级",
+      "font": "微软雅黑",
+      "font_file": "msyh.ttc",
+      "postscript_font": "MicrosoftYaHei",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        20
+      ],
+      "text_role": "template",
+      "localization_key": "block.common.level",
+      "default_message": "Lv.25",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": {
+          "value_binding": "friends[0].level",
+          "default_value": 25,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "value_binding": {
+        "level": "friends[0].level"
+      },
+      "default_text": "Lv.25",
+      "text_id": "block.text.friends.206d8c77e97d",
+      "instance_id": "friends:block.text.friends.206d8c77e97d",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      }
+    },
+    {
+      "layer_name": "最近上线_1",
+      "text": "2小时前",
+      "position": [
+        273,
+        539
+      ],
+      "box": [
+        273,
+        539,
+        527,
+        566
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        172,
+        136,
+        91
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态最近上线时间",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        25
+      ],
+      "text_role": "template",
+      "localization_key": "block.social.last_online.hours_ago",
+      "default_message": "2小时前",
+      "message_template": "{hours}小时前",
+      "parameters": {
+        "hours": {
+          "value_binding": "friends[0].last_seen_elapsed_hours",
+          "default_value": 2,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "default_text": "2小时前",
+      "text_id": "block.text.friends.b4286d93e6d4",
+      "instance_id": "friends:block.text.friends.b4286d93e6d4",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "hours": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "value_binding": {
+        "hours": "friends[0].last_seen_elapsed_hours"
+      }
+    },
+    {
+      "layer_name": "好友昵称_2",
+      "text": "Sunny",
+      "position": [
+        272,
+        611
+      ],
+      "box": [
+        272,
+        611,
+        527,
+        649
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        89,
+        30,
+        10
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友昵称",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        107,
+        35
+      ],
+      "text_role": "player_input",
+      "value_binding": "friends[1].display_name",
+      "default_value": "Sunny",
+      "translate": false,
+      "min_font_size": 22,
+      "localization_key": null,
+      "truncate_display_only": true,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_ellipsis",
+      "fit": true,
+      "default_text": "Sunny",
+      "text_id": "block.text.friends.f292e423ed06",
+      "instance_id": "friends:block.text.friends.f292e423ed06",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "raw_value": "Sunny"
+    },
+    {
+      "layer_name": "好友等级_2",
+      "text": "Lv.18",
+      "position": [
+        273,
+        654
+      ],
+      "box": [
+        273,
+        654,
+        527,
+        680
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        181,
+        151,
+        111
+      ],
+      "align": "left",
+      "weight": "regular",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友等级",
+      "font": "微软雅黑",
+      "font_file": "msyh.ttc",
+      "postscript_font": "MicrosoftYaHei",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        20
+      ],
+      "text_role": "template",
+      "localization_key": "block.common.level",
+      "default_message": "Lv.18",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": {
+          "value_binding": "friends[1].level",
+          "default_value": 18,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "value_binding": {
+        "level": "friends[1].level"
+      },
+      "default_text": "Lv.18",
+      "text_id": "block.text.friends.122ad8b802f6",
+      "instance_id": "friends:block.text.friends.122ad8b802f6",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      }
+    },
+    {
+      "layer_name": "最近上线_2",
+      "text": "3小时前",
+      "position": [
+        273,
+        687
+      ],
+      "box": [
+        273,
+        687,
+        527,
+        714
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        172,
+        136,
+        91
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态最近上线时间",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        25
+      ],
+      "text_role": "template",
+      "localization_key": "block.social.last_online.hours_ago",
+      "default_message": "3小时前",
+      "message_template": "{hours}小时前",
+      "parameters": {
+        "hours": {
+          "value_binding": "friends[1].last_seen_elapsed_hours",
+          "default_value": 3,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "default_text": "3小时前",
+      "text_id": "block.text.friends.902f9e704925",
+      "instance_id": "friends:block.text.friends.902f9e704925",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "hours": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "value_binding": {
+        "hours": "friends[1].last_seen_elapsed_hours"
+      }
+    },
+    {
+      "layer_name": "好友昵称_3",
+      "text": "花花",
+      "position": [
+        272,
+        760
+      ],
+      "box": [
+        272,
+        760,
+        527,
+        798
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        89,
+        30,
+        10
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友昵称",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        68,
+        33
+      ],
+      "text_role": "player_input",
+      "value_binding": "friends[2].display_name",
+      "default_value": "花花",
+      "translate": false,
+      "min_font_size": 22,
+      "localization_key": null,
+      "truncate_display_only": true,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_ellipsis",
+      "fit": true,
+      "default_text": "花花",
+      "text_id": "block.text.friends.f481523660f6",
+      "instance_id": "friends:block.text.friends.f481523660f6",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "raw_value": "花花"
+    },
+    {
+      "layer_name": "好友等级_3",
+      "text": "Lv.20",
+      "position": [
+        273,
+        803
+      ],
+      "box": [
+        273,
+        803,
+        527,
+        829
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        181,
+        151,
+        111
+      ],
+      "align": "left",
+      "weight": "regular",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友等级",
+      "font": "微软雅黑",
+      "font_file": "msyh.ttc",
+      "postscript_font": "MicrosoftYaHei",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        20
+      ],
+      "text_role": "template",
+      "localization_key": "block.common.level",
+      "default_message": "Lv.20",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": {
+          "value_binding": "friends[2].level",
+          "default_value": 20,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "value_binding": {
+        "level": "friends[2].level"
+      },
+      "default_text": "Lv.20",
+      "text_id": "block.text.friends.771b2068176f",
+      "instance_id": "friends:block.text.friends.771b2068176f",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      }
+    },
+    {
+      "layer_name": "最近上线_3",
+      "text": "5小时前",
+      "position": [
+        273,
+        836
+      ],
+      "box": [
+        273,
+        836,
+        527,
+        863
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        172,
+        136,
+        91
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态最近上线时间",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        25
+      ],
+      "text_role": "template",
+      "localization_key": "block.social.last_online.hours_ago",
+      "default_message": "5小时前",
+      "message_template": "{hours}小时前",
+      "parameters": {
+        "hours": {
+          "value_binding": "friends[2].last_seen_elapsed_hours",
+          "default_value": 5,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "default_text": "5小时前",
+      "text_id": "block.text.friends.cd8878b6db99",
+      "instance_id": "friends:block.text.friends.cd8878b6db99",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "hours": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "value_binding": {
+        "hours": "friends[2].last_seen_elapsed_hours"
+      }
+    },
+    {
+      "layer_name": "好友昵称_4",
+      "text": "BeeLily",
+      "position": [
+        272,
+        909
+      ],
+      "box": [
+        272,
+        909,
+        527,
+        947
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        89,
+        30,
+        10
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友昵称",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        121,
+        36
+      ],
+      "text_role": "player_input",
+      "value_binding": "friends[3].display_name",
+      "default_value": "BeeLily",
+      "translate": false,
+      "min_font_size": 22,
+      "localization_key": null,
+      "truncate_display_only": true,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_ellipsis",
+      "fit": true,
+      "default_text": "BeeLily",
+      "text_id": "block.text.friends.80377ef57dca",
+      "instance_id": "friends:block.text.friends.80377ef57dca",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "raw_value": "BeeLily"
+    },
+    {
+      "layer_name": "好友等级_4",
+      "text": "Lv.16",
+      "position": [
+        273,
+        952
+      ],
+      "box": [
+        273,
+        952,
+        527,
+        978
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        181,
+        151,
+        111
+      ],
+      "align": "left",
+      "weight": "regular",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友等级",
+      "font": "微软雅黑",
+      "font_file": "msyh.ttc",
+      "postscript_font": "MicrosoftYaHei",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        20
+      ],
+      "text_role": "template",
+      "localization_key": "block.common.level",
+      "default_message": "Lv.16",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": {
+          "value_binding": "friends[3].level",
+          "default_value": 16,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "value_binding": {
+        "level": "friends[3].level"
+      },
+      "default_text": "Lv.16",
+      "text_id": "block.text.friends.8b6862cbb159",
+      "instance_id": "friends:block.text.friends.8b6862cbb159",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      }
+    },
+    {
+      "layer_name": "最近上线_4",
+      "text": "8小时前",
+      "position": [
+        273,
+        985
+      ],
+      "box": [
+        273,
+        985,
+        527,
+        1012
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        172,
+        136,
+        91
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态最近上线时间",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        25
+      ],
+      "text_role": "template",
+      "localization_key": "block.social.last_online.hours_ago",
+      "default_message": "8小时前",
+      "message_template": "{hours}小时前",
+      "parameters": {
+        "hours": {
+          "value_binding": "friends[3].last_seen_elapsed_hours",
+          "default_value": 8,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "default_text": "8小时前",
+      "text_id": "block.text.friends.feb0c1f6264f",
+      "instance_id": "friends:block.text.friends.feb0c1f6264f",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "hours": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "value_binding": {
+        "hours": "friends[3].last_seen_elapsed_hours"
+      }
+    },
+    {
+      "layer_name": "好友昵称_5",
+      "text": "阿杰",
+      "position": [
+        272,
+        1058
+      ],
+      "box": [
+        272,
+        1058,
+        527,
+        1096
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        89,
+        30,
+        10
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友昵称",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        68,
+        33
+      ],
+      "text_role": "player_input",
+      "value_binding": "friends[4].display_name",
+      "default_value": "阿杰",
+      "translate": false,
+      "min_font_size": 22,
+      "localization_key": null,
+      "truncate_display_only": true,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_ellipsis",
+      "fit": true,
+      "default_text": "阿杰",
+      "text_id": "block.text.friends.74a920bdfc16",
+      "instance_id": "friends:block.text.friends.74a920bdfc16",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "raw_value": "阿杰"
+    },
+    {
+      "layer_name": "好友等级_5",
+      "text": "Lv.22",
+      "position": [
+        273,
+        1101
+      ],
+      "box": [
+        273,
+        1101,
+        527,
+        1127
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        181,
+        151,
+        111
+      ],
+      "align": "left",
+      "weight": "regular",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友等级",
+      "font": "微软雅黑",
+      "font_file": "msyh.ttc",
+      "postscript_font": "MicrosoftYaHei",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        20
+      ],
+      "text_role": "template",
+      "localization_key": "block.common.level",
+      "default_message": "Lv.22",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": {
+          "value_binding": "friends[4].level",
+          "default_value": 22,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "value_binding": {
+        "level": "friends[4].level"
+      },
+      "default_text": "Lv.22",
+      "text_id": "block.text.friends.826e3c900464",
+      "instance_id": "friends:block.text.friends.826e3c900464",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      }
+    },
+    {
+      "layer_name": "最近上线_5",
+      "text": "1天前",
+      "position": [
+        273,
+        1134
+      ],
+      "box": [
+        273,
+        1134,
+        527,
+        1161
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        172,
+        136,
+        91
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态最近上线时间",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        66,
+        25
+      ],
+      "text_role": "template",
+      "localization_key": "block.social.last_online.days_ago",
+      "default_message": "1天前",
+      "message_template": "{days}天前",
+      "parameters": {
+        "days": {
+          "value_binding": "friends[4].last_seen_elapsed_days",
+          "default_value": 1,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "default_text": "1天前",
+      "text_id": "block.text.friends.f6d6532046c4",
+      "instance_id": "friends:block.text.friends.f6d6532046c4",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "days": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "value_binding": {
+        "days": "friends[4].last_seen_elapsed_days"
+      }
+    },
+    {
+      "layer_name": "好友昵称_6",
+      "text": "Momo",
+      "position": [
+        272,
+        1205
+      ],
+      "box": [
+        272,
+        1205,
+        527,
+        1243
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        89,
+        30,
+        10
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友昵称",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        113,
+        27
+      ],
+      "text_role": "player_input",
+      "value_binding": "friends[5].display_name",
+      "default_value": "Momo",
+      "translate": false,
+      "min_font_size": 22,
+      "localization_key": null,
+      "truncate_display_only": true,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_ellipsis",
+      "fit": true,
+      "default_text": "Momo",
+      "text_id": "block.text.friends.6da5b1e5b8fd",
+      "instance_id": "friends:block.text.friends.6da5b1e5b8fd",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "raw_value": "Momo"
+    },
+    {
+      "layer_name": "好友等级_6",
+      "text": "Lv.14",
+      "position": [
+        273,
+        1248
+      ],
+      "box": [
+        273,
+        1248,
+        527,
+        1274
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        181,
+        151,
+        111
+      ],
+      "align": "left",
+      "weight": "regular",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态好友等级",
+      "font": "微软雅黑",
+      "font_file": "msyh.ttc",
+      "postscript_font": "MicrosoftYaHei",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        20
+      ],
+      "text_role": "template",
+      "localization_key": "block.common.level",
+      "default_message": "Lv.14",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": {
+          "value_binding": "friends[5].level",
+          "default_value": 14,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "value_binding": {
+        "level": "friends[5].level"
+      },
+      "default_text": "Lv.14",
+      "text_id": "block.text.friends.e1579ef6ff78",
+      "instance_id": "friends:block.text.friends.e1579ef6ff78",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      }
+    },
+    {
+      "layer_name": "最近上线_6",
+      "text": "1天前",
+      "position": [
+        273,
+        1281
+      ],
+      "box": [
+        273,
+        1281,
+        527,
+        1308
+      ],
+      "font_size": 25.0,
+      "color_rgb": [
+        172,
+        136,
+        91
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态最近上线时间",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        66,
+        25
+      ],
+      "text_role": "template",
+      "localization_key": "block.social.last_online.days_ago",
+      "default_message": "1天前",
+      "message_template": "{days}天前",
+      "parameters": {
+        "days": {
+          "value_binding": "friends[5].last_seen_elapsed_days",
+          "default_value": 1,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "default_text": "1天前",
+      "text_id": "block.text.friends.3834c8c0aadc",
+      "instance_id": "friends:block.text.friends.3834c8c0aadc",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "days": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "value_binding": {
+        "days": "friends[5].last_seen_elapsed_days"
+      }
+    },
+    {
+      "layer_name": "今日赠送次数",
+      "text": "今日已送出 3/10",
+      "position": [
+        155,
+        1360
+      ],
+      "box": [
+        155,
+        1360,
+        619,
+        1396
+      ],
+      "font_size": 31.0,
+      "color_rgb": [
+        93,
+        34,
+        9
+      ],
+      "align": "left",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        97,
+        53,
+        18
+      ],
+      "purpose": "动态当日赠送次数与上限",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        236,
+        31
+      ],
+      "text_role": "template",
+      "localization_key": "block.social.gift.daily_progress",
+      "default_message": "今日已送出 3/10",
+      "message_template": "今日已送出 {sent}/{limit}",
+      "parameters": {
+        "sent": {
+          "value_binding": "social.gifts_sent_today",
+          "default_value": 3,
+          "format": {
+            "type": "integer"
+          }
+        },
+        "limit": {
+          "value_binding": "social.daily_gift_limit",
+          "default_value": 10,
+          "format": {
+            "type": "integer"
+          }
+        }
+      },
+      "min_font_size": 20,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "default_text": "今日已送出 3/10",
+      "text_id": "block.text.friends.11608e347e82",
+      "instance_id": "friends:block.text.friends.11608e347e82",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameter_formats": {
+        "sent": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "limit": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "value_binding": {
+        "sent": "social.gifts_sent_today",
+        "limit": "social.daily_gift_limit"
+      }
+    },
+    {
+      "layer_name": "好友标题",
+      "text": "好友",
+      "position": [
+        376,
+        204
+      ],
+      "box": [
+        267,
+        190,
+        593,
+        274
+      ],
+      "font_size": 51.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        75,
+        36,
+        12
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 51.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        56
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.title",
+      "default_message": "好友",
+      "min_font_size": 28,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "好友",
+      "text_id": "block.text.friends.a45fbc09c705",
+      "instance_id": "friends:block.text.friends.a45fbc09c705",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "我的好友页签文案",
+      "text": "我的好友",
+      "position": [
+        194,
+        342
+      ],
+      "box": [
+        130,
+        331,
+        407,
+        390
+      ],
+      "font_size": 37.0,
+      "color_rgb": [
+        99,
+        41,
+        13
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        75,
+        36,
+        12
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 37.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        148,
+        36
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.tab.friends",
+      "default_message": "我的好友",
+      "min_font_size": 23,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "我的好友",
+      "text_id": "block.text.friends.465dc86aa223",
+      "instance_id": "friends:block.text.friends.465dc86aa223",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "添加好友页签文案",
+      "text": "添加好友",
+      "position": [
+        521,
+        340
+      ],
+      "box": [
+        458,
+        331,
+        736,
+        390
+      ],
+      "font_size": 37.0,
+      "color_rgb": [
+        255,
+        229,
+        161
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        121,
+        70,
+        22
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 37.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        152,
+        40
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.tab.add",
+      "default_message": "添加好友",
+      "min_font_size": 23,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "添加好友",
+      "text_id": "block.text.friends.85e5eb295be8",
+      "instance_id": "friends:block.text.friends.85e5eb295be8",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "赠送按钮文案_1",
+      "text": "送蜂蜜",
+      "position": [
+        622,
+        502
+      ],
+      "box": [
+        610,
+        486,
+        724,
+        552
+      ],
+      "font_size": 29.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        108,
+        5,
+        22
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        33
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.gift.send_honey",
+      "default_message": "送蜂蜜",
+      "min_font_size": 18,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "送蜂蜜",
+      "text_id": "block.text.friends.aa6cbafc6a02",
+      "instance_id": "friends:block.text.friends.aa6cbafc6a02",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "赠送按钮文案_2",
+      "text": "送蜂蜜",
+      "position": [
+        622,
+        650
+      ],
+      "box": [
+        610,
+        634,
+        724,
+        700
+      ],
+      "font_size": 29.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        108,
+        5,
+        22
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        33
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.gift.send_honey",
+      "default_message": "送蜂蜜",
+      "min_font_size": 18,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "送蜂蜜",
+      "text_id": "block.text.friends.96e79f483b44",
+      "instance_id": "friends:block.text.friends.96e79f483b44",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "赠送按钮文案_3",
+      "text": "已送",
+      "position": [
+        610,
+        800
+      ],
+      "box": [
+        559,
+        783,
+        724,
+        849
+      ],
+      "font_size": 29.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        77,
+        77,
+        77
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        32
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.gift.sent",
+      "default_message": "已送",
+      "min_font_size": 18,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "已送",
+      "text_id": "block.text.friends.ab014c1da78c",
+      "instance_id": "friends:block.text.friends.ab014c1da78c",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "赠送按钮文案_4",
+      "text": "送蜂蜜",
+      "position": [
+        622,
+        948
+      ],
+      "box": [
+        610,
+        932,
+        724,
+        998
+      ],
+      "font_size": 29.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        108,
+        5,
+        22
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        33
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.gift.send_honey",
+      "default_message": "送蜂蜜",
+      "min_font_size": 18,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "送蜂蜜",
+      "text_id": "block.text.friends.4cee7feaae55",
+      "instance_id": "friends:block.text.friends.4cee7feaae55",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "赠送按钮文案_5",
+      "text": "送蜂蜜",
+      "position": [
+        622,
+        1098
+      ],
+      "box": [
+        610,
+        1081,
+        724,
+        1147
+      ],
+      "font_size": 29.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        108,
+        5,
+        22
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        33
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.gift.send_honey",
+      "default_message": "送蜂蜜",
+      "min_font_size": 18,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "送蜂蜜",
+      "text_id": "block.text.friends.8a15091d9ccb",
+      "instance_id": "friends:block.text.friends.8a15091d9ccb",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "赠送按钮文案_6",
+      "text": "送蜂蜜",
+      "position": [
+        622,
+        1244
+      ],
+      "box": [
+        610,
+        1228,
+        724,
+        1294
+      ],
+      "font_size": 29.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        108,
+        5,
+        22
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        33
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.gift.send_honey",
+      "default_message": "送蜂蜜",
+      "min_font_size": 18,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "送蜂蜜",
+      "text_id": "block.text.friends.d3ad9f170ccc",
+      "instance_id": "friends:block.text.friends.d3ad9f170ccc",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "一键赠送文案",
+      "text": "一键赠送",
+      "position": [
+        338,
+        1492
+      ],
+      "box": [
+        260,
+        1475,
+        595,
+        1558
+      ],
+      "font_size": 43.0,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        8,
+        69,
+        11
+      ],
+      "purpose": "多语言界面文案",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 43.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        178,
+        48
+      ],
+      "text_role": "message",
+      "localization_key": "block.social.gift.send_all",
+      "default_message": "一键赠送",
+      "min_font_size": 24,
+      "max_lines": 2,
+      "overflow_policy": "shrink_to_min",
+      "linebreak_policy": "authored_per_locale",
+      "fit": true,
+      "vertical_align": "center",
+      "default_text": "一键赠送",
+      "text_id": "block.text.friends.5047444f39ae",
+      "instance_id": "friends:block.text.friends.5047444f39ae",
+      "page": "好友界面",
+      "semantic_origin": "author",
+      "parameters": {},
+      "value_binding": null
+    },
+    {
+      "layer_name": "玩家等级",
+      "text": "Lv.12",
+      "position": [
+        52,
+        144
+      ],
+      "box": [
+        43,
+        141,
+        143,
+        175
+      ],
+      "font_size": 30.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "fit": true,
+      "layout_locked": true,
+      "text_id": "block.text.friends.bf6705c67a81",
+      "instance_id": "friends:block.text.friends.bf6705c67a81",
+      "page": "好友界面",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 12
+      },
+      "value_binding": {
+        "level": "player.level"
+      },
+      "localization_key": "block.hud.player_level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.12",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "min_font_size": 20.4,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "layout_overflow": false,
+      "measured_ink_size": [
+        83,
+        27
+      ]
+    },
+    {
+      "layer_name": "体力数量",
+      "text": "5",
+      "position": [
+        212,
+        74
+      ],
+      "box": [
+        208,
+        74,
+        240,
+        116
+      ],
+      "font_size": 32.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "text_id": "block.text.friends.5764058d91bb",
+      "instance_id": "friends:block.text.friends.5764058d91bb",
+      "page": "好友界面",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "player.energy.current",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "min_font_size": 21.76,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        23,
+        28
+      ]
+    },
+    {
+      "layer_name": "体力状态",
+      "text": "已满",
+      "position": [
+        298,
+        72
+      ],
+      "box": [
+        276,
+        72,
+        391,
+        118
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "text_id": "block.text.friends.0eaed1b70770",
+      "instance_id": "friends:block.text.friends.0eaed1b70770",
+      "page": "好友界面",
+      "text_role": "message",
+      "localization_key": "block.hud.energy_full",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "已满",
+      "parameters": {},
+      "value_binding": null,
+      "min_font_size": 23.12,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        71,
+        36
+      ]
+    },
+    {
+      "layer_name": "蜂蜜数量",
+      "text": "2,350",
+      "position": [
+        530,
+        71
+      ],
+      "box": [
+        526,
+        71,
+        632,
+        121
+      ],
+      "font_size": 34.0,
+      "color_rgb": [
+        255,
+        250,
+        225
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        24,
+        42,
+        28
+      ],
+      "purpose": "动态数值",
+      "font": "微软雅黑",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "text_id": "block.text.friends.ee7fa8103c06",
+      "instance_id": "friends:block.text.friends.ee7fa8103c06",
+      "page": "好友界面",
+      "text_role": "number",
+      "raw_value": 2350,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": true,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "player.currency.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2,350",
+      "parameters": {},
+      "localization_key": null,
+      "min_font_size": 23.12,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        97,
+        34
+      ]
+    }
+  ],
+  "source_sha256": "5a944caaf0332f04036ca1c37dfb0c049502ec7f5bf0f0dc262351d36ff8c8d2",
+  "background_note": "遮挡区依据原设计补绘，属于推断；裸背景不含控件、文字和固定玩法局面",
+  "coordinate_system": "像素；左上原点；z由底到顶；anchor为资源左上角归一化坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/zh-CN.json",
+      "qps-ploc": "本地化/qps-ploc.json"
+    }
+  },
+  "runtime_note": "非封面主标题文字均创建为独立文字组件，以localization_key取整句/模板并注入命名参数；number/player_input按value_binding取值，数字按number_format本地化。使用微软雅黑并遵守box/min_font_size/max_lines/overflow_policy；layers路径相对游戏素材根目录。qps-ploc仅为排版压力验证，不是正式译文。",
+  "comparison": {
+    "original": "页面对照/效果设计图/好友界面.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590",
+    "psd_composite": "页面对照/PSD合成/好友界面.png",
+    "psd_composite_sha256": "58b1a93670d78a9e1652ab387cd9f67d273f0f8fa18a6ee0b22622b1dc007c69",
+    "psd_sha256": "98d7726aa01981fb9eb1aec1fa96f4637bd7e69076ae1fc00739ec0e691d986c",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "runtime_preview_max_channel_error": 1,
+    "composite_sha256": "58b1a93670d78a9e1652ab387cd9f67d273f0f8fa18a6ee0b22622b1dc007c69",
+    "original_label": "页面效果设计图",
+    "source_sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  }
+}

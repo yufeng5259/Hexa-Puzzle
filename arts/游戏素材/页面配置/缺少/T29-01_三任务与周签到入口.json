@@ -1,0 +1,3097 @@
+{
+  "page": "T29-01_三任务与周签到入口",
+  "output_id": "T29-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "tasks",
+      "title": "每日任务",
+      "url": "http://127.0.0.1:4291/index.html#tasks",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\51-tasks.png",
+      "screenshot_sha256": "253c79bfa2cfbc6af2eb660c1e11fd98029639b17a469cc254dc9eb24853a330"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_每日任务",
+      "asset": "block_background_每日任务",
+      "file": "PNG/公共素材/每日任务_完整裸背景_0561eabbc8.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_每日任务",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_空白主面板",
+      "asset": "block_每日任务_空白主面板",
+      "file": "PNG/公共UI/空白主面板_b0d3223d89.png",
+      "name": "原生完整主框",
+      "z": 10,
+      "position": [
+        61,
+        335
+      ],
+      "size": [
+        731,
+        1200
+      ],
+      "native_size": [
+        731,
+        1206
+      ],
+      "render_transform": {
+        "resize": [
+          731,
+          1206
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          731,
+          1203
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_空白主面板",
+      "metadata": {
+        "target_box": [
+          61,
+          332,
+          792,
+          1538
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          731,
+          1206
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_每日奖励标题插画",
+      "asset": "block_每日任务_每日奖励标题插画",
+      "file": "PNG/公共UI/每日奖励标题插画_04c0c4cd1f.png",
+      "name": "红带花叶与小蜜完整标题插画",
+      "z": 11,
+      "position": [
+        68,
+        133
+      ],
+      "size": [
+        717,
+        294
+      ],
+      "native_size": [
+        717,
+        301
+      ],
+      "render_transform": {
+        "resize": [
+          717,
+          301
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          717,
+          297
+        ]
+      },
+      "group": "标题插画",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_每日奖励标题插画",
+      "metadata": {
+        "target_box": [
+          68,
+          130,
+          785,
+          431
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          717,
+          301
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.003",
+      "name": "页面标题",
+      "z": 12,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回上一页",
+      "z": 13,
+      "position": [
+        15,
+        1635
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          166
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          15,
+          1635,
+          179,
+          1801
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "levels"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务空白行_1",
+      "asset": "block_每日任务_任务空白行_1",
+      "file": "PNG/公共UI/任务空白行_1_9ae425e5ca.png",
+      "name": "每日任务原生行0",
+      "z": 14,
+      "position": [
+        112,
+        542
+      ],
+      "size": [
+        628,
+        151
+      ],
+      "native_size": [
+        628,
+        151
+      ],
+      "render_transform": {
+        "resize": [
+          628,
+          151
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          628,
+          151
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务空白行_1",
+      "metadata": {
+        "target_box": [
+          112,
+          542,
+          740,
+          693
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          628,
+          151
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务勾底板_1",
+      "asset": "block_每日任务_任务勾底板_1",
+      "file": "PNG/公共UI/任务勾底板_1_b110d5e136.png",
+      "name": "完成厚底0",
+      "z": 15,
+      "position": [
+        119,
+        567
+      ],
+      "size": [
+        94,
+        99
+      ],
+      "native_size": [
+        94,
+        99
+      ],
+      "render_transform": {
+        "resize": [
+          94,
+          99
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          94,
+          99
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务勾底板_1",
+      "metadata": {
+        "target_box": [
+          119,
+          567,
+          213,
+          666
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          94,
+          99
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "check",
+      "z": 16,
+      "position": [
+        137,
+        589
+      ],
+      "size": [
+        58,
+        50
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          58,
+          52
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          58,
+          50
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          137,
+          589,
+          195,
+          641
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.004",
+      "name": "任务0",
+      "z": 17,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.005",
+      "name": "进度0",
+      "z": 18,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 19,
+      "position": [
+        479,
+        557
+      ],
+      "size": [
+        61,
+        65
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          62,
+          65
+        ],
+        "alpha_crop": [
+          1,
+          0,
+          62,
+          65
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          478,
+          555,
+          540,
+          624
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.006",
+      "name": "任务奖励0",
+      "z": 20,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "领取_原生按钮",
+      "z": 21,
+      "position": [
+        516,
+        633
+      ],
+      "size": [
+        198,
+        59
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          198,
+          59
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          198,
+          59
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          516,
+          633,
+          714,
+          692
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-claim-task:play"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.007",
+      "name": "领取_文案",
+      "z": 22,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务空白行_1",
+      "asset": "block_每日任务_任务空白行_1",
+      "file": "PNG/公共UI/任务空白行_1_9ae425e5ca.png",
+      "name": "每日任务原生行1",
+      "z": 23,
+      "position": [
+        112,
+        764
+      ],
+      "size": [
+        628,
+        151
+      ],
+      "native_size": [
+        628,
+        151
+      ],
+      "render_transform": {
+        "resize": [
+          628,
+          151
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          628,
+          151
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务空白行_1",
+      "metadata": {
+        "target_box": [
+          112,
+          764,
+          740,
+          915
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          628,
+          151
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务勾底板_1",
+      "asset": "block_每日任务_任务勾底板_1",
+      "file": "PNG/公共UI/任务勾底板_1_b110d5e136.png",
+      "name": "完成厚底1",
+      "z": 24,
+      "position": [
+        119,
+        789
+      ],
+      "size": [
+        94,
+        99
+      ],
+      "native_size": [
+        94,
+        99
+      ],
+      "render_transform": {
+        "resize": [
+          94,
+          99
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          94,
+          99
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务勾底板_1",
+      "metadata": {
+        "target_box": [
+          119,
+          789,
+          213,
+          888
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          94,
+          99
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "check",
+      "z": 25,
+      "position": [
+        137,
+        811
+      ],
+      "size": [
+        58,
+        50
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          58,
+          52
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          58,
+          50
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          137,
+          811,
+          195,
+          863
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.008",
+      "name": "任务1",
+      "z": 26,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.009",
+      "name": "进度1",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 28,
+      "position": [
+        479,
+        779
+      ],
+      "size": [
+        61,
+        65
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          62,
+          65
+        ],
+        "alpha_crop": [
+          1,
+          0,
+          62,
+          65
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          478,
+          777,
+          540,
+          846
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.010",
+      "name": "任务奖励1",
+      "z": 29,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "领取_原生按钮",
+      "z": 30,
+      "position": [
+        516,
+        855
+      ],
+      "size": [
+        198,
+        59
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          198,
+          59
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          198,
+          59
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          516,
+          855,
+          714,
+          914
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-claim-task:build"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.011",
+      "name": "领取_文案",
+      "z": 31,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务空白行_1",
+      "asset": "block_每日任务_任务空白行_1",
+      "file": "PNG/公共UI/任务空白行_1_9ae425e5ca.png",
+      "name": "每日任务原生行2",
+      "z": 32,
+      "position": [
+        112,
+        986
+      ],
+      "size": [
+        628,
+        151
+      ],
+      "native_size": [
+        628,
+        151
+      ],
+      "render_transform": {
+        "resize": [
+          628,
+          151
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          628,
+          151
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务空白行_1",
+      "metadata": {
+        "target_box": [
+          112,
+          986,
+          740,
+          1137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          628,
+          151
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务勾底板_1",
+      "asset": "block_每日任务_任务勾底板_1",
+      "file": "PNG/公共UI/任务勾底板_1_b110d5e136.png",
+      "name": "完成厚底2",
+      "z": 33,
+      "position": [
+        119,
+        1011
+      ],
+      "size": [
+        94,
+        99
+      ],
+      "native_size": [
+        94,
+        99
+      ],
+      "render_transform": {
+        "resize": [
+          94,
+          99
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          94,
+          99
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务勾底板_1",
+      "metadata": {
+        "target_box": [
+          119,
+          1011,
+          213,
+          1110
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          94,
+          99
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "check",
+      "z": 34,
+      "position": [
+        137,
+        1033
+      ],
+      "size": [
+        58,
+        50
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          58,
+          52
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          58,
+          50
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          137,
+          1033,
+          195,
+          1085
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.012",
+      "name": "任务2",
+      "z": 35,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.013",
+      "name": "进度2",
+      "z": 36,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "honey",
+      "z": 37,
+      "position": [
+        479,
+        1001
+      ],
+      "size": [
+        61,
+        65
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          62,
+          65
+        ],
+        "alpha_crop": [
+          1,
+          0,
+          62,
+          65
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          478,
+          999,
+          540,
+          1068
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.014",
+      "name": "任务奖励2",
+      "z": 38,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "领取_原生按钮",
+      "z": 39,
+      "position": [
+        516,
+        1077
+      ],
+      "size": [
+        198,
+        59
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          198,
+          59
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          198,
+          59
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          516,
+          1077,
+          714,
+          1136
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-claim-task:endless"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.015",
+      "name": "领取_文案",
+      "z": 40,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "每周目标_原生按钮",
+      "z": 41,
+      "position": [
+        117,
+        1257
+      ],
+      "size": [
+        294,
+        87
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          294,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          294,
+          87
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          117,
+          1257,
+          411,
+          1344
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "weekly-tasks"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.016",
+      "name": "每周目标_文案",
+      "z": 42,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "七日礼物_原生按钮",
+      "z": 43,
+      "position": [
+        443,
+        1257
+      ],
+      "size": [
+        294,
+        87
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          294,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          294,
+          87
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          443,
+          1257,
+          737,
+          1344
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "signin"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.017",
+      "name": "七日礼物_文案",
+      "z": 44,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "回到地图_原生按钮",
+      "z": 45,
+      "position": [
+        179,
+        1369
+      ],
+      "size": [
+        496,
+        141
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1366,
+          675,
+          1513
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "levels"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T29-01.text.018",
+      "name": "回到地图_文案",
+      "z": 46,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_抱蜜罐蜜蜂",
+      "asset": "block_每日任务_抱蜜罐蜜蜂",
+      "file": "PNG/公共素材/抱蜜罐蜜蜂_7602cc2421.png",
+      "name": "原每日任务抱罐蜂",
+      "z": 47,
+      "position": [
+        361,
+        1490
+      ],
+      "size": [
+        358,
+        314
+      ],
+      "native_size": [
+        399,
+        348
+      ],
+      "render_transform": {
+        "resize": [
+          360,
+          314
+        ],
+        "alpha_crop": [
+          1,
+          0,
+          359,
+          314
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_抱蜜罐蜜蜂",
+      "metadata": {
+        "target_box": [
+          360,
+          1490,
+          720,
+          1804
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          399,
+          348
+        ]
+      }
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T29-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T29-01.text.000",
+      "instance_id": "e7d315756d9b:T29-01.text.000",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T29-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T29-01.text.001",
+      "instance_id": "e7d315756d9b:T29-01.text.001",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T29-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T29-01.text.002",
+      "instance_id": "e7d315756d9b:T29-01.text.002",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "每日奖励",
+      "position": [
+        304,
+        270
+      ],
+      "box": [
+        165,
+        235,
+        687,
+        369
+      ],
+      "font_size": 60.0,
+      "min_font_size": 48.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        244,
+        200
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        169,
+        71,
+        37
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "每日奖励",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 60.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        244,
+        63
+      ],
+      "id": "T29-01.text.003",
+      "layout_box": [
+        165,
+        235,
+        687,
+        369
+      ],
+      "text_id": "T29-01.text.003",
+      "instance_id": "e7d315756d9b:T29-01.text.003",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "每日奖励",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "任务0",
+      "text": "开心玩三局",
+      "position": [
+        228,
+        566
+      ],
+      "box": [
+        228,
+        553,
+        473,
+        609
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "开心玩三局",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        155,
+        30
+      ],
+      "id": "T29-01.text.004",
+      "layout_box": [
+        228,
+        553,
+        473,
+        609
+      ],
+      "text_id": "T29-01.text.004",
+      "instance_id": "e7d315756d9b:T29-01.text.004",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "开心玩三局",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.3703dde51f57",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "进度0",
+      "text": "3/3",
+      "position": [
+        231,
+        633
+      ],
+      "box": [
+        231,
+        619,
+        422,
+        672
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "daily.tasks[0].progress",
+      "raw": "3/3",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        48,
+        25
+      ],
+      "id": "T29-01.text.005",
+      "layout_box": [
+        231,
+        619,
+        422,
+        672
+      ],
+      "text_id": "T29-01.text.005",
+      "instance_id": "e7d315756d9b:T29-01.text.005",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "number",
+      "raw_value": {
+        "current": 3,
+        "total": 3
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "daily.tasks[0].progress",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "3/3",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "任务奖励0",
+      "text": "+120",
+      "position": [
+        585,
+        580
+      ],
+      "box": [
+        543,
+        562,
+        711,
+        623
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "+120",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        84,
+        26
+      ],
+      "id": "T29-01.text.006",
+      "layout_box": [
+        543,
+        562,
+        711,
+        623
+      ],
+      "text_id": "T29-01.text.006",
+      "instance_id": "e7d315756d9b:T29-01.text.006",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "number",
+      "raw_value": 120,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "always",
+        "locale_aware": true
+      },
+      "value_binding": "page.e7d315756d9b.text.66534619e63f",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "+120",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "领取_文案",
+      "text": "领取",
+      "position": [
+        588,
+        647
+      ],
+      "box": [
+        526,
+        638,
+        704,
+        683
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "领取",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        53,
+        27
+      ],
+      "id": "T29-01.text.007",
+      "layout_box": [
+        526,
+        638,
+        704,
+        683
+      ],
+      "text_id": "T29-01.text.007",
+      "instance_id": "e7d315756d9b:T29-01.text.007",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "领取",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.d33fc2404ebe",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "任务1",
+      "text": "建好一阶",
+      "position": [
+        228,
+        788
+      ],
+      "box": [
+        228,
+        775,
+        473,
+        831
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "建好一阶",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        124,
+        31
+      ],
+      "id": "T29-01.text.008",
+      "layout_box": [
+        228,
+        775,
+        473,
+        831
+      ],
+      "text_id": "T29-01.text.008",
+      "instance_id": "e7d315756d9b:T29-01.text.008",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "建好一阶",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.c87f02e3432c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "进度1",
+      "text": "1/1",
+      "position": [
+        231,
+        855
+      ],
+      "box": [
+        231,
+        841,
+        422,
+        894
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "daily.tasks[1].progress",
+      "raw": "1/1",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        48,
+        25
+      ],
+      "id": "T29-01.text.009",
+      "layout_box": [
+        231,
+        841,
+        422,
+        894
+      ],
+      "text_id": "T29-01.text.009",
+      "instance_id": "e7d315756d9b:T29-01.text.009",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "number",
+      "raw_value": {
+        "current": 1,
+        "total": 1
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "daily.tasks[1].progress",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "1/1",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "任务奖励1",
+      "text": "+40",
+      "position": [
+        595,
+        802
+      ],
+      "box": [
+        543,
+        784,
+        711,
+        845
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "+40",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        64,
+        26
+      ],
+      "id": "T29-01.text.010",
+      "layout_box": [
+        543,
+        784,
+        711,
+        845
+      ],
+      "text_id": "T29-01.text.010",
+      "instance_id": "e7d315756d9b:T29-01.text.010",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "number",
+      "raw_value": 40,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "always",
+        "locale_aware": true
+      },
+      "value_binding": "page.e7d315756d9b.text.a69d7ef576ae",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "+40",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "领取_文案",
+      "text": "领取",
+      "position": [
+        588,
+        869
+      ],
+      "box": [
+        526,
+        860,
+        704,
+        905
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "领取",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        53,
+        27
+      ],
+      "id": "T29-01.text.011",
+      "layout_box": [
+        526,
+        860,
+        704,
+        905
+      ],
+      "text_id": "T29-01.text.011",
+      "instance_id": "e7d315756d9b:T29-01.text.011",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "领取",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.d33fc2404ebe",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "任务2",
+      "text": "收获十二块",
+      "position": [
+        228,
+        1010
+      ],
+      "box": [
+        228,
+        997,
+        473,
+        1053
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "收获十二块",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        155,
+        31
+      ],
+      "id": "T29-01.text.012",
+      "layout_box": [
+        228,
+        997,
+        473,
+        1053
+      ],
+      "text_id": "T29-01.text.012",
+      "instance_id": "e7d315756d9b:T29-01.text.012",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "收获十二块",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.fe603ae2120f",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "进度2",
+      "text": "12/12",
+      "position": [
+        231,
+        1077
+      ],
+      "box": [
+        231,
+        1063,
+        422,
+        1116
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "daily.tasks[2].progress",
+      "raw": "12/12",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        83,
+        25
+      ],
+      "id": "T29-01.text.013",
+      "layout_box": [
+        231,
+        1063,
+        422,
+        1116
+      ],
+      "text_id": "T29-01.text.013",
+      "instance_id": "e7d315756d9b:T29-01.text.013",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "number",
+      "raw_value": {
+        "current": 12,
+        "total": 12
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "daily.tasks[2].progress",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "12/12",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "任务奖励2",
+      "text": "+20",
+      "position": [
+        595,
+        1024
+      ],
+      "box": [
+        543,
+        1006,
+        711,
+        1067
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "+20",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        64,
+        26
+      ],
+      "id": "T29-01.text.014",
+      "layout_box": [
+        543,
+        1006,
+        711,
+        1067
+      ],
+      "text_id": "T29-01.text.014",
+      "instance_id": "e7d315756d9b:T29-01.text.014",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "number",
+      "raw_value": 20,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "always",
+        "locale_aware": true
+      },
+      "value_binding": "page.e7d315756d9b.text.3797c46567ed",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "+20",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "领取_文案",
+      "text": "领取",
+      "position": [
+        588,
+        1091
+      ],
+      "box": [
+        526,
+        1082,
+        704,
+        1127
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "领取",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        53,
+        27
+      ],
+      "id": "T29-01.text.015",
+      "layout_box": [
+        526,
+        1082,
+        704,
+        1127
+      ],
+      "text_id": "T29-01.text.015",
+      "instance_id": "e7d315756d9b:T29-01.text.015",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "领取",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.d33fc2404ebe",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "每周目标_文案",
+      "text": "每周目标",
+      "position": [
+        206,
+        1282
+      ],
+      "box": [
+        131,
+        1264,
+        397,
+        1331
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        105,
+        71,
+        38
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "每周目标",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        115,
+        30
+      ],
+      "id": "T29-01.text.016",
+      "layout_box": [
+        131,
+        1264,
+        397,
+        1331
+      ],
+      "text_id": "T29-01.text.016",
+      "instance_id": "e7d315756d9b:T29-01.text.016",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "每周目标",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.d5b8814ffafd",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "七日礼物_文案",
+      "text": "七日礼物",
+      "position": [
+        532,
+        1282
+      ],
+      "box": [
+        457,
+        1264,
+        723,
+        1331
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        105,
+        71,
+        38
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "七日礼物",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        115,
+        30
+      ],
+      "id": "T29-01.text.017",
+      "layout_box": [
+        457,
+        1264,
+        723,
+        1331
+      ],
+      "text_id": "T29-01.text.017",
+      "instance_id": "e7d315756d9b:T29-01.text.017",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "七日礼物",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.73fae92a7bd5",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "回到地图_文案",
+      "text": "回到地图",
+      "position": [
+        356,
+        1416
+      ],
+      "box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "回到地图",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        143,
+        37
+      ],
+      "id": "T29-01.text.018",
+      "layout_box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "text_id": "T29-01.text.018",
+      "instance_id": "e7d315756d9b:T29-01.text.018",
+      "page": "T29-01_三任务与周签到入口",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "回到地图",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e7d315756d9b.text.b0d1b8e9c826",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "tasks"
+    ],
+    "requirements": "源五行改为三项真实日任务120／40／20花蜜，另周目标和签到入口。没有日任务灯泡奖励，不保留空奖励格或破折号。",
+    "actions": [
+      {
+        "layer": "返回上一页",
+        "label": "返回",
+        "action": "levels",
+        "free": true
+      },
+      {
+        "layer": "领取_原生按钮",
+        "label": "领取",
+        "action": "meta-claim-task:play"
+      },
+      {
+        "layer": "领取_原生按钮",
+        "label": "领取",
+        "action": "meta-claim-task:build"
+      },
+      {
+        "layer": "领取_原生按钮",
+        "label": "领取",
+        "action": "meta-claim-task:endless"
+      },
+      {
+        "layer": "每周目标_原生按钮",
+        "label": "每周目标",
+        "action": "weekly-tasks"
+      },
+      {
+        "layer": "七日礼物_原生按钮",
+        "label": "七日礼物",
+        "action": "signin"
+      },
+      {
+        "layer": "回到地图_原生按钮",
+        "label": "回到地图",
+        "action": "levels",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      }
+    ],
+    "recipe_layout": "three_daily_tasks",
+    "ui_fact_route": "tasks",
+    "text_policy": "editable Microsoft YaHei; localized copy and bound numbers",
+    "style_family": "daily_original",
+    "facts_file": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\界面事实\\ui_facts.json",
+    "layout_family": "three_daily_tasks"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T29-01_三任务与周签到入口.png",
+    "composite": "页面对照/PSD合成/缺少/T29-01_三任务与周签到入口.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "68e0ae73c5ca520ce2b7257887cfbbf931b222d6af678fa2b9db22fff24ccf4d",
+    "psd_composite": "页面对照/PSD合成/缺少/T29-01_三任务与周签到入口.png",
+    "psd_composite_sha256": "f2d21e5145ab2b695f6bf8b5e541e983c9268263936c483bfefcbdbe693c948c",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "68e0ae73c5ca520ce2b7257887cfbbf931b222d6af678fa2b9db22fff24ccf4d",
+    "psd_sha256": "b947d1f890586d7b88d8a7f6f3e5b02bfcf75ea2d92816e65214f8246a8ac54c",
+    "composite_sha256": "f2d21e5145ab2b695f6bf8b5e541e983c9268263936c483bfefcbdbe693c948c",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T29-01_三任务与周签到入口.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

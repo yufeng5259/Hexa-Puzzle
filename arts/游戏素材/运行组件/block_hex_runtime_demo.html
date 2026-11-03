@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Block 蜂巢共享材质运行示例</title>
+<style>
+body{font:16px "Microsoft YaHei",sans-serif;background:#e9eee7;color:#193e2c;margin:24px}main{max-width:1100px;margin:auto}button,select,textarea{font:inherit;padding:8px;border:1px solid #a3b99f;border-radius:6px}button{cursor:pointer;background:#245d38;color:white}textarea{width:100%;box-sizing:border-box;min-height:110px}canvas{max-width:100%;height:auto;background:repeating-conic-gradient(#ccc 0% 25%,#eee 0% 50%) 0/24px 24px;border:1px solid #b1c1ac;border-radius:8px}p{line-height:1.7}#status{min-height:1.8em}small{color:#4d644f}nav{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+</style>
+<main><h1>共享材质拼任意蜂巢形状</h1>
+<p>只加载一组公共木纹、边框截面和单格凹槽。修改 cells 后立即重新组合，保留真实透明内孔；缓存只在内存中，不产生每关 PNG。</p>
+<nav><select id="preset"><option value="hole">异形与内孔</option><option value="hex37">37 格六边形</option><option value="custom">自定义 cells</option></select><button id="rebuild">重建棋盘</button><button id="clear">释放内存缓存</button></nav>
+<label for="cells">轴坐标 cells（q,r）：</label><textarea id="cells" spellcheck="false"></textarea>
+<p id="status" role="status">正在读取共享材质…</p><canvas id="board" width="703" height="705"></canvas>
+<p><small>Canvas2D 是开发参考组件；与 PSD 精确参考可能有抗锯齿和重采样差异。精确参考见同目录 Python renderer。这里不代表已经完成 Cocos 或其他引擎导入。</small></p>
+</main><script src="block_hex_runtime.js"></script><script>
+(async()=>{
+ const $=id=>document.getElementById(id),status=$('status');let renderer;
+ const hole=[[0,0],[0,1],[0,2],[1,-1],[1,0],[1,1],[1,2],[2,-1],[2,1],[2,2],[3,-2],[3,-1],[3,0],[3,1],[4,-2],[4,-1],[4,0]];
+ const hex37=[];for(let q=-3;q<=3;q++)for(let r=-3;r<=3;r++)if(Math.max(Math.abs(q),Math.abs(r),Math.abs(q+r))<=3)hex37.push([q,r]);
+ let config={materials:{hex_wood_floor:'../PNG/公共素材/hex_wood_floor.png',hex_rail_profile:'../PNG/公共素材/hex_rail_profile.png',hex_empty_well:'../PNG/公共素材/hex_empty_well.png'},cells:hole};
+ // Optional package descriptor lets the publisher choose canonical PNG names.
+ try{const response=await fetch('renderer-contract.json');if(response.ok)config={...config,...await response.json()};}catch(e){}
+ const examples=Array.isArray(config.examples)?config.examples:[];
+ const presets={hole:examples[0]?.cells||config.cells||hole,hex37};
+ examples.forEach((example,i)=>{const option=document.createElement('option');option.value='example:'+i;option.textContent=example.id||('交付示例 '+(i+1));$('preset').append(option);});
+ if(examples.length)$('preset').value='example:0';
+ $('cells').value=JSON.stringify(presets.hole);
+ try{const materials=await BlockHex.loadMaterials(config.materials);renderer=BlockHex.createRenderer(materials,{materialVersion:config.material_version||'1'});
+ async function rebuild(){status.textContent='正在按 cells 重建…';await new Promise(r=>requestAnimationFrame(r));
+  try{const start=performance.now(),cells=JSON.parse($('cells').value);if(!Array.isArray(cells)||!cells.length||cells.length>500||cells.some(c=>!Array.isArray(c)||c.length!==2||!c.every(Number.isInteger)))throw new Error('cells 须为 1–500 个整数轴坐标');
+   const selected=$('preset').value.startsWith('example:')?examples[Number($('preset').value.split(':')[1])]:{};
+   const spec={renderer:'block.hex.v1',cells,bbox:selected.bbox||[0,0,703,705],flip_y:selected.flip_y!==false,padding:selected.padding===undefined?24:selected.padding,supersample:2},out=$('board');out.width=Math.ceil(spec.bbox[2]);out.height=Math.ceil(spec.bbox[3]);const c=out.getContext('2d');c.clearRect(0,0,out.width,out.height);
+   for(const role of ['shadow','floor','rim'])c.drawImage(renderer.render({...spec,role}),0,0);
+   const fit=BlockHex.layout(cells,spec.bbox,spec.padding,spec.flip_y),well=materials.hex_empty_well;
+   for(const cell of fit.centers){const rx=fit.radius*.982,ry=rx*Math.sqrt(3)/2;c.drawImage(well,Math.round(cell.center[0]-rx-spec.bbox[0]),Math.round(cell.center[1]-ry-spec.bbox[1]),Math.round(rx*2),Math.round(ry*2));}
+   status.textContent=`${cells.length} 格 · ${BlockHex.boundaryEdges(cells).length} 条外缘／内孔边 · 3 张共享材质 · ${renderer.cacheSize} 个内存缓存 · ${(performance.now()-start).toFixed(0)} ms`;
+  }catch(e){status.textContent='无法重建：'+e.message;}}
+ $('rebuild').onclick=rebuild;$('clear').onclick=()=>{renderer.clear();status.textContent='缓存已释放；共享材质仍可重复使用。';};$('preset').onchange=()=>{const value=$('preset').value;if(value!=='custom'){$('cells').value=JSON.stringify(value.startsWith('example:')?examples[Number(value.split(':')[1])].cells:presets[value]);rebuild();}};$('cells').oninput=()=>{$('preset').value='custom';};await rebuild();
+ }catch(e){status.textContent='材质未加载：'+e.message+'。请核对 renderer-contract.json 中的包内相对路径，并通过本地 HTTP 服务打开示例。';}
+})();
+</script></html>

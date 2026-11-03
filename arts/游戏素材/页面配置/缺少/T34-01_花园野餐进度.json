@@ -1,0 +1,2372 @@
+{
+  "page": "T34-01_花园野餐进度",
+  "output_id": "T34-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "event-detail",
+      "title": "花园野餐",
+      "url": "http://127.0.0.1:4291/index.html#event-detail",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\56-event-detail.png",
+      "screenshot_sha256": "6edcd34d1ef664cbba2a4a15b038ba80dc11a11ed22c2e51637c518d7acb9b46"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_好友界面",
+      "asset": "block_background_好友界面",
+      "file": "PNG/公共素材/好友界面_完整裸背景_3e77cdf8da.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_好友界面",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_空白主面板",
+      "asset": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "name": "原生完整主框",
+      "z": 10,
+      "position": [
+        63,
+        333
+      ],
+      "size": [
+        726,
+        1203
+      ],
+      "native_size": [
+        727,
+        1207
+      ],
+      "render_transform": {
+        "resize": [
+          726,
+          1206
+        ],
+        "alpha_crop": [
+          0,
+          1,
+          726,
+          1204
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板",
+      "metadata": {
+        "target_box": [
+          61,
+          332,
+          792,
+          1538
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          727,
+          1207
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_左悬绳",
+      "asset": "block_好友界面_左悬绳",
+      "file": "PNG/公共UI/左悬绳_a1cf9fcdc7.png",
+      "name": "左标题吊绳",
+      "z": 11,
+      "position": [
+        224,
+        168
+      ],
+      "size": [
+        25,
+        77
+      ],
+      "native_size": [
+        32,
+        77
+      ],
+      "render_transform": {
+        "resize": [
+          32,
+          77
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          28,
+          77
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_左悬绳",
+      "metadata": {
+        "target_box": [
+          221,
+          168,
+          253,
+          245
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          32,
+          77
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_右悬绳",
+      "asset": "block_好友界面_右悬绳",
+      "file": "PNG/公共UI/右悬绳_eda8460639.png",
+      "name": "右标题吊绳",
+      "z": 12,
+      "position": [
+        606,
+        168
+      ],
+      "size": [
+        26,
+        74
+      ],
+      "native_size": [
+        34,
+        74
+      ],
+      "render_transform": {
+        "resize": [
+          34,
+          74
+        ],
+        "alpha_crop": [
+          4,
+          0,
+          30,
+          74
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_右悬绳",
+      "metadata": {
+        "target_box": [
+          602,
+          168,
+          636,
+          242
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          34,
+          74
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友标题木牌",
+      "asset": "block_好友界面_好友标题木牌",
+      "file": "PNG/公共UI/好友标题木牌_b85a1c550c.png",
+      "name": "好友系原生标题木牌",
+      "z": 13,
+      "position": [
+        202,
+        215
+      ],
+      "size": [
+        449,
+        114
+      ],
+      "native_size": [
+        461,
+        114
+      ],
+      "render_transform": {
+        "resize": [
+          461,
+          114
+        ],
+        "alpha_crop": [
+          6,
+          0,
+          455,
+          114
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友标题木牌",
+      "metadata": {
+        "target_box": [
+          196,
+          215,
+          657,
+          329
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          461,
+          114
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.003",
+      "name": "页面标题",
+      "z": 14,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.004",
+      "name": "页面副标题",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回上一页",
+      "z": 16,
+      "position": [
+        15,
+        1635
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          166
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          15,
+          1635,
+          179,
+          1801
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "events"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_49d5ed034d5b363d0f89",
+      "asset": "block_missing_49d5ed034d5b363d0f89",
+      "file": "PNG/公共UI/picnic_49d5ed034d.png",
+      "name": "picnic",
+      "z": 17,
+      "position": [
+        263,
+        535
+      ],
+      "size": [
+        326,
+        304
+      ],
+      "native_size": [
+        459,
+        428
+      ],
+      "render_transform": {
+        "resize": [
+          326,
+          304
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          326,
+          304
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_49d5ed034d5b363d0f89",
+      "metadata": {
+        "target_box": [
+          206,
+          535,
+          647,
+          839
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          459,
+          428
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_7919a51c25f3e95dc173",
+      "asset": "block_missing_7919a51c25f3e95dc173",
+      "file": "PNG/公共素材/角色主体_7919a51c25.png",
+      "name": "bee_huahua",
+      "z": 18,
+      "position": [
+        586,
+        574
+      ],
+      "size": [
+        165,
+        223
+      ],
+      "native_size": [
+        501,
+        678
+      ],
+      "render_transform": {
+        "resize": [
+          165,
+          223
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          165,
+          223
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_7919a51c25f3e95dc173",
+      "metadata": {
+        "target_box": [
+          586,
+          565,
+          751,
+          806
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          501,
+          678
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.005",
+      "name": "准备标题",
+      "z": 19,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.006",
+      "name": "实际准备进度",
+      "z": 20,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_赠送进度空槽",
+      "asset": "block_好友界面_赠送进度空槽",
+      "file": "PNG/公共UI/赠送进度空槽_4abc304474.png",
+      "name": "进度空轨",
+      "z": 21,
+      "position": [
+        149,
+        1041
+      ],
+      "size": [
+        555,
+        34
+      ],
+      "native_size": [
+        523,
+        34
+      ],
+      "render_transform": {
+        "resize": [
+          555,
+          34
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          555,
+          34
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送进度空槽",
+      "metadata": {
+        "target_box": [
+          149,
+          1041,
+          704,
+          1075
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          523,
+          34
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_赠送进度填充",
+      "asset": "block_好友界面_赠送进度填充",
+      "file": "PNG/公共UI/赠送进度填充_d129faa740.png",
+      "name": "进度填充",
+      "z": 22,
+      "position": [
+        153,
+        1045
+      ],
+      "size": [
+        219,
+        26
+      ],
+      "native_size": [
+        237,
+        34
+      ],
+      "render_transform": {
+        "resize": [
+          219,
+          26
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          219,
+          26
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送进度填充",
+      "metadata": {
+        "target_box": [
+          153,
+          1045,
+          372,
+          1071
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          237,
+          34
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务勾底板_1",
+      "asset": "block_每日任务_任务勾底板_1",
+      "file": "PNG/公共UI/任务勾底板_1_b110d5e136.png",
+      "name": "野餐节点底0",
+      "z": 23,
+      "position": [
+        156,
+        1120
+      ],
+      "size": [
+        94,
+        99
+      ],
+      "native_size": [
+        94,
+        99
+      ],
+      "render_transform": {
+        "resize": [
+          94,
+          99
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          94,
+          99
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务勾底板_1",
+      "metadata": {
+        "target_box": [
+          156,
+          1120,
+          250,
+          1219
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          94,
+          99
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.007",
+      "name": "活动节点0",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "check",
+      "z": 25,
+      "position": [
+        221,
+        1190
+      ],
+      "size": [
+        44,
+        38
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          44,
+          39
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          44,
+          38
+        ]
+      },
+      "group": "原生图示",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          221,
+          1190,
+          265,
+          1230
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务勾底板_1",
+      "asset": "block_每日任务_任务勾底板_1",
+      "file": "PNG/公共UI/任务勾底板_1_b110d5e136.png",
+      "name": "野餐节点底1",
+      "z": 26,
+      "position": [
+        295,
+        1120
+      ],
+      "size": [
+        94,
+        99
+      ],
+      "native_size": [
+        94,
+        99
+      ],
+      "render_transform": {
+        "resize": [
+          94,
+          99
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          94,
+          99
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务勾底板_1",
+      "metadata": {
+        "target_box": [
+          295,
+          1120,
+          389,
+          1219
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          94,
+          99
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.008",
+      "name": "活动节点1",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务勾底板_1",
+      "asset": "block_每日任务_任务勾底板_1",
+      "file": "PNG/公共UI/任务勾底板_1_b110d5e136.png",
+      "name": "野餐节点底2",
+      "z": 28,
+      "position": [
+        434,
+        1120
+      ],
+      "size": [
+        94,
+        99
+      ],
+      "native_size": [
+        94,
+        99
+      ],
+      "render_transform": {
+        "resize": [
+          94,
+          99
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          94,
+          99
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务勾底板_1",
+      "metadata": {
+        "target_box": [
+          434,
+          1120,
+          528,
+          1219
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          94,
+          99
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.009",
+      "name": "活动节点2",
+      "z": 29,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_任务勾底板_1",
+      "asset": "block_每日任务_任务勾底板_1",
+      "file": "PNG/公共UI/任务勾底板_1_b110d5e136.png",
+      "name": "野餐节点底3",
+      "z": 30,
+      "position": [
+        573,
+        1120
+      ],
+      "size": [
+        94,
+        99
+      ],
+      "native_size": [
+        94,
+        99
+      ],
+      "render_transform": {
+        "resize": [
+          94,
+          99
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          94,
+          99
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_任务勾底板_1",
+      "metadata": {
+        "target_box": [
+          573,
+          1120,
+          667,
+          1219
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          94,
+          99
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.010",
+      "name": "活动节点3",
+      "z": 31,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.011",
+      "name": "活动进度规则",
+      "z": 32,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.012",
+      "name": "活动奖励说明",
+      "z": 33,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "继续闯关_原生按钮",
+      "z": 34,
+      "position": [
+        179,
+        1369
+      ],
+      "size": [
+        496,
+        141
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1366,
+          675,
+          1513
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-event-main"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T34-01.text.013",
+      "name": "继续闯关_文案",
+      "z": 35,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T34-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T34-01.text.000",
+      "instance_id": "23ff10b6a57e:T34-01.text.000",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T34-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T34-01.text.001",
+      "instance_id": "23ff10b6a57e:T34-01.text.001",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T34-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T34-01.text.002",
+      "instance_id": "23ff10b6a57e:T34-01.text.002",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "花园野餐",
+      "position": [
+        345,
+        250
+      ],
+      "box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "font_size": 40.0,
+      "min_font_size": 32.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        244,
+        200
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.4,
+      "stroke_color": [
+        112,
+        69,
+        27
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "花园野餐",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 40.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        163,
+        42
+      ],
+      "id": "T34-01.text.003",
+      "layout_box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "text_id": "T34-01.text.003",
+      "instance_id": "23ff10b6a57e:T34-01.text.003",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花园野餐",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.23ff10b6a57e.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面副标题",
+      "text": "正常游玩，准备一场相聚",
+      "position": [
+        284,
+        456
+      ],
+      "box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "subtitle",
+      "purpose": "subtitle",
+      "binding": null,
+      "raw": "正常游玩，准备一场相聚",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        286,
+        26
+      ],
+      "id": "T34-01.text.004",
+      "layout_box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "text_id": "T34-01.text.004",
+      "instance_id": "23ff10b6a57e:T34-01.text.004",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "正常游玩，准备一场相聚",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.23ff10b6a57e.text.13d7ce0196ca",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "准备标题",
+      "text": "野餐准备",
+      "position": [
+        346,
+        882
+      ],
+      "box": [
+        160,
+        865,
+        693,
+        938
+      ],
+      "font_size": 40.0,
+      "min_font_size": 32.0,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "野餐准备",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 40.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        160,
+        40
+      ],
+      "id": "T34-01.text.005",
+      "layout_box": [
+        160,
+        865,
+        693,
+        938
+      ],
+      "text_id": "T34-01.text.005",
+      "instance_id": "23ff10b6a57e:T34-01.text.005",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "野餐准备",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.23ff10b6a57e.text.0150270a4d1b",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "实际准备进度",
+      "text": "8 / 20",
+      "position": [
+        365,
+        960
+      ],
+      "box": [
+        220,
+        943,
+        633,
+        1014
+      ],
+      "font_size": 42.0,
+      "min_font_size": 33.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "eventProgress",
+      "raw": "8 / 20",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 42.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        123,
+        38
+      ],
+      "id": "T34-01.text.006",
+      "layout_box": [
+        220,
+        943,
+        633,
+        1014
+      ],
+      "text_id": "T34-01.text.006",
+      "instance_id": "23ff10b6a57e:T34-01.text.006",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "template",
+      "message_template": "{value_1} / {value_2}",
+      "parameters": {
+        "value_1": 8,
+        "value_2": 20
+      },
+      "value_binding": {
+        "value_1": "page.23ff10b6a57e.text.0997444d772d.value_1",
+        "value_2": "page.23ff10b6a57e.text.0997444d772d.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "8 / 20",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.23ff10b6a57e.text.0997444d772d",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "活动节点0",
+      "text": "5",
+      "position": [
+        194,
+        1154
+      ],
+      "box": [
+        166,
+        1137,
+        240,
+        1195
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "5",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        19,
+        24
+      ],
+      "id": "T34-01.text.007",
+      "layout_box": [
+        166,
+        1137,
+        240,
+        1195
+      ],
+      "text_id": "T34-01.text.007",
+      "instance_id": "23ff10b6a57e:T34-01.text.007",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "page.23ff10b6a57e.text.c2523f3b75c2",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "活动节点1",
+      "text": "10",
+      "position": [
+        323,
+        1154
+      ],
+      "box": [
+        305,
+        1137,
+        379,
+        1195
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "10",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        38,
+        25
+      ],
+      "id": "T34-01.text.008",
+      "layout_box": [
+        305,
+        1137,
+        379,
+        1195
+      ],
+      "text_id": "T34-01.text.008",
+      "instance_id": "23ff10b6a57e:T34-01.text.008",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "number",
+      "raw_value": 10,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "page.23ff10b6a57e.text.c46826cb7ba6",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "10",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "活动节点2",
+      "text": "15",
+      "position": [
+        462,
+        1154
+      ],
+      "box": [
+        444,
+        1137,
+        518,
+        1195
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "15",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        38,
+        25
+      ],
+      "id": "T34-01.text.009",
+      "layout_box": [
+        444,
+        1137,
+        518,
+        1195
+      ],
+      "text_id": "T34-01.text.009",
+      "instance_id": "23ff10b6a57e:T34-01.text.009",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "number",
+      "raw_value": 15,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "page.23ff10b6a57e.text.be5bcbfb5087",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "15",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "活动节点3",
+      "text": "20",
+      "position": [
+        601,
+        1154
+      ],
+      "box": [
+        583,
+        1137,
+        657,
+        1195
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "20",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        38,
+        25
+      ],
+      "id": "T34-01.text.010",
+      "layout_box": [
+        583,
+        1137,
+        657,
+        1195
+      ],
+      "text_id": "T34-01.text.010",
+      "instance_id": "23ff10b6a57e:T34-01.text.010",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "number",
+      "raw_value": 20,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "page.23ff10b6a57e.text.a237d9d5bc89",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "20",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "活动进度规则",
+      "text": "普通成功或无尽有效结算，每次 +1 点",
+      "position": [
+        214,
+        1252
+      ],
+      "box": [
+        122,
+        1234,
+        731,
+        1294
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "普通成功或无尽有效结算，每次 +1 点",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        425,
+        25
+      ],
+      "id": "T34-01.text.011",
+      "layout_box": [
+        122,
+        1234,
+        731,
+        1294
+      ],
+      "text_id": "T34-01.text.011",
+      "instance_id": "23ff10b6a57e:T34-01.text.011",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "template",
+      "message_template": "普通成功或无尽有效结算，每次 {count} 点",
+      "parameters": {
+        "count": 1
+      },
+      "value_binding": {
+        "count": "page.23ff10b6a57e.text.c7b8d7dd7916.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "普通成功或无尽有效结算，每次 +1 点",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "always",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.23ff10b6a57e.text.c7b8d7dd7916",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "活动奖励说明",
+      "text": "20点奖励100花蜜 · 只领一次",
+      "position": [
+        256,
+        1316
+      ],
+      "box": [
+        125,
+        1300,
+        728,
+        1358
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "20点奖励100花蜜 · 只领一次",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        341,
+        26
+      ],
+      "id": "T34-01.text.012",
+      "layout_box": [
+        125,
+        1300,
+        728,
+        1358
+      ],
+      "text_id": "T34-01.text.012",
+      "instance_id": "23ff10b6a57e:T34-01.text.012",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "template",
+      "message_template": "{value_1}点奖励{value_2}花蜜 · 只领一次",
+      "parameters": {
+        "value_1": 20,
+        "value_2": 100
+      },
+      "value_binding": {
+        "value_1": "page.23ff10b6a57e.text.6af5ee9fe879.value_1",
+        "value_2": "page.23ff10b6a57e.text.6af5ee9fe879.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "20点奖励100花蜜 · 只领一次",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.23ff10b6a57e.text.6af5ee9fe879",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "继续闯关_文案",
+      "text": "继续闯关",
+      "position": [
+        356,
+        1416
+      ],
+      "box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "继续闯关",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        143,
+        37
+      ],
+      "id": "T34-01.text.013",
+      "layout_box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "text_id": "T34-01.text.013",
+      "instance_id": "23ff10b6a57e:T34-01.text.013",
+      "page": "T34-01_花园野餐进度",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "继续闯关",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.23ff10b6a57e.text.ce23e10699f1",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "event-detail"
+    ],
+    "requirements": "有效游玩推进0～20与5/10/15/20节点；美术保持图示感，数值和文案按原型，不改经济。",
+    "actions": [
+      {
+        "layer": "返回上一页",
+        "label": "返回",
+        "action": "events",
+        "free": true
+      },
+      {
+        "layer": "继续闯关_原生按钮",
+        "label": "继续闯关",
+        "action": "meta-event-main",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      }
+    ],
+    "recipe_layout": "picnic_preparation",
+    "ui_fact_route": "event-detail",
+    "text_policy": "editable Microsoft YaHei; localized copy and bound numbers",
+    "style_family": "friend_original",
+    "facts_file": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\界面事实\\ui_facts.json",
+    "layout_family": "picnic_preparation"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T34-01_花园野餐进度.png",
+    "composite": "页面对照/PSD合成/缺少/T34-01_花园野餐进度.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "53f3acb782c81542ebb713f45360909207f8738ce51555834e13b56074d3b154",
+    "psd_composite": "页面对照/PSD合成/缺少/T34-01_花园野餐进度.png",
+    "psd_composite_sha256": "e740dc7b20c211e30a9ed282514bee3ca2ba53a584a44e635958b1040e692c90",
+    "runtime_preview_max_channel_error": 2,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "53f3acb782c81542ebb713f45360909207f8738ce51555834e13b56074d3b154",
+    "psd_sha256": "217d0a0ad9b54d51bf431c7d9ab1f242ea63d41558488a4bf5440decafb5c748",
+    "composite_sha256": "e740dc7b20c211e30a9ed282514bee3ca2ba53a584a44e635958b1040e692c90",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T34-01_花园野餐进度.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

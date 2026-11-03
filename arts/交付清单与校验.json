@@ -1,0 +1,132 @@
+{
+  "game": "Block",
+  "asset_count": 371,
+  "page_count": 79,
+  "editable_text_count": 1193,
+  "public_ui_count": 108,
+  "public_art_count": 157,
+  "page_asset_count": 106,
+  "technical_verification": "PSD真实图层与文字回读、合成和RGBA去重验证已运行",
+  "visual_status": "本轮83项重建复查通过；81项像素不变，2项局部已实际复查",
+  "photoshop_interaction": false,
+  "engine_import": false,
+  "localization_repair_status": "PASS",
+  "independent_candidate_visual_status": "PASS",
+  "actual_saved_page_visual_status": "PASS",
+  "psd_saved_layer_roundtrip_status": "PASS",
+  "final_directory_browser_status": "PASS",
+  "final_directory": "H:\\projects\\luocheng\\Block独立交付",
+  "changed_or_added_unique_png": 2,
+  "font": "微软雅黑真实可编辑文本；封面Honey Garden主标题为唯一登记栅格文字例外",
+  "locales": {
+    "zh-CN": "默认中文",
+    "qps-ploc": "1.5倍伪本地化排版压力；不是正式译文"
+  },
+  "localization": {
+    "manifest": "本地化/文字清单.json",
+    "default_locale": "zh-CN",
+    "catalogs": {
+      "zh-CN": "本地化/zh-CN.json",
+      "qps-ploc": "本地化/qps-ploc.json"
+    },
+    "summary": {
+      "pages": 9,
+      "texts": 157,
+      "roles": {
+        "message": 51,
+        "number": 64,
+        "template": 36,
+        "player_input": 6
+      },
+      "localization_keys": 55,
+      "inferred_texts": 34,
+      "provided_locales": [
+        "zh-CN",
+        "qps-ploc"
+      ],
+      "all_languages_validated": false
+    },
+    "missing_pages": {
+      "manifest": "本地化/缺少/文字清单.json",
+      "summary": {
+        "pages": 74,
+        "texts": 1036,
+        "roles": {
+          "message": 502,
+          "template": 221,
+          "number": 313
+        },
+        "localization_keys": 645,
+        "inferred_texts": 1035,
+        "provided_locales": [
+          "zh-CN",
+          "qps-ploc"
+        ],
+        "all_languages_validated": false
+      }
+    }
+  },
+  "forced_psd_composite_max_channel_error": 2,
+  "originals_unchanged": true,
+  "page_comparison": {
+    "pages": 79,
+    "display_images": 158,
+    "originals": "页面对照/原页面/",
+    "psd_composites": "页面对照/PSD合成/",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "runtime_png_count_excludes_display_images": true,
+    "status": "PASS",
+    "formal_browser_verified": true,
+    "revision": "2026-10-24T02:56:54.431465+00:00",
+    "layout": "selected_page_comparison_above_page_assets_including_public_dependencies",
+    "selected_page_comparison_above_assets": true,
+    "asset_search_keeps_comparison": true,
+    "source": "真实完整页面效果设计图",
+    "design_boards_separate": true,
+    "prototype_reference_collapsed": true
+  },
+  "loading_cover": {
+    "page": "主图",
+    "default_progress": 0.65,
+    "runtime_binding": "loading.progress",
+    "status": "PASS",
+    "actual_saved_preview_sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521",
+    "actual_saved_psd_sha256": "da3f5455671701af995822a19d2cd7f25b6edd7bc0ac24bfaf64d4a2e3a42edf",
+    "method": "native_layer_edit_with_separate_progress_components"
+  },
+  "retired_unique_png": 10,
+  "missing_delivery": {
+    "outputs": 74,
+    "pages_and_states": 70,
+    "design_boards": 4,
+    "status": "PUBLISHED_AND_VERIFIED",
+    "psd_true_editable_text": true,
+    "baseline_nine_preview_sha_unchanged": true,
+    "prototype_read_only": true,
+    "technical_evidence": "H:\\projects\\luocheng\\制作检查\\Block\\20261024资源复用\\正式资源归一复验.json",
+    "photoshop_interaction": false,
+    "engine_import": false,
+    "completed_at": "2026-10-23T21:13:03.888214+00:00",
+    "actual_saved_visual_evidence": "H:\\projects\\luocheng\\制作检查\\Block\\20261024资源复用\\本轮视觉复查.json",
+    "pixel_transfer_evidence": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\风格返工像素传递_正式.json",
+    "browser_evidence": "H:\\projects\\luocheng\\制作检查\\Block\\20261024资源复用\\正式浏览器复验\\浏览器实测.json",
+    "new_editable_text_count": 1036,
+    "all_psds_rebuilt_from_unique_runtime_png": true,
+    "old_nine_psd_bytes_preserved": false,
+    "old_nine_preview_pixels_preserved": true
+  },
+  "design_board_count": 4,
+  "runtime_editable_text_count": 1186,
+  "reuse_delivery": {
+    "status": "PASS",
+    "completed_at": "2026-10-24T03:56:42.873618+00:00",
+    "before_png": 559,
+    "after_png": 371,
+    "removed_png": 188,
+    "procedural_layers": 103,
+    "scheme": "资源复用方案.md",
+    "runtime_component": "游戏素材/运行组件/",
+    "photoshop_interaction": false,
+    "engine_import": false
+  }
+}

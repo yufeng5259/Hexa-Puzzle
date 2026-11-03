@@ -1,0 +1,496 @@
+{
+  "page": "主图",
+  "size": [
+    853,
+    1844
+  ],
+  "text_image_exceptions": [
+    {
+      "asset": "block_主图_HoneyGarden标题插画",
+      "text": "Honey Garden",
+      "role": "cover_game_title",
+      "reason": "用户唯一默认例外：封面展示游戏名主标题"
+    }
+  ],
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/zh-CN.json",
+      "qps-ploc": "本地化/qps-ploc.json"
+    }
+  },
+  "canvas": [
+    853,
+    1844
+  ],
+  "layers": [
+    {
+      "asset": "block_background_主图",
+      "position": [
+        0,
+        0
+      ],
+      "name": "完整裸背景",
+      "group": "背景",
+      "id": "block_background_主图",
+      "file": "PNG/页面素材/主图/背景/主图_完整裸背景_631ad0b184.png",
+      "z": 0,
+      "native_size": [
+        853,
+        1844
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_background_主图"
+    },
+    {
+      "asset": "block_主图_HoneyGarden标题插画",
+      "position": [
+        93,
+        124
+      ],
+      "name": "HoneyGarden标题插画",
+      "group": "其他素材",
+      "target_size": [
+        634,
+        421
+      ],
+      "target_box": [
+        93,
+        124,
+        727,
+        545
+      ],
+      "id": "block_主图_HoneyGarden标题插画",
+      "file": "PNG/页面素材/主图/其他素材/HoneyGarden标题插画_3e07f8022a.png",
+      "z": 1,
+      "native_size": [
+        1526,
+        1013
+      ],
+      "size": [
+        634,
+        421
+      ],
+      "scale": [
+        0.41546526867627787,
+        0.4155972359328727
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_主图_HoneyGarden标题插画"
+    },
+    {
+      "asset": "block_主图_右下雏菊",
+      "position": [
+        588,
+        623
+      ],
+      "name": "右下雏菊",
+      "group": "其他素材",
+      "target_size": [
+        55,
+        69
+      ],
+      "target_box": [
+        588,
+        623,
+        643,
+        692
+      ],
+      "id": "block_主图_右下雏菊",
+      "file": "PNG/页面素材/主图/其他素材/右下雏菊_96415aa7c0.png",
+      "z": 2,
+      "native_size": [
+        1079,
+        1351
+      ],
+      "size": [
+        55,
+        69
+      ],
+      "scale": [
+        0.05097312326227989,
+        0.05107327905255366
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_主图_右下雏菊"
+    },
+    {
+      "asset": "block_主图_右下蜜蜂主体",
+      "position": [
+        629,
+        573
+      ],
+      "name": "右下蜜蜂主体",
+      "group": "其他素材",
+      "target_size": [
+        156,
+        136
+      ],
+      "target_box": [
+        629,
+        565,
+        785,
+        716
+      ],
+      "id": "block_主图_右下蜜蜂主体",
+      "file": "PNG/页面素材/主图/其他素材/右下蜜蜂主体_bf8d75f6ad.png",
+      "z": 3,
+      "native_size": [
+        1213,
+        1055
+      ],
+      "size": [
+        156,
+        136
+      ],
+      "scale": [
+        0.12860676009892827,
+        0.12890995260663507
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_主图_右下蜜蜂主体"
+    },
+    {
+      "asset": "block_主图_右下蜂蜜浇水壶",
+      "position": [
+        611,
+        688
+      ],
+      "name": "右下蜂蜜浇水壶",
+      "group": "其他素材",
+      "target_size": [
+        45,
+        39
+      ],
+      "target_box": [
+        611,
+        688,
+        657,
+        727
+      ],
+      "id": "block_主图_右下蜂蜜浇水壶",
+      "file": "PNG/页面素材/主图/其他素材/右下蜂蜜浇水壶_d392fc05c6.png",
+      "z": 4,
+      "native_size": [
+        1066,
+        931
+      ],
+      "size": [
+        45,
+        39
+      ],
+      "scale": [
+        0.04221388367729831,
+        0.04189044038668099
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_主图_右下蜂蜜浇水壶"
+    },
+    {
+      "asset": "block_主图_右上飞行蜜蜂",
+      "position": [
+        723,
+        297
+      ],
+      "name": "右上飞行蜜蜂",
+      "group": "其他素材",
+      "target_size": [
+        121,
+        105
+      ],
+      "target_box": [
+        723,
+        297,
+        844,
+        402
+      ],
+      "id": "block_主图_右上飞行蜜蜂",
+      "file": "PNG/公共素材/右上飞行蜜蜂_6fee563017.png",
+      "z": 5,
+      "native_size": [
+        1226,
+        1062
+      ],
+      "size": [
+        121,
+        105
+      ],
+      "scale": [
+        0.09869494290375204,
+        0.09887005649717515
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "master_asset": "block_主图_右上飞行蜜蜂"
+    },
+    {
+      "asset": "block_主图_加载进度底槽",
+      "id": "block_主图_加载进度底槽",
+      "name": "加载进度底槽",
+      "file": "PNG/页面素材/主图/UI/加载进度底槽_699e2bb926.png",
+      "group": "加载进度",
+      "position": [
+        116,
+        1568
+      ],
+      "size": [
+        620,
+        64
+      ],
+      "native_size": [
+        620,
+        64
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "z": 6,
+      "master_asset": "block_主图_加载进度底槽"
+    },
+    {
+      "asset": "block_主图_加载进度填充",
+      "id": "block_主图_加载进度填充",
+      "name": "加载进度填充",
+      "file": "PNG/页面素材/主图/UI/加载进度填充_b0633db626.png",
+      "group": "加载进度",
+      "position": [
+        129,
+        1581
+      ],
+      "size": [
+        386,
+        35
+      ],
+      "native_size": [
+        386,
+        35
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "opacity": 1,
+      "z": 7,
+      "master_asset": "block_主图_加载进度填充"
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "加载状态",
+      "text": "加载中…",
+      "position": [
+        365,
+        1507
+      ],
+      "box": [
+        126,
+        1507,
+        727,
+        1555
+      ],
+      "font_size": 30.0,
+      "color_rgb": [
+        255,
+        250,
+        224
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        99,
+        50,
+        16
+      ],
+      "purpose": "加载状态与实际加载进度",
+      "font": "微软雅黑",
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "text_role": "message",
+      "localization_key": "block.main.loading",
+      "value_binding": null,
+      "text_id": "block.text.main.a52bef0c615c",
+      "instance_id": "main:block.text.main.a52bef0c615c",
+      "page": "主图",
+      "semantic_origin": "author",
+      "default_text": "加载中…",
+      "parameters": {},
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        123,
+        33
+      ]
+    },
+    {
+      "layer_name": "加载百分比",
+      "text": "65%",
+      "position": [
+        398,
+        1635
+      ],
+      "box": [
+        325,
+        1635,
+        528,
+        1671
+      ],
+      "font_size": 24.0,
+      "color_rgb": [
+        255,
+        250,
+        224
+      ],
+      "align": "center",
+      "weight": "bold",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        99,
+        50,
+        16
+      ],
+      "purpose": "加载状态与实际加载进度",
+      "font": "微软雅黑",
+      "min_font_size": 19.200000000000003,
+      "max_lines": 1,
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "fit": true,
+      "text_role": "number",
+      "raw_value": 0.65,
+      "value_binding": "loading.progress",
+      "number_format": {
+        "type": "percent",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "scale": 100,
+        "locale_aware": true
+      },
+      "text_id": "block.text.main.fa3d96c723fa",
+      "instance_id": "main:block.text.main.fa3d96c723fa",
+      "page": "主图",
+      "semantic_origin": "author",
+      "default_text": "65%",
+      "parameters": {},
+      "localization_key": null,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        56,
+        23
+      ]
+    }
+  ],
+  "source_sha256": "21f46eb034fe254f702fa8d4d01a7d96b1dd4cb4c84903b0f15bb4c1803a48e0",
+  "background_note": "遮挡区依据原设计补绘，属于推断；裸背景不含控件、文字和固定玩法局面",
+  "coordinate_system": "像素；左上原点；z由底到顶；anchor为资源左上角归一化坐标",
+  "runtime_note": "非封面主标题文字均创建为独立文字组件，以localization_key取整句/模板并注入命名参数；number/player_input按value_binding取值，数字按number_format本地化。使用微软雅黑并遵守box/min_font_size/max_lines/overflow_policy；layers路径相对游戏素材根目录。qps-ploc仅为排版压力验证，不是正式译文。",
+  "page_type": "loading",
+  "runtime": {
+    "screen_type": "loading",
+    "progress": {
+      "value_binding": "loading.progress",
+      "minimum": 0,
+      "maximum": 1,
+      "default_value": 0.65,
+      "track": "block_主图_加载进度底槽",
+      "fill": "block_主图_加载进度填充",
+      "text_layer": "加载百分比",
+      "fill_layer": "加载进度填充",
+      "fill_origin": [
+        129,
+        1581
+      ],
+      "full_fill_size": [
+        594,
+        35
+      ],
+      "fill_method": "horizontal_nine_slice",
+      "nine_slice": {
+        "left": 18,
+        "right": 18,
+        "top": 0,
+        "bottom": 0
+      },
+      "default_fill_width": 386,
+      "width_formula": "round(full_fill_width * clamp(progress, 0, 1))",
+      "zero_progress": "hide_fill",
+      "small_width": "clip to requested width when width is less than both endcaps",
+      "label_localization_key": "block.main.loading",
+      "percent_binding": "loading.progress"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/主图.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521",
+    "psd_composite": "页面对照/PSD合成/主图.png",
+    "psd_composite_sha256": "751f0ade7bab54e5373274c609be8dfedf0f0d26d7e63f0e4c68285d9151e7b1",
+    "psd_sha256": "2948642ab474d2df067c866389e29e2912f32cd1d590b75bea88cc1817907ca9",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "runtime_preview_max_channel_error": 1,
+    "composite_sha256": "751f0ade7bab54e5373274c609be8dfedf0f0d26d7e63f0e4c68285d9151e7b1",
+    "original_label": "页面效果设计图",
+    "source_sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  }
+}

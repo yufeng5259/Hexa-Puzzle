@@ -1,0 +1,6044 @@
+{
+  "page": "T40-03_图示帮助_三轴消除",
+  "output_id": "T40-03",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "endless-help",
+      "title": "满线消除教学",
+      "url": "http://127.0.0.1:4291/index.html#endless-help",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\27-endless-help.png",
+      "screenshot_sha256": "334329ee140aa3dc5d4557bf4eb5f315a6606edf97fe369d5823f236baaeaa71"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_无尽模式",
+      "asset": "block_background_无尽模式",
+      "file": "PNG/公共素材/无尽模式_完整裸背景_a757d7cf1a.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_无尽模式",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "原生头像",
+      "z": 1,
+      "position": [
+        17,
+        25
+      ],
+      "size": [
+        151,
+        149
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          151,
+          149
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          151,
+          149
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          17,
+          25,
+          168,
+          174
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.000",
+      "name": "头像进度等级",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "透明计数底条",
+      "z": 3,
+      "position": [
+        223,
+        60
+      ],
+      "size": [
+        178,
+        65
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          178,
+          65
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          178,
+          65
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          223,
+          60,
+          401,
+          125
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "透明计数底条",
+      "z": 4,
+      "position": [
+        487,
+        60
+      ],
+      "size": [
+        237,
+        66
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          237,
+          66
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          237,
+          66
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          487,
+          60,
+          724,
+          126
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示库存图标",
+      "z": 5,
+      "position": [
+        181,
+        49
+      ],
+      "size": [
+        69,
+        88
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          69,
+          88
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          69,
+          88
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          181,
+          49,
+          250,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.001",
+      "name": "提示库存值",
+      "z": 6,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.002",
+      "name": "提示库存标签",
+      "z": 7,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "蜂蜜货币",
+      "z": 8,
+      "position": [
+        455,
+        52
+      ],
+      "size": [
+        70,
+        76
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          76
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          72,
+          76
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          453,
+          52,
+          525,
+          128
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.003",
+      "name": "花蜜余额",
+      "z": 9,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_添加按钮",
+      "asset": "block_hud_添加按钮",
+      "file": "PNG/公共UI/添加按钮_6cd07472ae.png",
+      "name": "添加按钮",
+      "z": 10,
+      "position": [
+        656,
+        58
+      ],
+      "size": [
+        69,
+        69
+      ],
+      "native_size": [
+        276,
+        276
+      ],
+      "render_transform": {
+        "resize": [
+          69,
+          69
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          69,
+          69
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_添加按钮",
+      "metadata": {
+        "target_box": [
+          656,
+          58,
+          725,
+          127
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          276,
+          276
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置木质齿轮",
+      "z": 11,
+      "position": [
+        738,
+        45
+      ],
+      "size": [
+        97,
+        97
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          97,
+          97
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          97,
+          97
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          738,
+          45,
+          835,
+          142
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_关卡木牌",
+      "asset": "block_玩法_关卡木牌",
+      "file": "PNG/公共UI/关卡木牌_8cff2f5f7f.png",
+      "name": "原生花叶木牌",
+      "z": 12,
+      "position": [
+        185,
+        171
+      ],
+      "size": [
+        485,
+        114
+      ],
+      "native_size": [
+        487,
+        116
+      ],
+      "render_transform": {
+        "resize": [
+          487,
+          116
+        ],
+        "alpha_crop": [
+          1,
+          1,
+          486,
+          115
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_关卡木牌",
+      "metadata": {
+        "target_box": [
+          184,
+          170,
+          671,
+          286
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          487,
+          116
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.004",
+      "name": "页面标题",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_空白主面板",
+      "asset": "block_结算_空白主面板",
+      "file": "PNG/公共UI/空白主面板_70248b0641.png",
+      "name": "无字面板_cream",
+      "z": 14,
+      "position": [
+        55,
+        361
+      ],
+      "size": [
+        743,
+        1132
+      ],
+      "native_size": [
+        684,
+        883
+      ],
+      "render_transform": {
+        "resize": [
+          743,
+          1145
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          6,
+          743,
+          1138
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_空白主面板",
+      "metadata": {
+        "target_box": [
+          55,
+          355,
+          798,
+          1500
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          684,
+          883
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.005",
+      "name": "无尽教学动作",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_929d91e1d9ee86f75e5c",
+      "asset": "block_missing_929d91e1d9ee86f75e5c",
+      "file": "PNG/公共UI/arrow_929d91e1d9.png",
+      "name": "三轴方向_竖向",
+      "z": 16,
+      "position": [
+        240,
+        474
+      ],
+      "size": [
+        41,
+        66
+      ],
+      "native_size": [
+        427,
+        264
+      ],
+      "render_transform": {
+        "resize": [
+          66,
+          41
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          41,
+          66
+        ],
+        "rotation_degrees": -90.0
+      },
+      "group": "教学箭头",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_929d91e1d9ee86f75e5c",
+      "metadata": {
+        "native_key": "style_arrow",
+        "fit": "contain",
+        "source_resize": [
+          66,
+          41
+        ],
+        "rotation_degrees": -90.0,
+        "start": [
+          260,
+          485
+        ],
+        "end": [
+          260,
+          530
+        ],
+        "animation_path": true,
+        "proportion_preserved": true
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_929d91e1d9ee86f75e5c",
+      "asset": "block_missing_929d91e1d9ee86f75e5c",
+      "file": "PNG/公共UI/arrow_929d91e1d9.png",
+      "name": "三轴方向_下斜",
+      "z": 17,
+      "position": [
+        391,
+        482
+      ],
+      "size": [
+        63,
+        53
+      ],
+      "native_size": [
+        427,
+        264
+      ],
+      "render_transform": {
+        "resize": [
+          66,
+          41
+        ],
+        "alpha_crop": [
+          3,
+          14,
+          66,
+          67
+        ],
+        "rotation_degrees": -45.67403689798451
+      },
+      "group": "教学箭头",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_929d91e1d9ee86f75e5c",
+      "metadata": {
+        "native_key": "style_arrow",
+        "fit": "contain",
+        "source_resize": [
+          66,
+          41
+        ],
+        "rotation_degrees": -45.67403689798451,
+        "start": [
+          405,
+          485
+        ],
+        "end": [
+          447,
+          528
+        ],
+        "animation_path": true,
+        "proportion_preserved": true
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_929d91e1d9ee86f75e5c",
+      "asset": "block_missing_929d91e1d9ee86f75e5c",
+      "file": "PNG/公共UI/arrow_929d91e1d9.png",
+      "name": "三轴方向_上斜",
+      "z": 18,
+      "position": [
+        582,
+        478
+      ],
+      "size": [
+        53,
+        64
+      ],
+      "native_size": [
+        427,
+        264
+      ],
+      "render_transform": {
+        "resize": [
+          66,
+          41
+        ],
+        "alpha_crop": [
+          14,
+          10,
+          67,
+          74
+        ],
+        "rotation_degrees": 45.67403689798451
+      },
+      "group": "教学箭头",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_929d91e1d9ee86f75e5c",
+      "metadata": {
+        "native_key": "style_arrow",
+        "fit": "contain",
+        "source_resize": [
+          66,
+          41
+        ],
+        "rotation_degrees": 45.67403689798451,
+        "start": [
+          585,
+          528
+        ],
+        "end": [
+          627,
+          485
+        ],
+        "animation_path": true,
+        "proportion_preserved": true
+      }
+    },
+    {
+      "type": "procedural",
+      "name": "三轴真实37格演示_木框投影",
+      "z": 19,
+      "position": [
+        126,
+        564
+      ],
+      "size": [
+        601,
+        657
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "role": "shadow",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "shadow",
+        "cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "bbox": [
+          120,
+          525,
+          613,
+          725
+        ],
+        "flip_y": false,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {},
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        6,
+        39,
+        607,
+        696
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "procedural",
+      "name": "三轴真实37格演示_原生木纹底",
+      "z": 20,
+      "position": [
+        144,
+        576
+      ],
+      "size": [
+        565,
+        623
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "role": "floor",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "floor",
+        "cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "bbox": [
+          120,
+          525,
+          613,
+          725
+        ],
+        "flip_y": false,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {
+          "hex_wood_floor": "block_reuse_4832b910bd651938e53d"
+        },
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        24,
+        51,
+        589,
+        674
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "procedural",
+      "name": "三轴真实37格演示_异形倒角木边",
+      "z": 21,
+      "position": [
+        126,
+        558
+      ],
+      "size": [
+        601,
+        659
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "role": "rim",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "rim",
+        "cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "bbox": [
+          120,
+          525,
+          613,
+          725
+        ],
+        "flip_y": false,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {
+          "hex_wood_floor": "block_reuse_4832b910bd651938e53d",
+          "hex_rail_profile": "block_reuse_7a2b1f797be2dce0dd8a"
+        },
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        6,
+        33,
+        607,
+        692
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-3_0",
+      "z": 22,
+      "position": [
+        145,
+        710
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -3,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-3_1",
+      "z": 23,
+      "position": [
+        145,
+        799
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -3,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-3_2",
+      "z": 24,
+      "position": [
+        145,
+        888
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -3,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-3_3",
+      "z": 25,
+      "position": [
+        145,
+        977
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -3,
+          3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-2_-1",
+      "z": 26,
+      "position": [
+        222,
+        666
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-2_0",
+      "z": 27,
+      "position": [
+        222,
+        755
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-2_1",
+      "z": 28,
+      "position": [
+        222,
+        844
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-2_2",
+      "z": 29,
+      "position": [
+        222,
+        933
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-2_3",
+      "z": 30,
+      "position": [
+        222,
+        1022
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-1_-2",
+      "z": 31,
+      "position": [
+        299,
+        621
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-1_-1",
+      "z": 32,
+      "position": [
+        299,
+        710
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-1_0",
+      "z": 33,
+      "position": [
+        299,
+        799
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-1_1",
+      "z": 34,
+      "position": [
+        299,
+        888
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-1_2",
+      "z": 35,
+      "position": [
+        299,
+        977
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_-1_3",
+      "z": 36,
+      "position": [
+        299,
+        1066
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_0_-3",
+      "z": 37,
+      "position": [
+        376,
+        577
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          -3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_0_-2",
+      "z": 38,
+      "position": [
+        376,
+        666
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_0_-1",
+      "z": 39,
+      "position": [
+        376,
+        755
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_0_0",
+      "z": 40,
+      "position": [
+        376,
+        844
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_0_1",
+      "z": 41,
+      "position": [
+        376,
+        933
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_0_2",
+      "z": 42,
+      "position": [
+        376,
+        1022
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_0_3",
+      "z": 43,
+      "position": [
+        376,
+        1111
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_1_-3",
+      "z": 44,
+      "position": [
+        453,
+        621
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          -3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_1_-2",
+      "z": 45,
+      "position": [
+        453,
+        710
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_1_-1",
+      "z": 46,
+      "position": [
+        453,
+        799
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_1_0",
+      "z": 47,
+      "position": [
+        453,
+        888
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_1_1",
+      "z": 48,
+      "position": [
+        453,
+        977
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_1_2",
+      "z": 49,
+      "position": [
+        453,
+        1066
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_2_-3",
+      "z": 50,
+      "position": [
+        530,
+        666
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          -3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_2_-2",
+      "z": 51,
+      "position": [
+        530,
+        755
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_2_-1",
+      "z": 52,
+      "position": [
+        530,
+        844
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_2_0",
+      "z": 53,
+      "position": [
+        530,
+        933
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_2_1",
+      "z": 54,
+      "position": [
+        530,
+        1022
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_3_-3",
+      "z": 55,
+      "position": [
+        607,
+        710
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          -3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_3_-2",
+      "z": 56,
+      "position": [
+        607,
+        799
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_3_-1",
+      "z": 57,
+      "position": [
+        607,
+        888
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "三轴真实37格演示_凹槽_3_0",
+      "z": 58,
+      "position": [
+        607,
+        977
+      ],
+      "size": [
+        101,
+        87
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          101,
+          87
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          101,
+          87
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          101,
+          87
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "三轴真实37格演示"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "三轴真实37格演示_落地_-3_0",
+      "z": 59,
+      "position": [
+        147,
+        712
+      ],
+      "size": [
+        96,
+        85
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          96,
+          85
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          96,
+          85
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            -3,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          146.05454545454543,
+          711.3504328702452,
+          244.67272727272726,
+          796.7562835998233
+        ],
+        "source_resize": [
+          96,
+          85
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "三轴真实37格演示_落地_-2_0",
+      "z": 60,
+      "position": [
+        224,
+        756
+      ],
+      "size": [
+        96,
+        85
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          96,
+          85
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          96,
+          85
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            -2,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          223.09999999999997,
+          755.8326467919004,
+          321.7181818181818,
+          841.2384975214785
+        ],
+        "source_resize": [
+          96,
+          85
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "三轴真实37格演示_落地_-1_0",
+      "z": 61,
+      "position": [
+        301,
+        801
+      ],
+      "size": [
+        96,
+        85
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          96,
+          85
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          96,
+          85
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            -1,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          300.1454545454545,
+          800.3148607135557,
+          398.76363636363635,
+          885.7207114431338
+        ],
+        "source_resize": [
+          96,
+          85
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "三轴真实37格演示_落地_0_0",
+      "z": 62,
+      "position": [
+        378,
+        845
+      ],
+      "size": [
+        96,
+        85
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          96,
+          85
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          96,
+          85
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            0,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          377.1909090909091,
+          844.797074635211,
+          475.8090909090909,
+          930.202925364789
+        ],
+        "source_resize": [
+          96,
+          85
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "三轴真实37格演示_落地_1_0",
+      "z": 63,
+      "position": [
+        456,
+        889
+      ],
+      "size": [
+        96,
+        85
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          96,
+          85
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          96,
+          85
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            1,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          454.23636363636365,
+          889.2792885568662,
+          552.8545454545455,
+          974.6851392864443
+        ],
+        "source_resize": [
+          96,
+          85
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "三轴真实37格演示_落地_2_0",
+      "z": 64,
+      "position": [
+        533,
+        934
+      ],
+      "size": [
+        96,
+        85
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          96,
+          85
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          96,
+          85
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            2,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          531.2818181818182,
+          933.7615024785215,
+          629.9,
+          1019.1673532080996
+        ],
+        "source_resize": [
+          96,
+          85
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_0a5de39746dd49452b93",
+      "asset": "block_missing_0a5de39746dd49452b93",
+      "file": "PNG/公共素材/粉色落地母件_0a5de39746.png",
+      "name": "三轴真实37格演示_落地_0_1",
+      "z": 65,
+      "position": [
+        378,
+        934
+      ],
+      "size": [
+        96,
+        85
+      ],
+      "native_size": [
+        1138,
+        1014
+      ],
+      "render_transform": {
+        "resize": [
+          96,
+          85
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          96,
+          85
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_0a5de39746dd49452b93",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            0,
+            1
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_pink_flower",
+        "fit": "contain",
+        "target_box": [
+          377.1909090909091,
+          933.7615024785215,
+          475.8090909090909,
+          1019.1673532080996
+        ],
+        "source_resize": [
+          96,
+          85
+        ],
+        "native_size": [
+          1138,
+          1014
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_0a5de39746dd49452b93",
+      "asset": "block_missing_0a5de39746dd49452b93",
+      "file": "PNG/公共素材/粉色落地母件_0a5de39746.png",
+      "name": "三轴真实37格演示_落地_1_1",
+      "z": 66,
+      "position": [
+        456,
+        978
+      ],
+      "size": [
+        96,
+        85
+      ],
+      "native_size": [
+        1138,
+        1014
+      ],
+      "render_transform": {
+        "resize": [
+          96,
+          85
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          96,
+          85
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_0a5de39746dd49452b93",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            1,
+            1
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_pink_flower",
+        "fit": "contain",
+        "target_box": [
+          454.23636363636365,
+          978.2437164001767,
+          552.8545454545455,
+          1063.6495671297548
+        ],
+        "source_resize": [
+          96,
+          85
+        ],
+        "native_size": [
+          1138,
+          1014
+        ]
+      }
+    },
+    {
+      "type": "procedural",
+      "name": "当前可完成整线",
+      "z": 67,
+      "position": [
+        139,
+        704
+      ],
+      "size": [
+        574,
+        367
+      ],
+      "group": "教学高亮",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "complete_axis": "r",
+        "line": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "outline",
+        "cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "bbox": [
+          120,
+          525,
+          613,
+          725
+        ],
+        "flip_y": true,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {},
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version",
+        "outline_cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "width": 4,
+        "color": [
+          255,
+          228,
+          105,
+          255
+        ],
+        "layout": {
+          "radius": 51.36363636363637,
+          "offset": [
+            426.5,
+            887.5
+          ],
+          "centers": [
+            {
+              "cell": [
+                -3,
+                0
+              ],
+              "center": [
+                195.36363636363635,
+                754.0533582350342
+              ]
+            },
+            {
+              "cell": [
+                -3,
+                1
+              ],
+              "center": [
+                195.36363636363635,
+                843.0177860783448
+              ]
+            },
+            {
+              "cell": [
+                -3,
+                2
+              ],
+              "center": [
+                195.36363636363635,
+                931.9822139216552
+              ]
+            },
+            {
+              "cell": [
+                -3,
+                3
+              ],
+              "center": [
+                195.36363636363635,
+                1020.9466417649658
+              ]
+            },
+            {
+              "cell": [
+                -2,
+                -1
+              ],
+              "center": [
+                272.4090909090909,
+                709.5711443133789
+              ]
+            },
+            {
+              "cell": [
+                -2,
+                0
+              ],
+              "center": [
+                272.4090909090909,
+                798.5355721566895
+              ]
+            },
+            {
+              "cell": [
+                -2,
+                1
+              ],
+              "center": [
+                272.4090909090909,
+                887.5
+              ]
+            },
+            {
+              "cell": [
+                -2,
+                2
+              ],
+              "center": [
+                272.4090909090909,
+                976.4644278433105
+              ]
+            },
+            {
+              "cell": [
+                -2,
+                3
+              ],
+              "center": [
+                272.4090909090909,
+                1065.428855686621
+              ]
+            },
+            {
+              "cell": [
+                -1,
+                -2
+              ],
+              "center": [
+                349.45454545454544,
+                665.0889303917237
+              ]
+            },
+            {
+              "cell": [
+                -1,
+                -1
+              ],
+              "center": [
+                349.45454545454544,
+                754.0533582350342
+              ]
+            },
+            {
+              "cell": [
+                -1,
+                0
+              ],
+              "center": [
+                349.45454545454544,
+                843.0177860783448
+              ]
+            },
+            {
+              "cell": [
+                -1,
+                1
+              ],
+              "center": [
+                349.45454545454544,
+                931.9822139216552
+              ]
+            },
+            {
+              "cell": [
+                -1,
+                2
+              ],
+              "center": [
+                349.45454545454544,
+                1020.9466417649658
+              ]
+            },
+            {
+              "cell": [
+                -1,
+                3
+              ],
+              "center": [
+                349.45454545454544,
+                1109.9110696082762
+              ]
+            },
+            {
+              "cell": [
+                0,
+                -3
+              ],
+              "center": [
+                426.5,
+                620.6067164700685
+              ]
+            },
+            {
+              "cell": [
+                0,
+                -2
+              ],
+              "center": [
+                426.5,
+                709.5711443133789
+              ]
+            },
+            {
+              "cell": [
+                0,
+                -1
+              ],
+              "center": [
+                426.5,
+                798.5355721566895
+              ]
+            },
+            {
+              "cell": [
+                0,
+                0
+              ],
+              "center": [
+                426.5,
+                887.5
+              ]
+            },
+            {
+              "cell": [
+                0,
+                1
+              ],
+              "center": [
+                426.5,
+                976.4644278433105
+              ]
+            },
+            {
+              "cell": [
+                0,
+                2
+              ],
+              "center": [
+                426.5,
+                1065.428855686621
+              ]
+            },
+            {
+              "cell": [
+                0,
+                3
+              ],
+              "center": [
+                426.5,
+                1154.3932835299315
+              ]
+            },
+            {
+              "cell": [
+                1,
+                -3
+              ],
+              "center": [
+                503.54545454545456,
+                665.0889303917237
+              ]
+            },
+            {
+              "cell": [
+                1,
+                -2
+              ],
+              "center": [
+                503.54545454545456,
+                754.0533582350342
+              ]
+            },
+            {
+              "cell": [
+                1,
+                -1
+              ],
+              "center": [
+                503.54545454545456,
+                843.0177860783448
+              ]
+            },
+            {
+              "cell": [
+                1,
+                0
+              ],
+              "center": [
+                503.54545454545456,
+                931.9822139216552
+              ]
+            },
+            {
+              "cell": [
+                1,
+                1
+              ],
+              "center": [
+                503.54545454545456,
+                1020.9466417649658
+              ]
+            },
+            {
+              "cell": [
+                1,
+                2
+              ],
+              "center": [
+                503.54545454545456,
+                1109.9110696082762
+              ]
+            },
+            {
+              "cell": [
+                2,
+                -3
+              ],
+              "center": [
+                580.5909090909091,
+                709.5711443133789
+              ]
+            },
+            {
+              "cell": [
+                2,
+                -2
+              ],
+              "center": [
+                580.5909090909091,
+                798.5355721566895
+              ]
+            },
+            {
+              "cell": [
+                2,
+                -1
+              ],
+              "center": [
+                580.5909090909091,
+                887.5
+              ]
+            },
+            {
+              "cell": [
+                2,
+                0
+              ],
+              "center": [
+                580.5909090909091,
+                976.4644278433105
+              ]
+            },
+            {
+              "cell": [
+                2,
+                1
+              ],
+              "center": [
+                580.5909090909091,
+                1065.428855686621
+              ]
+            },
+            {
+              "cell": [
+                3,
+                -3
+              ],
+              "center": [
+                657.6363636363636,
+                754.0533582350342
+              ]
+            },
+            {
+              "cell": [
+                3,
+                -2
+              ],
+              "center": [
+                657.6363636363636,
+                843.0177860783448
+              ]
+            },
+            {
+              "cell": [
+                3,
+                -1
+              ],
+              "center": [
+                657.6363636363636,
+                931.9822139216552
+              ]
+            },
+            {
+              "cell": [
+                3,
+                0
+              ],
+              "center": [
+                657.6363636363636,
+                1020.9466417649658
+              ]
+            }
+          ]
+        }
+      },
+      "procedural_crop": [
+        19,
+        179,
+        593,
+        546
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "最后一格拖影",
+      "z": 68,
+      "position": [
+        616,
+        984
+      ],
+      "size": [
+        84,
+        74
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          84,
+          74
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          84,
+          74
+        ]
+      },
+      "group": "演示拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "demonstration_only": true,
+          "target": [
+            3,
+            0
+          ]
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          615.0045454545455,
+          984.0264042099919,
+          700.2681818181818,
+          1057.8668793199397
+        ],
+        "source_resize": [
+          84,
+          74
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_929d91e1d9ee86f75e5c",
+      "asset": "block_missing_929d91e1d9ee86f75e5c",
+      "file": "PNG/公共UI/arrow_929d91e1d9.png",
+      "name": "补齐最后一格",
+      "z": 69,
+      "position": [
+        618,
+        1035
+      ],
+      "size": [
+        103,
+        150
+      ],
+      "native_size": [
+        427,
+        264
+      ],
+      "render_transform": {
+        "resize": [
+          150,
+          93
+        ],
+        "alpha_crop": [
+          5,
+          5,
+          108,
+          155
+        ],
+        "rotation_degrees": 96.6154102451104
+      },
+      "group": "教学箭头",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_929d91e1d9ee86f75e5c",
+      "metadata": {
+        "native_key": "style_arrow",
+        "fit": "contain",
+        "source_resize": [
+          150,
+          93
+        ],
+        "rotation_degrees": 96.6154102451104,
+        "start": [
+          690,
+          1300
+        ],
+        "end": [
+          657.6363636363636,
+          1020.9466417649658
+        ],
+        "animation_path": true,
+        "proportion_preserved": true
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.006",
+      "name": "三方向说明",
+      "z": 70,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.007",
+      "name": "整线加分",
+      "z": 71,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "我来试试_无字按钮",
+      "z": 72,
+      "position": [
+        170,
+        1562
+      ],
+      "size": [
+        513,
+        118
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          513,
+          118
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          513,
+          118
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          170,
+          1562,
+          683,
+          1680
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "help-try"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.008",
+      "name": "我来试试_文案",
+      "z": 73,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "返回_无字按钮",
+      "z": 74,
+      "position": [
+        270,
+        1720
+      ],
+      "size": [
+        313,
+        97
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          313,
+          97
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          313,
+          97
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          270,
+          1720,
+          583,
+          1817
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "close-modal"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-03.text.009",
+      "name": "返回_文案",
+      "z": 75,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "头像进度等级",
+      "text": "Lv.14",
+      "position": [
+        50,
+        135
+      ],
+      "box": [
+        34,
+        130,
+        150,
+        168
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        37,
+        82,
+        13
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": "profile.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        84,
+        28
+      ],
+      "id": "T40-03.text.000",
+      "layout_box": [
+        34,
+        130,
+        150,
+        168
+      ],
+      "text_id": "T40-03.text.000",
+      "instance_id": "1e9c207fa389:T40-03.text.000",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "profile.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存值",
+      "text": "5",
+      "position": [
+        260,
+        78
+      ],
+      "box": [
+        248,
+        68,
+        296,
+        119
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        24,
+        30
+      ],
+      "id": "T40-03.text.001",
+      "layout_box": [
+        248,
+        68,
+        296,
+        119
+      ],
+      "text_id": "T40-03.text.001",
+      "instance_id": "1e9c207fa389:T40-03.text.001",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存标签",
+      "text": "提示",
+      "position": [
+        314,
+        80
+      ],
+      "box": [
+        296,
+        72,
+        389,
+        116
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "label",
+      "purpose": "label",
+      "binding": null,
+      "raw": "提示",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        58,
+        28
+      ],
+      "id": "T40-03.text.002",
+      "layout_box": [
+        296,
+        72,
+        389,
+        116
+      ],
+      "text_id": "T40-03.text.002",
+      "instance_id": "1e9c207fa389:T40-03.text.002",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "提示",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1e9c207fa389.text.3a7b9e292b57",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜余额",
+      "text": "360",
+      "position": [
+        556,
+        78
+      ],
+      "box": [
+        528,
+        67,
+        651,
+        119
+      ],
+      "font_size": 36.0,
+      "min_font_size": 28.8,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        67,
+        29
+      ],
+      "id": "T40-03.text.003",
+      "layout_box": [
+        528,
+        67,
+        651,
+        119
+      ],
+      "text_id": "T40-03.text.003",
+      "instance_id": "1e9c207fa389:T40-03.text.003",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "满线消除",
+      "position": [
+        320,
+        200
+      ],
+      "box": [
+        255,
+        192,
+        611,
+        267
+      ],
+      "font_size": 55.0,
+      "min_font_size": 44.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        96,
+        52,
+        15
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "满线消除",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 55.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        226,
+        60
+      ],
+      "id": "T40-03.text.004",
+      "layout_box": [
+        255,
+        192,
+        611,
+        267
+      ],
+      "text_id": "T40-03.text.004",
+      "instance_id": "1e9c207fa389:T40-03.text.004",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "满线消除",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1e9c207fa389.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "无尽教学动作",
+      "text": "放入缺口 → 完整一行 → 消除",
+      "position": [
+        216,
+        420
+      ],
+      "box": [
+        85,
+        398,
+        768,
+        475
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "放入缺口 → 完整一行 → 消除",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        422,
+        32
+      ],
+      "id": "T40-03.text.005",
+      "layout_box": [
+        85,
+        398,
+        768,
+        475
+      ],
+      "text_id": "T40-03.text.005",
+      "instance_id": "1e9c207fa389:T40-03.text.005",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "放入缺口 → 完整一行 → 消除",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1e9c207fa389.text.06e9fec317af",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "三方向说明",
+      "text": "任一完整直线，三个方向都算",
+      "position": [
+        238,
+        1310
+      ],
+      "box": [
+        92,
+        1295,
+        761,
+        1355
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "任一完整直线，三个方向都算",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        377,
+        29
+      ],
+      "id": "T40-03.text.006",
+      "layout_box": [
+        92,
+        1295,
+        761,
+        1355
+      ],
+      "text_id": "T40-03.text.006",
+      "instance_id": "1e9c207fa389:T40-03.text.006",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "任一完整直线，三个方向都算",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1e9c207fa389.text.ea2f025bc50e",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "整线加分",
+      "text": "整线消除 +100",
+      "position": [
+        320,
+        1382
+      ],
+      "box": [
+        230,
+        1370,
+        623,
+        1425
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": null,
+      "raw": 100,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        214,
+        31
+      ],
+      "id": "T40-03.text.007",
+      "layout_box": [
+        230,
+        1370,
+        623,
+        1425
+      ],
+      "text_id": "T40-03.text.007",
+      "instance_id": "1e9c207fa389:T40-03.text.007",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "template",
+      "message_template": "整线消除 {score}",
+      "parameters": {
+        "score": 100
+      },
+      "value_binding": {
+        "score": "page.1e9c207fa389.text.c6fe804656ab.score"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "整线消除 +100",
+      "parameter_formats": {
+        "score": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "always",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.1e9c207fa389.text.c6fe804656ab",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "我来试试_文案",
+      "text": "我来试试",
+      "position": [
+        358,
+        1601
+      ],
+      "box": [
+        194,
+        1574,
+        659,
+        1663
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        54,
+        121,
+        42
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "我来试试",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        138,
+        35
+      ],
+      "id": "T40-03.text.008",
+      "layout_box": [
+        194,
+        1574,
+        659,
+        1663
+      ],
+      "text_id": "T40-03.text.008",
+      "instance_id": "1e9c207fa389:T40-03.text.008",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "我来试试",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1e9c207fa389.text.6694a4bc190a",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "返回_文案",
+      "text": "返回",
+      "position": [
+        396,
+        1750
+      ],
+      "box": [
+        294,
+        1732,
+        559,
+        1800
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.056,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        118,
+        81,
+        40
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "返回",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.07,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        31
+      ],
+      "id": "T40-03.text.009",
+      "layout_box": [
+        294,
+        1732,
+        559,
+        1800
+      ],
+      "text_id": "T40-03.text.009",
+      "instance_id": "1e9c207fa389:T40-03.text.009",
+      "page": "T40-03_图示帮助_三轴消除",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "返回",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1e9c207fa389.text.7c10f0888c8c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "endless-help"
+    ],
+    "requirements": "帮助目录和三种玩法分开；拼图整块拖放不旋转；无尽三方向满线；建设点击升级每栋5级。图片／箭头／手指为主，少文字。动画至少定义起点→动作→结果，可用现有素材分层演示，不伪造视频文件。",
+    "actions": [
+      {
+        "layer": "我来试试_无字按钮",
+        "label": "我来试试",
+        "action": "help-try"
+      },
+      {
+        "layer": "返回_无字按钮",
+        "label": "返回",
+        "action": "close-modal"
+      }
+    ],
+    "animation": {
+      "demonstration_only": true,
+      "loop_ms": 2800,
+      "actual_base_occupied": [
+        {
+          "cell": [
+            -3,
+            0
+          ],
+          "color": "#edb758"
+        },
+        {
+          "cell": [
+            -2,
+            0
+          ],
+          "color": "#edb758"
+        },
+        {
+          "cell": [
+            -1,
+            0
+          ],
+          "color": "#edb758"
+        },
+        {
+          "cell": [
+            0,
+            0
+          ],
+          "color": "#edb758"
+        },
+        {
+          "cell": [
+            1,
+            0
+          ],
+          "color": "#edb758"
+        },
+        {
+          "cell": [
+            2,
+            0
+          ],
+          "color": "#edb758"
+        },
+        {
+          "cell": [
+            0,
+            1
+          ],
+          "color": "#d9827b"
+        },
+        {
+          "cell": [
+            1,
+            1
+          ],
+          "color": "#d9827b"
+        }
+      ],
+      "keyframes": [
+        {
+          "at": 0,
+          "state": "gap",
+          "cell": [
+            3,
+            0
+          ]
+        },
+        {
+          "at": 700,
+          "state": "place_single",
+          "cells": [
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "at": 1400,
+          "state": "clear_full_axis",
+          "axis": "r",
+          "value": 0,
+          "cells": [
+            [
+              -3,
+              0
+            ],
+            [
+              -2,
+              0
+            ],
+            [
+              -1,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "line_score": 100,
+          "placement_score": 10
+        },
+        {
+          "at": 2300,
+          "state": "reset_demo_only"
+        }
+      ],
+      "preserve_live_run": true
+    },
+    "production_owner": "block_missing_gameplay.py"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T40-03_图示帮助_三轴消除.png",
+    "composite": "页面对照/PSD合成/缺少/T40-03_图示帮助_三轴消除.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "57e41134da55130ba1d63d47675573d2e40980e894315c467bb174d26518787a",
+    "psd_composite": "页面对照/PSD合成/缺少/T40-03_图示帮助_三轴消除.png",
+    "psd_composite_sha256": "67f5d3b9bb5c7d2a9daeb22332a5c915e7123f4c635fedd106fec066a45fea91",
+    "runtime_preview_max_channel_error": 2,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "57e41134da55130ba1d63d47675573d2e40980e894315c467bb174d26518787a",
+    "psd_sha256": "d488ee911739b39aae928247cfaf616a5846a006dd26f628adffba83e8450897",
+    "composite_sha256": "67f5d3b9bb5c7d2a9daeb22332a5c915e7123f4c635fedd106fec066a45fea91",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T40-03_图示帮助_三轴消除.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

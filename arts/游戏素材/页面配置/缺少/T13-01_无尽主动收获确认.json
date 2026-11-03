@@ -1,0 +1,7563 @@
+{
+  "page": "T13-01_无尽主动收获确认",
+  "output_id": "T13-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "endless-confirm",
+      "title": "主动收获确认",
+      "url": "http://127.0.0.1:4291/index.html#endless-confirm",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\29-endless-confirm.png",
+      "screenshot_sha256": "f648f337c1fc7f2b833c6c732905df32f740bba6b19a40d9977b4f28ea457253"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_无尽模式",
+      "asset": "block_background_无尽模式",
+      "file": "PNG/公共素材/无尽模式_完整裸背景_a757d7cf1a.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_无尽模式",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_无尽模式_头像空白等级",
+      "asset": "block_hud_无尽模式_头像空白等级",
+      "file": "PNG/公共UI/无尽模式_头像空白等级_f72d211f24.png",
+      "name": "原生头像",
+      "z": 1,
+      "position": [
+        22,
+        26
+      ],
+      "size": [
+        140,
+        147
+      ],
+      "native_size": [
+        564,
+        600
+      ],
+      "render_transform": {
+        "resize": [
+          140,
+          149
+        ],
+        "alpha_crop": [
+          0,
+          1,
+          140,
+          148
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_无尽模式_头像空白等级",
+      "metadata": {
+        "target_box": [
+          17,
+          25,
+          168,
+          174
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          564,
+          600
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.000",
+      "name": "头像进度等级",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "透明计数底条",
+      "z": 3,
+      "position": [
+        223,
+        60
+      ],
+      "size": [
+        178,
+        65
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          178,
+          65
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          178,
+          65
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          223,
+          60,
+          401,
+          125
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "透明计数底条",
+      "z": 4,
+      "position": [
+        487,
+        60
+      ],
+      "size": [
+        237,
+        66
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          237,
+          66
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          237,
+          66
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          487,
+          60,
+          724,
+          126
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示库存图标",
+      "z": 5,
+      "position": [
+        181,
+        49
+      ],
+      "size": [
+        69,
+        88
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          69,
+          88
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          69,
+          88
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          181,
+          49,
+          250,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.001",
+      "name": "提示库存值",
+      "z": 6,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.002",
+      "name": "提示库存标签",
+      "z": 7,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "蜂蜜货币",
+      "z": 8,
+      "position": [
+        455,
+        52
+      ],
+      "size": [
+        70,
+        76
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          76
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          72,
+          76
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          453,
+          52,
+          525,
+          128
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.003",
+      "name": "花蜜余额",
+      "z": 9,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_添加按钮",
+      "asset": "block_hud_添加按钮",
+      "file": "PNG/公共UI/添加按钮_6cd07472ae.png",
+      "name": "添加按钮",
+      "z": 10,
+      "position": [
+        656,
+        58
+      ],
+      "size": [
+        69,
+        69
+      ],
+      "native_size": [
+        276,
+        276
+      ],
+      "render_transform": {
+        "resize": [
+          69,
+          69
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          69,
+          69
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_添加按钮",
+      "metadata": {
+        "target_box": [
+          656,
+          58,
+          725,
+          127
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          276,
+          276
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置木质齿轮",
+      "z": 11,
+      "position": [
+        738,
+        45
+      ],
+      "size": [
+        97,
+        97
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          97,
+          97
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          97,
+          97
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          738,
+          45,
+          835,
+          142
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_无尽模式_无尽模式吊牌",
+      "asset": "block_无尽模式_无尽模式吊牌",
+      "file": "PNG/公共UI/无尽模式吊牌_14892b36fd.png",
+      "name": "原生完整吊牌",
+      "z": 12,
+      "position": [
+        206,
+        123
+      ],
+      "size": [
+        442,
+        152
+      ],
+      "native_size": [
+        444,
+        154
+      ],
+      "render_transform": {
+        "resize": [
+          444,
+          154
+        ],
+        "alpha_crop": [
+          1,
+          1,
+          443,
+          153
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_无尽模式_无尽模式吊牌",
+      "metadata": {
+        "target_box": [
+          205,
+          122,
+          649,
+          276
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          444,
+          154
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.004",
+      "name": "无尽标题",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_无尽模式_得分空底板",
+      "asset": "block_无尽模式_得分空底板",
+      "file": "PNG/公共UI/得分空底板_4e332b69c8.png",
+      "name": "原生木框玻璃计分板",
+      "z": 14,
+      "position": [
+        233,
+        284
+      ],
+      "size": [
+        388,
+        272
+      ],
+      "native_size": [
+        390,
+        274
+      ],
+      "render_transform": {
+        "resize": [
+          390,
+          274
+        ],
+        "alpha_crop": [
+          1,
+          1,
+          389,
+          273
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_无尽模式_得分空底板",
+      "metadata": {
+        "target_box": [
+          232,
+          283,
+          622,
+          557
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          390,
+          274
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.005",
+      "name": "当前得分标签",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.006",
+      "name": "本局得分",
+      "z": 16,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.007",
+      "name": "最高记录标签",
+      "z": 17,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.008",
+      "name": "最高记录值",
+      "z": 18,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_无尽模式_欢呼蜜蜂",
+      "asset": "block_无尽模式_欢呼蜜蜂",
+      "file": "PNG/公共素材/欢呼蜜蜂_2ff5637cbd.png",
+      "name": "原生陪伴蜜蜂",
+      "z": 19,
+      "position": [
+        6,
+        250
+      ],
+      "size": [
+        209,
+        237
+      ],
+      "native_size": [
+        211,
+        239
+      ],
+      "render_transform": {
+        "resize": [
+          211,
+          239
+        ],
+        "alpha_crop": [
+          1,
+          1,
+          210,
+          238
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_无尽模式_欢呼蜜蜂",
+      "metadata": {
+        "target_box": [
+          5,
+          249,
+          216,
+          488
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          211,
+          239
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_无尽模式_排行榜按钮",
+      "asset": "block_无尽模式_排行榜按钮",
+      "file": "PNG/公共UI/排行榜按钮_7d12fecdcc.png",
+      "name": "排行榜按钮",
+      "z": 20,
+      "position": [
+        697,
+        284
+      ],
+      "size": [
+        114,
+        116
+      ],
+      "native_size": [
+        116,
+        124
+      ],
+      "render_transform": {
+        "resize": [
+          116,
+          124
+        ],
+        "alpha_crop": [
+          1,
+          1,
+          115,
+          117
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_无尽模式_排行榜按钮",
+      "metadata": {
+        "target_box": [
+          696,
+          283,
+          812,
+          407
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          116,
+          124
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.009",
+      "name": "本机纪录",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_无尽模式_每日奖励按钮",
+      "asset": "block_无尽模式_每日奖励按钮",
+      "file": "PNG/公共UI/每日奖励按钮_3f3d78982c.png",
+      "name": "每日奖励按钮",
+      "z": 22,
+      "position": [
+        694,
+        427
+      ],
+      "size": [
+        122,
+        119
+      ],
+      "native_size": [
+        133,
+        127
+      ],
+      "render_transform": {
+        "resize": [
+          133,
+          127
+        ],
+        "alpha_crop": [
+          5,
+          1,
+          127,
+          120
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_无尽模式_每日奖励按钮",
+      "metadata": {
+        "target_box": [
+          689,
+          426,
+          822,
+          553
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          133,
+          127
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.010",
+      "name": "每日奖励",
+      "z": 23,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "procedural",
+      "name": "37格无尽棋盘_木框投影",
+      "z": 24,
+      "position": [
+        90,
+        565
+      ],
+      "size": [
+        673,
+        745
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "role": "shadow",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "shadow",
+        "cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "bbox": [
+          75,
+          565,
+          703,
+          745
+        ],
+        "flip_y": false,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {},
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        15,
+        0,
+        688,
+        745
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "procedural",
+      "name": "37格无尽棋盘_原生木纹底",
+      "z": 25,
+      "position": [
+        111,
+        589
+      ],
+      "size": [
+        631,
+        698
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "role": "floor",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "floor",
+        "cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "bbox": [
+          75,
+          565,
+          703,
+          745
+        ],
+        "flip_y": false,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {
+          "hex_wood_floor": "block_reuse_4832b910bd651938e53d"
+        },
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        36,
+        24,
+        667,
+        722
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "procedural",
+      "name": "37格无尽棋盘_异形倒角木边",
+      "z": 26,
+      "position": [
+        90,
+        569
+      ],
+      "size": [
+        673,
+        737
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "role": "rim",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "rim",
+        "cells": [
+          [
+            -3,
+            0
+          ],
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "bbox": [
+          75,
+          565,
+          703,
+          745
+        ],
+        "flip_y": false,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {
+          "hex_wood_floor": "block_reuse_4832b910bd651938e53d",
+          "hex_rail_profile": "block_reuse_7a2b1f797be2dce0dd8a"
+        },
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        15,
+        4,
+        688,
+        741
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-3_0",
+      "z": 27,
+      "position": [
+        111,
+        739
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -3,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-3_1",
+      "z": 28,
+      "position": [
+        111,
+        839
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -3,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-3_2",
+      "z": 29,
+      "position": [
+        111,
+        938
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -3,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-3_3",
+      "z": 30,
+      "position": [
+        111,
+        1038
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -3,
+          3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-2_-1",
+      "z": 31,
+      "position": [
+        198,
+        689
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-2_0",
+      "z": 32,
+      "position": [
+        198,
+        789
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-2_1",
+      "z": 33,
+      "position": [
+        198,
+        889
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-2_2",
+      "z": 34,
+      "position": [
+        198,
+        988
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-2_3",
+      "z": 35,
+      "position": [
+        198,
+        1088
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -2,
+          3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-1_-2",
+      "z": 36,
+      "position": [
+        284,
+        640
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-1_-1",
+      "z": 37,
+      "position": [
+        284,
+        739
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-1_0",
+      "z": 38,
+      "position": [
+        284,
+        839
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-1_1",
+      "z": 39,
+      "position": [
+        284,
+        938
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-1_2",
+      "z": 40,
+      "position": [
+        284,
+        1038
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_-1_3",
+      "z": 41,
+      "position": [
+        284,
+        1138
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          -1,
+          3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_0_-3",
+      "z": 42,
+      "position": [
+        370,
+        590
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          -3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_0_-2",
+      "z": 43,
+      "position": [
+        370,
+        689
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_0_-1",
+      "z": 44,
+      "position": [
+        370,
+        789
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_0_0",
+      "z": 45,
+      "position": [
+        370,
+        889
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_0_1",
+      "z": 46,
+      "position": [
+        370,
+        988
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_0_2",
+      "z": 47,
+      "position": [
+        370,
+        1088
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_0_3",
+      "z": 48,
+      "position": [
+        370,
+        1187
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          0,
+          3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_1_-3",
+      "z": 49,
+      "position": [
+        456,
+        640
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          -3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_1_-2",
+      "z": 50,
+      "position": [
+        456,
+        739
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_1_-1",
+      "z": 51,
+      "position": [
+        456,
+        839
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_1_0",
+      "z": 52,
+      "position": [
+        456,
+        938
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_1_1",
+      "z": 53,
+      "position": [
+        456,
+        1038
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_1_2",
+      "z": 54,
+      "position": [
+        456,
+        1138
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          1,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_2_-3",
+      "z": 55,
+      "position": [
+        543,
+        689
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          -3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_2_-2",
+      "z": 56,
+      "position": [
+        543,
+        789
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_2_-1",
+      "z": 57,
+      "position": [
+        543,
+        889
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_2_0",
+      "z": 58,
+      "position": [
+        543,
+        988
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_2_1",
+      "z": 59,
+      "position": [
+        543,
+        1088
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_3_-3",
+      "z": 60,
+      "position": [
+        629,
+        739
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          -3
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_3_-2",
+      "z": 61,
+      "position": [
+        629,
+        839
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_3_-1",
+      "z": 62,
+      "position": [
+        629,
+        938
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "37格无尽棋盘_凹槽_3_0",
+      "z": 63,
+      "position": [
+        629,
+        1038
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "37格无尽棋盘"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "37格无尽棋盘_落地_-3_0",
+      "z": 64,
+      "position": [
+        114,
+        740
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          96
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          96
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            -3,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          112.61775265236805,
+          740.3485714285714,
+          222.99392754384303,
+          835.9371428571428
+        ],
+        "source_resize": [
+          107,
+          96
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "37格无尽棋盘_落地_-2_0",
+      "z": 65,
+      "position": [
+        201,
+        790
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          96
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          96
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            -2,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          198.8491392863329,
+          790.1342857142857,
+          309.22531417780783,
+          885.7228571428572
+        ],
+        "source_resize": [
+          107,
+          96
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "37格无尽棋盘_落地_-1_0",
+      "z": 66,
+      "position": [
+        287,
+        840
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          96
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          96
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            -1,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          285.0805259202977,
+          839.92,
+          395.45670081177263,
+          935.5085714285714
+        ],
+        "source_resize": [
+          107,
+          96
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "37格无尽棋盘_落地_0_0",
+      "z": 67,
+      "position": [
+        373,
+        890
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          96
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          96
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            0,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          371.3119125542625,
+          889.7057142857143,
+          481.68808744573744,
+          985.2942857142857
+        ],
+        "source_resize": [
+          107,
+          96
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "37格无尽棋盘_落地_1_0",
+      "z": 68,
+      "position": [
+        459,
+        939
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          96
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          96
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            1,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          457.5432991882273,
+          939.4914285714286,
+          567.9194740797022,
+          1035.0800000000002
+        ],
+        "source_resize": [
+          107,
+          96
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cd2496862976cae1f5d7",
+      "asset": "block_missing_cd2496862976cae1f5d7",
+      "file": "PNG/公共素材/金色落地母件_cd24968629.png",
+      "name": "37格无尽棋盘_落地_2_0",
+      "z": 69,
+      "position": [
+        545,
+        989
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "native_size": [
+        1195,
+        1068
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          96
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          96
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cd2496862976cae1f5d7",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            2,
+            0
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_gold_flower",
+        "fit": "contain",
+        "target_box": [
+          543.7746858221922,
+          989.277142857143,
+          654.1508607136672,
+          1084.8657142857144
+        ],
+        "source_resize": [
+          107,
+          96
+        ],
+        "native_size": [
+          1195,
+          1068
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_0a5de39746dd49452b93",
+      "asset": "block_missing_0a5de39746dd49452b93",
+      "file": "PNG/公共素材/粉色落地母件_0a5de39746.png",
+      "name": "37格无尽棋盘_落地_0_1",
+      "z": 70,
+      "position": [
+        373,
+        989
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "native_size": [
+        1138,
+        1014
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          96
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          96
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_0a5de39746dd49452b93",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            0,
+            1
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_pink_flower",
+        "fit": "contain",
+        "target_box": [
+          371.3119125542625,
+          989.277142857143,
+          481.68808744573744,
+          1084.8657142857144
+        ],
+        "source_resize": [
+          107,
+          96
+        ],
+        "native_size": [
+          1138,
+          1014
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_0a5de39746dd49452b93",
+      "asset": "block_missing_0a5de39746dd49452b93",
+      "file": "PNG/公共素材/粉色落地母件_0a5de39746.png",
+      "name": "37格无尽棋盘_落地_1_1",
+      "z": 71,
+      "position": [
+        459,
+        1039
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "native_size": [
+        1138,
+        1014
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          96
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          96
+        ]
+      },
+      "group": "已放拼块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_0a5de39746dd49452b93",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "axial": [
+            1,
+            1
+          ],
+          "filled": true
+        },
+        "tile_key": "block_native_hex_pink_flower",
+        "fit": "contain",
+        "target_box": [
+          457.5432991882273,
+          1039.0628571428572,
+          567.9194740797022,
+          1134.6514285714286
+        ],
+        "source_resize": [
+          107,
+          96
+        ],
+        "native_size": [
+          1138,
+          1014
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_空待放托盘",
+      "asset": "block_玩法_空待放托盘",
+      "file": "PNG/公共UI/空待放托盘_c9e3361e7c.png",
+      "name": "无尽三候选_无字木托盘",
+      "z": 72,
+      "position": [
+        26,
+        1321
+      ],
+      "size": [
+        802,
+        277
+      ],
+      "native_size": [
+        820,
+        317
+      ],
+      "render_transform": {
+        "resize": [
+          802,
+          280
+        ],
+        "nine_slice": {
+          "insets": [
+            43,
+            49,
+            43,
+            49
+          ]
+        },
+        "alpha_crop": [
+          0,
+          1,
+          802,
+          278
+        ]
+      },
+      "group": "托盘结构",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_空待放托盘",
+      "metadata": {
+        "target_box": [
+          26,
+          1320,
+          828,
+          1600
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          43,
+          49,
+          43,
+          49
+        ],
+        "native_size": [
+          820,
+          317
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "无尽三候选_拼块0_格0",
+      "z": 73,
+      "position": [
+        114,
+        1411
+      ],
+      "size": [
+        112,
+        98
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          112,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          112,
+          98
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 0,
+          "local_axial": [
+            0,
+            0
+          ],
+          "slot": [
+            41.0,
+            1335.0,
+            257.3333333333333,
+            250.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          113.36346841529435,
+          1411.24,
+          225.96986491803898,
+          1508.76
+        ],
+        "source_resize": [
+          112,
+          98
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "无尽三候选_拼块1_格0",
+      "z": 74,
+      "position": [
+        371,
+        1411
+      ],
+      "size": [
+        112,
+        98
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          112,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          112,
+          98
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 1,
+          "local_axial": [
+            0,
+            0
+          ],
+          "slot": [
+            298.3333333333333,
+            1335.0,
+            257.3333333333333,
+            250.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          370.69680174862765,
+          1411.24,
+          483.30319825137224,
+          1508.76
+        ],
+        "source_resize": [
+          112,
+          98
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_7bc37883240da2ad3da0",
+      "asset": "block_missing_7bc37883240da2ad3da0",
+      "file": "PNG/公共素材/绿色无花母件_7bc3788324.png",
+      "name": "无尽三候选_拼块2_格0",
+      "z": 75,
+      "position": [
+        589,
+        1434
+      ],
+      "size": [
+        110,
+        98
+      ],
+      "native_size": [
+        1180,
+        1042
+      ],
+      "render_transform": {
+        "resize": [
+          110,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          110,
+          98
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_7bc37883240da2ad3da0",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 2,
+          "local_axial": [
+            0,
+            0
+          ],
+          "slot": [
+            555.6666666666666,
+            1335.0,
+            257.3333333333333,
+            250.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_green_plain",
+        "fit": "contain",
+        "target_box": [
+          588.1929665078768,
+          1434.24,
+          700.7993630106214,
+          1531.76
+        ],
+        "source_resize": [
+          110,
+          98
+        ],
+        "native_size": [
+          1180,
+          1042
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_7bc37883240da2ad3da0",
+      "asset": "block_missing_7bc37883240da2ad3da0",
+      "file": "PNG/公共素材/绿色无花母件_7bc3788324.png",
+      "name": "无尽三候选_拼块2_格1",
+      "z": 76,
+      "position": [
+        669,
+        1388
+      ],
+      "size": [
+        110,
+        98
+      ],
+      "native_size": [
+        1180,
+        1042
+      ],
+      "render_transform": {
+        "resize": [
+          110,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          110,
+          98
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_7bc37883240da2ad3da0",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 2,
+          "local_axial": [
+            1,
+            0
+          ],
+          "slot": [
+            555.6666666666666,
+            1335.0,
+            257.3333333333333,
+            250.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_green_plain",
+        "fit": "contain",
+        "target_box": [
+          667.8673036560451,
+          1388.24,
+          780.4737001587897,
+          1485.76
+        ],
+        "source_resize": [
+          110,
+          98
+        ],
+        "native_size": [
+          1180,
+          1042
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_7bc37883240da2ad3da0",
+      "asset": "block_missing_7bc37883240da2ad3da0",
+      "file": "PNG/公共素材/绿色无花母件_7bc3788324.png",
+      "name": "无尽三候选_拼块2_格2",
+      "z": 77,
+      "position": [
+        589,
+        1342
+      ],
+      "size": [
+        110,
+        98
+      ],
+      "native_size": [
+        1180,
+        1042
+      ],
+      "render_transform": {
+        "resize": [
+          110,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          110,
+          98
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_7bc37883240da2ad3da0",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 2,
+          "local_axial": [
+            0,
+            1
+          ],
+          "slot": [
+            555.6666666666666,
+            1335.0,
+            257.3333333333333,
+            250.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_green_plain",
+        "fit": "contain",
+        "target_box": [
+          588.1929665078768,
+          1342.24,
+          700.7993630106214,
+          1439.76
+        ],
+        "source_resize": [
+          110,
+          98
+        ],
+        "native_size": [
+          1180,
+          1042
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_7bc37883240da2ad3da0",
+      "asset": "block_missing_7bc37883240da2ad3da0",
+      "file": "PNG/公共素材/绿色无花母件_7bc3788324.png",
+      "name": "无尽三候选_拼块2_格3",
+      "z": 78,
+      "position": [
+        669,
+        1480
+      ],
+      "size": [
+        110,
+        98
+      ],
+      "native_size": [
+        1180,
+        1042
+      ],
+      "render_transform": {
+        "resize": [
+          110,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          110,
+          98
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_7bc37883240da2ad3da0",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 2,
+          "local_axial": [
+            1,
+            -1
+          ],
+          "slot": [
+            555.6666666666666,
+            1335.0,
+            257.3333333333333,
+            250.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_green_plain",
+        "fit": "contain",
+        "target_box": [
+          667.8673036560451,
+          1480.24,
+          780.4737001587897,
+          1577.76
+        ],
+        "source_resize": [
+          110,
+          98
+        ],
+        "native_size": [
+          1180,
+          1042
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_无尽模式_玩法提示条",
+      "asset": "block_无尽模式_玩法提示条",
+      "file": "PNG/公共UI/玩法提示条_5183e546c4.png",
+      "name": "原生玩法提示木条",
+      "z": 79,
+      "position": [
+        118,
+        1604
+      ],
+      "size": [
+        618,
+        84
+      ],
+      "native_size": [
+        618,
+        84
+      ],
+      "render_transform": {
+        "resize": [
+          618,
+          84
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          618,
+          84
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_无尽模式_玩法提示条",
+      "metadata": {
+        "target_box": [
+          118,
+          1604,
+          736,
+          1688
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          618,
+          84
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.011",
+      "name": "无尽规则",
+      "z": 80,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "玩法帮助_无字按钮",
+      "z": 81,
+      "position": [
+        42,
+        1700
+      ],
+      "size": [
+        355,
+        110
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          355,
+          110
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          355,
+          110
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          42,
+          1700,
+          397,
+          1810
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "endless-help"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.012",
+      "name": "玩法帮助_文案",
+      "z": 82,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "收获花蜜_无字按钮",
+      "z": 83,
+      "position": [
+        456,
+        1700
+      ],
+      "size": [
+        355,
+        110
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          355,
+          110
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          355,
+          110
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          456,
+          1700,
+          811,
+          1810
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "end-endless"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.013",
+      "name": "收获花蜜_文案",
+      "z": 84,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_897c21448122ba205823",
+      "asset": "block_missing_897c21448122ba205823",
+      "file": "PNG/公共UI/局内独立遮罩_897c214481.png",
+      "name": "局内独立遮罩",
+      "z": 85,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "弹窗遮罩",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_897c21448122ba205823",
+      "metadata": {
+        "opacity_parameter": "overlay.dim_alpha",
+        "semantic": "noninteractive_overlay"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_空白主面板",
+      "asset": "block_结算_空白主面板",
+      "file": "PNG/公共UI/空白主面板_70248b0641.png",
+      "name": "原生厚木边弹窗",
+      "z": 86,
+      "position": [
+        84,
+        471
+      ],
+      "size": [
+        684,
+        970
+      ],
+      "native_size": [
+        684,
+        883
+      ],
+      "render_transform": {
+        "resize": [
+          684,
+          983
+        ],
+        "nine_slice": {
+          "insets": [
+            85,
+            85,
+            85,
+            85
+          ]
+        },
+        "alpha_crop": [
+          0,
+          6,
+          684,
+          976
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_空白主面板",
+      "metadata": {
+        "target_box": [
+          84,
+          465,
+          768,
+          1448
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          85,
+          85,
+          85,
+          85
+        ],
+        "native_size": [
+          684,
+          883
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_标题左花叶",
+      "asset": "block_结算_标题左花叶",
+      "file": "PNG/公共素材/标题左花叶_1c5d02ba2e.png",
+      "name": "弹窗左花叶",
+      "z": 87,
+      "position": [
+        65,
+        365
+      ],
+      "size": [
+        152,
+        185
+      ],
+      "native_size": [
+        202,
+        246
+      ],
+      "render_transform": {
+        "resize": [
+          152,
+          185
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          152,
+          185
+        ]
+      },
+      "group": "装饰",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_标题左花叶",
+      "metadata": {
+        "target_box": [
+          65,
+          365,
+          217,
+          550
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          202,
+          246
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_标题右花叶",
+      "asset": "block_结算_标题右花叶",
+      "file": "PNG/公共素材/标题右花叶_7f7825fa96.png",
+      "name": "弹窗右花叶",
+      "z": 88,
+      "position": [
+        636,
+        365
+      ],
+      "size": [
+        152,
+        185
+      ],
+      "native_size": [
+        202,
+        246
+      ],
+      "render_transform": {
+        "resize": [
+          152,
+          185
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          152,
+          185
+        ]
+      },
+      "group": "装饰",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_标题右花叶",
+      "metadata": {
+        "target_box": [
+          636,
+          365,
+          788,
+          550
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          202,
+          246
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_关卡木牌",
+      "asset": "block_玩法_关卡木牌",
+      "file": "PNG/公共UI/关卡木牌_8cff2f5f7f.png",
+      "name": "原生弹窗木牌",
+      "z": 89,
+      "position": [
+        185,
+        396
+      ],
+      "size": [
+        485,
+        114
+      ],
+      "native_size": [
+        487,
+        116
+      ],
+      "render_transform": {
+        "resize": [
+          487,
+          116
+        ],
+        "alpha_crop": [
+          1,
+          1,
+          486,
+          115
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_关卡木牌",
+      "metadata": {
+        "target_box": [
+          184,
+          395,
+          671,
+          511
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          487,
+          116
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.014",
+      "name": "弹窗标题",
+      "z": 90,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.015",
+      "name": "弹窗说明",
+      "z": 91,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_奖励空白底板",
+      "asset": "block_结算_奖励空白底板",
+      "file": "PNG/公共UI/奖励空白底板_622cd90313.png",
+      "name": "原生奖励卡",
+      "z": 92,
+      "position": [
+        175,
+        691
+      ],
+      "size": [
+        503,
+        270
+      ],
+      "native_size": [
+        503,
+        270
+      ],
+      "render_transform": {
+        "resize": [
+          503,
+          270
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          503,
+          270
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_奖励空白底板",
+      "metadata": {
+        "target_box": [
+          175,
+          691,
+          678,
+          961
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          503,
+          270
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_目标蜂蜜",
+      "asset": "block_玩法_目标蜂蜜",
+      "file": "PNG/公共UI/目标蜂蜜_ebeab897f7.png",
+      "name": "实际收益图标",
+      "z": 93,
+      "position": [
+        372,
+        719
+      ],
+      "size": [
+        106,
+        115
+      ],
+      "native_size": [
+        76,
+        78
+      ],
+      "render_transform": {
+        "resize": [
+          112,
+          115
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          108,
+          115
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_目标蜂蜜",
+      "metadata": {
+        "target_box": [
+          370,
+          719,
+          483,
+          834
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          76,
+          78
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.016",
+      "name": "弹窗实际数值",
+      "z": 94,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.017",
+      "name": "弹窗数值说明",
+      "z": 95,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "继续这一局_无字按钮",
+      "z": 96,
+      "position": [
+        179,
+        1053
+      ],
+      "size": [
+        496,
+        125
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          130
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          128
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1050,
+          675,
+          1180
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "resume"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.018",
+      "name": "继续这一局_文案",
+      "z": 97,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "收获并结束_无字按钮",
+      "z": 98,
+      "position": [
+        179,
+        1191
+      ],
+      "size": [
+        496,
+        127
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          130
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          1,
+          496,
+          128
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1190,
+          675,
+          1320
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "settle-endless"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T13-01.text.019",
+      "name": "收获并结束_文案",
+      "z": 99,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "头像进度等级",
+      "text": "Lv.14",
+      "position": [
+        50,
+        135
+      ],
+      "box": [
+        34,
+        130,
+        150,
+        168
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        37,
+        82,
+        13
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": "profile.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        84,
+        28
+      ],
+      "id": "T13-01.text.000",
+      "layout_box": [
+        34,
+        130,
+        150,
+        168
+      ],
+      "text_id": "T13-01.text.000",
+      "instance_id": "51ad87ae47a3:T13-01.text.000",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "profile.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存值",
+      "text": "5",
+      "position": [
+        260,
+        78
+      ],
+      "box": [
+        248,
+        68,
+        296,
+        119
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        24,
+        30
+      ],
+      "id": "T13-01.text.001",
+      "layout_box": [
+        248,
+        68,
+        296,
+        119
+      ],
+      "text_id": "T13-01.text.001",
+      "instance_id": "51ad87ae47a3:T13-01.text.001",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存标签",
+      "text": "提示",
+      "position": [
+        314,
+        80
+      ],
+      "box": [
+        296,
+        72,
+        389,
+        116
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "label",
+      "purpose": "label",
+      "binding": null,
+      "raw": "提示",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        58,
+        28
+      ],
+      "id": "T13-01.text.002",
+      "layout_box": [
+        296,
+        72,
+        389,
+        116
+      ],
+      "text_id": "T13-01.text.002",
+      "instance_id": "51ad87ae47a3:T13-01.text.002",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "提示",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.3a7b9e292b57",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜余额",
+      "text": "360",
+      "position": [
+        556,
+        78
+      ],
+      "box": [
+        528,
+        67,
+        651,
+        119
+      ],
+      "font_size": 36.0,
+      "min_font_size": 28.8,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        67,
+        29
+      ],
+      "id": "T13-01.text.003",
+      "layout_box": [
+        528,
+        67,
+        651,
+        119
+      ],
+      "text_id": "T13-01.text.003",
+      "instance_id": "51ad87ae47a3:T13-01.text.003",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "无尽标题",
+      "text": "无尽模式",
+      "position": [
+        330,
+        200
+      ],
+      "box": [
+        284,
+        196,
+        578,
+        259
+      ],
+      "font_size": 49.0,
+      "min_font_size": 39.2,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        96,
+        52,
+        15
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "无尽模式",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 49.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        202,
+        54
+      ],
+      "id": "T13-01.text.004",
+      "layout_box": [
+        284,
+        196,
+        578,
+        259
+      ],
+      "text_id": "T13-01.text.004",
+      "instance_id": "51ad87ae47a3:T13-01.text.004",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "无尽模式",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.8f2ae07b8aab",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "当前得分标签",
+      "text": "当前得分",
+      "position": [
+        364,
+        313
+      ],
+      "box": [
+        303,
+        309,
+        550,
+        350
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        96,
+        52,
+        15
+      ],
+      "fit": true,
+      "role": "label",
+      "purpose": "label",
+      "binding": null,
+      "raw": "当前得分",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        124,
+        33
+      ],
+      "id": "T13-01.text.005",
+      "layout_box": [
+        303,
+        309,
+        550,
+        350
+      ],
+      "text_id": "T13-01.text.005",
+      "instance_id": "51ad87ae47a3:T13-01.text.005",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "当前得分",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.404a10ae22f5",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "本局得分",
+      "text": "1800",
+      "position": [
+        345,
+        360
+      ],
+      "box": [
+        280,
+        347,
+        574,
+        429
+      ],
+      "font_size": 65.0,
+      "min_font_size": 52.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        216,
+        92
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        129,
+        64,
+        20
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "run.score",
+      "raw": 1800,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 65.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        164,
+        55
+      ],
+      "id": "T13-01.text.006",
+      "layout_box": [
+        280,
+        347,
+        574,
+        429
+      ],
+      "text_id": "T13-01.text.006",
+      "instance_id": "51ad87ae47a3:T13-01.text.006",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "number",
+      "raw_value": 1800,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "run.score",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "1800",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "最高记录标签",
+      "text": "本机最高",
+      "position": [
+        368,
+        456
+      ],
+      "box": [
+        303,
+        452,
+        550,
+        489
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "label",
+      "purpose": "label",
+      "binding": null,
+      "raw": "本机最高",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        116,
+        29
+      ],
+      "id": "T13-01.text.007",
+      "layout_box": [
+        303,
+        452,
+        550,
+        489
+      ],
+      "text_id": "T13-01.text.007",
+      "instance_id": "51ad87ae47a3:T13-01.text.007",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "本机最高",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.58a97b0ee6eb",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "最高记录值",
+      "text": "2800",
+      "position": [
+        378,
+        496
+      ],
+      "box": [
+        280,
+        490,
+        574,
+        535
+      ],
+      "font_size": 40.0,
+      "min_font_size": 32.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "record",
+      "purpose": "record",
+      "binding": "profile.endless_best",
+      "raw": 2800,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 40.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        99,
+        32
+      ],
+      "id": "T13-01.text.008",
+      "layout_box": [
+        280,
+        490,
+        574,
+        535
+      ],
+      "text_id": "T13-01.text.008",
+      "instance_id": "51ad87ae47a3:T13-01.text.008",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "number",
+      "raw_value": 2800,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "profile.endless_best",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2800",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "本机纪录",
+      "text": "本机纪录",
+      "position": [
+        695,
+        376
+      ],
+      "box": [
+        670,
+        369,
+        840,
+        416
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        96,
+        52,
+        15
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "本机纪录",
+      "action": "achievements",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        120,
+        33
+      ],
+      "id": "T13-01.text.009",
+      "layout_box": [
+        670,
+        369,
+        840,
+        416
+      ],
+      "text_id": "T13-01.text.009",
+      "instance_id": "51ad87ae47a3:T13-01.text.009",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "本机纪录",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.3c89dfe659c2",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "每日奖励",
+      "text": "每日奖励",
+      "position": [
+        695,
+        519
+      ],
+      "box": [
+        670,
+        512,
+        840,
+        559
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        96,
+        52,
+        15
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "每日奖励",
+      "action": "daily-reward",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        120,
+        33
+      ],
+      "id": "T13-01.text.010",
+      "layout_box": [
+        670,
+        512,
+        840,
+        559
+      ],
+      "text_id": "T13-01.text.010",
+      "instance_id": "51ad87ae47a3:T13-01.text.010",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "每日奖励",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.a3d996c59209",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "无尽规则",
+      "text": "任意完整直线填满即可消除",
+      "position": [
+        260,
+        1632
+      ],
+      "box": [
+        145,
+        1621,
+        710,
+        1671
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "任意完整直线填满即可消除",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        336,
+        28
+      ],
+      "id": "T13-01.text.011",
+      "layout_box": [
+        145,
+        1621,
+        710,
+        1671
+      ],
+      "text_id": "T13-01.text.011",
+      "instance_id": "51ad87ae47a3:T13-01.text.011",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "任意完整直线填满即可消除",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.bb8467ee62ce",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "玩法帮助_文案",
+      "text": "玩法帮助",
+      "position": [
+        150,
+        1734
+      ],
+      "box": [
+        66,
+        1712,
+        373,
+        1793
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        118,
+        81,
+        40
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "玩法帮助",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        138,
+        36
+      ],
+      "id": "T13-01.text.012",
+      "layout_box": [
+        66,
+        1712,
+        373,
+        1793
+      ],
+      "text_id": "T13-01.text.012",
+      "instance_id": "51ad87ae47a3:T13-01.text.012",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "玩法帮助",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.2071ebcb6a07",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "收获花蜜_文案",
+      "text": "收获花蜜",
+      "position": [
+        564,
+        1734
+      ],
+      "box": [
+        480,
+        1712,
+        787,
+        1793
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        54,
+        121,
+        42
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "收获花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        138,
+        36
+      ],
+      "id": "T13-01.text.013",
+      "layout_box": [
+        480,
+        1712,
+        787,
+        1793
+      ],
+      "text_id": "T13-01.text.013",
+      "instance_id": "51ad87ae47a3:T13-01.text.013",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "收获花蜜",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.c565f7da56bc",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "弹窗标题",
+      "text": "现在收获？",
+      "position": [
+        315,
+        427
+      ],
+      "box": [
+        230,
+        414,
+        624,
+        487
+      ],
+      "font_size": 44.0,
+      "min_font_size": 35.2,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        96,
+        52,
+        15
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "现在收获？",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 44.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        224,
+        47
+      ],
+      "id": "T13-01.text.014",
+      "layout_box": [
+        230,
+        414,
+        624,
+        487
+      ],
+      "text_id": "T13-01.text.014",
+      "instance_id": "51ad87ae47a3:T13-01.text.014",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "现在收获？",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.065c8903bb20",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "弹窗说明",
+      "text": "继续玩，或收下本局花蜜",
+      "position": [
+        262,
+        592
+      ],
+      "box": [
+        128,
+        553,
+        725,
+        662
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "继续玩，或收下本局花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        330,
+        30
+      ],
+      "id": "T13-01.text.015",
+      "layout_box": [
+        128,
+        553,
+        725,
+        662
+      ],
+      "text_id": "T13-01.text.015",
+      "instance_id": "51ad87ae47a3:T13-01.text.015",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "继续玩，或收下本局花蜜",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.c443ef8ffa25",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "弹窗实际数值",
+      "text": "90",
+      "position": [
+        390,
+        846
+      ],
+      "box": [
+        240,
+        833,
+        613,
+        906
+      ],
+      "font_size": 60.0,
+      "min_font_size": 48.0,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": null,
+      "raw": 90,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 60.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        74,
+        47
+      ],
+      "id": "T13-01.text.016",
+      "layout_box": [
+        240,
+        833,
+        613,
+        906
+      ],
+      "text_id": "T13-01.text.016",
+      "instance_id": "51ad87ae47a3:T13-01.text.016",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "number",
+      "raw_value": 90,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "page.51ad87ae47a3.text.677107b83c63",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "90",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "弹窗数值说明",
+      "text": "本局可收花蜜",
+      "position": [
+        346,
+        916
+      ],
+      "box": [
+        220,
+        909,
+        633,
+        950
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "label",
+      "purpose": "label",
+      "binding": null,
+      "raw": "本局可收花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        162,
+        27
+      ],
+      "id": "T13-01.text.017",
+      "layout_box": [
+        220,
+        909,
+        633,
+        950
+      ],
+      "text_id": "T13-01.text.017",
+      "instance_id": "51ad87ae47a3:T13-01.text.017",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "本局可收花蜜",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.8b01bc0e5386",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "继续这一局_文案",
+      "text": "继续这一局",
+      "position": [
+        341,
+        1094
+      ],
+      "box": [
+        203,
+        1062,
+        651,
+        1163
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        54,
+        121,
+        42
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "继续这一局",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        172,
+        36
+      ],
+      "id": "T13-01.text.018",
+      "layout_box": [
+        203,
+        1062,
+        651,
+        1163
+      ],
+      "text_id": "T13-01.text.018",
+      "instance_id": "51ad87ae47a3:T13-01.text.018",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "继续这一局",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.ee92c5c44254",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "收获并结束_文案",
+      "text": "收获并结束",
+      "position": [
+        341,
+        1234
+      ],
+      "box": [
+        203,
+        1202,
+        651,
+        1303
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        118,
+        81,
+        40
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "收获并结束",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        172,
+        36
+      ],
+      "id": "T13-01.text.019",
+      "layout_box": [
+        203,
+        1202,
+        651,
+        1303
+      ],
+      "text_id": "T13-01.text.019",
+      "instance_id": "51ad87ae47a3:T13-01.text.019",
+      "page": "T13-01_无尽主动收获确认",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "收获并结束",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.51ad87ae47a3.text.e4b2f63c5678",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "endless-confirm"
+    ],
+    "requirements": "继续玩／收获结束清楚；显示当前可得花蜜，不误画为强制失败。",
+    "trays": [
+      {
+        "name": "无尽三候选",
+        "columns": 3,
+        "rows": 1,
+        "bbox": [
+          26,
+          1320,
+          802,
+          280
+        ],
+        "radius": 53.11622476544557,
+        "slots": [
+          {
+            "id": 0,
+            "bbox": [
+              41.0,
+              1335.0,
+              257.3333333333333,
+              250.0
+            ],
+            "radius": 53.11622476544557,
+            "color": "gold",
+            "used": false,
+            "cells": [
+              {
+                "cell": [
+                  0,
+                  0
+                ],
+                "center": [
+                  169.66666666666666,
+                  1460.0
+                ],
+                "box": [
+                  116.55044190122109,
+                  1414.0,
+                  106.23244953089115,
+                  92.0
+                ]
+              }
+            ]
+          },
+          {
+            "id": 1,
+            "bbox": [
+              298.3333333333333,
+              1335.0,
+              257.3333333333333,
+              250.0
+            ],
+            "radius": 53.11622476544557,
+            "color": "gold",
+            "used": false,
+            "cells": [
+              {
+                "cell": [
+                  0,
+                  0
+                ],
+                "center": [
+                  426.99999999999994,
+                  1460.0
+                ],
+                "box": [
+                  373.8837752345544,
+                  1414.0,
+                  106.23244953089115,
+                  92.0
+                ]
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "bbox": [
+              555.6666666666666,
+              1335.0,
+              257.3333333333333,
+              250.0
+            ],
+            "radius": 53.11622476544557,
+            "color": "green",
+            "used": false,
+            "cells": [
+              {
+                "cell": [
+                  0,
+                  0
+                ],
+                "center": [
+                  644.4961647592492,
+                  1483.0
+                ],
+                "box": [
+                  591.3799399938035,
+                  1437.0,
+                  106.23244953089115,
+                  92.0
+                ]
+              },
+              {
+                "cell": [
+                  1,
+                  0
+                ],
+                "center": [
+                  724.1705019074175,
+                  1437.0
+                ],
+                "box": [
+                  671.0542771419719,
+                  1391.0,
+                  106.23244953089115,
+                  92.0
+                ]
+              },
+              {
+                "cell": [
+                  0,
+                  1
+                ],
+                "center": [
+                  644.4961647592492,
+                  1391.0
+                ],
+                "box": [
+                  591.3799399938035,
+                  1345.0,
+                  106.23244953089115,
+                  92.0
+                ]
+              },
+              {
+                "cell": [
+                  1,
+                  -1
+                ],
+                "center": [
+                  724.1705019074175,
+                  1529.0
+                ],
+                "box": [
+                  671.0542771419719,
+                  1483.0,
+                  106.23244953089115,
+                  92.0
+                ]
+              }
+            ]
+          }
+        ],
+        "rule": "Used slots contain only the empty native tray, no residual ghost or tick."
+      }
+    ],
+    "actions": [
+      {
+        "layer": "玩法帮助_无字按钮",
+        "label": "玩法帮助",
+        "action": "endless-help"
+      },
+      {
+        "layer": "收获花蜜_无字按钮",
+        "label": "收获花蜜",
+        "action": "end-endless"
+      },
+      {
+        "layer": "继续这一局_无字按钮",
+        "label": "继续这一局",
+        "action": "resume"
+      },
+      {
+        "layer": "收获并结束_无字按钮",
+        "label": "收获并结束",
+        "action": "settle-endless"
+      }
+    ],
+    "geometry_source": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\玩法事实\\geometry.json",
+    "route_fixture": "endless-confirm",
+    "coordinate_system": "axial",
+    "board_cells": [
+      [
+        -3,
+        0
+      ],
+      [
+        -3,
+        1
+      ],
+      [
+        -3,
+        2
+      ],
+      [
+        -3,
+        3
+      ],
+      [
+        -2,
+        -1
+      ],
+      [
+        -2,
+        0
+      ],
+      [
+        -2,
+        1
+      ],
+      [
+        -2,
+        2
+      ],
+      [
+        -2,
+        3
+      ],
+      [
+        -1,
+        -2
+      ],
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        -1,
+        3
+      ],
+      [
+        0,
+        -3
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        -3
+      ],
+      [
+        1,
+        -2
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        -3
+      ],
+      [
+        2,
+        -2
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        -3
+      ],
+      [
+        3,
+        -2
+      ],
+      [
+        3,
+        -1
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "occupied": [
+      {
+        "cell": [
+          -3,
+          0
+        ],
+        "color": "#edb758"
+      },
+      {
+        "cell": [
+          -2,
+          0
+        ],
+        "color": "#edb758"
+      },
+      {
+        "cell": [
+          -1,
+          0
+        ],
+        "color": "#edb758"
+      },
+      {
+        "cell": [
+          0,
+          0
+        ],
+        "color": "#edb758"
+      },
+      {
+        "cell": [
+          1,
+          0
+        ],
+        "color": "#edb758"
+      },
+      {
+        "cell": [
+          2,
+          0
+        ],
+        "color": "#edb758"
+      },
+      {
+        "cell": [
+          0,
+          1
+        ],
+        "color": "#d9827b"
+      },
+      {
+        "cell": [
+          1,
+          1
+        ],
+        "color": "#d9827b"
+      }
+    ],
+    "pieces": [
+      {
+        "id": 0,
+        "cells": [
+          [
+            0,
+            0
+          ]
+        ],
+        "color": "#edb758",
+        "placed": false,
+        "legal_origins": [
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      {
+        "id": 1,
+        "cells": [
+          [
+            0,
+            0
+          ]
+        ],
+        "color": "#dd9a61",
+        "placed": false,
+        "legal_origins": [
+          [
+            -3,
+            1
+          ],
+          [
+            -3,
+            2
+          ],
+          [
+            -3,
+            3
+          ],
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -2,
+            3
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            -1,
+            3
+          ],
+          [
+            0,
+            -3
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            -3
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            3,
+            -1
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      {
+        "id": 2,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "color": "#a0b66d",
+        "placed": false,
+        "legal_origins": [
+          [
+            -3,
+            2
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            -1,
+            -2
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      }
+    ],
+    "display_data": {
+      "honey": 360,
+      "hints": 5,
+      "header": "无尽模式",
+      "current_mainline": null,
+      "moves": null,
+      "score": 1800,
+      "personal_best": 2800,
+      "eligible_harvest_honey": 90,
+      "paid_honey": 0,
+      "optional_bonus_honey": null
+    },
+    "mainline": null,
+    "moves": null,
+    "revive_clear": [
+      "-3,0"
+    ],
+    "production_owner": "block_missing_gameplay.py"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T13-01_无尽主动收获确认.png",
+    "composite": "页面对照/PSD合成/缺少/T13-01_无尽主动收获确认.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "c42380f0fc775e2145a07f9cbcd7e0b9bb016bb5c74e5a9970dacd3fb0016f95",
+    "psd_composite": "页面对照/PSD合成/缺少/T13-01_无尽主动收获确认.png",
+    "psd_composite_sha256": "c3253a4fb111990aee86aa7182ed86f401dcf3f09306775a6a1d420f229bb3ce",
+    "runtime_preview_max_channel_error": 2,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "c42380f0fc775e2145a07f9cbcd7e0b9bb016bb5c74e5a9970dacd3fb0016f95",
+    "psd_sha256": "2d8c460354e44de25c0a98baa0775428789404cb40c3392185d619e37d790d07",
+    "composite_sha256": "c3253a4fb111990aee86aa7182ed86f401dcf3f09306775a6a1d420f229bb3ce",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T13-01_无尽主动收获确认.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

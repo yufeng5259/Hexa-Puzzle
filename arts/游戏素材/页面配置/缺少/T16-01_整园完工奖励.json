@@ -1,0 +1,1820 @@
+{
+  "page": "T16-01_整园完工奖励",
+  "output_id": "T16-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "chapter-complete",
+      "title": "整园完工奖励",
+      "url": "http://127.0.0.1:4291/index.html#chapter-complete",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\34-chapter-complete.png",
+      "screenshot_sha256": "878760cbc332a39c6a828c93e58301197cca7293171b506128a81703affd5452"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_好友界面",
+      "asset": "block_background_好友界面",
+      "file": "PNG/公共素材/好友界面_完整裸背景_3e77cdf8da.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_好友界面",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 2,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 3,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.000",
+      "name": "花蜜数量",
+      "z": 4,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 5,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 6,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.001",
+      "name": "提示库存",
+      "z": 7,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 8,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_左悬绳",
+      "asset": "block_好友界面_左悬绳",
+      "file": "PNG/公共UI/左悬绳_a1cf9fcdc7.png",
+      "name": "原好友左悬绳",
+      "z": 9,
+      "position": [
+        261,
+        125
+      ],
+      "size": [
+        25,
+        77
+      ],
+      "native_size": [
+        32,
+        77
+      ],
+      "render_transform": {
+        "resize": [
+          32,
+          77
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          28,
+          77
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_左悬绳",
+      "metadata": {
+        "target_box": [
+          258,
+          125,
+          290,
+          202
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          32,
+          77
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_右悬绳",
+      "asset": "block_好友界面_右悬绳",
+      "file": "PNG/公共UI/右悬绳_eda8460639.png",
+      "name": "原好友右悬绳",
+      "z": 10,
+      "position": [
+        541,
+        125
+      ],
+      "size": [
+        26,
+        74
+      ],
+      "native_size": [
+        34,
+        74
+      ],
+      "render_transform": {
+        "resize": [
+          34,
+          74
+        ],
+        "alpha_crop": [
+          4,
+          0,
+          30,
+          74
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_右悬绳",
+      "metadata": {
+        "target_box": [
+          537,
+          125,
+          571,
+          199
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          34,
+          74
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友标题木牌",
+      "asset": "block_好友界面_好友标题木牌",
+      "file": "PNG/公共UI/好友标题木牌_b85a1c550c.png",
+      "name": "原好友无字标题木牌",
+      "z": 11,
+      "position": [
+        202,
+        174
+      ],
+      "size": [
+        449,
+        114
+      ],
+      "native_size": [
+        461,
+        114
+      ],
+      "render_transform": {
+        "resize": [
+          461,
+          114
+        ],
+        "alpha_crop": [
+          6,
+          0,
+          455,
+          114
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友标题木牌",
+      "metadata": {
+        "target_box": [
+          195,
+          174,
+          658,
+          288
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          461,
+          114
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.002",
+      "name": "页面标题",
+      "z": 12,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.003",
+      "name": "当前主线等级",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_空白主面板",
+      "asset": "block_结算_空白主面板",
+      "file": "PNG/公共UI/空白主面板_70248b0641.png",
+      "name": "无字面板_cream",
+      "z": 14,
+      "position": [
+        70,
+        308
+      ],
+      "size": [
+        720,
+        1293
+      ],
+      "native_size": [
+        684,
+        883
+      ],
+      "render_transform": {
+        "resize": [
+          720,
+          1306
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          6,
+          720,
+          1299
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_空白主面板",
+      "metadata": {
+        "target_box": [
+          70,
+          302,
+          790,
+          1608
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          684,
+          883
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回",
+      "z": 15,
+      "position": [
+        31,
+        1680
+      ],
+      "size": [
+        133,
+        135
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          133,
+          135
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          133,
+          135
+        ]
+      },
+      "group": "导航",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          30,
+          1680,
+          165,
+          1815
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "go:home"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.004",
+      "name": "完工章节名称",
+      "z": 16,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_dc6dc9c0f2a2a8a9d4c2",
+      "asset": "block_missing_dc6dc9c0f2a2a8a9d4c2",
+      "file": "PNG/页面素材/T16-01_整园完工奖励/其他素材/向阳花园本次整园合影_dc6dc9c0f2.png",
+      "name": "向阳花园本次整园合影",
+      "z": 17,
+      "position": [
+        215,
+        465
+      ],
+      "size": [
+        423,
+        655
+      ],
+      "native_size": [
+        423,
+        655
+      ],
+      "render_transform": {
+        "resize": [
+          423,
+          655
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          423,
+          655
+        ]
+      },
+      "group": "照片",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_dc6dc9c0f2a2a8a9d4c2",
+      "metadata": {
+        "static_composite_photo": true,
+        "fit": "contain",
+        "chapter": 0,
+        "levels": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "photo_id": 5
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "完工花蜜奖励图标",
+      "z": 18,
+      "position": [
+        191,
+        1171
+      ],
+      "size": [
+        83,
+        90
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          85,
+          90
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          85,
+          90
+        ]
+      },
+      "group": "本次奖励",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          188,
+          1171,
+          275,
+          1261
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.005",
+      "name": "完工花蜜实奖",
+      "z": 19,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "完工提示奖励图标",
+      "z": 20,
+      "position": [
+        453,
+        1173
+      ],
+      "size": [
+        67,
+        86
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          67,
+          86
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          67,
+          86
+        ]
+      },
+      "group": "本次奖励",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          453,
+          1171,
+          520,
+          1261
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.006",
+      "name": "完工提示实奖",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.007",
+      "name": "完工照片奖励说明",
+      "z": 22,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "收下完工礼物_无字按钮",
+      "z": 23,
+      "position": [
+        157,
+        1373
+      ],
+      "size": [
+        539,
+        107
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          539,
+          107
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          539,
+          107
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          157,
+          1373,
+          696,
+          1480
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "claim-chapter"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.008",
+      "name": "收下完工礼物_文案",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "回家园_无字按钮",
+      "z": 25,
+      "position": [
+        180,
+        1500
+      ],
+      "size": [
+        493,
+        95
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          493,
+          95
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          493,
+          95
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          180,
+          1500,
+          673,
+          1595
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "go:home"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T16-01.text.009",
+      "name": "回家园_文案",
+      "z": 26,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T16-01.text.000",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T16-01.text.000",
+      "instance_id": "1267453358ce:T16-01.text.000",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T16-01.text.001",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T16-01.text.001",
+      "instance_id": "1267453358ce:T16-01.text.001",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "花园建好啦！",
+      "position": [
+        308,
+        215
+      ],
+      "box": [
+        260,
+        202,
+        594,
+        269
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        116,
+        71,
+        29
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "花园建好啦！",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        237,
+        41
+      ],
+      "id": "T16-01.text.002",
+      "layout_box": [
+        260,
+        202,
+        594,
+        269
+      ],
+      "text_id": "T16-01.text.002",
+      "instance_id": "1267453358ce:T16-01.text.002",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花园建好啦！",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1267453358ce.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "当前主线等级",
+      "text": "Lv.14",
+      "position": [
+        49,
+        122
+      ],
+      "box": [
+        34,
+        116,
+        119,
+        145
+      ],
+      "font_size": 20.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        220
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        49,
+        92,
+        36
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "mainline.level",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 20.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        55,
+        18
+      ],
+      "id": "T16-01.text.003",
+      "layout_box": [
+        34,
+        116,
+        119,
+        145
+      ],
+      "text_id": "T16-01.text.003",
+      "instance_id": "1267453358ce:T16-01.text.003",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "mainline.level"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "完工章节名称",
+      "text": "向阳花园 · 25/25",
+      "position": [
+        295,
+        402
+      ],
+      "box": [
+        123,
+        384,
+        730,
+        453
+      ],
+      "font_size": 33.0,
+      "min_font_size": 26.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "home.chapter_completion",
+      "raw": "向阳花园 · 25/25",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 33.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        263,
+        32
+      ],
+      "id": "T16-01.text.004",
+      "layout_box": [
+        123,
+        384,
+        730,
+        453
+      ],
+      "text_id": "T16-01.text.004",
+      "instance_id": "1267453358ce:T16-01.text.004",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "template",
+      "message_template": "向阳花园 · {value_1}/{value_2}",
+      "parameters": {
+        "value_1": 25,
+        "value_2": 25
+      },
+      "value_binding": {
+        "value_1": "page.1267453358ce.text.cb63507aaed0.value_1",
+        "value_2": "page.1267453358ce.text.cb63507aaed0.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "向阳花园 · 25/25",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.1267453358ce.text.cb63507aaed0",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "完工花蜜实奖",
+      "text": "+100",
+      "position": [
+        294,
+        1202
+      ],
+      "box": [
+        275,
+        1183,
+        420,
+        1253
+      ],
+      "font_size": 41.0,
+      "min_font_size": 32.800000000000004,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "chapter.reward.honey",
+      "raw": 100,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 41.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        107,
+        32
+      ],
+      "id": "T16-01.text.005",
+      "layout_box": [
+        275,
+        1183,
+        420,
+        1253
+      ],
+      "text_id": "T16-01.text.005",
+      "instance_id": "1267453358ce:T16-01.text.005",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "number",
+      "raw_value": 100,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "always",
+        "locale_aware": true
+      },
+      "value_binding": "chapter.reward.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "+100",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "完工提示实奖",
+      "text": "+1",
+      "position": [
+        556,
+        1202
+      ],
+      "box": [
+        520,
+        1183,
+        650,
+        1253
+      ],
+      "font_size": 41.0,
+      "min_font_size": 32.800000000000004,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "chapter.reward.hints",
+      "raw": 1,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 41.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        57,
+        32
+      ],
+      "id": "T16-01.text.006",
+      "layout_box": [
+        520,
+        1183,
+        650,
+        1253
+      ],
+      "text_id": "T16-01.text.006",
+      "instance_id": "1267453358ce:T16-01.text.006",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "number",
+      "raw_value": 1,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "always",
+        "locale_aware": true
+      },
+      "value_binding": "chapter.reward.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "+1",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "完工照片奖励说明",
+      "text": "整园合影已准备好",
+      "position": [
+        314,
+        1295
+      ],
+      "box": [
+        158,
+        1280,
+        695,
+        1338
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "整园合影已准备好",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        224,
+        28
+      ],
+      "id": "T16-01.text.007",
+      "layout_box": [
+        158,
+        1280,
+        695,
+        1338
+      ],
+      "text_id": "T16-01.text.007",
+      "instance_id": "1267453358ce:T16-01.text.007",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "整园合影已准备好",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1267453358ce.text.4d8182bdeb69",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "收下完工礼物_文案",
+      "text": "收下完工礼物",
+      "position": [
+        326,
+        1406
+      ],
+      "box": [
+        181,
+        1385,
+        672,
+        1463
+      ],
+      "font_size": 33.25,
+      "min_font_size": 26.536,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        54,
+        121,
+        42
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "收下完工礼物",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 33.17,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        202,
+        35
+      ],
+      "id": "T16-01.text.008",
+      "layout_box": [
+        181,
+        1385,
+        672,
+        1463
+      ],
+      "text_id": "T16-01.text.008",
+      "instance_id": "1267453358ce:T16-01.text.008",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "收下完工礼物",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1267453358ce.text.5b82de815d4c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "回家园_文案",
+      "text": "回家园",
+      "position": [
+        381,
+        1530
+      ],
+      "box": [
+        204,
+        1512,
+        649,
+        1578
+      ],
+      "font_size": 29.5,
+      "min_font_size": 23.560000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        118,
+        81,
+        40
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "回家园",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.45,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        91,
+        31
+      ],
+      "id": "T16-01.text.009",
+      "layout_box": [
+        204,
+        1512,
+        649,
+        1578
+      ],
+      "text_id": "T16-01.text.009",
+      "instance_id": "1267453358ce:T16-01.text.009",
+      "page": "T16-01_整园完工奖励",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "回家园",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.1267453358ce.text.ed9dc3a4a562",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "chapter-complete"
+    ],
+    "requirements": "25/25后可领100花蜜+1提示及合影，已领状态不能再次发奖；与普通拼图结算区别清晰。",
+    "actions": [
+      {
+        "layer": "返回",
+        "action": "go:home",
+        "label": "返回"
+      },
+      {
+        "layer": "收下完工礼物_无字按钮",
+        "label": "收下完工礼物",
+        "action": "claim-chapter"
+      },
+      {
+        "layer": "回家园_无字按钮",
+        "label": "回家园",
+        "action": "go:home"
+      }
+    ],
+    "chapter": 0,
+    "buildings": [
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "claim_key": "chapter:0",
+    "claim_once": true,
+    "reward": {
+      "honey": 100,
+      "hints": 1,
+      "photo": 5
+    },
+    "claimed": false
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T16-01_整园完工奖励.png",
+    "composite": "页面对照/PSD合成/缺少/T16-01_整园完工奖励.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "fdc5f3b660e96cb1fb23a60740939e426499eafa40b898cb12be41c3e3ce6acb",
+    "psd_composite": "页面对照/PSD合成/缺少/T16-01_整园完工奖励.png",
+    "psd_composite_sha256": "692327b0752636062860398179b569fe2a562223c4ca4446b571ab684a963aa5",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "fdc5f3b660e96cb1fb23a60740939e426499eafa40b898cb12be41c3e3ce6acb",
+    "psd_sha256": "68d30165d8baccdcbd1ebdd4db90f23d350406254c449baef98ec5208ba48e0f",
+    "composite_sha256": "692327b0752636062860398179b569fe2a562223c4ca4446b571ab684a963aa5",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T16-01_整园完工奖励.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

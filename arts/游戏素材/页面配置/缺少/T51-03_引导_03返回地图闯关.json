@@ -1,0 +1,3475 @@
+{
+  "page": "T51-03_引导_03返回地图闯关",
+  "output_id": "T51-03",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "guide-menu",
+      "title": "新手 · 前往主线",
+      "url": "http://127.0.0.1:4291/index.html#guide-menu",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\03-guide-menu.png",
+      "screenshot_sha256": "071dd0ba72508661bb2c78810d32b58828065a34f35284cc6a53a1e0f9bff1e0"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_missing_ba2a8e9e6d1cc53e602e",
+      "asset": "block_missing_ba2a8e9e6d1cc53e602e",
+      "file": "PNG/公共素材/完整裸背景_ba2a8e9e6d.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_ba2a8e9e6d1cc53e602e",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1843
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 2,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 3,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.000",
+      "name": "花蜜数量",
+      "z": 4,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 5,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 6,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.001",
+      "name": "提示库存",
+      "z": 7,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 8,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.002",
+      "name": "玩家等级",
+      "z": 9,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_每日签到",
+      "asset": "block_微信图片_20261019173444_81_187_每日签到",
+      "file": "PNG/公共UI/每日签到_6309f69edd.png",
+      "name": "七日礼物_图标",
+      "z": 10,
+      "position": [
+        18,
+        201
+      ],
+      "size": [
+        125,
+        132
+      ],
+      "native_size": [
+        1106,
+        1167
+      ],
+      "render_transform": {
+        "resize": [
+          125,
+          132
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          125,
+          132
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_每日签到",
+      "metadata": {
+        "target_box": [
+          18,
+          198,
+          143,
+          337
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1106,
+          1167
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.003",
+      "name": "七日礼物",
+      "z": 11,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_排行榜",
+      "asset": "block_微信图片_20261019173444_81_187_排行榜",
+      "file": "PNG/公共UI/排行榜_a23231115e.png",
+      "name": "本机成就_图标",
+      "z": 12,
+      "position": [
+        18,
+        359
+      ],
+      "size": [
+        125,
+        124
+      ],
+      "native_size": [
+        1040,
+        1034
+      ],
+      "render_transform": {
+        "resize": [
+          125,
+          124
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          125,
+          124
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_排行榜",
+      "metadata": {
+        "target_box": [
+          18,
+          352,
+          143,
+          491
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1040,
+          1034
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.004",
+      "name": "本机成就",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_每日任务",
+      "asset": "block_微信图片_20261019173444_81_187_每日任务",
+      "file": "PNG/公共UI/每日任务_441feda3ed.png",
+      "name": "每日任务_图标",
+      "z": 14,
+      "position": [
+        18,
+        507
+      ],
+      "size": [
+        125,
+        137
+      ],
+      "native_size": [
+        1027,
+        1124
+      ],
+      "render_transform": {
+        "resize": [
+          125,
+          137
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          125,
+          137
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_每日任务",
+      "metadata": {
+        "target_box": [
+          18,
+          506,
+          143,
+          645
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1027,
+          1124
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.005",
+      "name": "每日任务",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_好友",
+      "asset": "block_微信图片_20261019173444_81_187_好友",
+      "file": "PNG/公共UI/好友_c5a9150547.png",
+      "name": "蜂友_图标",
+      "z": 16,
+      "position": [
+        18,
+        664
+      ],
+      "size": [
+        125,
+        130
+      ],
+      "native_size": [
+        1097,
+        1137
+      ],
+      "render_transform": {
+        "resize": [
+          125,
+          130
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          125,
+          130
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_好友",
+      "metadata": {
+        "target_box": [
+          18,
+          660,
+          143,
+          799
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1097,
+          1137
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.006",
+      "name": "蜂友",
+      "z": 17,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_超值礼包",
+      "asset": "block_微信图片_20261019173444_81_187_超值礼包",
+      "file": "PNG/公共UI/超值礼包_879604e142.png",
+      "name": "每日补给_图标",
+      "z": 18,
+      "position": [
+        711,
+        200
+      ],
+      "size": [
+        125,
+        135
+      ],
+      "native_size": [
+        1122,
+        1216
+      ],
+      "render_transform": {
+        "resize": [
+          125,
+          135
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          125,
+          135
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_超值礼包",
+      "metadata": {
+        "target_box": [
+          711,
+          198,
+          836,
+          337
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1122,
+          1216
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.007",
+      "name": "每日补给",
+      "z": 19,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_限时活动",
+      "asset": "block_微信图片_20261019173444_81_187_限时活动",
+      "file": "PNG/公共UI/限时活动_18f3f84a0a.png",
+      "name": "花园野餐_图标",
+      "z": 20,
+      "position": [
+        715,
+        352
+      ],
+      "size": [
+        117,
+        139
+      ],
+      "native_size": [
+        1009,
+        1203
+      ],
+      "render_transform": {
+        "resize": [
+          117,
+          139
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          117,
+          139
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_限时活动",
+      "metadata": {
+        "target_box": [
+          711,
+          352,
+          836,
+          491
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1009,
+          1203
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.008",
+      "name": "花园野餐",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_新手礼包",
+      "asset": "block_微信图片_20261019173444_81_187_新手礼包",
+      "file": "PNG/公共UI/新手礼包_6b2081f8b1.png",
+      "name": "旅行相册_图标",
+      "z": 22,
+      "position": [
+        711,
+        509
+      ],
+      "size": [
+        125,
+        132
+      ],
+      "native_size": [
+        1040,
+        1095
+      ],
+      "render_transform": {
+        "resize": [
+          125,
+          132
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          125,
+          132
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_新手礼包",
+      "metadata": {
+        "target_box": [
+          711,
+          506,
+          836,
+          645
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1040,
+          1095
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.009",
+      "name": "旅行相册",
+      "z": 23,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_当前关卡高亮光晕",
+      "asset": "block_微信图片_20261019173444_81_187_当前关卡高亮光晕",
+      "file": "PNG/公共UI/当前关卡高亮光晕_75028e406c.png",
+      "name": "当前主线柔光",
+      "z": 24,
+      "position": [
+        316,
+        1207
+      ],
+      "size": [
+        146,
+        141
+      ],
+      "native_size": [
+        227,
+        220
+      ],
+      "render_transform": {
+        "resize": [
+          146,
+          141
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          146,
+          141
+        ]
+      },
+      "group": "地图",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_当前关卡高亮光晕",
+      "metadata": {
+        "target_box": [
+          316,
+          1205,
+          462,
+          1351
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          227,
+          220
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "name": "主线6_节点",
+      "z": 25,
+      "position": [
+        260,
+        450
+      ],
+      "size": [
+        117,
+        118
+      ],
+      "native_size": [
+        1142,
+        1154
+      ],
+      "render_transform": {
+        "resize": [
+          117,
+          118
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          117,
+          118
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          260,
+          450,
+          377,
+          569
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1142,
+          1154
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.010",
+      "name": "主线6_关号",
+      "z": 26,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.011",
+      "name": "限步标记",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "name": "主线5_节点",
+      "z": 28,
+      "position": [
+        470,
+        565
+      ],
+      "size": [
+        117,
+        118
+      ],
+      "native_size": [
+        1142,
+        1154
+      ],
+      "render_transform": {
+        "resize": [
+          117,
+          118
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          117,
+          118
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          470,
+          565,
+          587,
+          684
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1142,
+          1154
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.012",
+      "name": "主线5_关号",
+      "z": 29,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "name": "主线4_节点",
+      "z": 30,
+      "position": [
+        365,
+        708
+      ],
+      "size": [
+        117,
+        118
+      ],
+      "native_size": [
+        1142,
+        1154
+      ],
+      "render_transform": {
+        "resize": [
+          117,
+          118
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          117,
+          118
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          365,
+          708,
+          482,
+          827
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1142,
+          1154
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.013",
+      "name": "主线4_关号",
+      "z": 31,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "name": "主线3_节点",
+      "z": 32,
+      "position": [
+        211,
+        838
+      ],
+      "size": [
+        117,
+        118
+      ],
+      "native_size": [
+        1142,
+        1154
+      ],
+      "render_transform": {
+        "resize": [
+          117,
+          118
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          117,
+          118
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          211,
+          838,
+          328,
+          957
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1142,
+          1154
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.014",
+      "name": "主线3_关号",
+      "z": 33,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "name": "主线2_节点",
+      "z": 34,
+      "position": [
+        529,
+        1047
+      ],
+      "size": [
+        117,
+        118
+      ],
+      "native_size": [
+        1142,
+        1154
+      ],
+      "render_transform": {
+        "resize": [
+          117,
+          118
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          117,
+          118
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          529,
+          1047,
+          646,
+          1166
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1142,
+          1154
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.015",
+      "name": "主线2_关号",
+      "z": 35,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_金色关卡盾牌母件",
+      "asset": "block_关卡选择_金色关卡盾牌母件",
+      "file": "PNG/公共UI/金色关卡盾牌母件_747dc74440.png",
+      "name": "主线1_节点",
+      "z": 36,
+      "position": [
+        331,
+        1224
+      ],
+      "size": [
+        117,
+        111
+      ],
+      "native_size": [
+        1243,
+        1176
+      ],
+      "render_transform": {
+        "resize": [
+          117,
+          111
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          117,
+          111
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          331,
+          1220,
+          448,
+          1339
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1243,
+          1176
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.016",
+      "name": "主线1_关号",
+      "z": 37,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_当前关卡头像标记",
+      "asset": "block_微信图片_20261019173444_81_187_当前关卡头像标记",
+      "file": "PNG/公共UI/当前关卡头像标记_8d4ed8837f.png",
+      "name": "当前主线蜂友标记",
+      "z": 38,
+      "position": [
+        341,
+        1121
+      ],
+      "size": [
+        97,
+        113
+      ],
+      "native_size": [
+        97,
+        116
+      ],
+      "render_transform": {
+        "resize": [
+          97,
+          116
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          97,
+          116
+        ]
+      },
+      "group": "地图",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_当前关卡头像标记",
+      "metadata": {
+        "target_box": [
+          341,
+          1118,
+          438,
+          1234
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          97,
+          116
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_抱蜜罐蜜蜂",
+      "asset": "block_微信图片_20261019173444_81_187_抱蜜罐蜜蜂",
+      "file": "PNG/公共素材/抱蜜罐蜜蜂_9ad28031b8.png",
+      "name": "地图抱蜜罐蜂友",
+      "z": 39,
+      "position": [
+        644,
+        842
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        1157,
+        1166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          165
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "地图装饰",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_抱蜜罐蜜蜂",
+      "metadata": {
+        "target_box": [
+          644,
+          839,
+          808,
+          1010
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1157,
+          1166
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_建造花园",
+      "asset": "block_微信图片_20261019173444_81_187_建造花园",
+      "file": "PNG/公共UI/建造花园_5c5e3a2362.png",
+      "name": "建设入口",
+      "z": 40,
+      "position": [
+        39,
+        1484
+      ],
+      "size": [
+        390,
+        287
+      ],
+      "native_size": [
+        1436,
+        1057
+      ],
+      "render_transform": {
+        "resize": [
+          390,
+          287
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          390,
+          287
+        ]
+      },
+      "group": "地图入口",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_建造花园",
+      "metadata": {
+        "target_box": [
+          39,
+          1484,
+          429,
+          1771
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1436,
+          1057
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_微信图片_20261019173444_81_187_无尽模式",
+      "asset": "block_微信图片_20261019173444_81_187_无尽模式",
+      "file": "PNG/公共UI/无尽模式_47c31cb7ff.png",
+      "name": "无尽入口",
+      "z": 41,
+      "position": [
+        453,
+        1490
+      ],
+      "size": [
+        363,
+        279
+      ],
+      "native_size": [
+        1418,
+        1090
+      ],
+      "render_transform": {
+        "resize": [
+          363,
+          279
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          363,
+          279
+        ]
+      },
+      "group": "地图入口",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_微信图片_20261019173444_81_187_无尽模式",
+      "metadata": {
+        "target_box": [
+          453,
+          1490,
+          816,
+          1769
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1418,
+          1090
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.017",
+      "name": "建设入口文案",
+      "z": 42,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.018",
+      "name": "花园总进度",
+      "z": 43,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.019",
+      "name": "无尽入口文案",
+      "z": 44,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.020",
+      "name": "无尽解锁条件",
+      "z": 45,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_022701a734bb23e69e6c",
+      "asset": "block_missing_022701a734bb23e69e6c",
+      "file": "PNG/页面素材/T51-03_引导_03返回地图闯关/UI/引导聚光遮罩_022701a734.png",
+      "name": "引导聚光遮罩",
+      "z": 46,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "事件式引导",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_022701a734bb23e69e6c",
+      "metadata": {
+        "cutout": [
+          301,
+          1193,
+          473,
+          1366
+        ],
+        "soft_feather": 7
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_空白主面板",
+      "asset": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "name": "引导原生木纹提示框",
+      "z": 47,
+      "position": [
+        92,
+        925
+      ],
+      "size": [
+        669,
+        198
+      ],
+      "native_size": [
+        727,
+        1207
+      ],
+      "render_transform": {
+        "resize": [
+          669,
+          201
+        ],
+        "nine_slice": {
+          "insets": [
+            64,
+            76,
+            64,
+            76
+          ]
+        },
+        "alpha_crop": [
+          0,
+          1,
+          669,
+          199
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板",
+      "metadata": {
+        "target_box": [
+          92,
+          924,
+          761,
+          1125
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          64,
+          76,
+          64,
+          76
+        ],
+        "native_size": [
+          727,
+          1207
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "引导原生奶油内衬",
+      "z": 48,
+      "position": [
+        108,
+        941
+      ],
+      "size": [
+        637,
+        167
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          637,
+          167
+        ],
+        "nine_slice": {
+          "insets": [
+            36,
+            36,
+            36,
+            36
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          637,
+          167
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          108,
+          941,
+          745,
+          1108
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          36,
+          36,
+          36,
+          36
+        ],
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.021",
+      "name": "引导短句",
+      "z": 49,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.022",
+      "name": "引导步骤",
+      "z": 50,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-03.text.023",
+      "name": "跳过引导",
+      "z": 51,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_5f3e856dd50cf2982d36",
+      "asset": "block_missing_5f3e856dd50cf2982d36",
+      "file": "PNG/公共UI/style_hand_5f3e856dd5.png",
+      "name": "引导手指",
+      "z": 52,
+      "position": [
+        358,
+        1306
+      ],
+      "size": [
+        124,
+        178
+      ],
+      "native_size": [
+        302,
+        434
+      ],
+      "render_transform": {
+        "resize": [
+          124,
+          178
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          124,
+          178
+        ]
+      },
+      "group": "事件式引导",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_5f3e856dd50cf2982d36",
+      "metadata": {
+        "fingertip": [
+          399.03999999999996,
+          1308.91
+        ],
+        "animation": "tap_or_drag",
+        "fit": "contain",
+        "source_resize": [
+          124,
+          178
+        ],
+        "rotation_degrees": 0
+      }
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "花蜜数量",
+      "text": "80",
+      "position": [
+        295,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 80,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        42,
+        28
+      ],
+      "id": "T51-03.text.000",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T51-03.text.000",
+      "instance_id": "40222522164d:T51-03.text.000",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "number",
+      "raw_value": 80,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "80",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T51-03.text.001",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T51-03.text.001",
+      "instance_id": "40222522164d:T51-03.text.001",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "玩家等级",
+      "text": "Lv.1",
+      "position": [
+        56,
+        122
+      ],
+      "box": [
+        36,
+        117,
+        118,
+        145
+      ],
+      "font_size": 21.0,
+      "min_font_size": 16.8,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "profile.level",
+      "raw": 1,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 21.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        43,
+        17
+      ],
+      "id": "T51-03.text.002",
+      "layout_box": [
+        36,
+        117,
+        118,
+        145
+      ],
+      "text_id": "T51-03.text.002",
+      "instance_id": "40222522164d:T51-03.text.002",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 1
+      },
+      "value_binding": {
+        "level": "profile.level"
+      },
+      "localization_key": "block.hud.player_level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.1",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "七日礼物",
+      "text": "七日礼物",
+      "position": [
+        31,
+        304
+      ],
+      "box": [
+        23,
+        286,
+        138,
+        348
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        248,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        101,
+        64,
+        29
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "七日礼物",
+      "action": "signin",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        99,
+        26
+      ],
+      "id": "T51-03.text.003",
+      "layout_box": [
+        23,
+        286,
+        138,
+        348
+      ],
+      "text_id": "T51-03.text.003",
+      "instance_id": "40222522164d:T51-03.text.003",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "七日礼物",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.3bf5ad45d0c9",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "本机成就",
+      "text": "本机成就",
+      "position": [
+        31,
+        458
+      ],
+      "box": [
+        23,
+        440,
+        138,
+        502
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        248,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        101,
+        64,
+        29
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "本机成就",
+      "action": "achievements",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        99,
+        26
+      ],
+      "id": "T51-03.text.004",
+      "layout_box": [
+        23,
+        440,
+        138,
+        502
+      ],
+      "text_id": "T51-03.text.004",
+      "instance_id": "40222522164d:T51-03.text.004",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "本机成就",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.9625723fe73c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "每日任务",
+      "text": "每日任务",
+      "position": [
+        31,
+        612
+      ],
+      "box": [
+        23,
+        594,
+        138,
+        656
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        248,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        101,
+        64,
+        29
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "每日任务",
+      "action": "tasks",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        99,
+        26
+      ],
+      "id": "T51-03.text.005",
+      "layout_box": [
+        23,
+        594,
+        138,
+        656
+      ],
+      "text_id": "T51-03.text.005",
+      "instance_id": "40222522164d:T51-03.text.005",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "每日任务",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.daily",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友",
+      "text": "蜂友",
+      "position": [
+        55,
+        766
+      ],
+      "box": [
+        23,
+        748,
+        138,
+        810
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        248,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        101,
+        64,
+        29
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "蜂友",
+      "action": "bee-home",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        51,
+        26
+      ],
+      "id": "T51-03.text.006",
+      "layout_box": [
+        23,
+        748,
+        138,
+        810
+      ],
+      "text_id": "T51-03.text.006",
+      "instance_id": "40222522164d:T51-03.text.006",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "蜂友",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.d9447737b55d",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "每日补给",
+      "text": "每日补给",
+      "position": [
+        724,
+        304
+      ],
+      "box": [
+        716,
+        286,
+        831,
+        348
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        248,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        101,
+        64,
+        29
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "每日补给",
+      "action": "supply",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        99,
+        26
+      ],
+      "id": "T51-03.text.007",
+      "layout_box": [
+        716,
+        286,
+        831,
+        348
+      ],
+      "text_id": "T51-03.text.007",
+      "instance_id": "40222522164d:T51-03.text.007",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "每日补给",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.9af7e2326efe",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花园野餐",
+      "text": "花园野餐",
+      "position": [
+        724,
+        458
+      ],
+      "box": [
+        716,
+        440,
+        831,
+        502
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        248,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        101,
+        64,
+        29
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "花园野餐",
+      "action": "events",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        99,
+        26
+      ],
+      "id": "T51-03.text.008",
+      "layout_box": [
+        716,
+        440,
+        831,
+        502
+      ],
+      "text_id": "T51-03.text.008",
+      "instance_id": "40222522164d:T51-03.text.008",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花园野餐",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.ab71911861b9",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "旅行相册",
+      "text": "旅行相册",
+      "position": [
+        724,
+        612
+      ],
+      "box": [
+        716,
+        594,
+        831,
+        656
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        248,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        101,
+        64,
+        29
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "旅行相册",
+      "action": "album",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        99,
+        26
+      ],
+      "id": "T51-03.text.009",
+      "layout_box": [
+        716,
+        594,
+        831,
+        656
+      ],
+      "text_id": "T51-03.text.009",
+      "instance_id": "40222522164d:T51-03.text.009",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "旅行相册",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.6ac5ddaa2f0b",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "主线6_关号",
+      "text": "6",
+      "position": [
+        304,
+        493
+      ],
+      "box": [
+        279,
+        474,
+        359,
+        548
+      ],
+      "font_size": 43.0,
+      "min_font_size": 34.4,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.3,
+      "stroke_color": [
+        105,
+        65,
+        32
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "map.nodes.6.mainline",
+      "raw": 6,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 43.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        29,
+        36
+      ],
+      "id": "T51-03.text.010",
+      "layout_box": [
+        279,
+        474,
+        359,
+        548
+      ],
+      "text_id": "T51-03.text.010",
+      "instance_id": "40222522164d:T51-03.text.010",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "number",
+      "raw_value": 6,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "map.nodes.6.mainline",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "6",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "限步标记",
+      "text": "限步",
+      "position": [
+        294,
+        582
+      ],
+      "box": [
+        254,
+        574,
+        385,
+        616
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        105,
+        65,
+        32
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "限步",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        52,
+        27
+      ],
+      "id": "T51-03.text.011",
+      "layout_box": [
+        254,
+        574,
+        385,
+        616
+      ],
+      "text_id": "T51-03.text.011",
+      "instance_id": "40222522164d:T51-03.text.011",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "限步",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.6791f5354445",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "主线5_关号",
+      "text": "5",
+      "position": [
+        514,
+        608
+      ],
+      "box": [
+        489,
+        589,
+        569,
+        663
+      ],
+      "font_size": 43.0,
+      "min_font_size": 34.4,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.3,
+      "stroke_color": [
+        105,
+        65,
+        32
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "map.nodes.5.mainline",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 43.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        29,
+        36
+      ],
+      "id": "T51-03.text.012",
+      "layout_box": [
+        489,
+        589,
+        569,
+        663
+      ],
+      "text_id": "T51-03.text.012",
+      "instance_id": "40222522164d:T51-03.text.012",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "map.nodes.5.mainline",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "主线4_关号",
+      "text": "4",
+      "position": [
+        410,
+        752
+      ],
+      "box": [
+        384,
+        732,
+        464,
+        806
+      ],
+      "font_size": 43.0,
+      "min_font_size": 34.4,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.3,
+      "stroke_color": [
+        105,
+        65,
+        32
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "map.nodes.4.mainline",
+      "raw": 4,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 43.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        29,
+        35
+      ],
+      "id": "T51-03.text.013",
+      "layout_box": [
+        384,
+        732,
+        464,
+        806
+      ],
+      "text_id": "T51-03.text.013",
+      "instance_id": "40222522164d:T51-03.text.013",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "number",
+      "raw_value": 4,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "map.nodes.4.mainline",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "4",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "主线3_关号",
+      "text": "3",
+      "position": [
+        256,
+        881
+      ],
+      "box": [
+        230,
+        862,
+        310,
+        936
+      ],
+      "font_size": 43.0,
+      "min_font_size": 34.4,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.3,
+      "stroke_color": [
+        105,
+        65,
+        32
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "map.nodes.3.mainline",
+      "raw": 3,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 43.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        29,
+        36
+      ],
+      "id": "T51-03.text.014",
+      "layout_box": [
+        230,
+        862,
+        310,
+        936
+      ],
+      "text_id": "T51-03.text.014",
+      "instance_id": "40222522164d:T51-03.text.014",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "number",
+      "raw_value": 3,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "map.nodes.3.mainline",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "3",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "主线2_关号",
+      "text": "2",
+      "position": [
+        574,
+        1090
+      ],
+      "box": [
+        548,
+        1071,
+        628,
+        1145
+      ],
+      "font_size": 43.0,
+      "min_font_size": 34.4,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.3,
+      "stroke_color": [
+        105,
+        65,
+        32
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "map.nodes.2.mainline",
+      "raw": 2,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 43.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        29,
+        36
+      ],
+      "id": "T51-03.text.015",
+      "layout_box": [
+        548,
+        1071,
+        628,
+        1145
+      ],
+      "text_id": "T51-03.text.015",
+      "instance_id": "40222522164d:T51-03.text.015",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "number",
+      "raw_value": 2,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "map.nodes.2.mainline",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "主线1_关号",
+      "text": "1",
+      "position": [
+        376,
+        1263
+      ],
+      "box": [
+        350,
+        1244,
+        430,
+        1318
+      ],
+      "font_size": 43.0,
+      "min_font_size": 34.4,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.3,
+      "stroke_color": [
+        105,
+        65,
+        32
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "map.nodes.1.mainline",
+      "raw": 1,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 43.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        29,
+        36
+      ],
+      "id": "T51-03.text.016",
+      "layout_box": [
+        350,
+        1244,
+        430,
+        1318
+      ],
+      "text_id": "T51-03.text.016",
+      "instance_id": "40222522164d:T51-03.text.016",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "number",
+      "raw_value": 1,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "map.nodes.1.mainline",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "1",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "建设入口文案",
+      "text": "建设花园",
+      "position": [
+        174,
+        1615
+      ],
+      "box": [
+        137,
+        1605,
+        361,
+        1663
+      ],
+      "font_size": 37.0,
+      "min_font_size": 29.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        222
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        107,
+        71,
+        36
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "建设花园",
+      "action": "home",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 37.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        150,
+        38
+      ],
+      "id": "T51-03.text.017",
+      "layout_box": [
+        137,
+        1605,
+        361,
+        1663
+      ],
+      "text_id": "T51-03.text.017",
+      "instance_id": "40222522164d:T51-03.text.017",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "建设花园",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.f8cf7dc2f59a",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花园总进度",
+      "text": "1 / 25",
+      "position": [
+        210,
+        1684
+      ],
+      "box": [
+        155,
+        1672,
+        348,
+        1724
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        222
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        107,
+        71,
+        36
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "garden.total_levels",
+      "raw": 1,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        84,
+        27
+      ],
+      "id": "T51-03.text.018",
+      "layout_box": [
+        155,
+        1672,
+        348,
+        1724
+      ],
+      "text_id": "T51-03.text.018",
+      "instance_id": "40222522164d:T51-03.text.018",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "template",
+      "message_template": "{value_1} / {value_2}",
+      "parameters": {
+        "value_1": 1,
+        "value_2": 25
+      },
+      "value_binding": {
+        "value_1": "page.40222522164d.text.63491346ea01.value_1",
+        "value_2": "page.40222522164d.text.63491346ea01.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "1 / 25",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.40222522164d.text.63491346ea01",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "无尽入口文案",
+      "text": "无尽模式",
+      "position": [
+        620,
+        1616
+      ],
+      "box": [
+        590,
+        1605,
+        792,
+        1663
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        222
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        82,
+        51,
+        120
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "无尽模式",
+      "action": "endless-intro",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        142,
+        36
+      ],
+      "id": "T51-03.text.019",
+      "layout_box": [
+        590,
+        1605,
+        792,
+        1663
+      ],
+      "text_id": "T51-03.text.019",
+      "instance_id": "40222522164d:T51-03.text.019",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "无尽模式",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.be356d405aec",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "无尽解锁条件",
+      "text": "第4普通关后解锁",
+      "position": [
+        554,
+        1686
+      ],
+      "box": [
+        489,
+        1671,
+        790,
+        1726
+      ],
+      "font_size": 22.0,
+      "min_font_size": 17.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        222
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        82,
+        51,
+        120
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第4普通关后解锁",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 22.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        170,
+        24
+      ],
+      "id": "T51-03.text.020",
+      "layout_box": [
+        489,
+        1671,
+        790,
+        1726
+      ],
+      "text_id": "T51-03.text.020",
+      "instance_id": "40222522164d:T51-03.text.020",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "template",
+      "message_template": "第{level}普通关后解锁",
+      "parameters": {
+        "level": 4
+      },
+      "value_binding": {
+        "level": "page.40222522164d.text.e359424f4e40.level"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第4普通关后解锁",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.40222522164d.text.e359424f4e40",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "引导短句",
+      "text": "点亮第 1 关，去拼一块风景",
+      "position": [
+        231,
+        1008
+      ],
+      "box": [
+        140,
+        948,
+        713,
+        1101
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "点亮第 1 关，去拼一块风景",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        391,
+        32
+      ],
+      "id": "T51-03.text.021",
+      "layout_box": [
+        140,
+        948,
+        713,
+        1101
+      ],
+      "text_id": "T51-03.text.021",
+      "instance_id": "40222522164d:T51-03.text.021",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "template",
+      "message_template": "点亮第 {level} 关，去拼一块风景",
+      "parameters": {
+        "level": 1
+      },
+      "value_binding": {
+        "level": "page.40222522164d.text.595d70a3fbd3.level"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "点亮第 1 关，去拼一块风景",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.40222522164d.text.595d70a3fbd3",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "引导步骤",
+      "text": "3 / 8",
+      "position": [
+        78,
+        1774
+      ],
+      "box": [
+        44,
+        1755,
+        173,
+        1817
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "tutorial.step",
+      "raw": 3,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        60,
+        24
+      ],
+      "id": "T51-03.text.022",
+      "layout_box": [
+        44,
+        1755,
+        173,
+        1817
+      ],
+      "text_id": "T51-03.text.022",
+      "instance_id": "40222522164d:T51-03.text.022",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "template",
+      "message_template": "{value_1} / {value_2}",
+      "parameters": {
+        "value_1": 3,
+        "value_2": 8
+      },
+      "value_binding": {
+        "value_1": "page.40222522164d.text.632a513f0aeb.value_1",
+        "value_2": "page.40222522164d.text.632a513f0aeb.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "3 / 8",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.40222522164d.text.632a513f0aeb",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "跳过引导",
+      "text": "跳过引导",
+      "position": [
+        664,
+        1772
+      ],
+      "box": [
+        627,
+        1752,
+        809,
+        1819
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "跳过引导",
+      "action": "skip-tutorial",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T51-03.text.023",
+      "layout_box": [
+        627,
+        1752,
+        809,
+        1819
+      ],
+      "text_id": "T51-03.text.023",
+      "instance_id": "40222522164d:T51-03.text.023",
+      "page": "T51-03_引导_03返回地图闯关",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "跳过引导",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.40222522164d.text.ca28c968a709",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "guide-menu"
+    ],
+    "requirements": "在对应全屏成品上加可拆的柔和镂空、手指、整块拖影与短气泡；保留跳过。第一轮真实收支120→80→160→120，不自动解题。无尽首次引导用当前37格盘面，人物不遮棋盘。每张对应一个实屏步骤，动画说明另写文件。",
+    "mainline": 1,
+    "economy": {
+      "honey": 80,
+      "hints": 5
+    },
+    "mainline_count": 96,
+    "limited_every": 6,
+    "garden_total_levels": 1,
+    "online_rank": false,
+    "paid_shop": false,
+    "stamina_gate": false,
+    "tutorial": {
+      "step": 3,
+      "skippable": true,
+      "advance_on": "actual_game_event",
+      "highlight_box": [
+        301,
+        1193,
+        473,
+        1366
+      ],
+      "drag_path": null,
+      "reduced_motion": "static_arrow_and_ring",
+      "reward_requires_actual_completion": true,
+      "auto_solve": false
+    },
+    "production_owner": "block_missing_tutorial.py"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T51-03_引导_03返回地图闯关.png",
+    "composite": "页面对照/PSD合成/缺少/T51-03_引导_03返回地图闯关.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "9b20a989e886cc57e837a0ead9031be15d995ffec9a33768cc96ae3b8b41b311",
+    "psd_composite": "页面对照/PSD合成/缺少/T51-03_引导_03返回地图闯关.png",
+    "psd_composite_sha256": "80d457db8ebef0140c039d35473a80cd1738e31ec8dd2e3490c5d064864911fa",
+    "runtime_preview_max_channel_error": 2,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "9b20a989e886cc57e837a0ead9031be15d995ffec9a33768cc96ae3b8b41b311",
+    "psd_sha256": "3cc60f4d187123459b0f1dfdf8b9230f42ddb01d2d43c5a1b8f2930d7cdfbfa0",
+    "composite_sha256": "80d457db8ebef0140c039d35473a80cd1738e31ec8dd2e3490c5d064864911fa",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T51-03_引导_03返回地图闯关.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

@@ -1,0 +1,2955 @@
+{
+  "page": "T20-01_三位蜂友列表",
+  "output_id": "T20-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "bee-home",
+      "title": "蜂友",
+      "url": "http://127.0.0.1:4291/index.html#bee-home",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\44-bee-home.png",
+      "screenshot_sha256": "a9df62e63d83e18e8a6db267d858873ce05e1689b04c10aae5bcded134eec041"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_好友界面",
+      "asset": "block_background_好友界面",
+      "file": "PNG/公共素材/好友界面_完整裸背景_3e77cdf8da.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_好友界面",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_空白主面板",
+      "asset": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "name": "原生完整主框",
+      "z": 10,
+      "position": [
+        63,
+        333
+      ],
+      "size": [
+        726,
+        1203
+      ],
+      "native_size": [
+        727,
+        1207
+      ],
+      "render_transform": {
+        "resize": [
+          726,
+          1206
+        ],
+        "alpha_crop": [
+          0,
+          1,
+          726,
+          1204
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板",
+      "metadata": {
+        "target_box": [
+          61,
+          332,
+          792,
+          1538
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          727,
+          1207
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_左悬绳",
+      "asset": "block_好友界面_左悬绳",
+      "file": "PNG/公共UI/左悬绳_a1cf9fcdc7.png",
+      "name": "左标题吊绳",
+      "z": 11,
+      "position": [
+        224,
+        168
+      ],
+      "size": [
+        25,
+        77
+      ],
+      "native_size": [
+        32,
+        77
+      ],
+      "render_transform": {
+        "resize": [
+          32,
+          77
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          28,
+          77
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_左悬绳",
+      "metadata": {
+        "target_box": [
+          221,
+          168,
+          253,
+          245
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          32,
+          77
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_右悬绳",
+      "asset": "block_好友界面_右悬绳",
+      "file": "PNG/公共UI/右悬绳_eda8460639.png",
+      "name": "右标题吊绳",
+      "z": 12,
+      "position": [
+        606,
+        168
+      ],
+      "size": [
+        26,
+        74
+      ],
+      "native_size": [
+        34,
+        74
+      ],
+      "render_transform": {
+        "resize": [
+          34,
+          74
+        ],
+        "alpha_crop": [
+          4,
+          0,
+          30,
+          74
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_右悬绳",
+      "metadata": {
+        "target_box": [
+          602,
+          168,
+          636,
+          242
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          34,
+          74
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友标题木牌",
+      "asset": "block_好友界面_好友标题木牌",
+      "file": "PNG/公共UI/好友标题木牌_b85a1c550c.png",
+      "name": "好友系原生标题木牌",
+      "z": 13,
+      "position": [
+        202,
+        215
+      ],
+      "size": [
+        449,
+        114
+      ],
+      "native_size": [
+        461,
+        114
+      ],
+      "render_transform": {
+        "resize": [
+          461,
+          114
+        ],
+        "alpha_crop": [
+          6,
+          0,
+          455,
+          114
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友标题木牌",
+      "metadata": {
+        "target_box": [
+          196,
+          215,
+          657,
+          329
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          461,
+          114
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.003",
+      "name": "页面标题",
+      "z": 14,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.004",
+      "name": "页面副标题",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回上一页",
+      "z": 16,
+      "position": [
+        15,
+        1635
+      ],
+      "size": [
+        164,
+        165
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          164,
+          166
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          164,
+          165
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          15,
+          1635,
+          179,
+          1801
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "levels"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "伙伴原生行0",
+      "z": 17,
+      "position": [
+        99,
+        549
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          656,
+          141
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          656,
+          141
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          99,
+          549,
+          755,
+          690
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_9d264f3cf598a6a0d168",
+      "asset": "block_missing_9d264f3cf598a6a0d168",
+      "file": "PNG/公共素材/bee_xiaomi_9d264f3cf5.png",
+      "name": "bee_xiaomi",
+      "z": 18,
+      "position": [
+        118,
+        537
+      ],
+      "size": [
+        126,
+        161
+      ],
+      "native_size": [
+        1105,
+        1424
+      ],
+      "render_transform": {
+        "resize": [
+          126,
+          163
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          126,
+          161
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_9d264f3cf598a6a0d168",
+      "metadata": {
+        "target_box": [
+          111,
+          537,
+          251,
+          700
+        ],
+        "fit": "contain",
+        "state": "unlocked",
+        "parent": null,
+        "native_size": [
+          1105,
+          1424
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_d03a0aa4e4d4197ef0d4",
+      "asset": "block_missing_d03a0aa4e4d4197ef0d4",
+      "file": "PNG/公共素材/bee_xiaomi_独立晴天围巾_d03a0aa4e4.png",
+      "name": "bee_xiaomi_独立晴天围巾",
+      "z": 19,
+      "position": [
+        161,
+        624
+      ],
+      "size": [
+        28,
+        34
+      ],
+      "native_size": [
+        336,
+        401
+      ],
+      "render_transform": {
+        "resize": [
+          28,
+          34
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          28,
+          34
+        ]
+      },
+      "group": "可替换外观",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_d03a0aa4e4d4197ef0d4",
+      "metadata": {
+        "target_box": [
+          148,
+          624,
+          203,
+          658
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": "bee_xiaomi",
+        "native_size": [
+          336,
+          401
+        ],
+        "binding": "state.selectedOutfit"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.005",
+      "name": "蜂友名0",
+      "z": 20,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.006",
+      "name": "蜂友身份0",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.007",
+      "name": "蜂友成长0",
+      "z": 22,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "成长_原生按钮",
+      "z": 23,
+      "position": [
+        538,
+        613
+      ],
+      "size": [
+        185,
+        55
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          185,
+          55
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          185,
+          55
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          538,
+          613,
+          723,
+          668
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-friend-detail:0"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.008",
+      "name": "成长_文案",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "伙伴原生行1",
+      "z": 25,
+      "position": [
+        99,
+        758
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          656,
+          141
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          656,
+          141
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          99,
+          758,
+          755,
+          899
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_7919a51c25f3e95dc173",
+      "asset": "block_missing_7919a51c25f3e95dc173",
+      "file": "PNG/公共素材/角色主体_7919a51c25.png",
+      "name": "bee_huahua",
+      "z": 26,
+      "position": [
+        121,
+        746
+      ],
+      "size": [
+        120,
+        163
+      ],
+      "native_size": [
+        501,
+        678
+      ],
+      "render_transform": {
+        "resize": [
+          120,
+          163
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          120,
+          163
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_7919a51c25f3e95dc173",
+      "metadata": {
+        "target_box": [
+          111,
+          746,
+          251,
+          909
+        ],
+        "fit": "contain",
+        "state": "unlocked",
+        "parent": null,
+        "native_size": [
+          501,
+          678
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.009",
+      "name": "蜂友名1",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.010",
+      "name": "蜂友身份1",
+      "z": 28,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.011",
+      "name": "蜂友成长1",
+      "z": 29,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "成长_原生按钮",
+      "z": 30,
+      "position": [
+        538,
+        822
+      ],
+      "size": [
+        185,
+        55
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          185,
+          55
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          185,
+          55
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          538,
+          822,
+          723,
+          877
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "meta-friend-detail:1"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.012",
+      "name": "成长_文案",
+      "z": 31,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "伙伴原生行2",
+      "z": 32,
+      "position": [
+        99,
+        967
+      ],
+      "size": [
+        656,
+        141
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          656,
+          141
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          656,
+          141
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          99,
+          967,
+          755,
+          1108
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_80c82c47c0adeae4ce12",
+      "asset": "block_missing_80c82c47c0adeae4ce12",
+      "file": "PNG/公共素材/bee_agong_80c82c47c0.png",
+      "name": "bee_agong",
+      "z": 33,
+      "position": [
+        111,
+        959
+      ],
+      "size": [
+        140,
+        154
+      ],
+      "native_size": [
+        623,
+        685
+      ],
+      "render_transform": {
+        "resize": [
+          140,
+          154
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          140,
+          154
+        ]
+      },
+      "group": "角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_80c82c47c0adeae4ce12",
+      "metadata": {
+        "target_box": [
+          111,
+          955,
+          251,
+          1118
+        ],
+        "fit": "contain",
+        "state": "locked",
+        "parent": null,
+        "native_size": [
+          623,
+          685
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.013",
+      "name": "蜂友名2",
+      "z": 34,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.014",
+      "name": "蜂友身份2",
+      "z": 35,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_模式锁",
+      "asset": "block_关卡选择_模式锁",
+      "file": "PNG/公共UI/模式锁_be4f044685.png",
+      "name": "阿工认识条件锁",
+      "z": 36,
+      "position": [
+        529,
+        974
+      ],
+      "size": [
+        51,
+        58
+      ],
+      "native_size": [
+        43,
+        48
+      ],
+      "render_transform": {
+        "resize": [
+          52,
+          58
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          51,
+          58
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_模式锁",
+      "metadata": {
+        "target_box": [
+          529,
+          974,
+          582,
+          1032
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          43,
+          48
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.015",
+      "name": "蜂友成长2",
+      "z": 37,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.016",
+      "name": "伙伴进度标签",
+      "z": 38,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_赠送进度空槽",
+      "asset": "block_好友界面_赠送进度空槽",
+      "file": "PNG/公共UI/赠送进度空槽_4abc304474.png",
+      "name": "进度空轨",
+      "z": 39,
+      "position": [
+        146,
+        1306
+      ],
+      "size": [
+        561,
+        34
+      ],
+      "native_size": [
+        523,
+        34
+      ],
+      "render_transform": {
+        "resize": [
+          561,
+          34
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          561,
+          34
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送进度空槽",
+      "metadata": {
+        "target_box": [
+          146,
+          1306,
+          707,
+          1340
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          523,
+          34
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_赠送进度填充",
+      "asset": "block_好友界面_赠送进度填充",
+      "file": "PNG/公共UI/赠送进度填充_d129faa740.png",
+      "name": "进度填充",
+      "z": 40,
+      "position": [
+        150,
+        1310
+      ],
+      "size": [
+        98,
+        26
+      ],
+      "native_size": [
+        237,
+        34
+      ],
+      "render_transform": {
+        "resize": [
+          98,
+          26
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          98,
+          26
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_赠送进度填充",
+      "metadata": {
+        "target_box": [
+          150,
+          1310,
+          248,
+          1336
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          237,
+          34
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "伙伴成长_原生按钮",
+      "z": 41,
+      "position": [
+        179,
+        1369
+      ],
+      "size": [
+        496,
+        141
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          3,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1366,
+          675,
+          1513
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "bee-detail"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.017",
+      "name": "伙伴成长_文案",
+      "z": 42,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "旅行相册_原生按钮",
+      "z": 43,
+      "position": [
+        179,
+        1552
+      ],
+      "size": [
+        496,
+        142
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          496,
+          147
+        ],
+        "alpha_crop": [
+          0,
+          2,
+          496,
+          144
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          179,
+          1550,
+          675,
+          1697
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "album"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T20-01.text.018",
+      "name": "旅行相册_文案",
+      "z": 44,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T20-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T20-01.text.000",
+      "instance_id": "978ff2056577:T20-01.text.000",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T20-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T20-01.text.001",
+      "instance_id": "978ff2056577:T20-01.text.001",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T20-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T20-01.text.002",
+      "instance_id": "978ff2056577:T20-01.text.002",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "家园伙伴",
+      "position": [
+        345,
+        250
+      ],
+      "box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "font_size": 40.0,
+      "min_font_size": 32.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        244,
+        200
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.4,
+      "stroke_color": [
+        112,
+        69,
+        27
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "家园伙伴",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 40.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        163,
+        42
+      ],
+      "id": "T20-01.text.003",
+      "layout_box": [
+        226,
+        235,
+        627,
+        308
+      ],
+      "text_id": "T20-01.text.003",
+      "instance_id": "978ff2056577:T20-01.text.003",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "家园伙伴",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面副标题",
+      "text": "伙伴成长 16/90",
+      "position": [
+        332,
+        456
+      ],
+      "box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "subtitle",
+      "purpose": "subtitle",
+      "binding": null,
+      "raw": "伙伴成长 16/90",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        188,
+        26
+      ],
+      "id": "T20-01.text.004",
+      "layout_box": [
+        115,
+        438,
+        738,
+        501
+      ],
+      "text_id": "T20-01.text.004",
+      "instance_id": "978ff2056577:T20-01.text.004",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "template",
+      "message_template": "伙伴成长 {value_1}/{value_2}",
+      "parameters": {
+        "value_1": 16,
+        "value_2": 90
+      },
+      "value_binding": {
+        "value_1": "page.978ff2056577.text.13d7ce0196ca.value_1",
+        "value_2": "page.978ff2056577.text.13d7ce0196ca.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "伙伴成长 16/90",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.978ff2056577.text.13d7ce0196ca",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友名0",
+      "text": "小蜜",
+      "position": [
+        264,
+        568
+      ],
+      "box": [
+        264,
+        558,
+        491,
+        610
+      ],
+      "font_size": 33.0,
+      "min_font_size": 26.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "小蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 33.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        66,
+        33
+      ],
+      "id": "T20-01.text.005",
+      "layout_box": [
+        264,
+        558,
+        491,
+        610
+      ],
+      "text_id": "T20-01.text.005",
+      "instance_id": "978ff2056577:T20-01.text.005",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "小蜜",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.4d23c369b947",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友身份0",
+      "text": "一路同行",
+      "position": [
+        265,
+        624
+      ],
+      "box": [
+        265,
+        615,
+        497,
+        657
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "一路同行",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        96,
+        24
+      ],
+      "id": "T20-01.text.006",
+      "layout_box": [
+        265,
+        615,
+        497,
+        657
+      ],
+      "text_id": "T20-01.text.006",
+      "instance_id": "978ff2056577:T20-01.text.006",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "一路同行",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.8876e7e4f7b9",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友成长0",
+      "text": "4/30",
+      "position": [
+        594,
+        564
+      ],
+      "box": [
+        523,
+        552,
+        729,
+        601
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "companions[0].affinity",
+      "raw": "4/30",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        63,
+        24
+      ],
+      "id": "T20-01.text.007",
+      "layout_box": [
+        523,
+        552,
+        729,
+        601
+      ],
+      "text_id": "T20-01.text.007",
+      "instance_id": "978ff2056577:T20-01.text.007",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "number",
+      "raw_value": {
+        "current": 4,
+        "total": 30
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "companions[0].affinity",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "4/30",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "成长_文案",
+      "text": "成长",
+      "position": [
+        604,
+        626
+      ],
+      "box": [
+        547,
+        618,
+        714,
+        660
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "成长",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        53,
+        27
+      ],
+      "id": "T20-01.text.008",
+      "layout_box": [
+        547,
+        618,
+        714,
+        660
+      ],
+      "text_id": "T20-01.text.008",
+      "instance_id": "978ff2056577:T20-01.text.008",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "成长",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.63da7eba4753",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友名1",
+      "text": "花花",
+      "position": [
+        264,
+        777
+      ],
+      "box": [
+        264,
+        767,
+        491,
+        819
+      ],
+      "font_size": 33.0,
+      "min_font_size": 26.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "花花",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 33.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        66,
+        32
+      ],
+      "id": "T20-01.text.009",
+      "layout_box": [
+        264,
+        767,
+        491,
+        819
+      ],
+      "text_id": "T20-01.text.009",
+      "instance_id": "978ff2056577:T20-01.text.009",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花花",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.bb6e58786a3d",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友身份1",
+      "text": "照料花园",
+      "position": [
+        265,
+        833
+      ],
+      "box": [
+        265,
+        824,
+        497,
+        866
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "照料花园",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        96,
+        24
+      ],
+      "id": "T20-01.text.010",
+      "layout_box": [
+        265,
+        824,
+        497,
+        866
+      ],
+      "text_id": "T20-01.text.010",
+      "instance_id": "978ff2056577:T20-01.text.010",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "照料花园",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.79ede51289b5",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友成长1",
+      "text": "12/30",
+      "position": [
+        586,
+        774
+      ],
+      "box": [
+        523,
+        761,
+        729,
+        810
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "companions[1].affinity",
+      "raw": "12/30",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        80,
+        24
+      ],
+      "id": "T20-01.text.011",
+      "layout_box": [
+        523,
+        761,
+        729,
+        810
+      ],
+      "text_id": "T20-01.text.011",
+      "instance_id": "978ff2056577:T20-01.text.011",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "number",
+      "raw_value": {
+        "current": 12,
+        "total": 30
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "companions[1].affinity",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "12/30",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "成长_文案",
+      "text": "成长",
+      "position": [
+        604,
+        834
+      ],
+      "box": [
+        547,
+        827,
+        714,
+        869
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "成长",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        53,
+        27
+      ],
+      "id": "T20-01.text.012",
+      "layout_box": [
+        547,
+        827,
+        714,
+        869
+      ],
+      "text_id": "T20-01.text.012",
+      "instance_id": "978ff2056577:T20-01.text.012",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "成长",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.63da7eba4753",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友名2",
+      "text": "阿工",
+      "position": [
+        264,
+        986
+      ],
+      "box": [
+        264,
+        976,
+        491,
+        1028
+      ],
+      "font_size": 33.0,
+      "min_font_size": 26.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "阿工",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 33.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        66,
+        31
+      ],
+      "id": "T20-01.text.013",
+      "layout_box": [
+        264,
+        976,
+        491,
+        1028
+      ],
+      "text_id": "T20-01.text.013",
+      "instance_id": "978ff2056577:T20-01.text.013",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "阿工",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.b07a82568bea",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友身份2",
+      "text": "建造能手",
+      "position": [
+        265,
+        1042
+      ],
+      "box": [
+        265,
+        1033,
+        497,
+        1075
+      ],
+      "font_size": 24.0,
+      "min_font_size": 19.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "left",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "建造能手",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        96,
+        24
+      ],
+      "id": "T20-01.text.014",
+      "layout_box": [
+        265,
+        1033,
+        497,
+        1075
+      ],
+      "text_id": "T20-01.text.014",
+      "instance_id": "978ff2056577:T20-01.text.014",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "建造能手",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.610e9b9fdf2d",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂友成长2",
+      "text": "第2园完工后认识",
+      "position": [
+        537,
+        1050
+      ],
+      "box": [
+        506,
+        1030,
+        736,
+        1093
+      ],
+      "font_size": 22.0,
+      "min_font_size": 17.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "第2园完工后认识",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 22.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        168,
+        22
+      ],
+      "id": "T20-01.text.015",
+      "layout_box": [
+        506,
+        1030,
+        736,
+        1093
+      ],
+      "text_id": "T20-01.text.015",
+      "instance_id": "978ff2056577:T20-01.text.015",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "template",
+      "message_template": "第{count}园完工后认识",
+      "parameters": {
+        "count": 2
+      },
+      "value_binding": {
+        "count": "page.978ff2056577.text.c625aa38c534.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "第2园完工后认识",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.978ff2056577.text.c625aa38c534",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "伙伴进度标签",
+      "text": "伙伴成长 16 / 90",
+      "position": [
+        305,
+        1237
+      ],
+      "box": [
+        161,
+        1221,
+        692,
+        1284
+      ],
+      "font_size": 31.0,
+      "min_font_size": 24.8,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "companions.totalAffinity",
+      "raw": "伙伴成长 16 / 90",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 31.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        243,
+        31
+      ],
+      "id": "T20-01.text.016",
+      "layout_box": [
+        161,
+        1221,
+        692,
+        1284
+      ],
+      "text_id": "T20-01.text.016",
+      "instance_id": "978ff2056577:T20-01.text.016",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "template",
+      "message_template": "伙伴成长 {value_1} / {value_2}",
+      "parameters": {
+        "value_1": 16,
+        "value_2": 90
+      },
+      "value_binding": {
+        "value_1": "page.978ff2056577.text.7b676d4342f2.value_1",
+        "value_2": "page.978ff2056577.text.7b676d4342f2.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "伙伴成长 16 / 90",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.978ff2056577.text.7b676d4342f2",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "伙伴成长_文案",
+      "text": "伙伴成长",
+      "position": [
+        356,
+        1416
+      ],
+      "box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        72,
+        110,
+        39
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "伙伴成长",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        143,
+        37
+      ],
+      "id": "T20-01.text.017",
+      "layout_box": [
+        203,
+        1378,
+        651,
+        1491
+      ],
+      "text_id": "T20-01.text.017",
+      "instance_id": "978ff2056577:T20-01.text.017",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "伙伴成长",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.d685e572f6b3",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "旅行相册_文案",
+      "text": "旅行相册",
+      "position": [
+        356,
+        1600
+      ],
+      "box": [
+        203,
+        1562,
+        651,
+        1675
+      ],
+      "font_size": 35.0,
+      "min_font_size": 28.0,
+      "max_lines": 2,
+      "color_rgb": [
+        255,
+        247,
+        221
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.2,
+      "stroke_color": [
+        105,
+        71,
+        38
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "旅行相册",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 35.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        143,
+        37
+      ],
+      "id": "T20-01.text.018",
+      "layout_box": [
+        203,
+        1562,
+        651,
+        1675
+      ],
+      "text_id": "T20-01.text.018",
+      "instance_id": "978ff2056577:T20-01.text.018",
+      "page": "T20-01_三位蜂友列表",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "旅行相册",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.978ff2056577.text.26b45d44bfda",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "bee-home"
+    ],
+    "requirements": "原好友稿为六个人类头像与在线赠送；改为小蜜、花花、阿工三位，章节锁定／成长状态与详情同一角色设计。",
+    "actions": [
+      {
+        "layer": "返回上一页",
+        "label": "返回",
+        "action": "levels",
+        "free": true
+      },
+      {
+        "layer": "成长_原生按钮",
+        "label": "成长",
+        "action": "meta-friend-detail:0"
+      },
+      {
+        "layer": "成长_原生按钮",
+        "label": "成长",
+        "action": "meta-friend-detail:1"
+      },
+      {
+        "layer": "伙伴成长_原生按钮",
+        "label": "伙伴成长",
+        "action": "bee-detail",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      },
+      {
+        "layer": "旅行相册_原生按钮",
+        "label": "旅行相册",
+        "action": "album",
+        "optional_video": false,
+        "free": true,
+        "disabled": false
+      }
+    ],
+    "recipe_layout": "companion_portraits",
+    "ui_fact_route": "bee-home",
+    "text_policy": "editable Microsoft YaHei; localized copy and bound numbers",
+    "style_family": "friend_original",
+    "facts_file": "H:\\projects\\luocheng\\制作检查\\Block\\缺少效果图\\界面事实\\ui_facts.json",
+    "layout_family": "companion_portraits"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T20-01_三位蜂友列表.png",
+    "composite": "页面对照/PSD合成/缺少/T20-01_三位蜂友列表.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "81ff0dec875efbe2bf47db74926ad87917c343772276945bafbb2efaf3d554b8",
+    "psd_composite": "页面对照/PSD合成/缺少/T20-01_三位蜂友列表.png",
+    "psd_composite_sha256": "e2cd91d317eb9e3a438aa7f748bc245648e689083adf1851e3ac99197ede0815",
+    "runtime_preview_max_channel_error": 2,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "81ff0dec875efbe2bf47db74926ad87917c343772276945bafbb2efaf3d554b8",
+    "psd_sha256": "dd7a9a52941077e420cfb506d7829bad68e93e1747997b5d1c0239bf5166c42f",
+    "composite_sha256": "e2cd91d317eb9e3a438aa7f748bc245648e689083adf1851e3ac99197ede0815",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T20-01_三位蜂友列表.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

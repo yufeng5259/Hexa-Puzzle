@@ -1,0 +1,4346 @@
+{
+  "page": "T51-02_引导_02首次建造",
+  "output_id": "T51-02",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "guide-home",
+      "title": "新手 · 点建筑",
+      "url": "http://127.0.0.1:4291/index.html#guide-home",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\02-guide-home.png",
+      "screenshot_sha256": "c0d7f847e49daf65a0407a75e962b8e096c19173cd25eda22835afe1b5029eac"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_missing_e233a22f2bad54dece48",
+      "asset": "block_missing_e233a22f2bad54dece48",
+      "file": "PNG/公共素材/向阳花园完整无建筑裸地形_e233a22f2b.png",
+      "name": "向阳花园完整无建筑裸地形",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "完整裸地形",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_e233a22f2bad54dece48",
+      "metadata": {
+        "theme": "sunny",
+        "building": null,
+        "stage": null
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_2dc99236144d67018102",
+      "asset": "block_missing_2dc99236144d67018102",
+      "file": "PNG/公共素材/向阳花园_树屋_0级_原生母件_2dc9923614.png",
+      "name": "向阳花园_树屋_0级",
+      "z": 1,
+      "position": [
+        51,
+        358
+      ],
+      "size": [
+        351,
+        262
+      ],
+      "native_size": [
+        512,
+        512
+      ],
+      "render_transform": {
+        "resize": [
+          512,
+          512
+        ],
+        "alpha_crop": [
+          81,
+          202,
+          432,
+          464
+        ]
+      },
+      "group": "树屋独立阶段",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_2dc99236144d67018102",
+      "metadata": {
+        "theme": "sunny",
+        "building": "treehouse",
+        "stage": 0,
+        "binding": "home.buildings[0].level",
+        "anchor": [
+          0.5,
+          0.90625
+        ],
+        "scene_anchor": [
+          226,
+          620
+        ],
+        "reference_bbox": [
+          0,
+          184,
+          472,
+          638
+        ],
+        "animation": null,
+        "pivot_px": null,
+        "static_wheel_removed": null,
+        "source_canvas": [
+          512,
+          512
+        ],
+        "scene_scale": 1.0318181818181817
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_42f5d2919d639a952f66",
+      "asset": "block_missing_42f5d2919d639a952f66",
+      "file": "PNG/公共素材/向阳花园_花园_0级_原生母件_42f5d2919d.png",
+      "name": "向阳花园_花园_0级",
+      "z": 2,
+      "position": [
+        515,
+        526
+      ],
+      "size": [
+        290,
+        144
+      ],
+      "native_size": [
+        512,
+        512
+      ],
+      "render_transform": {
+        "resize": [
+          384,
+          384
+        ],
+        "alpha_crop": [
+          47,
+          206,
+          337,
+          350
+        ]
+      },
+      "group": "花园独立阶段",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_42f5d2919d639a952f66",
+      "metadata": {
+        "theme": "sunny",
+        "building": "garden",
+        "stage": 0,
+        "binding": "home.buildings[1].level",
+        "anchor": [
+          0.5,
+          0.90625
+        ],
+        "scene_anchor": [
+          660,
+          668
+        ],
+        "reference_bbox": [
+          478,
+          405,
+          849,
+          686
+        ],
+        "animation": null,
+        "pivot_px": null,
+        "static_wheel_removed": null,
+        "source_canvas": [
+          512,
+          512
+        ],
+        "scene_scale": 0.7493333333333333
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_8f06f6134340fb20e061",
+      "asset": "block_missing_8f06f6134340fb20e061",
+      "file": "PNG/公共素材/向阳花园_蜂蜜工坊_0级_原生母件_8f06f61343.png",
+      "name": "向阳花园_蜂蜜工坊_0级",
+      "z": 3,
+      "position": [
+        70,
+        761
+      ],
+      "size": [
+        309,
+        172
+      ],
+      "native_size": [
+        512,
+        512
+      ],
+      "render_transform": {
+        "resize": [
+          387,
+          387
+        ],
+        "alpha_crop": [
+          39,
+          181,
+          348,
+          353
+        ]
+      },
+      "group": "蜂蜜工坊独立阶段",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_8f06f6134340fb20e061",
+      "metadata": {
+        "theme": "sunny",
+        "building": "honey_workshop",
+        "stage": 0,
+        "binding": "home.buildings[2].level",
+        "anchor": [
+          0.5,
+          0.90625
+        ],
+        "scene_anchor": [
+          225,
+          931
+        ],
+        "reference_bbox": [
+          18,
+          681,
+          419,
+          948
+        ],
+        "animation": null,
+        "pivot_px": null,
+        "static_wheel_removed": null,
+        "source_canvas": [
+          512,
+          512
+        ],
+        "scene_scale": 0.7563739376770539
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_aa22b0a6d16291f2ff75",
+      "asset": "block_missing_aa22b0a6d16291f2ff75",
+      "file": "PNG/公共素材/向阳花园_小溪水车_0级_原生母件_aa22b0a6d1.png",
+      "name": "向阳花园_小溪水车_0级",
+      "z": 4,
+      "position": [
+        589,
+        919
+      ],
+      "size": [
+        235,
+        155
+      ],
+      "native_size": [
+        512,
+        512
+      ],
+      "render_transform": {
+        "resize": [
+          294,
+          294
+        ],
+        "alpha_crop": [
+          37,
+          114,
+          272,
+          269
+        ]
+      },
+      "group": "小溪水车独立阶段",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_aa22b0a6d16291f2ff75",
+      "metadata": {
+        "theme": "sunny",
+        "building": "creek_watermill",
+        "stage": 0,
+        "binding": "home.buildings[3].level",
+        "anchor": [
+          0.60546875,
+          0.90625
+        ],
+        "scene_anchor": [
+          730,
+          1072
+        ],
+        "reference_bbox": [
+          555,
+          802,
+          853,
+          1110
+        ],
+        "animation": null,
+        "pivot_px": null,
+        "static_wheel_removed": null,
+        "source_canvas": [
+          512,
+          512
+        ],
+        "scene_scale": 0.575
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_cad71159dba5fc94a162",
+      "asset": "block_missing_cad71159dba5fc94a162",
+      "file": "PNG/公共素材/向阳花园_温室_0级_原生母件_cad71159db.png",
+      "name": "向阳花园_温室_0级",
+      "z": 5,
+      "position": [
+        69,
+        1192
+      ],
+      "size": [
+        394,
+        230
+      ],
+      "native_size": [
+        512,
+        512
+      ],
+      "render_transform": {
+        "resize": [
+          503,
+          503
+        ],
+        "alpha_crop": [
+          55,
+          228,
+          449,
+          458
+        ]
+      },
+      "group": "温室独立阶段",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_cad71159dba5fc94a162",
+      "metadata": {
+        "theme": "sunny",
+        "building": "greenhouse",
+        "stage": 0,
+        "binding": "home.buildings[4].level",
+        "anchor": [
+          0.5,
+          0.90625
+        ],
+        "scene_anchor": [
+          265,
+          1420
+        ],
+        "reference_bbox": [
+          42,
+          1095,
+          474,
+          1450
+        ],
+        "animation": null,
+        "pivot_px": null,
+        "static_wheel_removed": null,
+        "source_canvas": [
+          512,
+          512
+        ],
+        "scene_scale": 0.9818181818181818
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_树屋飞行蜜蜂",
+      "asset": "block_建造界面_树屋飞行蜜蜂",
+      "file": "PNG/公共素材/树屋飞行蜜蜂_7ff348e956.png",
+      "name": "原稿场景角色_树屋飞行蜜蜂",
+      "z": 6,
+      "position": [
+        380,
+        284
+      ],
+      "size": [
+        74,
+        79
+      ],
+      "native_size": [
+        1058,
+        1128
+      ],
+      "render_transform": {
+        "resize": [
+          74,
+          79
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          74,
+          79
+        ]
+      },
+      "group": "独立场景角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_树屋飞行蜜蜂",
+      "metadata": {
+        "target_box": [
+          380,
+          282,
+          454,
+          366
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1058,
+          1128
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_花园蜜蜂",
+      "asset": "block_建造界面_花园蜜蜂",
+      "file": "PNG/公共素材/花园蜜蜂_b39a90fe33.png",
+      "name": "原稿场景角色_花园蜜蜂",
+      "z": 7,
+      "position": [
+        635,
+        514
+      ],
+      "size": [
+        74,
+        77
+      ],
+      "native_size": [
+        1112,
+        1163
+      ],
+      "render_transform": {
+        "resize": [
+          74,
+          77
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          74,
+          77
+        ]
+      },
+      "group": "独立场景角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_花园蜜蜂",
+      "metadata": {
+        "target_box": [
+          635,
+          510,
+          709,
+          595
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1112,
+          1163
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_工坊蜜蜂",
+      "asset": "block_建造界面_工坊蜜蜂",
+      "file": "PNG/公共素材/工坊蜜蜂_dc12d7e464.png",
+      "name": "原稿场景角色_工坊蜜蜂",
+      "z": 8,
+      "position": [
+        82,
+        748
+      ],
+      "size": [
+        95,
+        104
+      ],
+      "native_size": [
+        1061,
+        1162
+      ],
+      "render_transform": {
+        "resize": [
+          95,
+          104
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          95,
+          104
+        ]
+      },
+      "group": "独立场景角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_工坊蜜蜂",
+      "metadata": {
+        "target_box": [
+          82,
+          748,
+          177,
+          853
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1061,
+          1162
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_水车蜜蜂",
+      "asset": "block_建造界面_水车蜜蜂",
+      "file": "PNG/公共素材/水车蜜蜂_cc741ff95c.png",
+      "name": "原稿场景角色_水车蜜蜂",
+      "z": 9,
+      "position": [
+        671,
+        966
+      ],
+      "size": [
+        64,
+        66
+      ],
+      "native_size": [
+        1092,
+        1124
+      ],
+      "render_transform": {
+        "resize": [
+          64,
+          66
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          64,
+          66
+        ]
+      },
+      "group": "独立场景角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_水车蜜蜂",
+      "metadata": {
+        "target_box": [
+          671,
+          959,
+          735,
+          1039
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1092,
+          1124
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_温室蜜蜂与浇水壶",
+      "asset": "block_建造界面_温室蜜蜂与浇水壶",
+      "file": "PNG/公共素材/温室蜜蜂与浇水壶_85f38ae1c2.png",
+      "name": "原稿场景角色_温室蜜蜂与浇水壶",
+      "z": 10,
+      "position": [
+        140,
+        1250
+      ],
+      "size": [
+        105,
+        97
+      ],
+      "native_size": [
+        1231,
+        1140
+      ],
+      "render_transform": {
+        "resize": [
+          105,
+          97
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          105,
+          97
+        ]
+      },
+      "group": "独立场景角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_温室蜜蜂与浇水壶",
+      "metadata": {
+        "target_box": [
+          139,
+          1250,
+          246,
+          1347
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1231,
+          1140
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_河中白鸭",
+      "asset": "block_建造界面_河中白鸭",
+      "file": "PNG/公共素材/河中白鸭_2a9ccb264b.png",
+      "name": "原稿场景角色_河中白鸭",
+      "z": 11,
+      "position": [
+        716,
+        1189
+      ],
+      "size": [
+        53,
+        42
+      ],
+      "native_size": [
+        1144,
+        906
+      ],
+      "render_transform": {
+        "resize": [
+          53,
+          42
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          53,
+          42
+        ]
+      },
+      "group": "独立场景角色",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_河中白鸭",
+      "metadata": {
+        "target_box": [
+          715,
+          1189,
+          771,
+          1231
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1144,
+          906
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 12,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 13,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 14,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.000",
+      "name": "花蜜数量",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 16,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 17,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.001",
+      "name": "提示库存",
+      "z": 18,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 19,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.002",
+      "name": "当前主线等级",
+      "z": 20,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_花园标题木牌",
+      "asset": "block_建造界面_花园标题木牌",
+      "file": "PNG/公共UI/花园标题木牌_77b7e30d53.png",
+      "name": "花园标题无字木牌",
+      "z": 21,
+      "position": [
+        214,
+        128
+      ],
+      "size": [
+        407,
+        135
+      ],
+      "native_size": [
+        421,
+        144
+      ],
+      "render_transform": {
+        "resize": [
+          421,
+          144
+        ],
+        "alpha_crop": [
+          4,
+          4,
+          411,
+          139
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_花园标题木牌",
+      "metadata": {
+        "target_box": [
+          210,
+          124,
+          631,
+          268
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          421,
+          144
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.003",
+      "name": "当前花园名称",
+      "z": 22,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_帮助",
+      "asset": "block_建造界面_帮助",
+      "file": "PNG/公共UI/帮助_c5d8087708.png",
+      "name": "建造帮助",
+      "z": 23,
+      "position": [
+        635,
+        160
+      ],
+      "size": [
+        74,
+        74
+      ],
+      "native_size": [
+        74,
+        75
+      ],
+      "render_transform": {
+        "resize": [
+          74,
+          75
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          74,
+          74
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_帮助",
+      "metadata": {
+        "target_box": [
+          635,
+          160,
+          709,
+          235
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          74,
+          75
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.004",
+      "name": "帮助符号",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_图鉴图标",
+      "asset": "block_建造界面_图鉴图标",
+      "file": "PNG/公共UI/图鉴图标_cd810e31b5.png",
+      "name": "旅行相册入口",
+      "z": 25,
+      "position": [
+        736,
+        241
+      ],
+      "size": [
+        97,
+        88
+      ],
+      "native_size": [
+        97,
+        88
+      ],
+      "render_transform": {
+        "resize": [
+          97,
+          88
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          97,
+          88
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_图鉴图标",
+      "metadata": {
+        "target_box": [
+          736,
+          241,
+          833,
+          329
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          97,
+          88
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_任务图标",
+      "asset": "block_建造界面_任务图标",
+      "file": "PNG/公共UI/任务图标_0e1783c67b.png",
+      "name": "任务入口",
+      "z": 26,
+      "position": [
+        742,
+        362
+      ],
+      "size": [
+        85,
+        86
+      ],
+      "native_size": [
+        1099,
+        1114
+      ],
+      "render_transform": {
+        "resize": [
+          85,
+          86
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          85,
+          86
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_任务图标",
+      "metadata": {
+        "target_box": [
+          742,
+          362,
+          827,
+          448
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1099,
+          1114
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.005",
+      "name": "相册入口文案",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.006",
+      "name": "任务入口文案",
+      "z": 28,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_树屋进度容器",
+      "asset": "block_建造界面_树屋进度容器",
+      "file": "PNG/公共UI/树屋进度容器_da22a15373.png",
+      "name": "树屋空白进度牌",
+      "z": 29,
+      "position": [
+        46,
+        560
+      ],
+      "size": [
+        258,
+        83
+      ],
+      "native_size": [
+        258,
+        83
+      ],
+      "render_transform": {
+        "resize": [
+          258,
+          83
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          258,
+          83
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_树屋进度容器",
+      "metadata": {
+        "target_box": [
+          46,
+          560,
+          304,
+          643
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          258,
+          83
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_树屋进度底轨",
+      "asset": "block_建造界面_树屋进度底轨",
+      "file": "PNG/公共UI/树屋进度底轨_012a85b35f.png",
+      "name": "树屋五级进度底轨",
+      "z": 30,
+      "position": [
+        64,
+        603
+      ],
+      "size": [
+        222,
+        31
+      ],
+      "native_size": [
+        216,
+        31
+      ],
+      "render_transform": {
+        "resize": [
+          222,
+          31
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          222,
+          31
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_树屋进度底轨",
+      "metadata": {
+        "target_box": [
+          64,
+          603,
+          286,
+          634
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          216,
+          31
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.007",
+      "name": "树屋动态价格与状态",
+      "z": 31,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.008",
+      "name": "树屋等级",
+      "z": 32,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_树屋进入按钮",
+      "asset": "block_建造界面_树屋进入按钮",
+      "file": "PNG/公共UI/树屋进入按钮_c6d9772420.png",
+      "name": "树屋直接升级按钮",
+      "z": 33,
+      "position": [
+        308,
+        573
+      ],
+      "size": [
+        53,
+        53
+      ],
+      "native_size": [
+        56,
+        56
+      ],
+      "render_transform": {
+        "resize": [
+          54,
+          54
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          53,
+          53
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_树屋进入按钮",
+      "metadata": {
+        "target_box": [
+          308,
+          572,
+          362,
+          628
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          56,
+          56
+        ],
+        "action": "build-direct",
+        "building_id": 0,
+        "cost": 40
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_花园进度容器",
+      "asset": "block_建造界面_花园进度容器",
+      "file": "PNG/公共UI/花园进度容器_fc0977bf52.png",
+      "name": "花园空白进度牌",
+      "z": 34,
+      "position": [
+        536,
+        663
+      ],
+      "size": [
+        239,
+        84
+      ],
+      "native_size": [
+        240,
+        84
+      ],
+      "render_transform": {
+        "resize": [
+          239,
+          84
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          239,
+          84
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_花园进度容器",
+      "metadata": {
+        "target_box": [
+          536,
+          663,
+          775,
+          747
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          240,
+          84
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_花园进度底轨",
+      "asset": "block_建造界面_花园进度底轨",
+      "file": "PNG/公共UI/花园进度底轨_65fc8d9aff.png",
+      "name": "花园五级进度底轨",
+      "z": 35,
+      "position": [
+        554,
+        706
+      ],
+      "size": [
+        203,
+        31
+      ],
+      "native_size": [
+        201,
+        31
+      ],
+      "render_transform": {
+        "resize": [
+          203,
+          31
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          203,
+          31
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_花园进度底轨",
+      "metadata": {
+        "target_box": [
+          554,
+          706,
+          757,
+          737
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          201,
+          31
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.009",
+      "name": "花园动态价格与状态",
+      "z": 36,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.010",
+      "name": "花园等级",
+      "z": 37,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_花园进入按钮",
+      "asset": "block_建造界面_花园进入按钮",
+      "file": "PNG/公共UI/花园进入按钮_26aa952c84.png",
+      "name": "花园直接升级按钮",
+      "z": 38,
+      "position": [
+        779,
+        675
+      ],
+      "size": [
+        53,
+        54
+      ],
+      "native_size": [
+        56,
+        57
+      ],
+      "render_transform": {
+        "resize": [
+          54,
+          55
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          53,
+          54
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_花园进入按钮",
+      "metadata": {
+        "target_box": [
+          779,
+          675,
+          833,
+          731
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          56,
+          57
+        ],
+        "action": "build-direct",
+        "building_id": 1,
+        "cost": 40
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_蜂蜜工坊进度容器",
+      "asset": "block_建造界面_蜂蜜工坊进度容器",
+      "file": "PNG/公共UI/蜂蜜工坊进度容器_43fd7ce57a.png",
+      "name": "蜂蜜工坊空白进度牌",
+      "z": 39,
+      "position": [
+        53,
+        927
+      ],
+      "size": [
+        267,
+        82
+      ],
+      "native_size": [
+        264,
+        82
+      ],
+      "render_transform": {
+        "resize": [
+          267,
+          82
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          267,
+          82
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_蜂蜜工坊进度容器",
+      "metadata": {
+        "target_box": [
+          53,
+          927,
+          320,
+          1009
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          264,
+          82
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_蜂蜜工坊进度底轨",
+      "asset": "block_建造界面_蜂蜜工坊进度底轨",
+      "file": "PNG/公共UI/蜂蜜工坊进度底轨_b321502544.png",
+      "name": "蜂蜜工坊五级进度底轨",
+      "z": 40,
+      "position": [
+        71,
+        970
+      ],
+      "size": [
+        231,
+        31
+      ],
+      "native_size": [
+        222,
+        33
+      ],
+      "render_transform": {
+        "resize": [
+          231,
+          31
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          231,
+          31
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_蜂蜜工坊进度底轨",
+      "metadata": {
+        "target_box": [
+          71,
+          970,
+          302,
+          1001
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          222,
+          33
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.011",
+      "name": "蜂蜜工坊动态价格与状态",
+      "z": 41,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.012",
+      "name": "蜂蜜工坊等级",
+      "z": 42,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_蜂蜜工坊进入按钮",
+      "asset": "block_建造界面_蜂蜜工坊进入按钮",
+      "file": "PNG/公共UI/蜂蜜工坊进入按钮_f43e59d9f5.png",
+      "name": "蜂蜜工坊直接升级按钮",
+      "z": 43,
+      "position": [
+        324,
+        940
+      ],
+      "size": [
+        53,
+        53
+      ],
+      "native_size": [
+        56,
+        56
+      ],
+      "render_transform": {
+        "resize": [
+          54,
+          54
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          53,
+          53
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_蜂蜜工坊进入按钮",
+      "metadata": {
+        "target_box": [
+          324,
+          939,
+          378,
+          995
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          56,
+          56
+        ],
+        "action": "build-direct",
+        "building_id": 2,
+        "cost": 40
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_小溪水车进度容器",
+      "asset": "block_建造界面_小溪水车进度容器",
+      "file": "PNG/公共UI/小溪水车进度容器_41eb1c57ce.png",
+      "name": "小溪水车空白进度牌",
+      "z": 44,
+      "position": [
+        516,
+        1078
+      ],
+      "size": [
+        259,
+        82
+      ],
+      "native_size": [
+        259,
+        82
+      ],
+      "render_transform": {
+        "resize": [
+          259,
+          82
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          259,
+          82
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_小溪水车进度容器",
+      "metadata": {
+        "target_box": [
+          516,
+          1078,
+          775,
+          1160
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          259,
+          82
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_小溪水车进度底轨",
+      "asset": "block_建造界面_小溪水车进度底轨",
+      "file": "PNG/公共UI/小溪水车进度底轨_5a72758f05.png",
+      "name": "小溪水车五级进度底轨",
+      "z": 45,
+      "position": [
+        534,
+        1121
+      ],
+      "size": [
+        223,
+        31
+      ],
+      "native_size": [
+        219,
+        33
+      ],
+      "render_transform": {
+        "resize": [
+          223,
+          31
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          223,
+          31
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_小溪水车进度底轨",
+      "metadata": {
+        "target_box": [
+          534,
+          1121,
+          757,
+          1152
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          219,
+          33
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.013",
+      "name": "小溪水车动态价格与状态",
+      "z": 46,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.014",
+      "name": "小溪水车等级",
+      "z": 47,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_小溪水车进入按钮",
+      "asset": "block_建造界面_小溪水车进入按钮",
+      "file": "PNG/公共UI/小溪水车进入按钮_f800f11280.png",
+      "name": "小溪水车直接升级按钮",
+      "z": 48,
+      "position": [
+        779,
+        1090
+      ],
+      "size": [
+        53,
+        54
+      ],
+      "native_size": [
+        56,
+        57
+      ],
+      "render_transform": {
+        "resize": [
+          54,
+          55
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          53,
+          54
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_小溪水车进入按钮",
+      "metadata": {
+        "target_box": [
+          779,
+          1090,
+          833,
+          1146
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          56,
+          57
+        ],
+        "action": "build-direct",
+        "building_id": 3,
+        "cost": 40
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_温室进度容器",
+      "asset": "block_建造界面_温室进度容器",
+      "file": "PNG/公共UI/温室进度容器_96f404f004.png",
+      "name": "温室空白进度牌",
+      "z": 49,
+      "position": [
+        92,
+        1415
+      ],
+      "size": [
+        257,
+        84
+      ],
+      "native_size": [
+        255,
+        84
+      ],
+      "render_transform": {
+        "resize": [
+          257,
+          84
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          257,
+          84
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_温室进度容器",
+      "metadata": {
+        "target_box": [
+          92,
+          1415,
+          349,
+          1499
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          255,
+          84
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_温室进度底轨",
+      "asset": "block_建造界面_温室进度底轨",
+      "file": "PNG/公共UI/温室进度底轨_5dbdf3cf88.png",
+      "name": "温室五级进度底轨",
+      "z": 50,
+      "position": [
+        110,
+        1458
+      ],
+      "size": [
+        221,
+        31
+      ],
+      "native_size": [
+        213,
+        31
+      ],
+      "render_transform": {
+        "resize": [
+          221,
+          31
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          221,
+          31
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_温室进度底轨",
+      "metadata": {
+        "target_box": [
+          110,
+          1458,
+          331,
+          1489
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          213,
+          31
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.015",
+      "name": "温室动态价格与状态",
+      "z": 51,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.016",
+      "name": "温室等级",
+      "z": 52,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_温室进入按钮",
+      "asset": "block_建造界面_温室进入按钮",
+      "file": "PNG/公共UI/温室进入按钮_65e45e537e.png",
+      "name": "温室直接升级按钮",
+      "z": 53,
+      "position": [
+        353,
+        1428
+      ],
+      "size": [
+        53,
+        52
+      ],
+      "native_size": [
+        57,
+        56
+      ],
+      "render_transform": {
+        "resize": [
+          54,
+          53
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          53,
+          52
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_温室进入按钮",
+      "metadata": {
+        "target_box": [
+          353,
+          1427,
+          407,
+          1483
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          57,
+          56
+        ],
+        "action": "build-direct",
+        "building_id": 4,
+        "cost": 40
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_花园总进度面板",
+      "asset": "block_建造界面_花园总进度面板",
+      "file": "PNG/公共UI/花园总进度面板_879cdde6ec.png",
+      "name": "花园总进度无字面板",
+      "z": 54,
+      "position": [
+        0,
+        1653
+      ],
+      "size": [
+        853,
+        179
+      ],
+      "native_size": [
+        853,
+        179
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          179
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          179
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_花园总进度面板",
+      "metadata": {
+        "target_box": [
+          0,
+          1653,
+          853,
+          1832
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          179
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_花园总进度底轨",
+      "asset": "block_建造界面_花园总进度底轨",
+      "file": "PNG/公共UI/花园总进度底轨_7ea59db32f.png",
+      "name": "花园25阶总进度底轨",
+      "z": 55,
+      "position": [
+        187,
+        1718
+      ],
+      "size": [
+        542,
+        53
+      ],
+      "native_size": [
+        542,
+        53
+      ],
+      "render_transform": {
+        "resize": [
+          542,
+          53
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          542,
+          53
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_花园总进度底轨",
+      "metadata": {
+        "target_box": [
+          187,
+          1718,
+          729,
+          1771
+        ],
+        "fit": "stretch",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          542,
+          53
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.017",
+      "name": "花园总状态文案",
+      "z": 56,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.018",
+      "name": "花园总等级",
+      "z": 57,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_返回",
+      "asset": "block_建造界面_返回",
+      "file": "PNG/公共UI/返回_24aa88e242.png",
+      "name": "返回综合地图",
+      "z": 58,
+      "position": [
+        36,
+        1677
+      ],
+      "size": [
+        110,
+        101
+      ],
+      "native_size": [
+        113,
+        102
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          102
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          112,
+          101
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_返回",
+      "metadata": {
+        "target_box": [
+          34,
+          1677,
+          147,
+          1779
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          113,
+          102
+        ],
+        "action": "go:levels"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_建造界面_花园总奖励",
+      "asset": "block_建造界面_花园总奖励",
+      "file": "PNG/公共UI/花园总奖励_d4080c17bc.png",
+      "name": "整园完工礼物",
+      "z": 59,
+      "position": [
+        673,
+        1670
+      ],
+      "size": [
+        107,
+        111
+      ],
+      "native_size": [
+        1076,
+        1113
+      ],
+      "render_transform": {
+        "resize": [
+          107,
+          111
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          107,
+          111
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_建造界面_花园总奖励",
+      "metadata": {
+        "target_box": [
+          673,
+          1670,
+          780,
+          1781
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1076,
+          1113
+        ],
+        "action": "world-map",
+        "claim_once": true
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_730107e90711a12da100",
+      "asset": "block_missing_730107e90711a12da100",
+      "file": "PNG/公共UI/引导聚光遮罩_730107e907.png",
+      "name": "引导聚光遮罩",
+      "z": 60,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "事件式引导",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_730107e90711a12da100",
+      "metadata": {
+        "cutout": [
+          21,
+          228,
+          442,
+          663
+        ],
+        "soft_feather": 7
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_空白主面板",
+      "asset": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "name": "引导原生木纹提示框",
+      "z": 61,
+      "position": [
+        91,
+        1444
+      ],
+      "size": [
+        671,
+        220
+      ],
+      "native_size": [
+        727,
+        1207
+      ],
+      "render_transform": {
+        "resize": [
+          671,
+          223
+        ],
+        "nine_slice": {
+          "insets": [
+            64,
+            76,
+            64,
+            76
+          ]
+        },
+        "alpha_crop": [
+          0,
+          1,
+          671,
+          221
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板",
+      "metadata": {
+        "target_box": [
+          91,
+          1443,
+          762,
+          1666
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          64,
+          76,
+          64,
+          76
+        ],
+        "native_size": [
+          727,
+          1207
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "引导原生奶油内衬",
+      "z": 62,
+      "position": [
+        107,
+        1460
+      ],
+      "size": [
+        639,
+        189
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          639,
+          189
+        ],
+        "nine_slice": {
+          "insets": [
+            36,
+            36,
+            36,
+            36
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          639,
+          189
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          107,
+          1460,
+          746,
+          1649
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          36,
+          36,
+          36,
+          36
+        ],
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.019",
+      "name": "引导短句",
+      "z": 63,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.020",
+      "name": "引导步骤",
+      "z": 64,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T51-02.text.021",
+      "name": "跳过引导",
+      "z": 65,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_missing_5f3e856dd50cf2982d36",
+      "asset": "block_missing_5f3e856dd50cf2982d36",
+      "file": "PNG/公共UI/style_hand_5f3e856dd5.png",
+      "name": "引导手指",
+      "z": 66,
+      "position": [
+        220,
+        516
+      ],
+      "size": [
+        124,
+        178
+      ],
+      "native_size": [
+        302,
+        434
+      ],
+      "render_transform": {
+        "resize": [
+          124,
+          178
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          124,
+          178
+        ]
+      },
+      "group": "事件式引导",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_5f3e856dd50cf2982d36",
+      "metadata": {
+        "fingertip": [
+          260.96999999999997,
+          519.45
+        ],
+        "animation": "tap_or_drag",
+        "fit": "contain",
+        "source_resize": [
+          124,
+          178
+        ],
+        "rotation_degrees": 0
+      }
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "花蜜数量",
+      "text": "120",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 120,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T51-02.text.000",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T51-02.text.000",
+      "instance_id": "e6ac1598d457:T51-02.text.000",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "number",
+      "raw_value": 120,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "120",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T51-02.text.001",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T51-02.text.001",
+      "instance_id": "e6ac1598d457:T51-02.text.001",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "当前主线等级",
+      "text": "Lv.1",
+      "position": [
+        49,
+        122
+      ],
+      "box": [
+        34,
+        116,
+        119,
+        145
+      ],
+      "font_size": 20.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        220
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        49,
+        92,
+        36
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "mainline.level",
+      "raw": 1,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 20.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        55,
+        18
+      ],
+      "id": "T51-02.text.002",
+      "layout_box": [
+        34,
+        116,
+        119,
+        145
+      ],
+      "text_id": "T51-02.text.002",
+      "instance_id": "e6ac1598d457:T51-02.text.002",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 1
+      },
+      "value_binding": {
+        "level": "mainline.level"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.1",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "当前花园名称",
+      "text": "向阳花园",
+      "position": [
+        347,
+        192
+      ],
+      "box": [
+        264,
+        179,
+        585,
+        244
+      ],
+      "font_size": 38.0,
+      "min_font_size": 30.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        110,
+        66,
+        27
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": "home.chapter_name",
+      "raw": "向阳花园",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        155,
+        40
+      ],
+      "id": "T51-02.text.003",
+      "layout_box": [
+        264,
+        179,
+        585,
+        244
+      ],
+      "text_id": "T51-02.text.003",
+      "instance_id": "e6ac1598d457:T51-02.text.003",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "向阳花园",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e6ac1598d457.text.9bbac1725813",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "帮助符号",
+      "text": "?",
+      "position": [
+        661,
+        178
+      ],
+      "box": [
+        640,
+        164,
+        705,
+        229
+      ],
+      "font_size": 48.0,
+      "min_font_size": 38.400000000000006,
+      "max_lines": 1,
+      "color_rgb": [
+        116,
+        67,
+        28
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "symbol",
+      "purpose": "symbol",
+      "binding": null,
+      "raw": "?",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 48.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        23,
+        38
+      ],
+      "id": "T51-02.text.004",
+      "layout_box": [
+        640,
+        164,
+        705,
+        229
+      ],
+      "text_id": "T51-02.text.004",
+      "instance_id": "e6ac1598d457:T51-02.text.004",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "?",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e6ac1598d457.text.bf71243e4dc0",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "相册入口文案",
+      "text": "相册",
+      "position": [
+        761,
+        335
+      ],
+      "box": [
+        735,
+        329,
+        837,
+        367
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        227
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        99,
+        53,
+        25
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "相册",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        50,
+        26
+      ],
+      "id": "T51-02.text.005",
+      "layout_box": [
+        735,
+        329,
+        837,
+        367
+      ],
+      "text_id": "T51-02.text.005",
+      "instance_id": "e6ac1598d457:T51-02.text.005",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "相册",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e6ac1598d457.text.6d72861abe46",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "任务入口文案",
+      "text": "任务",
+      "position": [
+        761,
+        454
+      ],
+      "box": [
+        735,
+        448,
+        837,
+        486
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        227
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        99,
+        53,
+        25
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "任务",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        50,
+        27
+      ],
+      "id": "T51-02.text.006",
+      "layout_box": [
+        735,
+        448,
+        837,
+        486
+      ],
+      "text_id": "T51-02.text.006",
+      "instance_id": "e6ac1598d457:T51-02.text.006",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "任务",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e6ac1598d457.text.b8e2336942bc",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "树屋动态价格与状态",
+      "text": "树屋 · 40花蜜",
+      "position": [
+        103,
+        570
+      ],
+      "box": [
+        54,
+        564,
+        296,
+        598
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "home.buildings[0].next_cost",
+      "raw": "树屋 · 40花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        144,
+        23
+      ],
+      "id": "T51-02.text.007",
+      "layout_box": [
+        54,
+        564,
+        296,
+        598
+      ],
+      "text_id": "T51-02.text.007",
+      "instance_id": "e6ac1598d457:T51-02.text.007",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "template",
+      "message_template": "树屋 · {count}花蜜",
+      "parameters": {
+        "count": 40
+      },
+      "value_binding": {
+        "count": "home.buildings[0].next_cost"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "树屋 · 40花蜜",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.e6ac1598d457.text.97f363e46f13",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "树屋等级",
+      "text": "0/5",
+      "position": [
+        155,
+        608
+      ],
+      "box": [
+        64,
+        603,
+        286,
+        635
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "home.buildings[0].level",
+      "raw": 0,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        40,
+        21
+      ],
+      "id": "T51-02.text.008",
+      "layout_box": [
+        64,
+        603,
+        286,
+        635
+      ],
+      "text_id": "T51-02.text.008",
+      "instance_id": "e6ac1598d457:T51-02.text.008",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "number",
+      "raw_value": {
+        "current": 0,
+        "total": 5
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "home.buildings[0].level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "0/5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花园动态价格与状态",
+      "text": "花园 · 40花蜜",
+      "position": [
+        584,
+        672
+      ],
+      "box": [
+        544,
+        667,
+        767,
+        701
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "home.buildings[1].next_cost",
+      "raw": "花园 · 40花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        144,
+        23
+      ],
+      "id": "T51-02.text.009",
+      "layout_box": [
+        544,
+        667,
+        767,
+        701
+      ],
+      "text_id": "T51-02.text.009",
+      "instance_id": "e6ac1598d457:T51-02.text.009",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "template",
+      "message_template": "花园 · {count}花蜜",
+      "parameters": {
+        "count": 40
+      },
+      "value_binding": {
+        "count": "home.buildings[1].next_cost"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花园 · 40花蜜",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.e6ac1598d457.text.31a19398b97e",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花园等级",
+      "text": "0/5",
+      "position": [
+        636,
+        712
+      ],
+      "box": [
+        554,
+        706,
+        757,
+        738
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "home.buildings[1].level",
+      "raw": 0,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        40,
+        21
+      ],
+      "id": "T51-02.text.010",
+      "layout_box": [
+        554,
+        706,
+        757,
+        738
+      ],
+      "text_id": "T51-02.text.010",
+      "instance_id": "e6ac1598d457:T51-02.text.010",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "number",
+      "raw_value": {
+        "current": 0,
+        "total": 5
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "home.buildings[1].level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "0/5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂蜜工坊动态价格与状态",
+      "text": "蜂蜜工坊 · 40花蜜",
+      "position": [
+        92,
+        936
+      ],
+      "box": [
+        61,
+        931,
+        312,
+        965
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "home.buildings[2].next_cost",
+      "raw": "蜂蜜工坊 · 40花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        190,
+        23
+      ],
+      "id": "T51-02.text.011",
+      "layout_box": [
+        61,
+        931,
+        312,
+        965
+      ],
+      "text_id": "T51-02.text.011",
+      "instance_id": "e6ac1598d457:T51-02.text.011",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "template",
+      "message_template": "蜂蜜工坊 · {count}花蜜",
+      "parameters": {
+        "count": 40
+      },
+      "value_binding": {
+        "count": "home.buildings[2].next_cost"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "蜂蜜工坊 · 40花蜜",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.e6ac1598d457.text.33f0747bab6f",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂蜜工坊等级",
+      "text": "0/5",
+      "position": [
+        166,
+        976
+      ],
+      "box": [
+        71,
+        970,
+        302,
+        1002
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "home.buildings[2].level",
+      "raw": 0,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        40,
+        21
+      ],
+      "id": "T51-02.text.012",
+      "layout_box": [
+        71,
+        970,
+        302,
+        1002
+      ],
+      "text_id": "T51-02.text.012",
+      "instance_id": "e6ac1598d457:T51-02.text.012",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "number",
+      "raw_value": {
+        "current": 0,
+        "total": 5
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "home.buildings[2].level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "0/5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "小溪水车动态价格与状态",
+      "text": "小溪水车 · 40花蜜",
+      "position": [
+        550,
+        1088
+      ],
+      "box": [
+        524,
+        1082,
+        767,
+        1116
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "home.buildings[3].next_cost",
+      "raw": "小溪水车 · 40花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        190,
+        23
+      ],
+      "id": "T51-02.text.013",
+      "layout_box": [
+        524,
+        1082,
+        767,
+        1116
+      ],
+      "text_id": "T51-02.text.013",
+      "instance_id": "e6ac1598d457:T51-02.text.013",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "template",
+      "message_template": "小溪水车 · {count}花蜜",
+      "parameters": {
+        "count": 40
+      },
+      "value_binding": {
+        "count": "home.buildings[3].next_cost"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "小溪水车 · 40花蜜",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.e6ac1598d457.text.4cc795edc3be",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "小溪水车等级",
+      "text": "0/5",
+      "position": [
+        626,
+        1126
+      ],
+      "box": [
+        534,
+        1121,
+        757,
+        1153
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "home.buildings[3].level",
+      "raw": 0,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        40,
+        21
+      ],
+      "id": "T51-02.text.014",
+      "layout_box": [
+        534,
+        1121,
+        757,
+        1153
+      ],
+      "text_id": "T51-02.text.014",
+      "instance_id": "e6ac1598d457:T51-02.text.014",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "number",
+      "raw_value": {
+        "current": 0,
+        "total": 5
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "home.buildings[3].level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "0/5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "温室动态价格与状态",
+      "text": "温室 · 40花蜜",
+      "position": [
+        148,
+        1424
+      ],
+      "box": [
+        100,
+        1419,
+        341,
+        1453
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "home.buildings[4].next_cost",
+      "raw": "温室 · 40花蜜",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        144,
+        23
+      ],
+      "id": "T51-02.text.015",
+      "layout_box": [
+        100,
+        1419,
+        341,
+        1453
+      ],
+      "text_id": "T51-02.text.015",
+      "instance_id": "e6ac1598d457:T51-02.text.015",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "template",
+      "message_template": "温室 · {count}花蜜",
+      "parameters": {
+        "count": 40
+      },
+      "value_binding": {
+        "count": "home.buildings[4].next_cost"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "温室 · 40花蜜",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.e6ac1598d457.text.2e171fbe69c3",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "温室等级",
+      "text": "0/5",
+      "position": [
+        200,
+        1464
+      ],
+      "box": [
+        110,
+        1458,
+        331,
+        1490
+      ],
+      "font_size": 23.0,
+      "min_font_size": 18.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "home.buildings[4].level",
+      "raw": 0,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        40,
+        21
+      ],
+      "id": "T51-02.text.016",
+      "layout_box": [
+        110,
+        1458,
+        331,
+        1490
+      ],
+      "text_id": "T51-02.text.016",
+      "instance_id": "e6ac1598d457:T51-02.text.016",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "number",
+      "raw_value": {
+        "current": 0,
+        "total": 5
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "home.buildings[4].level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "0/5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花园总状态文案",
+      "text": "花园建设进度",
+      "position": [
+        397,
+        1673
+      ],
+      "box": [
+        171,
+        1665,
+        797,
+        1710
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": "home.summary",
+      "raw": "花园建设进度",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        174,
+        29
+      ],
+      "id": "T51-02.text.017",
+      "layout_box": [
+        171,
+        1665,
+        797,
+        1710
+      ],
+      "text_id": "T51-02.text.017",
+      "instance_id": "e6ac1598d457:T51-02.text.017",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花园建设进度",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e6ac1598d457.text.76e3217a5256",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花园总等级",
+      "text": "0/25",
+      "position": [
+        415,
+        1734
+      ],
+      "box": [
+        250,
+        1722,
+        650,
+        1773
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "home.total_level",
+      "raw": 0,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        70,
+        27
+      ],
+      "id": "T51-02.text.018",
+      "layout_box": [
+        250,
+        1722,
+        650,
+        1773
+      ],
+      "text_id": "T51-02.text.018",
+      "instance_id": "e6ac1598d457:T51-02.text.018",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "number",
+      "raw_value": {
+        "current": 0,
+        "total": 25
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "home.total_level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "0/25",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "引导短句",
+      "text": "点树屋升级 · 花蜜 120 → 80",
+      "position": [
+        218,
+        1538
+      ],
+      "box": [
+        139,
+        1467,
+        714,
+        1642
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "点树屋升级 · 花蜜 120 → 80",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        417,
+        32
+      ],
+      "id": "T51-02.text.019",
+      "layout_box": [
+        139,
+        1467,
+        714,
+        1642
+      ],
+      "text_id": "T51-02.text.019",
+      "instance_id": "e6ac1598d457:T51-02.text.019",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "template",
+      "message_template": "点树屋升级 · 花蜜 {value_1} → {value_2}",
+      "parameters": {
+        "value_1": 120,
+        "value_2": 80
+      },
+      "value_binding": {
+        "value_1": "page.e6ac1598d457.text.595d70a3fbd3.value_1",
+        "value_2": "page.e6ac1598d457.text.595d70a3fbd3.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "点树屋升级 · 花蜜 120 → 80",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.e6ac1598d457.text.595d70a3fbd3",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "引导步骤",
+      "text": "2 / 8",
+      "position": [
+        78,
+        1774
+      ],
+      "box": [
+        44,
+        1755,
+        173,
+        1817
+      ],
+      "font_size": 26.0,
+      "min_font_size": 20.8,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "tutorial.step",
+      "raw": 2,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 26.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        60,
+        24
+      ],
+      "id": "T51-02.text.020",
+      "layout_box": [
+        44,
+        1755,
+        173,
+        1817
+      ],
+      "text_id": "T51-02.text.020",
+      "instance_id": "e6ac1598d457:T51-02.text.020",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "template",
+      "message_template": "{value_1} / {value_2}",
+      "parameters": {
+        "value_1": 2,
+        "value_2": 8
+      },
+      "value_binding": {
+        "value_1": "page.e6ac1598d457.text.632a513f0aeb.value_1",
+        "value_2": "page.e6ac1598d457.text.632a513f0aeb.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2 / 8",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.e6ac1598d457.text.632a513f0aeb",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    },
+    {
+      "layer_name": "跳过引导",
+      "text": "跳过引导",
+      "position": [
+        664,
+        1772
+      ],
+      "box": [
+        627,
+        1752,
+        809,
+        1819
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        223
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "跳过引导",
+      "action": "skip-tutorial",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T51-02.text.021",
+      "layout_box": [
+        627,
+        1752,
+        809,
+        1819
+      ],
+      "text_id": "T51-02.text.021",
+      "instance_id": "e6ac1598d457:T51-02.text.021",
+      "page": "T51-02_引导_02首次建造",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "跳过引导",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.e6ac1598d457.text.ca28c968a709",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "guide-home"
+    ],
+    "requirements": "在对应全屏成品上加可拆的柔和镂空、手指、整块拖影与短气泡；保留跳过。第一轮真实收支120→80→160→120，不自动解题。无尽首次引导用当前37格盘面，人物不遮棋盘。每张对应一个实屏步骤，动画说明另写文件。",
+    "chapter": 0,
+    "buildings": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "total_level": 0,
+    "wallet_honey": 120,
+    "hints": 5,
+    "maximum_per_building": 5,
+    "chapter_maximum": 25,
+    "transaction": "validate -> deduct and increment and save -> play 0.8s independent visual feedback",
+    "fully_complete_hides_honey_ads": false,
+    "tutorial": {
+      "step": 2,
+      "skippable": true,
+      "advance_on": "actual_game_event",
+      "highlight_box": [
+        21,
+        228,
+        442,
+        663
+      ],
+      "drag_path": null,
+      "reduced_motion": "static_arrow_and_ring",
+      "reward_requires_actual_completion": true,
+      "auto_solve": false
+    },
+    "production_owner": "block_missing_tutorial.py"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T51-02_引导_02首次建造.png",
+    "composite": "页面对照/PSD合成/缺少/T51-02_引导_02首次建造.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "77e1cab6e1911a19ba572bcd9d3e462e8dc18d9677dad5a1dbeaf07b1443f4f6",
+    "psd_composite": "页面对照/PSD合成/缺少/T51-02_引导_02首次建造.png",
+    "psd_composite_sha256": "05f29312d692f6c4a100d44ae47bd687eb5d4cfd1934c90a20697b00e4fe0742",
+    "runtime_preview_max_channel_error": 2,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "77e1cab6e1911a19ba572bcd9d3e462e8dc18d9677dad5a1dbeaf07b1443f4f6",
+    "psd_sha256": "9330e78b080c33cbd3c500a5e2faaebc5336506c9420fff9bd6ff6720441a4cf",
+    "composite_sha256": "05f29312d692f6c4a100d44ae47bd687eb5d4cfd1934c90a20697b00e4fe0742",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T51-02_引导_02首次建造.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

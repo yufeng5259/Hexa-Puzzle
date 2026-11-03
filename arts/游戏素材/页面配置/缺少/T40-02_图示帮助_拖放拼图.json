@@ -1,0 +1,4375 @@
+{
+  "page": "T40-02_图示帮助_拖放拼图",
+  "output_id": "T40-02",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "puzzle-help",
+      "title": "拖放动画教学",
+      "url": "http://127.0.0.1:4291/index.html#puzzle-help",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\15-puzzle-help.png",
+      "screenshot_sha256": "99c12c24ebd4cbf74385493946e4972520d0de077652188dae62328d254786d2"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_玩法",
+      "asset": "block_background_玩法",
+      "file": "PNG/公共素材/玩法_完整裸背景_ee16e50f3e.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_玩法",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "原生头像",
+      "z": 1,
+      "position": [
+        17,
+        25
+      ],
+      "size": [
+        151,
+        149
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          151,
+          149
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          151,
+          149
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          17,
+          25,
+          168,
+          174
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.000",
+      "name": "头像进度等级",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "透明计数底条",
+      "z": 3,
+      "position": [
+        223,
+        60
+      ],
+      "size": [
+        178,
+        65
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          178,
+          65
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          178,
+          65
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          223,
+          60,
+          401,
+          125
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "透明计数底条",
+      "z": 4,
+      "position": [
+        487,
+        60
+      ],
+      "size": [
+        237,
+        66
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          237,
+          66
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          237,
+          66
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          487,
+          60,
+          724,
+          126
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示库存图标",
+      "z": 5,
+      "position": [
+        181,
+        49
+      ],
+      "size": [
+        69,
+        88
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          69,
+          88
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          69,
+          88
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          181,
+          49,
+          250,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.001",
+      "name": "提示库存值",
+      "z": 6,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.002",
+      "name": "提示库存标签",
+      "z": 7,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "蜂蜜货币",
+      "z": 8,
+      "position": [
+        455,
+        52
+      ],
+      "size": [
+        70,
+        76
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          76
+        ],
+        "alpha_crop": [
+          2,
+          0,
+          72,
+          76
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          453,
+          52,
+          525,
+          128
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.003",
+      "name": "花蜜余额",
+      "z": 9,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_添加按钮",
+      "asset": "block_hud_添加按钮",
+      "file": "PNG/公共UI/添加按钮_6cd07472ae.png",
+      "name": "添加按钮",
+      "z": 10,
+      "position": [
+        656,
+        58
+      ],
+      "size": [
+        69,
+        69
+      ],
+      "native_size": [
+        276,
+        276
+      ],
+      "render_transform": {
+        "resize": [
+          69,
+          69
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          69,
+          69
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_添加按钮",
+      "metadata": {
+        "target_box": [
+          656,
+          58,
+          725,
+          127
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          276,
+          276
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置木质齿轮",
+      "z": 11,
+      "position": [
+        738,
+        45
+      ],
+      "size": [
+        97,
+        97
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          97,
+          97
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          97,
+          97
+        ]
+      },
+      "group": "公共HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          738,
+          45,
+          835,
+          142
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_关卡木牌",
+      "asset": "block_玩法_关卡木牌",
+      "file": "PNG/公共UI/关卡木牌_8cff2f5f7f.png",
+      "name": "原生花叶木牌",
+      "z": 12,
+      "position": [
+        185,
+        171
+      ],
+      "size": [
+        485,
+        114
+      ],
+      "native_size": [
+        487,
+        116
+      ],
+      "render_transform": {
+        "resize": [
+          487,
+          116
+        ],
+        "alpha_crop": [
+          1,
+          1,
+          486,
+          115
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_关卡木牌",
+      "metadata": {
+        "target_box": [
+          184,
+          170,
+          671,
+          286
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          487,
+          116
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.004",
+      "name": "页面标题",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_空白主面板",
+      "asset": "block_结算_空白主面板",
+      "file": "PNG/公共UI/空白主面板_70248b0641.png",
+      "name": "无字面板_cream",
+      "z": 14,
+      "position": [
+        55,
+        361
+      ],
+      "size": [
+        743,
+        1137
+      ],
+      "native_size": [
+        684,
+        883
+      ],
+      "render_transform": {
+        "resize": [
+          743,
+          1150
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          6,
+          743,
+          1143
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_空白主面板",
+      "metadata": {
+        "target_box": [
+          55,
+          355,
+          798,
+          1505
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          684,
+          883
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.005",
+      "name": "第一步",
+      "z": 15,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_空待放托盘",
+      "asset": "block_玩法_空待放托盘",
+      "file": "PNG/公共UI/空待放托盘_c9e3361e7c.png",
+      "name": "教学整块源_无字木托盘",
+      "z": 16,
+      "position": [
+        215,
+        491
+      ],
+      "size": [
+        423,
+        217
+      ],
+      "native_size": [
+        820,
+        317
+      ],
+      "render_transform": {
+        "resize": [
+          423,
+          220
+        ],
+        "nine_slice": {
+          "insets": [
+            43,
+            49,
+            43,
+            49
+          ]
+        },
+        "alpha_crop": [
+          0,
+          1,
+          423,
+          218
+        ]
+      },
+      "group": "托盘结构",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_空待放托盘",
+      "metadata": {
+        "target_box": [
+          215,
+          490,
+          638,
+          710
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          43,
+          49,
+          43,
+          49
+        ],
+        "native_size": [
+          820,
+          317
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "教学整块源_拼块0_格0",
+      "z": 17,
+      "position": [
+        439,
+        587
+      ],
+      "size": [
+        59,
+        51
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          59,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          59,
+          51
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 0,
+          "local_axial": [
+            0,
+            0
+          ],
+          "slot": [
+            230.0,
+            505.0,
+            393.0,
+            190.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          438.83880003868114,
+          586.3999999999999,
+          498.2893820432358,
+          637.8857142857141
+        ],
+        "source_resize": [
+          59,
+          51
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "教学整块源_拼块0_格1",
+      "z": 18,
+      "position": [
+        439,
+        635
+      ],
+      "size": [
+        59,
+        51
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          59,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          59,
+          51
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 0,
+          "local_axial": [
+            0,
+            -1
+          ],
+          "slot": [
+            230.0,
+            505.0,
+            393.0,
+            190.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          438.83880003868114,
+          634.9714285714284,
+          498.2893820432358,
+          686.4571428571427
+        ],
+        "source_resize": [
+          59,
+          51
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "教学整块源_拼块0_格2",
+      "z": 19,
+      "position": [
+        397,
+        611
+      ],
+      "size": [
+        59,
+        51
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          59,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          59,
+          51
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 0,
+          "local_axial": [
+            -1,
+            0
+          ],
+          "slot": [
+            230.0,
+            505.0,
+            393.0,
+            190.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          396.77470899772266,
+          610.6857142857142,
+          456.2252910022773,
+          662.1714285714285
+        ],
+        "source_resize": [
+          59,
+          51
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "教学整块源_拼块0_格3",
+      "z": 20,
+      "position": [
+        355,
+        587
+      ],
+      "size": [
+        59,
+        51
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          59,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          59,
+          51
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 0,
+          "local_axial": [
+            -2,
+            1
+          ],
+          "slot": [
+            230.0,
+            505.0,
+            393.0,
+            190.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          354.7106179567642,
+          586.3999999999999,
+          414.16119996131886,
+          637.8857142857141
+        ],
+        "source_resize": [
+          59,
+          51
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "教学整块源_拼块0_格4",
+      "z": 21,
+      "position": [
+        355,
+        538
+      ],
+      "size": [
+        59,
+        51
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          59,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          59,
+          51
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 0,
+          "local_axial": [
+            -2,
+            2
+          ],
+          "slot": [
+            230.0,
+            505.0,
+            393.0,
+            190.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          354.7106179567642,
+          537.8285714285713,
+          414.16119996131886,
+          589.3142857142856
+        ],
+        "source_resize": [
+          59,
+          51
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_fffc6eb821bf414ffbb8",
+      "asset": "block_missing_fffc6eb821bf414ffbb8",
+      "file": "PNG/公共素材/金色无花母件_fffc6eb821.png",
+      "name": "教学整块源_拼块0_格5",
+      "z": 22,
+      "position": [
+        397,
+        514
+      ],
+      "size": [
+        59,
+        51
+      ],
+      "native_size": [
+        1147,
+        1003
+      ],
+      "render_transform": {
+        "resize": [
+          59,
+          51
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          59,
+          51
+        ]
+      },
+      "group": "未放整块",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_fffc6eb821bf414ffbb8",
+      "metadata": {
+        "style_source": "nine-page original polished hex master",
+        "state": {
+          "piece_id": 0,
+          "local_axial": [
+            -1,
+            2
+          ],
+          "slot": [
+            230.0,
+            505.0,
+            393.0,
+            190.0
+          ],
+          "rim_overlap": 1.06
+        },
+        "tile_key": "block_native_hex_gold_plain",
+        "fit": "contain",
+        "target_box": [
+          396.77470899772266,
+          513.542857142857,
+          456.2252910022773,
+          565.0285714285712
+        ],
+        "source_resize": [
+          59,
+          51
+        ],
+        "native_size": [
+          1147,
+          1003
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.006",
+      "name": "第二步",
+      "z": 23,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "procedural",
+      "name": "教学真实目标_木框投影",
+      "z": 24,
+      "position": [
+        132,
+        848
+      ],
+      "size": [
+        589,
+        539
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            -2
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            -1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "role": "shadow",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "shadow",
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            -2
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            -1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "bbox": [
+          128,
+          830,
+          597,
+          565
+        ],
+        "flip_y": true,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {},
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        4,
+        18,
+        593,
+        557
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "procedural",
+      "name": "教学真实目标_原生木纹底",
+      "z": 25,
+      "position": [
+        153,
+        862
+      ],
+      "size": [
+        548,
+        501
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            -2
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            -1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "role": "floor",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "floor",
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            -2
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            -1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "bbox": [
+          128,
+          830,
+          597,
+          565
+        ],
+        "flip_y": true,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {
+          "hex_wood_floor": "block_reuse_4832b910bd651938e53d"
+        },
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        25,
+        32,
+        573,
+        533
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "procedural",
+      "name": "教学真实目标_异形倒角木边",
+      "z": 26,
+      "position": [
+        132,
+        842
+      ],
+      "size": [
+        589,
+        541
+      ],
+      "group": "棋盘结构",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "geometry_cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            -2
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            -1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "role": "rim",
+        "no_baked_text": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "rim",
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            -2
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            -1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "bbox": [
+          128,
+          830,
+          597,
+          565
+        ],
+        "flip_y": true,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {
+          "hex_wood_floor": "block_reuse_4832b910bd651938e53d",
+          "hex_rail_profile": "block_reuse_7a2b1f797be2dce0dd8a"
+        },
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version"
+      },
+      "procedural_crop": [
+        4,
+        12,
+        593,
+        553
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_4_0",
+      "z": 27,
+      "position": [
+        326,
+        1113
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          4,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_4_-1",
+      "z": 28,
+      "position": [
+        326,
+        1213
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          4,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_3_0",
+      "z": 29,
+      "position": [
+        240,
+        1163
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_2_1",
+      "z": 30,
+      "position": [
+        153,
+        1113
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_2_2",
+      "z": 31,
+      "position": [
+        153,
+        1013
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          2,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_3_2",
+      "z": 32,
+      "position": [
+        240,
+        963
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_5_-2",
+      "z": 33,
+      "position": [
+        413,
+        1264
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          5,
+          -2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_5_-1",
+      "z": 34,
+      "position": [
+        413,
+        1163
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          5,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_5_0",
+      "z": 35,
+      "position": [
+        413,
+        1063
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          5,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_5_1",
+      "z": 36,
+      "position": [
+        413,
+        963
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          5,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_5_2",
+      "z": 37,
+      "position": [
+        413,
+        863
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          5,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_4_2",
+      "z": 38,
+      "position": [
+        326,
+        913
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          4,
+          2
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_4_1",
+      "z": 39,
+      "position": [
+        326,
+        1013
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          4,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_6_-1",
+      "z": 40,
+      "position": [
+        500,
+        1113
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          6,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_6_0",
+      "z": 41,
+      "position": [
+        500,
+        1013
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          6,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_6_1",
+      "z": 42,
+      "position": [
+        500,
+        913
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          6,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_7_0",
+      "z": 43,
+      "position": [
+        586,
+        963
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          7,
+          0
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_7_-1",
+      "z": 44,
+      "position": [
+        586,
+        1063
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          7,
+          -1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_reuse_f714e5b86eea9964a094",
+      "asset": "block_reuse_f714e5b86eea9964a094",
+      "file": "PNG/公共素材/木边与内孔规范_凹槽_1_1_f714e5b86e.png",
+      "name": "教学真实目标_凹槽_3_1",
+      "z": 45,
+      "position": [
+        240,
+        1063
+      ],
+      "size": [
+        113,
+        98
+      ],
+      "native_size": [
+        124,
+        117
+      ],
+      "render_transform": {
+        "resize": [
+          113,
+          98
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          113,
+          98
+        ]
+      },
+      "group": "独立空格",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_reuse_f714e5b86eea9964a094",
+      "metadata": {
+        "axial": [
+          3,
+          1
+        ],
+        "state": "empty",
+        "role": "empty_hex",
+        "source_resize": [
+          113,
+          98
+        ],
+        "native_size": [
+          124,
+          117
+        ],
+        "geometry_parent": "教学真实目标"
+      }
+    },
+    {
+      "type": "procedural",
+      "name": "教学真实目标_固定障碍0",
+      "z": 46,
+      "position": [
+        242,
+        1065
+      ],
+      "size": [
+        109,
+        94
+      ],
+      "group": "固定障碍",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "axial": [
+          3,
+          1
+        ],
+        "interactive": false
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "obstacle",
+        "cells": [],
+        "bbox": [
+          75,
+          485,
+          703,
+          705
+        ],
+        "flip_y": true,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {
+          "hex_empty_well": "block_reuse_f714e5b86eea9964a094"
+        },
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version",
+        "size": [
+          109,
+          94
+        ]
+      },
+      "procedural_crop": [
+        0,
+        0,
+        109,
+        94
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.007",
+      "name": "教学真实目标_障碍标记0",
+      "z": 47,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "procedural",
+      "name": "教学真实目标_金色提示轮廓",
+      "z": 48,
+      "position": [
+        147,
+        957
+      ],
+      "size": [
+        298,
+        361
+      ],
+      "group": "提示状态",
+      "visible": true,
+      "opacity": 1,
+      "metadata": {
+        "piece_id": 0,
+        "target_cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "deduct_hint_only_on_new_target": true
+      },
+      "procedural": {
+        "renderer": "block.hex.v1",
+        "role": "outline",
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            -2
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            -1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "bbox": [
+          128,
+          830,
+          597,
+          565
+        ],
+        "flip_y": true,
+        "padding": 24,
+        "supersample": 2,
+        "materials": {},
+        "output": "untrimmed_rgba",
+        "runtime_png": false,
+        "cache_policy": "memory_by_materials_cells_size_version",
+        "outline_cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "width": 5,
+        "color": [
+          255,
+          228,
+          105,
+          255
+        ],
+        "layout": {
+          "radius": 57.78947368421053,
+          "offset": [
+            36.421052631578945,
+            1362.735761409293
+          ],
+          "centers": [
+            {
+              "cell": [
+                4,
+                0
+              ],
+              "center": [
+                383.15789473684214,
+                1162.5471522818586
+              ]
+            },
+            {
+              "cell": [
+                4,
+                -1
+              ],
+              "center": [
+                383.15789473684214,
+                1262.6414568455757
+              ]
+            },
+            {
+              "cell": [
+                3,
+                0
+              ],
+              "center": [
+                296.47368421052636,
+                1212.594304563717
+              ]
+            },
+            {
+              "cell": [
+                2,
+                1
+              ],
+              "center": [
+                209.78947368421052,
+                1162.5471522818586
+              ]
+            },
+            {
+              "cell": [
+                2,
+                2
+              ],
+              "center": [
+                209.78947368421052,
+                1062.4528477181414
+              ]
+            },
+            {
+              "cell": [
+                3,
+                2
+              ],
+              "center": [
+                296.47368421052636,
+                1012.4056954362827
+              ]
+            },
+            {
+              "cell": [
+                5,
+                -2
+              ],
+              "center": [
+                469.8421052631579,
+                1312.6886091274343
+              ]
+            },
+            {
+              "cell": [
+                5,
+                -1
+              ],
+              "center": [
+                469.8421052631579,
+                1212.594304563717
+              ]
+            },
+            {
+              "cell": [
+                5,
+                0
+              ],
+              "center": [
+                469.8421052631579,
+                1112.5
+              ]
+            },
+            {
+              "cell": [
+                5,
+                1
+              ],
+              "center": [
+                469.8421052631579,
+                1012.4056954362827
+              ]
+            },
+            {
+              "cell": [
+                5,
+                2
+              ],
+              "center": [
+                469.8421052631579,
+                912.3113908725654
+              ]
+            },
+            {
+              "cell": [
+                4,
+                2
+              ],
+              "center": [
+                383.15789473684214,
+                962.3585431544241
+              ]
+            },
+            {
+              "cell": [
+                4,
+                1
+              ],
+              "center": [
+                383.15789473684214,
+                1062.4528477181414
+              ]
+            },
+            {
+              "cell": [
+                6,
+                -1
+              ],
+              "center": [
+                556.5263157894738,
+                1162.5471522818586
+              ]
+            },
+            {
+              "cell": [
+                6,
+                0
+              ],
+              "center": [
+                556.5263157894738,
+                1062.4528477181414
+              ]
+            },
+            {
+              "cell": [
+                6,
+                1
+              ],
+              "center": [
+                556.5263157894738,
+                962.3585431544241
+              ]
+            },
+            {
+              "cell": [
+                7,
+                0
+              ],
+              "center": [
+                643.2105263157895,
+                1012.4056954362827
+              ]
+            },
+            {
+              "cell": [
+                7,
+                -1
+              ],
+              "center": [
+                643.2105263157895,
+                1112.5
+              ]
+            },
+            {
+              "cell": [
+                3,
+                1
+              ],
+              "center": [
+                296.47368421052636,
+                1112.5
+              ]
+            }
+          ]
+        }
+      },
+      "procedural_crop": [
+        19,
+        127,
+        317,
+        488
+      ],
+      "generated_png_export": false
+    },
+    {
+      "type": "image",
+      "id": "block_missing_929d91e1d9ee86f75e5c",
+      "asset": "block_missing_929d91e1d9ee86f75e5c",
+      "file": "PNG/公共UI/arrow_929d91e1d9.png",
+      "name": "整块拖放方向",
+      "z": 49,
+      "position": [
+        660,
+        709
+      ],
+      "size": [
+        60,
+        97
+      ],
+      "native_size": [
+        427,
+        264
+      ],
+      "render_transform": {
+        "resize": [
+          97,
+          60
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          60,
+          97
+        ],
+        "rotation_degrees": -90.0
+      },
+      "group": "教学箭头",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_929d91e1d9ee86f75e5c",
+      "metadata": {
+        "native_key": "style_arrow",
+        "fit": "contain",
+        "source_resize": [
+          97,
+          60
+        ],
+        "rotation_degrees": -90.0,
+        "start": [
+          690,
+          690
+        ],
+        "end": [
+          690,
+          825
+        ],
+        "animation_path": true,
+        "proportion_preserved": true
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.008",
+      "name": "操作限制",
+      "z": 50,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "我来试试_无字按钮",
+      "z": 51,
+      "position": [
+        170,
+        1565
+      ],
+      "size": [
+        513,
+        117
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          513,
+          117
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          513,
+          117
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          170,
+          1565,
+          683,
+          1682
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "help-try"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.009",
+      "name": "我来试试_文案",
+      "z": 52,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_再来一次按钮",
+      "asset": "block_结算_再来一次按钮",
+      "file": "PNG/公共UI/再来一次按钮_8710c10300.png",
+      "name": "返回_无字按钮",
+      "z": 53,
+      "position": [
+        270,
+        1720
+      ],
+      "size": [
+        313,
+        97
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          313,
+          97
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          313,
+          97
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_再来一次按钮",
+      "metadata": {
+        "target_box": [
+          270,
+          1720,
+          583,
+          1817
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "close-modal"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T40-02.text.010",
+      "name": "返回_文案",
+      "z": 54,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "头像进度等级",
+      "text": "Lv.14",
+      "position": [
+        50,
+        135
+      ],
+      "box": [
+        34,
+        130,
+        150,
+        168
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        37,
+        82,
+        13
+      ],
+      "fit": true,
+      "role": "number_template",
+      "purpose": "number_template",
+      "binding": "profile.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        84,
+        28
+      ],
+      "id": "T40-02.text.000",
+      "layout_box": [
+        34,
+        130,
+        150,
+        168
+      ],
+      "text_id": "T40-02.text.000",
+      "instance_id": "54f1edc98d06:T40-02.text.000",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "profile.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存值",
+      "text": "5",
+      "position": [
+        260,
+        78
+      ],
+      "box": [
+        248,
+        68,
+        296,
+        119
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        24,
+        30
+      ],
+      "id": "T40-02.text.001",
+      "layout_box": [
+        248,
+        68,
+        296,
+        119
+      ],
+      "text_id": "T40-02.text.001",
+      "instance_id": "54f1edc98d06:T40-02.text.001",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存标签",
+      "text": "提示",
+      "position": [
+        314,
+        80
+      ],
+      "box": [
+        296,
+        72,
+        389,
+        116
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "label",
+      "purpose": "label",
+      "binding": null,
+      "raw": "提示",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        58,
+        28
+      ],
+      "id": "T40-02.text.002",
+      "layout_box": [
+        296,
+        72,
+        389,
+        116
+      ],
+      "text_id": "T40-02.text.002",
+      "instance_id": "54f1edc98d06:T40-02.text.002",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "提示",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.54f1edc98d06.text.3a7b9e292b57",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜余额",
+      "text": "360",
+      "position": [
+        556,
+        78
+      ],
+      "box": [
+        528,
+        67,
+        651,
+        119
+      ],
+      "font_size": 36.0,
+      "min_font_size": 28.8,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        67,
+        29
+      ],
+      "id": "T40-02.text.003",
+      "layout_box": [
+        528,
+        67,
+        651,
+        119
+      ],
+      "text_id": "T40-02.text.003",
+      "instance_id": "54f1edc98d06:T40-02.text.003",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "拖放拼图",
+      "position": [
+        320,
+        200
+      ],
+      "box": [
+        255,
+        192,
+        611,
+        267
+      ],
+      "font_size": 55.0,
+      "min_font_size": 44.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        244,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 3.0,
+      "stroke_color": [
+        96,
+        52,
+        15
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "拖放拼图",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 55.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        226,
+        60
+      ],
+      "id": "T40-02.text.004",
+      "layout_box": [
+        255,
+        192,
+        611,
+        267
+      ],
+      "text_id": "T40-02.text.004",
+      "instance_id": "54f1edc98d06:T40-02.text.004",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "拖放拼图",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.54f1edc98d06.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "第一步",
+      "text": "1  抓起整块",
+      "position": [
+        338,
+        418
+      ],
+      "box": [
+        130,
+        400,
+        723,
+        470
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "1  抓起整块",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        178,
+        34
+      ],
+      "id": "T40-02.text.005",
+      "layout_box": [
+        130,
+        400,
+        723,
+        470
+      ],
+      "text_id": "T40-02.text.005",
+      "instance_id": "54f1edc98d06:T40-02.text.005",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "template",
+      "message_template": "{count}  抓起整块",
+      "parameters": {
+        "count": 1
+      },
+      "value_binding": {
+        "count": "page.54f1edc98d06.text.2dfed5d0b87e.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "1  抓起整块",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.54f1edc98d06.text.2dfed5d0b87e",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "第二步",
+      "text": "2  放入相同轮廓",
+      "position": [
+        304,
+        762
+      ],
+      "box": [
+        130,
+        744,
+        723,
+        813
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "2  放入相同轮廓",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        246,
+        34
+      ],
+      "id": "T40-02.text.006",
+      "layout_box": [
+        130,
+        744,
+        723,
+        813
+      ],
+      "text_id": "T40-02.text.006",
+      "instance_id": "54f1edc98d06:T40-02.text.006",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "template",
+      "message_template": "{count}  放入相同轮廓",
+      "parameters": {
+        "count": 2
+      },
+      "value_binding": {
+        "count": "page.54f1edc98d06.text.248c17d5af3c.count"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2  放入相同轮廓",
+      "parameter_formats": {
+        "count": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.54f1edc98d06.text.248c17d5af3c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "教学真实目标_障碍标记0",
+      "text": "×",
+      "position": [
+        276,
+        1096
+      ],
+      "box": [
+        269,
+        1081,
+        324,
+        1141
+      ],
+      "font_size": 55.0,
+      "min_font_size": 44.0,
+      "max_lines": 1,
+      "color_rgb": [
+        231,
+        214,
+        178
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "symbol",
+      "purpose": "symbol",
+      "binding": null,
+      "raw": "×",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 55.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        42,
+        31
+      ],
+      "id": "T40-02.text.007",
+      "layout_box": [
+        269,
+        1081,
+        324,
+        1141
+      ],
+      "text_id": "T40-02.text.007",
+      "instance_id": "54f1edc98d06:T40-02.text.007",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "×",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.54f1edc98d06.text.7cd209128662",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "操作限制",
+      "text": "仅平移，不旋转；拖错会返回",
+      "position": [
+        244,
+        1401
+      ],
+      "box": [
+        100,
+        1390,
+        753,
+        1440
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "instruction",
+      "purpose": "instruction",
+      "binding": null,
+      "raw": "仅平移，不旋转；拖错会返回",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        364,
+        28
+      ],
+      "id": "T40-02.text.008",
+      "layout_box": [
+        100,
+        1390,
+        753,
+        1440
+      ],
+      "text_id": "T40-02.text.008",
+      "instance_id": "54f1edc98d06:T40-02.text.008",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "仅平移，不旋转；拖错会返回",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.54f1edc98d06.text.9b8e8d78cc91",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "我来试试_文案",
+      "text": "我来试试",
+      "position": [
+        358,
+        1604
+      ],
+      "box": [
+        194,
+        1577,
+        659,
+        1665
+      ],
+      "font_size": 34.0,
+      "min_font_size": 27.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        54,
+        121,
+        42
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "我来试试",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        138,
+        35
+      ],
+      "id": "T40-02.text.009",
+      "layout_box": [
+        194,
+        1577,
+        659,
+        1665
+      ],
+      "text_id": "T40-02.text.009",
+      "instance_id": "54f1edc98d06:T40-02.text.009",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "我来试试",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.54f1edc98d06.text.6694a4bc190a",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "返回_文案",
+      "text": "返回",
+      "position": [
+        396,
+        1750
+      ],
+      "box": [
+        294,
+        1732,
+        559,
+        1800
+      ],
+      "font_size": 30.0,
+      "min_font_size": 24.056,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        118,
+        81,
+        40
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "返回",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 30.07,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        31
+      ],
+      "id": "T40-02.text.010",
+      "layout_box": [
+        294,
+        1732,
+        559,
+        1800
+      ],
+      "text_id": "T40-02.text.010",
+      "instance_id": "54f1edc98d06:T40-02.text.010",
+      "page": "T40-02_图示帮助_拖放拼图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "返回",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.54f1edc98d06.text.7c10f0888c8c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "puzzle-help"
+    ],
+    "requirements": "帮助目录和三种玩法分开；拼图整块拖放不旋转；无尽三方向满线；建设点击升级每栋5级。图片／箭头／手指为主，少文字。动画至少定义起点→动作→结果，可用现有素材分层演示，不伪造视频文件。",
+    "trays": [
+      {
+        "name": "教学整块源",
+        "columns": 1,
+        "rows": 1,
+        "bbox": [
+          215,
+          490,
+          423,
+          220
+        ],
+        "radius": 28.04272736063897,
+        "slots": [
+          {
+            "id": 0,
+            "bbox": [
+              230.0,
+              505.0,
+              393.0,
+              190.0
+            ],
+            "radius": 28.04272736063897,
+            "color": "gold",
+            "used": false,
+            "cells": [
+              {
+                "cell": [
+                  0,
+                  0
+                ],
+                "center": [
+                  468.5640910409585,
+                  612.1428571428571
+                ],
+                "box": [
+                  440.5213636803195,
+                  587.8571428571428,
+                  56.08545472127794,
+                  48.57142857142858
+                ]
+              },
+              {
+                "cell": [
+                  0,
+                  -1
+                ],
+                "center": [
+                  468.5640910409585,
+                  660.7142857142857
+                ],
+                "box": [
+                  440.5213636803195,
+                  636.4285714285713,
+                  56.08545472127794,
+                  48.57142857142858
+                ]
+              },
+              {
+                "cell": [
+                  -1,
+                  0
+                ],
+                "center": [
+                  426.5,
+                  636.4285714285714
+                ],
+                "box": [
+                  398.457272639361,
+                  612.1428571428571,
+                  56.08545472127794,
+                  48.57142857142858
+                ]
+              },
+              {
+                "cell": [
+                  -2,
+                  1
+                ],
+                "center": [
+                  384.43590895904157,
+                  612.1428571428571
+                ],
+                "box": [
+                  356.3931815984026,
+                  587.8571428571428,
+                  56.08545472127794,
+                  48.57142857142858
+                ]
+              },
+              {
+                "cell": [
+                  -2,
+                  2
+                ],
+                "center": [
+                  384.43590895904157,
+                  563.5714285714286
+                ],
+                "box": [
+                  356.3931815984026,
+                  539.2857142857142,
+                  56.08545472127794,
+                  48.57142857142858
+                ]
+              },
+              {
+                "cell": [
+                  -1,
+                  2
+                ],
+                "center": [
+                  426.5,
+                  539.2857142857142
+                ],
+                "box": [
+                  398.457272639361,
+                  514.9999999999999,
+                  56.08545472127794,
+                  48.57142857142858
+                ]
+              }
+            ]
+          }
+        ],
+        "rule": "Used slots contain only the empty native tray, no residual ghost or tick."
+      }
+    ],
+    "actions": [
+      {
+        "layer": "我来试试_无字按钮",
+        "label": "我来试试",
+        "action": "help-try"
+      },
+      {
+        "layer": "返回_无字按钮",
+        "label": "返回",
+        "action": "close-modal"
+      }
+    ],
+    "animation": {
+      "loop_ms": 2400,
+      "demonstration_only": true,
+      "keyframes": [
+        {
+          "at": 0,
+          "state": "source",
+          "piece_id": 0,
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              -1
+            ],
+            [
+              -1,
+              0
+            ],
+            [
+              -2,
+              1
+            ],
+            [
+              -2,
+              2
+            ],
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "at": 600,
+          "state": "grab_whole_piece",
+          "no_rotation": true
+        },
+        {
+          "at": 1600,
+          "state": "target_snap",
+          "target_cells": [
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              -1
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "target_origin": [
+            4,
+            0
+          ]
+        },
+        {
+          "at": 2100,
+          "state": "reset_demo_only",
+          "preserve_live_attempt": true
+        }
+      ],
+      "destination_anchor_xy": [
+        383.15789473684214,
+        1162.5471522818586
+      ],
+      "note": "No auto solve, reward, or live-board mutation."
+    },
+    "production_owner": "block_missing_gameplay.py"
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T40-02_图示帮助_拖放拼图.png",
+    "composite": "页面对照/PSD合成/缺少/T40-02_图示帮助_拖放拼图.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "e30ef106ec44f57c00f0acd971e4d4553e9751ffa2872318fccbb5cd382ff77a",
+    "psd_composite": "页面对照/PSD合成/缺少/T40-02_图示帮助_拖放拼图.png",
+    "psd_composite_sha256": "642f959477cbcc085e1e45864d5d2f6830dafce2eda064383d6053c2c53a38b8",
+    "runtime_preview_max_channel_error": 2,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "e30ef106ec44f57c00f0acd971e4d4553e9751ffa2872318fccbb5cd382ff77a",
+    "psd_sha256": "65419dc28b8ec5b914df64f6bf20ad0c8186313e0b52b589e3f96e715ec080a8",
+    "composite_sha256": "642f959477cbcc085e1e45864d5d2f6830dafce2eda064383d6053c2c53a38b8",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T40-02_图示帮助_拖放拼图.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

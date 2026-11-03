@@ -1,0 +1,3077 @@
+{
+  "page": "T24-01_旅行相册",
+  "output_id": "T24-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "album",
+      "title": "旅行相册",
+      "url": "http://127.0.0.1:4291/index.html#album",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\47-album.png",
+      "screenshot_sha256": "46c607af651fac038afd10dc0bb78c186cfa23694cb327c285b0dd8ab49496e1"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_好友界面",
+      "asset": "block_background_好友界面",
+      "file": "PNG/公共素材/好友界面_完整裸背景_3e77cdf8da.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_好友界面",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 2,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 3,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.000",
+      "name": "花蜜数量",
+      "z": 4,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 5,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 6,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.001",
+      "name": "提示库存",
+      "z": 7,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 8,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_左悬绳",
+      "asset": "block_好友界面_左悬绳",
+      "file": "PNG/公共UI/左悬绳_a1cf9fcdc7.png",
+      "name": "原好友左悬绳",
+      "z": 9,
+      "position": [
+        261,
+        125
+      ],
+      "size": [
+        25,
+        77
+      ],
+      "native_size": [
+        32,
+        77
+      ],
+      "render_transform": {
+        "resize": [
+          32,
+          77
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          28,
+          77
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_左悬绳",
+      "metadata": {
+        "target_box": [
+          258,
+          125,
+          290,
+          202
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          32,
+          77
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_右悬绳",
+      "asset": "block_好友界面_右悬绳",
+      "file": "PNG/公共UI/右悬绳_eda8460639.png",
+      "name": "原好友右悬绳",
+      "z": 10,
+      "position": [
+        541,
+        125
+      ],
+      "size": [
+        26,
+        74
+      ],
+      "native_size": [
+        34,
+        74
+      ],
+      "render_transform": {
+        "resize": [
+          34,
+          74
+        ],
+        "alpha_crop": [
+          4,
+          0,
+          30,
+          74
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_右悬绳",
+      "metadata": {
+        "target_box": [
+          537,
+          125,
+          571,
+          199
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          34,
+          74
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友标题木牌",
+      "asset": "block_好友界面_好友标题木牌",
+      "file": "PNG/公共UI/好友标题木牌_b85a1c550c.png",
+      "name": "原好友无字标题木牌",
+      "z": 11,
+      "position": [
+        202,
+        174
+      ],
+      "size": [
+        449,
+        114
+      ],
+      "native_size": [
+        461,
+        114
+      ],
+      "render_transform": {
+        "resize": [
+          461,
+          114
+        ],
+        "alpha_crop": [
+          6,
+          0,
+          455,
+          114
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友标题木牌",
+      "metadata": {
+        "target_box": [
+          195,
+          174,
+          658,
+          288
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          461,
+          114
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.002",
+      "name": "页面标题",
+      "z": 12,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.003",
+      "name": "当前主线等级",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_空白主面板",
+      "asset": "block_好友界面_空白主面板",
+      "file": "PNG/公共UI/空白主面板_21a56a3aea.png",
+      "name": "无字面板_wood",
+      "z": 14,
+      "position": [
+        70,
+        303
+      ],
+      "size": [
+        720,
+        1303
+      ],
+      "native_size": [
+        727,
+        1207
+      ],
+      "render_transform": {
+        "resize": [
+          720,
+          1306
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          1,
+          720,
+          1304
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_空白主面板",
+      "metadata": {
+        "target_box": [
+          70,
+          302,
+          790,
+          1608
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          727,
+          1207
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回",
+      "z": 15,
+      "position": [
+        31,
+        1680
+      ],
+      "size": [
+        133,
+        135
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          133,
+          135
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          133,
+          135
+        ]
+      },
+      "group": "导航",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          30,
+          1680,
+          165,
+          1815
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "go:home"
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_页签木质背框",
+      "asset": "block_好友界面_页签木质背框",
+      "file": "PNG/公共UI/页签木质背框_8efcc02704.png",
+      "name": "原好友页签木质背框",
+      "z": 16,
+      "position": [
+        78,
+        310
+      ],
+      "size": [
+        703,
+        126
+      ],
+      "native_size": [
+        697,
+        136
+      ],
+      "render_transform": {
+        "resize": [
+          703,
+          128
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          1,
+          703,
+          127
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_页签木质背框",
+      "metadata": {
+        "target_box": [
+          78,
+          309,
+          781,
+          437
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          697,
+          136
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_我的好友_选中页签",
+      "asset": "block_好友界面_我的好友_选中页签",
+      "file": "PNG/公共UI/我的好友_选中页签_dc3ecbc337.png",
+      "name": "向阳花园原木相册页签",
+      "z": 17,
+      "position": [
+        94,
+        326
+      ],
+      "size": [
+        222,
+        96
+      ],
+      "native_size": [
+        315,
+        103
+      ],
+      "render_transform": {
+        "resize": [
+          222,
+          103
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          3,
+          222,
+          99
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_我的好友_选中页签",
+      "metadata": {
+        "target_box": [
+          94,
+          323,
+          316,
+          426
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          315,
+          103
+        ],
+        "action": "album-select:0"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.004",
+      "name": "向阳花园相册页签文案",
+      "z": 18,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_添加好友_未选中页签",
+      "asset": "block_好友界面_添加好友_未选中页签",
+      "file": "PNG/公共UI/添加好友_未选中页签_69a281099f.png",
+      "name": "清风水湾原木相册页签",
+      "z": 19,
+      "position": [
+        316,
+        323
+      ],
+      "size": [
+        222,
+        102
+      ],
+      "native_size": [
+        312,
+        103
+      ],
+      "render_transform": {
+        "resize": [
+          222,
+          103
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          222,
+          102
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_添加好友_未选中页签",
+      "metadata": {
+        "target_box": [
+          316,
+          323,
+          538,
+          426
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          312,
+          103
+        ],
+        "action": "album-select:1"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.005",
+      "name": "清风水湾相册页签文案",
+      "z": 20,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_添加好友_未选中页签",
+      "asset": "block_好友界面_添加好友_未选中页签",
+      "file": "PNG/公共UI/添加好友_未选中页签_69a281099f.png",
+      "name": "云上蜂谷原木相册页签",
+      "z": 21,
+      "position": [
+        538,
+        323
+      ],
+      "size": [
+        222,
+        102
+      ],
+      "native_size": [
+        312,
+        103
+      ],
+      "render_transform": {
+        "resize": [
+          222,
+          103
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          222,
+          102
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_添加好友_未选中页签",
+      "metadata": {
+        "target_box": [
+          538,
+          323,
+          760,
+          426
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          312,
+          103
+        ],
+        "action": "album-select:2"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.006",
+      "name": "云上蜂谷相册页签文案",
+      "z": 22,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.007",
+      "name": "当前相册名称",
+      "z": 23,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 24,
+      "position": [
+        98,
+        531
+      ],
+      "size": [
+        322,
+        297
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          322,
+          297
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          322,
+          297
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          98,
+          531,
+          420,
+          828
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_43e832376ba18a6d57cd",
+      "asset": "block_missing_43e832376ba18a6d57cd",
+      "file": "PNG/页面素材/T24-01_旅行相册/其他素材/树屋已收录照片_43e832376b.png",
+      "name": "树屋已收录照片",
+      "z": 25,
+      "position": [
+        113,
+        547
+      ],
+      "size": [
+        292,
+        210
+      ],
+      "native_size": [
+        292,
+        210
+      ],
+      "render_transform": {
+        "resize": [
+          292,
+          210
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          292,
+          210
+        ]
+      },
+      "group": "照片",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_43e832376ba18a6d57cd",
+      "metadata": {
+        "static_composite_photo": true,
+        "fit": "cover",
+        "photo_id": 0,
+        "owned": true
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "树屋已收录标记",
+      "z": 26,
+      "position": [
+        355,
+        556
+      ],
+      "size": [
+        45,
+        39
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          45,
+          40
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          45,
+          39
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          355,
+          554,
+          400,
+          599
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.008",
+      "name": "树屋照片名称",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 28,
+      "position": [
+        432,
+        531
+      ],
+      "size": [
+        322,
+        297
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          322,
+          297
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          322,
+          297
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          432,
+          531,
+          754,
+          828
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_051de9e36480f06ea0cd",
+      "asset": "block_missing_051de9e36480f06ea0cd",
+      "file": "PNG/页面素材/T24-01_旅行相册/其他素材/花园已收录照片_051de9e364.png",
+      "name": "花园已收录照片",
+      "z": 29,
+      "position": [
+        447,
+        547
+      ],
+      "size": [
+        292,
+        210
+      ],
+      "native_size": [
+        292,
+        210
+      ],
+      "render_transform": {
+        "resize": [
+          292,
+          210
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          292,
+          210
+        ]
+      },
+      "group": "照片",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_051de9e36480f06ea0cd",
+      "metadata": {
+        "static_composite_photo": true,
+        "fit": "cover",
+        "photo_id": 1,
+        "owned": true
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_每日任务_完成勾",
+      "asset": "block_每日任务_完成勾",
+      "file": "PNG/公共UI/完成勾_4503fe8356.png",
+      "name": "花园已收录标记",
+      "z": 30,
+      "position": [
+        689,
+        556
+      ],
+      "size": [
+        45,
+        39
+      ],
+      "native_size": [
+        58,
+        52
+      ],
+      "render_transform": {
+        "resize": [
+          45,
+          40
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          45,
+          39
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_每日任务_完成勾",
+      "metadata": {
+        "target_box": [
+          689,
+          554,
+          734,
+          599
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          58,
+          52
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.009",
+      "name": "花园照片名称",
+      "z": 31,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 32,
+      "position": [
+        98,
+        844
+      ],
+      "size": [
+        322,
+        297
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          322,
+          297
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          322,
+          297
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          98,
+          844,
+          420,
+          1141
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_锁定道具图标",
+      "asset": "block_玩法_锁定道具图标",
+      "file": "PNG/公共UI/锁定道具图标_3af59e5b0a.png",
+      "name": "蜂蜜工坊待收录占位",
+      "z": 33,
+      "position": [
+        234,
+        907
+      ],
+      "size": [
+        50,
+        58
+      ],
+      "native_size": [
+        47,
+        54
+      ],
+      "render_transform": {
+        "resize": [
+          50,
+          58
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          50,
+          58
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_锁定道具图标",
+      "metadata": {
+        "target_box": [
+          234,
+          907,
+          285,
+          965
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          47,
+          54
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.010",
+      "name": "蜂蜜工坊待记录",
+      "z": 34,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.011",
+      "name": "蜂蜜工坊照片名称",
+      "z": 35,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 36,
+      "position": [
+        432,
+        844
+      ],
+      "size": [
+        322,
+        297
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          322,
+          297
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          322,
+          297
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          432,
+          844,
+          754,
+          1141
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_锁定道具图标",
+      "asset": "block_玩法_锁定道具图标",
+      "file": "PNG/公共UI/锁定道具图标_3af59e5b0a.png",
+      "name": "小溪水车待收录占位",
+      "z": 37,
+      "position": [
+        568,
+        907
+      ],
+      "size": [
+        50,
+        58
+      ],
+      "native_size": [
+        47,
+        54
+      ],
+      "render_transform": {
+        "resize": [
+          50,
+          58
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          50,
+          58
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_锁定道具图标",
+      "metadata": {
+        "target_box": [
+          568,
+          907,
+          619,
+          965
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          47,
+          54
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.012",
+      "name": "小溪水车待记录",
+      "z": 38,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.013",
+      "name": "小溪水车照片名称",
+      "z": 39,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 40,
+      "position": [
+        98,
+        1157
+      ],
+      "size": [
+        322,
+        297
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          322,
+          297
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          322,
+          297
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          98,
+          1157,
+          420,
+          1454
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_锁定道具图标",
+      "asset": "block_玩法_锁定道具图标",
+      "file": "PNG/公共UI/锁定道具图标_3af59e5b0a.png",
+      "name": "温室待收录占位",
+      "z": 41,
+      "position": [
+        234,
+        1220
+      ],
+      "size": [
+        50,
+        58
+      ],
+      "native_size": [
+        47,
+        54
+      ],
+      "render_transform": {
+        "resize": [
+          50,
+          58
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          50,
+          58
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_锁定道具图标",
+      "metadata": {
+        "target_box": [
+          234,
+          1220,
+          285,
+          1278
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          47,
+          54
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.014",
+      "name": "温室待记录",
+      "z": 42,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.015",
+      "name": "温室照片名称",
+      "z": 43,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 44,
+      "position": [
+        432,
+        1157
+      ],
+      "size": [
+        322,
+        297
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          322,
+          297
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          322,
+          297
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          432,
+          1157,
+          754,
+          1454
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_锁定道具图标",
+      "asset": "block_玩法_锁定道具图标",
+      "file": "PNG/公共UI/锁定道具图标_3af59e5b0a.png",
+      "name": "全园合影待收录占位",
+      "z": 45,
+      "position": [
+        568,
+        1220
+      ],
+      "size": [
+        50,
+        58
+      ],
+      "native_size": [
+        47,
+        54
+      ],
+      "render_transform": {
+        "resize": [
+          50,
+          58
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          50,
+          58
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_锁定道具图标",
+      "metadata": {
+        "target_box": [
+          568,
+          1220,
+          619,
+          1278
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          47,
+          54
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.016",
+      "name": "全园合影待记录",
+      "z": 46,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.017",
+      "name": "全园合影照片名称",
+      "z": 47,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T24-01.text.018",
+      "name": "相册收集进度",
+      "z": 48,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T24-01.text.000",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T24-01.text.000",
+      "instance_id": "f279e3a2a674:T24-01.text.000",
+      "page": "T24-01_旅行相册",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T24-01.text.001",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T24-01.text.001",
+      "instance_id": "f279e3a2a674:T24-01.text.001",
+      "page": "T24-01_旅行相册",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "旅行相册",
+      "position": [
+        348,
+        215
+      ],
+      "box": [
+        260,
+        202,
+        594,
+        269
+      ],
+      "font_size": 39.0,
+      "min_font_size": 31.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        116,
+        71,
+        29
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "旅行相册",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 39.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        159,
+        41
+      ],
+      "id": "T24-01.text.002",
+      "layout_box": [
+        260,
+        202,
+        594,
+        269
+      ],
+      "text_id": "T24-01.text.002",
+      "instance_id": "f279e3a2a674:T24-01.text.002",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "旅行相册",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "当前主线等级",
+      "text": "Lv.14",
+      "position": [
+        49,
+        122
+      ],
+      "box": [
+        34,
+        116,
+        119,
+        145
+      ],
+      "font_size": 20.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        220
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        49,
+        92,
+        36
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "mainline.level",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 20.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        55,
+        18
+      ],
+      "id": "T24-01.text.003",
+      "layout_box": [
+        34,
+        116,
+        119,
+        145
+      ],
+      "text_id": "T24-01.text.003",
+      "instance_id": "f279e3a2a674:T24-01.text.003",
+      "page": "T24-01_旅行相册",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "mainline.level"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "向阳花园相册页签文案",
+      "text": "向阳花园",
+      "position": [
+        151,
+        358
+      ],
+      "box": [
+        105,
+        341,
+        305,
+        402
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        99,
+        56,
+        24
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "向阳花园",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T24-01.text.004",
+      "layout_box": [
+        105,
+        341,
+        305,
+        402
+      ],
+      "text_id": "T24-01.text.004",
+      "instance_id": "f279e3a2a674:T24-01.text.004",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "向阳花园",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.e9919f74d48e",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "清风水湾相册页签文案",
+      "text": "清风水湾",
+      "position": [
+        373,
+        358
+      ],
+      "box": [
+        327,
+        341,
+        527,
+        402
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        237,
+        180
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "清风水湾",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T24-01.text.005",
+      "layout_box": [
+        327,
+        341,
+        527,
+        402
+      ],
+      "text_id": "T24-01.text.005",
+      "instance_id": "f279e3a2a674:T24-01.text.005",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "清风水湾",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.cba4fc9a8dbb",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "云上蜂谷相册页签文案",
+      "text": "云上蜂谷",
+      "position": [
+        595,
+        358
+      ],
+      "box": [
+        549,
+        341,
+        749,
+        402
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        237,
+        180
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "云上蜂谷",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T24-01.text.006",
+      "layout_box": [
+        549,
+        341,
+        749,
+        402
+      ],
+      "text_id": "T24-01.text.006",
+      "instance_id": "f279e3a2a674:T24-01.text.006",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "云上蜂谷",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.010056208a03",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "当前相册名称",
+      "text": "向阳花园 · 已记录的故事",
+      "position": [
+        278,
+        466
+      ],
+      "box": [
+        121,
+        449,
+        732,
+        509
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": "album.chapter_name",
+      "raw": "向阳花园 · 已记录的故事",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        298,
+        27
+      ],
+      "id": "T24-01.text.007",
+      "layout_box": [
+        121,
+        449,
+        732,
+        509
+      ],
+      "text_id": "T24-01.text.007",
+      "instance_id": "f279e3a2a674:T24-01.text.007",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "向阳花园 · 已记录的故事",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.0271a1048e3a",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "树屋照片名称",
+      "text": "树屋",
+      "position": [
+        232,
+        781
+      ],
+      "box": [
+        116,
+        770,
+        402,
+        818
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "树屋",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        54,
+        26
+      ],
+      "id": "T24-01.text.008",
+      "layout_box": [
+        116,
+        770,
+        402,
+        818
+      ],
+      "text_id": "T24-01.text.008",
+      "instance_id": "f279e3a2a674:T24-01.text.008",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "树屋",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.14425dc39f5d",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花园照片名称",
+      "text": "花园",
+      "position": [
+        566,
+        781
+      ],
+      "box": [
+        450,
+        770,
+        736,
+        818
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "花园",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        54,
+        26
+      ],
+      "id": "T24-01.text.009",
+      "layout_box": [
+        450,
+        770,
+        736,
+        818
+      ],
+      "text_id": "T24-01.text.009",
+      "instance_id": "f279e3a2a674:T24-01.text.009",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "花园",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.71f3d37c254a",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂蜜工坊待记录",
+      "text": "待记录",
+      "position": [
+        218,
+        998
+      ],
+      "box": [
+        128,
+        983,
+        390,
+        1040
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        154,
+        133,
+        102
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "status",
+      "purpose": "status",
+      "binding": null,
+      "raw": "待记录",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        81,
+        27
+      ],
+      "id": "T24-01.text.010",
+      "layout_box": [
+        128,
+        983,
+        390,
+        1040
+      ],
+      "text_id": "T24-01.text.010",
+      "instance_id": "f279e3a2a674:T24-01.text.010",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "待记录",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.c03fa4c81a34",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "蜂蜜工坊照片名称",
+      "text": "蜂蜜工坊",
+      "position": [
+        205,
+        1094
+      ],
+      "box": [
+        116,
+        1083,
+        402,
+        1131
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "蜂蜜工坊",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T24-01.text.011",
+      "layout_box": [
+        116,
+        1083,
+        402,
+        1131
+      ],
+      "text_id": "T24-01.text.011",
+      "instance_id": "f279e3a2a674:T24-01.text.011",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "蜂蜜工坊",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.339fa174e1fe",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "小溪水车待记录",
+      "text": "待记录",
+      "position": [
+        552,
+        998
+      ],
+      "box": [
+        462,
+        983,
+        724,
+        1040
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        154,
+        133,
+        102
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "status",
+      "purpose": "status",
+      "binding": null,
+      "raw": "待记录",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        81,
+        27
+      ],
+      "id": "T24-01.text.012",
+      "layout_box": [
+        462,
+        983,
+        724,
+        1040
+      ],
+      "text_id": "T24-01.text.012",
+      "instance_id": "f279e3a2a674:T24-01.text.012",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "待记录",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.a756be5bb25b",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "小溪水车照片名称",
+      "text": "小溪水车",
+      "position": [
+        539,
+        1094
+      ],
+      "box": [
+        450,
+        1083,
+        736,
+        1131
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "小溪水车",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T24-01.text.013",
+      "layout_box": [
+        450,
+        1083,
+        736,
+        1131
+      ],
+      "text_id": "T24-01.text.013",
+      "instance_id": "f279e3a2a674:T24-01.text.013",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "小溪水车",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.523060ec78d8",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "温室待记录",
+      "text": "待记录",
+      "position": [
+        218,
+        1311
+      ],
+      "box": [
+        128,
+        1296,
+        390,
+        1353
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        154,
+        133,
+        102
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "status",
+      "purpose": "status",
+      "binding": null,
+      "raw": "待记录",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        81,
+        27
+      ],
+      "id": "T24-01.text.014",
+      "layout_box": [
+        128,
+        1296,
+        390,
+        1353
+      ],
+      "text_id": "T24-01.text.014",
+      "instance_id": "f279e3a2a674:T24-01.text.014",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "待记录",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.0087928c3774",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "温室照片名称",
+      "text": "温室",
+      "position": [
+        232,
+        1406
+      ],
+      "box": [
+        116,
+        1396,
+        402,
+        1444
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "温室",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        54,
+        27
+      ],
+      "id": "T24-01.text.015",
+      "layout_box": [
+        116,
+        1396,
+        402,
+        1444
+      ],
+      "text_id": "T24-01.text.015",
+      "instance_id": "f279e3a2a674:T24-01.text.015",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "温室",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.4ed5a5fcb02e",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "全园合影待记录",
+      "text": "待记录",
+      "position": [
+        552,
+        1311
+      ],
+      "box": [
+        462,
+        1296,
+        724,
+        1353
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        154,
+        133,
+        102
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "status",
+      "purpose": "status",
+      "binding": null,
+      "raw": "待记录",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        81,
+        27
+      ],
+      "id": "T24-01.text.016",
+      "layout_box": [
+        462,
+        1296,
+        724,
+        1353
+      ],
+      "text_id": "T24-01.text.016",
+      "instance_id": "f279e3a2a674:T24-01.text.016",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "待记录",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.29fce9bb5b43",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "全园合影照片名称",
+      "text": "全园合影",
+      "position": [
+        539,
+        1406
+      ],
+      "box": [
+        450,
+        1396,
+        736,
+        1444
+      ],
+      "font_size": 27.0,
+      "min_font_size": 21.6,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "全园合影",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 27.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        108,
+        27
+      ],
+      "id": "T24-01.text.017",
+      "layout_box": [
+        450,
+        1396,
+        736,
+        1444
+      ],
+      "text_id": "T24-01.text.017",
+      "instance_id": "f279e3a2a674:T24-01.text.017",
+      "page": "T24-01_旅行相册",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "全园合影",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.f279e3a2a674.text.e99dd8ab8476",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "相册收集进度",
+      "text": "已收录 2/6",
+      "position": [
+        354,
+        1526
+      ],
+      "box": [
+        250,
+        1506,
+        603,
+        1574
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "album.owned_count",
+      "raw": 2,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        146,
+        29
+      ],
+      "id": "T24-01.text.018",
+      "layout_box": [
+        250,
+        1506,
+        603,
+        1574
+      ],
+      "text_id": "T24-01.text.018",
+      "instance_id": "f279e3a2a674:T24-01.text.018",
+      "page": "T24-01_旅行相册",
+      "text_role": "template",
+      "message_template": "已收录 {value_1}/{value_2}",
+      "parameters": {
+        "value_1": 2,
+        "value_2": 6
+      },
+      "value_binding": {
+        "value_1": "page.f279e3a2a674.text.182b4b27b54d.value_1",
+        "value_2": "page.f279e3a2a674.text.182b4b27b54d.value_2"
+      },
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "已收录 2/6",
+      "parameter_formats": {
+        "value_1": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        },
+        "value_2": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "localization_key": "block.f279e3a2a674.text.182b4b27b54d",
+      "overflow_policy": "shrink_to_min_then_report_overflow",
+      "binding_note": "原作者单一路径保留在binding；多个命名参数分别使用value_binding，不把单一路径冒作多个值。"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "album"
+    ],
+    "requirements": "三册、各园五建筑+全园合影；已得照片与未得占位明确，照片必须对应新树屋／花园／工坊／水车／温室而非旧玩具岛。",
+    "actions": [
+      {
+        "layer": "返回",
+        "action": "go:home",
+        "label": "返回"
+      }
+    ],
+    "chapter": 0,
+    "photos_owned": [
+      0,
+      1
+    ],
+    "all_photo_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "per_album": 6,
+    "photo_order": [
+      "treehouse",
+      "garden",
+      "honey_workshop",
+      "creek_watermill",
+      "greenhouse",
+      "whole_garden"
+    ]
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T24-01_旅行相册.png",
+    "composite": "页面对照/PSD合成/缺少/T24-01_旅行相册.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "18bf937a88cf52399e28bee2eb3e5465eee24868bb5e97051fed8d67bdc833cc",
+    "psd_composite": "页面对照/PSD合成/缺少/T24-01_旅行相册.png",
+    "psd_composite_sha256": "0b18e4f4bb9cbbafd2713f52680d2d7070b7bd609e22feb9facabeebdf8b8da7",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "18bf937a88cf52399e28bee2eb3e5465eee24868bb5e97051fed8d67bdc833cc",
+    "psd_sha256": "0fc7d395b70655af73c75c868661583c395b288891f44f30dc013f61c94ed567",
+    "composite_sha256": "0b18e4f4bb9cbbafd2713f52680d2d7070b7bd609e22feb9facabeebdf8b8da7",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T24-01_旅行相册.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}

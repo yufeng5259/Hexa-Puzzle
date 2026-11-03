@@ -1,0 +1,2473 @@
+{
+  "page": "T27-01_三园世界地图",
+  "output_id": "T27-01",
+  "canvas": [
+    853,
+    1844
+  ],
+  "size": [
+    853,
+    1844
+  ],
+  "source_reference": [
+    {
+      "route": "world-map",
+      "title": "世界地图",
+      "url": "http://127.0.0.1:4291/index.html#world-map",
+      "screenshot": "F:\\qiguobing\\git\\Hexa Puzzle\\prototype\\review\\block-review\\43-world-map.png",
+      "screenshot_sha256": "026c055b83a15a475d01dec4d17de27cb44384aa8c6ef4c3e4ca457a9d38b7a9"
+    }
+  ],
+  "layers": [
+    {
+      "type": "image",
+      "id": "block_background_关卡选择",
+      "asset": "block_background_关卡选择",
+      "file": "PNG/公共素材/关卡选择_完整裸背景_81feb6b295.png",
+      "name": "完整裸背景",
+      "z": 0,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        853,
+        1844
+      ],
+      "native_size": [
+        853,
+        1844
+      ],
+      "render_transform": {
+        "resize": [
+          853,
+          1844
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          853,
+          1844
+        ]
+      },
+      "group": "背景",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_background_关卡选择",
+      "metadata": {
+        "target_box": [
+          0,
+          0,
+          853,
+          1844
+        ],
+        "fit": "cover",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          853,
+          1844
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_玩法_头像空白等级",
+      "asset": "block_hud_玩法_头像空白等级",
+      "file": "PNG/公共UI/玩法_头像空白等级_66726d6352.png",
+      "name": "蜂友头像",
+      "z": 1,
+      "position": [
+        19,
+        34
+      ],
+      "size": [
+        115,
+        113
+      ],
+      "native_size": [
+        604,
+        596
+      ],
+      "render_transform": {
+        "resize": [
+          115,
+          113
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          115,
+          113
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_玩法_头像空白等级",
+      "metadata": {
+        "target_box": [
+          19,
+          32,
+          134,
+          150
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          604,
+          596
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.000",
+      "name": "玩家主线进度",
+      "z": 2,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "花蜜数量底条",
+      "z": 3,
+      "position": [
+        176,
+        64
+      ],
+      "size": [
+        251,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          251,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          251,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          176,
+          64,
+          427,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_蜂蜜货币",
+      "asset": "block_hud_蜂蜜货币",
+      "file": "PNG/公共素材/蜂蜜货币_38de64d7d5.png",
+      "name": "花蜜图标",
+      "z": 4,
+      "position": [
+        147,
+        43
+      ],
+      "size": [
+        85,
+        93
+      ],
+      "native_size": [
+        288,
+        304
+      ],
+      "render_transform": {
+        "resize": [
+          88,
+          93
+        ],
+        "alpha_crop": [
+          3,
+          0,
+          88,
+          93
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_蜂蜜货币",
+      "metadata": {
+        "target_box": [
+          144,
+          43,
+          232,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          288,
+          304
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.001",
+      "name": "花蜜数量",
+      "z": 5,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_透明计数底条",
+      "asset": "block_hud_透明计数底条",
+      "file": "PNG/公共UI/透明计数底条_551ce63f02.png",
+      "name": "提示数量底条",
+      "z": 6,
+      "position": [
+        479,
+        64
+      ],
+      "size": [
+        187,
+        59
+      ],
+      "native_size": [
+        224,
+        65
+      ],
+      "render_transform": {
+        "resize": [
+          187,
+          59
+        ],
+        "nine_slice": {
+          "insets": [
+            28,
+            25,
+            28,
+            25
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          187,
+          59
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_透明计数底条",
+      "metadata": {
+        "target_box": [
+          479,
+          64,
+          666,
+          123
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          28,
+          25,
+          28,
+          25
+        ],
+        "native_size": [
+          224,
+          65
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_hud_灯泡道具",
+      "asset": "block_hud_灯泡道具",
+      "file": "PNG/公共素材/灯泡道具_6e6583c917.png",
+      "name": "提示灯泡",
+      "z": 7,
+      "position": [
+        454,
+        43
+      ],
+      "size": [
+        72,
+        92
+      ],
+      "native_size": [
+        212,
+        272
+      ],
+      "render_transform": {
+        "resize": [
+          72,
+          92
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          72,
+          92
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_灯泡道具",
+      "metadata": {
+        "target_box": [
+          454,
+          42,
+          526,
+          137
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          212,
+          272
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.002",
+      "name": "提示库存",
+      "z": 8,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_hud_设置木质齿轮",
+      "asset": "block_hud_设置木质齿轮",
+      "file": "PNG/公共UI/设置木质齿轮_e5bbb9bdf8.png",
+      "name": "设置",
+      "z": 9,
+      "position": [
+        736,
+        42
+      ],
+      "size": [
+        90,
+        90
+      ],
+      "native_size": [
+        388,
+        388
+      ],
+      "render_transform": {
+        "resize": [
+          90,
+          90
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          90,
+          90
+        ]
+      },
+      "group": "HUD",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_hud_设置木质齿轮",
+      "metadata": {
+        "target_box": [
+          736,
+          42,
+          826,
+          132
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          388,
+          388
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_关卡木牌",
+      "asset": "block_玩法_关卡木牌",
+      "file": "PNG/公共UI/关卡木牌_8cff2f5f7f.png",
+      "name": "标题无字木牌",
+      "z": 10,
+      "position": [
+        111,
+        170
+      ],
+      "size": [
+        631,
+        150
+      ],
+      "native_size": [
+        487,
+        116
+      ],
+      "render_transform": {
+        "resize": [
+          631,
+          150
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          631,
+          150
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_关卡木牌",
+      "metadata": {
+        "target_box": [
+          111,
+          168,
+          742,
+          322
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          487,
+          116
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.003",
+      "name": "页面标题",
+      "z": 11,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_返回按钮",
+      "asset": "block_好友界面_返回按钮",
+      "file": "PNG/公共UI/返回按钮_a575429692.png",
+      "name": "返回",
+      "z": 12,
+      "position": [
+        31,
+        1680
+      ],
+      "size": [
+        133,
+        135
+      ],
+      "native_size": [
+        164,
+        166
+      ],
+      "render_transform": {
+        "resize": [
+          133,
+          135
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          133,
+          135
+        ]
+      },
+      "group": "导航",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_返回按钮",
+      "metadata": {
+        "target_box": [
+          30,
+          1680,
+          165,
+          1815
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          164,
+          166
+        ],
+        "action": "go:home"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.004",
+      "name": "地图引言",
+      "z": 13,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 14,
+      "position": [
+        357,
+        420
+      ],
+      "size": [
+        414,
+        305
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          414,
+          305
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          414,
+          305
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          357,
+          420,
+          771,
+          725
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_40a486ccb34334e643e1",
+      "asset": "block_missing_40a486ccb34334e643e1",
+      "file": "PNG/页面素材/T27-01_三园世界地图/其他素材/向阳花园实景地图缩略图_40a486ccb3.png",
+      "name": "向阳花园实景地图缩略图",
+      "z": 15,
+      "position": [
+        372,
+        439
+      ],
+      "size": [
+        179,
+        266
+      ],
+      "native_size": [
+        179,
+        266
+      ],
+      "render_transform": {
+        "resize": [
+          179,
+          266
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          179,
+          266
+        ]
+      },
+      "group": "照片",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_40a486ccb34334e643e1",
+      "metadata": {
+        "static_composite_photo": true,
+        "fit": "cover",
+        "theme": "sunny",
+        "preview_only": false
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.005",
+      "name": "向阳花园地图名称",
+      "z": 16,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.006",
+      "name": "向阳花园解锁状态",
+      "z": 17,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_金色关卡盾牌母件",
+      "asset": "block_关卡选择_金色关卡盾牌母件",
+      "file": "PNG/公共UI/金色关卡盾牌母件_747dc74440.png",
+      "name": "向阳花园原关卡地图节点",
+      "z": 18,
+      "position": [
+        178,
+        484
+      ],
+      "size": [
+        131,
+        124
+      ],
+      "native_size": [
+        1243,
+        1176
+      ],
+      "render_transform": {
+        "resize": [
+          131,
+          124
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          131,
+          124
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_金色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          178,
+          480,
+          309,
+          613
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1243,
+          1176
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.007",
+      "name": "向阳花园节点章号",
+      "z": 19,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_结算_下一关按钮",
+      "asset": "block_结算_下一关按钮",
+      "file": "PNG/公共UI/下一关按钮_95161f55c5.png",
+      "name": "回家园_无字按钮",
+      "z": 20,
+      "position": [
+        567,
+        611
+      ],
+      "size": [
+        185,
+        83
+      ],
+      "native_size": [
+        496,
+        147
+      ],
+      "render_transform": {
+        "resize": [
+          185,
+          83
+        ],
+        "nine_slice": {
+          "insets": [
+            69,
+            66,
+            69,
+            66
+          ]
+        },
+        "alpha_crop": [
+          0,
+          0,
+          185,
+          83
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_结算_下一关按钮",
+      "metadata": {
+        "target_box": [
+          567,
+          611,
+          752,
+          694
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": [
+          69,
+          66,
+          69,
+          66
+        ],
+        "native_size": [
+          496,
+          147
+        ],
+        "action": "go:home"
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.008",
+      "name": "回家园_文案",
+      "z": 21,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 22,
+      "position": [
+        82,
+        806
+      ],
+      "size": [
+        414,
+        305
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          414,
+          305
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          414,
+          305
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          82,
+          806,
+          496,
+          1111
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_de45eb0ca00ee9f6130a",
+      "asset": "block_missing_de45eb0ca00ee9f6130a",
+      "file": "PNG/页面素材/T27-01_三园世界地图/其他素材/清风水湾实景地图缩略图_de45eb0ca0.png",
+      "name": "清风水湾实景地图缩略图",
+      "z": 23,
+      "position": [
+        97,
+        825
+      ],
+      "size": [
+        179,
+        266
+      ],
+      "native_size": [
+        179,
+        266
+      ],
+      "render_transform": {
+        "resize": [
+          179,
+          266
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          179,
+          266
+        ]
+      },
+      "group": "照片",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_de45eb0ca00ee9f6130a",
+      "metadata": {
+        "static_composite_photo": true,
+        "fit": "cover",
+        "theme": "water",
+        "preview_only": true
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.009",
+      "name": "清风水湾地图名称",
+      "z": 24,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.010",
+      "name": "清风水湾解锁状态",
+      "z": 25,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "name": "清风水湾原关卡地图节点",
+      "z": 26,
+      "position": [
+        583,
+        866
+      ],
+      "size": [
+        131,
+        132
+      ],
+      "native_size": [
+        1142,
+        1154
+      ],
+      "render_transform": {
+        "resize": [
+          131,
+          132
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          131,
+          132
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          583,
+          866,
+          714,
+          999
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1142,
+          1154
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.011",
+      "name": "清风水湾节点章号",
+      "z": 27,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_锁定道具图标",
+      "asset": "block_玩法_锁定道具图标",
+      "file": "PNG/公共UI/锁定道具图标_3af59e5b0a.png",
+      "name": "清风水湾未解锁锁头",
+      "z": 28,
+      "position": [
+        357,
+        991
+      ],
+      "size": [
+        50,
+        58
+      ],
+      "native_size": [
+        47,
+        54
+      ],
+      "render_transform": {
+        "resize": [
+          50,
+          58
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          50,
+          58
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_锁定道具图标",
+      "metadata": {
+        "target_box": [
+          357,
+          991,
+          408,
+          1049
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          47,
+          54
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.012",
+      "name": "清风水湾锁定按钮文案",
+      "z": 29,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_好友界面_好友行底板_1",
+      "asset": "block_好友界面_好友行底板_1",
+      "file": "PNG/公共UI/好友行底板_1_be8e47389c.png",
+      "name": "无字面板_row",
+      "z": 30,
+      "position": [
+        357,
+        1192
+      ],
+      "size": [
+        414,
+        305
+      ],
+      "native_size": [
+        656,
+        141
+      ],
+      "render_transform": {
+        "resize": [
+          414,
+          305
+        ],
+        "nine_slice": {
+          "insets": null
+        },
+        "alpha_crop": [
+          0,
+          0,
+          414,
+          305
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_好友界面_好友行底板_1",
+      "metadata": {
+        "target_box": [
+          357,
+          1192,
+          771,
+          1497
+        ],
+        "fit": "nine_slice",
+        "nine_slice_insets": null,
+        "native_size": [
+          656,
+          141
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "id": "block_missing_134bce69f819ca1494fc",
+      "asset": "block_missing_134bce69f819ca1494fc",
+      "file": "PNG/页面素材/T27-01_三园世界地图/其他素材/云上蜂谷实景地图缩略图_134bce69f8.png",
+      "name": "云上蜂谷实景地图缩略图",
+      "z": 31,
+      "position": [
+        372,
+        1211
+      ],
+      "size": [
+        179,
+        266
+      ],
+      "native_size": [
+        179,
+        266
+      ],
+      "render_transform": {
+        "resize": [
+          179,
+          266
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          179,
+          266
+        ]
+      },
+      "group": "照片",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_missing_134bce69f819ca1494fc",
+      "metadata": {
+        "static_composite_photo": true,
+        "fit": "cover",
+        "theme": "cloud",
+        "preview_only": true
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.013",
+      "name": "云上蜂谷地图名称",
+      "z": 32,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.014",
+      "name": "云上蜂谷解锁状态",
+      "z": 33,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_关卡选择_灰色关卡盾牌母件",
+      "asset": "block_关卡选择_灰色关卡盾牌母件",
+      "file": "PNG/公共UI/灰色关卡盾牌母件_bad4bb901e.png",
+      "name": "云上蜂谷原关卡地图节点",
+      "z": 34,
+      "position": [
+        178,
+        1252
+      ],
+      "size": [
+        131,
+        132
+      ],
+      "native_size": [
+        1142,
+        1154
+      ],
+      "render_transform": {
+        "resize": [
+          131,
+          132
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          131,
+          132
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_关卡选择_灰色关卡盾牌母件",
+      "metadata": {
+        "target_box": [
+          178,
+          1252,
+          309,
+          1385
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          1142,
+          1154
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.015",
+      "name": "云上蜂谷节点章号",
+      "z": 35,
+      "group": "独立文字",
+      "visible": true
+    },
+    {
+      "type": "image",
+      "id": "block_玩法_锁定道具图标",
+      "asset": "block_玩法_锁定道具图标",
+      "file": "PNG/公共UI/锁定道具图标_3af59e5b0a.png",
+      "name": "云上蜂谷未解锁锁头",
+      "z": 36,
+      "position": [
+        632,
+        1377
+      ],
+      "size": [
+        50,
+        58
+      ],
+      "native_size": [
+        47,
+        54
+      ],
+      "render_transform": {
+        "resize": [
+          50,
+          58
+        ],
+        "alpha_crop": [
+          0,
+          0,
+          50,
+          58
+        ]
+      },
+      "group": "UI",
+      "visible": true,
+      "opacity": 1,
+      "master_asset": "block_玩法_锁定道具图标",
+      "metadata": {
+        "target_box": [
+          632,
+          1377,
+          683,
+          1435
+        ],
+        "fit": "contain",
+        "state": null,
+        "parent": null,
+        "native_size": [
+          47,
+          54
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "text_id": "T27-01.text.016",
+      "name": "云上蜂谷锁定按钮文案",
+      "z": 37,
+      "group": "独立文字",
+      "visible": true
+    }
+  ],
+  "texts": [
+    {
+      "layer_name": "玩家主线进度",
+      "text": "Lv.14",
+      "position": [
+        54,
+        126
+      ],
+      "box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "font_size": 18.0,
+      "min_font_size": 16,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        248,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.5,
+      "stroke_color": [
+        68,
+        131,
+        41
+      ],
+      "fit": true,
+      "role": "template",
+      "purpose": "template",
+      "binding": "progress.mainline_reachable",
+      "raw": 14,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 18.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        49,
+        15
+      ],
+      "id": "T27-01.text.000",
+      "layout_box": [
+        40,
+        121,
+        116,
+        145
+      ],
+      "text_id": "T27-01.text.000",
+      "instance_id": "000a71cd764f:T27-01.text.000",
+      "page": "T27-01_三园世界地图",
+      "text_role": "template",
+      "message_template": "Lv.{level}",
+      "parameters": {
+        "level": 14
+      },
+      "value_binding": {
+        "level": "progress.mainline_reachable"
+      },
+      "localization_key": "block.common.level",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "Lv.14",
+      "parameter_formats": {
+        "level": {
+          "type": "integer",
+          "use_grouping": false,
+          "fraction_digits": 0,
+          "sign_display": "auto",
+          "locale_aware": true
+        }
+      },
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "花蜜数量",
+      "text": "360",
+      "position": [
+        285,
+        78
+      ],
+      "box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "wallet.honey",
+      "raw": 360,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        62,
+        28
+      ],
+      "id": "T27-01.text.001",
+      "layout_box": [
+        229,
+        68,
+        403,
+        116
+      ],
+      "text_id": "T27-01.text.001",
+      "instance_id": "000a71cd764f:T27-01.text.001",
+      "page": "T27-01_三园世界地图",
+      "text_role": "number",
+      "raw_value": 360,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "wallet.honey",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "360",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "提示库存",
+      "text": "5",
+      "position": [
+        576,
+        78
+      ],
+      "box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "font_size": 32.0,
+      "min_font_size": 25.6,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        247,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        92,
+        60,
+        29
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "inventory.hints",
+      "raw": 5,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        22,
+        27
+      ],
+      "id": "T27-01.text.002",
+      "layout_box": [
+        533,
+        68,
+        641,
+        116
+      ],
+      "text_id": "T27-01.text.002",
+      "instance_id": "000a71cd764f:T27-01.text.002",
+      "page": "T27-01_三园世界地图",
+      "text_role": "number",
+      "raw_value": 5,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "inventory.hints",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "5",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "页面标题",
+      "text": "世界地图",
+      "position": [
+        345,
+        220
+      ],
+      "box": [
+        188,
+        203,
+        665,
+        278
+      ],
+      "font_size": 40.0,
+      "min_font_size": 32.0,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        211
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.5,
+      "stroke_color": [
+        116,
+        71,
+        29
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "世界地图",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 40.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        163,
+        42
+      ],
+      "id": "T27-01.text.003",
+      "layout_box": [
+        188,
+        203,
+        665,
+        278
+      ],
+      "text_id": "T27-01.text.003",
+      "instance_id": "000a71cd764f:T27-01.text.003",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "世界地图",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.5ce2d4cc8539",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "地图引言",
+      "text": "一座花园，一段新故事",
+      "position": [
+        280,
+        334
+      ],
+      "box": [
+        120,
+        323,
+        733,
+        379
+      ],
+      "font_size": 29.0,
+      "min_font_size": 23.200000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        246,
+        215
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        114,
+        80,
+        31
+      ],
+      "fit": true,
+      "role": "message",
+      "purpose": "message",
+      "binding": null,
+      "raw": "一座花园，一段新故事",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 29.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        294,
+        33
+      ],
+      "id": "T27-01.text.004",
+      "layout_box": [
+        120,
+        323,
+        733,
+        379
+      ],
+      "text_id": "T27-01.text.004",
+      "instance_id": "000a71cd764f:T27-01.text.004",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "一座花园，一段新故事",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.fcd05a2f7377",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "向阳花园地图名称",
+      "text": "向阳花园",
+      "position": [
+        602,
+        458
+      ],
+      "box": [
+        558,
+        445,
+        759,
+        498
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "向阳花园",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        112,
+        27
+      ],
+      "id": "T27-01.text.005",
+      "layout_box": [
+        558,
+        445,
+        759,
+        498
+      ],
+      "text_id": "T27-01.text.005",
+      "instance_id": "000a71cd764f:T27-01.text.005",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "向阳花园",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.59729b2597bc",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "向阳花园解锁状态",
+      "text": "2/25",
+      "position": [
+        632,
+        530
+      ],
+      "box": [
+        558,
+        507,
+        759,
+        575
+      ],
+      "font_size": 23.0,
+      "min_font_size": 20,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "world_map.chapter_state",
+      "raw": 2,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        54,
+        21
+      ],
+      "id": "T27-01.text.006",
+      "layout_box": [
+        558,
+        507,
+        759,
+        575
+      ],
+      "text_id": "T27-01.text.006",
+      "instance_id": "000a71cd764f:T27-01.text.006",
+      "page": "T27-01_三园世界地图",
+      "text_role": "number",
+      "raw_value": {
+        "current": 2,
+        "total": 25
+      },
+      "number_format": {
+        "type": "progress",
+        "components": {
+          "current": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          },
+          "total": {
+            "type": "integer",
+            "use_grouping": false,
+            "fraction_digits": 0,
+            "sign_display": "auto"
+          }
+        },
+        "locale_aware": true
+      },
+      "value_binding": "world_map.chapter_state",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2/25",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "向阳花园节点章号",
+      "text": "1",
+      "position": [
+        230,
+        528
+      ],
+      "box": [
+        197,
+        513,
+        290,
+        578
+      ],
+      "font_size": 38.0,
+      "min_font_size": 30.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        123,
+        77,
+        35
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "world_map.chapter_index",
+      "raw": 1,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        28,
+        34
+      ],
+      "id": "T27-01.text.007",
+      "layout_box": [
+        197,
+        513,
+        290,
+        578
+      ],
+      "text_id": "T27-01.text.007",
+      "instance_id": "000a71cd764f:T27-01.text.007",
+      "page": "T27-01_三园世界地图",
+      "text_role": "number",
+      "raw_value": 1,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "world_map.chapter_index",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "1",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "回家园_文案",
+      "text": "回家园",
+      "position": [
+        620,
+        636
+      ],
+      "box": [
+        591,
+        623,
+        728,
+        677
+      ],
+      "font_size": 25.75,
+      "min_font_size": 20.584000000000003,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        249,
+        217
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 1.0,
+      "stroke_color": [
+        54,
+        121,
+        42
+      ],
+      "fit": true,
+      "role": "button",
+      "purpose": "button",
+      "binding": null,
+      "raw": "回家园",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.73,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        80,
+        27
+      ],
+      "id": "T27-01.text.008",
+      "layout_box": [
+        591,
+        623,
+        728,
+        677
+      ],
+      "text_id": "T27-01.text.008",
+      "instance_id": "000a71cd764f:T27-01.text.008",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "回家园",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.ed9dc3a4a562",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "清风水湾地图名称",
+      "text": "清风水湾",
+      "position": [
+        328,
+        844
+      ],
+      "box": [
+        283,
+        831,
+        484,
+        884
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "清风水湾",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        112,
+        28
+      ],
+      "id": "T27-01.text.009",
+      "layout_box": [
+        283,
+        831,
+        484,
+        884
+      ],
+      "text_id": "T27-01.text.009",
+      "instance_id": "000a71cd764f:T27-01.text.009",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "清风水湾",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.a17c8603a1e9",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "清风水湾解锁状态",
+      "text": "前园完工解锁",
+      "position": [
+        314,
+        916
+      ],
+      "box": [
+        283,
+        893,
+        484,
+        961
+      ],
+      "font_size": 23.0,
+      "min_font_size": 20,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "status",
+      "purpose": "status",
+      "binding": "world_map.chapter_state",
+      "raw": "前园完工解锁",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        138,
+        23
+      ],
+      "id": "T27-01.text.010",
+      "layout_box": [
+        283,
+        893,
+        484,
+        961
+      ],
+      "text_id": "T27-01.text.010",
+      "instance_id": "000a71cd764f:T27-01.text.010",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "前园完工解锁",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.756bc93a74e5",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "清风水湾节点章号",
+      "text": "2",
+      "position": [
+        634,
+        914
+      ],
+      "box": [
+        602,
+        899,
+        695,
+        964
+      ],
+      "font_size": 38.0,
+      "min_font_size": 30.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        123,
+        77,
+        35
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "world_map.chapter_index",
+      "raw": 2,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        28,
+        34
+      ],
+      "id": "T27-01.text.011",
+      "layout_box": [
+        602,
+        899,
+        695,
+        964
+      ],
+      "text_id": "T27-01.text.011",
+      "instance_id": "000a71cd764f:T27-01.text.011",
+      "page": "T27-01_三园世界地图",
+      "text_role": "number",
+      "raw_value": 2,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "world_map.chapter_index",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "2",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "清风水湾锁定按钮文案",
+      "text": "未解锁",
+      "position": [
+        348,
+        1062
+      ],
+      "box": [
+        288,
+        1053,
+        482,
+        1096
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 1,
+      "color_rgb": [
+        140,
+        116,
+        85
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "status",
+      "purpose": "status",
+      "binding": null,
+      "raw": "未解锁",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        75,
+        25
+      ],
+      "id": "T27-01.text.012",
+      "layout_box": [
+        288,
+        1053,
+        482,
+        1096
+      ],
+      "text_id": "T27-01.text.012",
+      "instance_id": "000a71cd764f:T27-01.text.012",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "未解锁",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.1571bbd05b53",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "云上蜂谷地图名称",
+      "text": "云上蜂谷",
+      "position": [
+        602,
+        1230
+      ],
+      "box": [
+        558,
+        1217,
+        759,
+        1270
+      ],
+      "font_size": 28.0,
+      "min_font_size": 22.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "title",
+      "purpose": "title",
+      "binding": null,
+      "raw": "云上蜂谷",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        112,
+        28
+      ],
+      "id": "T27-01.text.013",
+      "layout_box": [
+        558,
+        1217,
+        759,
+        1270
+      ],
+      "text_id": "T27-01.text.013",
+      "instance_id": "000a71cd764f:T27-01.text.013",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "云上蜂谷",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.689eded5d147",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "云上蜂谷解锁状态",
+      "text": "前园完工解锁",
+      "position": [
+        590,
+        1302
+      ],
+      "box": [
+        558,
+        1279,
+        759,
+        1347
+      ],
+      "font_size": 23.0,
+      "min_font_size": 20,
+      "max_lines": 2,
+      "color_rgb": [
+        101,
+        61,
+        32
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "status",
+      "purpose": "status",
+      "binding": "world_map.chapter_state",
+      "raw": "前园完工解锁",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 23.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        138,
+        23
+      ],
+      "id": "T27-01.text.014",
+      "layout_box": [
+        558,
+        1279,
+        759,
+        1347
+      ],
+      "text_id": "T27-01.text.014",
+      "instance_id": "000a71cd764f:T27-01.text.014",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "前园完工解锁",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.77f0bf835447",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "云上蜂谷节点章号",
+      "text": "3",
+      "position": [
+        230,
+        1300
+      ],
+      "box": [
+        197,
+        1285,
+        290,
+        1350
+      ],
+      "font_size": 38.0,
+      "min_font_size": 30.400000000000002,
+      "max_lines": 1,
+      "color_rgb": [
+        255,
+        245,
+        216
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 2.0,
+      "stroke_color": [
+        123,
+        77,
+        35
+      ],
+      "fit": true,
+      "role": "number",
+      "purpose": "number",
+      "binding": "world_map.chapter_index",
+      "raw": 3,
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        28,
+        34
+      ],
+      "id": "T27-01.text.015",
+      "layout_box": [
+        197,
+        1285,
+        290,
+        1350
+      ],
+      "text_id": "T27-01.text.015",
+      "instance_id": "000a71cd764f:T27-01.text.015",
+      "page": "T27-01_三园世界地图",
+      "text_role": "number",
+      "raw_value": 3,
+      "number_format": {
+        "type": "integer",
+        "use_grouping": false,
+        "fraction_digits": 0,
+        "sign_display": "auto",
+        "locale_aware": true
+      },
+      "value_binding": "world_map.chapter_index",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "3",
+      "parameters": {},
+      "localization_key": null,
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    },
+    {
+      "layer_name": "云上蜂谷锁定按钮文案",
+      "text": "未解锁",
+      "position": [
+        622,
+        1448
+      ],
+      "box": [
+        563,
+        1439,
+        757,
+        1482
+      ],
+      "font_size": 25.0,
+      "min_font_size": 20.0,
+      "max_lines": 1,
+      "color_rgb": [
+        140,
+        116,
+        85
+      ],
+      "align": "center",
+      "weight": "bold",
+      "font": "微软雅黑",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        255,
+        248,
+        223
+      ],
+      "fit": true,
+      "role": "status",
+      "purpose": "status",
+      "binding": null,
+      "raw": "未解锁",
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "requested_font_size": 25.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        75,
+        25
+      ],
+      "id": "T27-01.text.016",
+      "layout_box": [
+        563,
+        1439,
+        757,
+        1482
+      ],
+      "text_id": "T27-01.text.016",
+      "instance_id": "000a71cd764f:T27-01.text.016",
+      "page": "T27-01_三园世界地图",
+      "text_role": "message",
+      "semantic_origin": "inferred_from_visible_text_and_layer_name",
+      "default_text": "未解锁",
+      "parameters": {},
+      "value_binding": null,
+      "localization_key": "block.000a71cd764f.text.3d486bb8051c",
+      "overflow_policy": "shrink_to_min_then_report_overflow"
+    }
+  ],
+  "art_direction": {
+    "reference_scope": "delivery_root",
+    "references": [
+      {
+        "file": "效果预览/主图.png",
+        "sha256": "3a1fcb3edac89ec85c905b0c2f6107d3ec898c112b530f1ff81a14d6b1398521"
+      },
+      {
+        "file": "效果预览/关卡选择.png",
+        "sha256": "90e74bde0231d58d4360b5ba16e14449be27da8bb1ebe2d0187bf7f792c41bdf"
+      },
+      {
+        "file": "效果预览/好友界面.png",
+        "sha256": "f1ee1d789412b9e210091a00b797e0f0682a13428a689e0ae5bdb52a3f985590"
+      },
+      {
+        "file": "效果预览/建造界面.png",
+        "sha256": "588e335c73150230967a76c21189cb2a4a4a3e87c437368b32344a1545c809e8"
+      },
+      {
+        "file": "效果预览/微信图片_20261019173444_81_187.png",
+        "sha256": "f9cdc1bfd54fa3e4bc5adeb495fcd5d720a5e37441e554e63c2317e375fa13f5"
+      },
+      {
+        "file": "效果预览/无尽模式.png",
+        "sha256": "6e83ee117d6819c3198e5a1350ea1149ed895589165b86d74e4c905ecb64ffdc"
+      },
+      {
+        "file": "效果预览/每日任务.png",
+        "sha256": "933b470de7bde36475b3a8286e92839dfcac0f4c70132c602ee7df711c59a81e"
+      },
+      {
+        "file": "效果预览/玩法.png",
+        "sha256": "10e26adb53a5e012e9ef6d435715ef56ef7e419c42faee24757bd85a76814832"
+      },
+      {
+        "file": "效果预览/结算.png",
+        "sha256": "68f59e8f603518d91f8df7f11c3fd3806cff27001c59efa81be68a3dab66a0fe"
+      }
+    ],
+    "prototype_role": "layout_and_behavior_only"
+  },
+  "runtime": {
+    "routes": [
+      "world-map"
+    ],
+    "requirements": "向阳花园、清风水湾、云上蜂谷，当前／解锁／未开放状态；不画在线好友岛、攻击或第四园。",
+    "actions": [
+      {
+        "layer": "返回",
+        "action": "go:home",
+        "label": "返回"
+      },
+      {
+        "layer": "回家园_无字按钮",
+        "label": "回家园",
+        "action": "go:home"
+      }
+    ],
+    "current_chapter": 0,
+    "buildings": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "states": [
+      "current",
+      "locked",
+      "locked"
+    ],
+    "local_only": true,
+    "no_fourth_chapter": true
+  },
+  "coordinate_system": "像素；左上原点；z由底到顶；render_transform先按resize目标尺寸作nine_slice.insets九宫格适配（若有nine_slice），否则等比或指定尺寸缩放；之后依次为可选alpha_multiplier透明度系数、可选rotation_degrees逆时针旋转并扩展画布、alpha_crop透明裁紧；position为裁紧后的坐标",
+  "localization": {
+    "default_locale": "zh-CN",
+    "manifest": "本地化/缺少/文字清单.json",
+    "catalogs": {
+      "zh-CN": "本地化/缺少/zh-CN.json",
+      "qps-ploc": "本地化/缺少/qps-ploc.json"
+    }
+  },
+  "comparison": {
+    "original": "页面对照/效果设计图/缺少/T27-01_三园世界地图.png",
+    "composite": "页面对照/PSD合成/缺少/T27-01_三园世界地图.png",
+    "original_size": [
+      853,
+      1844
+    ],
+    "original_sha256": "a8ec22f812ea819a1fc65ef1ee8385307e6038c4df2243a8c008845e17bff02c",
+    "psd_composite": "页面对照/PSD合成/缺少/T27-01_三园世界地图.png",
+    "psd_composite_sha256": "fa82554effd63f244ed2ab45469ce1f7d9b42bff17a3792afebbcc340044ada6",
+    "runtime_preview_max_channel_error": 1,
+    "original_label": "页面效果设计图",
+    "composite_label": "PSD合成效果图",
+    "source_sha256": "a8ec22f812ea819a1fc65ef1ee8385307e6038c4df2243a8c008845e17bff02c",
+    "psd_sha256": "0231c3953ddcb5e1ad2283f262d6c8d9bee54b0fc7e721d945567a8f1ec2786d",
+    "composite_sha256": "fa82554effd63f244ed2ab45469ce1f7d9b42bff17a3792afebbcc340044ada6",
+    "method": "reopened_saved_psd_force_composite_visible_layers",
+    "design_source": "Current approved full-page design; optimization retains the layout and artwork"
+  },
+  "prototype_reference": {
+    "file": "页面对照/功能原型/缺少/T27-01_三园世界地图.png",
+    "size": [
+      420,
+      908
+    ],
+    "label": "功能原型参考（仅布局与交互）"
+  }
+}
