@@ -38,3 +38,9 @@ Git 根是 Project。已提交 assets 足以交付运行资源；使用 Creator 
 - Android 奖励账本的 JDK 17 编译及 13 项测试通过；旧花园协议测试运行 9 项后因已删除的旧 AdProtocol.ts 契约缺失而中止，不能当作完整通过。相关三个 Java 修改保留在工作树，不随当前 Cocos 提交。
 - `.gitattributes` 固定生成源码/JSON/Prefab/meta 的 LF 换行，PNG 按二进制保存，以免 Windows 检出破坏生成所有权哈希。暂存区不包含缓存、构建包、签名或私有配置。
 - 构建目录 10260 个普通文件、13148571954 字节已复制并回读 SHA-256 全量校验后清出 Project；归档位于上述 D 盘目录的 build/，清单为 build-manifest.json。内部 android/assets → android/data 链接仅记录恢复信息，不递归归档或删除链接目标。
+
+## 后续提交补齐（2026-11-04）
+
+用户明确要求提交所有剩余可提交改动后，美术规范/交付约束和三个 Android 奖励代码修改分别提交。上文“三个 Java 修改保留在工作树”是 2026-11-03 的历史状态，不再表示当前未提交。
+
+Android 部分重新使用 JDK 17 编译当前生产 RewardLedger、RewardJson 与 host 测试，13 项账本测试通过。旧花园协议测试前 9 项通过后，仍因读取退役的 assets/scripts/ads/AdProtocol.ts 而中止；没有恢复旧业务代码或放宽断言。未执行 Android 完整构建、真实 JSON tokenizer、SharedPreferences、广告 SDK 或设备验证。

@@ -136,6 +136,7 @@ public final class SDKHandleClass {
 
     public static void acknowledgeReward(String raw) {
         dispatch(raw, (request, call, ads) -> {
+            RewardJson.requireNativeOwner(request);
             String disposition = request.getString("disposition");
             boolean committed = ledger.acknowledge(RewardJson.id(request, "requestId"),
                     RewardJson.id(request, "receiptId"), disposition);
@@ -146,8 +147,10 @@ public final class SDKHandleClass {
     }
 
     public static void getPresentationState(String raw) {
-        dispatch(raw, (request, call, ads) -> call.ok(RewardJson.presentation(
-                ledger.presentation(RewardJson.id(request, "requestId")))));
+        dispatch(raw, (request, call, ads) -> {
+            RewardJson.requireNativeOwner(request);
+            call.ok(RewardJson.presentation(ledger.presentation(RewardJson.id(request, "requestId"))));
+        });
     }
 
     public static void getPrivacyOptionsRequired(String raw) {
