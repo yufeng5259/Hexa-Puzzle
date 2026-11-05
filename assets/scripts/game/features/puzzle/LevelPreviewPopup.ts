@@ -83,7 +83,7 @@ export class LevelPreviewPopup extends PopupBase<LevelPreviewArgs> {
         const size = this.trayRoot.getComponent(UITransform)!.contentSize;
         const fit = fitTray(level.pieces, size.width, size.height);
         this.shapes = level.pieces.map((piece, i) => {
-            const shape = this.board.createShape(piece.cells, pieceColor(piece.textureName), this.trayRoot);
+            const shape = this.board.createShape(piece.cells, pieceColor(i), this.trayRoot);
             const slot = fit.pieces[i];
             const scale = fit.radius / this.board.radius;
             shape.node.setPosition(slot.position.x + slot.centers[0].x, slot.position.y + slot.centers[0].y);

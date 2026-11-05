@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "45f45009-2f2f-5d17-a39d-e1d6be209bc8",
+  "uuid": "48a02456-8700-56b4-a20e-bffa8989b94d",
   "files": [
     ".json",
     ".png"
@@ -10,8 +10,8 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "45f45009-2f2f-5d17-a39d-e1d6be209bc8@6c48a",
-      "displayName": "右下蜂蜜浇水壶_d392fc05c6",
+      "uuid": "48a02456-8700-56b4-a20e-bffa8989b94d@6c48a",
+      "displayName": "加载进度填充_b0633db626",
       "id": "6c48a",
       "name": "texture",
       "ver": "1.0.22",
@@ -23,7 +23,7 @@
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "45f45009-2f2f-5d17-a39d-e1d6be209bc8",
+        "imageUuidOrDatabaseUri": "48a02456-8700-56b4-a20e-bffa8989b94d",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "45f45009-2f2f-5d17-a39d-e1d6be209bc8@f9941",
-      "displayName": "右下蜂蜜浇水壶_d392fc05c6",
+      "uuid": "48a02456-8700-56b4-a20e-bffa8989b94d@f9941",
+      "displayName": "加载进度填充_b0633db626",
       "id": "f9941",
       "name": "spriteFrame",
       "ver": "1.0.12",
@@ -51,10 +51,10 @@
         "offsetY": 0,
         "trimX": 0,
         "trimY": 0,
-        "width": 45,
-        "height": 39,
-        "rawWidth": 45,
-        "rawHeight": 39,
+        "width": 386,
+        "height": 35,
+        "rawWidth": 386,
+        "rawHeight": 35,
         "borderTop": 0,
         "borderBottom": 0,
         "borderLeft": 0,
@@ -66,17 +66,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -22.5,
-            -19.5,
+            -193,
+            -17.5,
             0,
-            22.5,
-            -19.5,
+            193,
+            -17.5,
             0,
-            -22.5,
-            19.5,
+            -193,
+            17.5,
             0,
-            22.5,
-            19.5,
+            193,
+            17.5,
             0
           ],
           "indexes": [
@@ -89,12 +89,12 @@
           ],
           "uv": [
             0,
-            39,
-            45,
-            39,
+            35,
+            386,
+            35,
             0,
             0,
-            45,
+            386,
             0
           ],
           "nuv": [
@@ -108,18 +108,18 @@
             1
           ],
           "minPos": [
-            -22.5,
-            -19.5,
+            -193,
+            -17.5,
             0
           ],
           "maxPos": [
-            22.5,
-            19.5,
+            193,
+            17.5,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "45f45009-2f2f-5d17-a39d-e1d6be209bc8@6c48a",
+        "imageUuidOrDatabaseUri": "48a02456-8700-56b4-a20e-bffa8989b94d@6c48a",
         "atlasUuid": "",
         "trimType": "none"
       }
@@ -129,6 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
     "hasAlpha": true,
-    "redirect": "45f45009-2f2f-5d17-a39d-e1d6be209bc8@6c48a"
+    "redirect": "48a02456-8700-56b4-a20e-bffa8989b94d@6c48a"
   }
 }

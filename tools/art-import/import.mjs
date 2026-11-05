@@ -8,6 +8,10 @@ import { ARTS, PROJECT, directory, imageMeta, normalize, readJson, writeJson } f
 const MAP_FILE = path.join(PROJECT, 'tools/art-import/asset-map.json');
 const NINE_SLICE = readJson(path.join(PROJECT, 'tools/art-import/nine-slice.json'));
 const COMMON = 'assets/bundles/common/textures';
+/** Art needed before any bundle loads (Boot.scene spinner, LoadingPage) lives in the main package. */
+const BOOT = 'assets/resources/textures';
+const BOOT_PAGES = ['主图'];
+const BOOT_FILES = ['PNG/补充/R-07_加载转圈.png'];
 
 const THEMES = { 向阳花园: 'sunny', 清风水湾: 'water', 云上蜂谷: 'cloud' };
 const BUILDINGS = { 树屋: 'treehouse', 花园: 'garden', 蜂蜜工坊: 'workshop', 小溪水车: 'watermill', 温室: 'greenhouse' };
@@ -46,6 +50,12 @@ function displayScales() {
   return scales;
 }
 
+function bootFiles() {
+  const files = new Set(BOOT_FILES);
+  for (const name of BOOT_PAGES) for (const layer of readJson(path.join(ARTS, '页面配置', name + '.json')).layers) if (layer.file) files.add(layer.file);
+  return files;
+}
+
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]);
 }
@@ -62,11 +72,15 @@ for (const file of walk(path.join(ARTS, 'PNG')).filter(f => f.endsWith('.png')))
   if (relative.startsWith('PNG/补充/') || dynamicTarget(relative)) sources.add(relative);
 }
 
+const boot = bootFiles();
+const previous = fs.existsSync(MAP_FILE) ? readJson(MAP_FILE) : {};
 const map = {};
 let bytes = 0;
 for (const source of [...sources].sort()) {
   const input = path.join(ARTS, source);
-  const target = dynamicTarget(source) ?? `${COMMON}/${source.slice('PNG/'.length)}`;
+  const target = dynamicTarget(source) ?? `${boot.has(source) ? BOOT : COMMON}/${source.slice('PNG/'.length)}`;
+  const old = previous[source]?.path;
+  if (old && old !== target) for (const f of [old, old + '.meta']) fs.rmSync(path.join(PROJECT, f), { force: true });
   const meta = await sharp(input).metadata();
   const scale = Math.min(1, scales.get(source) ?? 1);
   const width = Math.max(1, Math.round(meta.width * scale)), height = Math.max(1, Math.round(meta.height * scale));

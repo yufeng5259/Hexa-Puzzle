@@ -81,12 +81,13 @@ export class PuzzleWinPopup extends PopupBase<WinReceipt> {
         closePuzzlePage();
     }
 
-    /** Bonus is offered only with a base reward, quota left, and a honey goal still open (F028/F056). */
+    /** Bonus is offered only with a base reward, quota left, a honey goal still open, and after the protected first levels (F028/F052/F056). */
     private renderBonus(): void {
         const r = this.args;
         const amount = bonusAmount(services.config.ads, r.honey);
         const claimed = services.save.data.claims['bonus:' + r.attemptId] !== undefined;
-        this.bonusAdButton.active = amount > 0 && !claimed && adAvailable('bonus') && !isJourneyComplete(services.save.data, services.config.garden);
+        this.bonusAdButton.active = amount > 0 && !claimed && r.levelNumber > services.config.ads.protectedLevels
+            && adAvailable('bonus') && !isJourneyComplete(services.save.data, services.config.garden);
         this.bonusAdLabel.setParams({ count: '+' + amount });
     }
 }

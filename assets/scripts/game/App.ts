@@ -1,4 +1,5 @@
 import { _decorator, Component, JsonAsset } from 'cc';
+import { DEBUG } from 'cc/env';
 import { EventBus } from '../framework/core/EventBus';
 import { I18n } from '../framework/i18n/I18n';
 import { WebPlatform } from '../framework/platform/Platform';
@@ -22,6 +23,8 @@ export class App extends Component {
         I18n.current = services.i18n;
         services.platform = new WebPlatform();
         services.ui = new UIManager(this.uiRoot, services.res);
+        // Development builds expose the services for automated browser checks.
+        if (DEBUG) (globalThis as unknown as { hexa: typeof services }).hexa = services;
     }
 
     async start(): Promise<void> {

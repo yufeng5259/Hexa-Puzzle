@@ -24,9 +24,8 @@ export interface PuzzlePageArgs {
     level: number;
 }
 
-/** Piece texture names in the catalog, mapped onto the 5 piece colors. */
-const TEXTURES = ['1_png', '3_png', '6_png', '7_png', '8_png', '9_png', '10_png', '11_png', '12_png', '13_png', '16_png', '17_png'];
-export const pieceColor = (textureName: string): number => TEXTURES.indexOf(textureName) % 5;
+/** Pieces of one level take distinct colors in order (5 colors; levels have at most 7 pieces). */
+export const pieceColor = (index: number): number => index % 5;
 /** The dragged piece floats above the finger by this many cell radii. */
 const LIFT = 1.4;
 const HINT_LABEL_SECONDS = 1.5;
@@ -66,7 +65,8 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
             target.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
             target.on(Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
             target.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
-            target.on(Node.EventType.TOUCH_CANCEL, this.onTouchCancel, this);
+            // Releasing outside the node that took the touch arrives as TOUCH_CANCEL: it is still a drop.
+            target.on(Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
         }
     }
 
@@ -150,7 +150,7 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
         const size = this.trayRoot.getComponent(UITransform)!.contentSize;
         const fit = fitTray(this.level.pieces, size.width, size.height);
         this.pieces = this.level.pieces.map((piece, i) => {
-            const shape = this.board.createShape(piece.cells, pieceColor(piece.textureName), this.trayRoot);
+            const shape = this.board.createShape(piece.cells, pieceColor(i), this.trayRoot);
             const slot = fit.pieces[i];
             const scale = fit.radius / this.board.radius;
             return { id: piece.id, shape, home: { x: slot.position.x + slot.centers[0].x, y: slot.position.y + slot.centers[0].y, scale } };
@@ -220,10 +220,6 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
         } else {
             this.toTray(piece);
         }
-    }
-
-    private onTouchCancel(): void {
-        this.cancelDrag();
     }
 
     private cancelDrag(): void {
