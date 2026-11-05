@@ -16,19 +16,11 @@
 
 ## 独立检出与配套输入
 
-Git 根是 Project。已提交 assets 足以交付运行资源；使用 Creator 3.8.8 导入工程会生成 library/temp，其中包含 tsconfig 继承的 temp/tsconfig.cocos.json。不得把这些缓存提交。
-
-生成器、部分回归和审核需要同级 ../prototype 的唯一原型输入：block-data.js、app.js、meta.js、level-data.js、mainline.js、assets/block 的素材清单/原图/运行参考组件。版本指纹登记在 source-inputs.json，原稿身份也登记于 assets/resources/framework/config/source-art-manifest.json。独立克隆 Project 不会自动得到这些输入；需配套同一工作区输入，不复制第二套正式原型，也不声称单仓可完整重建。
-
-运行 npm test、npm run audit、npm run typecheck；Creator 路径可通过 COCOS_CREATOR_ROOT 指定，部分测试的 TypeScript 路径可用 TYPESCRIPT_PATH 指定，原生预览验证的 Playwright 用 PLAYWRIGHT_PATH 指定。实际支持边界以各工具读取的变量为准，未安装 Creator 时不能以缓存或模拟检查冒充实际导入。
+Git 根是 Project。使用 Creator 3.8.8 导入工程会生成 library/temp，不提交。运行所需输入只有本仓库的 `arts/`（美术来源）和 `assets/`；框架参考工程 `../bighero2415` 只在复制代码时读取，运行与构建不依赖它。
 
 ## 开发约束
 
-参考 BigHero 的 Prefab 与组件分工，使用 Creator 3.8.8 API；固定 UI 在 Prefab 中制作并序列化具体类型属性/按钮事件。复用现有 framework/app/features，不创建第二套入口、存档或奖励权威。core 不依赖引擎/业务；隐藏解除监听，销毁实例后释放所属资源，保护异步迟到请求。
-
-页面按功能分组，仅真实多模式保留状态组；只有真实列表项接列表复用合同。不恢复统一空根节点、空占位或旧代码拼整页 UI。保留稳定 UUID、已有人工布局及 853×1844 设计尺寸。参考项目只读，复制纯 TS 时记录来源和哈希，禁止直接复制 2.x Prefab/meta、私有 SDK 或历史兼容缺陷。
-
-若父工作区约束文件可用，应同时遵守；当前引用的 ../docs/PROJECT_CONSTRAINTS.md 缺失，独立检出可从本文件和 AGENTS.md 了解上述工程边界。
+2026-11-05 起以 [开发方案](开发方案/README.md) 和 [开发约束](开发方案/开发约束.md) 为准。下文“本次核验记录”与“后续提交补齐”是历史记录，其中提到的旧工具、旧测试和 `../prototype` 输入已随旧工程删除。
 
 ## 本次核验记录
 
