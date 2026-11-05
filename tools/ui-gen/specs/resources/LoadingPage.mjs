@@ -11,7 +11,7 @@ export default {
     group('Bees', [layer('右上飞行蜜蜂', { as: 'FlyingBee' }), layer('右下蜜蜂主体', { as: 'Bee' }), layer('右下雏菊', { as: 'Daisy' }), layer('右下蜂蜜浇水壶', { as: 'Pot' })]),
     group('Progress', [
       layer('加载进度底槽', { as: 'Track' }),
-      layer('加载进度填充', { as: 'Fill', bind: 'fill', note: '脚本按进度设置宽度' }),
+      layer('加载进度填充', { as: 'Fill', bind: 'fill', fill: true }),
       label('Status', 'hg.common.loading', [116, 1640, 620, 50], { size: 28, color: [255, 248, 216], bold: true, outline: [68, 131, 41], outlineWidth: 2 }, { bind: 'statusLabel' }),
     ], { align: 'bottom' }),
   ],

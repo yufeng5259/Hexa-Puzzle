@@ -33,7 +33,7 @@ export default {
     layer('本周日历', { as: 'Calendar' }),
     group('Days', [0, 1, 2, 3, 4, 5, 6].map(day)),
     layer('本周进度', { as: 'Progress', bind: 'progressLabel' }),
-    group('Bar', [layer('进度空轨', { as: 'Track' }), layer('进度填充', { as: 'Fill', bind: 'progressFill' })]),
+    group('Bar', [layer('进度空轨', { as: 'Track' }), layer('进度填充', { as: 'Fill', bind: 'progressFill', fill: true })]),
     group('Reward', [
       layer('每周奖励原生行', { as: 'Bg' }), layer('honey', { as: 'HoneyIcon' }), layer('本周花蜜', { as: 'Honey', bind: 'rewardLabel' }),
       layer('stamp', { as: 'Stamp', bind: ['stamp', 'Node'] }), layer('印记奖励', { as: 'StampText' }),

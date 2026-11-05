@@ -20,7 +20,7 @@ export class GardenPage extends ViewBase {
     @property(LocalizedLabel) upgradeLevelLabel: LocalizedLabel = null!;
     @property(LocalizedLabel) spentLabel: LocalizedLabel = null!;
     @property(LocalizedLabel) themeNameLabel: LocalizedLabel = null!;
-    @property(Node) totalFill: Node = null!;
+    @property(Sprite) totalFill: Sprite = null!;
     @property(LocalizedLabel) summaryLabel: LocalizedLabel = null!;
     @property(Label) totalLabel: Label = null!;
     @property(Node) chapterReward: Node = null!;

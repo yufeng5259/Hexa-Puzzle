@@ -41,7 +41,7 @@ LoadingPage  [LoadingPage]
 │  └─ Pot  Sprite(右下蜂蜜浇水壶)
 └─ Progress  Widget:bottom
    ├─ Track  Sprite(加载进度底槽)
-   ├─ Fill  Sprite(加载进度填充)  @fill  脚本按进度设置宽度
+   ├─ Fill  Sprite(加载进度填充)  @fill  横向填充
    └─ Status  Label「加载中… {percent}%」 key=hg.common.loading  @statusLabel
 ```
 
@@ -981,7 +981,7 @@ MapPage  [MapPage]
    │  ├─ Button  Sprite(建造花园)
    │  ├─ Text  Label「建设花园」 key=block.84d00cb6c99a.text.f8cf7dc2f59a
    │  ├─ Bar  Sprite(花园入口进度底轨)
-   │  ├─ Fill  Sprite(花园入口进度填充)  @gardenFill  脚本按进度设置宽度
+   │  ├─ Fill  Sprite(花园入口进度填充)  @gardenFill  横向填充
    │  ├─ Gift  Sprite(树屋奖励礼物)
    │  └─ Progress  Label「6 / 25」 key=block.84d00cb6c99a.text.63491346ea01  @gardenProgressLabel
    └─ EndlessEntry  → onEndless
@@ -1113,6 +1113,7 @@ PuzzlePage  [PuzzlePage]
 - 来源：T06-01_普通拼图成功、T07-01_限步星级结算　功能：F014、F015、F056
 - 状态节点：Stars/StarLight（限步关显示）、Best（限步关显示历史最佳）、BtnBonusAd（无额度或已领时隐藏）；标题 key 普通「闯关成功」/限步「挑战完成」
 - 动效（延后）：FX-01、FX-03、FX-11
+- 资源属性：emptyStar=R-05_结算空星；challengeTitleKey="block.5a183ef06031.text.5ce2d4cc8539"
 
 ```
 PuzzleWinPopup  [PuzzleWinPopup]
@@ -1264,7 +1265,7 @@ GardenPage  [GardenPage]
 │  │  └─ Tag  
 │  │     ├─ Plate  Sprite(树屋进度容器)
 │  │     ├─ Track  Sprite(树屋进度底轨)
-│  │     ├─ Fill  Sprite(树屋进度填充)  @fill  宽度 = 底轨宽 × 等级/5
+│  │     ├─ Fill  Sprite(树屋进度填充)  @fill  横向填充  fillRange = 等级/5
 │  │     ├─ Price  Label「树屋 · 60花蜜」 key=hg.garden.price  @priceLabel  参数 {name,count}；满级时 setKey(hg.garden.max, {name})
 │  │     ├─ Level  Label「2/5」  @levelLabel
 │  │     ├─ BtnUpgrade  Sprite(树屋进入按钮)  → onUpgrade  @upgradeButton
@@ -1274,7 +1275,7 @@ GardenPage  [GardenPage]
 │  │  └─ Tag  
 │  │     ├─ Plate  Sprite(花园进度容器)
 │  │     ├─ Track  Sprite(花园进度底轨)
-│  │     ├─ Fill  Sprite(花园进度填充)  @fill  宽度 = 底轨宽 × 等级/5
+│  │     ├─ Fill  Sprite(花园进度填充)  @fill  横向填充  fillRange = 等级/5
 │  │     ├─ Price  Label「花园 · 40花蜜」 key=hg.garden.price  @priceLabel  参数 {name,count}；满级时 setKey(hg.garden.max, {name})
 │  │     ├─ Level  Label「1/5」  @levelLabel
 │  │     ├─ BtnUpgrade  Sprite(花园进入按钮)  → onUpgrade  @upgradeButton
@@ -1284,7 +1285,7 @@ GardenPage  [GardenPage]
 │  │  └─ Tag  
 │  │     ├─ Plate  Sprite(蜂蜜工坊进度容器)
 │  │     ├─ Track  Sprite(蜂蜜工坊进度底轨)
-│  │     ├─ Fill  Sprite(蜂蜜工坊进度填充)  @fill  宽度 = 底轨宽 × 等级/5
+│  │     ├─ Fill  Sprite(蜂蜜工坊进度填充)  @fill  横向填充  fillRange = 等级/5
 │  │     ├─ Price  Label「蜂蜜工坊 · 40花蜜」 key=hg.garden.price  @priceLabel  参数 {name,count}；满级时 setKey(hg.garden.max, {name})
 │  │     ├─ Level  Label「1/5」  @levelLabel
 │  │     ├─ BtnUpgrade  Sprite(蜂蜜工坊进入按钮)  → onUpgrade  @upgradeButton
@@ -1294,7 +1295,7 @@ GardenPage  [GardenPage]
 │  │  └─ Tag  
 │  │     ├─ Plate  Sprite(小溪水车进度容器)
 │  │     ├─ Track  Sprite(小溪水车进度底轨)
-│  │     ├─ Fill  Sprite(小溪水车进度填充)  @fill  宽度 = 底轨宽 × 等级/5
+│  │     ├─ Fill  Sprite(小溪水车进度填充)  @fill  横向填充  fillRange = 等级/5
 │  │     ├─ Price  Label「小溪水车 · 40花蜜」 key=hg.garden.price  @priceLabel  参数 {name,count}；满级时 setKey(hg.garden.max, {name})
 │  │     ├─ Level  Label「1/5」  @levelLabel
 │  │     ├─ BtnUpgrade  Sprite(小溪水车进入按钮)  → onUpgrade  @upgradeButton
@@ -1304,7 +1305,7 @@ GardenPage  [GardenPage]
 │     └─ Tag  
 │        ├─ Plate  Sprite(温室进度容器)
 │        ├─ Track  Sprite(温室进度底轨)
-│        ├─ Fill  Sprite(温室进度填充)  @fill  宽度 = 底轨宽 × 等级/5
+│        ├─ Fill  Sprite(温室进度填充)  @fill  横向填充  fillRange = 等级/5
 │        ├─ Price  Label「温室 · 40花蜜」 key=hg.garden.price  @priceLabel  参数 {name,count}；满级时 setKey(hg.garden.max, {name})
 │        ├─ Level  Label「1/5」  @levelLabel
 │        ├─ BtnUpgrade  Sprite(温室进入按钮)  → onUpgrade  @upgradeButton
@@ -1359,7 +1360,7 @@ GardenPage  [GardenPage]
 └─ Bottom  Widget:bottom
    ├─ Panel  Sprite(花园总进度面板)
    ├─ Track  Sprite(花园总进度底轨)
-   ├─ Fill  Sprite(花园总进度填充)  @totalFill  宽度 = 底轨宽 × 总等级/25
+   ├─ Fill  Sprite(花园总进度填充)  @totalFill  横向填充  fillRange = 总等级/25
    ├─ Summary  Label「花园建设进度」 key=hg.garden.summary.building  @summaryLabel
    ├─ Total  Label「6/25」  @totalLabel
    ├─ BtnBack  Sprite(返回)  → onBack
@@ -2037,7 +2038,7 @@ CompanionDetailPage  [CompanionDetailPage]
 ├─ Affinity  
 │  ├─ Value  Label「12 / 30」 key=block.a4903119b5bc.text.e8886265b1ae  @affinityLabel
 │  ├─ Track  Sprite(赠送进度空槽)
-│  └─ Fill  Sprite(赠送进度填充)  @affinityFill
+│  └─ Fill  Sprite(赠送进度填充)  @affinityFill  横向填充
 ├─ Milestone0  [AffinityNode]  → onSelect  @milestones[]  亲密5 招手
 │  ├─ Card  Sprite(奖励格_1_1)
 │  ├─ Icon  Sprite(style_hand)
@@ -2149,7 +2150,7 @@ CompanionListPage  [CompanionListPage]
 ├─ Total  
 │  ├─ Label  Label「伙伴成长 16 / 90」 key=block.978ff2056577.text.7b676d4342f2  @totalLabel
 │  ├─ Track  Sprite(赠送进度空槽)
-│  └─ Fill  Sprite(赠送进度填充)  @totalFill
+│  └─ Fill  Sprite(赠送进度填充)  @totalFill  横向填充
 ├─ BtnGrowth  → onGrowth
 │  ├─ Bg  Sprite(下一关按钮)
 │  └─ Text  Label「伙伴成长」 key=block.978ff2056577.text.d685e572f6b3
@@ -2503,7 +2504,7 @@ EventDetailPage  [EventDetailPage]
 ├─ Progress  Label「8 / 20」 key=block.23ff10b6a57e.text.0997444d772d  @progressLabel
 ├─ Bar  
 │  ├─ Track  Sprite(赠送进度空槽)
-│  └─ Fill  Sprite(赠送进度填充)  @progressFill
+│  └─ Fill  Sprite(赠送进度填充)  @progressFill  横向填充
 ├─ Milestones  
 │  ├─ Milestone1  [MilestoneNode]  @milestones[]
 │  │  ├─ Base  Sprite(任务勾底板_1)
@@ -2562,7 +2563,7 @@ EventPage  [EventPage]
 ├─ Progress  Label「8 / 20」 key=block.536db988ffcf.text.0997444d772d  @progressLabel
 ├─ Bar  
 │  ├─ Track  Sprite(赠送进度空槽)
-│  └─ Fill  Sprite(赠送进度填充)  @progressFill
+│  └─ Fill  Sprite(赠送进度填充)  @progressFill  横向填充
 ├─ Milestones  
 │  ├─ Milestone1  [MilestoneNode]  @milestones[]
 │  │  ├─ Base  Sprite(任务勾底板_1)
@@ -3080,7 +3081,7 @@ WeeklyPage  [WeeklyPage]
 ├─ Progress  Label「15/15局 · 活跃4/4天」 key=block.2b34deb2605b.text.4b32ca1b5c76  @progressLabel
 ├─ Bar  
 │  ├─ Track  Sprite(赠送进度空槽)
-│  └─ Fill  Sprite(赠送进度填充)  @progressFill
+│  └─ Fill  Sprite(赠送进度填充)  @progressFill  横向填充
 ├─ Reward  
 │  ├─ Bg  Sprite(任务空白行_1)
 │  ├─ HoneyIcon  Sprite(蜂蜜货币)

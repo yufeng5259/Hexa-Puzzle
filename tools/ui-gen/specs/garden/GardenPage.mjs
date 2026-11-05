@@ -18,7 +18,7 @@ function building(as, name, body, maxFrom) {
     group('Tag', [
       layer(`${name}空白进度牌`, { as: 'Plate' }),
       layer(`${name}五级进度底轨`, { as: 'Track' }),
-      layer(`${name}独立五级进度填充`, { as: 'Fill', bind: ['fill', 'Node'], note: '宽度 = 底轨宽 × 等级/5' }),
+      layer(`${name}独立五级进度填充`, { as: 'Fill', bind: 'fill', fill: true, note: 'fillRange = 等级/5' }),
       layer(`${name}动态价格与状态`, { as: 'Price', bind: 'priceLabel', key: 'hg.garden.price', note: '参数 {name,count}；满级时 setKey(hg.garden.max, {name})' }),
       layer(`${name}等级`, { as: 'Level', bind: 'levelLabel' }),
       layer(`${name}直接升级按钮`, { as: 'BtnUpgrade', button: 'onUpgrade', bind: ['upgradeButton', 'Node'] }),
@@ -87,7 +87,7 @@ export default {
     group('Bottom', [
       layer('花园总进度无字面板', { as: 'Panel' }),
       layer('花园25阶总进度底轨', { as: 'Track' }),
-      layer('花园25阶总进度填充', { as: 'Fill', bind: ['totalFill', 'Node'], note: '宽度 = 底轨宽 × 总等级/25' }),
+      layer('花园25阶总进度填充', { as: 'Fill', bind: 'totalFill', fill: true, note: 'fillRange = 总等级/25' }),
       layer('花园总状态文案', { as: 'Summary', bind: 'summaryLabel', key: 'hg.garden.summary.building' }),
       layer('花园总等级', { as: 'Total', bind: 'totalLabel' }),
       layer('返回综合地图', { as: 'BtnBack', button: 'onBack' }),

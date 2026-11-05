@@ -23,7 +23,7 @@ export const withChecks = (ms, baseY) => {
 export const progress = () => [
   layer('准备标题', { as: 'ProgressTitle' }),
   layer('实际准备进度', { as: 'Progress', bind: 'progressLabel' }),
-  group('Bar', [layer('进度空轨', { as: 'Track' }), layer('进度填充', { as: 'Fill', bind: 'progressFill' })]),
+  group('Bar', [layer('进度空轨', { as: 'Track' }), layer('进度填充', { as: 'Fill', bind: 'progressFill', fill: true })]),
 ];
 
 export default {

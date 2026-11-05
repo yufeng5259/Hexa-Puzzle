@@ -1,5 +1,8 @@
 {
-  "initial": { "honey": 120, "hints": 5 },
+  "initial": {
+    "honey": 120,
+    "hints": 5
+  },
   "mainline": {
     "levelCount": 96,
     "levelsPerPage": 8,
@@ -14,19 +17,53 @@
     "buildingCount": 5,
     "maxLevel": 5,
     "prices": [
-      [40, 40, 60, 80, 100],
-      [60, 80, 100, 120, 160],
-      [100, 140, 180, 220, 280]
+      [
+        40,
+        40,
+        60,
+        80,
+        100
+      ],
+      [
+        60,
+        80,
+        100,
+        120,
+        160
+      ],
+      [
+        100,
+        140,
+        180,
+        220,
+        280
+      ]
     ],
-    "chapterReward": { "honey": 100, "hints": 1 },
-    "themes": ["sunny", "water", "cloud"],
-    "buildings": ["treehouse", "garden", "workshop", "watermill", "greenhouse"],
+    "chapterReward": {
+      "honey": 100,
+      "hints": 1
+    },
+    "themes": [
+      "sunny",
+      "water",
+      "cloud"
+    ],
+    "buildings": [
+      "treehouse",
+      "garden",
+      "workshop",
+      "watermill",
+      "greenhouse"
+    ],
     "rotorBuilding": 3
   },
   "endless": {
     "radius": 3,
     "trayCount": 3,
-    "fixedSeeds": [20261016, 20261017],
+    "fixedSeeds": [
+      20261016,
+      20261017
+    ],
     "cellScore": 10,
     "lineScore": 100,
     "multiLineScore": 50,
@@ -39,16 +76,214 @@
     "dealRetries": 20,
     "colors": 5,
     "shapes": [
-      { "id": "single", "weight": 8, "cells": [[0, 0]] },
-      { "id": "duo", "weight": 14, "cells": [[0, 0], [1, 0]] },
-      { "id": "line3", "weight": 12, "cells": [[0, 0], [1, 0], [2, 0]] },
-      { "id": "triangle", "weight": 12, "cells": [[0, 0], [1, 0], [0, 1]] },
-      { "id": "bend3", "weight": 12, "cells": [[0, 0], [1, 0], [2, -1]] },
-      { "id": "line4", "weight": 8, "cells": [[0, 0], [1, 0], [2, 0], [3, 0]] },
-      { "id": "rhombus", "weight": 10, "cells": [[0, 0], [1, 0], [0, 1], [1, 1]] },
-      { "id": "s4", "weight": 8, "cells": [[0, 0], [1, 0], [1, 1], [2, 1]] },
-      { "id": "hook4", "weight": 8, "cells": [[0, 0], [1, 0], [2, 0], [2, 1]] },
-      { "id": "line5", "weight": 8, "cells": [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0]] }
+      {
+        "id": "single",
+        "weight": 8,
+        "cells": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "id": "duo",
+        "weight": 14,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "id": "line3",
+        "weight": 12,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "id": "triangle",
+        "weight": 12,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "id": "bend3",
+        "weight": 12,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            -1
+          ]
+        ]
+      },
+      {
+        "id": "line4",
+        "weight": 8,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      {
+        "id": "rhombus",
+        "weight": 10,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "id": "s4",
+        "weight": 8,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "id": "hook4",
+        "weight": 8,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "id": "line5",
+        "weight": 8,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      }
     ]
+  },
+  "ads": {
+    "dailyMax": 6,
+    "intervalSeconds": 120,
+    "daily": {
+      "bonus": 2,
+      "supply": 2
+    },
+    "perAttempt": {
+      "hint": 2,
+      "challenge": 1
+    },
+    "continueMoves": 3,
+    "bonusMax": 60,
+    "supplyHoney": 60,
+    "protectedLevels": 3
   }
 }

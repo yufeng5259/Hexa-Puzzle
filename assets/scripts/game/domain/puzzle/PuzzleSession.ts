@@ -39,6 +39,17 @@ export class PuzzleSession {
         this.model = new PuzzleModel(this.level);
     }
 
+    /** Rebuild a saved attempt (F013): replays placements, then restores the saved move count. */
+    restore(placements: Readonly<Record<string, HexCell>>, moves: number): void {
+        for (const [pieceId, translation] of Object.entries(placements)) {
+            if (!this.model.place(pieceId, translation)) throw new Error('Saved placement is invalid: ' + pieceId);
+            this.placementOrder.push(pieceId);
+        }
+        this.moves = moves;
+        if (this.model.completed) this.status = 'completed';
+        else if (this.level.mode === 'challenge' && this.level.moveLimit !== null && moves >= this.level.moveLimit) this.status = 'failed';
+    }
+
     get snapshot(): PuzzleSessionSnapshot {
         return Object.freeze({ attemptId: this.attemptId, levelId: this.level.id, moves: this.moves, status: this.status,
             placements: this.model.placements, selectedPieceId: this.selectedPieceId, revision: this.revision });

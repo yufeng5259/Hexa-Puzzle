@@ -38,4 +38,17 @@ export interface EconomyConfig {
         colors: number;
         shapes: { id: string; weight: number; cells: [number, number][] }[];
     };
+    ads: {
+        dailyMax: number;
+        intervalSeconds: number;
+        /** Per-day caps by placement. */
+        daily: Record<string, number>;
+        /** Per-attempt caps by placement (hint, challenge continue). */
+        perAttempt: Record<string, number>;
+        continueMoves: number;
+        bonusMax: number;
+        supplyHoney: number;
+        /** The first N classic levels never invite an ad (F052). */
+        protectedLevels: number;
+    };
 }

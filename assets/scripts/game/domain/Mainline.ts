@@ -26,7 +26,7 @@ export function isEndlessUnlocked(save: Readonly<SaveData>, cfg: Mainline): bool
 
 /** New attempt for a mainline level; replaces any unfinished one (the caller confirms first, F013). */
 export function startAttempt(draft: SaveData, levelNumber: number): PuzzleAttemptState {
-    const attempt: PuzzleAttemptState = { attemptId: nextId(draft, 'attempt'), levelNumber, placements: {}, moves: 0, hintsUsed: 0, extraMoves: 0, continued: false };
+    const attempt: PuzzleAttemptState = { attemptId: nextId(draft, 'attempt'), levelNumber, placements: {}, moves: 0, hintsUsed: 0, extraMoves: 0, continued: false, ads: {} };
     draft.attempt = attempt;
     return attempt;
 }

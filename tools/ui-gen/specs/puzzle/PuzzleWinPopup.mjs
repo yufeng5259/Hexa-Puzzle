@@ -1,4 +1,4 @@
-import { layer, group } from '../../lib/dsl.mjs';
+import { layer, group, frameRef } from '../../lib/dsl.mjs';
 
 const T07 = 'T07-01_限步星级结算';
 
@@ -7,6 +7,7 @@ export default {
   source: 'T06-01_普通拼图成功',
   doc: { args: '{ level, mode, reward, stars, bestStars, bonusAd }', sources: [T07], features: 'F014、F015、F056',
     states: 'Stars/StarLight（限步关显示）、Best（限步关显示历史最佳）、BtnBonusAd（无额度或已领时隐藏）；标题 key 普通「闯关成功」/限步「挑战完成」', fx: 'FX-01、FX-03、FX-11' },
+  props: { emptyStar: frameRef('PNG/补充/R-05_结算空星.png'), challengeTitleKey: 'block.5a183ef06031.text.5ce2d4cc8539' },
   backdrop: [layer('完整裸背景', { as: 'Background' })],
   children: [
     group('Hud', [

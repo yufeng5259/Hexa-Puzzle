@@ -38,7 +38,7 @@ export default {
     group('Affinity', [
       layer('亲密度', { as: 'Value', bind: 'affinityLabel' }),
       layer('进度空轨', { as: 'Track' }),
-      layer('进度填充', { as: 'Fill', bind: 'affinityFill' }),
+      layer('进度填充', { as: 'Fill', bind: 'affinityFill', fill: true }),
     ]),
     milestone(0), milestone(1), milestone(2),
     group('BtnFollow', [layer('正在跟随_原生按钮', { as: 'Bg' }), layer('正在跟随_文案', { as: 'Text', bind: 'followLabel' })], { button: 'onFollow' }),

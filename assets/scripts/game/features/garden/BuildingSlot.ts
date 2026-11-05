@@ -7,7 +7,7 @@ const { ccclass, property } = _decorator;
 @ccclass('BuildingSlot')
 export class BuildingSlot extends Component {
     @property(Sprite) body: Sprite = null!;
-    @property(Node) fill: Node = null!;
+    @property(Sprite) fill: Sprite = null!;
     @property(LocalizedLabel) priceLabel: LocalizedLabel = null!;
     @property(Label) levelLabel: Label = null!;
     @property(Node) upgradeButton: Node = null!;

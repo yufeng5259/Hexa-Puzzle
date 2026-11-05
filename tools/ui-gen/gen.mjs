@@ -163,7 +163,7 @@ function build(spec) {
     const id = b.node(n.name, parent, box, o.active !== false);
     let main = null, mainType = 'Node', inner = scope;
     if (n.kind === 'image') {
-      main = b.sprite(id, frameUuid(n.file), NINE_SLICE[n.file] !== undefined, n.opacity);
+      main = b.sprite(id, frameUuid(n.file), NINE_SLICE[n.file] !== undefined, n.opacity, !!o.fill);
       mainType = 'Sprite';
     } else if (n.kind === 'text') {
       main = b.label(id, n.style);
@@ -326,7 +326,7 @@ function describe(n, prefix, last, out) {
     : n.kind === 'list' ? `List → ${n.cell}（ScrollableItemGrid，动态）`
     : o.graphics ? 'Graphics' : n.kind === 'slot' ? (o.script ? `Slot [${path.basename(o.script)}]` : 'Slot') : o.script ? `[${path.basename(o.script)}]` : '';
   const tags = [what, o.button && `→ ${o.button}${o.data ? `(${o.data})` : ''}`, (o.bind || o.bindArray) && `@${[].concat(o.bind ?? o.bindArray)[0]}${o.bindArray ? '[]' : ''}`,
-    o.active === false && '默认隐藏', o.align && `Widget:${o.align}`, (o.flipX || o.flipY) && '翻转',
+    o.active === false && '默认隐藏', o.align && `Widget:${o.align}`, (o.flipX || o.flipY) && '翻转', o.fill && '横向填充',
     o.props && `属性:${Object.keys(o.props).join(',')}`, o.note].filter(Boolean).join('  ');
   out.push(`${prefix}${last ? '└─' : '├─'} ${n.name}  ${tags}`);
   const kids = n.children ?? [];

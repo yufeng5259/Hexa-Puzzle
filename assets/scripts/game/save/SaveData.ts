@@ -12,6 +12,8 @@ export interface PuzzleAttemptState {
     /** Extra moves granted by the challenge continue ad. */
     extraMoves: number;
     continued: boolean;
+    /** Rewarded ads used in this attempt, by placement. */
+    ads: Record<string, number>;
 }
 
 export interface EndlessPiece { shapeId: string; cells: HexCell[]; color: number; }
@@ -49,6 +51,7 @@ export interface SaveData {
     /** Idempotent receipts by claim key (chapter:{c}, settle:{attemptId}, endless:{runId}, ...). */
     claims: Record<string, unknown>;
     clock: { lastDay: string };
+    ads: { day: string; total: number; lastAt: number; daily: Record<string, number> };
     counters: { nextId: number };
 }
 
@@ -62,6 +65,7 @@ export function newSave(initialHoney: number, initialHints: number, buildingCoun
         endless: { best: 0, runsCreated: 0, run: null, dailyDay: '', dailyGranted: 0 },
         claims: {},
         clock: { lastDay: '' },
+        ads: { day: '', total: 0, lastAt: 0, daily: {} },
         counters: { nextId: 1 },
     };
 }

@@ -64,9 +64,10 @@ export class Builder {
     return id;
   }
 
-  sprite(node, frameUuid, sliced = false, opacity = 1) {
+  /** type: 0 simple, 1 sliced, 3 filled (horizontal, full by default) */
+  sprite(node, frameUuid, sliced = false, opacity = 1, filled = false) {
     const id = this.component(node, 'cc.Sprite', { _customMaterial: null, _visFlags: 0, _srcBlendFactor: 2, _dstBlendFactor: 4, _color: color(),
-      _spriteFrame: frameUuid ? external(frameUuid, 'cc.SpriteFrame') : null, _type: sliced ? 1 : 0, _fillType: 0, _sizeMode: 0, _fillCenter: vec2(),
+      _spriteFrame: frameUuid ? external(frameUuid, 'cc.SpriteFrame') : null, _type: filled ? 3 : sliced ? 1 : 0, _fillType: 0, _sizeMode: 0, _fillCenter: vec2(),
       _fillStart: 0, _fillRange: 1, _isTrimmedMode: false, _useGrayscale: false, _atlas: null });
     if (opacity < 1) this.component(node, 'cc.UIOpacity', { _opacity: Math.round(opacity * 255) });
     return id;

@@ -89,7 +89,7 @@ export default {
         layer('建设入口', { from: T09, as: 'Button' }),
         layer('建设入口文案', { from: T09, as: 'Text' }),
         layer('花园入口进度底轨', { as: 'Bar' }),
-        layer('花园入口进度填充', { as: 'Fill', bind: 'gardenFill', note: '脚本按进度设置宽度' }),
+        layer('花园入口进度填充', { as: 'Fill', bind: 'gardenFill', fill: true }),
         layer('花园入口阶段奖励', { as: 'Gift' }),
         layer('花园总进度', { from: T09, as: 'Progress', bind: 'gardenProgressLabel' }),
       ], { button: 'onGarden' }),

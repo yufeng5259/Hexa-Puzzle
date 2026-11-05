@@ -5,22 +5,40 @@ import { uiView } from '../../../framework/ui/uiView';
 
 const { ccclass, property } = _decorator;
 
-/** 图示帮助（目录 + 拖放拼图 / 满线消除 / 五级建设）. Generated skeleton; structure in docs/开发方案/Prefab结构.md. */
+export type HelpArticle = 'puzzle' | 'endless' | 'build';
+const ARTICLES: HelpArticle[] = ['puzzle', 'endless', 'build'];
+
+export interface HelpArgs {
+    /** Open straight into an article (from the puzzle, endless or garden page); otherwise the catalog. */
+    article?: HelpArticle;
+}
+
+/** 图示帮助（T40-01 目录 + T40-02/03/04 三篇，F046）。 */
 @ccclass('HelpPopup')
 @uiView({ bundle: 'common', path: 'prefabs/popups/HelpPopup', layer: UILayer.Popup, queue: UIQueue.Popup, transition: 'scale' })
-export class HelpPopup extends PopupBase {
+export class HelpPopup extends PopupBase<HelpArgs> {
     @property(Node) catalog: Node = null!;
     @property([Node]) articles: Node[] = [];
 
-    onOpenArticle(_event: unknown, _data: string): void {
-        throw new Error('HelpPopup.onOpenArticle not implemented');
+    protected setInfo(): void {
+        this.show(this.args?.article ?? null);
     }
 
+    onOpenArticle(_event: unknown, data: string): void {
+        this.show(data as HelpArticle);
+    }
+
+    /** "我来试试": back to the page the help was opened from. */
     onTry(_event: unknown, _data: string): void {
-        throw new Error('HelpPopup.onTry not implemented');
+        this.close();
     }
 
     onCatalog(_event: unknown, _data: string): void {
-        throw new Error('HelpPopup.onCatalog not implemented');
+        this.show(null);
+    }
+
+    private show(article: HelpArticle | null): void {
+        this.catalog.active = article === null;
+        this.articles.forEach((node, i) => { node.active = ARTICLES[i] === article; });
     }
 }

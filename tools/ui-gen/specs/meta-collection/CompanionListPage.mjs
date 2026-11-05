@@ -54,7 +54,7 @@ export default {
     group('Total', [
       layer('伙伴进度标签', { as: 'Label', bind: 'totalLabel' }),
       layer('进度空轨', { as: 'Track' }),
-      layer('进度填充', { as: 'Fill', bind: 'totalFill' }),
+      layer('进度填充', { as: 'Fill', bind: 'totalFill', fill: true }),
     ]),
     group('BtnGrowth', [layer('伙伴成长_原生按钮', { as: 'Bg' }), layer('伙伴成长_文案', { as: 'Text' })], { button: 'onGrowth' }),
     group('BtnAlbum', [layer('旅行相册_原生按钮', { as: 'Bg' }), layer('旅行相册_文案', { as: 'Text' })], { button: 'onAlbum' }),
