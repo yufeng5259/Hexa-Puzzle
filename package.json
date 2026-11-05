@@ -5,6 +5,7 @@
     "version": "3.8.8"
   },
   "scripts": {
-    "typecheck": "tsc -p tools/tsconfig.json"
+    "typecheck": "tsc -p tools/tsconfig.json",
+    "test": "tsc -p tools/tests/tsconfig.json && node --test tools/tests/domain.test.mjs"
   }
 }
