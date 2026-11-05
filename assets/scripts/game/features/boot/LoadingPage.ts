@@ -5,7 +5,7 @@ import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
 import { EconomyConfig } from '../../config/EconomyConfig';
 import { LevelCatalog } from '../../domain/puzzle/LevelCatalog';
-import { LocalSaveStore } from '../../save/LocalSaveStore';
+import { LocalSaveStore } from '../../LocalSaveStore';
 import { newSave } from '../../save/SaveData';
 import { SaveService } from '../../save/SaveService';
 import { services } from '../../Services';

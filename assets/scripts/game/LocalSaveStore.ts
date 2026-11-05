@@ -1,7 +1,7 @@
 import { DEBUG } from 'cc/env';
-import { LocalStore } from '../../framework/storage/LocalStore';
-import { SaveData } from './SaveData';
-import { SaveStore } from './SaveService';
+import { LocalStore } from '../framework/storage/LocalStore';
+import { SaveData } from './save/SaveData';
+import { SaveStore } from './save/SaveService';
 
 /** Development and release saves never share a key (F060). */
 const KEY = DEBUG ? 'hexa.save.dev' : 'hexa.save.prod';
