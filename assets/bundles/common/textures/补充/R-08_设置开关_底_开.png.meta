@@ -65,12 +65,58 @@
         "pivotY": 0.5,
         "meshType": 0,
         "vertices": {
-          "rawPosition": [],
-          "indexes": [],
-          "uv": [],
-          "nuv": [],
-          "minPos": [],
-          "maxPos": []
+          "rawPosition": [
+            -80,
+            -40,
+            0,
+            80,
+            -40,
+            0,
+            -80,
+            40,
+            0,
+            80,
+            40,
+            0
+          ],
+          "indexes": [
+            0,
+            1,
+            2,
+            2,
+            1,
+            3
+          ],
+          "uv": [
+            0,
+            80,
+            160,
+            80,
+            0,
+            0,
+            160,
+            0
+          ],
+          "nuv": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "minPos": [
+            -80,
+            -40,
+            0
+          ],
+          "maxPos": [
+            80,
+            40,
+            0
+          ]
         },
         "isUuid": true,
         "imageUuidOrDatabaseUri": "d311e23b-40ad-5564-a5f7-1d65c49f8aed@6c48a",
