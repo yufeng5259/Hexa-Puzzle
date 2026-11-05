@@ -3,6 +3,7 @@ import { EconomyConfig } from '../config/EconomyConfig';
 import { EndlessPiece, EndlessRunState, nextId, SaveData } from '../save/SaveData';
 import { SaveService } from '../save/SaveService';
 import { HexCell } from './puzzle/LevelDefinition';
+import { recordActivity } from './Activity';
 import { addHoney } from './Wallet';
 
 type Endless = EconomyConfig['endless'];
@@ -175,7 +176,8 @@ export function harvest(save: SaveService, cfg: Endless, today: string): Harvest
         const newBest = run.score > draft.endless.best;
         draft.endless.best = Math.max(draft.endless.best, run.score);
         draft.endless.run = null;
-        return { runId: run.runId, score: run.score, best: draft.endless.best, newBest, honey,
-            valid: run.placements >= cfg.validPlacements && run.score >= cfg.validScore };
+        const valid = run.placements >= cfg.validPlacements && run.score >= cfg.validScore;
+        recordActivity(draft, { kind: 'endlessRun', score: run.score, valid }, today);
+        return { runId: run.runId, score: run.score, best: draft.endless.best, newBest, honey, valid };
     });
 }

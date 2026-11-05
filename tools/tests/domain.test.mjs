@@ -73,9 +73,9 @@ test('endless unlocks after clearing level 4', () => {
 
 test('garden: upgrade spends exactly the price; stale command rejected; totals 1600/2600/4600', () => {
   const { save } = service(40);
-  save.transact(d => Garden.upgrade(d, cfg.garden, 0, 0));
+  save.transact(d => Garden.upgrade(d, cfg.garden, 0, 0, 'd'));
   assert.deepEqual([save.data.wallet.honey, save.data.garden.buildings[0], Garden.gardenProgress(save.data)], [0, 1, 1]);
-  assert.throws(() => save.transact(d => Garden.upgrade(d, cfg.garden, 0, 0)));
+  assert.throws(() => save.transact(d => Garden.upgrade(d, cfg.garden, 0, 0, 'd')));
   assert.equal(Garden.shortage(save.data, cfg.garden, 0), 40);
   assert.deepEqual(cfg.garden.prices.map(p => p.reduce((a, b) => a + b, 0) * 5), [1600, 2600, 4600]);
 });
@@ -83,21 +83,21 @@ test('garden: upgrade spends exactly the price; stale command rejected; totals 1
 test('garden: chapter reward once, depart needs the reward and resets buildings', () => {
   const { save } = service(100000);
   assert.throws(() => Garden.claimChapter(save, cfg.garden));
-  for (let b = 0; b < 5; b++) for (let l = 0; l < 5; l++) save.transact(d => Garden.upgrade(d, cfg.garden, b, l));
-  assert.throws(() => save.transact(d => Garden.depart(d, cfg.garden, 0)), /not claimed/);
+  for (let b = 0; b < 5; b++) for (let l = 0; l < 5; l++) save.transact(d => Garden.upgrade(d, cfg.garden, b, l, 'd'));
+  assert.throws(() => save.transact(d => Garden.depart(d, cfg.garden, 0, 'd')), /not claimed/);
   const honey = save.data.wallet.honey;
   Garden.claimChapter(save, cfg.garden);
   Garden.claimChapter(save, cfg.garden);
   assert.deepEqual([save.data.wallet.honey - honey, save.data.wallet.hints], [100, 6]);
-  save.transact(d => Garden.depart(d, cfg.garden, 0));
-  assert.throws(() => save.transact(d => Garden.depart(d, cfg.garden, 0)));
+  save.transact(d => Garden.depart(d, cfg.garden, 0, 'd'));
+  assert.throws(() => save.transact(d => Garden.depart(d, cfg.garden, 0, 'd')));
   assert.deepEqual([save.data.garden.chapter, Garden.gardenProgress(save.data)], [1, 0]);
 });
 
 test('save: failed write keeps the committed snapshot', () => {
   const { save, store } = service(40);
   store.fail = true;
-  assert.throws(() => save.transact(d => Garden.upgrade(d, cfg.garden, 0, 0)));
+  assert.throws(() => save.transact(d => Garden.upgrade(d, cfg.garden, 0, 0, 'd')));
   assert.deepEqual([save.data.wallet.honey, save.data.garden.buildings[0]], [40, 0]);
 });
 

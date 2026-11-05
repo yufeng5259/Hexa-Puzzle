@@ -1,6 +1,7 @@
 import { EconomyConfig } from '../config/EconomyConfig';
 import { SaveData } from '../save/SaveData';
 import { SaveService } from '../save/SaveService';
+import { recordActivity } from './Activity';
 import { addHints, addHoney, spendHoney } from './Wallet';
 
 type Garden = EconomyConfig['garden'];
@@ -40,13 +41,14 @@ export function isJourneyComplete(save: Readonly<SaveData>, cfg: Garden): boolea
 export interface UpgradeResult { buildingId: number; from: number; to: number; cost: number; }
 
 /** One upgrade; `expectedLevel` rejects stale or repeated commands (F023). */
-export function upgrade(draft: SaveData, cfg: Garden, buildingId: number, expectedLevel: number): UpgradeResult {
+export function upgrade(draft: SaveData, cfg: Garden, buildingId: number, expectedLevel: number, today: string): UpgradeResult {
     const from = draft.garden.buildings[buildingId];
     if (from !== expectedLevel) throw new Error(`Building ${buildingId} is level ${from}, expected ${expectedLevel}`);
     const cost = nextPrice(cfg, draft.garden.chapter, from);
     if (cost === null) throw new Error(`Building ${buildingId} is already max level`);
     spendHoney(draft, cost);
     draft.garden.buildings[buildingId] = from + 1;
+    recordActivity(draft, { kind: 'build', chapter: draft.garden.chapter, buildingId, level: from + 1 }, today);
     return { buildingId, from, to: from + 1, cost };
 }
 
@@ -64,12 +66,13 @@ export function claimChapter(save: SaveService, cfg: Garden): ChapterReceipt {
 }
 
 /** Move to the next garden (F027): free, requires the chapter reward, new buildings start at 0. */
-export function depart(draft: SaveData, cfg: Garden, expectedChapter: number): number {
+export function depart(draft: SaveData, cfg: Garden, expectedChapter: number, today: string): number {
     const chapter = draft.garden.chapter;
     if (chapter !== expectedChapter) throw new Error(`Chapter is ${chapter}, expected ${expectedChapter}`);
     if (chapter >= cfg.themes.length - 1) throw new Error('No next garden');
     if (draft.claims['chapter:' + chapter] === undefined) throw new Error('Chapter reward not claimed');
     draft.garden.chapter = chapter + 1;
     draft.garden.buildings = new Array(cfg.buildingCount).fill(0);
+    recordActivity(draft, { kind: 'gardenEntered', chapter: chapter + 1 }, today);
     return chapter + 1;
 }

@@ -1,4 +1,7 @@
+import { CollectionState, newCollectionState } from '../domain/Collection';
+import { DailyState, newDailyState } from '../domain/Daily';
 import { HexCell } from '../domain/puzzle/LevelDefinition';
+import { GuideState, newGuideState, newSettingsState, SettingsState } from '../domain/Settings';
 
 export const SCHEMA_VERSION = 1;
 
@@ -52,6 +55,10 @@ export interface SaveData {
     claims: Record<string, unknown>;
     clock: { lastDay: string };
     ads: { day: string; total: number; lastAt: number; daily: Record<string, number> };
+    daily: DailyState;
+    collection: CollectionState;
+    settings: SettingsState;
+    guide: GuideState;
     counters: { nextId: number };
 }
 
@@ -66,6 +73,10 @@ export function newSave(initialHoney: number, initialHints: number, buildingCoun
         claims: {},
         clock: { lastDay: '' },
         ads: { day: '', total: 0, lastAt: 0, daily: {} },
+        daily: newDailyState(),
+        collection: newCollectionState(),
+        settings: newSettingsState(),
+        guide: newGuideState(),
         counters: { nextId: 1 },
     };
 }

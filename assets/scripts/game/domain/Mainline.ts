@@ -2,6 +2,7 @@ import { EconomyConfig } from '../config/EconomyConfig';
 import { nextId, PuzzleAttemptState, SaveData } from '../save/SaveData';
 import { SaveService } from '../save/SaveService';
 import { LevelDefinition } from './puzzle/LevelDefinition';
+import { recordActivity } from './Activity';
 import { addHoney } from './Wallet';
 
 type Mainline = EconomyConfig['mainline'];
@@ -78,6 +79,7 @@ export function settleWin(save: SaveService, cfg: Mainline, level: LevelDefiniti
             }
         }
         if (firstClear) draft.mainline.cleared.push(n);
+        recordActivity(draft, { kind: 'puzzleWin', levelNumber: n, firstClear, mode: level.mode }, today);
         addHoney(draft, honey);
         draft.attempt = null;
         return { attemptId: attempt.attemptId, levelNumber: n, mode: level.mode, firstClear, honey, stars, bestStars, replayCapped };
