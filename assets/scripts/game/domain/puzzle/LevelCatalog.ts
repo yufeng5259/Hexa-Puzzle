@@ -66,25 +66,25 @@ export class LevelCatalog {
 
     constructor(json: unknown) {
         const input = record(json, ['schema', 'sources', 'levels'], 'root');
-        if (input.schema !== 'hexa.level-catalog.v1') return fail('schema');
-        if (!Array.isArray(input.sources) || input.sources.length !== 2) return fail('sources');
+        if (input.schema !== 'hexa.level-catalog.v1') fail('schema');
+        if (!Array.isArray(input.sources) || input.sources.length !== 2) fail('sources');
         this.sources = Object.freeze(input.sources.map((value, index) => {
             const source = record(value, ['path', 'sha256'], 'sources[' + index + ']');
-            if (source.path !== ['prototype/level-data.js', 'prototype/mainline.js'][index] || typeof source.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(source.sha256)) return fail('source provenance');
+            if (source.path !== ['prototype/level-data.js', 'prototype/mainline.js'][index] || typeof source.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(source.sha256)) fail('source provenance');
             return Object.freeze({ path: source.path as string, sha256: source.sha256 });
         }));
-        if (!Array.isArray(input.levels) || input.levels.length !== 110) return fail('expected 110 source questions');
+        if (!Array.isArray(input.levels) || input.levels.length !== 110) fail('expected 110 source questions');
         this.levels = Object.freeze(input.levels.map(level));
         const mainline: LevelDefinition[] = [];
         for (const entry of this.levels) {
-            if (this.byId.has(entry.id)) return fail('duplicate level ' + entry.id);
+            if (this.byId.has(entry.id)) fail('duplicate level ' + entry.id);
             this.byId.set(entry.id, entry);
             if (entry.mainlineNumber !== null) {
-                if (mainline[entry.mainlineNumber - 1]) return fail('duplicate mainline');
+                if (mainline[entry.mainlineNumber - 1]) fail('duplicate mainline');
                 mainline[entry.mainlineNumber - 1] = entry;
             }
         }
-        if (mainline.length !== 96 || Array.from({ length: 96 }, (_, i) => !mainline[i]).some(Boolean)) return fail('incomplete mainline');
+        if (mainline.length !== 96 || Array.from({ length: 96 }, (_, i) => !mainline[i]).some(Boolean)) fail('incomplete mainline');
         this.mainline = Object.freeze(mainline);
     }
 
