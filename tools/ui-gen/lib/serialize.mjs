@@ -99,6 +99,7 @@ export class Builder {
 
   fullWidget(node) { return this.widget(node, 1 | 4 | 8 | 32); }
   blockInput(node) { return this.component(node, 'cc.BlockInputEvents'); }
+  graphics(node) { return this.component(node, 'cc.Graphics'); }
   opacity(node, value = 255) { return this.component(node, 'cc.UIOpacity', { _opacity: value }); }
   mask(node) { return this.component(node, 'cc.Mask', { _type: 0, _inverted: false, _segments: 64, _alphaThreshold: 0.1 }); }
 

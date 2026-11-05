@@ -13,7 +13,12 @@ export const stableUuid = seed => {
 };
 export const rel = file => normalize(path.relative(PROJECT, file));
 
+/** Dry run: compute everything (uuids, validation) but write nothing under assets/. */
+let dry = false;
+export const setDryRun = value => { dry = value; };
+
 export function writeFile(file, bytes) {
+  if (dry && rel(file).startsWith('assets/')) return;
   const value = Buffer.isBuffer(bytes) ? bytes : Buffer.from(bytes);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   if (!fs.existsSync(file) || !fs.readFileSync(file).equals(value)) fs.writeFileSync(file, value);
@@ -27,7 +32,7 @@ function writeMeta(target, meta, merge) {
   const metaFile = target + '.meta';
   if (fs.existsSync(metaFile)) {
     const existing = readJson(metaFile);
-    writeJson(metaFile, merge ? merge(existing) : existing);
+    if (!dry) writeJson(metaFile, merge ? merge(existing) : existing);
     return existing.uuid;
   }
   writeJson(metaFile, meta);
@@ -40,7 +45,7 @@ export function directory(dir, bundle = null) {
   if (path.resolve(dir) === assets) return;
   const parent = path.dirname(dir);
   if (path.resolve(parent) !== assets) directory(parent);
-  fs.mkdirSync(dir, { recursive: true });
+  if (!dry) fs.mkdirSync(dir, { recursive: true });
   const userData = bundle ? { isBundle: true, bundleConfigID: 'default', bundleName: bundle, priority: bundle === 'common' ? 8 : 1 } : {};
   writeMeta(dir, { ver: '1.2.0', importer: 'directory', imported: true, uuid: stableUuid('dir:' + rel(dir)), files: [], subMetas: {}, userData },
     existing => bundle ? { ...existing, userData: { ...existing.userData, ...userData } } : existing);
@@ -53,20 +58,17 @@ export function scriptMeta(file) {
 
 export function jsonMeta(file) {
   directory(path.dirname(file));
-  writeMeta(file, { ver: '2.0.1', importer: 'json', imported: true, uuid: stableUuid('json:' + rel(file)), files: ['.json'], subMetas: {}, userData: {} });
-  return readJson(file + '.meta').uuid;
+  return writeMeta(file, { ver: '2.0.1', importer: 'json', imported: true, uuid: stableUuid('json:' + rel(file)), files: ['.json'], subMetas: {}, userData: {} });
 }
 
 export function prefabMeta(file) {
   directory(path.dirname(file));
-  writeMeta(file, { ver: '1.1.50', importer: 'prefab', imported: true, uuid: stableUuid('prefab:' + rel(file)), files: ['.json'], subMetas: {}, userData: { syncNodeName: path.basename(file, '.prefab') } });
-  return readJson(file + '.meta').uuid;
+  return writeMeta(file, { ver: '1.1.50', importer: 'prefab', imported: true, uuid: stableUuid('prefab:' + rel(file)), files: ['.json'], subMetas: {}, userData: { syncNodeName: path.basename(file, '.prefab') } });
 }
 
 export function sceneMeta(file) {
   directory(path.dirname(file));
-  writeMeta(file, { ver: '1.1.50', importer: 'scene', imported: true, uuid: stableUuid('scene:' + rel(file)), files: ['.json'], subMetas: {}, userData: {} });
-  return readJson(file + '.meta').uuid;
+  return writeMeta(file, { ver: '1.1.50', importer: 'scene', imported: true, uuid: stableUuid('scene:' + rel(file)), files: ['.json'], subMetas: {}, userData: {} });
 }
 
 /** Image meta with sprite-frame sub-asset `@f9941`; border = [top, bottom, left, right] in imported pixels. */

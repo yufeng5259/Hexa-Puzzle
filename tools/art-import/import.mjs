@@ -52,6 +52,10 @@ function walk(dir) {
 
 const scales = displayScales();
 const sources = new Set([...scales.keys()]);
+// Board materials of the block.hex.v1 renderer (procedural layers reference them only by id).
+for (const material of Object.values(readJson(path.join(ARTS, '运行组件/renderer-contract.json')).materials)) {
+  sources.add(normalize(path.relative(ARTS, path.join(ARTS, '运行组件', material.file))));
+}
 // Supplementary art and every building/terrain stage, whether or not a page config shows it.
 for (const file of walk(path.join(ARTS, 'PNG')).filter(f => f.endsWith('.png'))) {
   const relative = normalize(path.relative(ARTS, file));

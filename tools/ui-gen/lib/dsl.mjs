@@ -40,6 +40,12 @@ export const list = (name, rect, cell, opts = {}) => ({ t: 'list', name, rect, c
  *   key: 'k'                override a text layer's localization key
  *   note: '...'             shown in the structure doc
  *   from: 'T07-01_…'        layer/layers: take the layer from another page config (another state of the same prefab)
+ *   flipX / flipY: true     mirror the node (negative scale)
+ *   script: 'path'          (group/slot) component script on this node; its own bind/button scope
+ *   graphics: true          (slot) add a cc.Graphics as the node's main component (drawn once by a script)
+ *   props: { k: v }         (scripted group) asset/scalar properties of that component (prefabRef/frameRef/number/string)
+ * Spec-level: backdropBlocks: false   popup backdrop without BlockInputEvents (overlays such as guide and toast)
+ * Files whose name starts with "_" in specs/ are helper modules, not specs.
  */
 
 /** Prefab reference value for a script property (spec name of another prefab). */

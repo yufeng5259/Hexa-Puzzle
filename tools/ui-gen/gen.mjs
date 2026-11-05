@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { ARTS, PROJECT, directory, prefabMeta, readJson, scriptMeta, writeFile } from './lib/io.mjs';
+import { ARTS, PROJECT, directory, prefabMeta, readJson, scriptMeta, setDryRun, writeFile } from './lib/io.mjs';
 import { Builder, compressUuid, external } from './lib/serialize.mjs';
 
 const W = 853, H = 1844;
@@ -15,6 +15,11 @@ const ASSETS = readJson(path.join(PROJECT, 'tools/art-import/asset-map.json'));
 const NINE_SLICE = readJson(path.join(PROJECT, 'tools/art-import/nine-slice.json'));
 const args = process.argv.slice(2);
 const writePrefabs = args.includes('--prefab');
+// --doc still builds every prefab in memory (dry run) so bindings, images and scripts are validated.
+setDryRun(!writePrefabs);
+const I18N = Object.assign({}, ...['本地化/zh-CN.json', '本地化/缺少/zh-CN.json'].map(f => readJson(path.join(ARTS, f))),
+  ...fs.readdirSync(path.join(PROJECT, 'tools/i18n/extra')).filter(f => f.endsWith('.json')).map(f => readJson(path.join(PROJECT, 'tools/i18n/extra', f))));
+const paramsOf = key => [...new Set([...(I18N[key] ?? '').matchAll(/{(w+)}/g)].map(m => m[1]))];
 const only = args.includes('--only') ? new Set(args[args.indexOf('--only') + 1].split(',')) : null;
 /** --dir <bundle>: load only specs/<bundle> (parallel authoring); the doc section goes to ../tmp/hexa-dev/doc-<bundle>.md. */
 const onlyDir = args.includes('--dir') ? args[args.indexOf('--dir') + 1] : null;
@@ -24,7 +29,8 @@ function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]);
 }
 const specs = [];
-for (const file of walk(onlyDir ? path.join(SPECS, onlyDir) : SPECS).filter(f => f.endsWith('.mjs')).sort()) {
+// Files starting with "_" are shared helpers, not specs.
+for (const file of walk(onlyDir ? path.join(SPECS, onlyDir) : SPECS).filter(f => f.endsWith('.mjs') && !path.basename(f).startsWith('_')).sort()) {
   const module = await import(pathToFileURL(file).href);
   for (const spec of [].concat(module.default)) specs.push({ ...spec, specFile: path.relative(PROJECT, file).replaceAll('\\', '/') });
 }
@@ -71,7 +77,7 @@ function fromLayer(l, opts) {
     const t = l.text;
     const [x1, y1, x2, y2] = t.box;
     return { kind: 'text', name: opts.as ?? l.name, rect: opts.rect ?? [x1, y1, x2 - x1, y2 - y1], key: opts.key ?? t.localization_key ?? null,
-      style: { ...textStyle(t), ...(opts.style ?? {}) }, sample: t.text, params: Object.keys(t.parameters ?? {}), opts };
+      style: { ...textStyle(t), ...(opts.style ?? {}) }, sample: t.text, opts };
   }
   return { kind: 'image', name: opts.as ?? l.name, rect: opts.rect ?? [l.position[0], l.position[1], l.size[0], l.size[1]], file: l.file, opacity: l.opacity ?? 1, opts };
 }
@@ -104,7 +110,7 @@ function resolve(spec, n) {
 
 // ---------- scripts registry ----------
 const FRAMEWORK = { LocalizedLabel: 'framework/i18n/LocalizedLabel', ScrollableItemGrid: 'framework/ui/grid/ScrollableItemGrid' };
-const CC_TYPES = new Set(['Node', 'Sprite', 'Label', 'Button']);
+const CC_TYPES = new Set(['Node', 'Sprite', 'Label', 'Button', 'Graphics']);
 /** Implemented by ViewBase (the back button and the back key share it). */
 const BASE_HANDLERS = new Set(['onBack']);
 /** script path -> { script, kind, cls, binds: Map(prop -> {type, array}), handlers: Set, props, spec } */
@@ -151,7 +157,10 @@ function build(spec) {
 
   const emit = (n, parent, parentRect, scope) => {
     const o = n.opts ?? {};
-    const id = b.node(n.name, parent, local(n.rect, parentRect), o.active !== false);
+    const box = local(n.rect, parentRect);
+    if (o.flipX) box.sx = -1;
+    if (o.flipY) box.sy = -1;
+    const id = b.node(n.name, parent, box, o.active !== false);
     let main = null, mainType = 'Node', inner = scope;
     if (n.kind === 'image') {
       main = b.sprite(id, frameUuid(n.file), NINE_SLICE[n.file] !== undefined, n.opacity);
@@ -160,6 +169,7 @@ function build(spec) {
       main = b.label(id, n.style);
       mainType = 'Label';
       if (n.key) {
+        if (I18N[n.key] === undefined) throw new Error(`${spec.name}: missing text key ${n.key} (${n.name})`);
         main = b.script(id, classIdOf(FRAMEWORK.LocalizedLabel), { key: n.key });
         mainType = 'LocalizedLabel';
       }
@@ -174,6 +184,9 @@ function build(spec) {
       main = b.script(id, classIdOf(FRAMEWORK.ScrollableItemGrid), { scrollView: { __id__: scroll }, content: { __id__: content },
         cellPrefab: external(prefabMeta(prefabFile(cell)), 'cc.Prefab'), columns: o.columns ?? 1, spacingX: o.spacingX ?? 0, spacingY: o.spacingY ?? 12 });
       mainType = 'ScrollableItemGrid';
+    } else if (o.graphics) {
+      main = b.graphics(id);
+      mainType = 'Graphics';
     } else if (o.script) {
       main = b.script(id, classIdOf(o.script), {});
       mainType = path.basename(o.script);
@@ -195,7 +208,10 @@ function build(spec) {
       bindTo(scope, prop, want, target, !!o.bindArray);
     }
     for (const c of n.children ?? []) emit(c, id, n.rect, inner);
-    if (inner !== scope) Object.assign(b.objects[main], fieldsOf(inner));
+    if (inner !== scope) {
+      Object.assign(inner.entry.props, o.props ?? {});
+      Object.assign(b.objects[main], fieldsOf(inner), Object.fromEntries(Object.entries(o.props ?? {}).map(([k, v]) => [k, propValue(v)])));
+    }
     return id;
   };
 
@@ -208,7 +224,7 @@ function build(spec) {
   if (spec.kind === 'popup') {
     const backdrop = b.node('Backdrop', root, { x: 0, y: 0, w: W, h: H });
     b.fullWidget(backdrop);
-    b.blockInput(backdrop);
+    if (spec.backdropBlocks !== false) b.blockInput(backdrop);
     for (const n of (spec.backdrop ?? []).flatMap(c => resolve(spec, c))) emit(n, backdrop, rootRect, scope);
     const content = b.node('Content', root, { x: 0, y: 0, w: W, h: H });
     fixed.backdrop = { __id__: backdrop };
@@ -306,14 +322,33 @@ function describe(n, prefix, last, out) {
   const o = n.opts ?? {};
   const short = f => path.basename(f, '.png').replace(/_[0-9a-f]{10}$/, '');
   const what = n.kind === 'image' ? `Sprite(${short(n.file)})`
-    : n.kind === 'text' ? (n.key ? `Label「${n.sample ?? ''}」 key=${n.key}${n.params?.length ? ` 参数{${n.params.join(',')}}` : ''}` : `Label「${n.style.text}」`)
+    : n.kind === 'text' ? (n.key ? `Label「${n.sample ?? I18N[n.key]}」 key=${n.key}${paramsOf(n.key).length ? ` 参数{${paramsOf(n.key).join(',')}}` : ''}` : `Label「${n.style.text}」`)
     : n.kind === 'list' ? `List → ${n.cell}（ScrollableItemGrid，动态）`
-    : n.kind === 'slot' ? 'Slot' : o.script ? `[${path.basename(o.script)}]` : '';
+    : o.graphics ? 'Graphics' : n.kind === 'slot' ? (o.script ? `Slot [${path.basename(o.script)}]` : 'Slot') : o.script ? `[${path.basename(o.script)}]` : '';
   const tags = [what, o.button && `→ ${o.button}${o.data ? `(${o.data})` : ''}`, (o.bind || o.bindArray) && `@${[].concat(o.bind ?? o.bindArray)[0]}${o.bindArray ? '[]' : ''}`,
-    o.active === false && '默认隐藏', o.align && `Widget:${o.align}`, o.note].filter(Boolean).join('  ');
+    o.active === false && '默认隐藏', o.align && `Widget:${o.align}`, (o.flipX || o.flipY) && '翻转',
+    o.props && `属性:${Object.keys(o.props).join(',')}`, o.note].filter(Boolean).join('  ');
   out.push(`${prefix}${last ? '└─' : '├─'} ${n.name}  ${tags}`);
   const kids = n.children ?? [];
-  kids.forEach((c, i) => describe(c, prefix + (last ? '   ' : '│  '), i === kids.length - 1, out));
+  // Consecutive scripted siblings with the same structure (rows, cells, level nodes) print once.
+  const runs = [];
+  for (const c of kids) {
+    const prev = runs[runs.length - 1];
+    if (prev && c.opts?.script && shape(c) === shape(prev[0])) prev.push(c);
+    else runs.push([c]);
+  }
+  runs.forEach((run, i) => {
+    const childPrefix = prefix + (last ? '   ' : '│  ');
+    const lastRun = i === runs.length - 1;
+    if (run.length === 1) return describe(run[0], childPrefix, lastRun, out);
+    describe(run[0], childPrefix, false, out);
+    out.push(`${childPrefix}${lastRun ? '└─' : '├─'} ${run[1].name} … ${run[run.length - 1].name}  同 ${run[0].name} 结构（共 ${run.length} 个）`);
+  });
+}
+/** Structure signature ignoring names, rects and sample text. */
+function shape(n) {
+  const o = n.opts ?? {};
+  return JSON.stringify([n.kind, n.file, n.key, o.script, o.button, o.bind, o.bindArray, o.active, (n.children ?? []).map(shape)]);
 }
 function docFor(spec) {
   const out = [];
@@ -333,7 +368,7 @@ function docFor(spec) {
   out.push(`${spec.name}  [${path.basename(spec.script)}]`);
   const tops = [];
   if (spec.kind === 'popup') {
-    tops.push({ name: 'Backdrop', kind: 'group', rect: rootRect, opts: { bind: 'backdrop', note: 'BlockInputEvents' }, children: (spec.backdrop ?? []).flatMap(c => resolve(spec, c)) });
+    tops.push({ name: 'Backdrop', kind: 'group', rect: rootRect, opts: { bind: 'backdrop', note: spec.backdropBlocks === false ? '不拦截输入' : 'BlockInputEvents' }, children: (spec.backdrop ?? []).flatMap(c => resolve(spec, c)) });
     tops.push({ name: 'Content', kind: 'group', rect: rootRect, opts: { bind: 'content' }, children: (spec.children ?? []).flatMap(c => resolve(spec, c)) });
   } else tops.push(...(spec.children ?? []).flatMap(c => resolve(spec, c)));
   tops.forEach((n, i) => describe(n, '', i === tops.length - 1, out));
@@ -347,17 +382,20 @@ const sections = new Map();
 for (const spec of specs) {
   const group = spec.group ?? spec.bundle;
   sections.set(group, [...(sections.get(group) ?? []), docFor(spec)]);
-  if (!writePrefabs || (only && !only.has(spec.name))) continue;
+  if (only && !only.has(spec.name)) continue;
   if (spec.bundle !== 'resources') directory(path.join(PROJECT, 'assets/bundles', spec.bundle), spec.bundle);
   const builder = build(spec);
   prefabMeta(prefabFile(spec));
-  builder.write(prefabFile(spec));
+  if (writePrefabs) builder.write(prefabFile(spec));
 }
 for (const entry of scripts.values()) {
   const file = scriptPath(entry.script);
   if (!fs.existsSync(file)) {
-    writeFile(file, skeleton(entry));
-    console.log('skeleton', entry.script);
+    const text = skeleton(entry);
+    if (writePrefabs) {
+      writeFile(file, text);
+      console.log('skeleton', entry.script);
+    }
   } else problems.push(...validate(entry));
   scriptMeta(file);
 }

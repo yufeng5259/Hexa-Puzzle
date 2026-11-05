@@ -186,3 +186,11 @@ test('clock: week starts Monday, day never moves backwards', () => {
   assert.equal(Clock.dayKey(new Date(2026, 0, 5)), '2026-01-05');
   assert.equal(Clock.acceptDay('2026-11-05', '2026-11-04'), '2026-11-05');
 });
+
+test('hex outline: shared edges cancel (1 cell 6 edges, 2 cells 10, ring keeps the hole)', () => {
+  const { boundaryEdges } = load('game/domain/puzzle/HexOutline.js');
+  assert.equal(boundaryEdges([{ q: 0, r: 0 }]).length, 6);
+  assert.equal(boundaryEdges([{ q: 0, r: 0 }, { q: 1, r: 0 }]).length, 10);
+  const ring = Endless.boardCells(1).filter(c => c.q || c.r);
+  assert.equal(boundaryEdges(ring).length, 18 + 6);
+});

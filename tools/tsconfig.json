@@ -3,7 +3,10 @@
     "target": "ES2020",
     "module": "ES2020",
     "moduleResolution": "node",
-    "lib": ["ES2020", "DOM"],
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true,
@@ -13,7 +16,10 @@
   },
   "files": [
     "C:/ProgramData/cocos/editors/Creator/3.8.8/resources/resources/3d/engine/bin/.declarations/cc.d.ts",
-    "C:/ProgramData/cocos/editors/Creator/3.8.8/resources/resources/3d/engine/@types/consts.d.ts"
+    "C:/ProgramData/cocos/editors/Creator/3.8.8/resources/resources/3d/engine/@types/consts.d.ts",
+    "./cc-env.d.ts"
   ],
-  "include": ["../assets/scripts/**/*.ts"]
+  "include": [
+    "../assets/scripts/**/*.ts"
+  ]
 }
