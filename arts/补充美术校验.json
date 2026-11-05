@@ -1,0 +1,616 @@
+{
+  "schema_version": 1,
+  "project": "Honey Garden (Hexa-Puzzle)",
+  "delivered_on": "2026-11-05",
+  "png_count": 113,
+  "completed_picture_requirements": 23,
+  "excluded_requirements": {
+    "R-04": "由开发方从已有主图生成"
+  },
+  "placement_json": "游戏素材/PNG/补充/R-01_清风水湾建筑落位.json",
+  "paths_relative_to": "arts/",
+  "requirements": "../docs/重建计划/05_美术需求.md",
+  "prior_verification": {
+    "visual_review": "逐件保存后复查及跨制作者复核；花花残绿、头像与R15合影、R23透明边问题均已闭环。",
+    "browser": "113张加载/尺寸、筛选、搜索、原尺寸与200%查看通过。",
+    "original_files_sha_exact": 884,
+    "engine_integration_tested": false
+  },
+  "files": [
+    {
+      "file": "游戏素材/PNG/补充/R-01_清风水湾完整无建筑裸地形.png",
+      "bytes": 3779277,
+      "sha256": "5c0c1af6382336661f79c3e643fea45e0c4b3e4559189feb23de15cb84e5ce18"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-02_应用图标_前景.png",
+      "bytes": 279365,
+      "sha256": "9931be85ccc312ea318283259bcca7a061a843d3ee697b2074327628395011d3"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-02_应用图标_完整.png",
+      "bytes": 371204,
+      "sha256": "d7c49db0c7bb87fc1b8c59a89fab9fada69a3273932a36d0c932276afa2d285c"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-02_应用图标_背景.png",
+      "bytes": 107787,
+      "sha256": "46f76fc4d2a21bd74a4c2b626b89229920752834466a458557e4489aa4158af5"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-03_分享图.png",
+      "bytes": 1387136,
+      "sha256": "c310c6fc22c8e5c8063c3a80246a4ef39b30ec7cbd693d21c442f51456cbbea8"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-05_结算空星.png",
+      "bytes": 37086,
+      "sha256": "3356203233e6713271ec0146b4aff21c76caedccb295af96247e377cb498ca44"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-06_视频图标.png",
+      "bytes": 83879,
+      "sha256": "9e6c77dec954926d7294c0cc0b90d0ddda2610303ef082878571b89d3934ed21"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-07_加载转圈.png",
+      "bytes": 32686,
+      "sha256": "48ae7aa1567b39acd9892e9712aff03eedec33f62b751e57b1c8a564d3a4cfae"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-08_设置开关_底_关.png",
+      "bytes": 12493,
+      "sha256": "8b70a5989abcf16a513d89c267be888307140e414bb6f2af3086d9699e530976"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-08_设置开关_底_开.png",
+      "bytes": 18890,
+      "sha256": "faca2107451671b477485bab2cfcb3aa9eb85ab7add3f20805f80b1c3a52f8d4"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-08_设置开关_滑块.png",
+      "bytes": 6434,
+      "sha256": "353cdbb5c5fb574d180122a39a157e4bc3a09e4c5d31a485928de449f41093f3"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-09_图标_减少动效.png",
+      "bytes": 91696,
+      "sha256": "3b8069ef9343209340fe0c77b900d031082a5c51a860d3f0d679a9ae633dce34"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-09_图标_大字.png",
+      "bytes": 83890,
+      "sha256": "f021f6f45a7ad8274fa838c7479470032e27cbd9341d57044df0f1e823ebf9fa"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-09_图标_震动.png",
+      "bytes": 84851,
+      "sha256": "bbc4bf5f8b959417a8ae415a6a7fea60bc9b702252266f812095cba29ae6722e"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-09_图标_音乐.png",
+      "bytes": 80831,
+      "sha256": "c4cc80b3eb52a38baeceb6f0293d3ec77fcc8d09e42411897a402e7f59ab6b5f"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-09_图标_音效.png",
+      "bytes": 84796,
+      "sha256": "0b7188335a5611eb6f1464af37c6cd6bfcca1e54fac735dd5e76f358b186f865"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-10_成就_拼图达人_未达成.png",
+      "bytes": 58667,
+      "sha256": "fef1562300eddf3cd1176cc38ceea215365698dd473c32e82a7479fd776fd128"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-10_成就_拼图达人_达成.png",
+      "bytes": 86842,
+      "sha256": "4713ee7f04ac7a530da98cf6c639d8bdf28ce1dbd1ddf1676ee98c7b724c70ab"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-10_成就_无尽高手_未达成.png",
+      "bytes": 62236,
+      "sha256": "f0fa10ce9c899b5f29620aa392d3559288b5ac7be2f355da6e748ad4d0d44f0f"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-10_成就_无尽高手_达成.png",
+      "bytes": 96784,
+      "sha256": "28864648cf7a43c12acbe84a1f8bf3e61d9f43c58a16b7ebdbaa23ebc7b8e958"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-10_成就_花园旅人_未达成.png",
+      "bytes": 66278,
+      "sha256": "a639a72250ac560a16b9c81fb1c7af09f19b991cbed11c5173e68026bbc61047"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-10_成就_花园旅人_达成.png",
+      "bytes": 99609,
+      "sha256": "7eda3abbcdeb9192942f1a47c784dc6fb1b86c668bc26388cc459ab429e3c819"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-11_礼盒_小.png",
+      "bytes": 52154,
+      "sha256": "6acb67dbe72b4346f30e28e739b9c89bed8da2b4c9affe807fa844f40f8c1533"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-11_第7天大礼盒.png",
+      "bytes": 217596,
+      "sha256": "aa511b2cf9e316728599e5e78979ae392c331b6829c3c99ab5a489cf221f4a0e"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-11_签到格_可领.png",
+      "bytes": 42815,
+      "sha256": "305fbe8578b0ee6ada02c17752c684d182d1d51a34b800ae1e0842eb59298320"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-11_签到格_已领.png",
+      "bytes": 41335,
+      "sha256": "4671fd2ecb4d0674af81839d08c034910824459f85b23a2575b63966094d2076"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-11_签到格_未到.png",
+      "bytes": 39499,
+      "sha256": "49d160fb22b2d057279ec4cf0c74525cb6e8f572f78403d2a97d23185c9748a5"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-12_入口_信箱.png",
+      "bytes": 102564,
+      "sha256": "902e15ac9e1cab89c2e3fd6c1fe65421f7246719fddc6aff0c343a315da154cb"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-12_入口_成就.png",
+      "bytes": 100568,
+      "sha256": "438543f470730a40b617b92122a09212c2e571bd8e4ba2762adfd3a8111cc230"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-12_入口_活动.png",
+      "bytes": 116807,
+      "sha256": "cb0a5f7a8018b34c192f5ace1d843a476b03083659b6a2d2a0418d1a2c141cfa"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-12_入口_相册.png",
+      "bytes": 103736,
+      "sha256": "099c3805ecd80d4a4d60e920acb0d18c939cf0f0d6c8a45c3e9ea6ae13279bcd"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-12_入口_蜂友.png",
+      "bytes": 121156,
+      "sha256": "a70e947fa2e4753aa82c361390eb30cf8bded3781f5f39592ec447b89328eb10"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-13_信封_已读.png",
+      "bytes": 20510,
+      "sha256": "b78c464b08b6ab06e308cd25f2c1168c9ab8733eb973472401ca165e0238f39a"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-13_信封_未读.png",
+      "bytes": 26357,
+      "sha256": "21bf3bede607267b218895fd011969ea293c5da6b1a4fbd288487c8063d11cbc"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-13_图标_存档.png",
+      "bytes": 25422,
+      "sha256": "453ba1a43e70aad89d75dbee638a81489b6f7eb07636e9dfcf7dfb33341e90cb"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-13_图标_暂停.png",
+      "bytes": 22497,
+      "sha256": "d6d6f2e864be3cd9fb6b64df853e9b19bab6b0aaeb5d5477bb91c4152bcbd1fb"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-13_图标_隐私.png",
+      "bytes": 22075,
+      "sha256": "4f6c43b76f4f5a4a31b76618a3d59e3210f1652a89a4012b031fde33b61eeb18"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_云上蜂谷_小溪水车.png",
+      "bytes": 697175,
+      "sha256": "6e8bc228cf3902e104b2cc622c795f49c18ed1214b3cc5d4d1e1fc3fcd080fec"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_云上蜂谷_树屋.png",
+      "bytes": 742017,
+      "sha256": "265c82521bd0a8ad83aa5a78039230bed1ee99751efe1f4e735d8ab4dfc1d4c5"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_云上蜂谷_温室.png",
+      "bytes": 725081,
+      "sha256": "3f2571b781a5ac54d9d1d620ec15428e4f2d3d0dae55d74dee4269eb0769e030"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_云上蜂谷_花园.png",
+      "bytes": 731116,
+      "sha256": "f48363f3c1c909873a5dd138e714dfb94bd40078dd0671dfbba8c07250e23ca8"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_云上蜂谷_蜂蜜工坊.png",
+      "bytes": 705367,
+      "sha256": "0d305d7ecc675e7ced66d1ea65bed9e85745b2af33f707c41196cfc6b0a2257e"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_向阳花园_小溪水车.png",
+      "bytes": 713436,
+      "sha256": "84512f5dacac93216637d8b13e9aff5932059047fc39bfae4928c48a2181f1c5"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_向阳花园_温室.png",
+      "bytes": 733299,
+      "sha256": "727403cb5dcc8d1feceaf162507a70ea3c1bc119f3a895282e537af2d56306a9"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_向阳花园_蜂蜜工坊.png",
+      "bytes": 714476,
+      "sha256": "7de1abd8c0aac66da90435e79bbaf12eb845e9217b7d8d411c72eccf75801799"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_清风水湾_小溪水车.png",
+      "bytes": 726480,
+      "sha256": "3808c1727464c1461c2397401fe44b40c79c4cfe6aeb2a9295d7548824d802c8"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_清风水湾_树屋.png",
+      "bytes": 765320,
+      "sha256": "f979276f2e87db4b2003337aae01e157c905d959baa1abcdfbda17b7168b67b2"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_清风水湾_温室.png",
+      "bytes": 754325,
+      "sha256": "16639e2b191ca843bef6f29d6830dcf82dd27a75aec637b45d8a724f2d93d452"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_清风水湾_花园.png",
+      "bytes": 753482,
+      "sha256": "a49b41c67fb83bb5f3a40c32dbb2b165827c2a36e75ebe1acba3048400df8c6e"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-14_照片_清风水湾_蜂蜜工坊.png",
+      "bytes": 733260,
+      "sha256": "3890d6e62da7d40452d4b8c60d7af44e3607695587b472f144e985bc4dc601b9"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-15_整园合影_云上蜂谷.png",
+      "bytes": 782655,
+      "sha256": "957aad31fc55ab13af22184654b117b6270722782ac0303d5e6da440d8628403"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-15_整园合影_清风水湾.png",
+      "bytes": 799541,
+      "sha256": "cce40e4a971a2bd04c98e26c894d7de0b3f7a6368f62d65aacc3eef74eafb229"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-16_专属饰物_小蜜.png",
+      "bytes": 30738,
+      "sha256": "20ba60cb562fae9c031c52983f8d3bb090bad19cd24919247b5783e4959b25ac"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-16_专属饰物_花花.png",
+      "bytes": 43292,
+      "sha256": "fd5fdd8c913206f6f6418233d423519b33b7cbf57f0f06cba0793e85ce9b188c"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-16_专属饰物_阿工.png",
+      "bytes": 43849,
+      "sha256": "dab3ff407e7fc699339ef3a137c1cf53c4bd971690f119958e400229734faeeb"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-16_头像_小蜜.png",
+      "bytes": 92726,
+      "sha256": "099fb32ae836269f58b6ecc71fb9eacb0d3112e599c4766a9922363077d57f7b"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-16_头像_花花.png",
+      "bytes": 86846,
+      "sha256": "143056e168e32f9679991e682a2c85362ae9728c008f4f9c44119f45b4173305"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-16_头像_阿工.png",
+      "bytes": 88973,
+      "sha256": "67eaae155b588c710b136bc5b838660ebf3dd3ed51b6587a65caabba3020c13c"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-16_花花_立绘.png",
+      "bytes": 1283662,
+      "sha256": "c0f717edba6f13233147771faf458831b54541008dc4a58d5fed20952f8d94bd"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-17_剧情_1.png",
+      "bytes": 986256,
+      "sha256": "9510bfaf44dae7806feb99f311d3daa3593b97512e017206ad99e10361bf9db5"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-17_剧情_2.png",
+      "bytes": 999056,
+      "sha256": "bb79e8d2c21eeb2a04b7114652768a36a6c629d14c2ac45a533d4875ec4c7c12"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-17_剧情_3.png",
+      "bytes": 1015476,
+      "sha256": "ec146931641890ac9dc3c1756848e98da20bd0ff41f0fa2c465834d446e5c669"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-18_世界地图背景.png",
+      "bytes": 3579749,
+      "sha256": "56b7fc4a232f4870fbee6ccd86d9aa0fdd126d053b3ff31d0f207a68f3043012"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-19_评语_不错.png",
+      "bytes": 130712,
+      "sha256": "86dd6dfa8daf2fc06b9c2254cdd258acf5b735fee234c97fe8acba4a8093ed3e"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-19_评语_太棒了.png",
+      "bytes": 130618,
+      "sha256": "c265ecaa8ea3d532a460834a8b26292eed04a21203d8ffe8869723d1870d6dbb"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-19_评语_完美.png",
+      "bytes": 124770,
+      "sha256": "86ae2fa76d66be332aafce2b93691f7aa9f57abe72814c43fd3038a7eaeb12ec"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-19_评语_超级连击.png",
+      "bytes": 120059,
+      "sha256": "6251e8ac5d3ba37678dc42a063eea93dfe734a076c4eb8ff9d9438c1842de1e4"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_0.png",
+      "bytes": 9452,
+      "sha256": "a034d6415a900da9ac1ca8446dc286ae70925fe34e1bd682cd9b7f1b6a6645ed"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_1.png",
+      "bytes": 4681,
+      "sha256": "06eeee87f72438cd579686874bb7d01d302816a7e8dc108691eaed3f271c1ed9"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_2.png",
+      "bytes": 8132,
+      "sha256": "a1f2539e32998f4b19e1c61deb63221439fb0858c3a04a1c323d0623b29812dc"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_3.png",
+      "bytes": 8193,
+      "sha256": "ad26a5f71affe27a2c727809b45c8c3fd9071a0a94c4e13f140002d22c534c86"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_4.png",
+      "bytes": 6136,
+      "sha256": "c807014172fd0203251501fe49288da570f2b6776fd6844e8781f571a4eb176f"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_5.png",
+      "bytes": 8570,
+      "sha256": "138781af7ba5585bfa799d65a020691e9dd2750ac6d45d017fec1e7627880b33"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_6.png",
+      "bytes": 8517,
+      "sha256": "281e3633d1ef9b1cf49a5d2e7abff175bed7ef9584828342c4dd5e34539fd5f3"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_7.png",
+      "bytes": 6899,
+      "sha256": "ee8abc31fda48961e0c0fa1d54111b00748ee4287e9597f02033678a040acabe"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_8.png",
+      "bytes": 8531,
+      "sha256": "a86a423dc25eda827cc10e11b744032a01eefe08e8099208c50dfae2eedd0ee1"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_9.png",
+      "bytes": 9131,
+      "sha256": "b896e17aa1506bd51f45fde48689a8805a9e91fc9ad2f9df773c6173ad778322"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_colon.png",
+      "bytes": 3415,
+      "sha256": "52686bfe6736d79623f7c1830fbdc6cf6b94e36f5f74b4669719378a87e94761"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_comma.png",
+      "bytes": 2465,
+      "sha256": "648f48c982551123b2251dcbd114963ee8ad4c6ba4afebedd7ec768470d33439"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_plus.png",
+      "bytes": 4257,
+      "sha256": "b2e85d54e2d1cf408812e697feaf375c72471e32992bb7cb3e0e8205e4876125"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_slash.png",
+      "bytes": 6525,
+      "sha256": "5ab6373cf88e9122183c9dc6026ee41652768e31fcc595b7aee3f3374bc46250"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_数字_x.png",
+      "bytes": 7390,
+      "sha256": "3e6c7e5f60eb5ee1146c5b9977fd40a93c5bed1f3f2ff692287e69e7a272a59c"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_0.png",
+      "bytes": 9527,
+      "sha256": "56b5ee901bfeecc0841ea525a565779da8c03902d152d4b8378a3e4a06b48fb6"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_1.png",
+      "bytes": 4786,
+      "sha256": "90d2c8ee40dafbc7d724383118b835a75e34e9ae379987a3a6f026611d631ef4"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_2.png",
+      "bytes": 8149,
+      "sha256": "e4fddc7362990b2c0e567e739b5bc1f74fcb2736cca0fdb3ecc4e1b5aa220814"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_3.png",
+      "bytes": 8208,
+      "sha256": "23840ccd8cc1c395a66592eaf444d6c50544fa0ead89e237dc07e45bef05ebff"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_4.png",
+      "bytes": 6246,
+      "sha256": "ec9a7cb47098e275663ded7127988ab53fca8cd9663337a287bedd05f65be24f"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_5.png",
+      "bytes": 8528,
+      "sha256": "5b37bc36451abdbc15fd6e9c7302e616e5d0b4b1a3735e0d715af1cd7faa470c"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_6.png",
+      "bytes": 8539,
+      "sha256": "a18879ba631632f4546af12c0e5ed3b3d1de247b3348a61484abcd2ff047af09"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_7.png",
+      "bytes": 6911,
+      "sha256": "975f6116e0e65b41aa99b8b0ea056a4f73467905b89404c83ada0dcfcde87e46"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_8.png",
+      "bytes": 8567,
+      "sha256": "a3fc356d370b40cafd0f52104549b59cdc079a483b2d9633219974f3d3927fa0"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_9.png",
+      "bytes": 9149,
+      "sha256": "4e617cc6ae1e31140c0f1db5bf7776a1e9410b38cd9f9f41de8b4045be6a35f5"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_colon.png",
+      "bytes": 3380,
+      "sha256": "14972a5491788fa8609b19e7b49980d3638c30ddbe704f9918140e9e60378ee5"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_comma.png",
+      "bytes": 2340,
+      "sha256": "9d1feea44dab0e94f0946a254044833d866d296acc4d8ad1e1f0fbbafb1ccbbb"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_plus.png",
+      "bytes": 4172,
+      "sha256": "94b03e3f99240e39bc0635c4d44e4449fce67f1e72155f06ba95e2ecfd8cdcde"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_slash.png",
+      "bytes": 6500,
+      "sha256": "30f436ac832f8adc7aa7650f50e829a9b06b5068821dcd4c6f120356cd5e82b4"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-20_金数字_x.png",
+      "bytes": 7299,
+      "sha256": "c0dec6132e496f0116209ff41674afb210465cbc2229fbf0156c72ec5f8097f2"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_光圈.png",
+      "bytes": 13404,
+      "sha256": "c927ca944b208b23413bacef0bece9fca3baae203c174cef5af5400d6da752ff"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_扫光条.png",
+      "bytes": 3913,
+      "sha256": "c7696244ed92b5336554c791339734410865c3c710123fa13eac5336fd6f0ed8"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_粒子_光点.png",
+      "bytes": 1438,
+      "sha256": "3eb903d9d393fa0a06482dfd776e2e8e001df1a28e56076ff4f06e77d7f6b7aa"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_粒子_尘土.png",
+      "bytes": 12904,
+      "sha256": "f81a9c7f9de9d7b71cdc6c6e9353ab69649b32aa01bc23103b85da43cdda7d63"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_粒子_星芒.png",
+      "bytes": 2263,
+      "sha256": "4fcf04021309e211eadc1108958a18674f0f96c4b0b9b398272989fb929161cc"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_粒子_纸屑_1.png",
+      "bytes": 1064,
+      "sha256": "4f48d362f5b49f915a7c8b0451500df2eb5ae658b87d65288ff8456689cc7f2c"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_粒子_纸屑_2.png",
+      "bytes": 1139,
+      "sha256": "825879d81e96194481d6fb00ea08a8aca666fab279f9d92987b8786d748a4142"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_粒子_纸屑_3.png",
+      "bytes": 1001,
+      "sha256": "9e14001363cd93f35f45f202a798abcfedf7142e2bb630a68692913681bd520d"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-21_粒子_花瓣.png",
+      "bytes": 1925,
+      "sha256": "0a3aef6edd99306b996a81328ca551e343f8ded25e7a32b6aa98e699474baa5b"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-22_施工脚手架.png",
+      "bytes": 343454,
+      "sha256": "5e675a794cfd7d2abc14113f5422b9d37f18c35240765e7f1c65994872e6194e"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-22_满级光效.png",
+      "bytes": 35308,
+      "sha256": "47d118e4096cfbaf578b6397164344d83e3987927ba6ec8878f09b2792e17be7"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-23_六角发光描边.png",
+      "bytes": 13526,
+      "sha256": "400621627862e9bc421cb175fa3185db8b461a0eb1a733886bfead2ddf057843"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-24_小蜜_云朵胸针.png",
+      "bytes": 1231826,
+      "sha256": "25b0af4e43c9837ebdb075e0485120cf889785dae08ba559c0c240aaa42ad5bb"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-24_小蜜_水湾丝带.png",
+      "bytes": 1284927,
+      "sha256": "b38ce7acddfac824590411cfdc2171560d3bf14a8312f9aa4002f03d525cb771"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-24_小蜜_花朵帽.png",
+      "bytes": 1433607,
+      "sha256": "dfb9776b7efecc8abcc7097e52df732d160b7f00b4cbf0f832bd3f22d69a798e"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-24_小蜜_野餐帽.png",
+      "bytes": 1438091,
+      "sha256": "a10619038627258d8670b0dda66040c6977af4ce5300e8516f5ae81402397d8e"
+    },
+    {
+      "file": "游戏素材/PNG/补充/R-01_清风水湾建筑落位.json",
+      "bytes": 974,
+      "sha256": "bb60a6f41be7fe81225cacee8ae3902ebb66f23a5f0098c513beb8c5fc381c28"
+    },
+    {
+      "file": "补充美术交付清单.json",
+      "bytes": 40481,
+      "sha256": "8dde5e9e5f04a53f3468461452b1fc3f6b42130bb9ea502e523bce328aa252aa"
+    },
+    {
+      "file": "补充美术完成状态.md",
+      "bytes": 3459,
+      "sha256": "02382c6f741c14f7b7625ee0ddd73ea965cc77f53513cafa13e31eecd0b15907"
+    },
+    {
+      "file": "补充美术预览.html",
+      "bytes": 36982,
+      "sha256": "d57190afed48899930ae6ddd9f7c434b2fd2491368e324863bb9f983aca48cfe"
+    },
+    {
+      "file": "补充美术接入说明.md",
+      "bytes": 5218,
+      "sha256": "c35d3c6037091481dbef99aa9cca8da1d1ca49bc28b897c593e9e39b55f4fd5c"
+    },
+    {
+      "file": "校验补充美术.py",
+      "bytes": 3952,
+      "sha256": "0c17b3c0a84afd5a6bbd4c2dd157f66973e87d195ee3dbcd87dd95b854aa1c5d"
+    }
+  ]
+}
