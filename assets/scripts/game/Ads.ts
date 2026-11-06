@@ -8,6 +8,16 @@ import { today } from './Today';
 
 const nowSeconds = (): number => Math.floor(Date.now() / 1000);
 
+/** Game placement (quota keys in economy.json) → the native ledger's placement id, which it validates per target. */
+const NATIVE_PLACEMENT: Record<string, string> = {
+    hint: 'hint_refill', challenge: 'challenge_continue', endless: 'endless_revive', bonus: 'settlement_bonus', supply: 'daily_supply',
+};
+const gamePlacement = (native: string): string => {
+    const found = Object.keys(NATIVE_PLACEMENT).find(k => NATIVE_PLACEMENT[k] === native);
+    if (!found) throw new Error('Unknown ad placement ' + native);
+    return found;
+};
+
 export function adAvailable(placement: string): boolean {
     return adBlock(services.save.data, services.config.ads, placement, today(), nowSeconds()) === null;
 }
@@ -27,13 +37,15 @@ function rewardText(reward: AdRewardSpec): string {
     return '';
 }
 
-/** Earned ads already used for this benefit today / this attempt: the ledger's benefit slot (0 or 1). */
+/**
+ * Earned ads already used for the same benefit key (the ledger's benefit slot, 0 or 1). Only the hint (two per
+ * attempt, key = attempt) and the supply video (two per day, key = day) can repeat a key; other keys are single-use.
+ */
 function benefitSlot(placement: string, day: string): number {
     const save = services.save.data;
-    const used = services.config.ads.perAttempt[placement] !== undefined
-        ? (save.attempt?.ads[placement] ?? 0)
-        : save.ads.day === day ? (save.ads.daily[placement] ?? 0) : 0;
-    return Math.min(1, used);
+    if (placement === 'hint') return Math.min(1, save.attempt?.ads.hint ?? 0);
+    if (placement === 'supply') return Math.min(1, save.ads.day === day ? (save.ads.daily.supply ?? 0) : 0);
+    return 0;
 }
 
 /**
@@ -46,7 +58,7 @@ export async function watchAd(offer: AdOffer): Promise<boolean> {
     const day = today();
     const request: AdRequest = {
         requestVersion: 2, requestId: adId(`ad-${offer.placement}-${Date.now()}-${Math.floor(Math.random() * 1e6)}`),
-        ownerProfile: 'prod', source: 'native', placementId: adId(offer.placement), target: offer.target,
+        ownerProfile: 'prod', source: 'native', placementId: NATIVE_PLACEMENT[offer.placement], target: offer.target,
         benefitKey: adId(offer.benefitKey), benefitSlot: benefitSlot(offer.placement, day),
         createdAtMs: Date.now(), createdDay: day, rewardSpec: offer.reward,
     };
@@ -80,7 +92,7 @@ export async function recoverAds(): Promise<void> {
 
 function settle(request: AdRequest, receiptId: string, atSeconds: number): boolean {
     return services.save.claim('ad:' + receiptId, draft => {
-        recordAd(draft, services.config.ads, request.placementId, request.createdDay, atSeconds);
+        recordAd(draft, services.config.ads, gamePlacement(request.placementId), request.createdDay, atSeconds);
         return applyAdReward(draft, request);
     });
 }
