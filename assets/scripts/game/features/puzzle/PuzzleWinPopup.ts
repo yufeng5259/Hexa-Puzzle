@@ -61,13 +61,9 @@ export class PuzzleWinPopup extends PopupBase<WinReceipt> {
     }
 
     onBonusAd(_event: unknown, _data: string): void {
-        const key = 'bonus:' + this.args.attemptId;
         const amount = bonusAmount(services.config.ads, this.args.honey);
-        void watchAd('bonus', draft => {
-            if (draft.claims[key] !== undefined) throw new Error('Bonus already claimed');
-            addHoney(draft, amount);
-            draft.claims[key] = amount;
-        }).then(() => this.renderBonus());
+        void watchAd({ placement: 'bonus', target: { kind: 'settlement', settlementId: this.args.attemptId }, reward: { kind: 'honey', amount },
+            benefitKey: 'bonus:' + this.args.attemptId }).then(() => this.renderBonus());
     }
 
     onHome(_event: unknown, _data: string): void {

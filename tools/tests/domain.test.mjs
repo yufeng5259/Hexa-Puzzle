@@ -194,3 +194,18 @@ test('hex outline: shared edges cancel (1 cell 6 edges, 2 cells 10, ring keeps t
   const ring = Endless.boardCells(1).filter(c => c.q || c.r);
   assert.equal(boundaryEdges(ring).length, 18 + 6);
 });
+
+test('ad rewards: grant by target, refuse stale targets, bonus once', () => {
+  const { applyAdReward } = load('game/domain/AdReward.js');
+  const req = (target, rewardSpec) => ({ requestVersion: 2, requestId: 'r', ownerProfile: 'prod', source: 'native', placementId: 'p', target, benefitKey: 'k', benefitSlot: 0, createdAtMs: 0, createdDay: 'd', rewardSpec });
+  const { save } = service();
+  const a = winAttempt(save, 6);
+  save.transact(d => assert.equal(applyAdReward(d, req({ kind: 'puzzle', attemptId: a.attemptId, mapId: 'm', levelId: 'l', contentVersion: 1 }, { kind: 'continue', bonusMoves: 3 })), true));
+  assert.deepEqual([save.data.attempt.extraMoves, save.data.attempt.continued], [3, true]);
+  save.transact(d => assert.equal(applyAdReward(d, req({ kind: 'puzzle', attemptId: 'old', mapId: 'm', levelId: 'l', contentVersion: 1 }, { kind: 'continue', bonusMoves: 3 })), false));
+  const bonus = req({ kind: 'settlement', settlementId: 's1' }, { kind: 'honey', amount: 40 });
+  const h = save.data.wallet.honey;
+  save.transact(d => applyAdReward(d, bonus));
+  save.transact(d => assert.equal(applyAdReward(d, bonus), false));
+  assert.equal(save.data.wallet.honey - h, 40);
+});

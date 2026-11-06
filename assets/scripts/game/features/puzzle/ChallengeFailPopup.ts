@@ -4,6 +4,7 @@ import { PopupBase } from '../../../framework/ui/PopupBase';
 import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
 import { adAvailable, watchAd } from '../../Ads';
+import { puzzleTarget } from '../../domain/AdReward';
 import { startAttempt } from '../../domain/Mainline';
 import { services } from '../../Services';
 import { PuzzlePage } from './PuzzlePage';
@@ -35,10 +36,11 @@ export class ChallengeFailPopup extends PopupBase<ChallengeFailArgs> {
     }
 
     onContinueAd(_event: unknown, _data: string): void {
-        void watchAd('challenge', draft => {
-            draft.attempt!.extraMoves += services.config.ads.continueMoves;
-            draft.attempt!.continued = true;
-        }).then(ok => { if (ok) this.reopen(); });
+        const attempt = services.save.data.attempt!;
+        const levelId = services.catalog.getMainline(attempt.levelNumber).id;
+        void watchAd({ placement: 'challenge', target: puzzleTarget(attempt.attemptId, levelId),
+            reward: { kind: 'continue', bonusMoves: services.config.ads.continueMoves }, benefitKey: 'continue:' + attempt.attemptId })
+            .then(ok => { if (ok) this.reopen(); });
     }
 
     onMap(_event: unknown, _data: string): void {

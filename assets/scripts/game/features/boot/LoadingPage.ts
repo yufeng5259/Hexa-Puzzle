@@ -11,6 +11,7 @@ import { SaveService } from '../../save/SaveService';
 import { services } from '../../Services';
 import { loadCollectionConfig } from '../../CollectionConfig';
 import { loadDailyConfig } from '../../DailyConfig';
+import { recoverAds } from '../../Ads';
 import { startGuide } from '../../Guide';
 import { acceptToday } from '../../Today';
 import { MapPage } from '../map/MapPage';
@@ -53,6 +54,7 @@ export class LoadingPage extends ViewBase {
         }
         this.setProgress(1);
         acceptToday();
+        void recoverAds();
         await services.ui.open(MapPage, {});
         if (services.save.data.attempt) await services.ui.open(ResumePopup);
         await startGuide();

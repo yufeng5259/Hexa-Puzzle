@@ -3,6 +3,7 @@ import { PopupBase } from '../../../framework/ui/PopupBase';
 import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
 import { adAvailable, watchAd } from '../../Ads';
+import { puzzleTarget } from '../../domain/AdReward';
 import { claimFreeHint, freeHintClaimed } from '../../domain/Supply';
 import { addHints } from '../../domain/Wallet';
 import { services } from '../../Services';
@@ -27,7 +28,10 @@ export class HintEmptyPopup extends PopupBase {
     }
 
     onHintAd(_event: unknown, _data: string): void {
-        void watchAd('hint', draft => addHints(draft, 1)).then(() => this.render());
+        const attempt = services.save.data.attempt!;
+        const levelId = services.catalog.getMainline(attempt.levelNumber).id;
+        void watchAd({ placement: 'hint', target: puzzleTarget(attempt.attemptId, levelId), reward: { kind: 'hints', amount: 1 },
+            benefitKey: 'hint:' + attempt.attemptId }).then(() => this.render());
     }
 
     onFreeHint(_event: unknown, _data: string): void {

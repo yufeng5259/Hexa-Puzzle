@@ -40,7 +40,9 @@ export class EndlessRevivePopup extends PopupBase<EndlessReviveArgs> {
         const cfg = services.config.endless;
         const plan = revivePlan(services.save.data.endless.run!, cfg)!;
         const revived = this.args.onRevived;
-        void watchAd('endless', draft => applyRevive(draft.endless.run!, cfg, plan)).then(ok => {
+        const runId = services.save.data.endless.run!.runId;
+        void watchAd({ placement: 'endless', target: { kind: 'endless', runId }, reward: { kind: 'endless-revive', clearCells: plan.clearCells },
+            benefitKey: 'revive:' + runId }).then(ok => {
             if (!ok) return;
             this.close();
             revived();

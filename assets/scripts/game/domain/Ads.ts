@@ -20,15 +20,18 @@ export function adBlock(save: Readonly<SaveData>, cfg: Ads, placement: string, t
     return null;
 }
 
-/** Count one rewarded success; call inside the same transaction that grants the reward. */
-export function recordAd(draft: SaveData, cfg: Ads, placement: string, today: string, nowSeconds: number): void {
-    const block = adBlock(draft, cfg, placement, today, nowSeconds);
-    if (block) throw new Error(`Ad ${placement} not available: ${block}`);
-    if (draft.ads.day !== today) draft.ads = { day: today, total: 0, lastAt: draft.ads.lastAt, daily: {} };
+/**
+ * Count one rewarded success, inside the transaction that grants it. Availability was checked before the ad was
+ * shown, so a watched ad is never refused here; it counts toward the day the request was made (D08).
+ */
+export function recordAd(draft: SaveData, cfg: Ads, placement: string, requestDay: string, nowSeconds: number): void {
+    // A receipt recovered after the day changed belongs to a past day: it no longer limits today.
+    if (requestDay < draft.ads.day) return;
+    if (draft.ads.day !== requestDay) draft.ads = { day: requestDay, total: 0, lastAt: draft.ads.lastAt, daily: {} };
     draft.ads.total++;
     draft.ads.lastAt = nowSeconds;
     draft.ads.daily[placement] = (draft.ads.daily[placement] ?? 0) + 1;
-    if (cfg.perAttempt[placement] !== undefined) draft.attempt!.ads[placement] = (draft.attempt!.ads[placement] ?? 0) + 1;
+    if (cfg.perAttempt[placement] !== undefined && draft.attempt) draft.attempt.ads[placement] = (draft.attempt.ads[placement] ?? 0) + 1;
 }
 
 /** Settlement bonus (F056): half of the base reward, capped. */

@@ -42,7 +42,9 @@ export class SupplyPopup extends PopupBase {
     }
 
     onVideo(_event: unknown, _data: string): void {
-        void watchAd('supply', draft => addHoney(draft, services.config.ads.supplyHoney)).then(() => this.render());
+        const day = today();
+        void watchAd({ placement: 'supply', target: { kind: 'supply', dayKey: day }, reward: { kind: 'honey', amount: services.config.ads.supplyHoney },
+            benefitKey: 'supply:' + day }).then(() => this.render());
     }
 
     private render(): void {
