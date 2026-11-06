@@ -67,6 +67,9 @@ function findLayer(spec, name, index, from) {
   return matches[index ?? 0];
 }
 
+/** Placeholder look for text without a design (listed in 缺少美术设计.md for later art). */
+const NO_DESIGN_TEXT = { color: [255, 255, 255], outline: [0, 0, 0], outlineWidth: 2 };
+
 // ---------- resolve spec nodes to rects ----------
 function textStyle(t) {
   return { text: t.localization_key ? '' : String(t.text ?? ''), size: t.font_size, color: t.color_rgb, bold: t.weight === 'bold', align: t.align,
@@ -100,8 +103,10 @@ function resolve(spec, n) {
       if (!n.rect && !children.length) throw new Error(`${spec.name}: empty group ${n.name} needs a rect`);
       return [{ kind: 'group', name: n.name, rect: n.rect ?? union(children.map(c => c.rect)), children, opts: n }];
     }
-    case 'sprite': return [{ kind: 'image', name: n.name, rect: n.rect, file: n.file, opacity: n.opacity ?? 1, opts: n }];
-    case 'label': return [{ kind: 'text', name: n.name, rect: n.rect, key: n.key, style: { text: n.key ? '' : (n.text ?? ''), ...n.style }, sample: n.text, opts: n }];
+    case 'sprite': return [{ kind: 'image', name: n.name, rect: n.rect, file: n.file, opacity: n.opacity ?? 1, devPlaced: true, opts: n }];
+    // Text the design does not have: one placeholder style (white, black outline); only size/bold/align/lines come from the spec.
+    case 'label': return [{ kind: 'text', name: n.name, rect: n.rect, key: n.key, designless: true,
+      style: { text: n.key ? '' : (n.text ?? ''), size: n.style.size, bold: n.style.bold, align: n.style.align, lines: n.style.lines, ...NO_DESIGN_TEXT }, sample: n.text, opts: n }];
     case 'slot': return [{ kind: 'slot', name: n.name, rect: n.rect, children: (n.children ?? []).flatMap(c => resolve(spec, c)), opts: n }];
     case 'list': return [{ kind: 'list', name: n.name, rect: n.rect, cell: n.cell, opts: n }];
     default: throw new Error(`${spec.name}: unknown node type ${n.t}`);
@@ -376,6 +381,65 @@ function docFor(spec) {
   return out.join('\n');
 }
 
+// ---------- missing design report ----------
+const GAPS_DOC = path.join(PROJECT, 'docs/开发方案/缺少美术设计.md');
+function gapsFor(spec) {
+  const out = { texts: [], images: [], moved: [] };
+  const visit = (n, trail) => {
+    const p = trail ? trail + '/' + n.name : n.name;
+    const o = n.opts ?? {};
+    if (n.designless) out.texts.push(`| ${spec.name} | ${p} | ${n.key ? `${n.key}「${(I18N[n.key] ?? '').replace(/\n/g, ' ')}」` : `数值「${n.style.text}」`} | ${o.note ?? ''} |`);
+    if (n.devPlaced) out.images.push({ asset: path.basename(n.file, '.png').replace(/_[0-9a-f]{10}$/, ''), where: `${spec.name} ${p.split('/').slice(-2).join('/')}`, note: o.note ?? '' });
+    if (!n.devPlaced && !n.designless && o.rect && (n.kind === 'image' || n.kind === 'text')) out.moved.push(`| ${spec.name} | ${p} | ${o.note ?? ''} |`);
+    for (const c of n.children ?? []) visit(c, p);
+  };
+  for (const n of [...(spec.backdrop ?? []), ...(spec.children ?? [])].flatMap(c => resolve(spec, c))) visit(n, '');
+  return out;
+}
+function imageRows(images) {
+  const by = new Map();
+  for (const i of images) by.set(i.asset, [...(by.get(i.asset) ?? []), i]);
+  return [...by].sort((x, y) => y[1].length - x[1].length).map(([asset, list]) => {
+    const where = [...new Set(list.map(i => i.where))];
+    const notes = [...new Set(list.map(i => i.note).filter(Boolean))];
+    return `| ${asset} | ${list.length} | ${where.slice(0, 4).join('、')}${where.length > 4 ? ' …' : ''} | ${notes.join('；')} |`;
+  });
+}
+
+function writeGaps() {
+  const all = { texts: [], images: [], moved: [] };
+  for (const spec of specs) { const g = gapsFor(spec); for (const k of Object.keys(all)) all[k].push(...g[k]); }
+  const auto = `<!-- auto:start 以下由 node tools/ui-gen/gen.mjs 生成，不要手改 -->
+
+## A. 设计图没有、开发补的文字（${all.texts.length} 处）
+
+统一用占位样式：白字黑描边，字号按所在位置估计。
+
+| Prefab | 节点 | 文案 | 备注 |
+|---|---|---|---|
+${all.texts.join('\n')}
+
+## B. 由开发摆放的图片（${imageRows(all.images).length} 种素材，${all.images.length} 处）
+
+设计图里没有这个位置，或同一素材被开发复制到其他状态、格子上。R- 开头是补充美术，位置由开发定。
+
+| 素材 | 次数 | 位置（示例） | 备注 |
+|---|---|---|---|
+${imageRows(all.images).join('\n')}
+
+## C. 取自设计图、但位置或尺寸由开发改过的节点（${all.moved.length} 处）
+
+| Prefab | 节点 | 备注 |
+|---|---|---|
+${all.moved.join('\n')}
+
+<!-- auto:end -->`;
+  const old = fs.existsSync(GAPS_DOC) ? fs.readFileSync(GAPS_DOC, 'utf8') : '';
+  const i = old.indexOf('<!-- auto:start'), j = old.indexOf('<!-- auto:end -->');
+  if (i < 0 || j < 0) throw new Error('缺少美术设计.md needs the auto markers');
+  writeFile(GAPS_DOC, old.slice(0, i) + auto + old.slice(j + '<!-- auto:end -->'.length));
+}
+
 // ---------- run ----------
 const problems = [];
 const sections = new Map();
@@ -417,6 +481,7 @@ const header = `# Prefab 结构
 
 `;
 const toc = groups.map(g => `- [${g}](#${g})：${sections.get(g).length} 个`).join('\n');
+if (!onlyDir) writeGaps();
 writeFile(onlyDir ? path.join(PROJECT, '../tmp/hexa-dev', `doc-${onlyDir}.md`) : DOC, header + toc + '\n\n' + groups.map(g => `## ${g}\n\n${sections.get(g).join('\n')}`).join('\n'));
 console.log(`${specs.length} specs; doc written${writePrefabs ? '; prefabs written' : ''}`);
 if (problems.length) {
