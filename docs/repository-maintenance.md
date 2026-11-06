@@ -18,6 +18,28 @@
 
 Git 根是 Project。使用 Creator 3.8.8 导入工程会生成 library/temp，不提交。运行所需输入只有本仓库的 `arts/`（美术来源）和 `assets/`；框架参考工程 `../bighero2415` 只在复制代码时读取，运行与构建不依赖它。
 
+## 换电脑 / 第二台电脑开发（2026-11-06）
+
+仓库里只提交源文件：`assets/`（含生成的 Prefab、导入后的图片及 .meta）、`settings/`、`native/`、`build-templates/`、`arts/`（不含 PSD）、`docs/`、`tools/` 及 `package.json` / `package-lock.json`。以下是过程文件，**不提交**，在本机重新生成：
+
+| 目录 | 内容 | 如何重新生成 |
+|---|---|---|
+| `library/` `temp/` `profiles/` `.creator/` | Creator 缓存与本机设置 | 用 Creator 3.8.8 打开工程自动生成 |
+| `build/` | 构建产物（web-mobile、android） | Creator 构建 |
+| `node_modules/` `tools/smoke/node_modules/` | npm 依赖 | `npm i`；`cd tools/smoke && npm i` |
+| `.test-build/` | 单元测试编译输出 | `npm test` |
+| 仓库外 `../tmp/hexa-dev/` | 截图、日志、构建配置等临时文件 | 脚本自动创建 |
+
+新电脑步骤：
+
+1. 安装 Creator 3.8.8（默认路径 `C:/ProgramData/cocos/editors/Creator/3.8.8`；类型检查 `tools/tsconfig.json` 引用了这个路径下的 `cc.d.ts`，路径不同需同步修改）、Node 22、Chrome。
+2. `git clone` 后在仓库根目录执行 `npm i`（安装 sharp、typescript），`cd tools/smoke && npm i`（安装 puppeteer-core）。
+3. 用 Creator 打开工程一次，生成 `library/`。
+4. 校验：`npm run typecheck`、`npm test`；构建 web-mobile 后 `node tools/smoke/smoke.mjs build/web-mobile <输出目录>`、`node tools/smoke/flows.mjs build/web-mobile`。
+5. Android：在 Creator 里按原设置构建一次 android（生成 `build/android/cocos.compile.config.json`），之后用 `bash tools/android/deploy.sh` 出调试包并安装到连接的手机。脚本会修正生成工程名里的冒号，并让 Gradle 不走本机代理；Android Studio 的 JDK 路径不同时设置环境变量 `JAVA_HOME_ANDROID`。
+
+生成文件的规则：Prefab、结构文档、缺少美术设计表由 `node tools/ui-gen/gen.mjs --prefab` 生成；图片由 `node tools/art-import/import.mjs` 导入；文本表由 `node tools/i18n/build.mjs` 合并。生成结果都提交，两台电脑不需要重新生成即可直接使用；改了 spec、美术或文案后重新运行对应脚本并一起提交。
+
 ## 开发约束
 
 2026-11-05 起以 [开发方案](开发方案/README.md) 和 [开发约束](开发方案/开发约束.md) 为准。下文“本次核验记录”与“后续提交补齐”是历史记录，其中提到的旧工具、旧测试和 `../prototype` 输入已随旧工程删除。

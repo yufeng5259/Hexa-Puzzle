@@ -7,5 +7,9 @@
   "scripts": {
     "typecheck": "tsc -p tools/tsconfig.json",
     "test": "tsc -p tools/tests/tsconfig.json && node --test \"tools/tests/*.test.mjs\""
+  },
+  "devDependencies": {
+    "sharp": "0.33.5",
+    "typescript": "5.4.5"
   }
 }
