@@ -1,0 +1,11 @@
+import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import puppeteer from 'puppeteer-core';
+const [buildDir, script] = process.argv.slice(2);
+const server = http.createServer((req, res) => { const f = path.join(buildDir, decodeURIComponent(req.url.split('?')[0]).replace(/^\/$/, '/index.html')); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); res.end(); return; } fs.createReadStream(f).pipe(res); }).listen(0);
+const browser = await puppeteer.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: 'new', args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const page = await browser.newPage(); await page.setViewport({ width: 390, height: 844 });
+page.on('console', m => { if (m.type() === 'error') console.log('[error]', m.text().slice(0, 300)); });
+await page.goto(`http://localhost:${server.address().port}/index.html`);
+await page.waitForFunction(() => window.hexa && hexa.ui && hexa.ui.top(0), { timeout: 30000 });
+await new Promise(r => setTimeout(r, 1500));
+console.log(JSON.stringify(await page.evaluate(fs.readFileSync(script, 'utf8')), null, 1));
+await browser.close(); server.close();

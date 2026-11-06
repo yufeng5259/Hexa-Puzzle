@@ -1,0 +1,6 @@
+{
+  "name": "hexa-smoke",
+  "private": true,
+  "description": "Headless Chrome checks of the web-mobile debug build. Setup: npm i (in this folder). Run: node smoke.mjs <repo>/build/web-mobile <outDir> [ViewA,ViewB]",
+  "dependencies": { "puppeteer-core": "^23.0.0" }
+}

@@ -39,11 +39,11 @@ const built = (save: Readonly<SaveData>): number => save.garden.buildings.reduce
 
 const STEPS: StepRule[] = [
     { id: 'ftue.1', context: 'map', done: s => marked(s, 'ftue.1') || built(s) > 0 },
-    { id: 'ftue.2', context: 'garden', done: s => built(s) >= 1 },
-    { id: 'ftue.3', context: 'map', done: s => isCleared(s, 1) || s.attempt?.levelNumber === 1 },
-    { id: 'ftue.4', context: 'puzzle', done: s => isCleared(s, 1) },
+    { id: 'ftue.2', context: 'garden', done: s => marked(s, 'ftue.2') || built(s) >= 1 },
+    { id: 'ftue.3', context: 'map', done: s => marked(s, 'ftue.3') || isCleared(s, 1) || s.attempt?.levelNumber === 1 },
+    { id: 'ftue.4', context: 'puzzle', done: s => marked(s, 'ftue.4') || isCleared(s, 1) },
     { id: 'ftue.5', context: 'win', done: s => marked(s, 'ftue.5') || built(s) >= 2 },
-    { id: 'ftue.6', context: 'garden', done: s => built(s) >= 2 },
+    { id: 'ftue.6', context: 'garden', done: s => marked(s, 'ftue.6') || built(s) >= 2 },
     { id: 'ftue.7', context: 'map', done: s => marked(s, 'ftue.7') },
     { id: 'endless.1', context: 'endless', done: s => marked(s, 'endless.1') },
 ];
