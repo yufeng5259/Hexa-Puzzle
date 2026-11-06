@@ -12,9 +12,14 @@ export class SettingRow extends Component {
     onToggled: (id: string) => void = () => {};
     private onX = 0;
     private offX = 0;
+    private measured = false;
 
-    /** The prefab places the knob in the "on" position; "off" mirrors its margin at the left end of the base. */
-    onLoad(): void {
+    /**
+     * The prefab places the knob in the "on" position; "off" mirrors its margin at the left end of the base.
+     * Measured on the first show, before the knob moves: the page refreshes rows before their onLoad runs.
+     */
+    private measure(): void {
+        this.measured = true;
         const base = this.baseOn.getComponent(UITransform)!.width, knob = this.knob.getComponent(UITransform)!.width;
         const baseX = this.baseOn.position.x;
         this.onX = this.knob.position.x;
@@ -23,6 +28,7 @@ export class SettingRow extends Component {
     }
 
     show(on: boolean): void {
+        if (!this.measured) this.measure();
         this.baseOn.active = on;
         this.baseOff.active = !on;
         this.knob.setPosition(on ? this.onX : this.offX, this.knob.position.y);

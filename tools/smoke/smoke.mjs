@@ -109,6 +109,18 @@ await page.evaluate(() => {
     walk(view.node, view.node.name);
     return out;
   };
+  // Visible text that is empty or still has an unfilled {param} (all open views).
+  window.__texts = () => {
+    const bad = [];
+    const walk = (node, p) => {
+      if (!node.activeInHierarchy) return;
+      const label = node.getComponent(cc.Label);
+      if (label && (!label.string.trim() || /{w+}/.test(label.string))) bad.push(p + ' = "' + label.string + '"');
+      for (const c of node.children) walk(c, p + '/' + c.name);
+    };
+    for (const r of hexa.ui.records.values()) if (r.view && r.view.node.activeInHierarchy) walk(r.view.node, r.view.node.name);
+    return bad;
+  };
   window.__state = () => ({ block: hexa.ui.root.block.active, page: hexa.ui.top(0)?.constructor.name ?? null, popup: hexa.ui.top(1)?.constructor.name ?? null });
 });
 
@@ -125,6 +137,7 @@ for (const c of CASES) {
   try { await prepare(); } catch (e) { errors.push('[prepare] ' + e.message.slice(0, 200)); }
   const opened = await page.evaluate(`(() => { const v = [...hexa.ui.records.values()].map(r => r.view).find(v => v && v.constructor.name === '${c.view}'); return v ? window.__buttons(v).map(b => ({ path: b.path, handler: b.handler, data: b.data })) : null; })()`);
   await page.screenshot({ path: path.join(outDir, name.replace('#', '_') + '.png') });
+  for (const t of await page.evaluate('window.__texts()')) errors.push('[text] ' + t);
   const entry = { view: name, openErrors: errors, buttons: [] };
   report.push(entry);
   if (!opened) { entry.openErrors.push('view did not open'); console.log(name, 'DID NOT OPEN', errors); continue; }
@@ -139,10 +152,12 @@ for (const c of CASES) {
     const state = await page.evaluate('window.__state()');
     const result = { ...opened[i], errors, after: state };
     if (state.block) result.errors.push('INPUT STUCK BLOCKED');
+    for (const t of await page.evaluate('window.__texts()')) result.errors.push('[text] ' + t);
     entry.buttons.push(result);
   }
   const bad = entry.openErrors.length + entry.buttons.filter(b => b.errors.length).length;
   console.log(`${name}: ${opened.length} buttons, ${bad ? bad + ' problems' : 'ok'}`);
+  for (const e of entry.openErrors) console.log('    [open]', e.slice(0, 300));
   for (const b of entry.buttons) if (b.errors.length) console.log('   ', b.handler, b.data, '→', b.errors.join(' || ').slice(0, 300));
   fs.writeFileSync(path.join(outDir, 'report.json'), JSON.stringify(report, null, 2));
 }

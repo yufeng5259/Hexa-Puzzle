@@ -12,14 +12,14 @@ export class OutfitCell extends Component {
     @property(LocalizedLabel) statusLabel: LocalizedLabel = null!;
 
     onPick: () => void = () => {};
-    /** The prefab-authored status key of this cell names how it is obtained ("未拥有 签到第{count}天" …). */
-    sourceKey = '';
-
-    onLoad(): void {
-        this.sourceKey = this.statusLabel.key;
-    }
+    /**
+     * The prefab-authored status key names how the outfit is obtained ("未拥有 签到第{count}天" …).
+     * Captured on the first show, before setKey replaces it: the page refreshes cells before their onLoad runs.
+     */
+    private sourceKey = '';
 
     show(using: boolean, owned: boolean, usingKey: string, sourceParams: TextParams): void {
+        if (!this.sourceKey) this.sourceKey = this.statusLabel.key;
         this.usingNode.active = using;
         this.lockNode.active = !owned;
         if (using) this.statusLabel.setKey(usingKey);
