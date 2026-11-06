@@ -4,6 +4,7 @@ import { ViewBase } from '../../../framework/ui/ViewBase';
 import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
 import { claimSignin, dailyRules, signinClaimedCount, startDay } from '../../domain/Daily';
+import { pop, stopFx } from '../../fx/Fx';
 import { services } from '../../Services';
 import { today } from '../../Today';
 import { SigninCell } from './SigninCell';
@@ -30,7 +31,12 @@ export class SigninPage extends ViewBase {
     }
 
     onClaim(_event: unknown, _data: string): void {
-        claimSignin(services.save, today());
+        const day = claimSignin(services.save, today());
+        pop(this.days[day - 1].node, 1.15);
+    }
+
+    protected onClose(): void {
+        for (const cell of this.days) stopFx(cell.node);
     }
 
     private render(): void {

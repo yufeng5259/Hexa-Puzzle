@@ -12,6 +12,7 @@ import { services } from '../../Services';
 import { loadCollectionConfig } from '../../CollectionConfig';
 import { loadDailyConfig } from '../../DailyConfig';
 import { recoverAds } from '../../Ads';
+import { startAudio } from '../../Audio';
 import { startGuide } from '../../Guide';
 import { acceptToday } from '../../Today';
 import { MapPage } from '../map/MapPage';
@@ -57,6 +58,7 @@ export class LoadingPage extends ViewBase {
         void recoverAds();
         await services.ui.open(MapPage, {});
         if (services.save.data.attempt) await services.ui.open(ResumePopup);
+        await startAudio();
         await startGuide();
         this.close();
     }

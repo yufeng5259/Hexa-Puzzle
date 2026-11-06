@@ -5,6 +5,7 @@ import { PopupBase } from '../../../framework/ui/PopupBase';
 import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
 import { completeGuide, GuideStep, skipGuide } from '../../Guide';
+import { pulse, slide, stopFx } from '../../fx/Fx';
 
 const { ccclass, property } = _decorator;
 
@@ -53,14 +54,24 @@ export class GuideOverlay extends PopupBase<GuideArgs> {
         const from = center(this.args.authoredTip), to = center(step.tip);
         this.tip.setPosition(this.tipOrigin.x + to.x - from.x, this.tipOrigin.y + to.y - from.y);
         const finger = center(step.finger);
+        stopFx(this.finger);
         this.finger.setPosition(finger.x, finger.y);
         this.arrow.active = !!step.arrow;
         if (step.arrow) {
             const arrow = center(step.arrow);
             this.arrow.setPosition(arrow.x, arrow.y);
         }
+        // FX-07: tap pulse, or a slide from the tray toward the board on drag steps.
+        if (step.arrow) {
+            const arrow = center(step.arrow);
+            slide(this.finger, (arrow.x - finger.x) * 1.6, (arrow.y - finger.y) * 1.6);
+        } else pulse(this.finger);
         this.unscheduleAllCallbacks();
         if (this.args.autoCompleteSeconds > 0) this.scheduleOnce(() => completeGuide(this.args.id), this.args.autoCompleteSeconds);
+    }
+
+    protected onClose(): void {
+        stopFx(this.finger);
     }
 
     onSkip(_event: unknown, _data: string): void {

@@ -1,3 +1,4 @@
+import { AudioService } from '../framework/audio/AudioService';
 import { EventBus } from '../framework/core/EventBus';
 import { I18n } from '../framework/i18n/I18n';
 import { IPlatform } from '../framework/platform/Platform';
@@ -17,6 +18,7 @@ export interface Services {
     save: SaveService;
     config: EconomyConfig;
     catalog: LevelCatalog;
+    audio: AudioService;
 }
 
 export const services = {} as Services;

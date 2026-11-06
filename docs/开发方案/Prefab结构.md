@@ -153,14 +153,14 @@ GuideOverlay  [GuideOverlay]
 ├─ Backdrop  @backdrop  不拦截输入
 └─ Content  @content
    ├─ Masks  
-   │  ├─ Mask1  Sprite(引导聚光遮罩)  @masks[]
-   │  ├─ Mask2  Sprite(引导聚光遮罩)  @masks[]  默认隐藏
-   │  ├─ Mask3  Sprite(引导聚光遮罩)  @masks[]  默认隐藏
-   │  ├─ Mask4  Sprite(引导聚光遮罩)  @masks[]  默认隐藏
-   │  ├─ Mask5  Sprite(引导聚光遮罩)  @masks[]  默认隐藏
-   │  ├─ Mask6  Sprite(引导聚光遮罩)  @masks[]  默认隐藏
-   │  ├─ Mask7  Sprite(引导聚光遮罩)  @masks[]  默认隐藏
-   │  └─ Mask8  Sprite(引导聚光遮罩)  @masks[]  默认隐藏
+   │  ├─ Mask1  Sprite(引导聚光遮罩)  @masks[]  不放大：聚光孔需对准 1:1 的界面
+   │  ├─ Mask2  Sprite(引导聚光遮罩)  @masks[]  默认隐藏  不放大：聚光孔需对准 1:1 的界面
+   │  ├─ Mask3  Sprite(引导聚光遮罩)  @masks[]  默认隐藏  不放大：聚光孔需对准 1:1 的界面
+   │  ├─ Mask4  Sprite(引导聚光遮罩)  @masks[]  默认隐藏  不放大：聚光孔需对准 1:1 的界面
+   │  ├─ Mask5  Sprite(引导聚光遮罩)  @masks[]  默认隐藏  不放大：聚光孔需对准 1:1 的界面
+   │  ├─ Mask6  Sprite(引导聚光遮罩)  @masks[]  默认隐藏  不放大：聚光孔需对准 1:1 的界面
+   │  ├─ Mask7  Sprite(引导聚光遮罩)  @masks[]  默认隐藏  不放大：聚光孔需对准 1:1 的界面
+   │  └─ Mask8  Sprite(引导聚光遮罩)  @masks[]  默认隐藏  不放大：聚光孔需对准 1:1 的界面
    ├─ DragGhost  @dragGhost  默认隐藏
    │  ├─ 整块拖影_格0  Sprite(金色无花母件)
    │  ├─ 整块拖影_格1  Sprite(金色无花母件)
@@ -1148,7 +1148,7 @@ PuzzleWinPopup  [PuzzleWinPopup]
    ├─ Level  Label「第 5 关」 key=block.30171313d141.text.fbeb832f1681  @levelLabel
    ├─ Reward  
    │  ├─ Card  Sprite(奖励空白底板)
-   │  ├─ Icon  Sprite(蜂蜜货币)
+   │  ├─ Icon  Sprite(蜂蜜货币)  @rewardIcon
    │  └─ Amount  Label「+80」  @rewardLabel
    ├─ Best  Label「历史最佳 3星」 key=block.5a183ef06031.text.dd7c87d6fe9c  @bestLabel  默认隐藏
    ├─ Claimed  Label「正常奖励已到账」 key=block.30171313d141.text.e9f9c74a6be3
@@ -1159,6 +1159,19 @@ PuzzleWinPopup  [PuzzleWinPopup]
    │  ├─ Bg  Sprite(再来一次按钮)
    │  └─ Text  Label「视频加领 +40」 key=block.30171313d141.text.be73b533883d  @bonusAdLabel
    ├─ CheerBee  Sprite(欢呼蜜蜂)
+   ├─ Burst  FX-01 庆祝粒子（R-21 粒子图，补间动画）
+   │  ├─ P1  Sprite(R-21_粒子_星芒)  @particles[]  默认隐藏
+   │  ├─ P2  Sprite(R-21_粒子_纸屑_1)  @particles[]  默认隐藏
+   │  ├─ P3  Sprite(R-21_粒子_纸屑_2)  @particles[]  默认隐藏
+   │  ├─ P4  Sprite(R-21_粒子_纸屑_3)  @particles[]  默认隐藏
+   │  ├─ P5  Sprite(R-21_粒子_花瓣)  @particles[]  默认隐藏
+   │  ├─ P6  Sprite(R-21_粒子_光点)  @particles[]  默认隐藏
+   │  ├─ P7  Sprite(R-21_粒子_星芒)  @particles[]  默认隐藏
+   │  ├─ P8  Sprite(R-21_粒子_纸屑_1)  @particles[]  默认隐藏
+   │  ├─ P9  Sprite(R-21_粒子_纸屑_2)  @particles[]  默认隐藏
+   │  ├─ P10  Sprite(R-21_粒子_纸屑_3)  @particles[]  默认隐藏
+   │  ├─ P11  Sprite(R-21_粒子_花瓣)  @particles[]  默认隐藏
+   │  └─ P12  Sprite(R-21_粒子_光点)  @particles[]  默认隐藏
    └─ Bottom  Widget:bottom
       ├─ BtnBack  Sprite(返回按钮)  → onBack
       └─ BtnHome  Sprite(主页按钮)  → onHome
@@ -1765,7 +1778,7 @@ EndlessResultPopup  [EndlessResultPopup]
    ├─ Best  Label「本机最高 3,450」 key=block.6fd5045cc24d.text.3f68775fb6ca  @bestLabel
    ├─ Reward  
    │  ├─ Card  Sprite(任务空白行_1)
-   │  ├─ Icon  Sprite(蜂蜜货币)
+   │  ├─ Icon  Sprite(蜂蜜货币)  @rewardIcon
    │  ├─ Amount  Label「+120」  @rewardLabel
    │  └─ Claimed  Label「正常奖励已到账」 key=block.6fd5045cc24d.text.e9f9c74a6be3
    ├─ BtnAgain  → onAgain

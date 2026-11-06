@@ -9,6 +9,8 @@ export interface UIViewMeta {
     readonly queue: UIQueue;
     /** 'scale' for popups, 'fade' for pages, 'none' for instant. */
     readonly transition: 'scale' | 'fade' | 'none';
+    /** Background music key played while this page is the top page. */
+    readonly bgm?: string;
 }
 
 const metas = new Map<Function, UIViewMeta>();

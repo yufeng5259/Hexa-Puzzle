@@ -7,6 +7,8 @@ import { completeGuide } from '../../Guide';
 import { boardCells, canUndo, fits, harvest, hasMove, place, PlacementResult, projectedHarvest, undo } from '../../domain/Endless';
 import { HexCell } from '../../domain/puzzle/LevelDefinition';
 import { fitCells, insideHex } from '../../domain/puzzle/PuzzleLayout';
+import { placeFeedback } from '../../Audio';
+import { pop, stopFx } from '../../fx/Fx';
 import { services } from '../../Services';
 import { today } from '../../Today';
 import { HexBoard, PieceShape } from '../board/HexBoard';
@@ -34,7 +36,7 @@ interface TrayPiece {
 
 /** 无尽对局（无尽模式 / T13-01 底页，F030–F034）：37 格棋盘、3 块候选、三轴消除、撤回、收获。 */
 @ccclass('EndlessPage')
-@uiView({ bundle: 'endless', path: 'prefabs/pages/EndlessPage', layer: UILayer.Page, queue: UIQueue.Page, transition: 'fade' })
+@uiView({ bundle: 'endless', path: 'prefabs/pages/EndlessPage', layer: UILayer.Page, queue: UIQueue.Page, transition: 'fade', bgm: 'endless' })
 export class EndlessPage extends ViewBase {
     @property(Label) scoreLabel: Label = null!;
     @property(Label) bestLabel: Label = null!;
@@ -76,6 +78,7 @@ export class EndlessPage extends ViewBase {
     }
 
     protected onClose(): void {
+        stopFx(this.comboRoot);
         this.unschedule(this.hideCombo);
         this.clearShapes();
         this.board.clear();
@@ -171,6 +174,8 @@ export class EndlessPage extends ViewBase {
         this.gainLabel.node.active = true;
         this.gainLabel.string = '+' + (result.cellScore + result.lineScore + result.comboScore);
         this.comboRoot.active = true;
+        services.audio.play(combo >= 2 ? 'combo' : 'clear');
+        pop(this.comboRoot, 1.3);
         this.unschedule(this.hideCombo);
         this.scheduleOnce(this.hideCombo, COMBO_SECONDS);
     }
@@ -213,6 +218,7 @@ export class EndlessPage extends ViewBase {
         const run = services.save.data.endless.run!;
         const piece = run.tray[item.slot]!;
         if (!fits(run, services.config.endless, piece, anchor)) {
+            if (this.overBoard(this.scratch)) services.audio.play('invalid');
             this.toTray(item);
             return;
         }
@@ -226,9 +232,16 @@ export class EndlessPage extends ViewBase {
             recordActivity(draft, { kind: 'endlessPlace' }, day);
             return placed;
         });
+        placeFeedback();
         this.render();
         this.showCombo(result, services.save.data.endless.run!.combo);
         this.checkStuck();
+    }
+
+    private overBoard(ui: Vec3): boolean {
+        const transform = this.board.node.getComponent(UITransform)!;
+        const p = transform.convertToNodeSpaceAR(ui);
+        return Math.abs(p.x) <= transform.width / 2 && Math.abs(p.y) <= transform.height / 2;
     }
 
     private cancelDrag(): void {

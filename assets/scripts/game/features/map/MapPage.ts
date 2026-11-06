@@ -35,7 +35,7 @@ const DESIGN_CURRENT = 3;
 
 /** 主线地图（唯一主界面，12 页 × 8 关，F007/F008）。 */
 @ccclass('MapPage')
-@uiView({ bundle: 'puzzle', path: 'prefabs/pages/MapPage', layer: UILayer.Page, queue: UIQueue.Page, transition: 'fade' })
+@uiView({ bundle: 'puzzle', path: 'prefabs/pages/MapPage', layer: UILayer.Page, queue: UIQueue.Page, transition: 'fade', bgm: 'map' })
 export class MapPage extends ViewBase<MapPageArgs> {
     @property(Node) currentGlow: Node = null!;
     @property([LevelNode]) levels: LevelNode[] = [];

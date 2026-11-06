@@ -74,7 +74,7 @@ export default [
       layer('本局得分标签', { as: 'ScoreCaption' }),
       layer('本局分数', { as: 'Score', bind: 'scoreLabel' }),
       layer('本机最高', { as: 'Best', bind: 'bestLabel' }),
-      group('Reward', [layer('花蜜奖励卡', { as: 'Card' }), layer('honey', { as: 'Icon' }), layer('实际花蜜', { as: 'Amount', bind: 'rewardLabel' }), layer('已到账', { as: 'Claimed' })]),
+      group('Reward', [layer('花蜜奖励卡', { as: 'Card' }), layer('honey', { as: 'Icon', bind: 'rewardIcon' }), layer('实际花蜜', { as: 'Amount', bind: 'rewardLabel' }), layer('已到账', { as: 'Claimed' })]),
       group('BtnAgain', [layer('再来一局_原生按钮', { as: 'Bg' }), layer('再来一局_文案', { as: 'Text' })], { button: 'onAgain' }),
       group('BtnBonusAd', [layer('视频加领 +60_原生按钮', { as: 'Bg' }), layer('视频加领 +60_文案', { as: 'Text', bind: 'bonusAdLabel' })], { button: 'onBonusAd', bind: ['bonusAdButton', 'Node'] }),
       layer('纪录庆祝小蜜', { as: 'CheerBee' }),

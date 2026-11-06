@@ -1,8 +1,8 @@
-import { input, Input, instantiate, KeyCode, Prefab, EventKeyboard } from 'cc';
+import { input, Input, instantiate, KeyCode, Prefab, EventKeyboard, Node } from 'cc';
 import { debugLog } from '../Log';
 import { ResLoader } from '../res/ResLoader';
 import { playHide, playShow, stopTransition } from './Transitions';
-import { UIQueue } from './UILayer';
+import { UILayer, UIQueue } from './UILayer';
 import { UIRoot } from './UIRoot';
 import { viewMeta } from './uiView';
 import { ViewBase, ViewHost } from './ViewBase';
@@ -30,6 +30,8 @@ export class UIManager implements ViewHost {
     private readonly busy = new Set<ViewBase<any>>();
     private readonly listeners = new Set<() => void>();
     private loadingCount = 0;
+    /** Called when a view starts showing (page music, popup sound); set by the app. */
+    onViewShown: ((view: ViewBase<any>) => void) | null = null;
 
     constructor(private readonly root: UIRoot, private readonly loader: ResLoader) {
         input.on(Input.EventType.KEY_DOWN, this.onKey, this);
@@ -59,18 +61,20 @@ export class UIManager implements ViewHost {
     }
 
     close(view: ViewBase<any>): void {
-        if (!view.isOpened) return;
+        // Not open, or already closing (its record is dropped when the close animation starts).
+        if (!view.isOpened || this.records.get(view.constructor)?.view !== view) return;
         debugLog('UI', 'close', view.constructor.name);
         const stack = view.meta.queue === UIQueue.None ? null : this.stacks[view.meta.queue];
         const wasTop = !!stack && stack[stack.length - 1] === view;
         view._setShowed(false);
         this.setBusy(view, true);
+        // Forget the instance now: an open() during the close animation creates a fresh one instead of reviving this one.
+        const record = this.records.get(view.constructor)!;
+        this.records.delete(view.constructor);
         playHide(view, () => {
             view.onHideFinish();
             view._close();
-            const record = this.records.get(view.constructor)!;
             record.prefab!.decRef();
-            this.records.delete(view.constructor);
             view.node.destroy();
             if (stack) {
                 stack.splice(stack.indexOf(view), 1);
@@ -99,6 +103,11 @@ export class UIManager implements ViewHost {
 /** The open instance of a view class, or null. */
     find<V extends ViewBase<any>>(type: ViewClass<V>): V | null {
         return (this.records.get(type)?.view as V | undefined) ?? null;
+    }
+
+    /** Root node of a layer, for transient effects (e.g. flying icons on the toast layer). */
+    layerRoot(layer: UILayer): Node {
+        return this.root.layers[layer];
     }
 
     top(queue: UIQueue): ViewBase<any> | null {
@@ -151,6 +160,7 @@ export class UIManager implements ViewHost {
     private show(view: ViewBase<any>): void {
         this.setBusy(view, true);
         view._setShowed(true);
+        if (this.onViewShown) this.onViewShown(view);
         playShow(view, () => {
             this.setBusy(view, false);
             view.onShowFinish();

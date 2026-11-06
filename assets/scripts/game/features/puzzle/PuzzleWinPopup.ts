@@ -9,11 +9,17 @@ import { isJourneyComplete } from '../../domain/Garden';
 import { WinReceipt } from '../../domain/Mainline';
 import { addHoney } from '../../domain/Wallet';
 import { services } from '../../Services';
+import { playBurst, stopBurst } from '../../fx/Burst';
+import { flyTo, popIn, spin, stopFx } from '../../fx/Fx';
+import { TopHud } from '../common/TopHud';
 import { GardenPage } from '../garden/GardenPage';
 import { closePuzzlePage } from './PuzzleNav';
 import { LevelPreviewPopup } from './LevelPreviewPopup';
 
 const { ccclass, property } = _decorator;
+
+/** The endless-unlock sound follows the win sound. */
+const UNLOCK_DELAY = 1;
 
 /** 拼图胜利结算（普通 T06-01 / 限步星级 T07-01，F014/F015/F056）。奖励已在打开前入账。 */
 @ccclass('PuzzleWinPopup')
@@ -30,6 +36,8 @@ export class PuzzleWinPopup extends PopupBase<WinReceipt> {
     @property(Node) bonusAdButton: Node = null!;
     @property(LocalizedLabel) bonusAdLabel: LocalizedLabel = null!;
     @property(SpriteFrame) emptyStar: SpriteFrame = null!;
+    @property(Sprite) rewardIcon: Sprite = null!;
+    @property([Sprite]) particles: Sprite[] = [];
     @property challengeTitleKey = "block.5a183ef06031.text.5ce2d4cc8539";
 
     private goldStar: SpriteFrame | null = null;
@@ -51,6 +59,26 @@ export class PuzzleWinPopup extends PopupBase<WinReceipt> {
         this.stars.forEach((star, i) => { star.spriteFrame = i < r.stars ? this.goldStar : this.emptyStar; });
         if (challenge) this.bestLabel.setParams({ count: r.bestStars });
         this.renderBonus();
+        services.audio.play('win');
+        if (r.firstClear && r.levelNumber === services.config.mainline.endlessUnlockLevel) this.scheduleOnce(() => services.audio.play('unlock'), UNLOCK_DELAY);
+        // Stars drop in one by one; started here so they never flash at full size during the open transition.
+        if (challenge) this.stars.forEach((star, i) => popIn(star.node, 0.35 + i * 0.25, () => { if (i < r.stars) services.audio.play('star'); }));
+    }
+
+    /** FX-01 fireworks, FX-02 rotating light, FX-03 honey flying to the HUD (FX-11 stars start in setInfo). */
+    onShowFinish(): void {
+        const r = this.args;
+        playBurst(this.particles.map(p => p.node));
+        if (r.mode === 'challenge') spin(this.starLight, 8);
+        const hud = TopHud.current();
+        if (r.honey > 0 && hud) flyTo(this.rewardIcon, hud.honeyLabel.node);
+    }
+
+    protected onClose(): void {
+        this.unscheduleAllCallbacks();
+        stopFx(this.starLight);
+        for (const star of this.stars) stopFx(star.node);
+        stopBurst(this.particles.map(p => p.node));
     }
 
     onNext(_event: unknown, _data: string): void {

@@ -4,6 +4,7 @@ import { ViewBase } from '../../../framework/ui/ViewBase';
 import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
 import { chapterStep, gardenProgress, GardenLayout, isJourneyComplete, nextPrice, shortage, upgrade } from '../../domain/Garden';
+import { pop, reducedMotion, spin, stopFx } from '../../fx/Fx';
 import { services } from '../../Services';
 import { today } from '../../Today';
 import { AlbumPage } from '../collection/AlbumPage';
@@ -18,6 +19,10 @@ import { WorldMapPage } from './WorldMapPage';
 
 const { ccclass, property } = _decorator;
 
+/** Construction feedback length (F024: about 0.8 s) and one rotor turn. */
+const CONSTRUCTION_SECONDS = 0.8;
+const ROTOR_SECONDS = 6;
+
 /** Design canvas the layout coordinates refer to (top-left origin). */
 const DESIGN_W = 853, DESIGN_H = 1844;
 /** Theme the prefab's decorative scene bees were drawn for. */
@@ -25,7 +30,7 @@ const DECOR_THEME = 'sunny';
 
 /** 家园：三园共用，5 栋建筑直接升级（F023–F028）。 */
 @ccclass('GardenPage')
-@uiView({ bundle: 'garden', path: 'prefabs/pages/GardenPage', layer: UILayer.Page, queue: UIQueue.Page, transition: 'fade' })
+@uiView({ bundle: 'garden', path: 'prefabs/pages/GardenPage', layer: UILayer.Page, queue: UIQueue.Page, transition: 'fade', bgm: 'garden' })
 export class GardenPage extends ViewBase {
     @property(Sprite) terrain: Sprite = null!;
     @property([BuildingSlot]) slots: BuildingSlot[] = [];
@@ -42,6 +47,10 @@ export class GardenPage extends ViewBase {
     @property(Node) chapterReward: Node = null!;
 
     private layout: GardenLayout | null = null;
+    /** Wheel center per theme and level, as fractions of the stage canvas (x from left, y from top). */
+    private rotorPivots: Record<string, Record<string, [number, number]>> | null = null;
+    /** Rotor position for a centered anchor, from the layout. */
+    private rotorCenter: Vec3 | null = null;
     /** Authored tag positions (sunny), captured on first placement. */
     private readonly tagHome: Vec3[] = [];
     /** Asset path last requested per slot (index 5 = rotor, 6 = terrain); late results for other paths are dropped. */
@@ -50,6 +59,7 @@ export class GardenPage extends ViewBase {
     /** Building whose shortage is being explained (F025); cleared once affordable. */
     private shortBuilding: number | null = null;
     private readonly onSave = (): void => this.render();
+    private rotorSpinning = false;
 
     protected onOpen(): void {
         this.slots.forEach((slot, i) => { slot.onSelect = () => this.tryUpgrade(i); });
@@ -58,6 +68,11 @@ export class GardenPage extends ViewBase {
         void services.res.load('garden', 'config/layout', JsonAsset).then(asset => {
             if (!this.isOpened) return;
             this.layout = asset.json as GardenLayout;
+            this.render();
+        });
+        void services.res.load('garden', 'config/rotor-pivots', JsonAsset).then(asset => {
+            if (!this.isOpened) return;
+            this.rotorPivots = asset.json as Record<string, Record<string, [number, number]>>;
             this.render();
         });
     }
@@ -73,6 +88,10 @@ export class GardenPage extends ViewBase {
 
     protected onShow(): void {
         this.render();
+    }
+
+    protected onClose(): void {
+        this.stopEffects();
     }
 
     onHelp(_event: unknown, _data: string): void {
@@ -109,7 +128,38 @@ export class GardenPage extends ViewBase {
         }
         this.shortBuilding = null;
         services.save.transact(draft => { upgrade(draft, cfg, id, level, today()); });
+        this.playUpgrade(id);
         if (chapterStep(services.save.data, cfg) !== null) this.openChapterStep();
+    }
+
+    /** Turn the rotor around its wheel: anchor at the wheel, position shifted so the canvas stays where the layout put it. */
+    private pivotRotor([fx, fy]: [number, number]): void {
+        const transform = this.waterRotor.node.getComponent(UITransform)!;
+        const ax = fx, ay = 1 - fy;
+        transform.setAnchorPoint(ax, ay);
+        const c = this.rotorCenter!;
+        this.waterRotor.node.setPosition(c.x + (ax - 0.5) * transform.width, c.y + (ay - 0.5) * transform.height, c.z);
+    }
+
+    private stopEffects(): void {
+        this.unscheduleAllCallbacks();
+        stopFx(this.waterRotor.node);
+        this.rotorSpinning = false;
+        for (const s of this.scaffolds) s.node.active = false;
+        for (const slot of this.slots) stopFx(slot.body.node);
+    }
+
+    /** FX-05: construction feedback — scaffold for a moment, then the new stage pops in. */
+    private playUpgrade(id: number): void {
+        services.audio.play('upgrade');
+        const scaffold = this.scaffolds[id].node;
+        const body = this.slots[id].body.node;
+        if (reducedMotion()) return;
+        scaffold.active = true;
+        this.scheduleOnce(() => {
+            scaffold.active = false;
+            pop(body, 1.12);
+        }, CONSTRUCTION_SECONDS);
     }
 
     /** Completed garden → claim reward, then next theme, or the journey-complete page on the last garden. */
@@ -136,8 +186,15 @@ export class GardenPage extends ViewBase {
         });
         const rotorLevel = save.garden.buildings[cfg.rotorBuilding];
         this.waterRotor.node.active = rotorLevel > 0;
+        // FX-06: the watermill rotor turns from level 1 on.
+        if (rotorLevel > 0 !== this.rotorSpinning) {
+            this.rotorSpinning = rotorLevel > 0;
+            if (this.rotorSpinning) spin(this.waterRotor.node, ROTOR_SECONDS);
+            else stopFx(this.waterRotor.node);
+        }
         if (rotorLevel > 0) this.loadFrame(5, `buildings/${theme}/${cfg.buildings[cfg.rotorBuilding]}_${rotorLevel}_rotor`, this.waterRotor);
         if (this.layout && this.placedTheme !== theme) this.place(theme);
+        if (rotorLevel > 0 && this.rotorPivots && this.rotorCenter) this.pivotRotor(this.rotorPivots[theme][rotorLevel]);
         const total = cfg.maxLevel * cfg.buildingCount;
         const progress = gardenProgress(save);
         this.totalFill.fillRange = progress / total;
@@ -163,7 +220,9 @@ export class GardenPage extends ViewBase {
             const dy = authored[i].center[1] - boxes[i].center[1] - boxes[i].tagOffset[1];
             slot.tag.setPosition(home.x + dx, home.y + dy);
         });
+        this.waterRotor.node.getComponent(UITransform)!.setAnchorPoint(0.5, 0.5);
         this.fit(this.waterRotor, boxes[cfg.rotorBuilding].center, boxes[cfg.rotorBuilding].width);
+        this.rotorCenter = this.waterRotor.node.position.clone();
         this.placedTheme = theme;
     }
 

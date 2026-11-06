@@ -1,4 +1,4 @@
-import { Label, Node, _decorator } from 'cc';
+import { _decorator, Label, Node, Sprite } from 'cc';
 import { LocalizedLabel } from '../../../framework/i18n/LocalizedLabel';
 import { PopupBase } from '../../../framework/ui/PopupBase';
 import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
@@ -9,6 +9,8 @@ import { createRun, HarvestReceipt } from '../../domain/Endless';
 import { isJourneyComplete } from '../../domain/Garden';
 import { addHoney } from '../../domain/Wallet';
 import { services } from '../../Services';
+import { flyTo, popIn, stopFx } from '../../fx/Fx';
+import { TopHud } from '../common/TopHud';
 import { closeEndlessPage } from './EndlessNav';
 import { EndlessPage } from './EndlessPage';
 
@@ -25,6 +27,7 @@ export class EndlessResultPopup extends PopupBase<HarvestReceipt> {
     @property(Label) rewardLabel: Label = null!;
     @property(Node) bonusAdButton: Node = null!;
     @property(LocalizedLabel) bonusAdLabel: LocalizedLabel = null!;
+    @property(Sprite) rewardIcon: Sprite = null!;
 
     private newBestKey = '';
 
@@ -40,6 +43,18 @@ export class EndlessResultPopup extends PopupBase<HarvestReceipt> {
         this.bestLabel.setParams({ count: r.best });
         this.rewardLabel.string = '+' + r.honey;
         this.renderBonus();
+        services.audio.play('win');
+        if (r.newBest) popIn(this.trophy, 0.3);
+    }
+
+    /** FX-03: harvested honey flies to the HUD. */
+    onShowFinish(): void {
+        const hud = TopHud.current();
+        if (this.args.honey > 0 && hud) flyTo(this.rewardIcon, hud.honeyLabel.node);
+    }
+
+    protected onClose(): void {
+        stopFx(this.trophy);
     }
 
     onAgain(_event: unknown, _data: string): void {

@@ -14,6 +14,7 @@ export type SaveListener = (data: Readonly<SaveData>) => void;
 export class SaveService {
     private snapshot: SaveData;
     private readonly listeners = new Set<SaveListener>();
+    private readonly claimListeners = new Set<(key: string) => void>();
 
     constructor(private readonly store: SaveStore, create: () => SaveData) {
         const loaded = store.read();
@@ -37,11 +38,19 @@ export class SaveService {
     claim<R>(key: string, command: (draft: SaveData) => R): R {
         const existing = this.snapshot.claims[key];
         if (existing !== undefined) return existing as R;
-        return this.transact(draft => {
+        const result = this.transact(draft => {
             const receipt = command(draft);
             draft.claims[key] = receipt;
             return receipt;
         });
+        for (const listener of Array.from(this.claimListeners)) listener(key);
+        return result;
+    }
+
+    /** Called after a new claim (not a repeated one) was committed, with its key. */
+    onClaimed(enabled: boolean, listener: (key: string) => void): void {
+        if (enabled) this.claimListeners.add(listener);
+        else this.claimListeners.delete(listener);
     }
 
     subscribe(enabled: boolean, listener: SaveListener): void {

@@ -27,6 +27,7 @@ export class ChallengeFailPopup extends PopupBase<ChallengeFailArgs> {
         const level = services.catalog.getMainline(this.args.level);
         this.remainLabel.string = String(level.pieces.length - Object.keys(attempt.placements).length);
         this.adButton.active = adAvailable('challenge');
+        services.audio.play('fail');
     }
 
     /** New attempt, moves back to 0, no cost. */

@@ -1,4 +1,9 @@
-import { layer, group, frameRef } from '../../lib/dsl.mjs';
+import { layer, group, frameRef, sprite } from '../../lib/dsl.mjs';
+
+// FX-01: 12 particles at the burst center (popup middle, above the title); the script scatters them.
+const PARTICLES = ['星芒', '纸屑_1', '纸屑_2', '纸屑_3', '花瓣', '光点'];
+const BURST = Array.from({ length: 12 }, (_, i) => sprite(`P${i + 1}`, `PNG/补充/R-21_粒子_${PARTICLES[i % PARTICLES.length]}.png`,
+  [406, 560, 40, 40], { active: false, bindArray: 'particles' }));
 
 const T07 = 'T07-01_限步星级结算';
 
@@ -26,12 +31,13 @@ export default {
     layer('不同姿态原主图飞行员蜜蜂', { as: 'PilotBee', bind: ['pilotBee', 'Node'] }),
     group('Title', [layer('左花叶', { as: 'LeafL' }), layer('右花叶', { as: 'LeafR' }), layer('结算原生红飘带', { as: 'Ribbon' }), layer('页面标题', { as: 'Text', bind: 'titleLabel' })]),
     layer('关号', { as: 'Level', bind: 'levelLabel' }),
-    group('Reward', [layer('原尺寸奖励卡', { as: 'Card' }), layer('本次花蜜', { as: 'Icon' }), layer('本次实际奖励', { as: 'Amount', bind: 'rewardLabel' })]),
+    group('Reward', [layer('原尺寸奖励卡', { as: 'Card' }), layer('本次花蜜', { as: 'Icon', bind: 'rewardIcon' }), layer('本次实际奖励', { as: 'Amount', bind: 'rewardLabel' })]),
     layer('历史最佳', { from: T07, as: 'Best', active: false, bind: 'bestLabel' }),
     layer('已到账', { as: 'Claimed' }),
     group('BtnNext', [layer('下一关_原生按钮', { as: 'Bg' }), layer('下一关_文案', { as: 'Text' })], { button: 'onNext' }),
     group('BtnBonusAd', [layer('视频加领 +40_原生按钮', { as: 'Bg' }), layer('视频加领 +40_文案', { as: 'Text', bind: 'bonusAdLabel' })], { button: 'onBonusAd', bind: ['bonusAdButton', 'Node'] }),
     layer('原结算欢呼蜜蜂', { as: 'CheerBee' }),
+    group('Burst', BURST, { rect: [0, 300, 853, 900], note: 'FX-01 庆祝粒子（R-21 粒子图，补间动画）' }),
     group('Bottom', [layer('返回上一页', { as: 'BtnBack', button: 'onBack' }), layer('回家园', { as: 'BtnHome', button: 'onHome' })], { align: 'bottom' }),
   ],
 };

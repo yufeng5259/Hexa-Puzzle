@@ -1,4 +1,4 @@
-// Writes assets/scenes/Boot.scene: Canvas + Camera + UI layer roots + input block + loading indicator.
+// Writes assets/scenes/Boot.scene: Canvas + Camera + UI layer roots + input block + loading indicator + audio source.
 // Usage: node tools/ui-gen/scene.mjs
 import path from 'node:path';
 import { PROJECT, readJson, sceneMeta, scriptMeta } from './lib/io.mjs';
@@ -33,7 +33,8 @@ b.blockInput(loading);
 const spinner = b.node('Spinner', loading, { x: 0, y: 0, w: 160, h: 160 });
 b.sprite(spinner, ASSETS['PNG/补充/R-07_加载转圈.png'].uuid + '@f9941');
 const root = b.script(canvas, classId('framework/ui/UIRoot'), { layers: layers.map(id => ({ __id__: id })), block: { __id__: block }, loading: { __id__: loading } });
-b.script(canvas, classId('game/App'), { uiRoot: { __id__: root } });
+const audio = b.component(canvas, 'cc.AudioSource', { _clip: null, _loop: true, _playOnAwake: false, _volume: 1 });
+b.script(canvas, classId('game/App'), { uiRoot: { __id__: root }, audioSource: { __id__: audio } });
 
 const file = path.join(PROJECT, 'assets/scenes/Boot.scene');
 sceneMeta(file);

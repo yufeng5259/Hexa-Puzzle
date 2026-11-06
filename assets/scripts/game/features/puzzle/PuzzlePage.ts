@@ -9,6 +9,8 @@ import { HexCell, LevelDefinition } from '../../domain/puzzle/LevelDefinition';
 import { fitTray, insideHex } from '../../domain/puzzle/PuzzleLayout';
 import { PuzzleSession } from '../../domain/puzzle/PuzzleSession';
 import { spendHint } from '../../domain/Wallet';
+import { placeFeedback } from '../../Audio';
+import { pop, stopFx } from '../../fx/Fx';
 import { services } from '../../Services';
 import { today } from '../../Today';
 import { HexBoard, PieceShape } from '../board/HexBoard';
@@ -39,7 +41,7 @@ interface TrayPiece {
 
 /** 拼图局（普通 / 限步共用，F010–F013、F016）。 */
 @ccclass('PuzzlePage')
-@uiView({ bundle: 'puzzle', path: 'prefabs/pages/PuzzlePage', layer: UILayer.Page, queue: UIQueue.Page, transition: 'fade' })
+@uiView({ bundle: 'puzzle', path: 'prefabs/pages/PuzzlePage', layer: UILayer.Page, queue: UIQueue.Page, transition: 'fade', bgm: 'puzzle' })
 export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
     @property(HexBoard) board: HexBoard = null!;
     @property(LocalizedLabel) hintUsedLabel: LocalizedLabel = null!;
@@ -166,6 +168,7 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
     }
 
     private clearPieces(): void {
+        for (const piece of this.pieces) stopFx(piece.shape.node);
         for (const piece of this.pieces) this.board.releaseShape(piece.shape);
         this.pieces = [];
         this.dragging = null;
@@ -190,6 +193,7 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
         debugLog('Puzzle', 'hit', piece?.id ?? null);
         if (!piece) return;
         this.dragging = piece;
+        stopFx(piece.shape.node);
         piece.shape.node.parent = this.node;
         piece.shape.node.setScale(1, 1, 1);
         this.follow(this.scratch);
@@ -214,6 +218,8 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
         debugLog('Puzzle', 'drop', piece.id, 'at', anchor.q, anchor.r, 'legal', this.session.canPlace(piece.id, anchor));
         if (this.session.place(piece.id, anchor)) {
             this.board.placeShape(piece.shape, anchor);
+            placeFeedback();
+            pop(piece.shape.node, 1.1);
             if (this.hintPiece === piece.id) this.clearHint();
             this.commit();
         } else if (placed && !this.overBoard(this.scratch)) {
@@ -221,8 +227,10 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
             this.toTray(piece);
             this.commit();
         } else if (placed) {
+            services.audio.play('invalid');
             this.board.placeShape(piece.shape, placed);
         } else {
+            if (this.overBoard(this.scratch)) services.audio.play('invalid');
             this.toTray(piece);
         }
     }
