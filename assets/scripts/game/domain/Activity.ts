@@ -16,7 +16,13 @@ export type Activity =
     /** An endless run was harvested; `valid` = placements ≥ 6 and score ≥ 100. */
     | { kind: 'endlessRun'; score: number; valid: boolean }
     /** Departed to a new garden. */
-    | { kind: 'gardenEntered'; chapter: number };
+    | { kind: 'gardenEntered'; chapter: number }
+    /** A daily task reward was claimed (affinity for the followed companion). */
+    | { kind: 'taskClaimed' }
+    /** An outfit was granted by another system (sign-in day 7). */
+    | { kind: 'outfitGranted'; outfit: string }
+    /** A garden completion reward was claimed (group photo). */
+    | { kind: 'chapterClaimed'; chapter: number };
 
 /** Record an activity in the current draft; called by the command that produced it. */
 export function recordActivity(draft: SaveData, activity: Activity, today: string): void {

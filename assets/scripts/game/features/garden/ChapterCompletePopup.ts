@@ -5,6 +5,7 @@ import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
 import { chapterStep, claimChapter, gardenProgress, isChapterClaimed } from '../../domain/Garden';
 import { services } from '../../Services';
+import { today } from '../../Today';
 import { JourneyCompletePopup } from './JourneyCompletePopup';
 import { NextThemePopup } from './NextThemePopup';
 
@@ -42,7 +43,7 @@ export class ChapterCompletePopup extends PopupBase {
     }
 
     onClaim(_event: unknown, _data: string): void {
-        claimChapter(services.save, services.config.garden);
+        claimChapter(services.save, services.config.garden, today());
         const step = chapterStep(services.save.data, services.config.garden);
         this.close();
         if (step === 'next') void services.ui.open(NextThemePopup);

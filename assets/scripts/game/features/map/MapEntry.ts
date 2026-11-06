@@ -1,4 +1,4 @@
-import { Component, Node, _decorator } from 'cc';
+import { Button, Component, Node, _decorator } from 'cc';
 
 const { ccclass, property } = _decorator;
 
@@ -8,6 +8,17 @@ export class MapEntry extends Component {
     @property(Node) redDot: Node = null!;
 
     onOpen: (id: string) => void = () => {};
+    /** Entry id (the button's customEventData), read on first use. */
+    private entryId = '';
+
+    get id(): string {
+        if (!this.entryId) this.entryId = this.node.getComponent(Button)!.clickEvents[0].customEventData;
+        return this.entryId;
+    }
+
+    setDot(on: boolean): void {
+        this.redDot.active = on;
+    }
 
     onClick(_event: unknown, data: string): void {
         this.onOpen(data);

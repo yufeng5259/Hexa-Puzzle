@@ -6,6 +6,7 @@ import { uiView } from '../../../framework/ui/uiView';
 import { depart } from '../../domain/Garden';
 import { services } from '../../Services';
 import { today } from '../../Today';
+import { StoryPopup } from '../collection/StoryPopup';
 
 const { ccclass, property } = _decorator;
 
@@ -27,8 +28,10 @@ export class NextThemePopup extends PopupBase {
     /** Depart re-checks the reward receipt and the expected chapter, so a double tap moves only once. */
     onGo(_event: unknown, _data: string): void {
         const chapter = services.save.data.garden.chapter;
-        services.save.transact(draft => { depart(draft, services.config.garden, chapter, today()); });
+        const next = services.save.transact(draft => depart(draft, services.config.garden, chapter, today()));
         this.close();
+        // F027: the chapter story follows the departure; closing it returns to the new garden.
+        void services.ui.open(StoryPopup, { storyId: 'chapter.' + next });
     }
 
     onHome(_event: unknown, _data: string): void {

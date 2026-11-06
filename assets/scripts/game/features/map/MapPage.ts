@@ -20,6 +20,8 @@ import { GardenPage } from '../garden/GardenPage';
 import { LevelPreviewPopup } from '../puzzle/LevelPreviewPopup';
 import { LevelNode } from './LevelNode';
 import { MapEntry } from './MapEntry';
+import { dailyRedDots } from '../../domain/Daily';
+import { today } from '../../Today';
 
 const { ccclass, property } = _decorator;
 
@@ -147,6 +149,8 @@ export class MapPage extends ViewBase<MapPageArgs> {
         const progress = gardenProgress(save);
         this.gardenFill.fillRange = progress / total;
         this.gardenProgressLabel.setParams({ value_1: progress, value_2: total });
+        const dots: Record<string, boolean> = { ...dailyRedDots(save, today()), companions: false, album: save.collection.newPhotos.length > 0 };
+        for (const entry of this.entries) entry.setDot(!!dots[entry.id]);
         const unlocked = isEndlessUnlocked(save, mainline);
         this.endlessLocked.active = !unlocked;
         this.endlessBest.active = unlocked;

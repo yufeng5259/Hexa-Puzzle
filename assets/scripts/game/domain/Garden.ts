@@ -55,12 +55,13 @@ export function upgrade(draft: SaveData, cfg: Garden, buildingId: number, expect
 export interface ChapterReceipt { chapter: number; honey: number; hints: number; photoId: number; }
 
 /** Garden completion reward, once per chapter (F026). Photo id = chapter × 6 + 5. */
-export function claimChapter(save: SaveService, cfg: Garden): ChapterReceipt {
+export function claimChapter(save: SaveService, cfg: Garden, today: string): ChapterReceipt {
     const chapter = save.data.garden.chapter;
     if (!isChapterBuilt(save.data, cfg)) throw new Error('Garden not complete');
     return save.claim<ChapterReceipt>('chapter:' + chapter, draft => {
         addHoney(draft, cfg.chapterReward.honey);
         addHints(draft, cfg.chapterReward.hints);
+        recordActivity(draft, { kind: 'chapterClaimed', chapter }, today);
         return { chapter, honey: cfg.chapterReward.honey, hints: cfg.chapterReward.hints, photoId: chapter * 6 + 5 };
     });
 }

@@ -16,6 +16,7 @@ const json = p => JSON.parse(fs.readFileSync(new URL('../../assets/bundles/commo
 const cfg = json('economy.json');
 const rules = json('daily.json');
 Daily.configureDaily(rules, cfg);
+load('game/domain/Collection.js').configureCollection(JSON.parse(fs.readFileSync(new URL('../../assets/bundles/meta/config/collection.json', import.meta.url), 'utf8')));
 
 const service = () => {
   const store = { data: null, read() { return this.data && JSON.parse(JSON.stringify(this.data)); }, write(d) { this.data = JSON.parse(JSON.stringify(d)); } };
@@ -110,4 +111,19 @@ test('red dots', () => {
   assert.deepEqual(dots, { signin: true, tasks: false, event: false, achievement: false, mail: true, supply: true });
   save.transact(d => Daily.markMailRead(d, 'welcome'));
   assert.equal(Daily.dailyRedDots(save.data, '2026-11-05').mail, false);
+});
+
+test('integration: task claim adds affinity, day-7 sign-in grants the picnic hat, featured task counts only featured wins', () => {
+  const Collection = load('game/domain/Collection.js');
+  const { save } = (() => { const store = { data: null, read() { return this.data; }, write(d) { this.data = JSON.parse(JSON.stringify(d)); } };
+    return { save: new SaveService(store, () => newSave(120, 5, 5)) }; })();
+  save.transact(d => Daily.startDay(d, '2026-11-05'));
+  for (let i = 0; i < rules.tasks.play.target; i++) save.transact(d => recordActivity(d, { kind: 'puzzleWin', levelNumber: 1, firstClear: false, mode: 'classic', featured: false }, '2026-11-05'));
+  Daily.claimTask(save, '2026-11-05', 0);
+  assert.equal(Collection.affinityOf(save.data, save.data.collection.follow), 1);
+  save.transact(d => recordActivity(d, { kind: 'puzzleWin', levelNumber: 1, firstClear: false, mode: 'classic', featured: true }, '2026-11-05'));
+  assert.equal(save.data.daily.counts.featured, 1);
+  save.transact(d => { d.daily.signinDays = 7; d.daily.lastLoginDay = '2026-11-05'; for (let n = 1; n <= 6; n++) d.claims['signin:' + n] = {}; });
+  Daily.claimSignin(save, '2026-11-05');
+  assert.ok(save.data.collection.outfits.includes('picnic_hat'));
 });

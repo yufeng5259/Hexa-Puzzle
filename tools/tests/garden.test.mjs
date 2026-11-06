@@ -33,21 +33,21 @@ test('chapter step: building → claim → next → … → journey on the last 
   assert.equal(Garden.chapterStep(save.data, cfg), null);
   buildAll(save);
   assert.equal(Garden.chapterStep(save.data, cfg), 'claim');
-  Garden.claimChapter(save, cfg);
+  Garden.claimChapter(save, cfg, 'd');
   assert.equal(Garden.chapterStep(save.data, cfg), 'next');
   save.transact(d => Garden.depart(d, cfg, 0, 'd'));
   assert.equal(Garden.chapterStep(save.data, cfg), null);
-  buildAll(save); Garden.claimChapter(save, cfg); save.transact(d => Garden.depart(d, cfg, 1, 'd'));
+  buildAll(save); Garden.claimChapter(save, cfg, 'd'); save.transact(d => Garden.depart(d, cfg, 1, 'd'));
   buildAll(save);
   assert.equal(Garden.chapterStep(save.data, cfg), 'claim');
-  Garden.claimChapter(save, cfg);
+  Garden.claimChapter(save, cfg, 'd');
   assert.equal(Garden.chapterStep(save.data, cfg), 'journey');
   assert.equal(Garden.isJourneyComplete(save.data, cfg), true);
 });
 
 test('world map progress: past full, current live, future empty', () => {
   const save = service(1e6);
-  buildAll(save); Garden.claimChapter(save, cfg); save.transact(d => Garden.depart(d, cfg, 0, 'd'));
+  buildAll(save); Garden.claimChapter(save, cfg, 'd'); save.transact(d => Garden.depart(d, cfg, 0, 'd'));
   save.transact(d => Garden.upgrade(d, cfg, 2, 0, 'd'));
   assert.deepEqual([0, 1, 2].map(c => Garden.chapterProgress(save.data, cfg, c)), [25, 1, 0]);
 });
@@ -59,4 +59,14 @@ test('shortage (F025): exact difference, zero when affordable or maxed', () => {
   for (let l = 0; l < cfg.maxLevel; l++) rich.transact(d => Garden.upgrade(d, cfg, 0, l, 'd'));
   assert.equal(Garden.shortage(rich.data, cfg, 0), 0);
   assert.equal(Garden.nextPrice(cfg, 0, cfg.maxLevel), null);
+});
+
+test('integration: chapter reward records the group photo', () => {
+  const { SaveService } = load('game/save/SaveService.js');
+  const { newSave } = load('game/save/SaveData.js');
+  const store = { data: null, read() { return this.data; }, write(d) { this.data = JSON.parse(JSON.stringify(d)); } };
+  const save = new SaveService(store, () => newSave(100000, 5, 5));
+  save.transact(d => { d.garden.buildings = [5, 5, 5, 5, 5]; });
+  Garden.claimChapter(save, cfg, 'd');
+  assert.ok(save.data.collection.photos.includes(5));
 });

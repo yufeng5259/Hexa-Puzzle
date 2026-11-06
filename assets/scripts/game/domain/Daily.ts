@@ -1,6 +1,7 @@
 import { EconomyConfig } from '../config/EconomyConfig';
 import { SaveData } from '../save/SaveData';
 import { SaveService } from '../save/SaveService';
+import { recordActivity } from './Activity';
 import type { Activity } from './Activity';
 import { weekKey } from './Clock';
 import { addHints, addHoney } from './Wallet';
@@ -142,7 +143,7 @@ export function applyDailyActivity(draft: SaveData, activity: Activity, today: s
     }
     if (activity.kind === 'puzzleWin') {
         d.counts.level++;
-        if (!activity.firstClear) d.counts.featured++;
+        if (activity.featured) d.counts.featured++;
     }
     if (activity.kind === 'build') d.counts.build++;
     if (activity.kind === 'endlessPlace') d.counts.endless++;
@@ -167,6 +168,7 @@ export function claimTask(save: SaveService, today: string, index: number): numb
     const kind = save.data.daily.variants[index];
     return save.claim(taskClaimKey(today, index, kind), draft => {
         addHoney(draft, rules.tasks[kind].honey);
+        recordActivity(draft, { kind: 'taskClaimed' }, today);
         return rules.tasks[kind].honey;
     });
 }
@@ -226,6 +228,7 @@ export function claimSignin(save: SaveService, today: string): number {
         addHoney(draft, rule.honey);
         if (rule.hints) addHints(draft, rule.hints);
         if (rule.outfit && draft.daily.outfits.indexOf(rule.outfit) < 0) draft.daily.outfits.push(rule.outfit);
+        if (rule.outfit) recordActivity(draft, { kind: 'outfitGranted', outfit: rule.outfit }, today);
         return rule;
     });
     return day;

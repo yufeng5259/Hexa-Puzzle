@@ -82,12 +82,12 @@ test('garden: upgrade spends exactly the price; stale command rejected; totals 1
 
 test('garden: chapter reward once, depart needs the reward and resets buildings', () => {
   const { save } = service(100000);
-  assert.throws(() => Garden.claimChapter(save, cfg.garden));
+  assert.throws(() => Garden.claimChapter(save, cfg.garden, 'd'));
   for (let b = 0; b < 5; b++) for (let l = 0; l < 5; l++) save.transact(d => Garden.upgrade(d, cfg.garden, b, l, 'd'));
   assert.throws(() => save.transact(d => Garden.depart(d, cfg.garden, 0, 'd')), /not claimed/);
   const honey = save.data.wallet.honey;
-  Garden.claimChapter(save, cfg.garden);
-  Garden.claimChapter(save, cfg.garden);
+  Garden.claimChapter(save, cfg.garden, 'd');
+  Garden.claimChapter(save, cfg.garden, 'd');
   assert.deepEqual([save.data.wallet.honey - honey, save.data.wallet.hints], [100, 6]);
   save.transact(d => Garden.depart(d, cfg.garden, 0, 'd'));
   assert.throws(() => save.transact(d => Garden.depart(d, cfg.garden, 0, 'd')));

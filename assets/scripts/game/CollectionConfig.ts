@@ -1,6 +1,6 @@
 import { JsonAsset, Sprite, SpriteFrame } from 'cc';
 import { ViewBase } from '../framework/ui/ViewBase';
-import { ArtRef, CollectionConfig, StoryConfig } from './domain/Collection';
+import { ArtRef, CollectionConfig, configureCollection, StoryConfig } from './domain/Collection';
 import { services } from './Services';
 
 let collection: CollectionConfig | null = null;
@@ -13,6 +13,7 @@ export async function loadCollectionConfig(): Promise<void> {
         services.res.load('meta', 'config/story', JsonAsset),
     ]);
     collection = c.json as CollectionConfig;
+    configureCollection(collection);
     stories = s.json as StoryConfig;
 }
 

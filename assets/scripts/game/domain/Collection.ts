@@ -170,8 +170,21 @@ export function claimAlbum(draft: SaveData, cfg: CollectionConfig, book: number)
 }
 
 /** First 0→1 upgrade of a building records its photo (chapter × perBook + building). */
-export function applyCollectionActivity(draft: SaveData, activity: Activity, _today: string): void {
+let rules: CollectionConfig | null = null;
+
+/** Set by the collection config loader before any command runs. */
+export function configureCollection(cfg: CollectionConfig): void {
+    rules = cfg;
+}
+
+export function applyCollectionActivity(draft: SaveData, activity: Activity, today: string): void {
     if (activity.kind === 'build' && activity.level === 1) recordPhoto(draft, activity.chapter * PHOTOS_PER_BOOK + activity.buildingId);
+    if (activity.kind === 'chapterClaimed') recordGroupPhoto(draft, activity.chapter);
+    if (activity.kind === 'outfitGranted') grantOutfit(draft, activity.outfit);
+    if (activity.kind === 'taskClaimed') {
+        if (!rules) throw new Error('Collection config not loaded');
+        addAffinityForTask(draft, rules, today);
+    }
 }
 
 function companion(cfg: CollectionConfig, id: string): CollectionConfig['companions'][number] {
