@@ -1,5 +1,6 @@
 import { Button, EventTouch, Label, Node, UITransform, Vec3, _decorator } from 'cc';
 import { LocalizedLabel } from '../../../framework/i18n/LocalizedLabel';
+import { debugLog } from '../../../framework/Log';
 import { ViewBase } from '../../../framework/ui/ViewBase';
 import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
@@ -181,10 +182,12 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
     // ---------- input ----------
 
     private onTouchStart(event: EventTouch): void {
+        debugLog('Puzzle', 'touch start', event.getUILocation().toString(), 'dragging', !!this.dragging, 'status', this.session.snapshot.status);
         if (this.dragging || this.session.snapshot.status !== 'active') return;
         const ui = event.getUILocation();
         this.scratch.set(ui.x, ui.y, 0);
         const piece = this.pieces.find(p => this.hits(p, this.scratch));
+        debugLog('Puzzle', 'hit', piece?.id ?? null);
         if (!piece) return;
         this.dragging = piece;
         piece.shape.node.parent = this.node;
@@ -200,6 +203,7 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
     }
 
     private onTouchEnd(event: EventTouch): void {
+        debugLog('Puzzle', 'touch end', event.type, 'piece', this.dragging?.id ?? null);
         const piece = this.dragging;
         if (!piece) return;
         this.dragging = null;
@@ -207,6 +211,7 @@ export class PuzzlePage extends ViewBase<PuzzlePageArgs> {
         this.scratch.set(ui.x, ui.y + this.board.radius * LIFT, 0);
         const anchor = this.board.cellAt(this.board.toLocal(this.scratch));
         const placed = this.session.snapshot.placements[piece.id];
+        debugLog('Puzzle', 'drop', piece.id, 'at', anchor.q, anchor.r, 'legal', this.session.canPlace(piece.id, anchor));
         if (this.session.place(piece.id, anchor)) {
             this.board.placeShape(piece.shape, anchor);
             if (this.hintPiece === piece.id) this.clearHint();

@@ -16,7 +16,7 @@ export default {
     group('Title', [layer('左花叶', { as: 'LeafL' }), layer('右花叶', { as: 'LeafR' }), layer('结算原生红飘带', { as: 'Ribbon' }), layer('页面标题', { as: 'Text' })]),
     layer('picnic', { as: 'Picnic' }),
     group('Reward', [layer('原生野餐礼卡', { as: 'Card' }), layer('honey', { as: 'Icon' }), layer('野餐花蜜', { as: 'Amount', bind: 'rewardLabel' })]),
-    layer('只领一次', { as: 'Note' }),
+    layer('只领一次', { as: 'Note', bind: 'noteLabel' }),
     group('BtnClaim', [layer('收下野餐礼_原生按钮', { as: 'Bg' }), layer('收下野餐礼_文案', { as: 'Text' })], { button: 'onClaim' }),
     back([layer('原生奖励欢呼蜂', { as: 'CheerBee' })]),
   ],

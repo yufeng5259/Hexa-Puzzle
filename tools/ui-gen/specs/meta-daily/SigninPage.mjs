@@ -64,7 +64,7 @@ export default {
     layer('页面副标题', { as: 'Subtitle' }),
     group('Days', [0, 1, 2, 3, 4, 5].map(cell)),
     day7,
-    layer('签到尾注', { as: 'Note' }),
+    layer('签到尾注', { as: 'Note', bind: 'noteLabel' }),
     btn('BtnClaim', '收下今日礼物_原生按钮', '收下今日礼物_文案', 'onClaim', { bind: ['claimButton', 'Node'] }),
     back([layer('原每日奖励抱罐蜂', { as: 'Bee' })]),
   ],

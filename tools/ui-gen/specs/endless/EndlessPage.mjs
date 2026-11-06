@@ -42,7 +42,7 @@ export default {
       sprite('Bg', 'PNG/公共UI/道具空按钮_cc8488e766.png', [40, 1190, 110, 110]),
       sprite('Icon', 'PNG/公共UI/撤销道具图标_ed2773ab95.png', [58, 1205, 74, 74]),
       label('Count', null, [104, 1262, 50, 40], CENTER, { text: '1', bind: 'undoCountLabel' }),
-    ], { button: 'onUndo', bind: ['undoButton', 'Node'], note: '设计稿无此按钮，按道具按钮样式补位' }),
+    ], { button: 'onUndo', bind: ['undoButton', 'Button'], note: '设计稿无此按钮，按道具按钮样式补位' }),
     group('BtnPause', [sprite('Icon', 'PNG/补充/R-13_图标_暂停.png', [723, 1200, 90, 90])], { button: 'onPause', note: '设计稿无此按钮，补位' }),
     group('Tray', [
       layer('无尽三候选_无字木托盘', { as: 'Board' }),

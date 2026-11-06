@@ -15,6 +15,8 @@ export interface PuzzleAttemptState {
     /** Extra moves granted by the challenge continue ad. */
     extraMoves: number;
     continued: boolean;
+    /** Started from the daily featured list (F021). */
+    featured: boolean;
     /** Rewarded ads used in this attempt, by placement. */
     ads: Record<string, number>;
 }

@@ -5,8 +5,9 @@ export default {
   layer: 'Toast', queue: 'None', transition: 'none',
   doc: { args: '{ textKey, params? }（显示后自动关闭）', features: 'F002',
     dynamic: '文案 hg.common.toast 的 {text} 由调用方填入已本地化文本',
-    states: '待确认：Backdrop 带 BlockInputEvents，飘字不应拦截输入，脚本需在 onLoad 关闭 backdrop',
+    states: '飘字不拦截输入',
     fx: 'FX-12' },
+  backdropBlocks: false,
   backdrop: [],
   children: [
     group('Bar', [

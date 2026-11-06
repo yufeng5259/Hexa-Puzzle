@@ -10,8 +10,9 @@ export default {
   source: S1,
   doc: { args: '{ step: 1..8, tipKey, tipY, fingerPos, arrow?, dragGhost? }（引导步骤数据放配置）', sources: STEPS.slice(1), features: 'F048、F049',
     dynamic: 'Tip 位置与文案、Finger/Arrow 位置按步骤数据设置；Step 用 key 参数 {value_1}/{value_2} 显示「当前 / 8」',
-    states: 'masks[0..7] 每步一张烘焙聚光遮罩（原稿逐步出图），只显示当前步；Arrow、DragGhost 仅第 4/8 步显示。待确认：Backdrop 的 BlockInputEvents 会拦截高亮目标的点击，脚本需关闭它并自行做挖孔命中透传',
+    states: 'masks[0..7] 每步一张烘焙聚光遮罩（原稿逐步出图），只显示当前步；Arrow、DragGhost 仅第 4/8 步显示；背景不拦截点击，玩家直接操作高亮目标，引导由真实事件推进',
     fx: 'FX-07' },
+  backdropBlocks: false,
   backdrop: [],
   children: [
     group('Masks', STEPS.map((from, i) => layer('引导聚光遮罩', { from, as: `Mask${i + 1}`, active: i === 0, bindArray: 'masks' }))),

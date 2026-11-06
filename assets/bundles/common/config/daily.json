@@ -1,0 +1,104 @@
+{
+  "tasks": {
+    "play": {
+      "target": 3,
+      "honey": 120,
+      "titleKey": "block.e7d315756d9b.text.3703dde51f57"
+    },
+    "build": {
+      "target": 1,
+      "honey": 40,
+      "titleKey": "block.e7d315756d9b.text.c87f02e3432c"
+    },
+    "featured": {
+      "target": 1,
+      "honey": 40,
+      "titleKey": "hg.daily.task_featured"
+    },
+    "endless": {
+      "target": 12,
+      "honey": 20,
+      "titleKey": "block.e7d315756d9b.text.fe603ae2120f"
+    },
+    "level": {
+      "target": 1,
+      "honey": 20,
+      "titleKey": "hg.daily.task_level"
+    }
+  },
+  "weekly": {
+    "games": 15,
+    "activeDays": 4,
+    "honey": 300
+  },
+  "signin": [
+    {
+      "honey": 40
+    },
+    {
+      "honey": 40
+    },
+    {
+      "honey": 60,
+      "hints": 1
+    },
+    {
+      "honey": 60
+    },
+    {
+      "honey": 80
+    },
+    {
+      "honey": 80
+    },
+    {
+      "honey": 120,
+      "hints": 1,
+      "outfit": "picnic_hat"
+    }
+  ],
+  "achievements": [
+    {
+      "id": "puzzle",
+      "kind": "levels",
+      "target": 10
+    },
+    {
+      "id": "endless",
+      "kind": "endlessBest",
+      "target": 5000
+    },
+    {
+      "id": "garden",
+      "kind": "chapter",
+      "target": 1
+    }
+  ],
+  "picnic": {
+    "openChapter": 1,
+    "perGame": 1,
+    "target": 20,
+    "honey": 100,
+    "marks": [
+      5,
+      10,
+      15,
+      20
+    ]
+  },
+  "mails": [
+    {
+      "id": "welcome",
+      "titleKey": "block.caf516d83022.text.94786df67145",
+      "detailTitleKey": "block.320eb5537d2f.text.5ce2d4cc8539",
+      "bodyKeys": [
+        "block.320eb5537d2f.text.afe30f6ed6e7",
+        "block.320eb5537d2f.text.4fe715d04b85"
+      ],
+      "signatureKey": "block.320eb5537d2f.text.5bdb7e3aacfe"
+    }
+  ],
+  "supply": {
+    "freeHints": 1
+  }
+}

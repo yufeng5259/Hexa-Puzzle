@@ -145,12 +145,12 @@ ConfirmPopup  [ConfirmPopup]
 - 脚本：`assets/scripts/game/features/common/GuideOverlay.ts`（GuideOverlay extends PopupBase）　参数：{ step: 1..8, tipKey, tipY, fingerPos, arrow?, dragGhost? }（引导步骤数据放配置）
 - 来源：T51-01_引导_01主界面进入建设、T51-02_引导_02首次建造、T51-03_引导_03返回地图闯关、T51-04_引导_04整块拖放、T51-05_引导_05成功收获回家、T51-06_引导_06再次升级、T51-07_引导_07自由探索、T51-08_引导_08无尽首次消除　功能：F048、F049
 - 动态内容：Tip 位置与文案、Finger/Arrow 位置按步骤数据设置；Step 用 key 参数 {value_1}/{value_2} 显示「当前 / 8」
-- 状态节点：masks[0..7] 每步一张烘焙聚光遮罩（原稿逐步出图），只显示当前步；Arrow、DragGhost 仅第 4/8 步显示。待确认：Backdrop 的 BlockInputEvents 会拦截高亮目标的点击，脚本需关闭它并自行做挖孔命中透传
+- 状态节点：masks[0..7] 每步一张烘焙聚光遮罩（原稿逐步出图），只显示当前步；Arrow、DragGhost 仅第 4/8 步显示；背景不拦截点击，玩家直接操作高亮目标，引导由真实事件推进
 - 动效（延后）：FX-07
 
 ```
 GuideOverlay  [GuideOverlay]
-├─ Backdrop  @backdrop  BlockInputEvents
+├─ Backdrop  @backdrop  不拦截输入
 └─ Content  @content
    ├─ Masks  
    │  ├─ Mask1  Sprite(引导聚光遮罩)  @masks[]
@@ -632,12 +632,12 @@ SettingsPopup  [SettingsPopup]
 - 脚本：`assets/scripts/game/features/common/Toast.ts`（Toast extends PopupBase）　参数：{ textKey, params? }（显示后自动关闭）
 - 来源：—　功能：F002
 - 动态内容：文案 hg.common.toast 的 {text} 由调用方填入已本地化文本
-- 状态节点：待确认：Backdrop 带 BlockInputEvents，飘字不应拦截输入，脚本需在 onLoad 关闭 backdrop
+- 状态节点：飘字不拦截输入
 - 动效（延后）：FX-12
 
 ```
 Toast  [Toast]
-├─ Backdrop  @backdrop  BlockInputEvents
+├─ Backdrop  @backdrop  不拦截输入
 └─ Content  @content
    └─ Bar  @bar
       ├─ Bg  Sprite(玩法提示条)
@@ -1261,7 +1261,7 @@ GardenPage  [GardenPage]
 ├─ Terrain  Sprite(向阳花园完整无建筑裸地形)  @terrain
 ├─ Buildings  
 │  ├─ Treehouse  [BuildingSlot]  @slots[]
-│  │  ├─ Body  Sprite(向阳花园_树屋_2级_原生母件)  @body
+│  │  ├─ Body  Sprite(向阳花园_树屋_2级_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
 │  │  └─ Tag  
 │  │     ├─ Plate  Sprite(树屋进度容器)
 │  │     ├─ Track  Sprite(树屋进度底轨)
@@ -1271,7 +1271,7 @@ GardenPage  [GardenPage]
 │  │     ├─ BtnUpgrade  Sprite(树屋进入按钮)  → onUpgrade  @upgradeButton
 │  │     └─ MaxMark  Sprite(完成勾)  @maxMark  默认隐藏
 │  ├─ Garden  [BuildingSlot]  @slots[]
-│  │  ├─ Body  Sprite(向阳花园_花园_1级_原生母件)  @body
+│  │  ├─ Body  Sprite(向阳花园_花园_1级_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
 │  │  └─ Tag  
 │  │     ├─ Plate  Sprite(花园进度容器)
 │  │     ├─ Track  Sprite(花园进度底轨)
@@ -1281,7 +1281,7 @@ GardenPage  [GardenPage]
 │  │     ├─ BtnUpgrade  Sprite(花园进入按钮)  → onUpgrade  @upgradeButton
 │  │     └─ MaxMark  Sprite(完成勾)  @maxMark  默认隐藏
 │  ├─ Workshop  [BuildingSlot]  @slots[]
-│  │  ├─ Body  Sprite(向阳花园_蜂蜜工坊_1级_原生母件)  @body
+│  │  ├─ Body  Sprite(向阳花园_蜂蜜工坊_1级_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
 │  │  └─ Tag  
 │  │     ├─ Plate  Sprite(蜂蜜工坊进度容器)
 │  │     ├─ Track  Sprite(蜂蜜工坊进度底轨)
@@ -1291,7 +1291,7 @@ GardenPage  [GardenPage]
 │  │     ├─ BtnUpgrade  Sprite(蜂蜜工坊进入按钮)  → onUpgrade  @upgradeButton
 │  │     └─ MaxMark  Sprite(完成勾)  @maxMark  默认隐藏
 │  ├─ Watermill  [BuildingSlot]  @slots[]
-│  │  ├─ Body  Sprite(向阳花园_小溪水车_1级_无轮静态本体_原生母件)  @body
+│  │  ├─ Body  Sprite(向阳花园_小溪水车_1级_无轮静态本体_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
 │  │  └─ Tag  
 │  │     ├─ Plate  Sprite(小溪水车进度容器)
 │  │     ├─ Track  Sprite(小溪水车进度底轨)
@@ -1301,7 +1301,7 @@ GardenPage  [GardenPage]
 │  │     ├─ BtnUpgrade  Sprite(小溪水车进入按钮)  → onUpgrade  @upgradeButton
 │  │     └─ MaxMark  Sprite(完成勾)  @maxMark  默认隐藏
 │  └─ Greenhouse  [BuildingSlot]  @slots[]
-│     ├─ Body  Sprite(向阳花园_温室_1级_原生母件)  @body
+│     ├─ Body  Sprite(向阳花园_温室_1级_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
 │     └─ Tag  
 │        ├─ Plate  Sprite(温室进度容器)
 │        ├─ Track  Sprite(温室进度底轨)
@@ -2515,8 +2515,8 @@ EventDetailPage  [EventDetailPage]
 │  │  ├─ Value  Label「10」  @valueLabel
 │  │  └─ Check  Sprite(完成勾)  @check  默认隐藏
 │  └─ Milestone3 … Milestone4  同 Milestone2 结构（共 3 个）
-├─ Rule  Label「普通成功或无尽有效结算，每次 +1 点」 key=block.23ff10b6a57e.text.c7b8d7dd7916
-├─ RewardNote  Label「20点奖励100花蜜 · 只领一次」 key=block.23ff10b6a57e.text.6af5ee9fe879
+├─ Rule  Label「普通成功或无尽有效结算，每次 +1 点」 key=block.23ff10b6a57e.text.c7b8d7dd7916  @ruleLabel
+├─ RewardNote  Label「20点奖励100花蜜 · 只领一次」 key=block.23ff10b6a57e.text.6af5ee9fe879  @rewardNoteLabel
 ├─ BtnPlay  → onPlay
 │  ├─ Bg  Sprite(下一关按钮)
 │  └─ Text  Label「继续闯关」 key=block.23ff10b6a57e.text.ce23e10699f1
@@ -2574,7 +2574,7 @@ EventPage  [EventPage]
 │  │  ├─ Value  Label「10」  @valueLabel
 │  │  └─ Check  Sprite(完成勾)  @check  默认隐藏
 │  └─ Milestone3 … Milestone4  同 Milestone2 结构（共 3 个）
-├─ RewardNote  Label「20点奖励100花蜜 · 只领一次」 key=block.536db988ffcf.text.6af5ee9fe879
+├─ RewardNote  Label「20点奖励100花蜜 · 只领一次」 key=block.536db988ffcf.text.6af5ee9fe879  @rewardNoteLabel
 ├─ BtnDetail  → onDetail
 │  ├─ Bg  Sprite(下一关按钮)
 │  └─ Text  Label「去看看」 key=block.536db988ffcf.text.320607c55328
@@ -2621,7 +2621,7 @@ EventRewardPopup  [EventRewardPopup]
    │  ├─ Card  Sprite(奖励空白底板)
    │  ├─ Icon  Sprite(蜂蜜货币)
    │  └─ Amount  Label「+100」  @rewardLabel
-   ├─ Note  Label「达成20点后领取，仅领一次」 key=block.ce4597983b50.text.41347196be37
+   ├─ Note  Label「达成20点后领取，仅领一次」 key=block.ce4597983b50.text.41347196be37  @noteLabel
    ├─ BtnClaim  → onClaim
    │  ├─ Bg  Sprite(下一关按钮)
    │  └─ Text  Label「收下野餐礼」 key=block.ce4597983b50.text.45a1d01626d3
@@ -2859,7 +2859,7 @@ SigninPage  [SigninPage]
 │  │  └─ Count  Label「+1」  @hintLabel
 │  ├─ Check  Sprite(完成勾)  @check  默认隐藏
 │  └─ State  Label「待签到」 key=hg.daily.signin_waiting  @stateLabel  hg.daily.signin_claimable / signin_claimed / signin_waiting
-├─ Note  Label「第7天野餐帽 · 不需广告补签」 key=block.c93ff5bc5bec.text.a6868dded0e8
+├─ Note  Label「第7天野餐帽 · 不需广告补签」 key=block.c93ff5bc5bec.text.a6868dded0e8  @noteLabel
 ├─ BtnClaim  → onClaim  @claimButton
 │  ├─ Bg  Sprite(下一关按钮)
 │  └─ Text  Label「收下今日礼物」 key=block.c93ff5bc5bec.text.6d234ac1fabe
@@ -2903,7 +2903,7 @@ SupplyPopup  [SupplyPopup]
    │  └─ Text  Label「每日补给」 key=block.3f5007dc1f02.text.5ce2d4cc8539
    ├─ Subtitle  Label「小蜜的补给篮」 key=block.3f5007dc1f02.text.13d7ce0196ca
    ├─ Bee  Sprite(抱蜜罐蜜蜂)
-   ├─ AdLimit  Label「每日总视频上限6次 · 间隔120秒」 key=block.3f5007dc1f02.text.eedfeea9924a
+   ├─ AdLimit  Label「每日总视频上限6次 · 间隔120秒」 key=block.3f5007dc1f02.text.eedfeea9924a  @adLimitLabel
    ├─ FreeRow  
    │  ├─ Bg  Sprite(任务空白行_1)
    │  ├─ Icon  Sprite(灯泡道具)
@@ -2919,7 +2919,7 @@ SupplyPopup  [SupplyPopup]
    ├─ VoluntaryNote  Label「视频自愿观看 · 正常游玩也能获得花蜜」 key=block.3f5007dc1f02.text.5fbfdb3f8a63
    ├─ BtnFree  → onFreeHint  @freeButton
    │  ├─ Bg  Sprite(下一关按钮)
-   │  └─ Text  Label「免费领取1提示」 key=block.3f5007dc1f02.text.2f94ab7972c7
+   │  └─ Text  Label「免费领取1提示」 key=block.3f5007dc1f02.text.2f94ab7972c7  @freeLabel
    ├─ FreeClaimed  Sprite(已领取按钮)  @freeClaimed  默认隐藏
    ├─ BtnVideo  → onVideo  @videoButton  Widget:bottom
    │  ├─ Bg  Sprite(再来一次按钮)

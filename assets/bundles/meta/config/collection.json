@@ -1,0 +1,220 @@
+{
+  "defaultFollow": "xiaomi",
+  "companions": [
+    {
+      "id": "xiaomi",
+      "unlockChapter": 0,
+      "nameKey": "block.978ff2056577.text.4d23c369b947",
+      "portrait": {
+        "bundle": "common",
+        "path": "textures/公共素材/bee_xiaomi_9d264f3cf5"
+      },
+      "decor": {
+        "bundle": "common",
+        "path": "textures/补充/R-16_专属饰物_小蜜"
+      }
+    },
+    {
+      "id": "huahua",
+      "unlockChapter": 1,
+      "nameKey": "block.978ff2056577.text.bb6e58786a3d",
+      "portrait": {
+        "bundle": "common",
+        "path": "textures/公共素材/角色主体_7919a51c25"
+      },
+      "decor": {
+        "bundle": "common",
+        "path": "textures/补充/R-16_专属饰物_花花"
+      }
+    },
+    {
+      "id": "agong",
+      "unlockChapter": 2,
+      "nameKey": "block.978ff2056577.text.b07a82568bea",
+      "portrait": {
+        "bundle": "common",
+        "path": "textures/公共素材/bee_agong_80c82c47c0"
+      },
+      "decor": {
+        "bundle": "common",
+        "path": "textures/补充/R-16_专属饰物_阿工"
+      }
+    }
+  ],
+  "affinity": {
+    "max": 30,
+    "perTask": 1,
+    "dailyMax": 3,
+    "milestones": [
+      5,
+      15,
+      30
+    ]
+  },
+  "initialOutfit": "sunny_scarf",
+  "outfits": [
+    {
+      "id": "sunny_scarf",
+      "nameKey": "block.81aac8ddce5a.text.f9b2556cb876",
+      "icon": {
+        "bundle": "common",
+        "path": "textures/公共素材/bee_xiaomi_独立晴天围巾_d03a0aa4e4"
+      },
+      "preview": null
+    },
+    {
+      "id": "picnic_hat",
+      "nameKey": "block.81aac8ddce5a.text.ac1971380e4d",
+      "icon": {
+        "bundle": "common",
+        "path": "textures/公共素材/outfit_picnic_hat_1b79f65e34"
+      },
+      "preview": {
+        "bundle": "meta",
+        "path": "outfits/xiaomi_picnic_hat"
+      },
+      "signinDay": 7
+    },
+    {
+      "id": "flower_hat",
+      "nameKey": "block.81aac8ddce5a.text.8406b693252b",
+      "icon": {
+        "bundle": "common",
+        "path": "textures/公共素材/outfit_flower_hat_64797bd9bc"
+      },
+      "preview": {
+        "bundle": "meta",
+        "path": "outfits/xiaomi_flower_hat"
+      },
+      "album": 0
+    },
+    {
+      "id": "water_ribbon",
+      "nameKey": "block.81aac8ddce5a.text.e5a9d37b1bfb",
+      "icon": {
+        "bundle": "common",
+        "path": "textures/公共素材/outfit_water_ribbon_e4e66a3425"
+      },
+      "preview": {
+        "bundle": "meta",
+        "path": "outfits/xiaomi_water_ribbon"
+      },
+      "album": 1
+    },
+    {
+      "id": "cloud_brooch",
+      "nameKey": "block.81aac8ddce5a.text.e5d9acaa2940",
+      "icon": {
+        "bundle": "common",
+        "path": "textures/公共素材/outfit_cloud_brooch_1d3539d4d4"
+      },
+      "preview": {
+        "bundle": "meta",
+        "path": "outfits/xiaomi_cloud_brooch"
+      },
+      "album": 2
+    }
+  ],
+  "buildingKeys": [
+    "hg.garden.building.treehouse",
+    "hg.garden.building.garden",
+    "hg.garden.building.workshop",
+    "hg.garden.building.watermill",
+    "hg.garden.building.greenhouse"
+  ],
+  "albums": [
+    {
+      "themeKey": "block.000a71cd764f.text.59729b2597bc",
+      "outfit": "flower_hat",
+      "photos": [
+        {
+          "bundle": "common",
+          "path": "textures/页面素材/T25-01_照片详情/其他素材/树屋原生场景纪念照片_7bc1730137"
+        },
+        {
+          "bundle": "common",
+          "path": "textures/页面素材/T24-01_旅行相册/其他素材/花园已收录照片_051de9e364"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/sunny_workshop"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/sunny_watermill"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/sunny_greenhouse"
+        },
+        {
+          "bundle": "common",
+          "path": "textures/页面素材/T16-01_整园完工奖励/其他素材/向阳花园本次整园合影_dc6dc9c0f2"
+        }
+      ]
+    },
+    {
+      "themeKey": "block.000a71cd764f.text.a17c8603a1e9",
+      "outfit": "water_ribbon",
+      "photos": [
+        {
+          "bundle": "meta",
+          "path": "photos/water_treehouse"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/water_garden"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/water_workshop"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/water_watermill"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/water_greenhouse"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/water_group"
+        }
+      ]
+    },
+    {
+      "themeKey": "block.000a71cd764f.text.689eded5d147",
+      "outfit": "cloud_brooch",
+      "photos": [
+        {
+          "bundle": "meta",
+          "path": "photos/cloud_treehouse"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/cloud_garden"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/cloud_workshop"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/cloud_watermill"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/cloud_greenhouse"
+        },
+        {
+          "bundle": "meta",
+          "path": "photos/cloud_group"
+        }
+      ]
+    }
+  ],
+  "albumReward": {
+    "hints": 1
+  }
+}

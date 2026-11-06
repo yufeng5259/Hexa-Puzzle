@@ -1,6 +1,7 @@
 import { input, Input, instantiate, KeyCode, Prefab, EventKeyboard } from 'cc';
+import { debugLog } from '../Log';
 import { ResLoader } from '../res/ResLoader';
-import { playHide, playShow } from './Transitions';
+import { playHide, playShow, stopTransition } from './Transitions';
 import { UIQueue } from './UILayer';
 import { UIRoot } from './UIRoot';
 import { viewMeta } from './uiView';
@@ -25,7 +26,9 @@ export class UIManager implements ViewHost {
     private readonly stacks: ViewBase<any>[][] = [[], []];
     private readonly queue: Queued[] = [];
     private queuedOpen: ViewBase<any> | null = null;
-    private blockCount = 0;
+    /** Views in a show/hide transition; input is blocked while any exists or a view is loading. */
+    private readonly busy = new Set<ViewBase<any>>();
+    private readonly listeners = new Set<() => void>();
     private loadingCount = 0;
 
     constructor(private readonly root: UIRoot, private readonly loader: ResLoader) {
@@ -57,10 +60,11 @@ export class UIManager implements ViewHost {
 
     close(view: ViewBase<any>): void {
         if (!view.isOpened) return;
+        debugLog('UI', 'close', view.constructor.name);
         const stack = view.meta.queue === UIQueue.None ? null : this.stacks[view.meta.queue];
         const wasTop = !!stack && stack[stack.length - 1] === view;
-        this.block(true);
         view._setShowed(false);
+        this.setBusy(view, true);
         playHide(view, () => {
             view.onHideFinish();
             view._close();
@@ -73,7 +77,8 @@ export class UIManager implements ViewHost {
                 const previous = stack[stack.length - 1];
                 if (wasTop && previous) this.show(previous);
             }
-            this.block(false);
+            this.setBusy(view, false);
+            this.notify();
             if (this.queuedOpen === view) {
                 this.queuedOpen = null;
                 this.openNextQueued();
@@ -85,6 +90,17 @@ export class UIManager implements ViewHost {
         for (const view of this.stacks[queue].slice().reverse()) this.close(view);
     }
 
+/** Called after a view finished showing or closing (the visible top may have changed). */
+    onChanged(enabled: boolean, listener: () => void): void {
+        if (enabled) this.listeners.add(listener);
+        else this.listeners.delete(listener);
+    }
+
+/** The open instance of a view class, or null. */
+    find<V extends ViewBase<any>>(type: ViewClass<V>): V | null {
+        return (this.records.get(type)?.view as V | undefined) ?? null;
+    }
+
     top(queue: UIQueue): ViewBase<any> | null {
         const stack = this.stacks[queue];
         return stack[stack.length - 1] ?? null;
@@ -92,6 +108,7 @@ export class UIManager implements ViewHost {
 
     private async create(type: ViewClass<any>, entry: Record, arg: unknown): Promise<ViewBase<any>> {
         const meta = viewMeta(type);
+        debugLog('UI', 'open', type.name);
         this.setLoading(true);
         const prefab = await this.loader.load(meta.bundle, meta.path, Prefab);
         this.setLoading(false);
@@ -132,19 +149,26 @@ export class UIManager implements ViewHost {
     }
 
     private show(view: ViewBase<any>): void {
-        this.block(true);
+        this.setBusy(view, true);
         view._setShowed(true);
         playShow(view, () => {
-            this.block(false);
+            this.setBusy(view, false);
             view.onShowFinish();
+            this.notify();
         });
     }
 
     private hide(view: ViewBase<any>): void {
         if (!view.isShowed) return;
+        stopTransition(view);
+        this.setBusy(view, false);
         view._setShowed(false);
         view.node.active = false;
         view.onHideFinish();
+    }
+
+    private notify(): void {
+        for (const listener of Array.from(this.listeners)) listener();
     }
 
     private openNextQueued(): void {
@@ -153,21 +177,28 @@ export class UIManager implements ViewHost {
         void this.openWith(next.type, next.args).then(view => { this.queuedOpen = view; });
     }
 
-    private block(on: boolean): void {
-        this.blockCount += on ? 1 : -1;
-        this.root.block.active = this.blockCount > 0;
+    private setBusy(view: ViewBase<any>, on: boolean): void {
+        if (on) this.busy.add(view);
+        else this.busy.delete(view);
+        this.updateBlock();
+    }
+
+    private updateBlock(): void {
+        const blocked = this.busy.size > 0 || this.loadingCount > 0;
+        if (blocked !== this.root.block.active) debugLog('UI', 'input', blocked ? 'blocked' : 'free', [...this.busy].map(v => v.constructor.name));
+        this.root.block.active = blocked;
     }
 
     private setLoading(on: boolean): void {
         this.loadingCount += on ? 1 : -1;
-        this.block(on);
+        this.updateBlock();
         if (on) this.root.scheduleOnce(() => { this.root.loading.active = this.loadingCount > 0; }, LOADING_DELAY);
         else if (this.loadingCount === 0) this.root.loading.active = false;
     }
 
     private onKey(event: EventKeyboard): void {
         if (event.keyCode !== KeyCode.MOBILE_BACK && event.keyCode !== KeyCode.ESCAPE) return;
-        if (this.blockCount > 0) return;
+        if (this.root.block.active) return;
         const view = this.top(UIQueue.Popup) ?? this.top(UIQueue.Page);
         if (view) view.onBack();
     }

@@ -165,12 +165,11 @@ export function harvest(save: SaveService, cfg: Endless, today: string): Harvest
     const run = save.data.endless.run;
     if (!run) throw new Error('No endless run');
     return save.claim<HarvestReceipt>('endless:' + run.runId, draft => {
-        const gross = Math.min(cfg.harvestRunMax, Math.floor(run.score / 100) * cfg.harvestPerHundred);
+        const honey = projectedHarvest(draft, cfg, run.score, today);
         if (draft.endless.dailyDay !== today) {
             draft.endless.dailyDay = today;
             draft.endless.dailyGranted = 0;
         }
-        const honey = Math.max(0, Math.min(gross, cfg.harvestDailyMax - draft.endless.dailyGranted));
         draft.endless.dailyGranted += honey;
         addHoney(draft, honey);
         const newBest = run.score > draft.endless.best;
@@ -180,4 +179,11 @@ export function harvest(save: SaveService, cfg: Endless, today: string): Harvest
         recordActivity(draft, { kind: 'endlessRun', score: run.score, valid }, today);
         return { runId: run.runId, score: run.score, best: draft.endless.best, newBest, honey, valid };
     });
+}
+
+/** Honey a harvest of `score` would pay today (F034): run cap, then what is left of the daily cap. */
+export function projectedHarvest(save: Readonly<SaveData>, cfg: Endless, score: number, today: string): number {
+    const gross = Math.min(cfg.harvestRunMax, Math.floor(score / 100) * cfg.harvestPerHundred);
+    const granted = save.endless.dailyDay === today ? save.endless.dailyGranted : 0;
+    return Math.max(0, Math.min(gross, cfg.harvestDailyMax - granted));
 }

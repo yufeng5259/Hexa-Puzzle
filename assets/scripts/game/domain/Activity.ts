@@ -8,7 +8,7 @@ import { applyDailyActivity } from './Daily';
  */
 export type Activity =
     /** A mainline win was settled (valid game for tasks / weekly / picnic). */
-    | { kind: 'puzzleWin'; levelNumber: number; firstClear: boolean; mode: 'classic' | 'challenge' }
+    | { kind: 'puzzleWin'; levelNumber: number; firstClear: boolean; mode: 'classic' | 'challenge'; featured: boolean }
     /** One building upgrade (chapter, building id, new level). */
     | { kind: 'build'; chapter: number; buildingId: number; level: number }
     /** One legal endless placement. */

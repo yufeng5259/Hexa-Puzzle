@@ -1,0 +1,109 @@
+{
+  "stories": [
+    {
+      "id": "chapter.1",
+      "kind": "chapter",
+      "unlock": {
+        "chapter": 1
+      },
+      "image": {
+        "bundle": "meta",
+        "path": "story/chapter_1"
+      },
+      "titleKey": "story.chapter.1.title",
+      "steps": [
+        "story.chapter.1.s1",
+        "story.chapter.1.s2",
+        "story.chapter.1.s3"
+      ]
+    },
+    {
+      "id": "chapter.2",
+      "kind": "chapter",
+      "unlock": {
+        "chapter": 2
+      },
+      "image": {
+        "bundle": "meta",
+        "path": "story/chapter_2"
+      },
+      "titleKey": "story.chapter.2.title",
+      "steps": [
+        "story.chapter.2.s1",
+        "story.chapter.2.s2",
+        "story.chapter.2.s3"
+      ]
+    },
+    {
+      "id": "chapter.end",
+      "kind": "chapter",
+      "unlock": {
+        "allGardensDone": true
+      },
+      "image": {
+        "bundle": "meta",
+        "path": "story/chapter_3"
+      },
+      "titleKey": "story.chapter.end.title",
+      "steps": [
+        "story.chapter.end.s1",
+        "story.chapter.end.s2",
+        "story.chapter.end.s3"
+      ]
+    },
+    {
+      "id": "bee.xiaomi",
+      "kind": "companion",
+      "unlock": {
+        "bee": "xiaomi",
+        "affinity": 15
+      },
+      "image": {
+        "bundle": "common",
+        "path": "textures/公共素材/bee_xiaomi_9d264f3cf5"
+      },
+      "titleKey": "story.bee.xiaomi.title",
+      "steps": [
+        "story.bee.xiaomi.s1",
+        "story.bee.xiaomi.s2",
+        "story.bee.xiaomi.s3"
+      ]
+    },
+    {
+      "id": "bee.huahua",
+      "kind": "companion",
+      "unlock": {
+        "bee": "huahua",
+        "affinity": 15
+      },
+      "image": {
+        "bundle": "common",
+        "path": "textures/补充/R-16_花花_立绘"
+      },
+      "titleKey": "story.bee.huahua.title",
+      "steps": [
+        "story.bee.huahua.s1",
+        "story.bee.huahua.s2",
+        "story.bee.huahua.s3"
+      ]
+    },
+    {
+      "id": "bee.agong",
+      "kind": "companion",
+      "unlock": {
+        "bee": "agong",
+        "affinity": 15
+      },
+      "image": {
+        "bundle": "common",
+        "path": "textures/公共素材/bee_agong_80c82c47c0"
+      },
+      "titleKey": "story.bee.agong.title",
+      "steps": [
+        "story.bee.agong.s1",
+        "story.bee.agong.s2",
+        "story.bee.agong.s3"
+      ]
+    }
+  ]
+}

@@ -76,3 +76,25 @@ export function depart(draft: SaveData, cfg: Garden, expectedChapter: number, to
     recordActivity(draft, { kind: 'gardenEntered', chapter: chapter + 1 }, today);
     return chapter + 1;
 }
+
+/** What the completed garden leads to (F025–F028); null while the garden is still being built. */
+export type ChapterStep = 'claim' | 'next' | 'journey' | null;
+
+export function chapterStep(save: Readonly<SaveData>, cfg: Garden): ChapterStep {
+    if (!isChapterBuilt(save, cfg)) return null;
+    if (!isChapterClaimed(save, save.garden.chapter)) return 'claim';
+    return isLastChapter(save, cfg) ? 'journey' : 'next';
+}
+
+/** Progress shown for a garden on the world map: past gardens are complete, future ones empty (F027). */
+export function chapterProgress(save: Readonly<SaveData>, cfg: Garden, chapter: number): number {
+    if (chapter < save.garden.chapter) return cfg.maxLevel * cfg.buildingCount;
+    if (chapter > save.garden.chapter) return 0;
+    return gardenProgress(save);
+}
+
+/** One stage canvas (512×512 art) placement in design coordinates, top-left origin. */
+export interface BuildingPlacement { center: [number, number]; width: number; z: number; }
+
+/** bundles/garden/config/layout.json: placements per theme, in building id order. */
+export type GardenLayout = Record<string, BuildingPlacement[]>;

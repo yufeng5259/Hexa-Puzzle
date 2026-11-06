@@ -44,7 +44,7 @@ export default {
     layer('bee_huahua', { as: 'Bee' }),
     ...progress(),
     withChecks(milestones(), 1202),
-    layer('活动奖励说明', { as: 'RewardNote' }),
+    layer('活动奖励说明', { as: 'RewardNote', bind: 'rewardNoteLabel' }),
     group('BtnDetail', [layer('去看看_原生按钮', { as: 'Bg' }), layer('去看看_文案', { as: 'Text' })], { button: 'onDetail' }),
     back(),
   ],

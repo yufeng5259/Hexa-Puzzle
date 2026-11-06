@@ -1,0 +1,129 @@
+{
+  "_note": "Per theme, per building id (treehouse, garden, workshop, watermill, greenhouse): center and width of the 512x512 stage canvas in design coords (853x1844, top-left origin). The watermill rotor shares its building box. Sources: sunny T15-01, water R-01 placement JSON, cloud T15-05.",
+  "sunny": [
+    {
+      "center": [
+        226,
+        412
+      ],
+      "width": 512,
+      "z": 10
+    },
+    {
+      "center": [
+        660,
+        512
+      ],
+      "width": 384,
+      "z": 20
+    },
+    {
+      "center": [
+        224.5,
+        773.5
+      ],
+      "width": 387,
+      "z": 30
+    },
+    {
+      "center": [
+        699,
+        952
+      ],
+      "width": 294,
+      "z": 40
+    },
+    {
+      "center": [
+        265.5,
+        1215.5
+      ],
+      "width": 503,
+      "z": 50
+    }
+  ],
+  "water": [
+    {
+      "center": [
+        250,
+        470
+      ],
+      "width": 310,
+      "z": 10
+    },
+    {
+      "center": [
+        590,
+        655
+      ],
+      "width": 300,
+      "z": 20
+    },
+    {
+      "center": [
+        230,
+        870
+      ],
+      "width": 300,
+      "z": 30
+    },
+    {
+      "center": [
+        585,
+        1100
+      ],
+      "width": 320,
+      "z": 40
+    },
+    {
+      "center": [
+        265,
+        1370
+      ],
+      "width": 360,
+      "z": 50
+    }
+  ],
+  "cloud": [
+    {
+      "center": [
+        226,
+        412
+      ],
+      "width": 512,
+      "z": 10
+    },
+    {
+      "center": [
+        660,
+        515
+      ],
+      "width": 378,
+      "z": 20
+    },
+    {
+      "center": [
+        225,
+        780
+      ],
+      "width": 370,
+      "z": 30
+    },
+    {
+      "center": [
+        699.5,
+        953.5
+      ],
+      "width": 291,
+      "z": 40
+    },
+    {
+      "center": [
+        265.5,
+        1221.5
+      ],
+      "width": 489,
+      "z": 50
+    }
+  ]
+}

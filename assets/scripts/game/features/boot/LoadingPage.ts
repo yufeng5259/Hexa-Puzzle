@@ -9,6 +9,9 @@ import { LocalSaveStore } from '../../LocalSaveStore';
 import { newSave } from '../../save/SaveData';
 import { SaveService } from '../../save/SaveService';
 import { services } from '../../Services';
+import { loadCollectionConfig } from '../../CollectionConfig';
+import { loadDailyConfig } from '../../DailyConfig';
+import { startGuide } from '../../Guide';
 import { acceptToday } from '../../Today';
 import { MapPage } from '../map/MapPage';
 import { ResumePopup } from '../puzzle/ResumePopup';
@@ -39,8 +42,9 @@ export class LoadingPage extends ViewBase {
             async () => {
                 const { initial, garden } = services.config;
                 services.save = new SaveService(new LocalSaveStore(), () => newSave(initial.honey, initial.hints, garden.buildingCount));
-                acceptToday();
             },
+            async () => { await loadDailyConfig(); },
+            async () => { await loadCollectionConfig(); },
             async () => { await services.res.loadBundle('garden'); },
         ];
         for (let i = 0; i < steps.length; i++) {
@@ -48,8 +52,10 @@ export class LoadingPage extends ViewBase {
             await steps[i]();
         }
         this.setProgress(1);
+        acceptToday();
         await services.ui.open(MapPage, {});
         if (services.save.data.attempt) await services.ui.open(ResumePopup);
+        await startGuide();
         this.close();
     }
 

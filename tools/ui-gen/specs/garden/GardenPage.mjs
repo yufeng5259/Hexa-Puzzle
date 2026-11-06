@@ -14,7 +14,7 @@ const SCAFFOLD = 'PNG/补充/R-22_施工脚手架.png';
  */
 function building(as, name, body, maxFrom) {
   return group(as, [
-    layer(body, { as: 'Body', bind: 'body' }),
+    layer(body, { as: 'Body', bind: 'body', button: 'onUpgrade', note: '点建筑本体与点价签执行同一升级命令（F023）' }),
     group('Tag', [
       layer(`${name}空白进度牌`, { as: 'Plate' }),
       layer(`${name}五级进度底轨`, { as: 'Track' }),

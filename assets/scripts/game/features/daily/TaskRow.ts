@@ -3,7 +3,15 @@ import { LocalizedLabel } from '../../../framework/i18n/LocalizedLabel';
 
 const { ccclass, property } = _decorator;
 
-/** Component on groups of TasksPage. Generated skeleton; structure in docs/开发方案/Prefab结构.md. */
+export interface TaskRowView {
+    titleKey: string;
+    progress: number;
+    target: number;
+    honey: number;
+    claimed: boolean;
+}
+
+/** 每日任务行：标题、进度、奖励；完成后可领，领后显示已领取。点击回调由 TasksPage 设置。 */
 @ccclass('TaskRow')
 export class TaskRow extends Component {
     @property(Node) doneMark: Node = null!;
@@ -14,7 +22,20 @@ export class TaskRow extends Component {
     @property(Node) claimedMark: Node = null!;
     @property(Node) lockedMark: Node = null!;
 
+    onClaimTask: () => void = () => {};
+
+    show(view: TaskRowView): void {
+        const done = view.progress >= view.target;
+        this.titleLabel.setKey(view.titleKey);
+        this.progressLabel.string = `${view.progress}/${view.target}`;
+        this.rewardLabel.string = '+' + view.honey;
+        this.doneMark.active = done;
+        this.claimButton.active = done && !view.claimed;
+        this.claimedMark.active = view.claimed;
+        this.lockedMark.active = false;
+    }
+
     onClaim(_event: unknown, _data: string): void {
-        throw new Error('TaskRow.onClaim not implemented');
+        this.onClaimTask();
     }
 }

@@ -13,7 +13,11 @@ import { PuzzlePage, pieceColor } from './PuzzlePage';
 
 const { ccclass, property } = _decorator;
 
-export interface LevelPreviewArgs { level: number; }
+export interface LevelPreviewArgs {
+    level: number;
+    /** Opened from the daily featured list (counts for the featured task). */
+    featured?: boolean;
+}
 
 /** 开局预览（普通 T01-01 / 限步 T04-01，F009）：只读棋盘与托盘、规则数字、本次可得花蜜。 */
 @ccclass('LevelPreviewPopup')
@@ -72,7 +76,7 @@ export class LevelPreviewPopup extends PopupBase<LevelPreviewArgs> {
 
     private beginLevel(n: number): void {
         const pending = services.save.data.attempt;
-        if (!pending || pending.levelNumber !== n) services.save.transact(draft => { startAttempt(draft, n); });
+        if (!pending || pending.levelNumber !== n) services.save.transact(draft => { startAttempt(draft, n, !!this.args.featured); });
         this.close();
         void services.ui.open(PuzzlePage, { level: n });
     }

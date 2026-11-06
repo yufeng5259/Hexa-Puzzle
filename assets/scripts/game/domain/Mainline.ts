@@ -2,6 +2,7 @@ import { EconomyConfig } from '../config/EconomyConfig';
 import { nextId, PuzzleAttemptState, SaveData } from '../save/SaveData';
 import { SaveService } from '../save/SaveService';
 import { LevelDefinition } from './puzzle/LevelDefinition';
+import { SeededRandom } from '../../framework/core/SeededRandom';
 import { recordActivity } from './Activity';
 import { addHoney } from './Wallet';
 
@@ -26,8 +27,9 @@ export function isEndlessUnlocked(save: Readonly<SaveData>, cfg: Mainline): bool
 }
 
 /** New attempt for a mainline level; replaces any unfinished one (the caller confirms first, F013). */
-export function startAttempt(draft: SaveData, levelNumber: number): PuzzleAttemptState {
-    const attempt: PuzzleAttemptState = { attemptId: nextId(draft, 'attempt'), levelNumber, placements: {}, moves: 0, hintsUsed: 0, extraMoves: 0, continued: false, ads: {} };
+export function startAttempt(draft: SaveData, levelNumber: number, featured = false): PuzzleAttemptState {
+    const attempt: PuzzleAttemptState = { attemptId: nextId(draft, 'attempt'), levelNumber, placements: {}, moves: 0, hintsUsed: 0, extraMoves: 0,
+        continued: false, featured, ads: {} };
     draft.attempt = attempt;
     return attempt;
 }
@@ -79,9 +81,28 @@ export function settleWin(save: SaveService, cfg: Mainline, level: LevelDefiniti
             }
         }
         if (firstClear) draft.mainline.cleared.push(n);
-        recordActivity(draft, { kind: 'puzzleWin', levelNumber: n, firstClear, mode: level.mode }, today);
+        recordActivity(draft, { kind: 'puzzleWin', levelNumber: n, firstClear, mode: level.mode, featured: attempt.featured }, today);
         addHoney(draft, honey);
         draft.attempt = null;
         return { attemptId: attempt.attemptId, levelNumber: n, mode: level.mode, firstClear, honey, stars, bestStars, replayCapped };
     });
+}
+
+/** Replay honey used today, for the shared replay / featured quota display (F021). */
+export function replaysToday(save: Readonly<SaveData>, today: string): number {
+    return save.mainline.replayDay === today ? save.mainline.replayCount : 0;
+}
+
+/**
+ * Daily featured replays (F021, 06 E09): `count` distinct cleared classic levels, chosen with the day as the seed
+ * so the list stays the same all day; fewer when fewer are cleared.
+ */
+export function featuredLevels(save: Readonly<SaveData>, isClassic: (level: number) => boolean, today: string, count: number): number[] {
+    const pool = save.mainline.cleared.filter(isClassic).sort((a, b) => a - b);
+    let seed = 0;
+    for (let i = 0; i < today.length; i++) seed = (seed * 31 + today.charCodeAt(i)) % 233280;
+    const rng = new SeededRandom(seed);
+    const picked: number[] = [];
+    while (picked.length < count && pool.length) picked.push(pool.splice(rng.range(pool.length), 1)[0]);
+    return picked.sort((a, b) => a - b);
 }
