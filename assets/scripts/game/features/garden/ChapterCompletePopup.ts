@@ -8,6 +8,7 @@ import { services } from '../../Services';
 import { today } from '../../Today';
 import { JourneyCompletePopup } from './JourneyCompletePopup';
 import { NextThemePopup } from './NextThemePopup';
+import { StoryPopup } from '../collection/StoryPopup';
 
 const { ccclass, property } = _decorator;
 
@@ -47,7 +48,8 @@ export class ChapterCompletePopup extends PopupBase {
         const step = chapterStep(services.save.data, services.config.garden);
         this.close();
         if (step === 'next') void services.ui.open(NextThemePopup);
-        else if (step === 'journey') void services.ui.open(JourneyCompletePopup);
+        // F028: the ending story first; the journey summary follows when it closes.
+        else if (step === 'journey') void services.ui.open(StoryPopup, { storyId: 'chapter.end', onClose: () => void services.ui.open(JourneyCompletePopup) });
     }
 
     /** Close back to the garden; the reward stays claimable from its gift button. */

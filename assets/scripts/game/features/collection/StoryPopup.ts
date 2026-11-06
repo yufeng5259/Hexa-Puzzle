@@ -10,7 +10,11 @@ import { services } from '../../Services';
 
 const { ccclass, property } = _decorator;
 
-export interface StoryArgs { storyId: string; }
+export interface StoryArgs {
+    storyId: string;
+    /** Called after the story closes (e.g. the journey summary after the ending story). */
+    onClose?: () => void;
+}
 
 /**
  * 章节剧情 / 蜂友故事（F037）：三步文字与配图来自 story.json；只记录已读，不发奖。
@@ -52,5 +56,9 @@ export class StoryPopup extends PopupBase<StoryArgs> {
 
     onContinue(_event: unknown, _data: string): void {
         this.close();
+    }
+
+    protected onClose(): void {
+        if (this.args.onClose) this.args.onClose();
     }
 }

@@ -2,6 +2,7 @@ import { debugLog } from '../framework/Log';
 import { adBlock, recordAd } from './domain/Ads';
 import { adId, AdRequest, AdRewardSpec, AdTarget, applyAdReward } from './domain/AdReward';
 import { AdStatusPopup } from './features/common/AdStatusPopup';
+import { Toast } from './features/common/Toast';
 import { services } from './Services';
 import { today } from './Today';
 
@@ -60,6 +61,8 @@ export async function watchAd(offer: AdOffer): Promise<boolean> {
     status.close();
     const granted = settle(request, result.receiptId, nowSeconds());
     void services.platform.acknowledge(request.requestId, result.receiptId);
+    // D09: the target ended while the ad played (run harvested, attempt replaced): receipt consumed, no reward.
+    if (!granted) Toast.show('hg.ad.target_ended');
     return granted;
 }
 
