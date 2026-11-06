@@ -3,16 +3,19 @@ import { PopupBase } from '../../../framework/ui/PopupBase';
 import { UILayer, UIQueue } from '../../../framework/ui/UILayer';
 import { uiView } from '../../../framework/ui/uiView';
 import { adAvailable, watchAd } from '../../Ads';
-import { applyRevive, harvest, projectedHarvest, revivePlan } from '../../domain/Endless';
+import { harvest, projectedHarvest, revivePlan } from '../../domain/Endless';
 import { services } from '../../Services';
 import { today } from '../../Today';
 import { EndlessResultPopup } from './EndlessResultPopup';
+import { HexCell } from '../../domain/puzzle/LevelDefinition';
 
 const { ccclass, property } = _decorator;
 
 export interface EndlessReviveArgs {
     /** Called after a successful clearing so the page redraws the board. */
     onRevived: () => void;
+    /** Highlight cells on the page's board (the clearing plan, F033); [] removes the highlight. */
+    showPlan: (cells: HexCell[]) => void;
 }
 
 /** 无尽无位置（T12-01，F033/F055）：免费收获结束，或看视频按可验证方案清理后续局（每局 1 次）。 */
@@ -26,7 +29,13 @@ export class EndlessRevivePopup extends PopupBase<EndlessReviveArgs> {
         const run = services.save.data.endless.run!;
         const cfg = services.config.endless;
         this.honeyLabel.string = String(projectedHarvest(services.save.data, cfg, run.score, today()));
-        this.clearAdButton.active = revivePlan(run, cfg) !== null && adAvailable('endless');
+        const plan = revivePlan(run, cfg);
+        this.clearAdButton.active = plan !== null && adAvailable('endless');
+        this.args.showPlan(plan && this.clearAdButton.active ? plan.clearCells : []);
+    }
+
+    protected onClose(): void {
+        this.args.showPlan([]);
     }
 
     onHarvest(_event: unknown, _data: string): void {

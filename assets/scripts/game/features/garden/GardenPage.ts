@@ -42,6 +42,8 @@ export class GardenPage extends ViewBase {
     @property(Node) chapterReward: Node = null!;
 
     private layout: GardenLayout | null = null;
+    /** Authored tag positions (sunny), captured on first placement. */
+    private readonly tagHome: Vec3[] = [];
     /** Asset path last requested per slot (index 5 = rotor, 6 = terrain); late results for other paths are dropped. */
     private readonly requested: string[] = [];
     private placedTheme = '';
@@ -151,7 +153,16 @@ export class GardenPage extends ViewBase {
     private place(theme: string): void {
         const cfg = services.config.garden;
         const boxes = this.layout![theme];
-        this.slots.forEach((slot, i) => this.fit(slot.body, boxes[i].center, boxes[i].width));
+        const authored = this.layout!.sunny;
+        this.slots.forEach((slot, i) => {
+            this.fit(slot.body, boxes[i].center, boxes[i].width);
+            // Tags are authored next to the sunny buildings: move them with this theme's building (D8).
+            if (!this.tagHome[i]) this.tagHome[i] = slot.tag.position.clone();
+            const home = this.tagHome[i];
+            const dx = boxes[i].center[0] - authored[i].center[0] + boxes[i].tagOffset[0];
+            const dy = authored[i].center[1] - boxes[i].center[1] - boxes[i].tagOffset[1];
+            slot.tag.setPosition(home.x + dx, home.y + dy);
+        });
         this.fit(this.waterRotor, boxes[cfg.rotorBuilding].center, boxes[cfg.rotorBuilding].width);
         this.placedTheme = theme;
     }

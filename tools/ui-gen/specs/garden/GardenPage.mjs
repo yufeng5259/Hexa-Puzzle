@@ -23,7 +23,7 @@ function building(as, name, body, maxFrom) {
       layer(`${name}等级`, { as: 'Level', bind: 'levelLabel' }),
       layer(`${name}直接升级按钮`, { as: 'BtnUpgrade', button: 'onUpgrade', bind: ['upgradeButton', 'Node'] }),
       layer(`${name}满级确认`, { from: maxFrom, as: 'MaxMark', active: false, bind: ['maxMark', 'Node'] }),
-    ]),
+    ], { bind: ['tag', 'Node'], note: '按 layout.json 随建筑移动（authored 位置对应向阳花园）' }),
   ], { script: SLOT, bindArray: 'slots' });
 }
 

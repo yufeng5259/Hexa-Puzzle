@@ -178,7 +178,7 @@ export class EndlessPage extends ViewBase {
     /** All remaining tray pieces are blocked: offer harvest or the verified clearing (F033). */
     private checkStuck(): void {
         if (!hasMove(services.save.data.endless.run!, services.config.endless)) {
-            void services.ui.open(EndlessRevivePopup, { onRevived: () => this.render() });
+            void services.ui.open(EndlessRevivePopup, { onRevived: () => this.render(), showPlan: cells => this.board.setHint(cells) });
         }
     }
 

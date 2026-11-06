@@ -39,7 +39,7 @@ const CASES = [
   { view: 'JourneyCompletePopup', patch: 'd.garden.chapter = 2; d.garden.buildings = [5, 5, 5, 5, 5];' },
   { view: 'EndlessIntroPopup' },
   { view: 'EndlessPage', open: `(async () => { const intro = await hexa.ui.open(cc.js.getClassByName('EndlessIntroPopup')); await sleep(500); intro.onStart(null, ''); await sleep(1500); })()` },
-  { view: 'EndlessRevivePopup', open: `(async () => { const intro = await hexa.ui.open(cc.js.getClassByName('EndlessIntroPopup')); await sleep(500); intro.onStart(null, ''); await sleep(1500); await hexa.ui.open(cc.js.getClassByName('EndlessRevivePopup'), { onRevived: () => {} }); })()` },
+  { view: 'EndlessRevivePopup', open: `(async () => { const intro = await hexa.ui.open(cc.js.getClassByName('EndlessIntroPopup')); await sleep(500); intro.onStart(null, ''); await sleep(1500); await hexa.ui.open(cc.js.getClassByName('EndlessRevivePopup'), { onRevived: () => {}, showPlan: () => {} }); })()` },
   { view: 'EndlessResultPopup', args: `({ runId: 'r1', score: 1200, best: 1200, newBest: true, honey: 60, valid: true })` },
   { view: 'CompanionListPage' },
   { view: 'CompanionDetailPage', args: `({ bee: 'xiaomi' })` },

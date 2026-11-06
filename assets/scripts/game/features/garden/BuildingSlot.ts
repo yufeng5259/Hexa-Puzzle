@@ -19,6 +19,7 @@ export class BuildingSlot extends Component {
     @property(Label) levelLabel: Label = null!;
     @property(Node) upgradeButton: Node = null!;
     @property(Node) maxMark: Node = null!;
+    @property(Node) tag: Node = null!;
 
     onSelect: () => void = () => {};
 

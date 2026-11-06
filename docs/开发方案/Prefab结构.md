@@ -1262,7 +1262,7 @@ GardenPage  [GardenPage]
 ├─ Buildings  
 │  ├─ Treehouse  [BuildingSlot]  @slots[]
 │  │  ├─ Body  Sprite(向阳花园_树屋_2级_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
-│  │  └─ Tag  
+│  │  └─ Tag  @tag  按 layout.json 随建筑移动（authored 位置对应向阳花园）
 │  │     ├─ Plate  Sprite(树屋进度容器)
 │  │     ├─ Track  Sprite(树屋进度底轨)
 │  │     ├─ Fill  Sprite(树屋进度填充)  @fill  横向填充  fillRange = 等级/5
@@ -1272,7 +1272,7 @@ GardenPage  [GardenPage]
 │  │     └─ MaxMark  Sprite(完成勾)  @maxMark  默认隐藏
 │  ├─ Garden  [BuildingSlot]  @slots[]
 │  │  ├─ Body  Sprite(向阳花园_花园_1级_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
-│  │  └─ Tag  
+│  │  └─ Tag  @tag  按 layout.json 随建筑移动（authored 位置对应向阳花园）
 │  │     ├─ Plate  Sprite(花园进度容器)
 │  │     ├─ Track  Sprite(花园进度底轨)
 │  │     ├─ Fill  Sprite(花园进度填充)  @fill  横向填充  fillRange = 等级/5
@@ -1282,7 +1282,7 @@ GardenPage  [GardenPage]
 │  │     └─ MaxMark  Sprite(完成勾)  @maxMark  默认隐藏
 │  ├─ Workshop  [BuildingSlot]  @slots[]
 │  │  ├─ Body  Sprite(向阳花园_蜂蜜工坊_1级_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
-│  │  └─ Tag  
+│  │  └─ Tag  @tag  按 layout.json 随建筑移动（authored 位置对应向阳花园）
 │  │     ├─ Plate  Sprite(蜂蜜工坊进度容器)
 │  │     ├─ Track  Sprite(蜂蜜工坊进度底轨)
 │  │     ├─ Fill  Sprite(蜂蜜工坊进度填充)  @fill  横向填充  fillRange = 等级/5
@@ -1292,7 +1292,7 @@ GardenPage  [GardenPage]
 │  │     └─ MaxMark  Sprite(完成勾)  @maxMark  默认隐藏
 │  ├─ Watermill  [BuildingSlot]  @slots[]
 │  │  ├─ Body  Sprite(向阳花园_小溪水车_1级_无轮静态本体_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
-│  │  └─ Tag  
+│  │  └─ Tag  @tag  按 layout.json 随建筑移动（authored 位置对应向阳花园）
 │  │     ├─ Plate  Sprite(小溪水车进度容器)
 │  │     ├─ Track  Sprite(小溪水车进度底轨)
 │  │     ├─ Fill  Sprite(小溪水车进度填充)  @fill  横向填充  fillRange = 等级/5
@@ -1302,7 +1302,7 @@ GardenPage  [GardenPage]
 │  │     └─ MaxMark  Sprite(完成勾)  @maxMark  默认隐藏
 │  └─ Greenhouse  [BuildingSlot]  @slots[]
 │     ├─ Body  Sprite(向阳花园_温室_1级_原生母件)  → onUpgrade  @body  点建筑本体与点价签执行同一升级命令（F023）
-│     └─ Tag  
+│     └─ Tag  @tag  按 layout.json 随建筑移动（authored 位置对应向阳花园）
 │        ├─ Plate  Sprite(温室进度容器)
 │        ├─ Track  Sprite(温室进度底轨)
 │        ├─ Fill  Sprite(温室进度填充)  @fill  横向填充  fillRange = 等级/5

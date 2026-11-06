@@ -95,7 +95,8 @@ export function chapterProgress(save: Readonly<SaveData>, cfg: Garden, chapter: 
 }
 
 /** One stage canvas (512×512 art) placement in design coordinates, top-left origin. */
-export interface BuildingPlacement { center: [number, number]; width: number; z: number; }
+/** tagOffset: extra [dx, dy] (design px, y down) applied to the price tag after it follows the building. */
+export interface BuildingPlacement { center: [number, number]; width: number; z: number; tagOffset: [number, number]; }
 
 /** bundles/garden/config/layout.json: placements per theme, in building id order. */
 export type GardenLayout = Record<string, BuildingPlacement[]>;
