@@ -12,7 +12,7 @@ export default {
   children: [
     group('Bar', [
       sprite('Bg', 'PNG/公共UI/玩法提示条_5183e546c4.png', [118, 880, 618, 84]),
-      label('Text', 'hg.common.toast', [145, 890, 563, 64], { size: 28, color: [101, 61, 32], bold: true }, { bind: 'textLabel' }),
+      label('Text', 'hg.common.toast', [145, 890, 563, 64], { size: 29, color: [255, 248, 219], bold: true, outline: [64, 34, 14], outlineWidth: 2 }, { bind: 'textLabel' }),
     ], { bind: ['bar', 'Node'] }),
   ],
 };
