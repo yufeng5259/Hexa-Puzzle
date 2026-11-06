@@ -169,6 +169,8 @@ function build(spec) {
     let main = null, mainType = 'Node', inner = scope;
     if (n.kind === 'image') {
       main = b.sprite(id, frameUuid(n.file), NINE_SLICE[n.file] !== undefined, n.opacity, !!o.fill);
+      // Full-canvas art (backgrounds) covers screens whose aspect differs from the design.
+      if (o.cover !== false && n.rect[0] <= 0 && n.rect[1] <= 0 && n.rect[2] >= W - 1 && n.rect[3] >= H - 1) b.script(id, classIdOf('framework/ui/CoverFit'), {});
       mainType = 'Sprite';
     } else if (n.kind === 'text') {
       main = b.label(id, n.style);
@@ -203,6 +205,7 @@ function build(spec) {
     if (o.button) {
       if (!BASE_HANDLERS.has(o.button)) inner.entry.handlers.add(o.button);
       button = b.button(id, inner.node, inner.entry.cls, inner.classId, o.button, o.data ?? '');
+      b.script(id, classIdOf('framework/audio/ClickSound'), { key: 'click' });
     }
     if (o.bind || o.bindArray) {
       const [prop, type] = Array.isArray(o.bind) ? o.bind : [o.bind ?? o.bindArray, null];

@@ -40,6 +40,7 @@ export const list = (name, rect, cell, opts = {}) => ({ t: 'list', name, rect, c
  *   key: 'k'                override a text layer's localization key
  *   note: '...'             shown in the structure doc
  *   from: 'T07-01_…'        layer/layers: take the layer from another page config (another state of the same prefab)
+ *   cover: false            (full-canvas image) do not add CoverFit (e.g. guide masks that must stay 1:1)
  *   fill: true              (image) Sprite.Type.FILLED horizontal; scripts set fillRange 0..1
  *   flipX / flipY: true     mirror the node (negative scale)
  *   script: 'path'          (group/slot) component script on this node; its own bind/button scope

@@ -15,7 +15,7 @@ export default {
   backdropBlocks: false,
   backdrop: [],
   children: [
-    group('Masks', STEPS.map((from, i) => layer('引导聚光遮罩', { from, as: `Mask${i + 1}`, active: i === 0, bindArray: 'masks' }))),
+    group('Masks', STEPS.map((from, i) => layer('引导聚光遮罩', { from, as: `Mask${i + 1}`, active: i === 0, bindArray: 'masks', cover: false, note: '不放大：聚光孔需对准 1:1 的界面' }))),
     group('DragGhost', [layers(/^整块拖影_格/, { from: STEPS[3] })], { active: false, bind: ['dragGhost', 'Node'] }),
     group('Tip', [
       layer('引导原生木纹提示框', { as: 'Frame' }),
