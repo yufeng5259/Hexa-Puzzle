@@ -23,6 +23,7 @@ export interface FoundationPrefabRecord {
     readonly resourcePath: string;
 }
 export interface FoundationPrefabRegistry {
+    readonly aliases?: Readonly<Record<string, string>>;
     readonly prefabs: readonly FoundationPrefabRecord[];
     readonly dataAssets?: readonly FoundationPrefabRecord[];
 }
@@ -113,7 +114,7 @@ export class GardenAssetStore {
         }
         const bundleDependencies: Record<string, readonly string[]> = {};
         for (const record of registered) if (record.bundle !== 'common') bundleDependencies[record.bundle] = ['common'];
-        this.loader = new ResourceLoader(registered, { bundleDependencies });
+        this.loader = new ResourceLoader(registered, { bundleDependencies, aliases: registry.aliases });
     }
 
     public createScope(): ResourceScope { return this.loader.createScope(); }

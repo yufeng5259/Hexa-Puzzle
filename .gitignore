@@ -128,6 +128,17 @@ $RECYCLE.BIN/
 !/tools/
 /tools/*
 !/tools/prefab-foundation/
+!/tools/first-release/
+# One-off local pointer/layout diagnostics; maintained verifiers remain versioned.
+/tools/first-release/probe-short.mjs
+!/tools/meta/
+/tools/meta/node_modules/
+!/tools/framework/
+!/config/
+/config/*
+!/config/excel/
+/config/excel/*
+!/config/excel/*.xlsx
 /tools/prefab-foundation/*
 !/tools/prefab-foundation/*.mjs
 !/tools/prefab-foundation/raster.py

@@ -1,0 +1,1074 @@
+{
+  "name": "五页首版_设置",
+  "canvas": [
+    853,
+    1844
+  ],
+  "source": "Actual first-release Prefab + current config snapshot, not screenshot flattening",
+  "snapshot": {
+    "coins": 60,
+    "currentLevelNo": 2,
+    "buildingStages": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "progress": "1/25"
+  },
+  "layers": [
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/BareTerrain",
+      "position": [
+        0,
+        0
+      ],
+      "asset_id": "garden1.background",
+      "source_file": "游戏素材/PNG/首版V2地图/裸地图.png",
+      "instance": {
+        "width": 853,
+        "height": 1844,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/Map/Building1",
+      "position": [
+        115,
+        450
+      ],
+      "asset_id": "block_missing_6d5cc2735de1ba5df3c9",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_树屋_1级_原生母件_6d5cc2735d.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/Map/Building2",
+      "position": [
+        441,
+        670
+      ],
+      "asset_id": "block_missing_42f5d2919d639a952f66",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_花园_0级_原生母件_42f5d2919d.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/Map/Building3",
+      "position": [
+        98,
+        864
+      ],
+      "asset_id": "block_missing_8f06f6134340fb20e061",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_蜂蜜工坊_0级_原生母件_8f06f61343.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/Map/Building4",
+      "position": [
+        441,
+        1022
+      ],
+      "asset_id": "block_missing_aa22b0a6d16291f2ff75",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_小溪水车_0级_原生母件_aa22b0a6d1.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/Map/Building5",
+      "position": [
+        115,
+        1216
+      ],
+      "asset_id": "block_missing_cad71159dba5fc94a162",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_温室_0级_原生母件_cad71159db.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/HUD/Avatar",
+      "position": [
+        20,
+        92
+      ],
+      "asset_id": "firstrelease.ui.avatar",
+      "source_file": "游戏素材/PNG/公共UI/五页首版/avatar.png",
+      "instance": {
+        "width": 112,
+        "height": 120,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/HUD/WalletPlate",
+      "position": [
+        132,
+        107
+      ],
+      "asset_id": "firstrelease.ui.wallet",
+      "source_file": "游戏素材/PNG/公共UI/五页首版/wallet.png",
+      "instance": {
+        "width": 400,
+        "height": 90,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Home/HomeBuild/HUD/Coins",
+      "text": "60",
+      "position": [
+        349.0,
+        137.5
+      ],
+      "box": [
+        252,
+        117,
+        492,
+        187
+      ],
+      "font_size": 38.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 24.7,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "home.Coins",
+      "localization_key": null,
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        47,
+        30
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/HUD/EnergyHUD/Heart",
+      "position": [
+        520,
+        118
+      ],
+      "asset_id": "block_hud_体力爱心空白",
+      "source_file": "游戏素材/PNG/公共UI/体力爱心空白_72f8be88e9.png",
+      "instance": {
+        "width": 72,
+        "height": 68,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Home/HomeBuild/HUD/EnergyHUD/EnergyAmount",
+      "text": "5",
+      "position": [
+        546.5,
+        139.5
+      ],
+      "box": [
+        524,
+        122,
+        589,
+        182
+      ],
+      "font_size": 32.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 20.8,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "home.EnergyAmount",
+      "localization_key": null,
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        20,
+        25
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "Home/HomeBuild/HUD/EnergyHUD/EnergyTimer",
+      "text": "FULL",
+      "position": [
+        616.0,
+        143.0
+      ],
+      "box": [
+        590,
+        128,
+        700,
+        176
+      ],
+      "font_size": 24.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 15.600000000000001,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "home.EnergyTimer",
+      "localization_key": "firstrelease.EnergyTimer",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        59,
+        19
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/HUD/Settings",
+      "position": [
+        726,
+        100
+      ],
+      "asset_id": "firstrelease.ui.settings",
+      "source_file": "游戏素材/PNG/公共UI/五页首版/settings.png",
+      "instance": {
+        "width": 104,
+        "height": 104,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/HomeBottom/Build",
+      "position": [
+        66,
+        1636
+      ],
+      "asset_id": "firstrelease.ui.build",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/build.png",
+      "instance": {
+        "width": 142,
+        "height": 142,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Home/HomeBuild/HomeBottom/Play",
+      "position": [
+        246,
+        1632
+      ],
+      "asset_id": "firstrelease.ui.play",
+      "source_file": "游戏素材/PNG/页面素材/五页首版主页/UI/play.png",
+      "instance": {
+        "width": 540,
+        "height": 150,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Home/HomeBuild/HomeBottom/Play/LevelArrow/LevelNumber",
+      "text": "2",
+      "position": [
+        337.0,
+        1689.5
+      ],
+      "box": [
+        296,
+        1662,
+        406,
+        1752
+      ],
+      "font_size": 46.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 29.900000000000002,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "home.LevelNumber",
+      "localization_key": null,
+      "requested_font_size": 46.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        29,
+        36
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "Home/HomeBuild/HomeBottom/Play/PlayText",
+      "text": "Play",
+      "position": [
+        512.5,
+        1677.5
+      ],
+      "box": [
+        442,
+        1657,
+        702,
+        1757
+      ],
+      "font_size": 56.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 36.4,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "home.PlayText",
+      "localization_key": "firstrelease.PlayText",
+      "requested_font_size": 56.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        119,
+        60
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "Settings/Dialog/Shade",
+      "position": [
+        0,
+        0
+      ],
+      "asset_id": null,
+      "source_file": null,
+      "instance": {
+        "width": 5000,
+        "height": 5000,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 8,
+          "g": 26,
+          "b": 36,
+          "a": 175
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Settings/Dialog/Panel",
+      "position": [
+        62,
+        372
+      ],
+      "asset_id": "firstrelease.ui.panel",
+      "source_file": "游戏素材/PNG/公共UI/五页首版/panel.png",
+      "instance": {
+        "width": 730,
+        "height": 1100,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Title",
+      "text": "设置",
+      "position": [
+        381.0,
+        619.0
+      ],
+      "box": [
+        142,
+        594,
+        712,
+        689
+      ],
+      "font_size": 46.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 29.900000000000002,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.Title",
+      "localization_key": "firstrelease.Title",
+      "requested_font_size": 46.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        92,
+        45
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "Settings/Dialog/Primary",
+      "position": [
+        192,
+        1197
+      ],
+      "asset_id": "block_结算_下一关按钮",
+      "source_file": "游戏素材/PNG/公共UI/下一关按钮_95161f55c5.png",
+      "instance": {
+        "width": 470,
+        "height": 110,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Primary/PrimaryLabel",
+      "text": "确定",
+      "position": [
+        388.0,
+        1234.0
+      ],
+      "box": [
+        206,
+        1207,
+        646,
+        1297
+      ],
+      "font_size": 38.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 24.7,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.PrimaryLabel",
+      "localization_key": "firstrelease.PrimaryLabel",
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        76,
+        37
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Settings/SettingName0",
+      "text": "音乐",
+      "position": [
+        243.0,
+        675.5
+      ],
+      "box": [
+        162,
+        652,
+        392,
+        732
+      ],
+      "font_size": 34.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 22.1,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.SettingName0",
+      "localization_key": "firstrelease.SettingName0",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        68,
+        33
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "Settings/Dialog/Settings/Setting0",
+      "position": [
+        459,
+        650
+      ],
+      "asset_id": "block_结算_下一关按钮",
+      "source_file": "游戏素材/PNG/公共UI/下一关按钮_95161f55c5.png",
+      "instance": {
+        "width": 225,
+        "height": 85,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Settings/Setting0/SettingValue0",
+      "text": "开启",
+      "position": [
+        543.0,
+        678.0
+      ],
+      "box": [
+        466,
+        652,
+        676,
+        732
+      ],
+      "font_size": 28.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 18.2,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.SettingValue0",
+      "localization_key": "firstrelease.SettingValue0",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        56,
+        28
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Settings/SettingName1",
+      "text": "音效",
+      "position": [
+        243.0,
+        805.5
+      ],
+      "box": [
+        162,
+        782,
+        392,
+        862
+      ],
+      "font_size": 34.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 22.1,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.SettingName1",
+      "localization_key": "firstrelease.SettingName1",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        68,
+        33
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "Settings/Dialog/Settings/Setting1",
+      "position": [
+        459,
+        780
+      ],
+      "asset_id": "block_结算_下一关按钮",
+      "source_file": "游戏素材/PNG/公共UI/下一关按钮_95161f55c5.png",
+      "instance": {
+        "width": 225,
+        "height": 85,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Settings/Setting1/SettingValue1",
+      "text": "开启",
+      "position": [
+        543.0,
+        808.0
+      ],
+      "box": [
+        466,
+        782,
+        676,
+        862
+      ],
+      "font_size": 28.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 18.2,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.SettingValue1",
+      "localization_key": "firstrelease.SettingValue1",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        56,
+        28
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Settings/SettingName2",
+      "text": "震动",
+      "position": [
+        243.0,
+        935.0
+      ],
+      "box": [
+        162,
+        912,
+        392,
+        992
+      ],
+      "font_size": 34.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 22.1,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.SettingName2",
+      "localization_key": "firstrelease.SettingName2",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        68,
+        34
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "Settings/Dialog/Settings/Setting2",
+      "position": [
+        459,
+        910
+      ],
+      "asset_id": "block_结算_下一关按钮",
+      "source_file": "游戏素材/PNG/公共UI/下一关按钮_95161f55c5.png",
+      "instance": {
+        "width": 225,
+        "height": 85,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Settings/Setting2/SettingValue2",
+      "text": "开启",
+      "position": [
+        543.0,
+        938.0
+      ],
+      "box": [
+        466,
+        912,
+        676,
+        992
+      ],
+      "font_size": 28.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 18.2,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.SettingValue2",
+      "localization_key": "firstrelease.SettingValue2",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        56,
+        28
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Settings/SettingName3",
+      "text": "语言",
+      "position": [
+        243.0,
+        1065.5
+      ],
+      "box": [
+        162,
+        1042,
+        392,
+        1122
+      ],
+      "font_size": 34.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 22.1,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.SettingName3",
+      "localization_key": "firstrelease.SettingName3",
+      "requested_font_size": 34.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        68,
+        33
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "Settings/Dialog/Settings/Setting3",
+      "position": [
+        459,
+        1040
+      ],
+      "asset_id": "block_结算_下一关按钮",
+      "source_file": "游戏素材/PNG/公共UI/下一关按钮_95161f55c5.png",
+      "instance": {
+        "width": 225,
+        "height": 85,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Settings/Dialog/Settings/Setting3/SettingValue3",
+      "text": "简体中文",
+      "position": [
+        515.0,
+        1068.0
+      ],
+      "box": [
+        466,
+        1042,
+        676,
+        1122
+      ],
+      "font_size": 28.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 18.2,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "settings.SettingValue3",
+      "localization_key": "firstrelease.SettingValue3",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        112,
+        27
+      ]
+    }
+  ],
+  "limitations": [
+    "Existing native stage buildings differ from v2 illustrated building shapes.",
+    "Canvas composition is standard 853x1844; actual Creator viewport tests are separate."
+  ]
+}

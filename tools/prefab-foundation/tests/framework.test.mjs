@@ -156,6 +156,21 @@ test('resource adapter rejects unexpected UUIDs and disposes their native result
     await assert.rejects(scope.load('frame', Asset), /identity mismatch/);
     assert.equal(asset.refs, 0); scope.release();
 });
+
+test('configured aliases share a canonical asset across views without duplicate ownership or loads', async () => {
+    const asset = new Asset(); asset._uuid = 'shared-stage'; let loads = 0;
+    cc.resources.load = (_path, _type, done) => { loads++; done(null, asset); };
+    const loader = new ResourceLoader([{ id: 'tree', bundle: 'resources', path: 'tree', type: Asset, uuid: asset._uuid }],
+        { aliases: { 'building.treehouse.stage0': 'tree', 'building.treehouse.stage1': 'tree' } });
+    const first = loader.createScope(), second = loader.createScope();
+    assert.equal(await first.load('tree', Asset), asset);
+    assert.equal(await first.load('building.treehouse.stage0', Asset), asset);
+    assert.equal(await second.load('building.treehouse.stage1', Asset), asset);
+    assert.equal(loads, 1); assert.equal(asset.refs, 2);
+    first.release(); assert.equal(asset.refs, 1);
+    second.release(); assert.equal(asset.refs, 0); assert.equal(loader.activeEntryCount, 0);
+    assert.throws(() => new ResourceLoader([], { aliases: { broken: 'missing' } }), /alias/);
+});
 test('lifetime repeated show/hide cleans once and invalidates asynchronous identities', () => {
     const lifetime = new ViewLifetime(); let removed = 0;
     assert.equal(lifetime.show(), true); assert.equal(lifetime.show(), false);

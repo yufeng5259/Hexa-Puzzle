@@ -1,8 +1,8 @@
 {
   "game": "Block",
-  "revision": "2026-10-24T02:56:54.431465+00:00",
+  "revision": "2026-11-08-guide-hand-white",
   "source_pages": 9,
-  "asset_count": 371,
+  "asset_count": 392,
   "assets": [
     {
       "id": "block_background_主图",
@@ -36696,6 +36696,522 @@
       "editor_views": [],
       "retired_duplicate_ids": [],
       "design_boards": []
+    },
+    {
+      "id": "firstrelease.ui.back",
+      "name": "V2 back",
+      "file": "PNG/公共UI/五页首版/back.png",
+      "size": [
+        294,
+        323
+      ],
+      "category": "公共UI",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "runtime_pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "ef68b23577da9f628e1404241fe4759a5e5b0cfc32bf1284be39804ee6d4fa1a",
+      "identities": [
+        "firstrelease.ui.back"
+      ],
+      "source": "arts/游戏素材/PNG/公共UI/五页首版/back.png"
+    },
+    {
+      "id": "firstrelease.ui.build",
+      "name": "V2 build",
+      "file": "PNG/页面素材/五页首版建造/UI/build.png",
+      "size": [
+        303,
+        322
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_建造"
+      ],
+      "runtime_pages": [
+        "五页首版_建造"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "5924277dfe6994985582dc5bbfd3924d917a924b0438f7ba5a0f97ace95006b1",
+      "identities": [
+        "firstrelease.ui.build"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版建造/UI/build.png"
+    },
+    {
+      "id": "firstrelease.ui.settings",
+      "name": "V2 settings",
+      "file": "PNG/公共UI/五页首版/settings.png",
+      "size": [
+        298,
+        321
+      ],
+      "category": "公共UI",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "runtime_pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "e4ca804fa46a73058d95b407f1b595c92f75fcbf73a256382cef037f47593eef",
+      "identities": [
+        "firstrelease.ui.settings"
+      ],
+      "source": "arts/游戏素材/PNG/公共UI/五页首版/settings.png"
+    },
+    {
+      "id": "firstrelease.ui.undo",
+      "name": "V2 undo",
+      "file": "PNG/页面素材/五页首版拼图/UI/undo.png",
+      "size": [
+        303,
+        315
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_拼图"
+      ],
+      "runtime_pages": [
+        "五页首版_拼图"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "9a6cd41833a0e2590c8beee092c3d74130ab326bcc412a55d54fc9f119e02849",
+      "identities": [
+        "firstrelease.ui.undo"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/undo.png"
+    },
+    {
+      "id": "firstrelease.ui.restart",
+      "name": "V2 rotate",
+      "file": "PNG/页面素材/五页首版拼图/UI/rotate.png",
+      "size": [
+        303,
+        315
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_拼图"
+      ],
+      "runtime_pages": [
+        "五页首版_拼图"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "5127477722805c5bf615cb5198966ca14c521b9bee78be6eb7af64c35642fef4",
+      "identities": [
+        "firstrelease.ui.restart"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/rotate.png"
+    },
+    {
+      "id": "firstrelease.ui.hint",
+      "name": "V2 hint",
+      "file": "PNG/页面素材/五页首版拼图/UI/hint.png",
+      "size": [
+        294,
+        315
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_拼图"
+      ],
+      "runtime_pages": [
+        "五页首版_拼图"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "b59faf2715a9a1b01ef831e91326531bd192b6716f49a9fbc2869ffd0bd5cbd2",
+      "identities": [
+        "firstrelease.ui.hint"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/hint.png"
+    },
+    {
+      "id": "firstrelease.ui.gift",
+      "name": "V2 gift",
+      "file": "PNG/页面素材/五页首版建造/UI/gift.png",
+      "size": [
+        285,
+        318
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_建造"
+      ],
+      "runtime_pages": [
+        "五页首版_建造"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "eb59a55d8ffe892f8f2c66e02963309badea75451381696453a135a55f6d9a53",
+      "identities": [
+        "firstrelease.ui.gift"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版建造/UI/gift.png"
+    },
+    {
+      "id": "firstrelease.ui.play",
+      "name": "V2 play",
+      "file": "PNG/页面素材/五页首版主页/UI/play.png",
+      "size": [
+        1940,
+        744
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_主页"
+      ],
+      "runtime_pages": [
+        "五页首版_主页"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "4c4cda56c684db6e6228d4384a7a12a7fec664ab66b591b8a22e0207778f7516",
+      "identities": [
+        "firstrelease.ui.play"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版主页/UI/play.png"
+    },
+    {
+      "id": "firstrelease.ui.wallet",
+      "name": "V2 wallet",
+      "file": "PNG/公共UI/五页首版/wallet.png",
+      "size": [
+        612,
+        210
+      ],
+      "category": "公共UI",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "runtime_pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "caa52a70da6250ce89fd4f5b472ee2c01bf997320a7b31589b2c933a47c48661",
+      "identities": [
+        "firstrelease.ui.wallet"
+      ],
+      "source": "arts/游戏素材/PNG/公共UI/五页首版/wallet.png"
+    },
+    {
+      "id": "firstrelease.ui.progress",
+      "name": "V2 progress",
+      "file": "PNG/页面素材/五页首版建造/UI/progress.png",
+      "size": [
+        628,
+        277
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_建造"
+      ],
+      "runtime_pages": [
+        "五页首版_建造"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "ce380566b1eeda5c856a1532242c1cec88551510f25e0b1e3fd5f5d2a4efa878",
+      "identities": [
+        "firstrelease.ui.progress"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版建造/UI/progress.png"
+    },
+    {
+      "id": "firstrelease.ui.cost",
+      "name": "V2 cost",
+      "file": "PNG/页面素材/五页首版建造/UI/cost.png",
+      "size": [
+        609,
+        215
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_建造"
+      ],
+      "runtime_pages": [
+        "五页首版_建造"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "461918d9899d0ee0ca0db310029a8a6d6cd983d2e0c7e819157d93e6cfadff9e",
+      "identities": [
+        "firstrelease.ui.cost"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版建造/UI/cost.png"
+    },
+    {
+      "id": "firstrelease.ui.avatar",
+      "name": "V2 avatar",
+      "file": "PNG/公共UI/五页首版/avatar.png",
+      "size": [
+        138,
+        147
+      ],
+      "category": "公共UI",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "runtime_pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "df352d2cc71b63127f2ffa266a6d2d83629636b02aa4f39ccef43ac27ba8d9e9",
+      "identities": [
+        "firstrelease.ui.avatar"
+      ],
+      "source": "arts/游戏素材/PNG/公共UI/五页首版/avatar.png"
+    },
+    {
+      "id": "firstrelease.ui.panel",
+      "name": "V2 panel",
+      "file": "PNG/公共UI/五页首版/panel.png",
+      "size": [
+        1122,
+        1402
+      ],
+      "category": "公共UI",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "runtime_pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "c582ec26a99fe2bbf84b0cd56deb17269408d14bca4a1c8a3a696f164a1ab9da",
+      "identities": [
+        "firstrelease.ui.panel"
+      ],
+      "source": "arts/游戏素材/PNG/公共UI/五页首版/panel.png"
+    },
+    {
+      "id": "firstrelease.puzzle.background",
+      "name": "V2 puzzle-background",
+      "file": "PNG/页面素材/五页首版拼图/背景/puzzle-background.png",
+      "size": [
+        853,
+        1844
+      ],
+      "category": "页面素材",
+      "subtype": "背景",
+      "pages": [
+        "五页首版_拼图"
+      ],
+      "runtime_pages": [
+        "五页首版_拼图"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "36571bf47a09833a0af691cad494628e9750e903f81e6f1dc7609c68e86311b4",
+      "identities": [
+        "firstrelease.puzzle.background"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版拼图/背景/puzzle-background.png"
+    },
+    {
+      "id": "firstrelease.puzzle.tray",
+      "name": "V2 puzzle-tray",
+      "file": "PNG/页面素材/五页首版拼图/UI/puzzle-tray.png",
+      "size": [
+        809,
+        367
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_拼图"
+      ],
+      "runtime_pages": [
+        "五页首版_拼图"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "b16efaf7ff2bae285b196340db1157645af3ce8aaa55ee3f0186b649320fa9d6",
+      "identities": [
+        "firstrelease.puzzle.tray"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/puzzle-tray.png"
+    },
+    {
+      "id": "firstrelease.loading.background",
+      "name": "V2 loading-background",
+      "file": "PNG/页面素材/五页首版Loading/背景/loading-background.png",
+      "size": [
+        853,
+        1844
+      ],
+      "category": "页面素材",
+      "subtype": "背景",
+      "pages": [
+        "五页首版_Loading"
+      ],
+      "runtime_pages": [
+        "五页首版_Loading"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "122a4382705a0783d7ec993c64fe2a397e6d6bbe0bc930f9d65dddf3a487494b",
+      "identities": [
+        "firstrelease.loading.background"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版Loading/背景/loading-background.png"
+    },
+    {
+      "id": "firstrelease.ui.upgrade",
+      "name": "V2 upgrade",
+      "file": "PNG/页面素材/五页首版建造/UI/upgrade.png",
+      "size": [
+        1323,
+        607
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_建造"
+      ],
+      "runtime_pages": [
+        "五页首版_建造"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "ff22981640523f25fd8bf15548e3fa11623f56467c9900964df9b2b83c28f4f5",
+      "identities": [
+        "firstrelease.ui.upgrade"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版建造/UI/upgrade.png"
+    },
+    {
+      "id": "firstrelease.ui.stage-green",
+      "name": "V2 stage-green",
+      "file": "PNG/页面素材/五页首版建造/UI/stage-green.png",
+      "size": [
+        100,
+        100
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_建造"
+      ],
+      "runtime_pages": [
+        "五页首版_建造"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "e0382c78a3eb5bb59be848af854294917db61ba0ad1e5ba60b1a36db95c5de33",
+      "identities": [
+        "firstrelease.ui.stage-green"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版建造/UI/stage-green.png"
+    },
+    {
+      "id": "firstrelease.ui.stage-gray",
+      "name": "V2 stage-gray",
+      "file": "PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "size": [
+        100,
+        100
+      ],
+      "category": "页面素材",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_建造"
+      ],
+      "runtime_pages": [
+        "五页首版_建造"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "576cbefd0ebcbae803eef96f139f39fc5ca6599e82a5858583da045abf238d63",
+      "identities": [
+        "firstrelease.ui.stage-gray"
+      ],
+      "source": "arts/游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png"
+    },
+    {
+      "id": "garden1.background",
+      "name": "V2同构图无建筑地形",
+      "file": "PNG/首版V2地图/裸地图.png",
+      "size": [
+        853,
+        1844
+      ],
+      "category": "公共素材",
+      "subtype": "背景",
+      "pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "runtime_pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_设置"
+      ],
+      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
+      "sha256": "8e0b6bd87227f6aa7effa95bd0f93409f6229d2cf5845a278123dbeb69536e55",
+      "identities": [
+        "garden1.background"
+      ],
+      "source": "arts/游戏素材/PNG/首版V2地图/裸地图.png"
+    },
+    {
+      "id": "firstrelease.guide.hand",
+      "name": "白色立体新手引导手套",
+      "file": "PNG/公共UI/五页首版/guide-hand-white.png",
+      "size": [
+        560,
+        800
+      ],
+      "category": "公共UI",
+      "subtype": "引导指示",
+      "pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_拼图"
+      ],
+      "runtime_pages": [
+        "五页首版_主页",
+        "五页首版_建造",
+        "五页首版_拼图"
+      ],
+      "purpose": "首次引导覆盖层白色手套，140×200显示，指尖锚点0.2375/0.948125，非基础页面常驻层",
+      "identities": [
+        "firstrelease.guide.hand"
+      ],
+      "sha256": "295f1459e1e7ff1c6ab19251a5884fafa53772aa99d89e1df3b80bed1a9d1c7c",
+      "source_psd": "PSD/公共UI/五页首版_引导手套.psd",
+      "provenance": "补充制作记录/引导手套/来源与透明校验.json",
+      "tip_anchor": {
+        "anchorX": 0.2375,
+        "anchorY": 0.948125
+      }
     }
   ],
   "localization": {
@@ -43863,9 +44379,755 @@
         ],
         "label": "功能原型参考（仅布局与交互）"
       }
+    },
+    {
+      "name": "五页首版_Loading",
+      "size": [
+        853,
+        1844
+      ],
+      "psd": "PSD/五页首版/五页首版_Loading.psd",
+      "config": "游戏素材/页面配置/五页首版/五页首版_Loading.json",
+      "preview": "页面对照/PSD合成/五页首版/五页首版_Loading.png",
+      "asset_ids": [
+        "block_主图_加载进度填充",
+        "block_主图_加载进度底槽",
+        "firstrelease.loading.background"
+      ],
+      "text_count": 2,
+      "image_layer_count": 3,
+      "layer_count": 5,
+      "comparison": {
+        "original": "页面对照/原页面/五页首版/01_Loading.png",
+        "original_label": "v2页面效果设计图",
+        "original_size": [
+          853,
+          1844
+        ],
+        "psd_composite": "页面对照/PSD合成/五页首版/五页首版_Loading.png"
+      },
+      "psd_sha256": "794ac0ee248169d6811094850b8cab5ffc9a1c9e4a02a46db015b811ef37ce6c",
+      "preview_sha256": "68636b9528ae1cc590279ef16dc6ab23d16d5d73c055f351dfb2bb59fba80e8c",
+      "original_sha256": "8851fe1afb0e5b4abef55fb4effed6421558aa4f590ae2b6363b73a8822a38f8",
+      "editable_text_checks": [
+        {
+          "name": "Loading/Percent",
+          "kind": "type",
+          "text": "100%",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 28.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Loading/Caption",
+          "kind": "type",
+          "text": "加载中…",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 28.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        }
+      ],
+      "composite_max_channel_difference": 1,
+      "status": "Prefab-derived implementation composition; visual differences explicitly retained"
+    },
+    {
+      "name": "五页首版_主页",
+      "size": [
+        853,
+        1844
+      ],
+      "psd": "PSD/五页首版/五页首版_主页.psd",
+      "config": "游戏素材/页面配置/五页首版/五页首版_主页.json",
+      "preview": "页面对照/PSD合成/五页首版/五页首版_主页.png",
+      "asset_ids": [
+        "block_hud_体力爱心空白",
+        "block_missing_42f5d2919d639a952f66",
+        "block_missing_6d5cc2735de1ba5df3c9",
+        "block_missing_8f06f6134340fb20e061",
+        "block_missing_aa22b0a6d16291f2ff75",
+        "block_missing_cad71159dba5fc94a162",
+        "firstrelease.ui.avatar",
+        "firstrelease.ui.build",
+        "firstrelease.ui.play",
+        "firstrelease.ui.settings",
+        "firstrelease.ui.wallet",
+        "garden1.background"
+      ],
+      "text_count": 5,
+      "image_layer_count": 12,
+      "layer_count": 17,
+      "comparison": {
+        "original": "页面对照/原页面/五页首版/02_主页.png",
+        "original_label": "v2页面效果设计图",
+        "original_size": [
+          853,
+          1844
+        ],
+        "psd_composite": "页面对照/PSD合成/五页首版/五页首版_主页.png"
+      },
+      "psd_sha256": "1654ea35a55dd30441a0c97dc322909bbe26a263c78d67a84d5cbe64f5831a02",
+      "preview_sha256": "39f3ca2c338de3eb5cdde900f4be458757cf6200d69c627cbc14656e953c51aa",
+      "original_sha256": "d868a8c97f4b1d025e6eed8b8b2e23d49e8391dd37cecbb93196cf3dffb98883",
+      "editable_text_checks": [
+        {
+          "name": "HomeBuild/HUD/Coins",
+          "kind": "type",
+          "text": "60",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 38.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/EnergyHUD/EnergyAmount",
+          "kind": "type",
+          "text": "5",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 32.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/EnergyHUD/EnergyTimer",
+          "kind": "type",
+          "text": "FULL",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 24.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HomeBottom/Play/LevelArrow/LevelNumber",
+          "kind": "type",
+          "text": "2",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 46.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HomeBottom/Play/PlayText",
+          "kind": "type",
+          "text": "Play",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 56.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        }
+      ],
+      "composite_max_channel_difference": 1,
+      "status": "Prefab-derived implementation composition; visual differences explicitly retained"
+    },
+    {
+      "name": "五页首版_建造",
+      "size": [
+        853,
+        1844
+      ],
+      "psd": "PSD/五页首版/五页首版_建造.psd",
+      "config": "游戏素材/页面配置/五页首版/五页首版_建造.json",
+      "preview": "页面对照/PSD合成/五页首版/五页首版_建造.png",
+      "asset_ids": [
+        "block_hud_体力爱心空白",
+        "block_missing_42f5d2919d639a952f66",
+        "block_missing_6d5cc2735de1ba5df3c9",
+        "block_missing_8f06f6134340fb20e061",
+        "block_missing_aa22b0a6d16291f2ff75",
+        "block_missing_cad71159dba5fc94a162",
+        "block_建造界面_花园总进度填充",
+        "block_建造界面_花园总进度底轨",
+        "block_建造界面_花园总进度面板",
+        "firstrelease.ui.avatar",
+        "firstrelease.ui.back",
+        "firstrelease.ui.gift",
+        "firstrelease.ui.settings",
+        "firstrelease.ui.stage-gray",
+        "firstrelease.ui.stage-green",
+        "firstrelease.ui.upgrade",
+        "firstrelease.ui.wallet",
+        "garden1.background"
+      ],
+      "text_count": 11,
+      "image_layer_count": 45,
+      "layer_count": 56,
+      "comparison": {
+        "original": "页面对照/原页面/五页首版/03_建造页面.png",
+        "original_label": "v2页面效果设计图",
+        "original_size": [
+          853,
+          1844
+        ],
+        "psd_composite": "页面对照/PSD合成/五页首版/五页首版_建造.png"
+      },
+      "psd_sha256": "722ecd92a8241499453c9236b34d4f03fbe700177af5353273c9f53986a5f473",
+      "preview_sha256": "a5cc9c903b2df5f023e7a0787754d5cc4722db07213ba022c61ea3c6c0008ebf",
+      "original_sha256": "8577aaac0865dc6a97bbda75ea80c0b1a898f30cf7476c5613c397a3fb4ca98b",
+      "editable_text_checks": [
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/Cost",
+          "kind": "type",
+          "text": "60",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/Cost",
+          "kind": "type",
+          "text": "40",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/Cost",
+          "kind": "type",
+          "text": "40",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/Cost",
+          "kind": "type",
+          "text": "40",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/Cost",
+          "kind": "type",
+          "text": "40",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/Coins",
+          "kind": "type",
+          "text": "60",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 38.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/EnergyHUD/EnergyAmount",
+          "kind": "type",
+          "text": "5",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 32.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/EnergyHUD/EnergyTimer",
+          "kind": "type",
+          "text": "FULL",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 24.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/MapName",
+          "kind": "type",
+          "text": "向阳蜂谷",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 36.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/BuildBottom/Progress",
+          "kind": "type",
+          "text": "1/25",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/BuildBottom/BuildCaption",
+          "kind": "type",
+          "text": "花园建设",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        }
+      ],
+      "composite_max_channel_difference": 1,
+      "status": "Prefab-derived implementation composition; visual differences explicitly retained"
+    },
+    {
+      "name": "五页首版_设置",
+      "size": [
+        853,
+        1844
+      ],
+      "psd": "PSD/五页首版/五页首版_设置.psd",
+      "config": "游戏素材/页面配置/五页首版/五页首版_设置.json",
+      "preview": "页面对照/PSD合成/五页首版/五页首版_设置.png",
+      "asset_ids": [
+        "block_hud_体力爱心空白",
+        "block_missing_42f5d2919d639a952f66",
+        "block_missing_6d5cc2735de1ba5df3c9",
+        "block_missing_8f06f6134340fb20e061",
+        "block_missing_aa22b0a6d16291f2ff75",
+        "block_missing_cad71159dba5fc94a162",
+        "block_结算_下一关按钮",
+        "firstrelease.ui.avatar",
+        "firstrelease.ui.build",
+        "firstrelease.ui.panel",
+        "firstrelease.ui.play",
+        "firstrelease.ui.settings",
+        "firstrelease.ui.wallet",
+        "garden1.background"
+      ],
+      "text_count": 15,
+      "image_layer_count": 19,
+      "layer_count": 34,
+      "comparison": {
+        "original": "页面对照/原页面/五页首版/06_设置.png",
+        "original_label": "v2页面效果设计图",
+        "original_size": [
+          853,
+          1844
+        ],
+        "psd_composite": "页面对照/PSD合成/五页首版/五页首版_设置.png"
+      },
+      "psd_sha256": "57776d0603635a33d77f1c702eb100df4d10cfb4485288e8ff5e47ee949c4728",
+      "preview_sha256": "b0b4dc69f8e0e4a5ee9d03dfe80336344a747a4576a8bbf8456819a19efa1c96",
+      "original_sha256": "7b12d2a3bab0ac2c883efcf89090fd0d9a054213fe22987811f1d2a745b04812",
+      "editable_text_checks": [
+        {
+          "name": "Home/HomeBuild/HUD/Coins",
+          "kind": "type",
+          "text": "60",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 38.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Home/HomeBuild/HUD/EnergyHUD/EnergyAmount",
+          "kind": "type",
+          "text": "5",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 32.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Home/HomeBuild/HUD/EnergyHUD/EnergyTimer",
+          "kind": "type",
+          "text": "FULL",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 24.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Home/HomeBuild/HomeBottom/Play/LevelArrow/LevelNumber",
+          "kind": "type",
+          "text": "2",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 46.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Home/HomeBuild/HomeBottom/Play/PlayText",
+          "kind": "type",
+          "text": "Play",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 56.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Title",
+          "kind": "type",
+          "text": "设置",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 46.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Primary/PrimaryLabel",
+          "kind": "type",
+          "text": "确定",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 38.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Settings/SettingName0",
+          "kind": "type",
+          "text": "音乐",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 34.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Settings/Setting0/SettingValue0",
+          "kind": "type",
+          "text": "开启",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 28.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Settings/SettingName1",
+          "kind": "type",
+          "text": "音效",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 34.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Settings/Setting1/SettingValue1",
+          "kind": "type",
+          "text": "开启",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 28.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Settings/SettingName2",
+          "kind": "type",
+          "text": "震动",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 34.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Settings/Setting2/SettingValue2",
+          "kind": "type",
+          "text": "开启",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 28.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Settings/SettingName3",
+          "kind": "type",
+          "text": "语言",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 34.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "Settings/Dialog/Settings/Setting3/SettingValue3",
+          "kind": "type",
+          "text": "简体中文",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 28.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        }
+      ],
+      "composite_max_channel_difference": 2,
+      "status": "Prefab-derived implementation composition; visual differences explicitly retained"
+    },
+    {
+      "name": "五页首版_拼图",
+      "size": [
+        853,
+        1844
+      ],
+      "psd": "PSD/五页首版/五页首版_拼图.psd",
+      "config": "游戏素材/页面配置/五页首版/五页首版_拼图.json",
+      "preview": "页面对照/PSD合成/五页首版/五页首版_拼图.png",
+      "asset_ids": [
+        "block_missing_571c35df736ff53734b5",
+        "block_missing_81f23ace921e9d4d50c3",
+        "block_missing_fffc6eb821bf414ffbb8",
+        "block_reuse_4832b910bd651938e53d",
+        "block_reuse_f714e5b86eea9964a094",
+        "firstrelease.puzzle.background",
+        "firstrelease.puzzle.tray",
+        "firstrelease.ui.back",
+        "firstrelease.ui.hint",
+        "firstrelease.ui.restart",
+        "firstrelease.ui.settings",
+        "firstrelease.ui.undo"
+      ],
+      "text_count": 5,
+      "image_layer_count": 47,
+      "layer_count": 52,
+      "comparison": {
+        "original": "页面对照/原页面/五页首版/04_拼图玩法.png",
+        "original_label": "v2页面效果设计图",
+        "original_size": [
+          853,
+          1844
+        ],
+        "psd_composite": "页面对照/PSD合成/五页首版/五页首版_拼图.png"
+      },
+      "psd_sha256": "9a1997f8ac0a3b5f7e5cc10ac5bf63cc5e13236bb1d6eb627166cc7fcd735fef",
+      "preview_sha256": "38939d281f2f1bd15effcbbf6ec46b16d5ac2aeb2da0220e0049cd88695641af",
+      "original_sha256": "1a7108c050f1154b1d8967a75c4077924baf3e3183977696eaced21bda5e962d",
+      "editable_text_checks": [
+        {
+          "name": "PuzzlePage/MoveCaption",
+          "kind": "type",
+          "text": "已用步数",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 36.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/Moves",
+          "kind": "type",
+          "text": "0",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 40.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/Hint/HintCount",
+          "kind": "type",
+          "text": "5",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 28.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/PreviousTray",
+          "kind": "type",
+          "text": "‹",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 60.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/NextTray",
+          "kind": "type",
+          "text": "›",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 60.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        }
+      ],
+      "composite_max_channel_difference": 1,
+      "status": "Prefab-derived implementation composition; visual differences explicitly retained"
     }
   ],
-  "text_count": 1186,
+  "text_count": 1224,
   "missing_pages": {
     "page_count": 70,
     "design_boards": 4,

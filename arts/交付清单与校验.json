@@ -1,8 +1,8 @@
 {
   "game": "Block",
-  "asset_count": 371,
-  "page_count": 79,
-  "editable_text_count": 1193,
+  "asset_count": 392,
+  "page_count": 84,
+  "editable_text_count": 1224,
   "public_ui_count": 108,
   "public_art_count": 157,
   "page_asset_count": 106,
@@ -15,7 +15,7 @@
   "actual_saved_page_visual_status": "PASS",
   "psd_saved_layer_roundtrip_status": "PASS",
   "final_directory_browser_status": "PASS",
-  "final_directory": "H:\\projects\\luocheng\\Block独立交付",
+  "final_directory": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\arts",
   "changed_or_added_unique_png": 2,
   "font": "微软雅黑真实可编辑文本；封面Honey Garden主标题为唯一登记栅格文字例外",
   "locales": {
@@ -128,5 +128,37 @@
     "runtime_component": "游戏素材/运行组件/",
     "photoshop_interaction": false,
     "engine_import": false
+  },
+  "firstRelease20261108": {
+    "status": "20 source PNGs and5 actual layered implementation pages delivered; visual differences retained",
+    "uniquePNGs": 20,
+    "layeredPages": 5,
+    "realTypeLayers": 38,
+    "parameterizedPuzzleLayers": {
+      "boardCells": 19,
+      "pieceCells": 18,
+      "geometry": 3
+    },
+    "sourceRuntimeShaMatch": true,
+    "psdRoundtripAndComposite": "PASS max difference<=2",
+    "representativeLongTextProbes": 38,
+    "probeOverflow": 0,
+    "report": "补充制作记录/五页首版/交付状态.md",
+    "photoshopInteraction": false,
+    "visualPixelAcceptance": "NOT CLAIMED"
+  },
+  "whiteGuideHand20261108": {
+    "id": "firstrelease.guide.hand",
+    "newPNGs": 1,
+    "sourcePSD": "PSD/公共UI/五页首版_引导手套.psd",
+    "tipAnchor": {
+      "anchorX": 0.2375,
+      "anchorY": 0.948125
+    },
+    "report": "补充制作记录/引导手套/交付说明.md",
+    "sourceRuntimeShaEqual": true,
+    "alphaBorderTransparent": true,
+    "psdCompositeMaxDifference": 0.9764705882352871,
+    "runtimeIntegration": "owned by integration/guide lanes"
   }
 }

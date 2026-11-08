@@ -29,6 +29,8 @@ function runtime(scale = 1, challenge = false) {
         get worldPosition() {const p=this.parent?.worldPosition||{x:0,y:0},s=this.parent?.worldScale||{x:1,y:1};return {x:p.x+this.position.x*s.x,y:p.y+this.position.y*s.y};}
         setPosition(x,y,z) {this.position=typeof x==='object'?{...x}:{x,y,z};}
         setScale(x,y,z) {this.scale={x,y,z};}
+        getSiblingIndex() {return this.parent?.children.indexOf(this) ?? 0;}
+        setSiblingIndex(index) {const list=this.parent?.children;if(!list)return;list.splice(list.indexOf(this),1);list.splice(index,0,this);}
         add(Type) {const c=new Type();c.node=this;this.components.set(Type,c);return c;}
         getComponent(Type) {return this.components.get(Type)||null;}
     }
@@ -40,8 +42,9 @@ function runtime(scale = 1, challenge = false) {
     class Vec3 {constructor(x=0,y=0,z=0){Object.assign(this,{x,y,z});}}
     class Graphics extends Component { paths=[];clear(){this.paths=[];} moveTo(x,y){this.paths.push([x,y]);}lineTo(x,y){this.paths.push([x,y]);}close(){}fill(){}stroke(){} }
     class Color {constructor(...v){this.v=v;}}
+    class UIOpacity extends Component { opacity=255; }
     const input=new Events(),game=new Events(),view=new Events();
-    const cc={Component,Node,UITransform,Vec3,Graphics,Color,input,game,view,Game:{EVENT_HIDE:'hide'},Input:{EventType:Node.EventType},
+    const cc={Component,Node,UITransform,UIOpacity,Vec3,Graphics,Color,input,game,view,Game:{EVENT_HIDE:'hide',EVENT_SHOW:'show'},Input:{EventType:Node.EventType},
         isValid:value=>!!value&&value.isValid!==false,CCString:String,Button:class {},
         _decorator:{ccclass:()=>value=>value,property:(...args)=>args.length>=2?undefined:()=>{}}};
     const cache=new Map();
@@ -69,7 +72,7 @@ function runtime(scale = 1, challenge = false) {
     const p=layout.axialPoint(targetCells[0],board.boardFit.radius);board.boardOffset={x:board.boardFit.centers[0].x-p.x,y:board.boardFit.centers[0].y-p.y};
     board.pieces=level.pieces.map((definition,i)=>{const n=node(board.piecesMount),item=n.add(PuzzlePiecePresentation);item.pieceId=definition.id;item.cells=definition.cells;item.radius=board.trayFit.radius;item.touchArea=n.getComponent(UITransform);return {node:n,item};});
     board.remainingLabel={string:''};board.totalCellsLabel={string:''};
-    const controller=page.add(PuzzleController);controller.board=board;controller.dragRoot=node(page);controller.previewRoot=node(page);controller.previewGraphics=controller.previewRoot.add(Graphics);
+    const controller=page.add(PuzzleController);controller.board=board;controller.dragRoot=node(page);controller.previewRoot=node(board.boardMount);controller.previewGraphics=controller.previewRoot.add(Graphics);controller.previewOpacity=controller.previewRoot.add(UIOpacity);
     const session=new PuzzleSession(level,'attempt-1');controller.bind(session);
     const world=(n,p)=>n.getComponent(UITransform).convertToWorldSpaceAR(p);
     const piecePoint=(id,i=0)=>{const entry=board.pieceEntries().find(e=>e.item.pieceId===id);return world(entry.node,layout.centeredCells(entry.item.cells,entry.item.radius).centers[i]);};
@@ -124,6 +127,64 @@ test('only the owner pointer may move, finish or cancel a drag; cancellation nev
     assert.equal(r.controller.draggingPieceId,'a');assert.equal(r.session.snapshot.moves,0);
     r.emit('move',end,7);r.emit('cancel',end,7);r.emit('end',end,7);
     assert.equal(r.controller.draggingPieceId,null);assert.equal(r.session.snapshot.moves,0);assert.deepEqual(r.session.snapshot.placements,{});
+});
+
+test('guide presentation observes actual accepted drags and every cancellation without phantom starts',()=>{
+    const r=runtime(),states=[];r.controller.onDragStateChanged=value=>states.push(value);
+    r.emit('start',r.world(r.board.boardMount,{x:450,y:450}));assert.deepEqual(states,[]);
+    r.emit('start',r.piecePoint('a'),7);r.emit('cancel',r.target(0,0),8);assert.deepEqual(states,[true]);
+    r.emit('cancel',r.target(0,0),7);r.emit('end',r.target(0,0),7);assert.deepEqual(states,[true,false]);
+    r.emit('start',r.piecePoint('a'));r.emit('end',r.world(r.board.boardMount,{x:450,y:450}));
+    assert.deepEqual(states,[true,false,true,false]);assert.equal(r.session.snapshot.moves,0);
+    r.emit('start',r.piecePoint('a'));r.controller.suspend();
+    assert.deepEqual(states,[true,false,true,false,true,false]);
+    r.controller.resume();r.controller.onError=()=>{};r.session.beforeCommit=()=>{throw Error('storage unavailable')};
+    r.emit('start',r.piecePoint('b'));assert.equal(states.length,6,'failed selection never starts the demonstration pause');
+});
+
+test('a teaching target can reject another legal drop without consuming a move or losing the tray piece',()=>{
+    const r=runtime();r.controller.allowPlacement=(_piece,p)=>p.q===0&&p.r===0;
+    assert.equal(r.session.canPlace('a',{q:1,r:0}),true,'the alternate placement is legal in the ordinary puzzle');
+    r.dragTo('a',1,0);assert.equal(r.session.snapshot.moves,0);assert.deepEqual(r.session.snapshot.placements,{});
+    assert.equal(r.board.pieceEntries()[0].node.parent,r.board.piecesMount);
+    r.dragTo('a',0,0);assert.equal(r.session.snapshot.moves,1);assert.deepEqual(r.session.snapshot.placements.a,{q:0,r:0});
+});
+
+test('teaching preview shares ordinary valid-drop geometry and survives rejected drops and cancellation',()=>{
+    const r=runtime(),c=r.controller;
+    r.emit('start',r.piecePoint('a'));r.emit('move',r.target(0,0));
+    const paths=JSON.stringify(c.previewGraphics.paths),fill=c.previewGraphics.fillColor.v;
+    r.emit('cancel',r.target(0,0));
+    c.setGuidePreview('a',{q:0,r:0});
+    assert.equal(JSON.stringify(c.previewGraphics.paths),paths);assert.deepEqual(c.previewGraphics.fillColor.v,fill);
+    c.allowPlacement=()=>false;r.dragTo('a',1,0);
+    assert.equal(r.session.snapshot.moves,0);assert.equal(c.previewRoot.active,true);
+    assert.equal(JSON.stringify(c.previewGraphics.paths),paths);
+    c.update(.55);assert.equal(c.previewOpacity.opacity,190);c.update(.55);assert.equal(c.previewOpacity.opacity,70);
+    c.clearGuidePreview();assert.equal(c.previewRoot.active,false);assert.equal(c.previewOpacity.opacity,255);
+    c.allowPlacement=null;r.emit('start',r.piecePoint('a'));r.emit('move',r.target(1,0));
+    assert.notEqual(JSON.stringify(c.previewGraphics.paths),paths,'normal candidate follows the finger again');
+});
+
+test('teaching footprint is above cells but below all placed pieces and suspends without losing ownership',()=>{
+    const r=runtime(),c=r.controller,cell=new r.Node();cell.parent=r.board.boardMount;
+    r.dragTo('b',1,0);c.setGuidePreview('a',{q:0,r:0});
+    const parent=r.board.boardMount,placed=r.board.pieceEntries()[1].node;
+    // Simulate a cell pool update followed by reprojection of existing pieces.
+    placed.setSiblingIndex(parent.children.length-1);c.update(0);
+    assert.ok(c.previewRoot.getSiblingIndex()>cell.getSiblingIndex());
+    assert.ok(c.previewRoot.getSiblingIndex()<placed.getSiblingIndex());
+    const paths=JSON.stringify(c.previewGraphics.paths);
+    c.suspend();assert.equal(c.previewRoot.active,false);c.update(1);assert.equal(c.previewRoot.active,false);
+    c.resume();assert.equal(c.previewRoot.active,true);assert.equal(JSON.stringify(c.previewGraphics.paths),paths);
+    r.game.emit('hide');assert.equal(c.previewRoot.active,false);r.game.emit('show');assert.equal(c.previewRoot.active,true);
+    c.onDestroy();assert.equal(r.game.count('show'),0);assert.equal(c.previewRoot.active,false);
+});
+
+test('piece permission rejects other pieces before selection or drag side effects',()=>{
+    const r=runtime(),states=[];r.controller.allowPieceStart=id=>id==='a';r.controller.onDragStateChanged=value=>states.push(value);
+    r.emit('start',r.piecePoint('b'));assert.equal(r.session.snapshot.selectedPieceId,null);assert.equal(r.controller.draggingPieceId,null);assert.deepEqual(states,[]);
+    r.dragTo('a',0,0);assert.equal(r.session.snapshot.moves,1);assert.deepEqual(states,[true,false]);
 });
 
 test('background, resize, suspend and disable cancel temporary visuals with symmetric listener lifetime',()=>{

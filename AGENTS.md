@@ -1,29 +1,28 @@
-# 全项目约束入口
+# Project 开发约束（2026-11-08）
 
-当前仓库提交边界、配套原型输入、可执行检查和独立检出约束见 [仓库维护说明](docs/repository-maintenance.md)。父工作区文件缺失时，先按该说明核对输入，不恢复历史工程或建立第二套正式原型。
+## 当前任务与执行
 
-## Block 正式交付位置（2026-11-03）
+- 用户已授权审核、修复并统一实施五页首版；按 [当前文档入口](docs/重建计划/README.md) 的需求、契约和计划连续执行。三份文档是当前唯一需求/接口/进度来源，旧01–07、旧65功能矩阵与过往“仅出效果图”限制不再驱动本轮。
+- 保留 assets/scripts/framework/、有效拼图和公共依赖；仅在核查引用、备份及SHA回读后退役无用运行资源。arts、参考工程、签名和玩家数据不属于可删除缓存。
+- 平台构建/发布、SDK/广告支付、音乐音效、Spine、额外地图和拼图/网页编辑器不在本轮范围。明确可逆的本地开发和修复持续完成，不逐小步询问。
+- 按文件所有权并行；共享场景、导航、资源登记和全局生成器只由集成人串行修改，Creator预览验收期间冻结资产写入。
 
-- 后续任何 Block 美术制作、修复及交付任务必须先完整阅读 [游戏美术素材制作与验收规范](docs/游戏美术素材制作与验收规范.md)。完整质量与生图规则已随项目迁入，本项目内即可读取，不依赖 H 盘工作区。
+## 产品与美术
 
-- 本对话生成及后续更新的 Block／Hexa Puzzle 最终独立美术交付，统一保存到 `F:/qiguobing/git/Hexa Puzzle/Project/arts/`，此处为唯一正式交付目录。直接在 `arts/` 根层保留 `index.html`、`游戏素材/`、`PSD/`、`效果预览/`、`素材设计板/`、`页面对照/` 和清单说明，不嵌套另一层“Block独立交付”。
-- 迁移已完成。后续 Block／Hexa Puzzle 的新生成、修复、重生成与交付更新，直接在 `F:/qiguobing/git/Hexa Puzzle/Project/arts/` 对应目录进行；不再在 `H:/projects/luocheng/Block独立交付/` 生成或维护交付，也不采用先生成到 H 盘再同步的流程。旧工具必须先把正式输出根目录改为该 `arts/`；候选、中间文件、检查和备份保存在最终目录外。
-- 旧 `H:/projects/luocheng/Block独立交付/` 为已迁移的退役副本，不是后续依赖。逐文件核验已迁移内容及新入口可用后，可按用户清理指令删除该旧交付目录；不因此删除 H 盘原始参考图、制作工具、其他游戏交付或规则文档，不自动重建旧目录。
-- 后续修改同步唯一 PNG、真实文本 PSD、配置、本地化、素材清单、效果预览、页面对照、运行参考组件和入口；包内链接保持相对路径。冲突文件覆盖前在目录外备份并核验，复制后逐文件校验 SHA-256，并在目标实际打开 `arts/index.html` 复验。不删除未确认归属的文件，缓存和备份不放入最终包。
-- 本规则仅授权美术交付及约束维护；复制到 `Project/arts/` 不等于已接入 `Project/assets/`、Prefab 或运行逻辑。
+- 五页：Loading、主页、建造、拼图、设置及必要弹窗。普通启动进主页；首轮实际完成拼图→领奖→回家→建造→指定建筑首次升级才结束引导。
+- 主页与建造保留同一地图实例、坐标与等级，只切换底栏/建造锚点。首版用裸背景和既有分级建筑拼一张五建筑地图，后续内容通过独立Excel扩展。
+- Constants、Maps、MapBuildings、BuildingStages、Mainline、Rewards、GuideSteps 各为独立Excel，统一生成一个game-config.json。体力每点300秒，从常量读取。重开箭头不是旋转。
+- 主页无活动/侧栏占位入口；关号在Play左侧紫色箭头内，右侧仅Play。建造五点进度已完成绿、未完成灰，锚点下方只币图标与费用，无重复等级字牌或锤子；实际费用/等级来自存档与配置。
+- 正式美术唯一 arts/；开始美术任务先读 [完整制作与验收规范](docs/游戏美术素材制作与验收规范.md)。复用现成母件，必要派生保留来源；透明PNG、真实文字PSD、清单和页面对照按实际修改同步。功能联调与美术收口并行，不能用程序通过冒充用户视觉验收。
+- 现有效果图v2五张作为参考保留，不为接入运行资源覆盖效果图；中性日光、清绿青蓝配色、功能图标无字、三块完整托盘延续当前设计。
 
+## Cocos 与验证
 
-本 Cocos 项目属于上级 `Hexa Puzzle` 工作区。所有对话和子代理必须先阅读并遵守 [全项目约束规范](../docs/PROJECT_CONSTRAINTS.md) 与 [根目录协作约束](../AGENTS.md)。
+- 固定 Creator 3.8.8；复用唯一ViewHost/资源scope/存档权威。正式页面、弹窗、复用单元使用Prefab、具体类型Inspector字段和序列化事件；棋盘/拼块几何可按数据生成，不以运行时补整页替代Prefab。
+- 保留稳定UUID；隐藏解除监听，销毁实例后释放自己持有资源，检查异步请求身份。交易持久成功后才更新UI/引导；写失败不得假发奖、扣费或结束教学。
+- 唯一受管生成入口 npm run firstrelease:generate；先校验生成所有权。不得绕过保护重生旧页或覆盖他人手工Prefab。
+- 改动先做最小有效验证，完成后运行当前 npm test、npm run typecheck、npm run audit 及真实Creator预览操作。已退役产品页数量/路线断言不再是首版门槛；保留框架、原题迁移与有效输入回归，不能放宽新缺陷。
+- 唯一原型仍为上级prototype/、端口4291；本轮Cocos预览为Creator服务，不能为它另建原型或改原型端口。临时证据放上级tmp/prototype/first-release/，正式备份/验收产物放D:/CodexData/Artifacts/HoneyGarden五页首版开发20261108/。
+- 上级AGENTS.md中的分层、Prefab、参考复制登记和资源所有权规则继续有效；缺失历史约束文件时参考 [维护说明](docs/repository-maintenance.md)，不以缺失旧文阻塞当前已授权任务。
 
-原型唯一目录固定为 `../prototype/`，登记在 `../prototype.config.json`。不得在本目录、`output/` 或其他位置新建另一套原型；临时工作统一放在上级 `../tmp/prototype/`。原型改动不自动授权修改 Cocos 生产代码。
-
-## Cocos 框架与制作规范入口
-
-必须遵守上级 `AGENTS.md` 的「Cocos 开发规则：以 BigHero 的 Prefab 与组件制作方式为基准」全部条款；详细来源与适配边界见 [框架分析](../docs/BIGHERO_FRAMEWORK.md)。不能因为从本目录开启对话而遗漏这些规则。本轮交付仅为分析与开发约束。
-
-- 本工程为 Creator 3.8.8；后续通用框架代码约定归入 `assets/scripts/framework/`，通用 Prefab 约定归入 `assets/resources/framework/`。这是后续目录约定，本轮不创建框架实现。
-- 页面、弹窗、列表和 item 做 Prefab，预挂功能组件；稳定节点/组件/Prefab 引用用 `@property` 在 Inspector 绑定；固定按钮事件在 Prefab 绑定。禁止运行时扫描名称、补整棵 UI 树或 `getComponent(node.name)`。
-- 参考项目的 `game_catalogue_view.prefab` / `ScrollableItemGrid`、`energy_purchase.prefab` / `EnergyPurchaseView` 是制作范例；本项目邮件正文/隐私滚动容器与 GM 命令列表可作为后续分批迁移候选，本轮不实施。
-- 源页面资源沿用 `GardenAssetStore`；通用资源统一加载并明确所有权；隐藏解除监听，销毁释放实例与资源，处理异步迟到结果。
-- 实际复制代码时建立 `tools/framework/reference-manifest.json` 登记来源与差异；不得直接复制参考工程的 2.x Prefab/.meta、旧业务、SDK 配置与兼容缺陷。
-- 保留当前未提交修改和删除。新功能采用组件制作，存量页面按功能分批迁移；不得恢复旧 resources/prefabs 或另建运行工程。
+过往美术阶段长规则已完整备份并核验到 D:/CodexData/Artifacts/HoneyGarden五页首版开发20261108/rules-before-simplification/，查旧决策时按需读取，不作为每次任务前置清单。

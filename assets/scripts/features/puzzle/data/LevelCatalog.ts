@@ -37,11 +37,10 @@ function level(value: unknown, ordinal: number): LevelDefinition {
     const path = 'levels[' + ordinal + ']';
     const input = record(value, ['id', 'mode', 'index', 'mainlineNumber', 'pieces', 'targetCells', 'obstacleCells', 'moveLimit'], path);
     if (input.mode !== 'classic' && input.mode !== 'challenge') return fail(path + ' mode');
-    const max = input.mode === 'classic' ? 80 : 30;
-    if (!Number.isSafeInteger(input.index) || (input.index as number) < 1 || (input.index as number) > max) return fail(path + ' index');
+    if (!Number.isSafeInteger(input.index) || (input.index as number) < 1) return fail(path + ' index');
     const index = input.index as number;
     if (input.id !== input.mode + '-' + ('000' + index).slice(-3)) return fail(path + ' identity');
-    if (input.mainlineNumber !== mainlineNumberFor(input.mode, index)) return fail(path + ' mainline');
+    if (input.mainlineNumber !== null && (!Number.isSafeInteger(input.mainlineNumber) || (input.mainlineNumber as number) < 1)) return fail(path + ' mainline');
     if (input.mode === 'classic' ? input.moveLimit !== null : !Number.isSafeInteger(input.moveLimit) || (input.moveLimit as number) < 1) return fail(path + ' moveLimit');
     if (!Array.isArray(input.pieces) || input.pieces.length < 1) return fail(path + ' pieces');
     const pieces = Object.freeze(input.pieces.map((item, i) => piece(item, path + '.pieces[' + i + ']', i)));
@@ -73,7 +72,7 @@ export class LevelCatalog {
             if (source.path !== ['prototype/level-data.js', 'prototype/mainline.js'][index] || typeof source.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(source.sha256)) return fail('source provenance');
             return Object.freeze({ path: source.path as string, sha256: source.sha256 });
         }));
-        if (!Array.isArray(input.levels) || input.levels.length !== 110) return fail('expected 110 source questions');
+        if (!Array.isArray(input.levels) || input.levels.length < 1) return fail('expected source questions');
         this.levels = Object.freeze(input.levels.map(level));
         const mainline: LevelDefinition[] = [];
         for (const entry of this.levels) {
@@ -84,12 +83,12 @@ export class LevelCatalog {
                 mainline[entry.mainlineNumber - 1] = entry;
             }
         }
-        if (mainline.length !== 96 || Array.from({ length: 96 }, (_, i) => !mainline[i]).some(Boolean)) return fail('incomplete mainline');
+        if (Array.from({ length: mainline.length }, (_, i) => !mainline[i]).some(Boolean)) return fail('incomplete mainline');
         this.mainline = Object.freeze(mainline);
     }
 
     getMainline(number: number): LevelDefinition {
-        if (!Number.isSafeInteger(number) || number < 1 || number > 96) throw new Error('Mainline number must be 1..96');
+        if (!Number.isSafeInteger(number) || number < 1 || number > this.mainline.length) throw new Error('Mainline number outside legacy catalog range');
         return this.mainline[number - 1];
     }
 

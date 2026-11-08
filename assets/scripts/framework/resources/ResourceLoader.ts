@@ -11,6 +11,8 @@ export interface RegisteredResource<T extends Asset = Asset> {
     readonly uuid: string;
 }
 export interface ResourceLoaderOptions {
+    /** Configuration aliases share the canonical pool entry and resource reference. */
+    readonly aliases?: Readonly<Record<string, string>>;
     /** For example garden-sunny -> common. Shared bundles load before dependent content. */
     readonly bundleDependencies?: Readonly<Record<string, readonly string[]>>;
 }
@@ -22,6 +24,7 @@ export class ResourceLoader {
     private readonly bundleLoads = new Map<string, Promise<Bundle>>();
     private readonly pool: ResourcePool<Asset>;
     private readonly dependencies: Readonly<Record<string, readonly string[]>>;
+    private readonly aliases: Readonly<Record<string, string>>;
 
     public constructor(records: readonly RegisteredResource[], options: ResourceLoaderOptions = {}) {
         const dependencies: Record<string, readonly string[]> = {};
@@ -44,9 +47,15 @@ export class ResourceLoader {
             }
             this.records.set(record.id, Object.freeze({ ...record }));
         }
+        const aliases: Record<string, string> = Object.create(null);
+        for (const [alias, target] of Object.entries(options.aliases || {})) {
+            if (!alias || this.records.has(alias) || !this.records.has(target)) throw new Error('Invalid resource alias: ' + alias);
+            aliases[alias] = target;
+        }
+        this.aliases = Object.freeze(aliases);
         this.pool = new ResourcePool(key => this.nativeLoad(key));
     }
-    public createScope(): ResourceScope { return new ResourceScope(this, this.pool); }
+    public createScope(): ResourceScope { return new ResourceScope(this, this.pool, this.aliases); }
     public validate<T extends Asset>(id: string, type: AssetType<T>): void {
         const record = this.record(id);
         if (record.type !== type) throw new Error(`Resource type mismatch: ${id}`);

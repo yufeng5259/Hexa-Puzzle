@@ -5,14 +5,14 @@
     "version": "3.8.8"
   },
   "scripts": {
-    "test": "node --test tools/prefab-foundation/tests/framework.test.mjs tools/prefab-foundation/tests/assets.test.mjs tools/prefab-foundation/tests/generator-ownership.test.mjs tools/prefab-foundation/tests/scene-contract.test.mjs tools/prefab-foundation/tests/ui-flow.test.mjs tools/prefab-foundation/tests/presentation.test.mjs tools/prefab-foundation/tests/source-geometry.test.mjs tools/prefab-foundation/tests/core-bindings.test.mjs tools/prefab-foundation/tests/level-data.test.mjs tools/prefab-foundation/tests/puzzle-display.test.mjs tools/prefab-foundation/tests/mainline-presentation.test.mjs tools/prefab-foundation/tests/level-prefabs.test.mjs tools/prefab-foundation/tests/puzzle-session.test.mjs tools/prefab-foundation/tests/play-input.test.mjs tools/prefab-foundation/tests/play-flow.test.mjs tools/prefab-foundation/tests/play-prefabs.test.mjs tools/prefab-foundation/tests/loading-page.test.mjs tools/prefab-foundation/tests/mainline-sidebar.test.mjs tools/prefab-foundation/tests/mainline-page.test.mjs tools/prefab-foundation/tests/map-view.test.mjs tools/prefab-foundation/tests/prefab-simplification.test.mjs",
-    "test:loading": "node --test tools/prefab-foundation/tests/loading-page.test.mjs",
-    "audit": "node tools/prefab-foundation/audit.mjs",
+    "config:export": "node tools/meta/app.cjs",
+    "firstrelease:generate": "node tools/first-release/generate.mjs",
+    "test:firstrelease": "node --test tools/first-release/tests/progression.test.mjs tools/first-release/tests/puzzle.test.mjs tools/first-release/tests/guide.test.mjs",
+    "test": "node tools/first-release/test.mjs",
+    "audit": "node tools/first-release/audit.mjs",
     "typecheck": "node tools/prefab-foundation/typecheck.mjs",
-    "prefab:generate": "node tools/prefab-foundation/generate.mjs",
-    "prefab:verify-native": "node tools/prefab-foundation/verify-native.mjs",
-    "ui:verify-native": "node tools/prefab-foundation/verify-ui-native.mjs",
-    "levels:verify-native": "node tools/prefab-foundation/verify-level-native.mjs",
-    "play:verify-native": "node tools/prefab-foundation/verify-play-native.mjs"
+    "prefab:generate": "node tools/first-release/generate.mjs",
+    "prefab:verify-native": "node tools/first-release/verify-native.mjs",
+    "guide:verify-native": "node tools/first-release/verify-guide-motion.mjs"
   }
 }

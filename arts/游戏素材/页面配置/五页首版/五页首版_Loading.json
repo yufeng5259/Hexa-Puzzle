@@ -1,0 +1,176 @@
+{
+  "name": "五页首版_Loading",
+  "canvas": [
+    853,
+    1844
+  ],
+  "source": "Actual first-release Prefab + current config snapshot, not screenshot flattening",
+  "snapshot": {
+    "coins": 60,
+    "currentLevelNo": 2,
+    "buildingStages": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "progress": "1/25"
+  },
+  "layers": [
+    {
+      "kind": "image",
+      "layer_name": "Loading/Background",
+      "position": [
+        0,
+        0
+      ],
+      "asset_id": "firstrelease.loading.background",
+      "source_file": "游戏素材/PNG/页面素材/五页首版Loading/背景/loading-background.png",
+      "instance": {
+        "width": 853,
+        "height": 1844,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Loading/ProgressTrack",
+      "position": [
+        76,
+        1572
+      ],
+      "asset_id": "block_主图_加载进度底槽",
+      "source_file": "游戏素材/PNG/页面素材/主图/UI/加载进度底槽_699e2bb926.png",
+      "instance": {
+        "width": 700,
+        "height": 80,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "Loading/ProgressFill",
+      "position": [
+        102,
+        1593
+      ],
+      "asset_id": "block_主图_加载进度填充",
+      "source_file": "游戏素材/PNG/页面素材/主图/UI/加载进度填充_b0633db626.png",
+      "instance": {
+        "width": 650,
+        "height": 38,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 76,
+          "g": 255,
+          "b": 200,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "Loading/Percent",
+      "text": "100%",
+      "position": [
+        387.5,
+        1681.0
+      ],
+      "box": [
+        286,
+        1664,
+        566,
+        1719
+      ],
+      "font_size": 28.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 18.2,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "loading.Percent",
+      "localization_key": "firstrelease.Percent",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        78,
+        22
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "Loading/Caption",
+      "text": "加载中…",
+      "position": [
+        371.5,
+        1527.0
+      ],
+      "box": [
+        202,
+        1514,
+        652,
+        1569
+      ],
+      "font_size": 28.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 18.2,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "loading.Caption",
+      "localization_key": "firstrelease.Caption",
+      "requested_font_size": 28.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        111,
+        28
+      ]
+    }
+  ],
+  "limitations": [
+    "Existing native stage buildings differ from v2 illustrated building shapes.",
+    "Canvas composition is standard 853x1844; actual Creator viewport tests are separate."
+  ]
+}

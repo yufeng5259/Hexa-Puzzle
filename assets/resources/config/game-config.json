@@ -1,0 +1,1424 @@
+{
+  "schemaVersion": 1,
+  "tables": {
+    "Constants": {
+      "keys": [
+        "id",
+        "valueType",
+        "value"
+      ],
+      "energyFailureCost": [
+        "energyFailureCost",
+        "int",
+        1
+      ],
+      "energyInitial": [
+        "energyInitial",
+        "int",
+        5
+      ],
+      "energyMax": [
+        "energyMax",
+        "int",
+        5
+      ],
+      "energyRecoverSeconds": [
+        "energyRecoverSeconds",
+        "int",
+        300
+      ],
+      "firstGuideGroupId": [
+        "firstGuideGroupId",
+        "string",
+        "first-session"
+      ],
+      "firstMapId": [
+        "firstMapId",
+        "string",
+        "garden-1"
+      ],
+      "initialCoins": [
+        "initialCoins",
+        "int",
+        0
+      ],
+      "initialHints": [
+        "initialHints",
+        "int",
+        5
+      ],
+      "welcomeRewardId": [
+        "welcomeRewardId",
+        "string",
+        "welcome"
+      ]
+    },
+    "Maps": {
+      "keys": [
+        "id",
+        "nameKey",
+        "backgroundAssetId",
+        "nextMapId",
+        "completionRewardId"
+      ],
+      "garden-1": [
+        "garden-1",
+        "map.garden1",
+        "garden1.background",
+        null,
+        "map-complete"
+      ]
+    },
+    "MapBuildings": {
+      "keys": [
+        "id",
+        "mapId",
+        "slotId",
+        "buildingId",
+        "x",
+        "y",
+        "scale",
+        "zOrder",
+        "anchorX",
+        "anchorY",
+        "upgradeOffsetX",
+        "upgradeOffsetY"
+      ],
+      "garden-1-slot-1": [
+        "garden-1-slot-1",
+        "garden-1",
+        1,
+        "treehouse",
+        -180,
+        300,
+        0.68,
+        0,
+        0.5,
+        0.5,
+        0,
+        -160
+      ],
+      "garden-1-slot-2": [
+        "garden-1-slot-2",
+        "garden-1",
+        2,
+        "flowerbed",
+        190,
+        50,
+        0.68,
+        1,
+        0.5,
+        0.5,
+        0,
+        -160
+      ],
+      "garden-1-slot-3": [
+        "garden-1-slot-3",
+        "garden-1",
+        3,
+        "workshop",
+        -200,
+        -170,
+        0.68,
+        2,
+        0.5,
+        0.5,
+        0,
+        -160
+      ],
+      "garden-1-slot-4": [
+        "garden-1-slot-4",
+        "garden-1",
+        4,
+        "watermill",
+        190,
+        -350,
+        0.68,
+        3,
+        0.5,
+        0.5,
+        0,
+        -160
+      ],
+      "garden-1-slot-5": [
+        "garden-1-slot-5",
+        "garden-1",
+        5,
+        "greenhouse",
+        -180,
+        -570,
+        0.68,
+        4,
+        0.5,
+        0.5,
+        0,
+        -160
+      ]
+    },
+    "BuildingStages": {
+      "keys": [
+        "id",
+        "buildingId",
+        "stage",
+        "cost",
+        "bodyAssetId",
+        "effectId"
+      ],
+      "flowerbed-0": [
+        "flowerbed-0",
+        "flowerbed",
+        0,
+        0,
+        "building.flowerbed.stage0",
+        null
+      ],
+      "flowerbed-1": [
+        "flowerbed-1",
+        "flowerbed",
+        1,
+        40,
+        "building.flowerbed.stage1",
+        "upgrade"
+      ],
+      "flowerbed-2": [
+        "flowerbed-2",
+        "flowerbed",
+        2,
+        60,
+        "building.flowerbed.stage2",
+        "upgrade"
+      ],
+      "flowerbed-3": [
+        "flowerbed-3",
+        "flowerbed",
+        3,
+        80,
+        "building.flowerbed.stage3",
+        "upgrade"
+      ],
+      "flowerbed-4": [
+        "flowerbed-4",
+        "flowerbed",
+        4,
+        100,
+        "building.flowerbed.stage4",
+        "upgrade"
+      ],
+      "flowerbed-5": [
+        "flowerbed-5",
+        "flowerbed",
+        5,
+        120,
+        "building.flowerbed.stage5",
+        "upgrade"
+      ],
+      "greenhouse-0": [
+        "greenhouse-0",
+        "greenhouse",
+        0,
+        0,
+        "building.greenhouse.stage0",
+        null
+      ],
+      "greenhouse-1": [
+        "greenhouse-1",
+        "greenhouse",
+        1,
+        40,
+        "building.greenhouse.stage1",
+        "upgrade"
+      ],
+      "greenhouse-2": [
+        "greenhouse-2",
+        "greenhouse",
+        2,
+        60,
+        "building.greenhouse.stage2",
+        "upgrade"
+      ],
+      "greenhouse-3": [
+        "greenhouse-3",
+        "greenhouse",
+        3,
+        80,
+        "building.greenhouse.stage3",
+        "upgrade"
+      ],
+      "greenhouse-4": [
+        "greenhouse-4",
+        "greenhouse",
+        4,
+        100,
+        "building.greenhouse.stage4",
+        "upgrade"
+      ],
+      "greenhouse-5": [
+        "greenhouse-5",
+        "greenhouse",
+        5,
+        120,
+        "building.greenhouse.stage5",
+        "upgrade"
+      ],
+      "treehouse-0": [
+        "treehouse-0",
+        "treehouse",
+        0,
+        0,
+        "building.treehouse.stage0",
+        null
+      ],
+      "treehouse-1": [
+        "treehouse-1",
+        "treehouse",
+        1,
+        40,
+        "building.treehouse.stage1",
+        "upgrade"
+      ],
+      "treehouse-2": [
+        "treehouse-2",
+        "treehouse",
+        2,
+        60,
+        "building.treehouse.stage2",
+        "upgrade"
+      ],
+      "treehouse-3": [
+        "treehouse-3",
+        "treehouse",
+        3,
+        80,
+        "building.treehouse.stage3",
+        "upgrade"
+      ],
+      "treehouse-4": [
+        "treehouse-4",
+        "treehouse",
+        4,
+        100,
+        "building.treehouse.stage4",
+        "upgrade"
+      ],
+      "treehouse-5": [
+        "treehouse-5",
+        "treehouse",
+        5,
+        120,
+        "building.treehouse.stage5",
+        "upgrade"
+      ],
+      "watermill-0": [
+        "watermill-0",
+        "watermill",
+        0,
+        0,
+        "building.watermill.stage0",
+        null
+      ],
+      "watermill-1": [
+        "watermill-1",
+        "watermill",
+        1,
+        40,
+        "building.watermill.stage1",
+        "upgrade"
+      ],
+      "watermill-2": [
+        "watermill-2",
+        "watermill",
+        2,
+        60,
+        "building.watermill.stage2",
+        "upgrade"
+      ],
+      "watermill-3": [
+        "watermill-3",
+        "watermill",
+        3,
+        80,
+        "building.watermill.stage3",
+        "upgrade"
+      ],
+      "watermill-4": [
+        "watermill-4",
+        "watermill",
+        4,
+        100,
+        "building.watermill.stage4",
+        "upgrade"
+      ],
+      "watermill-5": [
+        "watermill-5",
+        "watermill",
+        5,
+        120,
+        "building.watermill.stage5",
+        "upgrade"
+      ],
+      "workshop-0": [
+        "workshop-0",
+        "workshop",
+        0,
+        0,
+        "building.workshop.stage0",
+        null
+      ],
+      "workshop-1": [
+        "workshop-1",
+        "workshop",
+        1,
+        40,
+        "building.workshop.stage1",
+        "upgrade"
+      ],
+      "workshop-2": [
+        "workshop-2",
+        "workshop",
+        2,
+        60,
+        "building.workshop.stage2",
+        "upgrade"
+      ],
+      "workshop-3": [
+        "workshop-3",
+        "workshop",
+        3,
+        80,
+        "building.workshop.stage3",
+        "upgrade"
+      ],
+      "workshop-4": [
+        "workshop-4",
+        "workshop",
+        4,
+        100,
+        "building.workshop.stage4",
+        "upgrade"
+      ],
+      "workshop-5": [
+        "workshop-5",
+        "workshop",
+        5,
+        120,
+        "building.workshop.stage5",
+        "upgrade"
+      ]
+    },
+    "Mainline": {
+      "keys": [
+        "id",
+        "levelNo",
+        "puzzleId",
+        "rewardId"
+      ],
+      "level-1": [
+        "level-1",
+        1,
+        "classic-001",
+        "first-win"
+      ],
+      "level-10": [
+        "level-10",
+        10,
+        "classic-009",
+        "normal-win"
+      ],
+      "level-100": [
+        "level-100",
+        100,
+        "challenge-020",
+        "normal-win"
+      ],
+      "level-101": [
+        "level-101",
+        101,
+        "challenge-021",
+        "normal-win"
+      ],
+      "level-102": [
+        "level-102",
+        102,
+        "challenge-022",
+        "normal-win"
+      ],
+      "level-103": [
+        "level-103",
+        103,
+        "challenge-023",
+        "normal-win"
+      ],
+      "level-104": [
+        "level-104",
+        104,
+        "challenge-024",
+        "normal-win"
+      ],
+      "level-105": [
+        "level-105",
+        105,
+        "challenge-025",
+        "normal-win"
+      ],
+      "level-106": [
+        "level-106",
+        106,
+        "challenge-026",
+        "normal-win"
+      ],
+      "level-107": [
+        "level-107",
+        107,
+        "challenge-027",
+        "normal-win"
+      ],
+      "level-108": [
+        "level-108",
+        108,
+        "challenge-028",
+        "normal-win"
+      ],
+      "level-109": [
+        "level-109",
+        109,
+        "challenge-029",
+        "normal-win"
+      ],
+      "level-11": [
+        "level-11",
+        11,
+        "classic-010",
+        "normal-win"
+      ],
+      "level-110": [
+        "level-110",
+        110,
+        "challenge-030",
+        "normal-win"
+      ],
+      "level-12": [
+        "level-12",
+        12,
+        "challenge-002",
+        "normal-win"
+      ],
+      "level-13": [
+        "level-13",
+        13,
+        "classic-011",
+        "normal-win"
+      ],
+      "level-14": [
+        "level-14",
+        14,
+        "classic-012",
+        "normal-win"
+      ],
+      "level-15": [
+        "level-15",
+        15,
+        "classic-013",
+        "normal-win"
+      ],
+      "level-16": [
+        "level-16",
+        16,
+        "classic-014",
+        "normal-win"
+      ],
+      "level-17": [
+        "level-17",
+        17,
+        "classic-015",
+        "normal-win"
+      ],
+      "level-18": [
+        "level-18",
+        18,
+        "challenge-003",
+        "normal-win"
+      ],
+      "level-19": [
+        "level-19",
+        19,
+        "classic-016",
+        "normal-win"
+      ],
+      "level-2": [
+        "level-2",
+        2,
+        "classic-002",
+        "normal-win"
+      ],
+      "level-20": [
+        "level-20",
+        20,
+        "classic-017",
+        "normal-win"
+      ],
+      "level-21": [
+        "level-21",
+        21,
+        "classic-018",
+        "normal-win"
+      ],
+      "level-22": [
+        "level-22",
+        22,
+        "classic-019",
+        "normal-win"
+      ],
+      "level-23": [
+        "level-23",
+        23,
+        "classic-020",
+        "normal-win"
+      ],
+      "level-24": [
+        "level-24",
+        24,
+        "challenge-004",
+        "normal-win"
+      ],
+      "level-25": [
+        "level-25",
+        25,
+        "classic-021",
+        "normal-win"
+      ],
+      "level-26": [
+        "level-26",
+        26,
+        "classic-022",
+        "normal-win"
+      ],
+      "level-27": [
+        "level-27",
+        27,
+        "classic-023",
+        "normal-win"
+      ],
+      "level-28": [
+        "level-28",
+        28,
+        "classic-024",
+        "normal-win"
+      ],
+      "level-29": [
+        "level-29",
+        29,
+        "classic-025",
+        "normal-win"
+      ],
+      "level-3": [
+        "level-3",
+        3,
+        "classic-003",
+        "normal-win"
+      ],
+      "level-30": [
+        "level-30",
+        30,
+        "challenge-005",
+        "normal-win"
+      ],
+      "level-31": [
+        "level-31",
+        31,
+        "classic-026",
+        "normal-win"
+      ],
+      "level-32": [
+        "level-32",
+        32,
+        "classic-027",
+        "normal-win"
+      ],
+      "level-33": [
+        "level-33",
+        33,
+        "classic-028",
+        "normal-win"
+      ],
+      "level-34": [
+        "level-34",
+        34,
+        "classic-029",
+        "normal-win"
+      ],
+      "level-35": [
+        "level-35",
+        35,
+        "classic-030",
+        "normal-win"
+      ],
+      "level-36": [
+        "level-36",
+        36,
+        "challenge-006",
+        "normal-win"
+      ],
+      "level-37": [
+        "level-37",
+        37,
+        "classic-031",
+        "normal-win"
+      ],
+      "level-38": [
+        "level-38",
+        38,
+        "classic-032",
+        "normal-win"
+      ],
+      "level-39": [
+        "level-39",
+        39,
+        "classic-033",
+        "normal-win"
+      ],
+      "level-4": [
+        "level-4",
+        4,
+        "classic-004",
+        "normal-win"
+      ],
+      "level-40": [
+        "level-40",
+        40,
+        "classic-034",
+        "normal-win"
+      ],
+      "level-41": [
+        "level-41",
+        41,
+        "classic-035",
+        "normal-win"
+      ],
+      "level-42": [
+        "level-42",
+        42,
+        "challenge-007",
+        "normal-win"
+      ],
+      "level-43": [
+        "level-43",
+        43,
+        "classic-036",
+        "normal-win"
+      ],
+      "level-44": [
+        "level-44",
+        44,
+        "classic-037",
+        "normal-win"
+      ],
+      "level-45": [
+        "level-45",
+        45,
+        "classic-038",
+        "normal-win"
+      ],
+      "level-46": [
+        "level-46",
+        46,
+        "classic-039",
+        "normal-win"
+      ],
+      "level-47": [
+        "level-47",
+        47,
+        "classic-040",
+        "normal-win"
+      ],
+      "level-48": [
+        "level-48",
+        48,
+        "challenge-008",
+        "normal-win"
+      ],
+      "level-49": [
+        "level-49",
+        49,
+        "classic-041",
+        "normal-win"
+      ],
+      "level-5": [
+        "level-5",
+        5,
+        "classic-005",
+        "normal-win"
+      ],
+      "level-50": [
+        "level-50",
+        50,
+        "classic-042",
+        "normal-win"
+      ],
+      "level-51": [
+        "level-51",
+        51,
+        "classic-043",
+        "normal-win"
+      ],
+      "level-52": [
+        "level-52",
+        52,
+        "classic-044",
+        "normal-win"
+      ],
+      "level-53": [
+        "level-53",
+        53,
+        "classic-045",
+        "normal-win"
+      ],
+      "level-54": [
+        "level-54",
+        54,
+        "challenge-009",
+        "normal-win"
+      ],
+      "level-55": [
+        "level-55",
+        55,
+        "classic-046",
+        "normal-win"
+      ],
+      "level-56": [
+        "level-56",
+        56,
+        "classic-047",
+        "normal-win"
+      ],
+      "level-57": [
+        "level-57",
+        57,
+        "classic-048",
+        "normal-win"
+      ],
+      "level-58": [
+        "level-58",
+        58,
+        "classic-049",
+        "normal-win"
+      ],
+      "level-59": [
+        "level-59",
+        59,
+        "classic-050",
+        "normal-win"
+      ],
+      "level-6": [
+        "level-6",
+        6,
+        "challenge-001",
+        "normal-win"
+      ],
+      "level-60": [
+        "level-60",
+        60,
+        "challenge-010",
+        "normal-win"
+      ],
+      "level-61": [
+        "level-61",
+        61,
+        "classic-051",
+        "normal-win"
+      ],
+      "level-62": [
+        "level-62",
+        62,
+        "classic-052",
+        "normal-win"
+      ],
+      "level-63": [
+        "level-63",
+        63,
+        "classic-053",
+        "normal-win"
+      ],
+      "level-64": [
+        "level-64",
+        64,
+        "classic-054",
+        "normal-win"
+      ],
+      "level-65": [
+        "level-65",
+        65,
+        "classic-055",
+        "normal-win"
+      ],
+      "level-66": [
+        "level-66",
+        66,
+        "challenge-011",
+        "normal-win"
+      ],
+      "level-67": [
+        "level-67",
+        67,
+        "classic-056",
+        "normal-win"
+      ],
+      "level-68": [
+        "level-68",
+        68,
+        "classic-057",
+        "normal-win"
+      ],
+      "level-69": [
+        "level-69",
+        69,
+        "classic-058",
+        "normal-win"
+      ],
+      "level-7": [
+        "level-7",
+        7,
+        "classic-006",
+        "normal-win"
+      ],
+      "level-70": [
+        "level-70",
+        70,
+        "classic-059",
+        "normal-win"
+      ],
+      "level-71": [
+        "level-71",
+        71,
+        "classic-060",
+        "normal-win"
+      ],
+      "level-72": [
+        "level-72",
+        72,
+        "challenge-012",
+        "normal-win"
+      ],
+      "level-73": [
+        "level-73",
+        73,
+        "classic-061",
+        "normal-win"
+      ],
+      "level-74": [
+        "level-74",
+        74,
+        "classic-062",
+        "normal-win"
+      ],
+      "level-75": [
+        "level-75",
+        75,
+        "classic-063",
+        "normal-win"
+      ],
+      "level-76": [
+        "level-76",
+        76,
+        "classic-064",
+        "normal-win"
+      ],
+      "level-77": [
+        "level-77",
+        77,
+        "classic-065",
+        "normal-win"
+      ],
+      "level-78": [
+        "level-78",
+        78,
+        "challenge-013",
+        "normal-win"
+      ],
+      "level-79": [
+        "level-79",
+        79,
+        "classic-066",
+        "normal-win"
+      ],
+      "level-8": [
+        "level-8",
+        8,
+        "classic-007",
+        "normal-win"
+      ],
+      "level-80": [
+        "level-80",
+        80,
+        "classic-067",
+        "normal-win"
+      ],
+      "level-81": [
+        "level-81",
+        81,
+        "classic-068",
+        "normal-win"
+      ],
+      "level-82": [
+        "level-82",
+        82,
+        "classic-069",
+        "normal-win"
+      ],
+      "level-83": [
+        "level-83",
+        83,
+        "classic-070",
+        "normal-win"
+      ],
+      "level-84": [
+        "level-84",
+        84,
+        "challenge-014",
+        "normal-win"
+      ],
+      "level-85": [
+        "level-85",
+        85,
+        "classic-071",
+        "normal-win"
+      ],
+      "level-86": [
+        "level-86",
+        86,
+        "classic-072",
+        "normal-win"
+      ],
+      "level-87": [
+        "level-87",
+        87,
+        "classic-073",
+        "normal-win"
+      ],
+      "level-88": [
+        "level-88",
+        88,
+        "classic-074",
+        "normal-win"
+      ],
+      "level-89": [
+        "level-89",
+        89,
+        "classic-075",
+        "normal-win"
+      ],
+      "level-9": [
+        "level-9",
+        9,
+        "classic-008",
+        "normal-win"
+      ],
+      "level-90": [
+        "level-90",
+        90,
+        "challenge-015",
+        "normal-win"
+      ],
+      "level-91": [
+        "level-91",
+        91,
+        "classic-076",
+        "normal-win"
+      ],
+      "level-92": [
+        "level-92",
+        92,
+        "classic-077",
+        "normal-win"
+      ],
+      "level-93": [
+        "level-93",
+        93,
+        "classic-078",
+        "normal-win"
+      ],
+      "level-94": [
+        "level-94",
+        94,
+        "classic-079",
+        "normal-win"
+      ],
+      "level-95": [
+        "level-95",
+        95,
+        "classic-080",
+        "normal-win"
+      ],
+      "level-96": [
+        "level-96",
+        96,
+        "challenge-016",
+        "normal-win"
+      ],
+      "level-97": [
+        "level-97",
+        97,
+        "challenge-017",
+        "normal-win"
+      ],
+      "level-98": [
+        "level-98",
+        98,
+        "challenge-018",
+        "normal-win"
+      ],
+      "level-99": [
+        "level-99",
+        99,
+        "challenge-019",
+        "normal-win"
+      ]
+    },
+    "Rewards": {
+      "keys": [
+        "id",
+        "coins",
+        "energy",
+        "hints"
+      ],
+      "first-win": [
+        "first-win",
+        100,
+        0,
+        0
+      ],
+      "map-complete": [
+        "map-complete",
+        100,
+        0,
+        1
+      ],
+      "normal-win": [
+        "normal-win",
+        100,
+        0,
+        0
+      ],
+      "welcome": [
+        "welcome",
+        100,
+        0,
+        1
+      ]
+    },
+    "GuideSteps": {
+      "keys": [
+        "id",
+        "groupId",
+        "nextStepId",
+        "triggerEvent",
+        "pageId",
+        "targetId",
+        "action",
+        "completeEvent",
+        "params",
+        "textKey",
+        "shape",
+        "offsetX",
+        "offsetY",
+        "padding",
+        "width",
+        "height",
+        "radius",
+        "handOffsetX",
+        "handOffsetY",
+        "skippable",
+        "timeoutSeconds"
+      ],
+      "ftue-build": [
+        "ftue-build",
+        "first-session",
+        "ftue-upgrade",
+        "page.ready",
+        "home",
+        "home.build",
+        "click",
+        "page.ready",
+        {
+          "pageId": "home",
+          "mode": "build",
+          "allowedActions": [
+            "home:build"
+          ]
+        },
+        "guide.build",
+        "circle",
+        0,
+        0,
+        14,
+        null,
+        null,
+        70,
+        0,
+        -35,
+        false,
+        0
+      ],
+      "ftue-drag": [
+        "ftue-drag",
+        "first-session",
+        "ftue-drag-2",
+        "page.ready",
+        "puzzle",
+        "puzzle.piece0",
+        "drag",
+        "puzzle.placementCommitted",
+        {
+          "pieceId": "piece-0-1_png",
+          "targetCell": {
+            "q": 4,
+            "r": 0
+          },
+          "dragSourceTargetId": "puzzle.piece0",
+          "dragDestinationTargetId": "puzzle.target0",
+          "presentation": {
+            "handWidth": 140,
+            "handHeight": 200,
+            "sourceHold": 0.25,
+            "pressDuration": 0.15,
+            "dragDuration": 0.9,
+            "destinationHold": 0.2,
+            "fadeDuration": 0.2,
+            "loopDelay": 0.25,
+            "pulseDuration": 1.1,
+            "pulseMinOpacity": 70,
+            "pulseMaxOpacity": 190,
+            "instructionX": 140,
+            "instructionY": -195
+          },
+          "allowedActions": [
+            "puzzle:drag"
+          ],
+          "highlightProvider": "puzzlePlacementPreview"
+        },
+        "guide.drag",
+        "roundRect",
+        0,
+        0,
+        14,
+        null,
+        null,
+        null,
+        0,
+        0,
+        false,
+        0
+      ],
+      "ftue-drag-2": [
+        "ftue-drag-2",
+        "first-session",
+        "ftue-drag-3",
+        "page.ready",
+        "puzzle",
+        "puzzle.piece1",
+        "drag",
+        "puzzle.placementCommitted",
+        {
+          "pieceId": "piece-1-3_png",
+          "targetCell": {
+            "q": 5,
+            "r": -2
+          },
+          "dragSourceTargetId": "puzzle.piece1",
+          "dragDestinationTargetId": "puzzle.target1",
+          "presentation": {
+            "handWidth": 140,
+            "handHeight": 200,
+            "sourceHold": 0.25,
+            "pressDuration": 0.15,
+            "dragDuration": 0.9,
+            "destinationHold": 0.2,
+            "fadeDuration": 0.2,
+            "loopDelay": 0.25,
+            "pulseDuration": 1.1,
+            "pulseMinOpacity": 70,
+            "pulseMaxOpacity": 190,
+            "instructionX": 140,
+            "instructionY": -195
+          },
+          "allowedActions": [
+            "puzzle:drag"
+          ],
+          "highlightProvider": "puzzlePlacementPreview"
+        },
+        "guide.drag2",
+        "roundRect",
+        0,
+        0,
+        14,
+        null,
+        null,
+        null,
+        0,
+        0,
+        false,
+        0
+      ],
+      "ftue-drag-3": [
+        "ftue-drag-3",
+        "first-session",
+        "ftue-win",
+        "page.ready",
+        "puzzle",
+        "puzzle.piece2",
+        "drag",
+        "puzzle.placementCommitted",
+        {
+          "pieceId": "piece-2-6_png",
+          "targetCell": {
+            "q": 6,
+            "r": -1
+          },
+          "dragSourceTargetId": "puzzle.piece2",
+          "dragDestinationTargetId": "puzzle.target2",
+          "presentation": {
+            "handWidth": 140,
+            "handHeight": 200,
+            "sourceHold": 0.25,
+            "pressDuration": 0.15,
+            "dragDuration": 0.9,
+            "destinationHold": 0.2,
+            "fadeDuration": 0.2,
+            "loopDelay": 0.25,
+            "pulseDuration": 1.1,
+            "pulseMinOpacity": 70,
+            "pulseMaxOpacity": 190,
+            "instructionX": 140,
+            "instructionY": -195
+          },
+          "allowedActions": [
+            "puzzle:drag"
+          ],
+          "highlightProvider": "puzzlePlacementPreview"
+        },
+        "guide.drag3",
+        "roundRect",
+        0,
+        0,
+        14,
+        null,
+        null,
+        null,
+        0,
+        0,
+        false,
+        0
+      ],
+      "ftue-home": [
+        "ftue-home",
+        "first-session",
+        "ftue-build",
+        "page.ready",
+        "result",
+        "result.home",
+        "click",
+        "page.ready",
+        {
+          "pageId": "home",
+          "mode": "home",
+          "allowedActions": [
+            "result:home"
+          ]
+        },
+        "guide.home",
+        "roundRect",
+        0,
+        0,
+        14,
+        null,
+        null,
+        null,
+        0,
+        -35,
+        false,
+        0
+      ],
+      "ftue-upgrade": [
+        "ftue-upgrade",
+        "first-session",
+        "ftue-welcome",
+        "page.ready",
+        "build",
+        "building.slot1.upgrade",
+        "click",
+        "building.upgradeCommitted",
+        {
+          "mapId": "garden-1",
+          "slotId": 1,
+          "expectedStage": 1,
+          "allowedActions": [
+            "building:upgrade:1"
+          ]
+        },
+        "guide.upgrade",
+        "roundRect",
+        0,
+        0,
+        14,
+        null,
+        null,
+        null,
+        0,
+        -35,
+        false,
+        0
+      ],
+      "ftue-welcome": [
+        "ftue-welcome",
+        "first-session",
+        null,
+        "page.ready",
+        "welcome",
+        "welcome.claim",
+        "click",
+        "welcome.rewardCommitted",
+        {
+          "allowedActions": [
+            "welcome:claim"
+          ]
+        },
+        null,
+        "none",
+        0,
+        0,
+        14,
+        null,
+        null,
+        null,
+        0,
+        0,
+        false,
+        0
+      ],
+      "ftue-win": [
+        "ftue-win",
+        "first-session",
+        "ftue-home",
+        "page.ready",
+        "puzzle",
+        null,
+        "wait",
+        "puzzle.winCommitted",
+        {
+          "allowedActions": []
+        },
+        "guide.finishPuzzle",
+        "none",
+        0,
+        0,
+        14,
+        null,
+        null,
+        null,
+        0,
+        -35,
+        false,
+        0
+      ]
+    }
+  }
+}

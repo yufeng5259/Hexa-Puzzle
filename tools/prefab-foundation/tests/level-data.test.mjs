@@ -106,16 +106,44 @@ test('axial transform handles odd/even and negative columns with floor semantics
     assert.equal(mainlineNumberFor('classic', 0), null);
 });
 
+test('runtime catalog accepts removing an unmapped question without changing remaining source geometry', () => {
+    const input = clone(), removed = input.levels.pop(), reduced = new LevelCatalog(input);
+    assert.equal(removed.mainlineNumber, null);
+    assert.equal(reduced.levels.length, 109);
+    assert.equal(reduced.mainline.length, 96);
+    assert.deepEqual(reduced.getById('classic-001'), catalog.getById('classic-001'));
+    assert.throws(() => reduced.getById(removed.id), /Unknown level id/);
+});
+
+test('runtime catalog accepts an additional valid source identity instead of enforcing the old total', () => {
+    const input = clone(), added = JSON.parse(JSON.stringify(input.levels[79]));
+    added.id = 'classic-081'; added.index = 81; added.mainlineNumber = null; input.levels.push(added);
+    const expanded = new LevelCatalog(input);
+    assert.equal(expanded.levels.length, 111);
+    assert.deepEqual(expanded.getById('classic-081').pieces, added.pieces);
+    assert.throws(() => expanded.getById('classic-082'), /Unknown level id/);
+});
+
+test('runtime catalog allows a formerly reserved question to extend the contiguous legacy mapping', () => {
+    const input = clone(), promoted = input.levels.find(row => row.id === 'challenge-017');
+    promoted.mainlineNumber = 97;
+    const expanded = new LevelCatalog(input);
+    assert.equal(expanded.levels.length, 110);
+    assert.equal(expanded.mainline.length, 97);
+    assert.equal(expanded.getMainline(97).id, promoted.id);
+    assert.deepEqual(expanded.getMainline(97).pieces, catalog.getById(promoted.id).pieces);
+    assert.throws(() => expanded.getMainline(98), /range/);
+});
+
 const corruptions = {
     schema: v => { v.schema = 'unsupported'; },
     sourceHash: v => { v.sources[0].sha256 = 'bad'; },
     sourcePath: v => { v.sources[0].path = '../other'; },
     extraField: v => { v.levels[0].reward = 500; },
-    missingQuestion: v => { v.levels.pop(); },
     duplicateQuestion: v => { v.levels[1] = v.levels[0]; },
+    duplicateMainline: v => { v.levels[1].mainlineNumber = 1; },
     remappedIdentity: v => { v.levels[0].id = 'classic-999'; },
     remappedMainline: v => { v.levels[0].mainlineNumber = 97; },
-    reservedNavigation: v => { v.levels[96].mainlineNumber = 97; },
     unexpectedTexture: v => { v.levels[0].pieces[0].textureName = '4_png'; },
     pieceIdentity: v => { v.levels[0].pieces[0].id = 'replacement'; },
     nonIntegralCoordinate: v => { v.levels[0].pieces[0].cells[0].q = 0.5; },

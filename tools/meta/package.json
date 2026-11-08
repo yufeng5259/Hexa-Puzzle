@@ -1,0 +1,8 @@
+{
+  "name": "honey-garden-meta-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Development-only Excel exporter adapted from island/meta_dev",
+  "dependencies": { "node-xlsx": "0.12.0" },
+  "scripts": { "export": "node app.cjs", "test": "node --test tests/export.test.cjs" }
+}

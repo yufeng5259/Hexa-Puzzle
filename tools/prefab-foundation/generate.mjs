@@ -12,6 +12,7 @@ import {exportLevels,LEVEL_CATALOG_PATH} from './export-levels.mjs';
 import {attachPiecePresentation} from './level-ui.mjs';
 import {attachPlayStatus} from './play-ui.mjs';
 
+if (fs.existsSync(path.join(PROJECT,'tools/first-release/active.json'))) throw new Error('旧全量页面生成器已退役；请使用 npm run firstrelease:generate，禁止恢复旧页面。');
 const managed = new ManagedOutputs(PROJECT,'tools/prefab-foundation/generated-files.json');
 managed.preflight();
 // Build every graph before publishing owned outputs. A malformed source cannot

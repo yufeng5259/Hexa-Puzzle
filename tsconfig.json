@@ -5,6 +5,7 @@
   /* Add your custom configuration here. */
   "compilerOptions": {
     "strict": false,
+    "lib": ["ES2018", "DOM"],
     "module": "ES2020"
   }
 }

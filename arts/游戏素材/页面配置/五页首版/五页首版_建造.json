@@ -1,0 +1,1478 @@
+{
+  "name": "五页首版_建造",
+  "canvas": [
+    853,
+    1844
+  ],
+  "source": "Actual first-release Prefab + current config snapshot, not screenshot flattening",
+  "snapshot": {
+    "coins": 60,
+    "currentLevelNo": 2,
+    "buildingStages": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "progress": "1/25"
+  },
+  "layers": [
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/BareTerrain",
+      "position": [
+        0,
+        0
+      ],
+      "asset_id": "garden1.background",
+      "source_file": "游戏素材/PNG/首版V2地图/裸地图.png",
+      "instance": {
+        "width": 853,
+        "height": 1844,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/Building1",
+      "position": [
+        115,
+        450
+      ],
+      "asset_id": "block_missing_6d5cc2735de1ba5df3c9",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_树屋_1级_原生母件_6d5cc2735d.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/Building2",
+      "position": [
+        441,
+        670
+      ],
+      "asset_id": "block_missing_42f5d2919d639a952f66",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_花园_0级_原生母件_42f5d2919d.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/Building3",
+      "position": [
+        98,
+        864
+      ],
+      "asset_id": "block_missing_8f06f6134340fb20e061",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_蜂蜜工坊_0级_原生母件_8f06f61343.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/Building4",
+      "position": [
+        441,
+        1022
+      ],
+      "asset_id": "block_missing_aa22b0a6d16291f2ff75",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_小溪水车_0级_原生母件_aa22b0a6d1.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/Building5",
+      "position": [
+        115,
+        1216
+      ],
+      "asset_id": "block_missing_cad71159dba5fc94a162",
+      "source_file": "游戏素材/PNG/公共素材/向阳花园_温室_0级_原生母件_cad71159db.png",
+      "instance": {
+        "width": 306,
+        "height": 306,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade1",
+      "position": [
+        176,
+        702
+      ],
+      "asset_id": "firstrelease.ui.upgrade",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/upgrade.png",
+      "instance": {
+        "width": 185,
+        "height": 84,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/Cost",
+      "text": "60",
+      "position": [
+        277.5,
+        742.5
+      ],
+      "box": [
+        243,
+        727,
+        344,
+        778
+      ],
+      "font_size": 26.5,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 17.16,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "build.Cost",
+      "localization_key": null,
+      "requested_font_size": 26.4,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        33,
+        21
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/StageDot1",
+      "position": [
+        225,
+        708
+      ],
+      "asset_id": "firstrelease.ui.stage-green",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-green.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/StageDot2",
+      "position": [
+        243,
+        708
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/StageDot3",
+      "position": [
+        261,
+        708
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/StageDot4",
+      "position": [
+        279,
+        708
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/StageDot5",
+      "position": [
+        297,
+        708
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade2",
+      "position": [
+        501,
+        922
+      ],
+      "asset_id": "firstrelease.ui.upgrade",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/upgrade.png",
+      "instance": {
+        "width": 185,
+        "height": 84,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/Cost",
+      "text": "40",
+      "position": [
+        603.5,
+        962.5
+      ],
+      "box": [
+        569,
+        947,
+        670,
+        998
+      ],
+      "font_size": 26.5,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 17.16,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "build.Cost",
+      "localization_key": null,
+      "requested_font_size": 26.4,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        33,
+        21
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/StageDot1",
+      "position": [
+        551,
+        928
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/StageDot2",
+      "position": [
+        569,
+        928
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/StageDot3",
+      "position": [
+        587,
+        928
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/StageDot4",
+      "position": [
+        605,
+        928
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/StageDot5",
+      "position": [
+        623,
+        928
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade3",
+      "position": [
+        158,
+        1115
+      ],
+      "asset_id": "firstrelease.ui.upgrade",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/upgrade.png",
+      "instance": {
+        "width": 185,
+        "height": 84,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/Cost",
+      "text": "40",
+      "position": [
+        260.5,
+        1156.5
+      ],
+      "box": [
+        226,
+        1141,
+        327,
+        1192
+      ],
+      "font_size": 26.5,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 17.16,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "build.Cost",
+      "localization_key": null,
+      "requested_font_size": 26.4,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        33,
+        21
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/StageDot1",
+      "position": [
+        208,
+        1121
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/StageDot2",
+      "position": [
+        226,
+        1121
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/StageDot3",
+      "position": [
+        244,
+        1121
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/StageDot4",
+      "position": [
+        261,
+        1121
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/StageDot5",
+      "position": [
+        279,
+        1121
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade4",
+      "position": [
+        501,
+        1274
+      ],
+      "asset_id": "firstrelease.ui.upgrade",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/upgrade.png",
+      "instance": {
+        "width": 185,
+        "height": 84,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/Cost",
+      "text": "40",
+      "position": [
+        603.5,
+        1314.5
+      ],
+      "box": [
+        569,
+        1299,
+        670,
+        1350
+      ],
+      "font_size": 26.5,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 17.16,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "build.Cost",
+      "localization_key": null,
+      "requested_font_size": 26.4,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        33,
+        21
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/StageDot1",
+      "position": [
+        551,
+        1280
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/StageDot2",
+      "position": [
+        569,
+        1280
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/StageDot3",
+      "position": [
+        587,
+        1280
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/StageDot4",
+      "position": [
+        605,
+        1280
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/StageDot5",
+      "position": [
+        623,
+        1280
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade5",
+      "position": [
+        176,
+        1467
+      ],
+      "asset_id": "firstrelease.ui.upgrade",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/upgrade.png",
+      "instance": {
+        "width": 185,
+        "height": 84,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/Cost",
+      "text": "40",
+      "position": [
+        277.5,
+        1508.5
+      ],
+      "box": [
+        243,
+        1493,
+        344,
+        1544
+      ],
+      "font_size": 26.5,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 17.16,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "build.Cost",
+      "localization_key": null,
+      "requested_font_size": 26.4,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        33,
+        21
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/StageDot1",
+      "position": [
+        225,
+        1473
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/StageDot2",
+      "position": [
+        243,
+        1473
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/StageDot3",
+      "position": [
+        261,
+        1473
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/StageDot4",
+      "position": [
+        279,
+        1473
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/StageDot5",
+      "position": [
+        297,
+        1473
+      ],
+      "asset_id": "firstrelease.ui.stage-gray",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/stage-gray.png",
+      "instance": {
+        "width": 16,
+        "height": 16,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/HUD/Avatar",
+      "position": [
+        20,
+        92
+      ],
+      "asset_id": "firstrelease.ui.avatar",
+      "source_file": "游戏素材/PNG/公共UI/五页首版/avatar.png",
+      "instance": {
+        "width": 112,
+        "height": 120,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/HUD/WalletPlate",
+      "position": [
+        132,
+        107
+      ],
+      "asset_id": "firstrelease.ui.wallet",
+      "source_file": "游戏素材/PNG/公共UI/五页首版/wallet.png",
+      "instance": {
+        "width": 400,
+        "height": 90,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/HUD/Coins",
+      "text": "60",
+      "position": [
+        349.0,
+        137.5
+      ],
+      "box": [
+        252,
+        117,
+        492,
+        187
+      ],
+      "font_size": 38.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 24.7,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "build.Coins",
+      "localization_key": null,
+      "requested_font_size": 38.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        47,
+        30
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/HUD/EnergyHUD/Heart",
+      "position": [
+        520,
+        118
+      ],
+      "asset_id": "block_hud_体力爱心空白",
+      "source_file": "游戏素材/PNG/公共UI/体力爱心空白_72f8be88e9.png",
+      "instance": {
+        "width": 72,
+        "height": 68,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/HUD/EnergyHUD/EnergyAmount",
+      "text": "5",
+      "position": [
+        546.5,
+        139.5
+      ],
+      "box": [
+        524,
+        122,
+        589,
+        182
+      ],
+      "font_size": 32.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 20.8,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "build.EnergyAmount",
+      "localization_key": null,
+      "requested_font_size": 32.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        20,
+        25
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/HUD/EnergyHUD/EnergyTimer",
+      "text": "FULL",
+      "position": [
+        616.0,
+        143.0
+      ],
+      "box": [
+        590,
+        128,
+        700,
+        176
+      ],
+      "font_size": 24.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 15.600000000000001,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "build.EnergyTimer",
+      "localization_key": "firstrelease.EnergyTimer",
+      "requested_font_size": 24.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        59,
+        19
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/HUD/Settings",
+      "position": [
+        726,
+        100
+      ],
+      "asset_id": "firstrelease.ui.settings",
+      "source_file": "游戏素材/PNG/公共UI/五页首版/settings.png",
+      "instance": {
+        "width": 104,
+        "height": 104,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/HUD/MapName",
+      "text": "向阳蜂谷",
+      "position": [
+        354.0,
+        244.0
+      ],
+      "box": [
+        76,
+        227,
+        776,
+        297
+      ],
+      "font_size": 36.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 23.400000000000002,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "build.MapName",
+      "localization_key": "firstrelease.MapName",
+      "requested_font_size": 36.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        144,
+        36
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/BuildBottom/BottomPlate",
+      "position": [
+        0,
+        1618
+      ],
+      "asset_id": "block_建造界面_花园总进度面板",
+      "source_file": "游戏素材/PNG/公共UI/花园总进度面板_879cdde6ec.png",
+      "instance": {
+        "width": 853,
+        "height": 179,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/BuildBottom/Back",
+      "position": [
+        46,
+        1652
+      ],
+      "asset_id": "firstrelease.ui.back",
+      "source_file": "游戏素材/PNG/公共UI/五页首版/back.png",
+      "instance": {
+        "width": 110,
+        "height": 110,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/BuildBottom/ProgressTrack",
+      "position": [
+        186,
+        1710
+      ],
+      "asset_id": "block_建造界面_花园总进度底轨",
+      "source_file": "游戏素材/PNG/公共UI/花园总进度底轨_7ea59db32f.png",
+      "instance": {
+        "width": 480,
+        "height": 43,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/BuildBottom/ProgressFill",
+      "position": [
+        186,
+        1710
+      ],
+      "asset_id": "block_建造界面_花园总进度填充",
+      "source_file": "游戏素材/PNG/公共UI/花园总进度填充_1fa46281e3.png",
+      "instance": {
+        "width": 19,
+        "height": 43,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/BuildBottom/Progress",
+      "text": "1/25",
+      "position": [
+        391.5,
+        1719.0
+      ],
+      "box": [
+        202,
+        1702,
+        652,
+        1762
+      ],
+      "font_size": 30.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        255,
+        255,
+        255
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 19.5,
+      "max_lines": 8,
+      "category": "runtime_value",
+      "binding": "build.Progress",
+      "localization_key": "firstrelease.Progress",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        70,
+        27
+      ]
+    },
+    {
+      "kind": "text",
+      "layer_name": "HomeBuild/BuildBottom/BuildCaption",
+      "text": "花园建设",
+      "position": [
+        367.0,
+        1658.0
+      ],
+      "box": [
+        202,
+        1647,
+        652,
+        1697
+      ],
+      "font_size": 30.0,
+      "weight": "bold",
+      "align": "center",
+      "color_rgb": [
+        42,
+        75,
+        84
+      ],
+      "font_file": "msyhbd.ttc",
+      "postscript_font": "MicrosoftYaHei-Bold",
+      "stroke_width": 0.0,
+      "stroke_color": [
+        0,
+        0,
+        0
+      ],
+      "min_font_size": 19.5,
+      "max_lines": 8,
+      "category": "localized_copy",
+      "binding": "build.BuildCaption",
+      "localization_key": "firstrelease.BuildCaption",
+      "requested_font_size": 30.0,
+      "layout_overflow": false,
+      "measured_ink_size": [
+        120,
+        29
+      ]
+    },
+    {
+      "kind": "image",
+      "layer_name": "HomeBuild/BuildBottom/MapGift",
+      "position": [
+        684,
+        1644
+      ],
+      "asset_id": "firstrelease.ui.gift",
+      "source_file": "游戏素材/PNG/页面素材/五页首版建造/UI/gift.png",
+      "instance": {
+        "width": 125,
+        "height": 125,
+        "rgba": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 255
+        },
+        "opacity": 1
+      }
+    }
+  ],
+  "limitations": [
+    "Existing native stage buildings differ from v2 illustrated building shapes.",
+    "Canvas composition is standard 853x1844; actual Creator viewport tests are separate."
+  ]
+}

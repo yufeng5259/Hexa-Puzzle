@@ -1,10 +1,10 @@
-import { _decorator, CCString, Component, instantiate, isValid, Label, Node, Prefab, UITransform } from 'cc';
+import { _decorator, CCString, Component, instantiate, isValid, Label, Node, Prefab, ScrollView, Vec2, Graphics, Color, UITransform } from 'cc';
 import { requireBinding } from '../../../framework/components/Binding';
 import type { ResourceScope } from '../../../framework/resources/ResourceScope';
 import { PresentationItem } from '../../presentation/PresentationItem';
 import { SourceGeometry } from '../../presentation/SourceGeometry';
 import type { LevelDefinition } from '../data/LevelCatalog';
-import { axialPoint, fitCells, fitTray, pieceCenter, type AxialCell, type HexFit, type Point2, type TrayFit } from './PuzzleLayout';
+import { axialPoint, fitCells, fitTray, fitTrayWindow, pieceCenter, type AxialCell, type HexFit, type Point2, type TrayFit } from './PuzzleLayout';
 import type { PuzzleSessionSnapshot } from '../session/PuzzleSession';
 import { PuzzlePiecePresentation } from './PuzzlePiecePresentation';
 const { ccclass, property } = _decorator;
@@ -32,6 +32,10 @@ export class PuzzleBoardPresentation extends Component {
     @property public boardPadding = 32;
     @property public trayGap = 12;
     @property public trayPadding = 8;
+    @property(ScrollView) public trayScroll: ScrollView | null = null;
+    @property(Node) public trayViewport: Node | null = null;
+    @property(Graphics) public hintGraphics: Graphics | null = null;
+    @property public countMoves = false;
     public levelId = '';
     public level: LevelDefinition | null = null;
     public boardFit: HexFit | null = null;
@@ -45,7 +49,7 @@ export class PuzzleBoardPresentation extends Component {
     /** Called before fixture layout/item rendering so authored sample cells never cover real data. */
     public activateLevel(): void {
         const live = requireBinding('PuzzleBoardPresentation', 'liveRoot', this.liveRoot);
-        if (!this.fixtureNodes.length) throw new Error('PuzzleBoardPresentation: fixtureNodes requires explicit original fixture bindings');
+        if (!this.fixtureNodes.length && !this.trayScroll) throw new Error('PuzzleBoardPresentation: fixtures or authored scrolling tray required');
         this.fixtureNodes.forEach((node, i) => requireBinding('PuzzleBoardPresentation', `fixtureNodes[${i}]`, node));
         this.fixtureNodes.forEach(node => { node.active = false; }); live.active = true;
     }
@@ -70,7 +74,15 @@ export class PuzzleBoardPresentation extends Component {
         }
         const allCells = [...level.targetCells, ...level.obstacleCells];
         const fit = fitCells(allCells, boardUI.width, boardUI.height, this.boardPadding);
-        const trayFit = fitTray(level.pieces, trayUI.width, trayUI.height, this.trayGap, this.trayPadding);
+        const viewport = this.trayViewport?.getComponent(UITransform);
+        const trayWidth = viewport?.width || trayUI.width;
+        const trayFit = this.trayScroll ? fitTrayWindow(level.pieces, trayWidth, trayUI.height, this.trayGap, this.trayPadding) : fitTray(level.pieces, trayUI.width, trayUI.height, this.trayGap, this.trayPadding);
+        if (this.trayScroll) {
+            if (this.trayScroll.content !== tray) throw new Error('PuzzleBoardPresentation: ScrollView content binding mismatch');
+            const slot = (trayWidth - 2*this.trayPadding - 2*this.trayGap)/3;
+            trayUI.width = Math.max(trayWidth, 2*this.trayPadding + level.pieces.length*slot + Math.max(0,level.pieces.length-1)*this.trayGap);
+            this.trayScroll.scrollToLeft(0);
+        }
         try {
             while (this.cells.length < allCells.length) {
                 const node = instantiate(cellPrefab); node.parent = board;
@@ -113,8 +125,8 @@ export class PuzzleBoardPresentation extends Component {
                     cells: allCells.map(cell => [cell.q, cell.r]), bbox: [0, 0, boardUI.width, boardUI.height], padding: this.boardPadding, flip_y: true });
                 geometry.render();
             });
-            if (this.remainingLabel) this.remainingLabel.string = String(level.mode === 'challenge' ? level.moveLimit : level.pieces.length);
-            if (this.remainingCaptionLabel) this.remainingCaptionLabel.string = level.mode === 'challenge' ? '剩余步数' : '剩余拼块';
+            if (this.remainingLabel) this.remainingLabel.string = String(level.mode === 'challenge' ? level.moveLimit : this.countMoves ? 0 : level.pieces.length);
+            if (this.remainingCaptionLabel) this.remainingCaptionLabel.string = level.mode === 'challenge' ? '剩余步数' : this.countMoves ? '已用步数' : '剩余拼块';
             if (this.levelLabel) this.levelLabel.string = level.mainlineNumber === null ? `挑战 ${level.index}` : `第 ${level.mainlineNumber} 关`;
             if (this.totalCellsLabel) this.totalCellsLabel.string = `0/${level.targetCells.length}`;
             if (this.moveLimitLabel) this.moveLimitLabel.string = level.moveLimit === null ? '∞' : String(level.moveLimit);
@@ -157,8 +169,18 @@ export class PuzzleBoardPresentation extends Component {
             entry.node.setScale(scale, scale, 1);
             if (translation) { placed++; filled += entry.item.cells.length; }
         });
-        if (this.remainingLabel) this.remainingLabel.string = String(level.mode === 'challenge' ? Math.max(0, level.moveLimit! - snapshot.moves) : level.pieces.length - placed);
-        if (this.totalCellsLabel) this.totalCellsLabel.string = `${filled}/${level.targetCells.length}`;
+        if (this.remainingLabel) this.remainingLabel.string = String(level.mode === 'challenge' ? Math.max(0, level.moveLimit! - snapshot.moves) : this.countMoves ? snapshot.moves : level.pieces.length - placed);
+        if (this.totalCellsLabel) this.totalCellsLabel.string = String(filled) + "/" + level.targetCells.length;
+    }
+    public scrollTray(direction: number): void {
+        const scroll=this.trayScroll, viewport=this.trayViewport?.getComponent(UITransform);
+        if (!scroll || !viewport) return;
+        scroll.scrollToOffset(new Vec2(Math.min(scroll.getMaxScrollOffset().x,Math.max(0,-scroll.getScrollOffset().x + direction*viewport.width)),0),0.2);
+    }
+    public drawHint(cells: readonly AxialCell[]): void {
+        const g=this.hintGraphics; if (!g || !this.boardFit) return; g.clear();
+        g.lineWidth=5;g.strokeColor=new Color(255,231,105,255);g.fillColor=new Color(255,231,105,75);
+        for(const cell of cells){const p=this.pointOfCell(cell);for(let i=0;i<6;i++){const a=i*Math.PI/3,x=p.x+Math.cos(a)*this.boardFit.radius,y=p.y+Math.sin(a)*this.boardFit.radius;if(i===0)g.moveTo(x,y);else g.lineTo(x,y);}g.close();g.fill();g.stroke();}
     }
     public cancelPending(): void {
         if (this.disposed) return;
