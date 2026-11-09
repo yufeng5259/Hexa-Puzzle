@@ -18,6 +18,8 @@ export class PuzzlePiecePresentation extends Component {
     public cells: readonly AxialCell[] = [];
     public radius = 0;
     private items: { node: Node; item: PresentationItem }[] = [];
+    /** Hit-test centers, keyed by the exact cells/radius they were computed for. */
+    private hitCache: { cells: readonly AxialCell[]; radius: number; centers: readonly Point2[] } | null = null;
     private revision = 0;
     private disposed = false;
 
@@ -68,8 +70,11 @@ export class PuzzlePiecePresentation extends Component {
     public onTouchEnd(event?: EventTouch): void { this.emitInput('end', event); }
     public onTouchCancel(event?: EventTouch): void { this.emitInput('cancel', event); }
     public containsLocal(point: Point2): boolean {
-        return this.radius > 0 && this.cells.length > 0 && centeredCells(this.cells, this.radius).centers.some(center =>
-            insideHex({ x: point.x - center.x, y: point.y - center.y }, this.radius));
+        if (!(this.radius > 0) || !this.cells.length) return false;
+        if (this.hitCache?.cells !== this.cells || this.hitCache.radius !== this.radius) {
+            this.hitCache = { cells: this.cells, radius: this.radius, centers: centeredCells(this.cells, this.radius).centers };
+        }
+        return this.hitCache.centers.some(center => insideHex({ x: point.x - center.x, y: point.y - center.y }, this.radius));
     }
     private emitInput(phase: string, event?: EventTouch): void {
         if (!this.pieceId) return;

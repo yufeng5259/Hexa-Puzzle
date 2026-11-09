@@ -7,6 +7,14 @@ export interface GuidePorts {
     persistStep?(id: string | null): void;
     onError?(message: string): void;
 }
+/** Durable phase that owns a step, derived only from its configured page. */
+function phaseOf(step: GuideStepRow): GuideContext['phase'] {
+    return step.pageId === 'puzzle' ? 'puzzle' : step.pageId === 'welcome' ? 'welcome' : 'build';
+}
+/** The build mode of the home page is the configured 'build' page. */
+function pageKey(context: GuideContext): string {
+    return context.pageId === 'home' && context.mode === 'build' ? 'build' : context.pageId;
+}
 /** Configured transitions consume committed business events, not button clicks. */
 export class GuideManager {
     private readonly byId: Map<string, GuideStepRow>;
@@ -26,7 +34,6 @@ export class GuideManager {
     public allowsAction(action: string): boolean {
         if (this.context?.phase === 'complete') return true;
         if (!this.step || this.suspended) return false;
-        if (this.step.skippable) return true;
         const allowed = this.step.params.allowedActions;
         return Array.isArray(allowed) && allowed.includes(action);
     }
@@ -63,10 +70,13 @@ export class GuideManager {
                     return !target || !placed || placed.q !== target.q || placed.r !== target.r;
                 }) ?? this.steps.find(item => item.action === 'wait' && item.pageId === 'puzzle');
             } else step = saved?.pageId === 'puzzle' ? saved : lessons[0];
-        } else if (context.phase === 'welcome') step = this.steps.find(item => item.targetId === 'welcome.claim');
-        else if (context.pageId === 'result') step = this.steps.find(item => item.targetId === 'result.home');
-        else if (context.mode === 'build' || context.pageId === 'build') step = this.steps.find(item => item.targetId === 'building.slot1.upgrade');
-        else step = this.steps.find(item => item.targetId === 'home.build');
+        } else {
+            // Resume inside the durable phase on the page actually shown; the saved step only wins on its own page.
+            const segment = this.steps.filter(item => phaseOf(item) === context.phase), page = pageKey(context);
+            const saved = context.stepId ? this.byId.get(context.stepId) : undefined;
+            step = saved && segment.includes(saved) && saved.pageId === page ? saved
+                : segment.find(item => item.pageId === page) ?? (saved && segment.includes(saved) ? saved : segment[0]);
+        }
         this.setStep(step ?? null);
     }
     public onEvent(event: GuideEvent): boolean {

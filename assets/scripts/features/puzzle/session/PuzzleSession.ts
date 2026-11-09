@@ -26,18 +26,22 @@ export class PuzzleSession {
     readonly attemptId: string;
     public beforeCommit: ((candidate: PuzzleSessionSnapshot) => void) | null = null;
     private state: PuzzleSessionSnapshot;
+    /** Mirrors state.placements; replaced only together with an accepted commit. */
+    private live: PuzzleModel;
     private readonly listeners = new Set<(snapshot: PuzzleSessionSnapshot) => void>();
     constructor(level: LevelDefinition, attemptId: string) {
         if (!attemptId?.trim()) throw new Error('PuzzleSession requires an attemptId');
         this.level = immutable(JSON.parse(JSON.stringify(level)) as LevelDefinition);
         this.attemptId = attemptId;
         this.state = this.freeze({ attemptId, levelId: level.id, moves: 0, status: 'active', placements: {}, selectedPieceId: null, revision: 0, placementOrder: [], activeHintPieceId: null });
+        this.live = new PuzzleModel(this.level);
     }
-    get snapshot(): PuzzleSessionSnapshot { return this.freeze(this.state); }
+    /** State is already deeply frozen; callers still receive a distinct top-level object. */
+    get snapshot(): PuzzleSessionSnapshot { return Object.freeze({ ...this.state }); }
     serialize(): PuzzleSessionSnapshot { return this.state; }
     restore(snapshot: PuzzleSessionSnapshot): void {
-        this.validate(snapshot);
-        this.state = this.freeze(snapshot);
+        const model = this.validate(snapshot);
+        this.state = this.freeze(snapshot); this.live = model;
     }
     private model(snapshot = this.state): PuzzleModel {
         const model = new PuzzleModel(this.level);
@@ -46,7 +50,7 @@ export class PuzzleSession {
         }
         return model;
     }
-    private validate(value: PuzzleSessionSnapshot): void {
+    private validate(value: PuzzleSessionSnapshot): PuzzleModel {
         if (!value || value.attemptId !== this.attemptId || value.levelId !== this.level.id
             || !Number.isSafeInteger(value.moves) || value.moves < 0 || !Number.isSafeInteger(value.revision) || value.revision < 0
             || !['active', 'completed', 'failed'].includes(value.status) || !value.placements || typeof value.placements !== 'object') throw new Error('Invalid saved puzzle identity or counters');
@@ -58,35 +62,36 @@ export class PuzzleSession {
         if (new Set(order).size !== order.length || order.length !== Object.keys(value.placements).length || order.some(id => !value.placements[id])) throw new Error('Invalid saved placement order');
         if (value.selectedPieceId !== null && !model.hasPiece(value.selectedPieceId)) throw new Error('Invalid selected piece');
         if (value.activeHintPieceId && !model.hasPiece(value.activeHintPieceId)) throw new Error('Invalid active hint');
+        return model;
     }
     private freeze(value: PuzzleSessionSnapshot): PuzzleSessionSnapshot {
         const placements: Record<string, HexCell> = {};
         for (const [id, cell] of Object.entries(value.placements)) Object.defineProperty(placements, id, { value: Object.freeze({ ...cell }), enumerable: true });
         return Object.freeze({ ...value, placements: Object.freeze(placements), placementOrder: Object.freeze([...(value.placementOrder || Object.keys(placements))]), activeHintPieceId: value.activeHintPieceId || null });
     }
-    canPlace(pieceId: string, translation: HexCell): boolean { return this.state.status === 'active' && this.model().canPlace(pieceId, translation); }
+    canPlace(pieceId: string, translation: HexCell): boolean { return this.state.status === 'active' && this.live.canPlace(pieceId, translation); }
     place(pieceId: string, translation: HexCell): boolean {
-        if (this.state.status !== 'active') return false;
-        const model = this.model();
+        if (this.state.status !== 'active' || !this.live.canPlace(pieceId, translation)) return false;
+        const model = this.live.clone();
         if (!model.place(pieceId, translation)) return false;
         const order = [...(this.state.placementOrder || [])].filter(id => id !== pieceId); order.push(pieceId);
         let hint = this.state.activeHintPieceId || null;
         if (hint === pieceId && this.correct(pieceId, model.placements) || model.completed) hint = null;
-        this.commit({ ...this.state, placements: model.placements, placementOrder: order, selectedPieceId: null, activeHintPieceId: hint }, true);
+        this.commit({ ...this.state, placements: model.placements, placementOrder: order, selectedPieceId: null, activeHintPieceId: hint }, true, model);
         return true;
     }
     returnPiece(pieceId?: string): boolean {
         if (this.state.status !== 'active') return false;
         const order = this.state.placementOrder || [];
         const chosen = pieceId !== undefined ? pieceId : (this.state.selectedPieceId && this.state.placements[this.state.selectedPieceId] ? this.state.selectedPieceId : order[order.length - 1]);
-        const model = this.model();
-        if (!chosen || !model.returnPiece(chosen)) return false;
-        this.commit({ ...this.state, placements: model.placements, placementOrder: order.filter(id => id !== chosen), selectedPieceId: null }, true);
+        if (!chosen || !this.live.isPlaced(chosen)) return false;
+        const model = this.live.clone(); model.returnPiece(chosen);
+        this.commit({ ...this.state, placements: model.placements, placementOrder: order.filter(id => id !== chosen), selectedPieceId: null }, true, model);
         return true;
     }
     select(pieceId: string | null): void {
-        if (this.state.status !== 'active' || this.state.selectedPieceId === pieceId || pieceId !== null && !this.model().hasPiece(pieceId)) return;
-        this.commit({ ...this.state, selectedPieceId: pieceId }, false);
+        if (this.state.status !== 'active' || this.state.selectedPieceId === pieceId || pieceId !== null && !this.live.hasPiece(pieceId)) return;
+        this.commit({ ...this.state, selectedPieceId: pieceId }, false, this.live);
     }
     hintCandidate(): PuzzleHint | null {
         if (this.state.status !== 'active') return null;
@@ -101,7 +106,7 @@ export class PuzzleSession {
     activateHint(): PuzzleHint | null {
         const hint = this.hintCandidate();
         if (!hint || this.state.activeHintPieceId) return hint;
-        this.commit({ ...this.state, activeHintPieceId: hint.pieceId }, false);
+        this.commit({ ...this.state, activeHintPieceId: hint.pieceId }, false, this.live);
         return hint;
     }
     subscribe(listener: (snapshot: PuzzleSessionSnapshot) => void): () => void { this.listeners.add(listener); return () => { this.listeners.delete(listener); }; }
@@ -111,12 +116,12 @@ export class PuzzleSession {
         const keys = new Set(piece.targetCells.map(cell => cell.q + ',' + cell.r));
         return piece.cells.every(cell => keys.has((cell.q + anchor.q) + ',' + (cell.r + anchor.r)));
     }
-    private commit(value: PuzzleSessionSnapshot, countMove: boolean): void {
-        const moves = value.moves + (countMove ? 1 : 0), model = this.model(value);
+    private commit(value: PuzzleSessionSnapshot, countMove: boolean, model: PuzzleModel): void {
+        const moves = value.moves + (countMove ? 1 : 0);
         const status = model.completed ? 'completed' : this.level.mode === 'challenge' && moves >= this.level.moveLimit! ? 'failed' : 'active';
         const candidate = this.freeze({ ...value, moves, status, revision: this.state.revision + 1 });
         this.beforeCommit?.(candidate);
-        this.state = candidate;
+        this.state = candidate; this.live = model;
         for (const listener of Array.from(this.listeners)) listener(candidate);
     }
 }

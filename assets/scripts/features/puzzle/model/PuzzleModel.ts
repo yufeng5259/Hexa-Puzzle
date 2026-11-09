@@ -7,31 +7,36 @@ const valid = (cell: HexCell): boolean => !!cell && Number.isSafeInteger(cell.q)
 export class PuzzleModel {
     private readonly targets: Set<string>;
     private readonly obstacles: Set<string>;
-    private readonly pieces = new Map<string, readonly HexCell[]>();
+    private readonly pieces: Map<string, readonly HexCell[]>;
     private readonly placed = new Map<string, HexCell>();
+    /** Board cell -> occupying piece. Maintained incrementally so drag previews stay O(piece cells). */
+    private readonly occupancy = new Map<string, string>();
 
-    constructor(level: LevelDefinition) {
+    constructor(level: LevelDefinition | PuzzleModel) {
+        if (level instanceof PuzzleModel) {
+            // Static level sets are immutable and shared; only placement state is copied.
+            this.targets = level.targets; this.obstacles = level.obstacles; this.pieces = level.pieces;
+            level.placed.forEach((cell, id) => this.placed.set(id, cell));
+            level.occupancy.forEach((id, cell) => this.occupancy.set(cell, id));
+            return;
+        }
         this.targets = new Set(level.targetCells.map(key));
         this.obstacles = new Set(level.obstacleCells.map(key));
-        for (const piece of level.pieces) this.pieces.set(piece.id, piece.cells.map(cell => ({ q: cell.q, r: cell.r })));
+        this.pieces = new Map(level.pieces.map(piece => [piece.id, piece.cells.map(cell => ({ q: cell.q, r: cell.r }))]));
     }
 
+    clone(): PuzzleModel { return new PuzzleModel(this); }
     hasPiece(pieceId: string): boolean { return this.pieces.has(pieceId); }
     isPlaced(pieceId: string): boolean { return this.placed.has(pieceId); }
 
     canPlace(pieceId: string, translation: HexCell): boolean {
         const cells = this.pieces.get(pieceId);
         if (!cells || !valid(translation)) return false;
-        const occupied = new Set<string>();
-        for (const [otherId, anchor] of this.placed) {
-            if (otherId === pieceId) continue;
-            for (const cell of this.pieces.get(otherId)!) occupied.add(key({ q: cell.q + anchor.q, r: cell.r + anchor.r }));
-        }
         return cells.every(cell => {
             const translated = { q: cell.q + translation.q, r: cell.r + translation.r };
             if (!valid(translated)) return false;
-            const address = key(translated);
-            return this.targets.has(address) && !this.obstacles.has(address) && !occupied.has(address);
+            const address = key(translated), owner = this.occupancy.get(address);
+            return this.targets.has(address) && !this.obstacles.has(address) && (owner === undefined || owner === pieceId);
         });
     }
 
@@ -40,11 +45,19 @@ export class PuzzleModel {
         if (!this.canPlace(pieceId, translation)) return false;
         const old = this.placed.get(pieceId);
         if (old && old.q === translation.q && old.r === translation.r) return false;
-        this.placed.set(pieceId, { q: translation.q, r: translation.r });
+        this.returnPiece(pieceId);
+        const anchor = { q: translation.q, r: translation.r };
+        this.placed.set(pieceId, anchor);
+        for (const cell of this.pieces.get(pieceId)!) this.occupancy.set(key({ q: cell.q + anchor.q, r: cell.r + anchor.r }), pieceId);
         return true;
     }
 
-    returnPiece(pieceId: string): boolean { return this.placed.delete(pieceId); }
+    returnPiece(pieceId: string): boolean {
+        const anchor = this.placed.get(pieceId);
+        if (!anchor) return false;
+        for (const cell of this.pieces.get(pieceId)!) this.occupancy.delete(key({ q: cell.q + anchor.q, r: cell.r + anchor.r }));
+        return this.placed.delete(pieceId);
+    }
 
     get placements(): Readonly<Record<string, HexCell>> {
         const result: Record<string, HexCell> = {};
@@ -54,11 +67,8 @@ export class PuzzleModel {
         return Object.freeze(result);
     }
 
+    /** Pieces only occupy legal target cells, so full occupancy equals full coverage. */
     get completed(): boolean {
-        const occupied = new Set<string>();
-        for (const [id, anchor] of this.placed) for (const cell of this.pieces.get(id)!) {
-            occupied.add(key({ q: cell.q + anchor.q, r: cell.r + anchor.r }));
-        }
-        return this.targets.size > 0 && occupied.size === this.targets.size && Array.from(this.targets).every(cell => occupied.has(cell));
+        return this.targets.size > 0 && this.occupancy.size === this.targets.size;
     }
 }

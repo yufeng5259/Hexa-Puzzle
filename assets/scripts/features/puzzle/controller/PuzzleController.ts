@@ -7,6 +7,8 @@ import { nearestAxial, pieceCenter, type Point2 } from '../presentation/PuzzleLa
 import { PuzzlePiecePresentation } from '../presentation/PuzzlePiecePresentation';
 import type { PuzzleSession, PuzzleSessionSnapshot } from '../session/PuzzleSession';
 const { ccclass, property } = _decorator;
+const VALID_STROKE = new Color(100, 233, 141, 255), VALID_FILL = new Color(100, 233, 141, 65);
+const INVALID_STROKE = new Color(239, 104, 91, 255), INVALID_FILL = new Color(239, 104, 91, 65);
 
 interface Drag {
     pointerId: number;
@@ -43,6 +45,10 @@ export class PuzzleController extends Component {
     private listening = false;
     private notifiedAttempt: string | null = null;
     private disposed = false;
+    /** Footprint currently drawn for the player's drag; unchanged candidates are not redrawn. */
+    private drawnKey = '';
+    /** UI capture and global input may both deliver one engine event; process it once. */
+    private lastEvent: { event: EventTouch; x: number; y: number } | null = null;
 
     public get snapshot(): PuzzleSessionSnapshot | null { return this.session?.snapshot || null; }
     public get draggingPieceId(): string | null { return this.drag?.piece.pieceId || null; }
@@ -151,7 +157,14 @@ export class PuzzleController extends Component {
         this.suspend(); this.guidePreview = null; this.disposed = true; this.session = null; this.onOutcome = null; this.inputCamera = null; this.onDragStateChanged = null; this.allowPlacement = null; this.allowPieceStart = null; this.allowPointerStart = null;
     }
 
+    private duplicate(event: EventTouch): boolean {
+        const point = event.getUILocation(), last = this.lastEvent;
+        if (last && last.event === event && last.x === point.x && last.y === point.y) return true;
+        this.lastEvent = { event, x: point.x, y: point.y };
+        return false;
+    }
     private onStart(event: EventTouch): void {
+        if (this.duplicate(event)) return;
         if (!this.listening || this.drag || !this.session || this.session.snapshot.status !== 'active') return;
         const pointerId = event.getID();
         if (pointerId === null) return;
@@ -178,9 +191,11 @@ export class PuzzleController extends Component {
         this.updateDrag(world);
     }
     private onMove(event: EventTouch): void {
+        if (this.duplicate(event)) return;
         if (this.drag && event.getID() === this.drag.pointerId) this.updateDrag(this.worldPoint(event));
     }
     private onEnd(event: EventTouch): void {
+        if (this.duplicate(event)) return;
         if (!this.drag || event.getID() !== this.drag.pointerId || !this.session) return;
         this.updateDrag(this.worldPoint(event));
         const drag = this.drag; this.drag = null; this.clearPreview();
@@ -193,9 +208,11 @@ export class PuzzleController extends Component {
         finally { if(this.board?.trayScroll) this.board.trayScroll.enabled=true; this.project(); this.onDragStateChanged?.(false); }
     }
     private onCancel(event: EventTouch): void {
+        if (this.duplicate(event)) return;
         if (this.drag && event.getID() === this.drag.pointerId) this.cancelDrag();
     }
-    private cancelDrag(): void {
+    /** Drops an in-progress gesture without placing; the piece returns to its committed pose. */
+    public cancelDrag(): void {
         if(this.board?.trayScroll) this.board.trayScroll.enabled=true;
         if (!this.drag) { this.clearPreview(); return; }
         this.drag = null; this.clearPreview(); this.project(); this.onDragStateChanged?.(false);
@@ -229,12 +246,15 @@ export class PuzzleController extends Component {
         if (this.guidePreview) { this.refreshGuidePreview(); return; }
         if (!drag || !board?.boardFit || !graphics || !drag.candidate) return;
         if (drag.outside) { this.hidePreview(); return; }
+        const key = drag.piece.pieceId + ':' + drag.candidate.q + ',' + drag.candidate.r + ':' + drag.valid;
+        if (key === this.drawnKey && this.previewRoot?.active) return;
         this.drawPlacement(drag.piece.cells, drag.candidate, drag.valid);
+        this.drawnKey = key;
     }
     private drawPlacement(cells: readonly HexCell[], translation: HexCell, valid: boolean): void {
         const board = this.board, graphics = this.previewGraphics;
         if (!board?.boardFit || !graphics) return;
-        graphics.clear();
+        graphics.clear(); this.drawnKey = '';
         this.previewRoot!.active = true;
         // Cells are created first; placed pieces are subsequent children of this same mount.
         if (this.previewRoot!.parent === board.boardMount) {
@@ -243,8 +263,8 @@ export class PuzzleController extends Component {
             this.previewRoot!.setSiblingIndex(first < 0 ? board.boardMount!.children.length - 1 : Math.max(0, first - (this.previewRoot!.getSiblingIndex() < first ? 1 : 0)));
         }
         graphics.lineWidth = 3;
-        graphics.strokeColor = valid ? new Color(100, 233, 141, 255) : new Color(239, 104, 91, 255);
-        graphics.fillColor = valid ? new Color(100, 233, 141, 65) : new Color(239, 104, 91, 65);
+        graphics.strokeColor = valid ? VALID_STROKE : INVALID_STROKE;
+        graphics.fillColor = valid ? VALID_FILL : INVALID_FILL;
         const boardUI = board.boardMount!.getComponent(UITransform)!, previewUI = this.previewRoot!.getComponent(UITransform)!;
         const radius = board.boardFit.radius;
         for (const cell of cells) {
@@ -263,6 +283,7 @@ export class PuzzleController extends Component {
         this.hidePreview();
     }
     private hidePreview(): void {
+        this.drawnKey = '';
         if (isValid(this.previewGraphics, true)) this.previewGraphics!.clear();
         if (isValid(this.previewRoot, true)) this.previewRoot!.active = false;
     }

@@ -8,6 +8,7 @@ import { axialPoint, fitCells, fitTray, fitTrayWindow, pieceCenter, type AxialCe
 import type { PuzzleSessionSnapshot } from '../session/PuzzleSession';
 import { PuzzlePiecePresentation } from './PuzzlePiecePresentation';
 const { ccclass, property } = _decorator;
+let hintColors: { stroke: Color; fill: Color } | null = null;
 
 /** Projects catalog geometry and attempt snapshots. Owns instances; borrows the page's scope. */
 @ccclass('PuzzleBoardPresentation')
@@ -79,8 +80,7 @@ export class PuzzleBoardPresentation extends Component {
         const trayFit = this.trayScroll ? fitTrayWindow(level.pieces, trayWidth, trayUI.height, this.trayGap, this.trayPadding) : fitTray(level.pieces, trayUI.width, trayUI.height, this.trayGap, this.trayPadding);
         if (this.trayScroll) {
             if (this.trayScroll.content !== tray) throw new Error('PuzzleBoardPresentation: ScrollView content binding mismatch');
-            const slot = (trayWidth - 2*this.trayPadding - 2*this.trayGap)/3;
-            trayUI.width = Math.max(trayWidth, 2*this.trayPadding + level.pieces.length*slot + Math.max(0,level.pieces.length-1)*this.trayGap);
+            trayUI.width = trayFit.contentWidth!;
             this.trayScroll.scrollToLeft(0);
         }
         try {
@@ -160,10 +160,13 @@ export class PuzzleBoardPresentation extends Component {
         const board = requireBinding('PuzzleBoardPresentation', 'boardMount', this.boardMount);
         const tray = requireBinding('PuzzleBoardPresentation', 'piecesMount', this.piecesMount);
         let filled = 0, placed = 0;
-        this.pieceEntries().forEach((entry, i) => {
+        // Tray slots follow level order; filtered live entries must not shift a piece into another slot.
+        const slots = new Map(level.pieces.map((piece, i) => [piece.id, i]));
+        this.pieceEntries().forEach(entry => {
             const translation = snapshot.placements[entry.item.pieceId];
+            if (!translation && !slots.has(entry.item.pieceId)) throw new Error(`PuzzleBoardPresentation: unknown piece ${entry.item.pieceId}`);
             entry.node.parent = translation ? board : tray;
-            const position = translation ? this.translationRootPosition(entry.item.pieceId, translation) : this.trayFit!.pieces[i].position;
+            const position = translation ? this.translationRootPosition(entry.item.pieceId, translation) : this.trayFit!.pieces[slots.get(entry.item.pieceId)!].position;
             entry.node.setPosition(position.x, position.y, 0);
             const scale = translation ? this.boardFit!.radius / entry.item.radius : 1;
             entry.node.setScale(scale, scale, 1);
@@ -179,7 +182,8 @@ export class PuzzleBoardPresentation extends Component {
     }
     public drawHint(cells: readonly AxialCell[]): void {
         const g=this.hintGraphics; if (!g || !this.boardFit) return; g.clear();
-        g.lineWidth=5;g.strokeColor=new Color(255,231,105,255);g.fillColor=new Color(255,231,105,75);
+        hintColors??={stroke:new Color(255,231,105,255),fill:new Color(255,231,105,75)};
+        g.lineWidth=5;g.strokeColor=hintColors.stroke;g.fillColor=hintColors.fill;
         for(const cell of cells){const p=this.pointOfCell(cell);for(let i=0;i<6;i++){const a=i*Math.PI/3,x=p.x+Math.cos(a)*this.boardFit.radius,y=p.y+Math.sin(a)*this.boardFit.radius;if(i===0)g.moveTo(x,y);else g.lineTo(x,y);}g.close();g.fill();g.stroke();}
     }
     public cancelPending(): void {

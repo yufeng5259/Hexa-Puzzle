@@ -5,6 +5,11 @@ export interface ProgressionEvent {
     mapId?: string; slotId?: number; stage?: number; pieceId?: string;
 }
 export type GuidePhase = 'puzzle' | 'build' | 'welcome' | 'complete';
+export type ProgressionErrorCode = 'energy' | 'hints';
+/** Recoverable player-facing refusals; views branch on code, never on message text. */
+export class ProgressionError extends Error {
+    constructor(public readonly code: ProgressionErrorCode, message: string) { super(message); this.name = 'ProgressionError'; }
+}
 /** Commands combine resource changes and receipts in the same durable write. No Cocos dependency. */
 export class GameServices {
     private readonly listeners = new Set<(event: ProgressionEvent) => void>();
@@ -77,7 +82,7 @@ export class GameServices {
         if (this.state.currentLevelNo > this.meta.getMainlineCount()) throw new Error('当前内容已完成');
         const row = this.meta.getMainline(this.state.currentLevelNo);
         const tutorial = row.levelNo === 1 && this.getGuidePhase() === 'puzzle';
-        if (!tutorial && this.state.energy <= 0) throw new Error('体力不足');
+        if (!tutorial && this.state.energy <= 0) throw new ProgressionError('energy', '体力不足');
         this.store.transact(null, state => {
             state.attemptSequence++;
             state.activeAttempt = { attemptId: 'attempt-' + state.attemptSequence + '-' + this.now(state), puzzleId: row.puzzleId,
@@ -95,9 +100,10 @@ export class GameServices {
         else if (snapshot.status !== 'active') throw new Error('缺少拼图规则验证，不能结算');
         const newlyHinted = !!snapshot.activeHintPieceId && snapshot.activeHintPieceId !== attempt.snapshot?.activeHintPieceId;
         const applied = this.store.transact(null, state => {
-            if (newlyHinted) { if (state.hints <= 0) throw new Error('提示不足'); state.hints--; }
+            if (newlyHinted) { if (state.hints <= 0) throw new ProgressionError('hints', '提示不足'); state.hints--; }
             state.activeAttempt!.snapshot = clone(snapshot);
-            if (snapshot.status === 'completed') this.win(state);
+            // The validator above already proved this exact snapshot.
+            if (snapshot.status === 'completed') this.win(state, true);
             else if (snapshot.status === 'failed') this.end(state, 'failed');
         });
         if (newlyHinted) this.emit('puzzle.hintCommitted', { attemptId: snapshot.attemptId, pieceId: snapshot.activeHintPieceId! });
@@ -114,11 +120,11 @@ export class GameServices {
         state.energy = Math.min(numberConstant(this.meta, 'energyMax', 1), state.energy + reward.energy);
         if (state.energy === numberConstant(this.meta, 'energyMax', 1)) state.nextEnergyAt = null;
     }
-    private win(state: GameState): void {
+    private win(state: GameState, validated = false): void {
         const attempt = state.activeAttempt!;
         if (attempt.snapshot?.status !== 'completed') throw new Error('关卡尚未完成');
         if (!this.validateSnapshot) throw new Error('缺少拼图规则验证，不能结算');
-        this.validateSnapshot(attempt.snapshot);
+        if (!validated) this.validateSnapshot(attempt.snapshot);
         const key = 'level-first-win:' + attempt.puzzleId;
         if (!state.receipts[key]) {
             this.grant(state, this.meta.getMainline(attempt.levelNo).rewardId); state.receipts[key] = true;

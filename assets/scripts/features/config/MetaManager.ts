@@ -22,6 +22,8 @@ const fields: Record<string, Record<string, string>> = {
 function freeze<T>(value: T): T { if (value && typeof value === 'object') { Object.values(value as Record<string, unknown>).forEach(freeze); Object.freeze(value); } return value; }
 function record(value: unknown): value is Record<string, unknown> { return !!value && typeof value === 'object' && !Array.isArray(value); }
 
+/** Guide permissions name real view actions; building slots are data-driven. */
+const GUIDE_ACTION = /^(puzzle:drag|puzzle:undo|result:home|home:build|welcome:claim|building:upgrade:\d+)$/;
 export class MetaManager {
     private readonly tables = new Map<string, Map<string, Row>>();
     public constructor(raw: unknown) {
@@ -68,16 +70,17 @@ export class MetaManager {
         for (const step of this.rows<GuideStepRow>('GuideSteps')) {
             if (!['home','puzzle','result','build','welcome'].includes(step.pageId)) throw new Error(`Invalid guide page ${step.id}`);
             const actions = step.params.allowedActions;
-            if (!Array.isArray(actions) || actions.some(action => !['puzzle:drag','puzzle:undo','result:home','home:build','building:upgrade:1','welcome:claim'].includes(action))) throw new Error(`Invalid guide allowedActions ${step.id}`);
+            if (!Array.isArray(actions) || actions.some(action => typeof action !== 'string' || !GUIDE_ACTION.test(action))) throw new Error(`Invalid guide allowedActions ${step.id}`);
             if (step.params.highlightProvider !== undefined && (step.params.highlightProvider !== 'puzzlePlacementPreview' || step.action !== 'drag' || !step.params.pieceId || !step.params.targetCell)) throw new Error(`Invalid guide highlightProvider ${step.id}`);
             if(!['click','drag','wait','continue'].includes(step.action)||!['none','rect','roundRect','circle'].includes(step.shape)||!Number.isFinite(step.padding)||step.padding<0||!Number.isFinite(step.timeoutSeconds)||step.timeoutSeconds<0)throw new Error(`Invalid guide step ${step.id}`);
             const seen = new Set([step.id]); let next=step.nextStepId;
             while(next){if(seen.has(next))throw new Error(`Guide cycle at ${next}`);seen.add(next);const target=this.getGuideStep(next);if(target.groupId!==step.groupId)throw new Error('Cross-group guide link');next=target.nextStepId;}
         }
-        const welcome = guides.find(step=>step.targetId==='welcome.claim'), upgrade=guides.find(step=>step.targetId==='building.slot1.upgrade');
-        if (!welcome || welcome.pageId!=='welcome' || welcome.completeEvent!=='welcome.rewardCommitted' || welcome.nextStepId!==null || upgrade?.nextStepId!==welcome.id) throw new Error('Missing welcome guide exit after upgrade');
+        // Resume derives phases from pages, so the welcome exit is identified by its page, not a fixed target.
+        const welcome = guides.find(step=>step.pageId==='welcome'), upgrade=guides.find(step=>step.nextStepId===welcome?.id);
+        if (!welcome || welcome.completeEvent!=='welcome.rewardCommitted' || welcome.nextStepId!==null || upgrade?.completeEvent!=='building.upgradeCommitted') throw new Error('Missing welcome guide exit after upgrade');
         const drags=guides.filter(step=>step.action==='drag'),pieceIds=new Set(drags.map(step=>step.params.pieceId));
-        if(drags.length!==3||pieceIds.size!==3)throw new Error('First guide requires three unique drag lessons');
+        if(!drags.length||pieceIds.size!==drags.length)throw new Error('First guide requires unique drag lessons');
         const pointed=new Set(guides.map(step=>step.nextStepId));let cursor=guides.find(step=>!pointed.has(step.id));
         const pending=new Set(drags.map(step=>step.id));
         while(cursor?.action==='drag'){

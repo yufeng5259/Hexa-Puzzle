@@ -2,7 +2,7 @@
 export interface AxialCell { q: number; r: number; }
 export interface Point2 { x: number; y: number; }
 export interface HexFit { radius: number; width: number; height: number; centers: Point2[]; }
-export interface TrayFit { columns: number; rows: number; radius: number; pieces: (HexFit & { position: Point2 })[]; }
+export interface TrayFit { columns: number; rows: number; radius: number; pieces: (HexFit & { position: Point2 })[]; contentWidth?: number; }
 const ROOT3 = Math.sqrt(3);
 
 export function axialPoint(cell: AxialCell, radius: number): Point2 {
@@ -73,5 +73,5 @@ export function fitTrayWindow(pieces: readonly { cells: readonly AxialCell[] }[]
  const columns=3, slot=(width-2*padding-gap*2)/3;
  const radius=Math.min(...pieces.map(piece=>fitCells(piece.cells,slot,height-2*padding).radius));
  const contentWidth=Math.max(width,padding*2+pieces.length*slot+Math.max(0,pieces.length-1)*gap);
- return {columns,rows:1,radius,pieces:pieces.map((piece,i)=>({...centeredCells(piece.cells,radius),position:{x:-contentWidth/2+padding+slot/2+i*(slot+gap),y:0}}))};
+ return {columns,rows:1,radius,contentWidth,pieces:pieces.map((piece,i)=>({...centeredCells(piece.cells,radius),position:{x:-contentWidth/2+padding+slot/2+i*(slot+gap),y:0}}))};
 }

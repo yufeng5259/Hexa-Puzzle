@@ -12,20 +12,11 @@ import { PuzzleSession, PuzzleSessionSnapshot } from '../features/puzzle/session
 import { LevelCatalog } from '../features/puzzle/data/LevelCatalog';
 import { MetaManager } from '../features/config/MetaManager';
 import { GameStateStore, SavedPuzzleSnapshot } from '../features/progression/GameStateStore';
-import { GameServices, ProgressionEvent } from '../features/progression/GameServices';
-import { GuideManager, GuideEvent } from '../features/guide/GuideManager';
-import { GuideTargetRegistry } from '../features/guide/GuideTargetRegistry';
+import { GameServices, ProgressionError, ProgressionEvent } from '../features/progression/GameServices';
 import { GuideOverlayView, GuideTarget } from '../features/guide/GuideOverlayView';
-import { guidePresentation } from '../features/guide/GuidePresentation';
-import type { GuideStepRow } from '../features/config/MetaManager';
+import { GuideCoordinator } from '../features/guide/GuideCoordinator';
+import { GuideTargetRegistry } from '../features/guide/GuideTargetRegistry';
 const { ccclass, property } = _decorator;
-
-const TEXT: Record<string, string> = {
-    'guide.drag': '把这块拼图拖到亮起的位置', 'guide.finishPuzzle': '把剩余拼块放入棋盘，完成拼图吧！',
-    'guide.drag2': '再把这块拼图拖到亮起的位置', 'guide.drag3': '最后一块，拖到亮起的位置吧！',
-    'guide.home': '获得蜜蜂币啦，回家建造吧！', 'guide.build': '点击锤子，进入建造',
-    'guide.upgrade': '用刚赚到的蜜蜂币，升级第一栋建筑！',
-};
 
 /** Single composition root. Views share the existing ViewHost/resource scopes and one durable state. */
 @ccclass('FirstReleaseBoot')
@@ -41,13 +32,12 @@ export class FirstReleaseBoot extends Component {
     public homeView: HomeBuildView | null = null;
     public puzzleView: FirstReleasePuzzleView | null = null;
     public dialogView: FirstReleaseDialogView | null = null;
-    public guide: GuideManager | null = null;
+    public guide: GuideCoordinator | null = null;
     public catalog: LevelCatalog | null = null;
     private assets: GardenAssetStore | null = null;
     private documents: JsonAsset[] = [];
     private dataScope: ResourceScope | null = null;
     private overlay: GuideOverlayView | null = null;
-    private targets = new GuideTargetRegistry<GuideTarget>();
     private disposed = false;
     private renderPending = false;
     private outcomeId = '';
@@ -59,12 +49,15 @@ export class FirstReleaseBoot extends Component {
     private dialogEpoch = 0;
     private syncingBrowserFrame = false;
     private welcomeOpening = false;
-    private guideRetryPending = false;
-    private guideRecoveryAvailable = false;
+    /** Candidate currently produced by the live session's own rules; it needs no replay proof. */
+    private trustedSnapshot: PuzzleSessionSnapshot | null = null;
 
     public get activeAttempt(): PuzzleSessionSnapshot | null { return this.puzzleView?.session?.snapshot || null; }
     public get currentPuzzleController() { return this.puzzleView?.controller || null; }
     public get overlayCount(): number { return this.dialogView ? 1 : 0; }
+    /** Native verification hooks; the coordinator owns registration. */
+    public get targets(): GuideTargetRegistry<GuideTarget> | null { return this.guide?.targets ?? null; }
+    public bindGuideTargets(): void { this.guide?.bindTargets(); }
 
     public async start(): Promise<void> {
         if (EDITOR) return;
@@ -89,18 +82,13 @@ export class FirstReleaseBoot extends Component {
             this.unsubscribe = this.services.subscribe(event => { this.eventQueue.push(event); this.requestRender(); });
             this.loading.setProgress(.65);
             this.overlay = await this.mount('first-guide', GuideOverlayView, 'guide');
-            this.overlay.configure(this.targets, this.node, key => TEXT[key] || key);
-            this.overlay.allowRecoveryTarget = target => target === this.statusLabel!.node && this.guideRecoveryAvailable;
-            this.overlay.onTargetsUnavailable = () => { const controller = this.puzzleView?.controller; if (controller?.draggingPieceId) { controller.suspend(); controller.resume(); } };
-            this.overlay.onFailure = message => {
-                this.guideRetryPending = true; this.guideRecoveryAvailable = true;
-                this.notice('引导提示加载失败，点击上方提示重试', true); console.warn(message);
-            };
-            this.guide = new GuideManager(this.meta.getGuideSteps(this.meta.getConstant<string>('firstGuideGroupId')), {
-                present: step => this.presentGuide(step), clear: () => { this.overlay?.clearGuide(); this.puzzleView?.controller?.clearGuidePreview(); },
-                persistStep: id => { this.services?.setGuideStep(id); },
-                onError: message => { this.guideRetryPending = true; this.guideRecoveryAvailable = true; this.notice('引导进度暂时无法保存，正在重试；也可点击此处重试', true); console.warn(message); },
-            });
+            this.guide = new GuideCoordinator(this.meta, this.services, this.overlay, {
+                route: () => ({ route: this.currentRoute, homeMode: this.homeMode, dialogKind: this.dialogKind,
+                    puzzle: this.puzzleView, home: this.homeView, dialog: this.dialogView }),
+                notice: (message, sticky) => this.notice(message, sticky),
+                clearNotice: () => this.clearNotice(),
+                recoveryNode: () => this.statusLabel!.node,
+            }, this.node);
             view.on('canvas-resize', this.fit, this);
             game.on(Game.EVENT_HIDE, this.checkpoint, this); game.on(Game.EVENT_SHOW, this.onForeground, this);
             this.schedule(this.tick, 1);
@@ -112,6 +100,7 @@ export class FirstReleaseBoot extends Component {
     }
 
     private validateSnapshot(snapshot: SavedPuzzleSnapshot): void {
+        if (snapshot === this.trustedSnapshot) return;
         if (!this.catalog) throw new Error('Missing puzzle catalog');
         const proof = new PuzzleSession(this.catalog.getById(snapshot.levelId), snapshot.attemptId);
         proof.restore(snapshot as PuzzleSessionSnapshot);
@@ -146,30 +135,22 @@ export class FirstReleaseBoot extends Component {
         if (this.disposed) return;
         this.puzzleView?.close(); this.puzzleView = null;
         this.homeMode = mode; this.homeView.setMode(mode); this.homeView.show(); this.currentRoute = mode;
-        this.bindGuideTargets(); this.resumeGuide(); this.fit();
+        this.guide?.sync(); this.fit();
         if (this.services!.getGuidePhase() === 'welcome') await this.showWelcome();
-    }
-    private presentGuide(step: GuideStepRow): void {
-        this.overlay?.presentStep(step);
-        if (this.overlay?.isReadyForInput) {
-            this.guideRetryPending = false;
-            if (this.guideRecoveryAvailable) { this.guideRecoveryAvailable = false; this.clearNotice(); }
-        }
-        if (step.params.highlightProvider === 'puzzlePlacementPreview') {
-            const pieceId = step.params.pieceId as string, target = step.params.targetCell as { q: number; r: number };
-            this.puzzleView?.controller?.setGuidePreview(pieceId, target, guidePresentation(step.params.presentation));
-        }
     }
     private allowsAction(action: string): boolean {
         if (this.services?.getGuidePhase() === 'complete') return true;
-        return !!this.guide?.allowsAction(action) && !!this.overlay?.isReadyForInput;
+        return !!this.guide?.allowsAction(action);
     }
     private async showPuzzle(): Promise<void> {
         const attempt = this.services!.startOrResume();
         const level = this.catalog!.getById(attempt.puzzleId);
         const session = new PuzzleSession(level, attempt.attemptId);
         if (attempt.snapshot) session.restore(attempt.snapshot as PuzzleSessionSnapshot);
-        session.beforeCommit = candidate => { this.services!.saveAttempt(candidate); };
+        session.beforeCommit = candidate => {
+            this.trustedSnapshot = candidate;
+            try { this.services!.saveAttempt(candidate); } finally { this.trustedSnapshot = null; }
+        };
         const next = await this.mount('firstrelease-puzzle', FirstReleasePuzzleView);
         try {
             const scope = this.assets!.createScope();
@@ -181,81 +162,10 @@ export class FirstReleaseBoot extends Component {
             this.currentRoute = 'puzzle'; this.outcomeId = '';
             next.setHints(this.services!.state.hints);
             next.controller!.onError = error => this.notice(this.message(error));
-            next.allowAction = action => this.allowsAction(action);
-            next.controller!.allowPointerStart = (x, y, id) => !this.dialogView && this.allowsAction('puzzle:drag') && !!this.overlay?.acceptsPointerStart(x, y, id);
-            next.controller!.allowPieceStart = pieceId => this.services!.getGuidePhase() === 'complete' || !!this.guide?.allowsPiece(pieceId);
-            next.controller!.onDragStateChanged = dragging => {
-                if (this.overlay && isValid(this.overlay, true)) this.overlay.setDragging(dragging, dragging ? () => next.draggedGuidePolygons() : null);
-            };
-            next.controller!.allowPlacement = (pieceId, translation) => {
-                return this.allowsAction('puzzle:drag') && (this.services!.getGuidePhase() === 'complete' || !!this.guide?.allowsPlacement(pieceId, translation));
-            };
+            this.guide!.attachPuzzle(next, () => !!this.dialogView);
             next.controller!.onOutcome = () => { this.requestRender(); };
-            this.bindGuideTargets(); this.resumeGuide(true); this.fit(); next.controller!.resume();
+            this.guide!.sync(true); this.fit(); next.controller!.resume();
         } catch (error) { next.close(); throw error; }
-    }
-    private bindGuideTargets(): void {
-        this.targets.clear();
-        if (this.currentRoute === 'puzzle' && this.puzzleView?.session) {
-            const puzzle = this.puzzleView, level = puzzle.session!.level;
-            level.pieces.forEach((piece, i) => {
-                const id = 'puzzle.target' + i;
-                const step = this.meta!.getGuideSteps(this.meta!.getConstant<string>('firstGuideGroupId'))
-                    .find(row => row.params.dragDestinationTargetId === id && row.params.pieceId === piece.id);
-                const translation = step?.params.targetCell as { q: number; r: number } | undefined;
-                this.targets.register('puzzle.piece' + i, puzzle.guidePieceTarget(piece.id));
-                this.targets.register(id, puzzle.guideDestinationTarget(piece.id, translation));
-            });
-        }
-        if ((this.currentRoute === 'home' || this.currentRoute === 'build') && this.homeView) {
-            for (const id of ['home.play', 'home.build', ...[1, 2, 3, 4, 5].map(i => 'building.slot' + i + '.upgrade')]) {
-                const target = this.homeView.getTarget(id); if (target) this.targets.register(id, target);
-            }
-        }
-        if (this.dialogKind === 'result' && this.dialogView) {
-            const target = this.dialogView.getTarget('result.home'); if (target) this.targets.register('result.home', target);
-        }
-        if (this.dialogKind === 'welcome' && this.dialogView) {
-            const target = this.dialogView.getTarget('welcome.claim'); if (target) this.targets.register('welcome.claim', target);
-        }
-    }
-    private resumeGuide(puzzleEntered = false): void {
-        if (!this.services || !this.guide) return;
-        const context = { phase: this.services.getGuidePhase(), pageId: this.dialogKind === 'welcome' ? 'welcome' : this.dialogKind === 'result' ? 'result' : this.currentRoute === 'build' ? 'home' : this.currentRoute,
-            mode: this.homeMode, stepId: this.services.state.guide.stepId, attemptId: this.services.state.activeAttempt?.attemptId,
-            mapId: this.services.state.currentMapId, placements: this.services.state.activeAttempt?.snapshot?.placements ?? {} };
-        if (context.phase === 'complete') {
-            this.guide.onEvent({ type: 'guide.completed', mapId: context.mapId }); this.guide.resume(context); return;
-        }
-        if (puzzleEntered && context.phase === 'puzzle') {
-            // A restarted teaching attempt has a new identity and needs its own drag lesson.
-            // Resuming a saved attempt keeps its committed step; old-attempt win events stay rejected.
-            if (!this.services.state.activeAttempt?.snapshot) context.stepId = null;
-            this.guide.resume(context); this.reconcilePlacedGuide(); return;
-        }
-        if (context.phase === 'welcome') { this.guide.resume(context); return; }
-        if (!this.guide.activeStep || context.phase === 'build' && this.guide.activeStep.pageId === 'puzzle') {
-            // A timed-out or temporarily missing puzzle target may have suspended event delivery.
-            // Durable first-win state still resumes the reward/build lesson on the actual page.
-            this.guide.resume(context);
-        }
-        else {
-            this.guide.retry();
-            // Only actual laid-out page readiness advances configured cross-page steps.
-            this.guide.onEvent({ type: 'page.ready', pageId: context.pageId, mode: context.mode, attemptId: context.attemptId, mapId: context.mapId });
-            this.guide.pageReady(context.pageId, context.mode);
-        }
-        this.reconcilePlacedGuide();
-    }
-    private reconcilePlacedGuide(): void {
-        const attempt = this.services?.state.activeAttempt;
-        if (!attempt) return;
-        for (let i = 0; i < this.meta!.getGuideSteps(this.meta!.getConstant<string>('firstGuideGroupId')).length; i++) {
-            const step = this.guide?.activeStep;
-            if (step?.action !== 'drag') return;
-            const pieceId = step.params.pieceId as string, targetCell = attempt.snapshot?.placements[pieceId];
-            if (!targetCell || !this.guide!.onEvent({ type: 'puzzle.placementCommitted', attemptId: attempt.attemptId, pieceId, targetCell })) return;
-        }
     }
     private requestRender(): void {
         if (this.disposed || this.renderPending) return;
@@ -263,19 +173,11 @@ export class FirstReleaseBoot extends Component {
         this.scheduleOnce(() => {
             this.renderPending = false;
             if (this.disposed) return;
-            const events = this.eventQueue.splice(0);
-            for (const event of events) {
-                const detail: GuideEvent = { ...event };
-                if (event.type === 'puzzle.placementCommitted' && event.pieceId) {
-                    const placement = this.services?.state.activeAttempt?.snapshot?.placements[event.pieceId];
-                    if (placement) (detail as Record<string, unknown>).targetCell = placement;
-                }
-                this.guide?.onEvent(detail);
-            }
+            // The guide consumes committed events before views react to them.
+            this.guide?.deliver(this.eventQueue.splice(0));
             if (this.homeView?.isShown && this.services!.getGuidePhase() !== 'welcome') void this.homeView.setData(this.meta!, this.services!.state).catch(error => this.notice(this.message(error)));
             this.puzzleView?.setHints(this.services!.state.hints);
             if (this.puzzleView?.session?.snapshot.status !== 'active' && this.currentRoute === 'puzzle' && this.puzzleView) void this.showOutcome().catch(error => this.notice(this.message(error)));
-            if (this.services!.getGuidePhase() === 'complete') this.resumeGuide();
             if (this.services!.getGuidePhase() === 'welcome' && !this.dialogView && (this.currentRoute === 'home' || this.currentRoute === 'build')) void this.showWelcome().catch(error => this.notice(this.message(error), true));
         }, 0);
     }
@@ -286,7 +188,7 @@ export class FirstReleaseBoot extends Component {
             if (this.homeView?.isShown) await this.homeView.setData(this.meta!, this.services!.state);
             const reward = this.meta!.getReward(this.meta!.getConstant<string>('welcomeRewardId'));
             await this.openDialog({ title: '欢迎来到花园！', body: '闯关赚取蜜蜂币\n建造属于你的花园', primary: '领取并开始', primaryAction: 'welcome:claim', closable: false, rewards: { coins: reward.coins, hints: reward.hints } }, 'welcome');
-            this.bindGuideTargets(); this.resumeGuide();
+            this.guide?.sync();
         } finally { this.welcomeOpening = false; }
     }
     private async showOutcome(): Promise<void> {
@@ -301,7 +203,7 @@ export class FirstReleaseBoot extends Component {
                 title: '拼图完成！', body: '获得蜜蜂币 ' + reward.coins, primary: '回家', primaryAction: 'result:home',
                 secondary: phase === 'complete' && this.services!.state.currentLevelNo <= this.meta!.getMainlineCount() ? '下一关' : '', secondaryAction: 'result:next',
             } : { title: '再试一次', body: '步数用完了，调整一下放置顺序吧。', primary: '重试', primaryAction: 'result:next', secondary: '回家', secondaryAction: 'result:home' }, 'result');
-            this.bindGuideTargets(); this.resumeGuide();
+            this.guide?.sync();
         } catch (error) { this.outcomeId = ''; throw error; }
     }
     private async openDialog(options: DialogOptions, kind = 'notice'): Promise<void> {
@@ -314,7 +216,7 @@ export class FirstReleaseBoot extends Component {
             this.dialogView = dialog; dialog.configure(options); this.fit();
         } catch (error) {
             if (epoch === this.dialogEpoch && !this.disposed) {
-                this.dialogKind = ''; this.puzzleView?.controller?.resume(); this.bindGuideTargets(); this.resumeGuide();
+                this.dialogKind = ''; this.puzzleView?.controller?.resume(); this.guide?.sync();
             }
             throw error;
         }
@@ -349,7 +251,7 @@ export class FirstReleaseBoot extends Component {
         }
         if (action === 'dialog:close' || action === 'dialog:cancel') {
             if (this.dialogKind === 'result') { await this.showHome('home'); return; }
-            this.closeDialog(); this.bindGuideTargets(); this.resumeGuide(); return;
+            this.closeDialog(); this.guide?.sync(); return;
         }
         if (action.startsWith('building:upgrade:')) {
             const slot = Number(action.split(':')[2]), level = state.buildings[state.currentMapId][String(slot)];
@@ -388,12 +290,12 @@ export class FirstReleaseBoot extends Component {
         await this.openDialog({ title: '设置', body: '', primary: '确定', primaryAction: 'dialog:close', settings: this.services!.state.settings }, 'settings');
     }
     private handleFailure(error: unknown): void {
-        const message = this.message(error);
-        if (message.includes('体力不足')) {
+        const code = error instanceof ProgressionError ? error.code : null;
+        if (code === 'energy') {
             void this.openDialog({ title: '体力不足', body: this.energyMessage(), primary: '知道了', secondary: '回家', secondaryAction: 'result:home' }, 'energy').catch(e => this.notice(this.message(e)));
-        } else if (message.includes('提示不足')) {
+        } else if (code === 'hints') {
             void this.openDialog({ title: '提示不足', body: '当前没有可用提示，先试试调整拼块吧。', primary: '继续拼图' }).catch(e => this.notice(this.message(e)));
-        } else this.notice(message);
+        } else this.notice(this.message(error));
     }
     private energyMessage(): string {
         const seconds = this.services!.secondsToEnergy();
@@ -405,7 +307,7 @@ export class FirstReleaseBoot extends Component {
         if (!this.services || this.disposed) return;
         try {
             this.services.refresh(); this.homeView?.refreshEnergy(this.meta!, this.services.state);
-            if (this.guideRetryPending) { this.guideRetryPending = false; this.guide?.retry(); this.reconcilePlacedGuide(); }
+            this.guide?.tick();
             if (this.ready && this.homeView?.isShown && (this.currentRoute === 'home' || this.currentRoute === 'build') && this.services.getGuidePhase() === 'welcome' && !this.dialogView && !this.navigating) void this.showWelcome().catch(error => this.notice(this.message(error), true));
             if (this.dialogKind === 'energy') this.dialogView?.configure({ title: '体力不足', body: this.energyMessage(), primary: '知道了', secondary: '回家', secondaryAction: 'result:home' });
         } catch (error) { this.notice(this.message(error)); }
@@ -419,7 +321,7 @@ export class FirstReleaseBoot extends Component {
         this.unschedule(this.clearNotice); if (!sticky) this.scheduleOnce(this.clearNotice, 5);
     }
     private readonly clearNotice = (): void => { if (!this.disposed && this.statusLabel) this.statusLabel.node.active = false; };
-    public onRetry(): void { if (!this.ready || this.guideRecoveryAvailable || this.services?.getGuidePhase() === 'welcome' && !this.dialogView) director.loadScene(director.getScene()!.name); }
+    public onRetry(): void { if (!this.ready || this.guide?.recoveryAvailable || this.services?.getGuidePhase() === 'welcome' && !this.dialogView) director.loadScene(director.getScene()!.name); }
     private fitNode(node: Node): void {
         const ui = node.getComponent(UITransform), visible = view.getVisibleSize();
         if (ui && ui.width > 0 && ui.height > 0) { const ratio = Math.min(visible.width / ui.width, visible.height / ui.height); node.setScale(ratio, ratio, 1); }
@@ -439,7 +341,7 @@ export class FirstReleaseBoot extends Component {
         for (const layer of [this.host.pageLayer, this.host.dialogLayer, this.host.guideLayer]) layer?.children.forEach(node => this.fitNode(node));
     };
     public onDestroy(): void {
-        this.disposed = true; this.ready = false; this.unsubscribe?.(); this.guide?.dispose(); this.targets.clear();
+        this.disposed = true; this.ready = false; this.unsubscribe?.(); this.guide?.dispose();
         view.off('canvas-resize', this.fit, this); game.off(Game.EVENT_HIDE, this.checkpoint, this); game.off(Game.EVENT_SHOW, this.onForeground, this);
         this.unscheduleAllCallbacks(); this.host?.closeAll();
         const documents = this.documents.splice(0), scope = this.dataScope;
