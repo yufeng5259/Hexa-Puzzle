@@ -1,8 +1,8 @@
 {
   "game": "Block",
-  "revision": "2026-11-08-guide-hand-white",
+  "revision": "2026-11-10-home-icon",
   "source_pages": 9,
-  "asset_count": 392,
+  "asset_count": 394,
   "assets": [
     {
       "id": "block_background_主图",
@@ -36699,7 +36699,7 @@
     },
     {
       "id": "firstrelease.ui.back",
-      "name": "V2 back",
+      "name": "返回主页_珊瑚红小房子",
       "file": "PNG/公共UI/五页首版/back.png",
       "size": [
         294,
@@ -36708,17 +36708,15 @@
       "category": "公共UI",
       "subtype": "UI",
       "pages": [
-        "五页首版_主页",
         "五页首版_建造",
-        "五页首版_设置"
+        "五页首版_拼图"
       ],
       "runtime_pages": [
-        "五页首版_主页",
         "五页首版_建造",
-        "五页首版_设置"
+        "五页首版_拼图"
       ],
-      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
-      "sha256": "ef68b23577da9f628e1404241fe4759a5e5b0cfc32bf1284be39804ee6d4fa1a",
+      "purpose": "拼图和建造返回主页；乳白小房子、珊瑚红底板，无箭头或金币；与撤销区分",
+      "sha256": "030fb14e6eb76c47668325bd7ade91887100e7e84eb95c92cf3bde3d73f8c60d",
       "identities": [
         "firstrelease.ui.back"
       ],
@@ -36790,8 +36788,8 @@
       "runtime_pages": [
         "五页首版_拼图"
       ],
-      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
-      "sha256": "9a6cd41833a0e2590c8beee092c3d74130ab326bcc412a55d54fc9f119e02849",
+      "purpose": "撤销上一步：大号左回退箭头",
+      "sha256": "c2b3bb3386b9993b4c23dffe03551af6487e754daa78a0be7f669e67c846f9d0",
       "identities": [
         "firstrelease.ui.undo"
       ],
@@ -36813,8 +36811,8 @@
       "runtime_pages": [
         "五页首版_拼图"
       ],
-      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
-      "sha256": "5127477722805c5bf615cb5198966ca14c521b9bee78be6eb7af64c35642fef4",
+      "purpose": "重玩本关：循环箭头包围六边形棋块，非旋转",
+      "sha256": "4429aa05c9d18f56bd7c0524457d33a5647156f8f1fd4cb0432fb4eab494ff1d",
       "identities": [
         "firstrelease.ui.restart"
       ],
@@ -36836,8 +36834,8 @@
       "runtime_pages": [
         "五页首版_拼图"
       ],
-      "purpose": "五页首版运行素材，来源及变换见补充制作记录/五页首版",
-      "sha256": "b59faf2715a9a1b01ef831e91326531bd192b6716f49a9fbc2869ffd0bd5cbd2",
+      "purpose": "提示落点：放大镜查看六边形棋块",
+      "sha256": "07fa76e6f239587e3c1c08cd949cbbfd278266c9a9dfd4fe38c78b1435bab2d2",
       "identities": [
         "firstrelease.ui.hint"
       ],
@@ -37212,6 +37210,55 @@
         "anchorX": 0.2375,
         "anchorY": 0.948125
       }
+    },
+    {
+      "id": "firstrelease.puzzle.obstacle",
+      "name": "旧版铆钉固定障碍格",
+      "file": "PNG/页面素材/五页首版拼图/UI/obstacle-riveted.png",
+      "size": [
+        115,
+        103
+      ],
+      "category": "页面素材",
+      "subtype": "拼图固定障碍",
+      "pages": [
+        "五页首版_拼图"
+      ],
+      "runtime_pages": [
+        "五页首版_拼图"
+      ],
+      "purpose": "旧版4_png原像素复用；按关卡obstacleCells绘制，不可拖动、不占托盘、不计入待填满格",
+      "identities": [
+        "firstrelease.puzzle.obstacle",
+        "legacy.4_png"
+      ],
+      "sha256": "6ca0541f3e99cd8f6ec89a7b3aa50224e12c18926a9b671ef773b59cd0217556",
+      "source": "../Hexa Puzzle/Hexa-Puzzle/resource/assets/ui/pic2/4.png",
+      "source_psd": null,
+      "provenance": "补充制作记录/障碍格20261109/来源与使用映射.json"
+    },
+    {
+      "id": "firstrelease.reward.hint",
+      "name": "欢迎奖励提示道具灯泡",
+      "file": "PNG/公共UI/五页首版/hint-reward.png",
+      "size": [
+        294,
+        315
+      ],
+      "category": "公共UI",
+      "subtype": "UI",
+      "pages": [
+        "五页首版_拼图"
+      ],
+      "runtime_pages": [
+        "欢迎奖励弹窗"
+      ],
+      "purpose": "保留原欢迎奖励灯泡；与新放大镜提示操作按钮独立",
+      "sha256": "b59faf2715a9a1b01ef831e91326531bd192b6716f49a9fbc2869ffd0bd5cbd2",
+      "identities": [
+        "firstrelease.reward.hint"
+      ],
+      "source": "arts/游戏素材/PNG/公共UI/五页首版/hint-reward.png"
     }
   ],
   "localization": {
@@ -44596,8 +44643,8 @@
         ],
         "psd_composite": "页面对照/PSD合成/五页首版/五页首版_建造.png"
       },
-      "psd_sha256": "722ecd92a8241499453c9236b34d4f03fbe700177af5353273c9f53986a5f473",
-      "preview_sha256": "a5cc9c903b2df5f023e7a0787754d5cc4722db07213ba022c61ea3c6c0008ebf",
+      "psd_sha256": "f33b45198e706b5f809434713c96ffc4452a1951ab61b1b98cdf80a9036c70da",
+      "preview_sha256": "aeb6307549c970b1d353584003e26139a35656a77901c8bc0c58d07c9ac273d8",
       "original_sha256": "8577aaac0865dc6a97bbda75ea80c0b1a898f30cf7476c5613c397a3fb4ca98b",
       "editable_text_checks": [
         {
@@ -45034,11 +45081,12 @@
         "firstrelease.ui.hint",
         "firstrelease.ui.restart",
         "firstrelease.ui.settings",
-        "firstrelease.ui.undo"
+        "firstrelease.ui.undo",
+        "firstrelease.puzzle.obstacle"
       ],
-      "text_count": 5,
+      "text_count": 8,
       "image_layer_count": 47,
-      "layer_count": 52,
+      "layer_count": 55,
       "comparison": {
         "original": "页面对照/原页面/五页首版/04_拼图玩法.png",
         "original_label": "v2页面效果设计图",
@@ -45048,8 +45096,8 @@
         ],
         "psd_composite": "页面对照/PSD合成/五页首版/五页首版_拼图.png"
       },
-      "psd_sha256": "9a1997f8ac0a3b5f7e5cc10ac5bf63cc5e13236bb1d6eb627166cc7fcd735fef",
-      "preview_sha256": "38939d281f2f1bd15effcbbf6ec46b16d5ac2aeb2da0220e0049cd88695641af",
+      "psd_sha256": "3db8fdb83481efab500d3ede1d73ebbd2b932b0c14db38c1baefccb31c176c0d",
+      "preview_sha256": "ccaa66d3c3f296468f4c6e57a9dbeb2ca3314dca80527df66c24e5469af40e30",
       "original_sha256": "1a7108c050f1154b1d8967a75c4077924baf3e3183977696eaced21bda5e962d",
       "editable_text_checks": [
         {
@@ -45087,7 +45135,7 @@
           "font_names": [
             "MicrosoftYaHei-Bold"
           ],
-          "font_size": 28.0,
+          "font_size": 32.0,
           "stroke_width": 0.0,
           "utf16_run_units": 2,
           "style_and_paragraph_run_lengths_verified": true,
@@ -45121,13 +45169,62 @@
           "style_and_paragraph_run_lengths_verified": true,
           "editable_fill_stroke_alignment_transform_verified": true,
           "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/UndoCaption",
+          "kind": "type",
+          "text": "撤销",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/RestartCaption",
+          "kind": "type",
+          "text": "重玩",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/HintCaption",
+          "kind": "type",
+          "text": "提示",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
         }
       ],
       "composite_max_channel_difference": 1,
-      "status": "Prefab-derived implementation composition; visual differences explicitly retained"
+      "status": "Prefab-derived implementation composition; visual differences explicitly retained",
+      "runtime_supplements": [
+        {
+          "asset_id": "firstrelease.puzzle.obstacle",
+          "config": "游戏素材/页面配置/五页首版/五页首版_拼图.json#runtime_components",
+          "note": "Dynamic obstacleCells supplement; original level-2 PSD snapshot and PSD composite remain unchanged."
+        }
+      ]
     }
   ],
-  "text_count": 1224,
+  "text_count": 1227,
   "missing_pages": {
     "page_count": 70,
     "design_boards": 4,

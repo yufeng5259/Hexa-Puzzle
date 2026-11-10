@@ -1,4 +1,4 @@
-import { _decorator, Canvas, Component, Director, director, Game, game, isValid, JsonAsset, Label, Node, Prefab, ResolutionPolicy, resources, sys, UITransform, view } from 'cc';
+import { _decorator, Canvas, Component, Director, director, Game, game, isValid, JsonAsset, Label, Node, Prefab, ResolutionPolicy, resources, screen, Size, sys, UITransform, view } from 'cc';
 import { EDITOR } from 'cc/env';
 import { ViewHost } from '../framework/ui/ViewHost';
 import { BaseView } from '../framework/ui/BaseView';
@@ -330,12 +330,12 @@ export class FirstReleaseBoot extends Component {
         if (!this.host || !isValid(this.host, true)) return;
         if (sys.isBrowser && game.canvas && !this.syncingBrowserFrame) {
             const canvas = game.canvas, width = canvas.clientWidth, height = canvas.clientHeight;
-            const ratio = view.getDevicePixelRatio();
+            const ratio = screen.devicePixelRatio;
             // Creator's preview toolbar can resize CSS without resizing the drawing buffer.
             // Keep visible buttons, Canvas projection and native pointer picking in the same frame.
             if (width > 0 && height > 0 && (Math.abs(canvas.width - width * ratio) > 1 || Math.abs(canvas.height - height * ratio) > 1)) {
                 this.syncingBrowserFrame = true;
-                try { view.setFrameSize(width, height); } finally { this.syncingBrowserFrame = false; }
+                try { screen.windowSize = new Size(width * ratio, height * ratio); } finally { this.syncingBrowserFrame = false; }
             }
         }
         for (const layer of [this.host.pageLayer, this.host.dialogLayer, this.host.guideLayer]) layer?.children.forEach(node => this.fitNode(node));

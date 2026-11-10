@@ -46,6 +46,13 @@ export class PuzzleBoardPresentation extends Component {
     private pieces: { node: Node; item: PuzzlePiecePresentation }[] = [];
     private revision = 0;
     private disposed = false;
+    private trayIds: string[] | null = null;
+    private trayScrollWasEnabled: boolean | null = null;
+    private readonly traySlots = new Map<string, { position: Point2 }>();
+    private trayMotion: { elapsed: number; contentFrom: number; contentTo: number; offset: number;
+        pieces: { node: Node; from: Point2; to: Point2 }[] } | null = null;
+    public get isTraySettling(): boolean { return this.trayMotion !== null; }
+    public getTraySlot(pieceId: string): { position: Point2 } | null { return this.traySlots.get(pieceId) ?? null; }
 
     /** Called before fixture layout/item rendering so authored sample cells never cover real data. */
     public activateLevel(): void {
@@ -57,6 +64,7 @@ export class PuzzleBoardPresentation extends Component {
 
     public async present(scope: ResourceScope, level: LevelDefinition): Promise<void> {
         this.cancelPending();
+        this.trayIds = null; this.traySlots.clear();
         const revision = this.revision;
         if (!this.current(revision)) return;
         this.activateLevel();
@@ -101,8 +109,8 @@ export class PuzzleBoardPresentation extends Component {
                 ...this.cells.map(async (entry, i) => {
                     entry.node.active = i < allCells.length; if (!entry.node.active) return;
                     const center = fit.centers[i]; entry.node.setPosition(center.x - fit.radius, center.y + h / 2, 0);
-                    // Reset on every reuse: a former obstacle can become a normal target slot.
-                    requireBinding('PuzzleBoardPresentation', 'cell.PresentationItem.body', entry.item.body).grayscale = i >= level.targetCells.length;
+                    // Dedicated obstacle art carries its own metal shading; reset on every reuse.
+                    requireBinding('PuzzleBoardPresentation', 'cell.PresentationItem.body', entry.item.body).grayscale = false;
                     await entry.item.present(scope, { bodyAssetId: i < level.targetCells.length ? this.wellAssetId : this.obstacleAssetId,
                         rootSize: [2 * fit.radius, h], bodyBox: { x: fit.radius, y: -h / 2, width: 2 * fit.radius, height: h } });
                 }),
@@ -160,20 +168,84 @@ export class PuzzleBoardPresentation extends Component {
         const board = requireBinding('PuzzleBoardPresentation', 'boardMount', this.boardMount);
         const tray = requireBinding('PuzzleBoardPresentation', 'piecesMount', this.piecesMount);
         let filled = 0, placed = 0;
-        // Tray slots follow level order; filtered live entries must not shift a piece into another slot.
         const slots = new Map(level.pieces.map((piece, i) => [piece.id, i]));
+        const remaining = level.pieces.filter(piece => !snapshot.placements[piece.id]).map(piece => piece.id);
+        const changed = this.trayScroll && (this.trayIds === null || remaining.join('|') !== this.trayIds.join('|'));
+        if (changed) this.reflowTray(remaining);
         this.pieceEntries().forEach(entry => {
             const translation = snapshot.placements[entry.item.pieceId];
             if (!translation && !slots.has(entry.item.pieceId)) throw new Error(`PuzzleBoardPresentation: unknown piece ${entry.item.pieceId}`);
+            const wasTray = entry.node.parent === tray;
             entry.node.parent = translation ? board : tray;
-            const position = translation ? this.translationRootPosition(entry.item.pieceId, translation) : this.trayFit!.pieces[slots.get(entry.item.pieceId)!].position;
-            entry.node.setPosition(position.x, position.y, 0);
+            const position = translation ? this.translationRootPosition(entry.item.pieceId, translation)
+                : this.getTraySlot(entry.item.pieceId)?.position ?? this.trayFit!.pieces[slots.get(entry.item.pieceId)!].position;
+            // An unchanged projection must not snap nodes currently travelling to their slots.
+            if (translation || !this.trayMotion || !wasTray) entry.node.setPosition(position.x, position.y, 0);
             const scale = translation ? this.boardFit!.radius / entry.item.radius : 1;
             entry.node.setScale(scale, scale, 1);
             if (translation) { placed++; filled += entry.item.cells.length; }
         });
         if (this.remainingLabel) this.remainingLabel.string = String(level.mode === 'challenge' ? Math.max(0, level.moveLimit! - snapshot.moves) : this.countMoves ? snapshot.moves : level.pieces.length - placed);
         if (this.totalCellsLabel) this.totalCellsLabel.string = String(filled) + "/" + level.targetCells.length;
+    }
+    private reflowTray(ids: string[]): void {
+        const tray = this.piecesMount!, ui = tray.getComponent(UITransform)!, scroll = this.trayScroll!;
+        const width = this.trayViewport!.getComponent(UITransform)!.width;
+        const slot = (width - 2 * this.trayPadding - 2 * this.trayGap) / 3, pitch = slot + this.trayGap;
+        const oldIds = this.trayIds, oldX = tray.position.x;
+        const oldOffset = Math.max(0, -scroll.getScrollOffset().x);
+        const start = new Map(this.pieceEntries().filter(entry => entry.node.parent === tray)
+            .map(entry => [entry.item.pieceId, { x: entry.node.position.x + oldX, y: entry.node.position.y }]));
+        this.trayMotion = null; scroll.stopAutoScroll();
+        const contentWidth = Math.max(width, 2 * this.trayPadding + ids.length * slot + Math.max(0, ids.length - 1) * this.trayGap);
+        this.traySlots.clear();
+        ids.forEach((id, i) => this.traySlots.set(id, { position: { x: -contentWidth / 2 + this.trayPadding + slot / 2 + i * pitch, y: 0 } }));
+        // Removing slots before the viewport should not jump the player back to page one.
+        const leading = Math.floor(oldOffset / pitch);
+        const before = (oldIds ?? []).slice(0, leading).filter(id => !ids.includes(id)).length;
+        const inserted = ids.slice(0, leading).filter(id => oldIds !== null && !oldIds.includes(id)).length;
+        const max = Math.max(0, contentWidth - width);
+        const offset = Math.max(0, Math.min(max, oldOffset + (inserted - before) * pitch));
+        ui.width = contentWidth;
+        scroll.scrollToOffset(new Vec2(Math.max(0, Math.min(max, oldOffset)), 0), 0);
+        const contentFrom = tray.position.x, contentTo = (contentWidth - width) / 2 - offset;
+        const pieces: { node: Node; from: Point2; to: Point2 }[] = [];
+        for (const entry of this.pieceEntries()) {
+            const target = this.traySlots.get(entry.item.pieceId), prior = start.get(entry.item.pieceId);
+            if (!target || !prior) continue;
+            const from = { x: prior.x - contentFrom, y: prior.y };
+            entry.node.setPosition(from.x, from.y, 0);
+            pieces.push({ node: entry.node, from, to: target.position });
+        }
+        this.trayIds = ids;
+        if (oldIds && (pieces.some(move => Math.abs(move.from.x - move.to.x) > .01 || Math.abs(move.from.y - move.to.y) > .01) || Math.abs(contentFrom - contentTo) > .01)) {
+            if (this.trayScrollWasEnabled === null) this.trayScrollWasEnabled = scroll.enabled;
+            scroll.enabled = false;
+            this.trayMotion = { elapsed: 0, contentFrom, contentTo, offset, pieces };
+        } else {
+            pieces.forEach(move => move.node.setPosition(move.to.x, move.to.y, 0));
+            scroll.scrollToOffset(new Vec2(offset, 0), 0);
+            this.restoreTrayScroll();
+        }
+    }
+    public update(dt: number): void {
+        const motion = this.trayMotion; if (!motion) return;
+        motion.elapsed += dt;
+        const t = Math.min(1, Math.max(0, motion.elapsed / .22)), ease = 1 - Math.pow(1 - t, 3);
+        if (isValid(this.piecesMount, true)) this.piecesMount!.setPosition(motion.contentFrom + (motion.contentTo - motion.contentFrom) * ease, this.piecesMount!.position.y, 0);
+        motion.pieces.forEach(move => { if (isValid(move.node, true) && move.node.parent === this.piecesMount) move.node.setPosition(move.from.x + (move.to.x - move.from.x) * ease, move.from.y + (move.to.y - move.from.y) * ease, 0); });
+        if (t >= 1) this.finishTrayMotion();
+    }
+    private finishTrayMotion(): void {
+        const motion = this.trayMotion; this.trayMotion = null;
+        if (!motion) return;
+        motion.pieces.forEach(move => { if (isValid(move.node, true) && move.node.parent === this.piecesMount) move.node.setPosition(move.to.x, move.to.y, 0); });
+        if (isValid(this.trayScroll, true)) this.trayScroll!.scrollToOffset(new Vec2(motion.offset, 0), 0);
+        this.restoreTrayScroll();
+    }
+    private restoreTrayScroll(): void {
+        if (this.trayScrollWasEnabled !== null && isValid(this.trayScroll, true)) this.trayScroll!.enabled = this.trayScrollWasEnabled;
+        this.trayScrollWasEnabled = null;
     }
     public scrollTray(direction: number): void {
         const scroll=this.trayScroll, viewport=this.trayViewport?.getComponent(UITransform);
@@ -188,6 +260,7 @@ export class PuzzleBoardPresentation extends Component {
     }
     public cancelPending(): void {
         if (this.disposed) return;
+        this.finishTrayMotion();
         this.revision++;
         (this.cells || []).forEach(entry => { if (isValid(entry.item, true)) entry.item.cancelPending(); });
         (this.pieces || []).forEach(entry => { if (isValid(entry.item, true)) entry.item.cancelPending(); });
@@ -195,6 +268,7 @@ export class PuzzleBoardPresentation extends Component {
     public clear(): void {
         if (this.disposed || !isValid(this, true)) return;
         this.cancelPending(); this.levelId = ''; this.level = null; this.boardFit = null; this.trayFit = null;
+        this.trayIds = null; this.traySlots.clear();
         (this.cells || []).forEach(entry => { if (isValid(entry.node, true)) entry.node.active = false; });
         (this.pieces || []).forEach(entry => {
             if (isValid(entry.item, true)) entry.item.clear();

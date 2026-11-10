@@ -9,7 +9,7 @@
     "common": 6,
     "featureBundles": 1
   },
-  "sourceCount": 70,
+  "sourceCount": 72,
   "configCount": 79,
   "designBoardCount": 4,
   "records": [
@@ -25719,7 +25719,7 @@
         294,
         323
       ],
-      "sourceSha256": "ef68b23577da9f628e1404241fe4759a5e5b0cfc32bf1284be39804ee6d4fa1a",
+      "sourceSha256": "030fb14e6eb76c47668325bd7ade91887100e7e84eb95c92cf3bde3d73f8c60d",
       "sourceFile": "arts/游戏素材/PNG/公共UI/五页首版/back.png",
       "name": "V2 back"
     },
@@ -25767,7 +25767,7 @@
         303,
         315
       ],
-      "sourceSha256": "9a6cd41833a0e2590c8beee092c3d74130ab326bcc412a55d54fc9f119e02849",
+      "sourceSha256": "c2b3bb3386b9993b4c23dffe03551af6487e754daa78a0be7f669e67c846f9d0",
       "sourceFile": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/undo.png",
       "name": "V2 undo"
     },
@@ -25783,7 +25783,7 @@
         303,
         315
       ],
-      "sourceSha256": "5127477722805c5bf615cb5198966ca14c521b9bee78be6eb7af64c35642fef4",
+      "sourceSha256": "4429aa05c9d18f56bd7c0524457d33a5647156f8f1fd4cb0432fb4eab494ff1d",
       "sourceFile": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/rotate.png",
       "name": "V2 rotate"
     },
@@ -25799,7 +25799,7 @@
         294,
         315
       ],
-      "sourceSha256": "b59faf2715a9a1b01ef831e91326531bd192b6716f49a9fbc2869ffd0bd5cbd2",
+      "sourceSha256": "07fa76e6f239587e3c1c08cd949cbbfd278266c9a9dfd4fe38c78b1435bab2d2",
       "sourceFile": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/hint.png",
       "name": "V2 hint"
     },
@@ -26050,6 +26050,39 @@
         140,
         200
       ]
+    },
+    {
+      "id": "firstrelease.puzzle.obstacle",
+      "uuid": "27d50080-6cea-531c-a372-7a8780cfa621",
+      "textureUuid": "27d50080-6cea-531c-a372-7a8780cfa621@6c48a",
+      "spriteFrameUuid": "27d50080-6cea-531c-a372-7a8780cfa621@f9941",
+      "assetPath": "assets/resources/first-release/art/obstacle-riveted.png",
+      "bundle": "resources",
+      "resourcePath": "first-release/art/obstacle-riveted/spriteFrame",
+      "size": [
+        115,
+        103
+      ],
+      "sourceSha256": "6ca0541f3e99cd8f6ec89a7b3aa50224e12c18926a9b671ef773b59cd0217556",
+      "sourceFile": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/obstacle-riveted.png",
+      "originalFile": "Hexa Puzzle/Hexa-Puzzle/resource/assets/ui/pic2/4.png",
+      "name": "原版铆钉金属障碍格"
+    },
+    {
+      "id": "firstrelease.reward.hint",
+      "uuid": "fa31cd97-290b-516c-a413-66e46f16b99a",
+      "textureUuid": "fa31cd97-290b-516c-a413-66e46f16b99a@6c48a",
+      "spriteFrameUuid": "fa31cd97-290b-516c-a413-66e46f16b99a@f9941",
+      "assetPath": "assets/resources/first-release/art/hint-reward.png",
+      "bundle": "resources",
+      "resourcePath": "first-release/art/hint-reward/spriteFrame",
+      "size": [
+        294,
+        315
+      ],
+      "sourceSha256": "b59faf2715a9a1b01ef831e91326531bd192b6716f49a9fbc2869ffd0bd5cbd2",
+      "sourceFile": "arts/游戏素材/PNG/公共UI/五页首版/hint-reward.png",
+      "name": "奖励提示灯泡（保留原图）"
     }
   ],
   "derivatives": [],

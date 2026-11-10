@@ -5,7 +5,8 @@ import { PROJECT, directory, writeFile, writeOnceStableMeta, stableUuid, assetJs
 
 // Only these new first-release Prefabs are owned here. Never invokes the legacy full generator.
 const manifest = JSON.parse(fs.readFileSync(path.join(PROJECT, 'assets/resources/framework/config/source-art-manifest.json')));
-const records = [...manifest.records, ...manifest.derivatives];
+const puzzleArt = JSON.parse(fs.readFileSync(path.join(PROJECT, 'tools/first-release/puzzle-art-additions.json')));
+const records = [...manifest.records, ...manifest.derivatives, ...puzzleArt.records];
 const byId = new Map(records.map(record => [record.id, record]));
 const added = [];
 // Recover the actual transparent mother assets used to compose the confirmed v2 previews.
@@ -146,7 +147,7 @@ function dialog() {
     const coinClip=b.node('RewardCoinsIcon',rewards,{x:-145,y:40,width:110,height:118});
     b.component(coinClip,'cc.Mask',{_type:1,_inverted:false,_segments:64});
     const coinIcon=image(b,'ExistingCoinPlate',coinClip,{x:150,width:450,height:157.5},'firstrelease.ui.cost');
-    const hintIcon=image(b,'RewardHintsIcon',rewards,{x:145,y:40,width:105,height:105},'firstrelease.ui.hint');
+    const hintIcon=image(b,'RewardHintsIcon',rewards,{x:145,y:40,width:105,height:105},'firstrelease.reward.hint');
     label(b,'RewardCoinsCaption',rewards,{x:-145,y:-35,width:230,height:45},'蜜蜂币',26);
     label(b,'RewardHintsCaption',rewards,{x:145,y:-35,width:230,height:45},'提示',26);
     const rewardCoins=label(b,'RewardCoinsAmount',rewards,{x:-145,y:-85,width:230,height:55},'100',36);

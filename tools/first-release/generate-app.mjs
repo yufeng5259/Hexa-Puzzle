@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { PROJECT, stableUuid, directory, writeFile, writeOnceStableMeta, assetJson } from '../prefab-foundation/io.mjs';
+import { PROJECT, stableUuid, directory, writeFile, writeOnceStableMeta, assetJson, imageMeta, sha256 } from '../prefab-foundation/io.mjs';
 import { scriptType, external } from '../prefab-foundation/builder.mjs';
 import { validateScene } from '../prefab-foundation/scene-contract.mjs';
 import { generatePuzzleUI } from './puzzle-ui.mjs';
@@ -17,8 +17,15 @@ writeOnceStableMeta(path.join(PROJECT,BOOT), {ver:'4.0.24',importer:'typescript'
 const additions = read('assets/resources/first-release/art-additions.json');
 const guideArtFile = 'tools/first-release/guide-art-additions.json';
 const guideArt = fs.existsSync(path.join(PROJECT,guideArtFile)) ? read(guideArtFile) : { records: [] };
+const puzzleArt = read('tools/first-release/puzzle-art-additions.json');
+for (const record of puzzleArt.records) {
+    const bytes = fs.readFileSync(path.join(PROJECT, record.sourceFile));
+    if (sha256(bytes) !== record.sourceSha256) throw Error('Puzzle artwork source changed: '+record.id);
+    writeFile(path.join(PROJECT,record.assetPath),bytes);
+    imageMeta(record.assetPath,record.size,{uuid:record.uuid});
+}
 const art = read(ART), registry = read(REGISTRY);
-for (const record of [...(additions.records || []), ...(guideArt.records || [])]) {
+for (const record of [...(additions.records || []), ...(guideArt.records || []), ...puzzleArt.records]) {
     const previous = art.records.findIndex(item => item.id === record.id);
     if (previous >= 0) {
         if (art.records[previous].uuid !== record.uuid) throw Error('Refusing artwork UUID replacement: '+record.id);

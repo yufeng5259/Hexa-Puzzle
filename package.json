@@ -13,6 +13,10 @@
     "typecheck": "node tools/prefab-foundation/typecheck.mjs",
     "prefab:generate": "node tools/first-release/generate.mjs",
     "prefab:verify-native": "node tools/first-release/verify-native.mjs",
-    "guide:verify-native": "node tools/first-release/verify-guide-motion.mjs"
+    "guide:verify-native": "node tools/first-release/verify-guide-motion.mjs",
+    "tray:verify-native": "node tools/first-release/verify-tray.mjs",
+    "obstacle:verify-native": "node tools/first-release/verify-obstacle.mjs",
+    "buttons:verify-native": "node tools/first-release/verify-puzzle-buttons.mjs",
+    "homeicon:verify-native": "node tools/first-release/verify-home-icon.mjs"
   }
 }

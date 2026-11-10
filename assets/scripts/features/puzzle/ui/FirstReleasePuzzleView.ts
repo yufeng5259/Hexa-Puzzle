@@ -39,8 +39,8 @@ export class FirstReleasePuzzleView extends BaseView {
     public setHints(count: number): void { this.hintCountLabel!.string=String(count); }
     public undo(): void { this.controller!.onReturnPiece(); }
     public showHint(): void { this.session?.activateHint(); this.projectHint(); }
-    public previousTray(): void { if (!this.allowAction || this.allowAction('puzzle:tray')) this.board!.scrollTray(-1); }
-    public nextTray(): void { if (!this.allowAction || this.allowAction('puzzle:tray')) this.board!.scrollTray(1); }
+    public previousTray(): void { if (!this.board!.isTraySettling && (!this.allowAction || this.allowAction('puzzle:tray'))) this.board!.scrollTray(-1); }
+    public nextTray(): void { if (!this.board!.isTraySettling && (!this.allowAction || this.allowAction('puzzle:tray'))) this.board!.scrollTray(1); }
     public pieceTarget(id: string): Node | null { return this.board!.pieceEntries().find(entry=>entry.item.pieceId===id)?.node || null; }
     public draggedGuidePolygons(): Point2[][] | null {
         const id = this.controller?.draggingPieceId;
@@ -59,13 +59,14 @@ export class FirstReleasePuzzleView extends BaseView {
         const sourcePlacement = saved ? { ...saved } : null;
         return this.guideShape(() => {
             if (!this.guideIsVisible()) return null;
-            const board = this.board!, index = this.session!.level.pieces.findIndex(piece => piece.id === id);
+            const board = this.board!;
+            if (board.isTraySettling) return null;
             const entry = board.pieceEntries().find(value => value.item.pieceId === id);
             if (sourcePlacement && entry && board.boardFit && board.boardMount) {
                 return { ui: board.boardMount.getComponent(UITransform)!, radius: board.boardFit.radius,
                     centers: entry.item.cells.map(cell => board.pointOfCell({ q: cell.q + sourcePlacement.q, r: cell.r + sourcePlacement.r })) };
             }
-            const slot = board.trayFit?.pieces[index], ui = board.piecesMount?.getComponent(UITransform);
+            const slot = board.getTraySlot(id), ui = board.piecesMount?.getComponent(UITransform);
             if (!entry || !slot || !ui) return null;
             const fit = centeredCells(entry.item.cells, entry.item.radius);
             return { ui, radius: fit.radius, centers: fit.centers.map(p => ({ x: p.x + slot.position.x, y: p.y + slot.position.y })) };

@@ -181,6 +181,7 @@ export class PuzzleController extends Component {
             return value.item.containsLocal(this.local(value.node, world));
         });
         if (!entry || this.allowPieceStart && !this.allowPieceStart(entry.item.pieceId)) return;
+        if (entry.node.parent === this.board!.piecesMount && this.board!.isTraySettling) return;
         const local = this.local(entry.node, world);
         try { this.session.select(entry.item.pieceId); } catch(error) { this.onError?.(error); return; }
         if (this.board?.trayScroll) this.board.trayScroll.enabled=false;
@@ -205,7 +206,7 @@ export class PuzzleController extends Component {
             else if (drag.valid && drag.candidate) changed = this.session.place(drag.piece.pieceId, drag.candidate);
             if (changed) this.deliverOutcome();
         } catch(error) { this.onError?.(error); }
-        finally { if(this.board?.trayScroll) this.board.trayScroll.enabled=true; this.project(); this.onDragStateChanged?.(false); }
+        finally { if(this.board?.trayScroll) this.board.trayScroll.enabled=!this.board.isTraySettling; this.project(); this.onDragStateChanged?.(false); }
     }
     private onCancel(event: EventTouch): void {
         if (this.duplicate(event)) return;
@@ -213,7 +214,7 @@ export class PuzzleController extends Component {
     }
     /** Drops an in-progress gesture without placing; the piece returns to its committed pose. */
     public cancelDrag(): void {
-        if(this.board?.trayScroll) this.board.trayScroll.enabled=true;
+        if(this.board?.trayScroll) this.board.trayScroll.enabled=!this.board.isTraySettling;
         if (!this.drag) { this.clearPreview(); return; }
         this.drag = null; this.clearPreview(); this.project(); this.onDragStateChanged?.(false);
     }

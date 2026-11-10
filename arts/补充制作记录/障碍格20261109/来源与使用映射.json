@@ -1,0 +1,59 @@
+{
+  "id": "firstrelease.puzzle.obstacle",
+  "date": "2026-11-09",
+  "type": "legacy-raster-reuse",
+  "source": {
+    "projectRelativePath": "../Hexa Puzzle/Hexa-Puzzle/resource/assets/ui/pic2/4.png",
+    "legacyAssetKey": "4_png",
+    "sha256": "6ca0541f3e99cd8f6ec89a7b3aa50224e12c18926a9b671ef773b59cd0217556",
+    "size": [
+      115,
+      103
+    ],
+    "readOnly": true
+  },
+  "formal": {
+    "file": "游戏素材/PNG/页面素材/五页首版拼图/UI/obstacle-riveted.png",
+    "sha256": "6ca0541f3e99cd8f6ec89a7b3aa50224e12c18926a9b671ef773b59cd0217556"
+  },
+  "runtime": {
+    "projectRelativePath": "assets/resources/first-release/art/obstacle-riveted.png",
+    "sha256": "6ca0541f3e99cd8f6ec89a7b3aa50224e12c18926a9b671ef773b59cd0217556"
+  },
+  "transform": {
+    "copyOnly": true,
+    "resize": false,
+    "recolor": false,
+    "redraw": false,
+    "grayscale": false
+  },
+  "semantics": {
+    "configField": "obstacleCells",
+    "draggable": false,
+    "listedInTray": false,
+    "placementAllowed": false,
+    "countsTowardPlayableFill": false,
+    "position": "board axial coordinate from obstacleCells",
+    "renderOrder": "above empty wells, below draggable pieces and tutorial overlays"
+  },
+  "sourcePSD": null,
+  "editableSourceStatus": "Legacy transparent raster is the available original; no layered PSD exists. Existing page PSD snapshots are unchanged.",
+  "visualStatus": "Original PNG reused; actual Creator single/multiple obstacle screenshots visually checked; existing PSD snapshots remain unchanged.",
+  "verification": {
+    "sourceFormalRuntimeBytesEqual": true,
+    "runtimeUUID": "27d50080-6cea-531c-a372-7a8780cfa621",
+    "assetVisualCheck": "Reviewed actual saved PNG at native size: gray metal hex with six rivets, complete outline, no text; no redraw or recolor.",
+    "creatorPreview": {
+      "status": "PASS",
+      "checks": 11,
+      "errors": 0,
+      "failedResources": 0,
+      "report": "D:/CodexData/Artifacts/HexaPuzzle障碍格补图20261109/native/report.json",
+      "screenshots": [
+        "D:/CodexData/Artifacts/HexaPuzzle障碍格补图20261109/native/02-valid-placement.png",
+        "D:/CodexData/Artifacts/HexaPuzzle障碍格补图20261109/native/04-other-obstacles.png"
+      ],
+      "conditions": "Isolated browser; explicit completed-guide condition removes dimmer. Board pool reuse uses catalog fixtures."
+    }
+  }
+}

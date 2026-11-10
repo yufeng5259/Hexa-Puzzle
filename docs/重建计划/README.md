@@ -98,3 +98,14 @@ M1–M4 是“流程串通”，只做必要的反馈（如吸附、数字变化
 当前引导表现已升级为白色立体手套循环拖动及完整目的区呼吸闪烁；玩家实际拖动时隐藏演示，非法放置/取消后恢复。配置与本轮140/67/18验收证据见当前三份文档，原133/67条目保留为首轮历史记录。
 
 首关教学最新规则：GuideSteps.xlsx独立配置ftue-drag、ftue-drag-2、ftue-drag-3及各自pieceId/targetCell，三步均仅开放puzzle:drag；ftue-win不开放操作，仅等待真实通关。第1/2步后退出重入分别恢复第2/3步；旧未完成档即使停在ftue-win，也按持久placements定位最早未完成的教学块。三步真实拖放、第2/3步前重载恢复、欢迎礼保存失败/重进/防重均已有本轮Creator证据。
+
+2026-11-09托盘追加：已完成未放置块自动左补位、0.22秒cubicOut缓动及三步引导位置同步；多页收缩/撤回增长、重载与取消已验证。最新自动测试154项、Creator托盘专项42项通过，类型和资源审核通过。[本次汇总](D:/CodexData/Artifacts/HexaPuzzle托盘自动补位20261109/verification.json)。上一轮151/32/79为当时记录，不替代本专项证据。
+
+
+2026-11-09障碍格追加：已接入原版4.png铆钉金属格，沿用obstacleCells与既有禁止放置规则；154项自动测试、类型和资源审核通过，Creator障碍专项11项通过。来源/美术入口及正式Prefab已同步。[验收汇总](D:/CodexData/Artifacts/HexaPuzzle障碍格补图20261109/verification.json)。
+
+
+2026-11-09拼图按钮改版：原路径覆盖大号撤销/重玩/提示图标，增加独立文字说明，欢迎奖励灯泡单独保留；正式PSD、PNG、配置、索引已同步。154项自动测试、类型与资源审核及Creator按钮专项23项通过。[本轮汇总](D:/CodexData/Artifacts/HexaPuzzle拼图操作按钮改版20261109/verification.json)。
+
+
+2026-11-10返回主页图标：顶部及建造共享返回改为小房子，与底部蓝色撤销箭头区分。正式PNG/PSD/配置/入口已同步；154项测试、类型/资源审核及Creator18项专项通过。[汇总](D:/CodexData/Artifacts/HexaPuzzle返回主页图标20261110/verification.json)。

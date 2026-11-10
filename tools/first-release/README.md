@@ -15,3 +15,17 @@ Creator 3.8.8 打开 `Project/`，运行 `assets/scenes/Main.scene`。唯一组�
 `cleanup.mjs` 默认只列清单，`--apply` 才按引用闭包退役运行废项。执行前须冻结并行资产写入。它先将删除文件、meta和将覆写的注册/所有权清单复制到D盘，逐项SHA-256回读，先保存恢复receipt、再复核源哈希，最后精确删除；framework、arts、参考工程和玩家存档不在退役范围。恢复按receipt路径复制回原处，同时恢复对应注册清单，不运行旧全量生成器。
 
 当前需求、技术接口和唯一任务状态见 `docs/重建计划/README.md`。不运行平台构建、SDK、广告支付、音频或Spine制作。
+
+`npm run tray:verify-native`：托盘自动补位与0.22秒cubicOut缓动专项。使用独立浏览器存档和真实拖放，覆盖三步强制引导的新槽位、错放/取消、重复快照、重载、撤回和多屏收缩；七块关卡与后台取消使用明示测试条件。证据输出上级tmp/prototype/first-release/tray-native/。动画不改变拼图尺寸或存档中的pieceId，不需要重生Prefab或切图。
+
+
+障碍格原图通过tools/first-release/puzzle-art-additions.json登记，正式PNG位于arts/游戏素材/PNG/页面素材/五页首版拼图/UI/。firstrelease:generate校验源SHA并生成运行副本/meta、注册到source-art-manifest、绑定PuzzlePage.obstacleAssetId；不是通用底格灰度，也不占托盘。
+
+
+npm run obstacle:verify-native：固定障碍原图接入专项，检查真实SpriteFrame、不可拖动、障碍处错放不计步及随后正确放置，含显式有/无障碍关卡的池复用测试条件；独立存档，证据输出上级tmp/prototype/first-release/obstacle-native/。
+
+
+npm run buttons:verify-native：拼图撤销/重玩/提示的新图、165尺寸、独立说明文字及角上计数验证，包含真实点击/拖放和375×667短屏截图。欢迎奖励保留专用firstrelease.reward.hint灯泡图；旧rotate.png文件对应重玩动作，不是旋转。证据输出上级tmp/prototype/first-release/buttons-native/。
+
+
+npm run homeicon:verify-native：返回主页小房子与底部原撤销箭头的资源、375/430布局及真实暂停/取消/保留本局回家、建造返回测试。默认Creator7457，可通过CREATOR_PREVIEW_URL覆盖；独立存档，输出root tmp/prototype/first-release/home-icon-native/。

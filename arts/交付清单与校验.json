@@ -1,11 +1,11 @@
 {
   "game": "Block",
-  "asset_count": 392,
+  "asset_count": 394,
   "page_count": 84,
-  "editable_text_count": 1224,
+  "editable_text_count": 1227,
   "public_ui_count": 108,
   "public_art_count": 157,
-  "page_asset_count": 106,
+  "page_asset_count": 107,
   "technical_verification": "PSD真实图层与文字回读、合成和RGBA去重验证已运行",
   "visual_status": "本轮83项重建复查通过；81项像素不变，2项局部已实际复查",
   "photoshop_interaction": false,
@@ -160,5 +160,338 @@
     "alphaBorderTransparent": true,
     "psdCompositeMaxDifference": 0.9764705882352871,
     "runtimeIntegration": "owned by integration/guide lanes"
+  },
+  "obstacle20261109": {
+    "id": "firstrelease.puzzle.obstacle",
+    "newPNGs": 1,
+    "sourcePSD": null,
+    "sourceStatus": "legacy raster original, unchanged bytes; no new layered PSD claimed",
+    "report": "补充制作记录/障碍格20261109/交付说明.md",
+    "sourceFormalRuntimeSha256": "6ca0541f3e99cd8f6ec89a7b3aa50224e12c18926a9b671ef773b59cd0217556",
+    "shaEqualityStatus": "verified source/formal/runtime bytes equal",
+    "pagePSDModified": false,
+    "visualStatus": "Creator preview verification belongs to integration lane; no new page-art acceptance claimed"
+  },
+  "puzzleActionButtons20261109": {
+    "replaced": [
+      "firstrelease.ui.undo",
+      "firstrelease.ui.restart",
+      "firstrelease.ui.hint"
+    ],
+    "separateRewardIcon": "firstrelease.reward.hint",
+    "pagePSD": "PSD/五页首版/五页首版_拼图.psd",
+    "modifiedLayers": [
+      "PuzzlePage/Hint",
+      "PuzzlePage/Hint/HintCount",
+      "PuzzlePage/HintCaption",
+      "PuzzlePage/Restart",
+      "PuzzlePage/RestartCaption",
+      "PuzzlePage/Undo",
+      "PuzzlePage/UndoCaption"
+    ],
+    "unchangedLayersVerified": 48,
+    "psdRoundTripCompositeMaxDifference": 1,
+    "photoshopInteraction": false
+  },
+  "homeIcon20261110": {
+    "id": "firstrelease.ui.back",
+    "replacedPNGs": 1,
+    "visiblePSDReferences": 2,
+    "sourceRuntimeShaMatch": true,
+    "pages": [
+      {
+        "name": "五页首版_建造",
+        "modifiedLayer": "HomeBuild/BuildBottom/Back",
+        "layerCount": 56,
+        "unchangedLayersVerified": 55,
+        "psd": "PSD/五页首版/五页首版_建造.psd",
+        "psdSha256": "f33b45198e706b5f809434713c96ffc4452a1951ab61b1b98cdf80a9036c70da",
+        "preview": "页面对照/PSD合成/五页首版/五页首版_建造.png",
+        "previewSha256": "aeb6307549c970b1d353584003e26139a35656a77901c8bc0c58d07c9ac273d8",
+        "compositeMaxChannelDifference": 1,
+        "trueTextLayerChecks": [
+          {
+            "name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/Cost",
+            "kind": "type",
+            "text": "60",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 26.5,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/Cost",
+            "kind": "type",
+            "text": "40",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 26.5,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/Cost",
+            "kind": "type",
+            "text": "40",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 26.5,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/Cost",
+            "kind": "type",
+            "text": "40",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 26.5,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/Cost",
+            "kind": "type",
+            "text": "40",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 26.5,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/HUD/Coins",
+            "kind": "type",
+            "text": "60",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 38.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/HUD/EnergyHUD/EnergyAmount",
+            "kind": "type",
+            "text": "5",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 32.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 2,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/HUD/EnergyHUD/EnergyTimer",
+            "kind": "type",
+            "text": "FULL",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 24.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 5,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/HUD/MapName",
+            "kind": "type",
+            "text": "向阳蜂谷",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 36.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 5,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/BuildBottom/Progress",
+            "kind": "type",
+            "text": "1/25",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 30.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 5,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "HomeBuild/BuildBottom/BuildCaption",
+            "kind": "type",
+            "text": "花园建设",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 30.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 5,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          }
+        ]
+      },
+      {
+        "name": "五页首版_拼图",
+        "modifiedLayer": "PuzzlePage/Back",
+        "layerCount": 55,
+        "unchangedLayersVerified": 54,
+        "psd": "PSD/五页首版/五页首版_拼图.psd",
+        "psdSha256": "3db8fdb83481efab500d3ede1d73ebbd2b932b0c14db38c1baefccb31c176c0d",
+        "preview": "页面对照/PSD合成/五页首版/五页首版_拼图.png",
+        "previewSha256": "ccaa66d3c3f296468f4c6e57a9dbeb2ca3314dca80527df66c24e5469af40e30",
+        "compositeMaxChannelDifference": 1,
+        "trueTextLayerChecks": [
+          {
+            "name": "PuzzlePage/MoveCaption",
+            "kind": "type",
+            "text": "已用步数",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 36.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 5,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "PuzzlePage/Moves",
+            "kind": "type",
+            "text": "0",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 40.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 2,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "PuzzlePage/Hint/HintCount",
+            "kind": "type",
+            "text": "5",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 32.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 2,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "PuzzlePage/PreviousTray",
+            "kind": "type",
+            "text": "‹",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 60.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 2,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "PuzzlePage/NextTray",
+            "kind": "type",
+            "text": "›",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 60.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 2,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "PuzzlePage/UndoCaption",
+            "kind": "type",
+            "text": "撤销",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 30.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "PuzzlePage/RestartCaption",
+            "kind": "type",
+            "text": "重玩",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 30.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          },
+          {
+            "name": "PuzzlePage/HintCaption",
+            "kind": "type",
+            "text": "提示",
+            "font_names": [
+              "MicrosoftYaHei-Bold"
+            ],
+            "font_size": 30.0,
+            "stroke_width": 0.0,
+            "utf16_run_units": 3,
+            "style_and_paragraph_run_lengths_verified": true,
+            "editable_fill_stroke_alignment_transform_verified": true,
+            "editable_text_descriptor_present": true
+          }
+        ]
+      }
+    ],
+    "photoshopInteraction": false
   }
 }

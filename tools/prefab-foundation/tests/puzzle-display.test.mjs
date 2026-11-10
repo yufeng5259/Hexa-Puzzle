@@ -132,14 +132,14 @@ test('board uses distinct well/obstacle cells, one root per piece, and consisten
     const spec=JSON.parse(board.boardFloor.spec);assert.equal(spec.cells.length,4);assert.equal(spec.flip_y,true);
     assert.equal(board.boardRim.renders,1);assert.equal(r.scope.releases,0);
 });
-test('challenge labels describe moves and obstacle grayscale resets when the same root becomes a target',async()=>{
+test('challenge labels and dedicated obstacle art reset when the same root becomes a target',async()=>{
     const r=runtime(),board=r.board(),data={...level('challenge'),mode:'challenge',moveLimit:7};
     await board.present(r.scope,data);
     assert.equal(board.remainingCaptionLabel.string,'剩余步数');assert.equal(board.remainingLabel.string,'7');
-    const last=board.boardMount.children[3],item=last.getComponent(r.PresentationItem);assert.equal(item.body.grayscale,true);
+    const last=board.boardMount.children[3],item=last.getComponent(r.PresentationItem);assert.equal(item.body.grayscale,false);assert.equal(item.value.bodyAssetId,'obstacle');
     assert.ok(board.boardMount.children.slice(0,3).every(node=>!node.getComponent(r.PresentationItem).body.grayscale));
     await board.present(r.scope,{...level('normal'),targetCells:[...data.targetCells,...data.obstacleCells],obstacleCells:[]});
-    assert.equal(board.boardMount.children[3],last);assert.equal(item.body.grayscale,false);
+    assert.equal(board.boardMount.children[3],last);assert.equal(item.body.grayscale,false);assert.equal(item.value.bodyAssetId,'well');
     assert.equal(board.totalCellsLabel.string,'0/4');assert.equal(board.remainingCaptionLabel.string,'剩余拼块');assert.equal(board.remainingLabel.string,'3');
 });
 test('repeat/shorter/longer levels reuse roots and hide surplus without retaining piece identities',async()=>{

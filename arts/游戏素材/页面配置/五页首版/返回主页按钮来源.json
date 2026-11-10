@@ -1,0 +1,354 @@
+{
+  "date": "2026-11-10",
+  "semantics": "Return home, not undo, rotate or reward. Coral beveled button + ivory house; no arrow, coin, text or digits baked in PNG.",
+  "asset": {
+    "id": "firstrelease.ui.back",
+    "name": "返回主页_珊瑚红小房子",
+    "file": "PNG/公共UI/五页首版/back.png",
+    "size": [
+      294,
+      323
+    ],
+    "category": "公共UI",
+    "subtype": "UI",
+    "pages": [
+      "五页首版_建造",
+      "五页首版_拼图"
+    ],
+    "runtime_pages": [
+      "五页首版_建造",
+      "五页首版_拼图"
+    ],
+    "purpose": "拼图和建造返回主页；乳白小房子、珊瑚红底板，无箭头或金币；与撤销区分",
+    "sha256": "030fb14e6eb76c47668325bd7ade91887100e7e84eb95c92cf3bde3d73f8c60d",
+    "identities": [
+      "firstrelease.ui.back"
+    ],
+    "source": "arts/游戏素材/PNG/公共UI/五页首版/back.png"
+  },
+  "source": "arts/游戏素材/PNG/公共UI/五页首版/back.png",
+  "sourceSha256": "030fb14e6eb76c47668325bd7ade91887100e7e84eb95c92cf3bde3d73f8c60d",
+  "runtime": "assets/resources/first-release/art/back.png",
+  "runtimeSha256": "030fb14e6eb76c47668325bd7ade91887100e7e84eb95c92cf3bde3d73f8c60d",
+  "generation": {
+    "method": "imagegen API fallback",
+    "model": "gpt-image-2",
+    "evidenceDirectory": "D:\\CodexData\\Artifacts\\HexaPuzzle返回主页图标20261110",
+    "promptArtifact": "prompt.txt",
+    "rawOutputArtifact": "home-generated.png"
+  },
+  "pages": [
+    {
+      "name": "五页首版_建造",
+      "modifiedLayer": "HomeBuild/BuildBottom/Back",
+      "layerCount": 56,
+      "unchangedLayersVerified": 55,
+      "psd": "PSD/五页首版/五页首版_建造.psd",
+      "psdSha256": "f33b45198e706b5f809434713c96ffc4452a1951ab61b1b98cdf80a9036c70da",
+      "preview": "页面对照/PSD合成/五页首版/五页首版_建造.png",
+      "previewSha256": "aeb6307549c970b1d353584003e26139a35656a77901c8bc0c58d07c9ac273d8",
+      "compositeMaxChannelDifference": 1,
+      "trueTextLayerChecks": [
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade1/Cost",
+          "kind": "type",
+          "text": "60",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade2/Cost",
+          "kind": "type",
+          "text": "40",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade3/Cost",
+          "kind": "type",
+          "text": "40",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade4/Cost",
+          "kind": "type",
+          "text": "40",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/Map/UpgradeAnchors/Upgrade5/Cost",
+          "kind": "type",
+          "text": "40",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 26.5,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/Coins",
+          "kind": "type",
+          "text": "60",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 38.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/EnergyHUD/EnergyAmount",
+          "kind": "type",
+          "text": "5",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 32.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/EnergyHUD/EnergyTimer",
+          "kind": "type",
+          "text": "FULL",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 24.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/HUD/MapName",
+          "kind": "type",
+          "text": "向阳蜂谷",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 36.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/BuildBottom/Progress",
+          "kind": "type",
+          "text": "1/25",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "HomeBuild/BuildBottom/BuildCaption",
+          "kind": "type",
+          "text": "花园建设",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        }
+      ]
+    },
+    {
+      "name": "五页首版_拼图",
+      "modifiedLayer": "PuzzlePage/Back",
+      "layerCount": 55,
+      "unchangedLayersVerified": 54,
+      "psd": "PSD/五页首版/五页首版_拼图.psd",
+      "psdSha256": "3db8fdb83481efab500d3ede1d73ebbd2b932b0c14db38c1baefccb31c176c0d",
+      "preview": "页面对照/PSD合成/五页首版/五页首版_拼图.png",
+      "previewSha256": "ccaa66d3c3f296468f4c6e57a9dbeb2ca3314dca80527df66c24e5469af40e30",
+      "compositeMaxChannelDifference": 1,
+      "trueTextLayerChecks": [
+        {
+          "name": "PuzzlePage/MoveCaption",
+          "kind": "type",
+          "text": "已用步数",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 36.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 5,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/Moves",
+          "kind": "type",
+          "text": "0",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 40.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/Hint/HintCount",
+          "kind": "type",
+          "text": "5",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 32.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/PreviousTray",
+          "kind": "type",
+          "text": "‹",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 60.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/NextTray",
+          "kind": "type",
+          "text": "›",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 60.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 2,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/UndoCaption",
+          "kind": "type",
+          "text": "撤销",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/RestartCaption",
+          "kind": "type",
+          "text": "重玩",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        },
+        {
+          "name": "PuzzlePage/HintCaption",
+          "kind": "type",
+          "text": "提示",
+          "font_names": [
+            "MicrosoftYaHei-Bold"
+          ],
+          "font_size": 30.0,
+          "stroke_width": 0.0,
+          "utf16_run_units": 3,
+          "style_and_paragraph_run_lengths_verified": true,
+          "editable_fill_stroke_alignment_transform_verified": true,
+          "editable_text_descriptor_present": true
+        }
+      ]
+    }
+  ],
+  "photoshopInteraction": false,
+  "scope": "Only shared back bitmap and its two visible image layers. Other artwork and true text layers remain unchanged.",
+  "prompt": "Use case: stylized-concept. Asset type: one production casual mobile game RETURN HOME button sprite.\nThe attached image is a STYLE REFERENCE and edit target for the button plate only. Replace its ambiguous back-arrow icon and small golden coin completely. Keep the glossy rounded square coral-red button plate, soft bevels, dimensional bottom edge and compact shadow; similar framing and button proportions.\nRender ONE centered clear bold ivory-white HOUSE silhouette on this coral red rounded square button: large triangular peaked roof, square body, a single obvious dark coral doorway and one small window. The house must fill most of the button face and be instantly recognizable as HOME at 45px. Sculpted smooth 3D casual puzzle game UI, warm ivory raised enamel house, subtle golden cream edge depth, soft upper-left highlight. No curved shapes resembling a return arrow. No arrows whatsoever, no circular arrows, no coin, no badges, no characters, no text, numbers, locks, letters or watermark. Single standalone button, straight front facing orthographic view, not a full game screenshot.\nOn a 1024x1024 canvas the complete button including compact shadow should occupy a centered approximately 800x800 square with generous clean margin. Background outside button and shadow must be perfectly solid chroma MAGENTA RGB(255,0,255), no gradient or pattern, no magenta reflections on the button. Maintain high readability and simple large house silhouette.\n",
+  "visualReview": {
+    "status": "PASS",
+    "method": "Actual light/dark icon preview and both reopened PSD composites reviewed with view_image.",
+    "findings": "Ivory house is complete and readable on coral beveled button; no arrows, coins, text, cropped edges or colored fringe. Puzzle Undo retains its large blue curved arrow and all three action captions remain visible.",
+    "evidence": [
+      "home-preview.png",
+      "art-index-puzzle.png",
+      "art-index-build.png"
+    ],
+    "scope": "Only two shared back icon layers; original board/static page snapshots otherwise retained."
+  },
+  "directoryBrowserCheck": {
+    "status": "PASS",
+    "report": "art-index-report.json",
+    "newBitmapAndTwoPageOriginalCompositePairsLoaded": 5,
+    "pageErrors": 0
+  }
+}

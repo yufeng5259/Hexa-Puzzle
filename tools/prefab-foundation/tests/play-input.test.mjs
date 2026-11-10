@@ -40,11 +40,12 @@ function runtime(scale = 1, challenge = false) {
         convertToWorldSpaceAR(p) {const o=this.node.worldPosition,s=this.node.worldScale;return new Vec3(p.x*s.x+o.x,p.y*s.y+o.y,0);}
     }
     class Vec3 {constructor(x=0,y=0,z=0){Object.assign(this,{x,y,z});}}
+    class Vec2 {constructor(x=0,y=0){Object.assign(this,{x,y});}}
     class Graphics extends Component { paths=[];clear(){this.paths=[];} moveTo(x,y){this.paths.push([x,y]);}lineTo(x,y){this.paths.push([x,y]);}close(){}fill(){}stroke(){} }
     class Color {constructor(...v){this.v=v;}}
     class UIOpacity extends Component { opacity=255; }
     const input=new Events(),game=new Events(),view=new Events();
-    const cc={Component,Node,UITransform,UIOpacity,Vec3,Graphics,Color,input,game,view,Game:{EVENT_HIDE:'hide',EVENT_SHOW:'show'},Input:{EventType:Node.EventType},
+    const cc={Component,Node,UITransform,UIOpacity,Vec3,Vec2,Graphics,Color,input,game,view,Game:{EVENT_HIDE:'hide',EVENT_SHOW:'show'},Input:{EventType:Node.EventType},
         isValid:value=>!!value&&value.isValid!==false,CCString:String,Button:class {},
         _decorator:{ccclass:()=>value=>value,property:(...args)=>args.length>=2?undefined:()=>{}}};
     const cache=new Map();
@@ -231,4 +232,51 @@ test('UI capture handles touches swallowed before global input and unprojects th
     ui('start',r.piecePoint('a'));ui('move',r.target(0,0));ui('end',r.target(0,0));
     assert.equal(r.session.snapshot.moves,1);assert.deepEqual(r.session.snapshot.placements.a,{q:0,r:0});
     r.controller.suspend();assert.equal(r.controller.node.count('start'),0);assert.equal(r.controller.node.count('move'),0);
+});
+function scrollingRuntime(count=3) {
+    const r=runtime(),b=r.board,Item=b.pieceEntries()[0].item.constructor;
+    for(let i=2;i<count;i++){
+        const id=String.fromCharCode(97+i),definition={...r.level.pieces[0],id};r.level.pieces.push(definition);
+        const node=new r.Node();node.parent=b.piecesMount;node.add(r.UITransform);const item=node.add(Item);item.pieceId=id;item.cells=definition.cells;item.radius=b.trayFit.radius;item.touchArea=node.getComponent(r.UITransform);b.pieces.push({node,item});
+    }
+    b.trayViewport=new r.Node();b.trayViewport.add(r.UITransform).width=300;
+    b.trayFit=r.fitTrayWindow(r.level.pieces,300,100,b.trayGap,b.trayPadding);
+    b.pieceEntries().forEach(e=>e.item.radius=b.trayFit.radius);
+    const ui=b.piecesMount.getComponent(r.UITransform);
+    b.trayScroll={enabled:true,isValid:true,content:b.piecesMount,offset:0,stopAutoScroll(){},getScrollOffset(){return{x:-this.offset,y:0};},getMaxScrollOffset(){return{x:Math.max(0,ui.width-300),y:0};},scrollToOffset(p){this.offset=p.x;b.piecesMount.setPosition((ui.width-300)/2-p.x,0,0);}};
+    const snapshot=placements=>({levelId:r.level.id,placements,moves:Object.keys(placements).length});
+    b.renderSnapshot(snapshot({}));
+    return {...r,b,snapshot,entry:id=>b.pieceEntries().find(e=>e.item.pieceId===id)};
+}
+
+test('scrolling tray compacts only committed membership with cubic easing and stable piece size',()=>{
+    const r=scrollingRuntime(),{b}=r,before=r.entry('b').node.position.x,radius=b.trayFit.radius;
+    b.renderSnapshot(r.snapshot({}));assert.equal(b.isTraySettling,false);
+    b.renderSnapshot(r.snapshot({a:{q:0,r:0}}));assert.equal(b.isTraySettling,true);assert.equal(b.trayScroll.enabled,false);
+    assert.equal(r.entry('b').node.position.x,before,'no first-frame jump');
+    const target=b.getTraySlot('b').position.x;b.update(.11);
+    assert.ok(Math.abs(r.entry('b').node.position.x-(before+(target-before)*.875))<1e-7);
+    const middle=r.entry('b').node.position.x;b.renderSnapshot(r.snapshot({a:{q:0,r:0}}));assert.equal(r.entry('b').node.position.x,middle,'repeat projection does not restart motion');
+    b.update(.11);assert.equal(b.isTraySettling,false);assert.equal(r.entry('b').node.position.x,target);assert.equal(b.trayScroll.enabled,true);
+    b.renderSnapshot(r.snapshot({a:{q:0,r:0},b:{q:1,r:0}}));b.update(.22);
+    assert.equal(r.entry('c').node.position.x,target,'last remaining piece occupies the first slot');
+    assert.equal(b.trayFit.radius,radius);assert.equal(r.entry('c').node.scale.x,1);
+});
+
+test('middle and final slots close gaps; rapid undo starts from the current position and hides finish safely',()=>{
+    for(const id of ['b','c']){const r=scrollingRuntime(),{b}=r;b.renderSnapshot(r.snapshot({[id]:{q:0,r:0}}));b.update(.22);const ids=['a','b','c'].filter(x=>x!==id);assert.ok(r.entry(ids[0]).node.position.x<r.entry(ids[1]).node.position.x);assert.equal(b.getTraySlot(ids[1]).position.x,r.entry(ids[1]).node.position.x);}
+    const r=scrollingRuntime(),{b}=r;b.renderSnapshot(r.snapshot({a:{q:0,r:0}}));b.update(.055);const current=r.entry('b').node.position.x;
+    b.renderSnapshot(r.snapshot({}));assert.equal(r.entry('b').node.position.x,current,'undo does not snap existing animated nodes');
+    b.onDisable();assert.equal(b.isTraySettling,false);assert.equal(b.trayScroll.enabled,true);
+    assert.equal(r.entry('b').node.position.x,b.getTraySlot('b').position.x);b.update(1);assert.equal(b.isTraySettling,false);
+});
+
+test('scrolling tray keeps the visible page, shrinks its extent and restores saves without animation',()=>{
+    const r=scrollingRuntime(7),{b}=r,pitch=b.getTraySlot('b').position.x-b.getTraySlot('a').position.x;
+    b.trayScroll.scrollToOffset({x:pitch*2,y:0});
+    b.renderSnapshot(r.snapshot({a:{q:0,r:0}}));b.update(.22);
+    assert.ok(Math.abs(b.trayScroll.offset-pitch)<1e-7,'removed slot before viewport preserves visible leading piece');
+    b.renderSnapshot(r.snapshot({a:{q:0,r:0},b:{q:1,r:0},c:{q:2,r:0},d:{q:3,r:0},e:{q:4,r:0},f:{q:5,r:0}}));b.update(.22);
+    assert.equal(b.trayScroll.getMaxScrollOffset().x,0);assert.equal(b.trayScroll.offset,0);assert.equal(r.entry('g').node.position.x,b.getTraySlot('g').position.x);
+    b.trayIds=null;b.renderSnapshot(r.snapshot({a:{q:0,r:0}}));assert.equal(b.isTraySettling,false,'restored membership is laid out directly');
 });

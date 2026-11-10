@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-09",
+  "replacement": "Same formal files and stable asset UUIDs; source PNGs contain no text. Captions are genuine Microsoft YaHei TypeLayers and runtime Label components.",
+  "records": {
+    "firstrelease.ui.undo": {
+      "path": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/undo.png",
+      "sha256": "c2b3bb3386b9993b4c23dffe03551af6487e754daa78a0be7f669e67c846f9d0",
+      "size": [
+        303,
+        315
+      ],
+      "runtimeSha256": "c2b3bb3386b9993b4c23dffe03551af6487e754daa78a0be7f669e67c846f9d0",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    "firstrelease.ui.restart": {
+      "path": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/rotate.png",
+      "sha256": "4429aa05c9d18f56bd7c0524457d33a5647156f8f1fd4cb0432fb4eab494ff1d",
+      "size": [
+        303,
+        315
+      ],
+      "runtimeSha256": "4429aa05c9d18f56bd7c0524457d33a5647156f8f1fd4cb0432fb4eab494ff1d",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    "firstrelease.ui.hint": {
+      "path": "arts/游戏素材/PNG/页面素材/五页首版拼图/UI/hint.png",
+      "sha256": "07fa76e6f239587e3c1c08cd949cbbfd278266c9a9dfd4fe38c78b1435bab2d2",
+      "size": [
+        294,
+        315
+      ],
+      "runtimeSha256": "07fa76e6f239587e3c1c08cd949cbbfd278266c9a9dfd4fe38c78b1435bab2d2",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    "firstrelease.reward.hint": {
+      "path": "arts/游戏素材/PNG/公共UI/五页首版/hint-reward.png",
+      "sha256": "b59faf2715a9a1b01ef831e91326531bd192b6716f49a9fbc2869ffd0bd5cbd2",
+      "size": [
+        294,
+        315
+      ],
+      "runtimeSha256": "b59faf2715a9a1b01ef831e91326531bd192b6716f49a9fbc2869ffd0bd5cbd2",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    }
+  },
+  "generation": {
+    "method": "imagegen fallback CLI",
+    "model": "gpt-image-2",
+    "promptArtifact": "prompt.txt",
+    "reference": "tilebuster-controls-reference.png",
+    "rawOutput": "buttons-generated.png"
+  },
+  "prompt": "Use case: stylized-concept\nAsset type: three production mobile puzzle game button sprites on a single sprite sheet.\nReference image: use ONLY the rounded ivory dimensional button plate, chunky raised icon proportions, soft bevel and polished casual-game rendering of the attached Tilebuster toolbar. Do not copy the exact toolbar icons or any padlocks.\nPrimary request: redesign three DIFFERENT clearly legible ACTIVE game buttons. Render exactly THREE separate matching square buttons side by side in ONE horizontal row, spaced far apart, identical size, centered at x=256,768,1280 and y=512 on a 1536x1024 image. Each complete button incl shadow must fit within a 400x400 box, leaving clean margin. Front orthographic view, flat facing camera, minimal perspective.\nButton 1 LEFT = UNDO ONE MOVE: one oversized thick glossy deep blue curved return arrow pointing LEFT, with an open curved tail bending down and right; extremely clear left-pointing arrowhead. No circle, no board, no secondary symbol.\nButton 2 MIDDLE = RESTART CURRENT PUZZLE: two chunky teal-blue circular arrows wrapping around a central golden yellow hexagonal puzzle tile. Distinct round loop silhouette and a single obvious golden hex tile, no shuffle arrows, no rotation emblem alone.\nButton 3 RIGHT = HINT: a large blue handled magnifying glass diagonally from lower right to upper left, its pale turquoise lens shows one golden hexagonal tile and one small golden sparkle. No arrows, no lightbulb.\nAll three use the same thick pearly IVORY rounded square plate with cool blue-gray beveled rim, soft upper-left highlight, lower extrusion and compact soft contact shadow; icons occupy 75 percent of button face; premium sculpted smooth 3D casual puzzle game style, excellent readability at only 60px wide. Clear bold silhouette, limited details, all ACTIVE and fully colored.\nBackground must be perfectly flat solid chroma MAGENTA RGB 255,0,255, everywhere outside buttons and shadows. No gradient, no pattern, no texture, no reflections of magenta on objects. Each button separated by at least 100px of pure magenta for independent extraction.\nNo text, letters, numbers, count badges, locks, extra props, people, watermark, borders around the sheet. Do not render a whole game screen. Only three standalone button sprites.\n",
+  "referenceRole": "User attachment Tilebuster reference for ivory beveled button treatment, adapted to actual undo/restart/hint semantics. No extra boosters or locks introduced.",
+  "sourceAndEvidenceDirectory": "D:\\CodexData\\Artifacts\\HexaPuzzle拼图操作按钮改版20261109",
+  "pagePSD": "PSD/五页首版/五页首版_拼图.psd",
+  "sourceLayerStructure": "Three independent transparent image button layers plus editable hint-count and captions. AI bitmap icon interiors are not claimed to be vector layers.",
+  "layerPixelRoundTrip": {
+    "untouchedLayers": 48,
+    "modifiedImageLayers": 3,
+    "updatedHintCountTypeLayer": 1,
+    "addedCaptionTypeLayers": 3,
+    "compositeMaxChannelDifference": 1
+  },
+  "photoshopInteraction": false,
+  "visualReview": {
+    "method": "Actual PNGs reviewed on light and dark backgrounds using view_image, plus the reopened PSD layer composite.",
+    "status": "PASS",
+    "findings": "Three complete glossy ivory buttons with different large glyph silhouettes; no magenta fringe or cropped edges; clear Chinese true-text captions.",
+    "evidence": "formal-icons-light-dark.png",
+    "scope": "Button layers only; preexisting board/obstacle snapshot preserved, no claim that it reflects current game progress."
+  }
+}
