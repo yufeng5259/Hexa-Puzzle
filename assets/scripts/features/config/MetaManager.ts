@@ -53,6 +53,11 @@ export class MetaManager {
         const interval = this.getConstant<number>('energyRecoverSeconds');
         if (!Number.isSafeInteger(max) || max < 1 || !Number.isSafeInteger(initial) || initial < 0 || initial > max || !Number.isSafeInteger(interval) || interval < 1) throw new Error('Invalid energy constants');
         for (const id of ['energyFailureCost','initialCoins','initialHints']) { const value=this.getConstant<number>(id); if(!Number.isSafeInteger(value)||value<0)throw new Error(`Invalid constant ${id}`); }
+        for (const [id, max] of [['puzzleTransitionFadeSeconds', 1], ['puzzleEnterMotionSeconds', .5]] as const) {
+            const value = this.getConstant<number>(id);
+            if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > max) throw new Error(`Invalid duration constant ${id}`);
+        }
+        if (typeof this.getConstant('puzzlePreloadEnabled') !== 'boolean') throw new Error('Invalid constant puzzlePreloadEnabled');
         for (const reward of this.rows<RewardRow>('Rewards')) if([reward.coins,reward.energy,reward.hints].some(value=>!Number.isSafeInteger(value)||value<0))throw new Error(`Invalid reward ${reward.id}`);
         this.getReward(this.getConstant<string>('welcomeRewardId'));
         const lines = this.getMainlines();

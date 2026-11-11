@@ -36,7 +36,7 @@ export function reachability() {
     };
     add('assets/scenes/Main.scene');
     add('assets/resources/framework/config/source-art-manifest.json');add('assets/resources/framework/config/prefab-registry.json');
-    const seedIds=['home','firstrelease-dialog','firstrelease-loading','firstrelease-puzzle','first-guide','hex-cell','puzzle-piece'];
+    const seedIds=['home','firstrelease-dialog','firstrelease-loading','firstrelease-puzzle','first-guide','page-transition','hex-cell','puzzle-piece'];
     for(const id of seedIds){const row=registry.prefabs.find(row=>row.id===id);if(!row)errors.push('Missing entry Prefab '+id);else add(row.assetPath)}
     for(const row of registry.dataAssets||[])add(row.assetPath);
     for(const target of Object.values(registry.aliases||{}))image(target);

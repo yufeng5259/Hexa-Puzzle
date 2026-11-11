@@ -1,10 +1,16 @@
-import { _decorator, Button, Label, Node, Sprite, SpriteFrame, UITransform, isValid } from 'cc';
+import { _decorator, Button, Label, Node, Sprite, SpriteFrame, UIOpacity, UITransform, isValid } from 'cc';
 import { BaseView } from '../../../framework/ui/BaseView';
 import { requireBinding } from '../../../framework/components/Binding';
 import type { MetaManager } from '../../config/MetaManager';
 import type { GameState } from '../../progression/GameStateStore';
 import { EnergyHud } from '../../common/ui/EnergyHud';
 const { ccclass, property } = _decorator;
+type Mode = 'home' | 'build';
+const MODE_SWITCH_SECONDS = .26;
+const ease = (value: number): number => {
+    const t = Math.max(0, Math.min(1, value));
+    return t * t * (3 - 2 * t);
+};
 
 @ccclass('HomeBuildView')
 export class HomeBuildView extends BaseView {
@@ -13,6 +19,10 @@ export class HomeBuildView extends BaseView {
     @property(Node) public homeBottom: Node | null = null;
     @property(Node) public buildBottom: Node | null = null;
     @property(Node) public upgradeRoot: Node | null = null;
+    @property(UIOpacity) public homeBottomOpacity: UIOpacity | null = null;
+    @property(UIOpacity) public buildBottomOpacity: UIOpacity | null = null;
+    @property(UIOpacity) public mapNameOpacity: UIOpacity | null = null;
+    @property([UIOpacity]) public upgradeOpacities: UIOpacity[] = [];
     @property(Label) public coinLabel: Label | null = null;
     @property(Label) public levelLabel: Label | null = null;
     @property(Label) public progressLabel: Label | null = null;
@@ -30,23 +40,69 @@ export class HomeBuildView extends BaseView {
     @property([Label]) public costLabels: Label[] = [];
     @property([Label]) public stageLabels: Label[] = [];
     @property([Sprite]) public stageSprites: Sprite[] = [];
-    private mode: 'home' | 'build' = 'home';
+    private mode: Mode = 'home';
+    private modeMotion: {
+        target: Mode; elapsed: number; resolve: (finished: boolean) => void;
+        tracks: { opacity: UIOpacity; y: number }[];
+    } | null = null;
     private generation = 0;
     private imageIds = new Map<Sprite, string>();
     public validateBindings(): void {
         super.validateBindings();
-        for (const key of ['mapRoot','background','homeBottom','buildBottom','upgradeRoot','coinLabel','levelLabel','progressLabel','mapNameLabel','progressFill','energyHud','playButton','buildButton','backButton','settingsButton','claimButton'] as const)
+        for (const key of ['mapRoot','background','homeBottom','buildBottom','upgradeRoot','homeBottomOpacity','buildBottomOpacity','mapNameOpacity','coinLabel','levelLabel','progressLabel','mapNameLabel','progressFill','energyHud','playButton','buildButton','backButton','settingsButton','claimButton'] as const)
             requireBinding('HomeBuildView', key, this[key]);
-        for (const key of ['buildingSprites','rotorSprites','upgradeButtons','costLabels','stageLabels'] as const)
+        for (const key of ['buildingSprites','rotorSprites','upgradeButtons','upgradeOpacities','costLabels','stageLabels'] as const)
             if (this[key].length !== 5 || this[key].some(value => !value)) throw new Error(`HomeBuildView.${key}: five bindings required`);
         if (this.stageSprites.length !== 25 || this.stageSprites.some(value => !value)) throw new Error('HomeBuildView.stageSprites: 25 bindings required');
     }
-    public setMode(mode: 'home' | 'build'): void {
+    public setMode(mode: Mode): void {
+        this.finishModeMotion(false);
+        this.showMode(mode);
+    }
+    private showMode(mode: Mode): void {
         this.mode = mode;
         this.homeBottom!.active = mode === 'home'; this.buildBottom!.active = mode === 'build';
         this.upgradeRoot!.active = mode === 'build'; this.mapNameLabel!.node.active = mode === 'build';
     }
-    public get currentMode(): 'home' | 'build' { return this.mode; }
+    public get currentMode(): Mode { return this.mode; }
+    public get modeSwitching(): boolean { return this.modeMotion !== null; }
+    public animateMode(mode: Mode): Promise<boolean> {
+        if (this.modeSwitching || !this.isShown) return Promise.resolve(false);
+        if (mode === this.mode) return Promise.resolve(true);
+        return new Promise(resolve => {
+            const tracks = [this.homeBottomOpacity!, this.buildBottomOpacity!, this.mapNameOpacity!, ...this.upgradeOpacities]
+                .map(opacity => ({ opacity, y: opacity.node.position.y }));
+            this.modeMotion = { target: mode, elapsed: 0, tracks, resolve };
+            this.update(0);
+            // Set the initial poses before enabling the incoming controls.
+            this.homeBottom!.active = this.buildBottom!.active = this.upgradeRoot!.active = this.mapNameLabel!.node.active = true;
+        });
+    }
+    public update(dt: number): void {
+        const motion = this.modeMotion;
+        if (!motion) return;
+        motion.elapsed += Math.max(0, dt);
+        const t = Math.min(1, motion.elapsed / MODE_SWITCH_SECONDS);
+        const p = motion.target === 'build' ? t : 1 - t;
+        this.pose(motion.tracks[0], 1 - ease(p / .54), -54);
+        this.pose(motion.tracks[1], ease((p - .27) / .64), -54);
+        this.pose(motion.tracks[2], ease((p - .22) / .56), 18);
+        motion.tracks.slice(3).forEach((track, index) => this.pose(track, ease((p - .27 - index * .06) / .49), -24));
+        if (t === 1) this.finishModeMotion(true);
+    }
+    private pose(track: { opacity: UIOpacity; y: number }, visibility: number, offset: number): void {
+        const { opacity, y } = track, node = opacity.node;
+        opacity.opacity = Math.round(255 * visibility);
+        node.setPosition(node.position.x, y + offset * (1 - visibility), node.position.z);
+    }
+    private finishModeMotion(completed: boolean): void {
+        const motion = this.modeMotion;
+        if (!motion) return;
+        this.modeMotion = null;
+        this.showMode(completed ? motion.target : this.mode);
+        for (const track of motion.tracks) this.pose(track, 1, 0);
+        motion.resolve(completed);
+    }
     public async setData(meta: MetaManager, state: Readonly<GameState>): Promise<void> {
         const generation = ++this.generation;
         const map = meta.getMap(state.currentMapId), slots = meta.getMapBuildings(map.id);
@@ -82,7 +138,6 @@ export class HomeBuildView extends BaseView {
         this.progressFill!.setScale(maximum ? progress / maximum : 0, 1, 1);
         this.claimButton!.interactable = progress === maximum && !state.receipts[`map-reward:${map.id}`];
         await Promise.all(loads);
-        if (generation === this.generation && !this.isClosed) this.setMode(this.mode);
     }
     public refreshEnergy(meta: MetaManager, state: Readonly<GameState>, now = Date.now()): void {
         this.energyHud!.setEnergy(state.energy, meta.getConstant<number>('energyMax'), state.nextEnergyAt === null ? 0 : (state.nextEnergyAt - Math.max(now, state.lastSeenAt)) / 1000);
@@ -99,5 +154,6 @@ export class HomeBuildView extends BaseView {
         const slot = /^building\.slot([1-5])\.upgrade$/.exec(id);
         return slot && this.mode === 'build' ? this.upgradeButtons[Number(slot[1]) - 1].node : null;
     }
+    protected onHidden(): void { this.finishModeMotion(false); }
     protected onClosed(): void { this.generation++; this.imageIds.clear(); }
 }

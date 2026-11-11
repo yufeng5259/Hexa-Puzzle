@@ -16,12 +16,14 @@ export function generatePuzzleUI(){
  const record=id=>registry.prefabs.find(x=>x.id===id);
  const find=(id,name)=>records.find(x=>x.id===id)||records.find(x=>x.name===name);
  const b=new Builder('PuzzlePage',[853,1844]);
+ const pageOpacity=b.component(b.root,'cc.UIOpacity',{_opacity:0});
  const background=b.node('Background',b.root,{width:853,height:1844});
  const bg=find('firstrelease.puzzle.background','玩法_完整裸背景');
  if(bg)b.sprite(background,bg.spriteFrameUuid);
  const caption=b.node('MoveCaption',b.root,{x:-64,y:660,width:250,height:60});const captionLabel=b.label(caption,'已用步数',{font_size:36,color_rgb:[40,84,93],weight:'bold'});
  const counter=b.node('Moves',b.root,{x:130,y:660,width:100,height:60});const movesLabel=b.label(counter,'0',{font_size:40,color_rgb:[40,84,93],weight:'bold'});
  const live=b.node('LiveBoard',b.root,{width:853,height:1844});
+ const entranceOpacity=b.component(live,'cc.UIOpacity',{_opacity:255});
  const board=b.node('Board',live,{x:0,y:210,width:770,height:780});
  const wood=find(null,'hex_wood_floor'),well=find('block_reuse_f714e5b86eea9964a094');
  if(!wood||!well)throw Error('Missing original puzzle materials');
@@ -65,7 +67,7 @@ export function generatePuzzleUI(){
  for(const [name,x,handler,glyph] of [['PreviousTray',-390,'previousTray','‹'],['NextTray',390,'nextTray','›']]){
   const node=b.node(name,b.root,{x,y:-390,width:50,height:150});b.label(node,glyph,{font_size:60,color_rgb:[40,84,93]});b.button(node,b.root,'FirstReleasePuzzleView',handler);
  }
- b.component(b.root,scriptType(VIEW),{board:ref(boardComp),controller:ref(controller),hintCountLabel:ref(hintCount),backButton:ref(back),settingsButton:ref(settings),undoButton:ref(undo),restartButton:ref(restart),hintButton:ref(hint)});
+ b.component(b.root,scriptType(VIEW),{board:ref(boardComp),controller:ref(controller),pageOpacity:ref(pageOpacity),entranceOpacity:ref(entranceOpacity),hintCountLabel:ref(hintCount),backButton:ref(back),settingsButton:ref(settings),undoButton:ref(undo),restartButton:ref(restart),hintButton:ref(hint)});
  const uuid=stableUuid(file);writeOnceStableMeta(path.join(PROJECT,file),{ver:'1.1.50',importer:'prefab',imported:true,uuid,files:['.json'],subMetas:{},userData:{}});
  writeFile(path.join(PROJECT,file),JSON.stringify(b.finish(),null,2)+'\n');
  return {id:'firstrelease-puzzle',uuid,bundle:'resources',resourcePath:'first-release/prefabs/PuzzlePage',assetPath:file};

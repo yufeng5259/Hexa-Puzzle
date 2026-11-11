@@ -1,4 +1,4 @@
-import { _decorator, Camera, isValid, Label, Node, UITransform, Vec3 } from 'cc';
+import { _decorator, Camera, isValid, Label, Node, UIOpacity, UITransform, Vec3 } from 'cc';
 import { BaseView } from '../../../framework/ui/BaseView';
 import type { ResourceScope } from '../../../framework/resources/ResourceScope';
 import { requireBinding } from '../../../framework/components/Binding';
@@ -14,6 +14,8 @@ const { ccclass, property } = _decorator;
 export class FirstReleasePuzzleView extends BaseView {
     @property(PuzzleBoardPresentation) public board: PuzzleBoardPresentation | null = null;
     @property(PuzzleController) public controller: PuzzleController | null = null;
+    @property(UIOpacity) public pageOpacity: UIOpacity | null = null;
+    @property(UIOpacity) public entranceOpacity: UIOpacity | null = null;
     @property(Label) public hintCountLabel: Label | null = null;
     @property(Node) public backButton: Node | null = null;
     @property(Node) public settingsButton: Node | null = null;
@@ -24,7 +26,7 @@ export class FirstReleasePuzzleView extends BaseView {
     public allowAction: ((action: string) => boolean) | null = null;
     private unsubscribe: (() => void) | null = null;
     public validateBindings(): void {
-        for (const field of ['board','controller','hintCountLabel','backButton','settingsButton','undoButton','restartButton','hintButton'] as const) requireBinding('FirstReleasePuzzleView',field,this[field]);
+        for (const field of ['board','controller','pageOpacity','entranceOpacity','hintCountLabel','backButton','settingsButton','undoButton','restartButton','hintButton'] as const) requireBinding('FirstReleasePuzzleView',field,this[field]);
     }
     public async setLevel(scope: ResourceScope, level: LevelDefinition, session: PuzzleSession, camera?: Camera | null): Promise<void> {
         this.unsubscribe?.(); this.unsubscribe=null;

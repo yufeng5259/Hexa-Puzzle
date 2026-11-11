@@ -109,3 +109,6 @@ M1–M4 是“流程串通”，只做必要的反馈（如吸附、数字变化
 
 
 2026-11-10返回主页图标：顶部及建造共享返回改为小房子，与底部蓝色撤销箭头区分。正式PNG/PSD/配置/入口已同步；154项测试、类型/资源审核及Creator18项专项通过。[汇总](D:/CodexData/Artifacts/HexaPuzzle返回主页图标20261110/verification.json)。
+
+
+2026-11-11拼图转场：已完成先准备再显示、真实青蓝淡入淡出、轻落位、输入/引导延后及主页预加载，参数在Constants.xlsx。170项自动测试、类型/资源审核及Creator78项专项通过；包含逐帧与真实像素检查、慢加载/失败恢复/首次教学。[本轮证据](D:/CodexData/Artifacts/HexaPuzzle拼图转场修复20261111/verification.json)。

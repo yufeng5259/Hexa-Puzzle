@@ -1,4 +1,4 @@
-import { _decorator, Canvas, Component, Director, director, Game, game, isValid, JsonAsset, Label, Node, Prefab, ResolutionPolicy, resources, screen, Size, sys, UITransform, view } from 'cc';
+import { _decorator, Canvas, Component, Director, director, Game, game, isValid, JsonAsset, Label, Node, Prefab, ResolutionPolicy, resources, screen, Size, SpriteFrame, sys, UITransform, view } from 'cc';
 import { EDITOR } from 'cc/env';
 import { ViewHost } from '../framework/ui/ViewHost';
 import { BaseView } from '../framework/ui/BaseView';
@@ -7,6 +7,7 @@ import { GardenAssetStore, FoundationArtManifest, FoundationPrefabRegistry } fro
 import { LoadingPageView } from '../features/boot/ui/LoadingPageView';
 import { HomeBuildView } from '../features/home/ui/HomeBuildView';
 import { FirstReleaseDialogView, DialogOptions } from '../features/common/ui/FirstReleaseDialogView';
+import { PageTransitionView } from '../features/common/ui/PageTransitionView';
 import { FirstReleasePuzzleView } from '../features/puzzle/ui/FirstReleasePuzzleView';
 import { PuzzleSession, PuzzleSessionSnapshot } from '../features/puzzle/session/PuzzleSession';
 import { LevelCatalog } from '../features/puzzle/data/LevelCatalog';
@@ -49,6 +50,9 @@ export class FirstReleaseBoot extends Component {
     private dialogEpoch = 0;
     private syncingBrowserFrame = false;
     private welcomeOpening = false;
+    private puzzleOpening = false;
+    private transition: PageTransitionView | null = null;
+    private puzzlePreloadScope: ResourceScope | null = null;
     /** Candidate currently produced by the live session's own rules; it needs no replay proof. */
     private trustedSnapshot: PuzzleSessionSnapshot | null = null;
 
@@ -82,6 +86,8 @@ export class FirstReleaseBoot extends Component {
             this.unsubscribe = this.services.subscribe(event => { this.eventQueue.push(event); this.requestRender(); });
             this.loading.setProgress(.65);
             this.overlay = await this.mount('first-guide', GuideOverlayView, 'guide');
+            this.transition = await this.mount('page-transition', PageTransitionView, 'guide');
+            this.transition.reset();
             this.guide = new GuideCoordinator(this.meta, this.services, this.overlay, {
                 route: () => ({ route: this.currentRoute, homeMode: this.homeMode, dialogKind: this.dialogKind,
                     puzzle: this.puzzleView, home: this.homeView, dialog: this.dialogView }),
@@ -136,43 +142,89 @@ export class FirstReleaseBoot extends Component {
         this.puzzleView?.close(); this.puzzleView = null;
         this.homeMode = mode; this.homeView.setMode(mode); this.homeView.show(); this.currentRoute = mode;
         this.guide?.sync(); this.fit();
+        this.scheduleOnce(this.preloadPuzzle, 0);
         if (this.services!.getGuidePhase() === 'welcome') await this.showWelcome();
     }
     private allowsAction(action: string): boolean {
+        if (this.puzzleOpening || this.homeView?.modeSwitching) return false;
         if (this.services?.getGuidePhase() === 'complete') return true;
         return !!this.guide?.allowsAction(action);
     }
     private async showPuzzle(): Promise<void> {
-        const attempt = this.services!.startOrResume();
-        const level = this.catalog!.getById(attempt.puzzleId);
-        const session = new PuzzleSession(level, attempt.attemptId);
-        if (attempt.snapshot) session.restore(attempt.snapshot as PuzzleSessionSnapshot);
-        session.beforeCommit = candidate => {
-            this.trustedSnapshot = candidate;
-            try { this.services!.saveAttempt(candidate); } finally { this.trustedSnapshot = null; }
-        };
-        const next = await this.mount('firstrelease-puzzle', FirstReleasePuzzleView);
+        if (this.puzzleOpening || this.disposed) return;
+        this.puzzleOpening = true;
+        let next: FirstReleasePuzzleView | null = null;
+        let committed = false;
         try {
+            const attempt = this.services!.startOrResume();
+            const level = this.catalog!.getById(attempt.puzzleId);
+            const session = new PuzzleSession(level, attempt.attemptId);
+            if (attempt.snapshot) session.restore(attempt.snapshot as PuzzleSessionSnapshot);
+            session.beforeCommit = candidate => {
+                this.trustedSnapshot = candidate;
+                try { this.services!.saveAttempt(candidate); } finally { this.trustedSnapshot = null; }
+            };
+            const curtain = this.transition!;
+            curtain.begin(); this.guide?.suspend(); this.puzzleView?.controller?.suspend();
+            next = await this.mount('firstrelease-puzzle', FirstReleasePuzzleView);
+            next.controller!.enabled = false;
             const scope = this.assets!.createScope();
             // Board borrows an explicit scope owned by the view's entire lifetime.
             next.node.once(Node.EventType.NODE_DESTROYED, () => director.once(Director.EVENT_AFTER_UPDATE, () => scope.release()));
             await next.setLevel(scope, { ...level, mainlineNumber: attempt.levelNo }, session, this.node.getComponent(Canvas)?.cameraComponent);
             if (this.disposed || next.isClosed) return;
-            this.closeDialog(); this.homeView?.hide(); this.puzzleView?.close(); this.puzzleView = next;
-            this.currentRoute = 'puzzle'; this.outcomeId = '';
             next.setHints(this.services!.state.hints);
             next.controller!.onError = error => this.notice(this.message(error));
-            this.guide!.attachPuzzle(next, () => !!this.dialogView);
             next.controller!.onOutcome = () => { this.requestRender(); };
-            this.guide!.sync(true); this.fit(); next.controller!.resume();
-        } catch (error) { next.close(); throw error; }
+            this.fit();
+            if (!await curtain.cover(this.meta!.getConstant<number>('puzzleTransitionFadeSeconds')) || this.disposed) return;
+            this.closeDialog(); this.homeView?.hide(); this.puzzleView?.close(); this.puzzleView = next;
+            this.currentRoute = 'puzzle'; this.outcomeId = '';
+            committed = true;
+            next.pageOpacity!.opacity = 255;
+            this.guide!.attachPuzzle(next, () => !!this.dialogView || this.puzzleOpening);
+            if (!await curtain.reveal(this.meta!.getConstant<number>('puzzleTransitionFadeSeconds'), next.entranceOpacity!,
+                this.meta!.getConstant<number>('puzzleEnterMotionSeconds')) || this.disposed) return;
+        } catch (error) {
+            // Restart/next may already have ended the old attempt. Do not revive its stale controller.
+            if (!this.disposed && !committed && this.currentRoute === 'puzzle' && this.puzzleView?.session
+                && this.puzzleView.session.attemptId !== this.services!.state.activeAttempt?.attemptId) {
+                await this.showHome('home');
+            }
+            throw error;
+        } finally {
+            if (!committed && next && isValid(next, true)) next.close();
+            this.puzzleOpening = false;
+            if (!this.disposed) {
+                this.transition?.reset();
+                if (committed && next && !next.isClosed) { next.controller!.enabled = true; next.controller!.resume(); }
+                else if (this.puzzleView?.session?.attemptId === this.services?.state.activeAttempt?.attemptId) this.puzzleView?.controller?.resume();
+                this.guide?.sync(committed); this.requestRender();
+            }
+        }
     }
+    /** A small application-owned warm cache; never owns live page instances. */
+    private readonly preloadPuzzle = (): void => {
+        if (this.disposed || this.puzzlePreloadScope || !this.meta?.getConstant<boolean>('puzzlePreloadEnabled')) return;
+        const scope = this.assets!.createScope(); this.puzzlePreloadScope = scope;
+        void scope.load('prefab:firstrelease-puzzle', Prefab).then(prefab => {
+            if (this.disposed || scope.isReleased) return;
+            const board = prefab.data.getComponent(FirstReleasePuzzleView)?.board;
+            if (!board) throw new Error('Missing preloaded puzzle presentation');
+            const textures = JSON.parse(board.textureAssetIds) as Record<string, string>;
+            return Promise.all([...new Set([board.wellAssetId, board.obstacleAssetId, ...Object.values(textures)])]
+                .map(id => scope.load(id, SpriteFrame)));
+        }).catch(() => {
+            scope.release();
+            if (this.puzzlePreloadScope === scope) this.puzzlePreloadScope = null;
+        });
+    };
     private requestRender(): void {
         if (this.disposed || this.renderPending) return;
         this.renderPending = true;
         this.scheduleOnce(() => {
             this.renderPending = false;
-            if (this.disposed) return;
+            if (this.disposed || this.puzzleOpening || this.homeView?.modeSwitching) return;
             // The guide consumes committed events before views react to them.
             this.guide?.deliver(this.eventQueue.splice(0));
             if (this.homeView?.isShown && this.services!.getGuidePhase() !== 'welcome') void this.homeView.setData(this.meta!, this.services!.state).catch(error => this.notice(this.message(error)));
@@ -239,8 +291,11 @@ export class FirstReleaseBoot extends Component {
             return;
         }
         if (action === 'home:play' || action === 'result:next' || action === 'coins:play') { await this.showPuzzle(); return; }
-        if (action === 'home:build' || action === 'home:back' || action === 'result:home' || action === 'puzzle:home') {
-            await this.showHome(action === 'home:build' ? 'build' : 'home'); return;
+        if (action === 'home:build' || action === 'home:back') {
+            await this.switchHomeMode(action === 'home:build' ? 'build' : 'home'); return;
+        }
+        if (action === 'result:home' || action === 'puzzle:home') {
+            await this.showHome('home'); return;
         }
         if (action === 'settings') { await this.openSettings(); return; }
         if (action.startsWith('settings:')) {
@@ -286,6 +341,21 @@ export class FirstReleaseBoot extends Component {
             await this.openDialog({ title: '放弃本局？', body: state.activeAttempt?.tutorial ? '本关教学不会消耗体力。' : '放弃会消耗' + this.meta!.getConstant<number>('energyFailureCost') + '点体力。', primary: '放弃', primaryAction: 'puzzle:abandon', secondary: '取消' }); return;
         }
     }
+    private async switchHomeMode(mode: 'home' | 'build'): Promise<void> {
+        const home = this.homeView;
+        if (!home?.isShown || this.dialogView || this.currentRoute !== this.homeMode || this.homeMode === mode) return;
+        this.guide?.suspend();
+        try {
+            if (await home.animateMode(mode) && !this.disposed) {
+                this.homeMode = mode; this.currentRoute = mode;
+            }
+        } finally {
+            if (!this.disposed) {
+                if (home.isShown) this.guide?.sync();
+                this.requestRender();
+            }
+        }
+    }
     private async openSettings(): Promise<void> {
         await this.openDialog({ title: '设置', body: '', primary: '确定', primaryAction: 'dialog:close', settings: this.services!.state.settings }, 'settings');
     }
@@ -307,7 +377,7 @@ export class FirstReleaseBoot extends Component {
         if (!this.services || this.disposed) return;
         try {
             this.services.refresh(); this.homeView?.refreshEnergy(this.meta!, this.services.state);
-            this.guide?.tick();
+            if (!this.puzzleOpening && !this.homeView?.modeSwitching) this.guide?.tick();
             if (this.ready && this.homeView?.isShown && (this.currentRoute === 'home' || this.currentRoute === 'build') && this.services.getGuidePhase() === 'welcome' && !this.dialogView && !this.navigating) void this.showWelcome().catch(error => this.notice(this.message(error), true));
             if (this.dialogKind === 'energy') this.dialogView?.configure({ title: '体力不足', body: this.energyMessage(), primary: '知道了', secondary: '回家', secondaryAction: 'result:home' });
         } catch (error) { this.notice(this.message(error)); }
@@ -344,7 +414,8 @@ export class FirstReleaseBoot extends Component {
         this.disposed = true; this.ready = false; this.unsubscribe?.(); this.guide?.dispose();
         view.off('canvas-resize', this.fit, this); game.off(Game.EVENT_HIDE, this.checkpoint, this); game.off(Game.EVENT_SHOW, this.onForeground, this);
         this.unscheduleAllCallbacks(); this.host?.closeAll();
-        const documents = this.documents.splice(0), scope = this.dataScope;
-        director.once(Director.EVENT_AFTER_UPDATE, () => { scope?.release(); documents.forEach(asset => asset.decRef()); });
+        const documents = this.documents.splice(0), scope = this.dataScope, preload = this.puzzlePreloadScope;
+        this.puzzlePreloadScope = null;
+        director.once(Director.EVENT_AFTER_UPDATE, () => { scope?.release(); preload?.release(); documents.forEach(asset => asset.decRef()); });
     }
 }

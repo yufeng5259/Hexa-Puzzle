@@ -52,6 +52,10 @@ function validate(tables,levels){
   const v=constant(id);check(tables.Constants[id],'value',Number.isSafeInteger(v)&&v>=0,'nonnegative safe integer required');
  }
  if(constant('energyMax')<1||constant('energyRecoverSeconds')<1||constant('energyInitial')>constant('energyMax'))error('Constants.xlsx','invalid energy bounds');
+ for(const [id,max] of [['puzzleTransitionFadeSeconds',1],['puzzleEnterMotionSeconds',.5]]){
+  const value=constant(id);check(tables.Constants[id],'value',typeof value==='number'&&Number.isFinite(value)&&value>=0&&value<=max,`finite duration in 0..${max} seconds required`);
+ }
+ check(tables.Constants.puzzlePreloadEnabled,'value',typeof constant('puzzlePreloadEnabled')==='boolean','boolean required');
  if(!tables.Maps[constant('firstMapId')])error('Constants.xlsx/firstMapId','unknown map');
  if(!tables.Rewards[constant('welcomeRewardId')])error('Constants.xlsx/welcomeRewardId','unknown reward');
  for(const row of entries('Rewards'))for(const field of ['coins','energy','hints'])check(row,field,row[field]>=0,'negative reward');

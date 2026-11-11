@@ -17,6 +17,7 @@
     "tray:verify-native": "node tools/first-release/verify-tray.mjs",
     "obstacle:verify-native": "node tools/first-release/verify-obstacle.mjs",
     "buttons:verify-native": "node tools/first-release/verify-puzzle-buttons.mjs",
-    "homeicon:verify-native": "node tools/first-release/verify-home-icon.mjs"
+    "homeicon:verify-native": "node tools/first-release/verify-home-icon.mjs",
+    "transition:verify-native": "node tools/first-release/verify-puzzle-transition.mjs"
   }
 }

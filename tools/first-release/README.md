@@ -29,3 +29,8 @@ npm run buttons:verify-native：拼图撤销/重玩/提示的新图、165尺寸�
 
 
 npm run homeicon:verify-native：返回主页小房子与底部原撤销箭头的资源、375/430布局及真实暂停/取消/保留本局回家、建造返回测试。默认Creator7457，可通过CREATOR_PREVIEW_URL覆盖；独立存档，输出root tmp/prototype/first-release/home-icon-native/。
+
+
+npm run transition:verify-native：Creator逐绘制帧检查主页/慢加载/恢复/重玩/下一关的拼图转场，默认7457，可CREATOR_PREVIEW_URL覆盖。PuzzlePage根pageOpacity预设0，业务准备完成后统一显示，PageTransition正式Prefab负责覆盖/淡出和输入拦截；参数来自Constants.xlsx。预加载独立持有应用scope，不共享玩家数据存档。故障和持久进度测试使用独立存档及明确条件，输出root tmp/prototype/first-release/transition-native/。
+
+美术静态导出表示准备完成的PuzzlePage（根opacity=255），不能把运行时初始透明状态当作正式美术效果；旧全量导出仍受其几何来源哈希门禁，不为本次转场重生整套美术。

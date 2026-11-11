@@ -6,6 +6,7 @@ import { scriptType, external } from '../prefab-foundation/builder.mjs';
 import { validateScene } from '../prefab-foundation/scene-contract.mjs';
 import { generatePuzzleUI } from './puzzle-ui.mjs';
 import { generateGuidePrefab } from './guide-ui.mjs';
+import { generateTransitionUI } from './transition-ui.mjs';
 
 const read = file => JSON.parse(fs.readFileSync(path.join(PROJECT, file), 'utf8'));
 const ART = 'assets/resources/framework/config/source-art-manifest.json';
@@ -34,7 +35,7 @@ for (const record of [...(additions.records || []), ...(guideArt.records || []),
 }
 art.sourceCount = art.records.length;
 registry.aliases = {...registry.aliases,...additions.aliases};
-const records = [...additions.prefabs,generatePuzzleUI(),generateGuidePrefab()];
+const records = [...additions.prefabs,generatePuzzleUI(),generateGuidePrefab(),generateTransitionUI()];
 for (const record of records) {
     const index = registry.prefabs.findIndex(item=>item.id===record.id);
     if(index>=0) registry.prefabs[index]={...registry.prefabs[index],...record}; else registry.prefabs.push(record);

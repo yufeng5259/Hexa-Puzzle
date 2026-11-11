@@ -101,6 +101,10 @@ def puzzle_layers():
   if shape['texture']:shape['texture']['source_file']=catalog_sources.get(shape['texture']['asset_id'],shape['texture']['source_file'])
  dump(CFG/'拼图参数化组件.json',g)
  o=read(P/g['source_prefab'])
+ # Art previews represent the prepared page, never its transparent runtime loading state.
+ root=o[o[0]['data']['__id__']]
+ opacity=comp(o,root,'cc.UIOpacity')
+ if opacity:opacity['_opacity']=255
  for n in o:
   if n.get('__type__')=='cc.Node' and n.get('_name') in g['exclude_static_subtrees']:n['_active']=False
   elif n.get('__type__')=='cc.Label':

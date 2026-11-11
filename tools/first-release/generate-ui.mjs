@@ -88,6 +88,7 @@ function home() {
     const eh=energy(b,hud,185,770);
     const settings=button(b,'Settings',hud,{x:352,y:770,width:104,height:104},'block_hud_设置木质齿轮','settings');
     const mapName=label(b,'MapName',hud,{y:660,width:700,height:70},'向阳蜂谷',36);
+    b.objects[owner(b,mapName)]._active=false;
     const upgradeRoot=b.node('UpgradeAnchors',map,{width:853,height:1844},false);
     const upgrades=[],costs=[],stages=[],stageSprites=[];
     for(let i=0;i<5;i++) {
@@ -117,8 +118,13 @@ function home() {
     const progress=label(b,'Progress',buildBottom,{y:-810,width:450,height:60},'0/25',30,[255,255,255]);
     label(b,'BuildCaption',buildBottom,{y:-750,width:450,height:50},'花园建设',30);
     const claim=button(b,'MapGift',buildBottom,{x:320,y:-785,width:125,height:125},'block_建造界面_树屋奖励礼物','map:claim');
-    b.component(b.root,scriptType('assets/scripts/features/home/ui/HomeBuildView.ts'),{
+    const view=b.component(b.root,scriptType('assets/scripts/features/home/ui/HomeBuildView.ts'),{
         mapRoot:ref(map),background:ref(background),homeBottom:ref(homeBottom),buildBottom:ref(buildBottom),upgradeRoot:ref(upgradeRoot),coinLabel:ref(coins),levelLabel:ref(level),progressLabel:ref(progress),mapNameLabel:ref(mapName),progressFill:ref(fill),energyHud:ref(eh),playButton:ref(play),buildButton:ref(buildButton),backButton:ref(back),settingsButton:ref(settings),claimButton:ref(claim),buildingSprites,rotorSprites,upgradeButtons:upgrades,costLabels:costs,stageLabels:stages,stageSprites
+    });
+    const opacity=node=>ref(b.component(node,'cc.UIOpacity',{_opacity:255}));
+    Object.assign(b.objects[view],{
+        homeBottomOpacity:opacity(homeBottom),buildBottomOpacity:opacity(buildBottom),mapNameOpacity:opacity(owner(b,mapName)),
+        upgradeOpacities:upgrades.map(control=>opacity(owner(b,control.__id__)))
     });
     publish(b,'HomeBuild');
 }
