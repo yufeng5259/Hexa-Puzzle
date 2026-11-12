@@ -1,0 +1,121 @@
+{
+  "page": "S01",
+  "reference": "效果图/S01_加载_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-2",
+  "elements": [
+    {
+      "id": "bg_loading",
+      "asset": "背景/bg_loading.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "logo_title",
+      "asset": "UI/通用/logo_title.png",
+      "rect": [
+        200,
+        55,
+        454,
+        248
+      ]
+    },
+    {
+      "id": "bee_loading",
+      "asset": "角色/bee_loading.png",
+      "rect": [
+        246,
+        855,
+        362,
+        544
+      ]
+    },
+    {
+      "id": "home_bottom_bar",
+      "asset": "UI/主页/home_bottom_bar.png",
+      "rect": [
+        24,
+        1498,
+        806,
+        155
+      ],
+      "slice": true
+    },
+    {
+      "id": "bar_bg",
+      "asset": "UI/通用/bar_bg.png",
+      "rect": [
+        67,
+        1528,
+        720,
+        81
+      ],
+      "slice": true
+    },
+    {
+      "id": "bar_fill_green",
+      "asset": "UI/通用/bar_fill_green.png",
+      "rect": [
+        72,
+        1533,
+        464,
+        71
+      ],
+      "slice": true
+    },
+    {
+      "id": "loading_percent",
+      "type": "label",
+      "text": "65%",
+      "rect": [
+        320,
+        1534,
+        214,
+        69
+      ],
+      "fontSize": 48,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "loading_caption",
+      "type": "label",
+      "text": "正在准备蜂巢家园…",
+      "rect": [
+        137,
+        1663,
+        580,
+        58
+      ],
+      "fontSize": 40,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#397E53",
+      "outlineWidth": 1,
+      "dynamic": false
+    }
+  ],
+  "state": "loading",
+  "notes": "进度来自资源/配置/存档准备状态；失败转S24-A，不绘制假完成。"
+}

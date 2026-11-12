@@ -1,0 +1,548 @@
+{
+  "page": "S16",
+  "reference": "效果图/S16_地图选择_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "5b09194d753eac62229ead5791ebe75266c8c20fbefbe6e523e9721b3ce23fcd",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-2",
+  "elements": [
+    {
+      "id": "background",
+      "asset": "../地图/M01_晨露蜂园_背景.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "hud_bar_bg",
+      "asset": "UI/HUD/hud_bar_bg.png",
+      "rect": [
+        0,
+        0,
+        854,
+        147
+      ]
+    },
+    {
+      "id": "bar_bg",
+      "asset": "UI/通用/bar_bg.png",
+      "rect": [
+        70,
+        53,
+        214,
+        56
+      ],
+      "slice": true
+    },
+    {
+      "id": "bar_fill_green",
+      "asset": "UI/通用/bar_fill_green.png",
+      "rect": [
+        78,
+        59,
+        163,
+        42
+      ],
+      "slice": true
+    },
+    {
+      "id": "hud_level_badge",
+      "asset": "UI/HUD/hud_level_badge.png",
+      "rect": [
+        17,
+        25,
+        101,
+        108
+      ]
+    },
+    {
+      "id": "player_level",
+      "type": "label",
+      "text": "2",
+      "rect": [
+        27,
+        48,
+        77,
+        69
+      ],
+      "fontSize": 52,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true,
+      "outlineColor": "#00000000",
+      "outlineWidth": 0
+    },
+    {
+      "id": "hud_energy",
+      "asset": "UI/HUD/hud_capsule_light.png",
+      "rect": [
+        299,
+        44,
+        189,
+        72
+      ],
+      "slice": true
+    },
+    {
+      "id": "energy_icon",
+      "asset": "UI/图标/icon_energy.png",
+      "rect": [
+        307,
+        46,
+        70,
+        64
+      ]
+    },
+    {
+      "id": "energy_value",
+      "type": "label",
+      "text": "4/5",
+      "rect": [
+        381,
+        53,
+        96,
+        54
+      ],
+      "fontSize": 38,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true,
+      "outlineColor": "#00000000",
+      "outlineWidth": 0
+    },
+    {
+      "id": "hud_coin",
+      "asset": "UI/HUD/hud_capsule_light.png",
+      "rect": [
+        507,
+        44,
+        219,
+        72
+      ],
+      "slice": true
+    },
+    {
+      "id": "coin_icon",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        506,
+        40,
+        79,
+        79
+      ]
+    },
+    {
+      "id": "coin_value",
+      "type": "label",
+      "text": "1,280",
+      "rect": [
+        588,
+        54,
+        121,
+        53
+      ],
+      "fontSize": 38,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true,
+      "outlineColor": "#00000000",
+      "outlineWidth": 0
+    },
+    {
+      "id": "hud_btn_square_purple",
+      "asset": "UI/HUD/hud_btn_square_purple_normal.png",
+      "rect": [
+        740,
+        29,
+        101,
+        100
+      ]
+    },
+    {
+      "id": "icon_settings",
+      "asset": "UI/图标/icon_settings.png",
+      "rect": [
+        760,
+        47,
+        62,
+        65
+      ]
+    },
+    {
+      "id": "hud_btn_square_blue",
+      "asset": "UI/HUD/hud_btn_square_blue_normal.png",
+      "rect": [
+        22,
+        162,
+        108,
+        101
+      ]
+    },
+    {
+      "id": "icon_back",
+      "asset": "UI/图标/icon_back.png",
+      "rect": [
+        46,
+        184,
+        61,
+        58
+      ]
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "蜂群地图",
+      "rect": [
+        268,
+        169,
+        326,
+        73
+      ],
+      "fontSize": 52,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#2077B7",
+      "outlineWidth": 2,
+      "dynamic": false
+    },
+    {
+      "id": "m01_card",
+      "asset": "UI/地图选择/map_card_current.png",
+      "rect": [
+        24,
+        296,
+        807,
+        514
+      ],
+      "slice": true
+    },
+    {
+      "id": "m01_thumbnail",
+      "asset": "UI/地图选择/map_thumb_m01.png",
+      "rect": [
+        44,
+        315,
+        767,
+        350
+      ],
+      "fit": "cover"
+    },
+    {
+      "id": "m01_name",
+      "type": "label",
+      "text": "晨露蜂园",
+      "rect": [
+        62,
+        681,
+        243,
+        64
+      ],
+      "fontSize": 43,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "map_tag_current",
+      "asset": "UI/地图选择/map_tag_current.png",
+      "rect": [
+        288,
+        675,
+        168,
+        51
+      ]
+    },
+    {
+      "id": "current_tag",
+      "type": "label",
+      "text": "当前地图",
+      "rect": [
+        300,
+        682,
+        144,
+        39
+      ],
+      "fontSize": 25,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "map_progress_bg",
+      "asset": "UI/通用/bar_bg.png",
+      "rect": [
+        66,
+        740,
+        451,
+        42
+      ],
+      "slice": true
+    },
+    {
+      "id": "map_progress_fill",
+      "asset": "UI/通用/bar_fill_green.png",
+      "rect": [
+        72,
+        745,
+        157,
+        32
+      ],
+      "slice": true
+    },
+    {
+      "id": "map_progress",
+      "type": "label",
+      "text": "9/25",
+      "rect": [
+        209,
+        741,
+        165,
+        39
+      ],
+      "fontSize": 29,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "enter",
+      "asset": "UI/通用/btn_blue_normal.png",
+      "rect": [
+        561,
+        688,
+        241,
+        90
+      ],
+      "slice": true
+    },
+    {
+      "id": "enter_text",
+      "type": "label",
+      "text": "进入",
+      "rect": [
+        593,
+        701,
+        177,
+        60
+      ],
+      "fontSize": 42,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "m02_card",
+      "asset": "UI/地图选择/map_card_locked.png",
+      "rect": [
+        24,
+        828,
+        807,
+        388
+      ],
+      "slice": true
+    },
+    {
+      "id": "m02_thumbnail",
+      "asset": "UI/地图选择/map_thumb_m02.png",
+      "rect": [
+        44,
+        847,
+        767,
+        268
+      ],
+      "fit": "cover"
+    },
+    {
+      "id": "m02_name",
+      "type": "label",
+      "text": "繁花溪谷",
+      "rect": [
+        62,
+        1128,
+        243,
+        64
+      ],
+      "fontSize": 43,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "m02_lock",
+      "asset": "UI/通用/mark_lock.png",
+      "rect": [
+        365,
+        1135,
+        62,
+        59
+      ]
+    },
+    {
+      "id": "m02_condition",
+      "type": "label",
+      "text": "完成晨露蜂园后解锁",
+      "rect": [
+        425,
+        1137,
+        365,
+        53
+      ],
+      "fontSize": 30,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "m03_card",
+      "asset": "UI/地图选择/map_card_locked.png",
+      "rect": [
+        24,
+        1234,
+        807,
+        402
+      ],
+      "slice": true
+    },
+    {
+      "id": "m03_thumbnail",
+      "asset": "UI/地图选择/map_thumb_m03.png",
+      "rect": [
+        44,
+        1253,
+        767,
+        275
+      ],
+      "fit": "cover"
+    },
+    {
+      "id": "m03_name",
+      "type": "label",
+      "text": "巨树蜂城",
+      "rect": [
+        62,
+        1548,
+        243,
+        64
+      ],
+      "fontSize": 43,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "m03_lock",
+      "asset": "UI/通用/mark_lock.png",
+      "rect": [
+        365,
+        1555,
+        62,
+        59
+      ]
+    },
+    {
+      "id": "m03_condition",
+      "type": "label",
+      "text": "完成繁花溪谷后解锁",
+      "rect": [
+        425,
+        1557,
+        365,
+        53
+      ],
+      "fontSize": 30,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "return_home",
+      "asset": "UI/通用/btn_blue_normal.png",
+      "rect": [
+        191,
+        1673,
+        472,
+        122
+      ],
+      "slice": true
+    },
+    {
+      "id": "return_home_text",
+      "type": "label",
+      "text": "返回家园",
+      "rect": [
+        223,
+        1694,
+        408,
+        75
+      ],
+      "fontSize": 49,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    }
+  ],
+  "modal": false,
+  "state": "map_selection",
+  "scrollArea": [
+    20,
+    288,
+    815,
+    1357
+  ],
+  "notes": "缩略图用既有地图+满级建筑组合，fit=cover按目标裁切；未来地图不响应进入，不伪造可领奖红点。"
+}

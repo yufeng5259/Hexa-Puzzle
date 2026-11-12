@@ -1,0 +1,180 @@
+{
+  "page": "S14",
+  "reference": "效果图/S14_单栋建筑满级_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "07922218913fdf155dee9fc63431a7742eab33f5aebca958316c399c07ca5b47",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-2",
+  "elements": [
+    {
+      "id": "hud_capsule_light",
+      "asset": "UI/HUD/hud_capsule_light.png",
+      "rect": [
+        537,
+        236,
+        296,
+        67
+      ],
+      "slice": true
+    },
+    {
+      "id": "building_complete",
+      "type": "label",
+      "text": "建筑完成 · 金币+30",
+      "rect": [
+        549,
+        248,
+        272,
+        42
+      ],
+      "fontSize": 24,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    }
+  ],
+  "overlay": true,
+  "underlay": "S03",
+  "underlayOverrides": {
+    "B01": {
+      "asset": "建筑/B01_蜂巢主屋/B01_L5.png",
+      "level": 5
+    },
+    "B01_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_2": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_3": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_4": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_5": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B02": {
+      "asset": "建筑/B02_采蜜工坊/B02_L2.png",
+      "level": 2
+    },
+    "B02_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B02_dot_2": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B02_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B02_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B02_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03": {
+      "asset": "建筑/B03_花粉仓库/B03_L1.png",
+      "level": 1
+    },
+    "B03_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B03_dot_2": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B04": {
+      "asset": "建筑/B04_蜂蜜水车/B04_L2.png",
+      "level": 2
+    },
+    "B04_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B04_dot_2": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B04_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B04_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B04_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05": {
+      "asset": "建筑/B05_花园亭/B05_L1.png",
+      "level": 1
+    },
+    "B05_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B05_dot_2": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "player_level": {
+      "text": "3"
+    },
+    "home_progress": {
+      "text": "11/25"
+    },
+    "bar_fill_green": {
+      "rect": [
+        78,
+        59,
+        220,
+        42
+      ],
+      "fillAmount": 0.1,
+      "fillMode": "horizontal"
+    },
+    "bar_fill_green_2": {
+      "rect": [
+        211,
+        1751,
+        187,
+        36
+      ]
+    }
+  },
+  "underlayExcludeIds": [
+    "B01_cost",
+    "B01_coin",
+    "B01_cost_text"
+  ],
+  "modal": false,
+  "dismissOnMask": false,
+  "transientSeconds": 2,
+  "notes": "非模态到账反馈；主屋满级后移除其价格和购买热区，五点全绿。其余建筑仍可建造。"
+}

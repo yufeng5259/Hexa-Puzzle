@@ -1,0 +1,354 @@
+[
+  {
+    "id": "map_card",
+    "name": "地图选择卡片底",
+    "states": {
+      "current": "UI/地图选择/map_card_current.png",
+      "done": "UI/地图选择/map_card_done.png",
+      "locked": "UI/地图选择/map_card_locked.png"
+    },
+    "size": [
+      180,
+      180
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S16 参考重建",
+    "sourceFile": "效果图/S16_地图选择_BlockHexa风格.png",
+    "sourceHash": "5b09194d753eac62229ead5791ebe75266c8c20fbefbe6e523e9721b3ce23fcd",
+    "priority": "P1",
+    "sha256": {
+      "current": "a2377611556dead7c8bb2aac671b445c12e18f4e7850a46c463b0d26c53b7f2e",
+      "done": "7b1a44ee472458ab1c55b0ffc0f17f147ac6bd37833d08ec4d02b867ee0253d4",
+      "locked": "ed57cbf0c0b1ab7c98d11691bdb51885ea85b6bdcc7543fddaad2375a7e196e8"
+    },
+    "slice": [
+      48,
+      48,
+      48,
+      48
+    ]
+  },
+  {
+    "id": "map_tag_current",
+    "name": "当前地图橙色角标底",
+    "states": {
+      "normal": "UI/地图选择/map_tag_current.png"
+    },
+    "size": [
+      174,
+      54
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S16 参考重建",
+    "sourceFile": "效果图/S16_地图选择_BlockHexa风格.png",
+    "sourceHash": "5b09194d753eac62229ead5791ebe75266c8c20fbefbe6e523e9721b3ce23fcd",
+    "priority": "P1",
+    "sha256": {
+      "normal": "3dda527324028d3cc245d3d7f5c28113e3363f4298dfde15fec35341cda015fe"
+    },
+    "slice": [
+      28,
+      18,
+      28,
+      18
+    ]
+  },
+  {
+    "id": "map_thumb_m01",
+    "name": "晨露蜂园满级地图缩略图",
+    "states": {
+      "normal": "UI/地图选择/map_thumb_m01.png"
+    },
+    "size": [
+      768,
+      350
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "M01 既有背景+全部L5建筑按原落位JSON合成，裁切并等比缩放，无重绘",
+    "sourceFile": "效果图/S16_地图选择_BlockHexa风格.png",
+    "sourceHash": "5b09194d753eac62229ead5791ebe75266c8c20fbefbe6e523e9721b3ce23fcd",
+    "priority": "P1",
+    "sha256": {
+      "normal": "f13d76b482b8345690e77ac1890811bab876213eb4b54101a39a1cd8479f569b"
+    },
+    "sources": [
+      {
+        "file": "地图/M01_晨露蜂园_背景.png",
+        "sha256": "5c89a5646ca9e337a8e0f71682cef6f9417e80b73aa02b34bef3455fa103e869"
+      },
+      {
+        "file": "地图/M01_建筑布局.json",
+        "sha256": "1d7f6057c87605766142ee117de2cb0d63ba26e6b2475896ed7f3615caf45bfa"
+      },
+      {
+        "file": "素材/建筑/B01_蜂巢主屋/B01_L5.png",
+        "sha256": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+      },
+      {
+        "file": "素材/建筑/B02_采蜜工坊/B02_L5.png",
+        "sha256": "ccdbd0735a6a08098b2ada1a2209111d28d1dc8131bafb6707373e17a37b879b"
+      },
+      {
+        "file": "素材/建筑/B03_花粉仓库/B03_L5.png",
+        "sha256": "e8880c91174a2797a5f553fd269314f5693f25dae5f80adc37a4156e987410e0"
+      },
+      {
+        "file": "素材/建筑/B05_花园亭/B05_L5.png",
+        "sha256": "b8eb90b4588f60b7986f38ecb5c0c890c9994fefa267eb8b1aeead19eed4d275"
+      },
+      {
+        "file": "素材/建筑/B04_蜂蜜水车/B04_L5.png",
+        "sha256": "94c85a8947f1b78ce58b4454b1c376e8dd43db2191ddefc26ee3651bf68fbe9a"
+      }
+    ],
+    "cropRect": [
+      0,
+      256,
+      854,
+      645
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "recommendedDisplayMode": "landscape thumbnail, directly display; genuine landmark crop without relocating buildings"
+  },
+  {
+    "id": "map_thumb_m02",
+    "name": "繁花溪谷满级地图缩略图",
+    "states": {
+      "normal": "UI/地图选择/map_thumb_m02.png"
+    },
+    "size": [
+      768,
+      350
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "M02 既有背景+全部L5建筑按原落位JSON合成，裁切并等比缩放，无重绘",
+    "sourceFile": "效果图/S16_地图选择_BlockHexa风格.png",
+    "sourceHash": "5b09194d753eac62229ead5791ebe75266c8c20fbefbe6e523e9721b3ce23fcd",
+    "priority": "P1",
+    "sha256": {
+      "normal": "71f8e5006ca92d1241f2d5edb9eda17f047dbda6005ed0594ba12dddcf528e9a"
+    },
+    "sources": [
+      {
+        "file": "地图/M02_繁花溪谷_背景.png",
+        "sha256": "5121b7e0f93f45f4c175cf906848897a63ab674b73f610c10b5cc0d92376ba22"
+      },
+      {
+        "file": "地图/M02_建筑布局.json",
+        "sha256": "f2c5bebaffaa6d0a06a73e5806973c7822bc277c545c7a963db18dd486d20daa"
+      },
+      {
+        "file": "素材/建筑/B06_花瓣蜂屋/B06_L5.png",
+        "sha256": "169f607d495df3ace78ab1de1c9244fdf94d4ebbf3fa519e4e954a84527913da"
+      },
+      {
+        "file": "素材/建筑/B07_酿蜜工坊/B07_L5.png",
+        "sha256": "b0b63471790976cd45b90fc2073d8bcc2bcb692bf64ea7fe02837bb3e7bb3d0f"
+      },
+      {
+        "file": "素材/建筑/B09_蜜罐商铺/B09_L5.png",
+        "sha256": "3dd2f2771590bf3dd8f65815b069f6ee7366985617e278a2d8cbffbced20672d"
+      },
+      {
+        "file": "素材/建筑/B08_溪流磨坊/B08_L5.png",
+        "sha256": "b7c4f0cf795fe2856f4d3c496894b717ec72d08af43d74d2e7c5d8cbad153587"
+      },
+      {
+        "file": "素材/建筑/B10_花桥/B10_L5.png",
+        "sha256": "4e1ed971c252f60167ca3a671273481cadd867c260f3ad4cfca2f2d07293f8da"
+      }
+    ],
+    "cropRect": [
+      0,
+      276,
+      854,
+      665
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "recommendedDisplayMode": "landscape thumbnail, directly display; genuine landmark crop without relocating buildings"
+  },
+  {
+    "id": "map_thumb_m03",
+    "name": "巨树蜂城满级地图缩略图",
+    "states": {
+      "normal": "UI/地图选择/map_thumb_m03.png"
+    },
+    "size": [
+      768,
+      350
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "M03 既有背景+全部L5建筑按原落位JSON合成，裁切并等比缩放，无重绘",
+    "sourceFile": "效果图/S16_地图选择_BlockHexa风格.png",
+    "sourceHash": "5b09194d753eac62229ead5791ebe75266c8c20fbefbe6e523e9721b3ce23fcd",
+    "priority": "P1",
+    "sha256": {
+      "normal": "34fb77664d1256839a855e0a40c4e238a4460430d2518e3ef43369c7e7027d5a"
+    },
+    "sources": [
+      {
+        "file": "地图/M03_巨树蜂城_背景.png",
+        "sha256": "af2c39391a646e35deacc90db3bd02398e90e998e8e3fbd4edc4c6d32722d8ac"
+      },
+      {
+        "file": "地图/M03_建筑布局.json",
+        "sha256": "afea1ec0e6146b777bb351b7d0cce2ac81c2abdf8879c9909db690cfe9001702"
+      },
+      {
+        "file": "素材/建筑/B11_树洞蜂宫/B11_L5.png",
+        "sha256": "67757898eb6ce9c33c3593046355bfccd32ee6c2a333574a06bbdf55dceab9a6"
+      },
+      {
+        "file": "素材/建筑/B12_空中采蜜站/B12_L5.png",
+        "sha256": "b526cf2f12af71e60d1381d1a0f961e9ed8b991c44b8ad72d47e2111b9dc234a"
+      },
+      {
+        "file": "素材/建筑/B13_树脂仓库/B13_L5.png",
+        "sha256": "95e7e1b8227e1bcc92098c360345a5b2a0e82c6e0995fc65377be9ab28806be8"
+      },
+      {
+        "file": "素材/建筑/B15_蜂群广场/B15_L5.png",
+        "sha256": "c3cddf4615884ea3b9c94afe8d8d9a4540042d679df7fee02d9aed6b629079b9"
+      },
+      {
+        "file": "素材/建筑/B14_升降平台/B14_L5.png",
+        "sha256": "5d26e45174400a23d0c144b879c94d6c16cb70b2e48d6c7324bdfa617e0b612f"
+      }
+    ],
+    "cropRect": [
+      0,
+      224,
+      854,
+      613
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "recommendedDisplayMode": "landscape thumbnail, directly display; genuine landmark crop without relocating buildings"
+  },
+  {
+    "id": "fx_build_scaffold",
+    "name": "蜂巢施工脚手架空心覆盖层",
+    "frames": [
+      "UI/建造/fx_build_scaffold/fx_build_scaffold_01.png",
+      "UI/建造/fx_build_scaffold/fx_build_scaffold_02.png",
+      "UI/建造/fx_build_scaffold/fx_build_scaffold_03.png"
+    ],
+    "fps": 6,
+    "size": [
+      576,
+      576
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.9444444444444444
+    ],
+    "source": "P1 新绘，S02/S03 2.5D蜂巢木构、金色与青绿配色；上左光照；独立透明覆盖层",
+    "sourceFile": "效果图/S03_建造页_BlockHexa风格.png",
+    "sourceHash": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+    "priority": "P1",
+    "sha256": {
+      "01": "7fee44f58e2200df262c5d31c2f6fa7deb0b5e5bd21fe8e0a3044601bebc28f2",
+      "02": "084a17f964b2af3108f4d861bdb3fc95858963995a69fb960d830007bb0f465b",
+      "03": "d6fb42713cb37a8651c1602c6348dd5abb6113c65fdbbe906e49723f688b7cd3"
+    },
+    "loop": false,
+    "playbackNote": "scaffold grows once, hold last frame until construction ends"
+  },
+  {
+    "id": "fx_build_dust",
+    "name": "施工烟尘",
+    "frames": [
+      "UI/建造/fx_build_dust/fx_build_dust_01.png",
+      "UI/建造/fx_build_dust/fx_build_dust_02.png",
+      "UI/建造/fx_build_dust/fx_build_dust_03.png",
+      "UI/建造/fx_build_dust/fx_build_dust_04.png",
+      "UI/建造/fx_build_dust/fx_build_dust_05.png"
+    ],
+    "fps": 12,
+    "size": [
+      576,
+      576
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.9444444444444444
+    ],
+    "source": "P1 新绘，S02/S03 2.5D蜂巢木构、金色与青绿配色；上左光照；独立透明覆盖层",
+    "sourceFile": "效果图/S03_建造页_BlockHexa风格.png",
+    "sourceHash": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+    "priority": "P1",
+    "sha256": {
+      "01": "7444c6cbb29f11bdff5d1ea2f1258b6ad25f02a26f91d4e52919529411b02f0f",
+      "02": "307831bccc37dfdd91d5b840ee51f5e2539d2ac50f505fa609a59c6c85db8a32",
+      "03": "0d1e19677467ae6e88549fc354587c1668412734c4ed97520f52928676dcce14",
+      "04": "85f4d2ee8e2616496c8d59237aa77e38385d351b156f675f64f83bfbb29cf0b7",
+      "05": "d4fc29633232437b1e0169f393c4d4c1560fadcf99f8e5f17c02ae431b050450"
+    },
+    "loop": true,
+    "playbackNote": "transparent overlay frames; stop and destroy with owning building view"
+  },
+  {
+    "id": "fx_build_sparkle",
+    "name": "落成金色闪光",
+    "frames": [
+      "UI/建造/fx_build_sparkle/fx_build_sparkle_01.png",
+      "UI/建造/fx_build_sparkle/fx_build_sparkle_02.png",
+      "UI/建造/fx_build_sparkle/fx_build_sparkle_03.png",
+      "UI/建造/fx_build_sparkle/fx_build_sparkle_04.png",
+      "UI/建造/fx_build_sparkle/fx_build_sparkle_05.png"
+    ],
+    "fps": 12,
+    "size": [
+      576,
+      576
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.9444444444444444
+    ],
+    "source": "P1 新绘，S02/S03 2.5D蜂巢木构、金色与青绿配色；上左光照；独立透明覆盖层",
+    "sourceFile": "效果图/S03_建造页_BlockHexa风格.png",
+    "sourceHash": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+    "priority": "P1",
+    "sha256": {
+      "01": "1d794e95a062fd0ab4096341307ce1c8d30a01911050e3438a2c17f2cb541fc0",
+      "02": "2e8b172ade22f4a8f7eb9ffdc65626a9b91b5f6da5efbbd1a2b26d7407a3e6cc",
+      "03": "bfdde56a908627d9d3eec9ab89222ecbe7915abce3aaed32ce27a3473e8d6313",
+      "04": "672679860a4f9b119a6e1f35af81a2ad277e693bbfb8ae0de44f7637d7f81afc",
+      "05": "4e71f40acafff8475292718914e36aa4bb15b5548c2eb8ec94f93ebbad70ba9a"
+    },
+    "loop": false,
+    "playbackNote": "transparent overlay frames; stop and destroy with owning building view"
+  }
+]

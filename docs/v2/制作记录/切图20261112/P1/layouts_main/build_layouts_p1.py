@@ -147,7 +147,7 @@ def group2():
     # Non-modal localized feedback. Keep the shared scene and new completed building real.
     e=[ui('hud_capsule_light',[537,236,296,67],'HUD',slice=True),
        txt('building_complete','建筑完成 · 金币+30',[549,248,272,42],24,dynamic=True)]
-    ov=building_overrides([5,2,1,2,1]);ov.update({'player_level':{'text':'3'},'home_progress':{'text':'11/25'},'bar_fill_green':{'rect':[78,59,22,42]},'bar_fill_green_2':{'rect':[211,1751,187,36]}})
+    ov=building_overrides([5,2,1,2,1]);ov.update({'player_level':{'text':'3'},'home_progress':{'text':'11/25'},'bar_fill_green':{'rect':[78,59,220,42],'fillAmount':0.1,'fillMode':'horizontal'},'bar_fill_green_2':{'rect':[211,1751,187,36]}})
     exclusion=['B01_cost','B01_coin','B01_cost_text']
     write('S14',e,'P1-2',overlay=True,underlay='S03',underlayOverrides=ov,underlayExcludeIds=exclusion,modal=False,
           dismissOnMask=False,transientSeconds=2,notes='非模态到账反馈；主屋满级后移除其价格和购买热区，五点全绿。其余建筑仍可建造。')
@@ -190,7 +190,7 @@ def group2():
        ui('icon_hint',[522,858,113,130],'图标'),txt('hint_reward','+1',[500,984,159,54],44,dynamic=True),txt('hint_label','提示',[527,1041,105,38],27,'#7888A6',False),
        txt('welcome_caption','一起建设蜜蜂的家园吧',[208,1147,438,44],27,'#8D96A7',False)]
     e+=btn('claim_continue','领取并继续',1266)
-    ov=building_overrides([1,0,0,0,0]);ov.update({'player_level':{'text':'1'},'energy_value':{'text':'5/5'},'coin_value':{'text':'60'},'home_progress':{'text':'1/25'},'bar_fill_green_2':{'rect':[211,1751,17,36]}})
+    ov=building_overrides([1,0,0,0,0]);ov.update({'player_level':{'text':'1'},'energy_value':{'text':'5/5'},'coin_value':{'text':'60'},'home_progress':{'text':'1/25'},'bar_fill_green_2':{'rect':[211,1751,426,36],'fillAmount':0.04,'fillMode':'horizontal'}})
     write('S25',e,'P1-2',overlay=True,underlay='S03',underlayOverrides=ov,modal=True,dismissOnMask=False,state='welcome_reward_pending',
           interactionNotes='一次持久化欢迎奖励和引导完成；保存失败保留待领奖态，不假显示到账、不因重新展示重复建造。')
     manifest('P1-2',['S01','S24','S13','S14','S15','S16','S25'])

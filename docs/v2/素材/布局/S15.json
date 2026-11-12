@@ -1,0 +1,372 @@
+{
+  "page": "S15",
+  "reference": "效果图/S15_地图完工_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "3aebfa7be43551e4194f801e7ae7304d31126ffbfef7c9c3ec153fb93705d303",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-2",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.55
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        478,
+        712,
+        934
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        415,
+        547,
+        145
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "晨露蜂园完工",
+      "rect": [
+        173,
+        440,
+        507,
+        105
+      ],
+      "fontSize": 41,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "bee_celebrate",
+      "asset": "角色/bee_celebrate.png",
+      "rect": [
+        354,
+        568,
+        147,
+        155
+      ]
+    },
+    {
+      "id": "map_progress",
+      "type": "label",
+      "text": "25 / 25",
+      "rect": [
+        277,
+        741,
+        300,
+        63
+      ],
+      "fontSize": 48,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "map_complete",
+      "type": "label",
+      "text": "五栋建筑全部完成",
+      "rect": [
+        237,
+        805,
+        380,
+        44
+      ],
+      "fontSize": 29,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "panel_inner",
+      "asset": "UI/通用/panel_inner.png",
+      "rect": [
+        234,
+        869,
+        389,
+        224
+      ],
+      "slice": true
+    },
+    {
+      "id": "icon_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        370,
+        893,
+        114,
+        112
+      ]
+    },
+    {
+      "id": "map_reward",
+      "type": "label",
+      "text": "+200",
+      "rect": [
+        322,
+        1005,
+        210,
+        59
+      ],
+      "fontSize": 48,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "map_reward_label",
+      "type": "label",
+      "text": "地图完工奖励",
+      "rect": [
+        287,
+        1055,
+        280,
+        35
+      ],
+      "fontSize": 25,
+      "color": "#8D96A7",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "claim_next",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1195,
+        568,
+        92
+      ],
+      "slice": true
+    },
+    {
+      "id": "claim_next_text",
+      "type": "label",
+      "text": "领取并前往下一地图",
+      "rect": [
+        153,
+        1203,
+        548,
+        76
+      ],
+      "fontSize": 35,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "stay",
+      "asset": "UI/通用/btn_grey_normal.png",
+      "rect": [
+        143,
+        1313,
+        568,
+        82
+      ],
+      "slice": true
+    },
+    {
+      "id": "stay_text",
+      "type": "label",
+      "text": "留在这里",
+      "rect": [
+        153,
+        1321,
+        548,
+        66
+      ],
+      "fontSize": 35,
+      "color": "#536B91",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    }
+  ],
+  "overlay": true,
+  "underlay": "S03",
+  "underlayOverrides": {
+    "B01": {
+      "asset": "建筑/B01_蜂巢主屋/B01_L5.png",
+      "level": 5
+    },
+    "B01_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_2": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_3": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_4": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_5": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B02": {
+      "asset": "建筑/B02_采蜜工坊/B02_L5.png",
+      "level": 5
+    },
+    "B02_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B02_dot_2": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B02_dot_3": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B02_dot_4": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B02_dot_5": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B03": {
+      "asset": "建筑/B03_花粉仓库/B03_L5.png",
+      "level": 5
+    },
+    "B03_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B03_dot_2": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B03_dot_3": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B03_dot_4": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B03_dot_5": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B04": {
+      "asset": "建筑/B04_蜂蜜水车/B04_L5.png",
+      "level": 5
+    },
+    "B04_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B04_dot_2": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B04_dot_3": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B04_dot_4": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B04_dot_5": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B05": {
+      "asset": "建筑/B05_花园亭/B05_L5.png",
+      "level": 5
+    },
+    "B05_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B05_dot_2": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B05_dot_3": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B05_dot_4": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B05_dot_5": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "player_level": {
+      "text": "6"
+    },
+    "home_progress": {
+      "text": "25/25"
+    },
+    "bar_fill_green_2": {
+      "rect": [
+        211,
+        1751,
+        426,
+        36
+      ]
+    }
+  },
+  "underlayExcludeIds": [
+    "bar_fill_green",
+    "B01_cost",
+    "B01_coin",
+    "B01_cost_text",
+    "B02_cost",
+    "B02_coin",
+    "B02_cost_text",
+    "B03_cost",
+    "B03_coin",
+    "B03_cost_text",
+    "B04_cost",
+    "B04_coin",
+    "B04_cost_text",
+    "B05_cost",
+    "B05_coin",
+    "B05_cost_text"
+  ],
+  "modal": true,
+  "dismissOnMask": false,
+  "state": "map_complete_reward_pending",
+  "notes": "领取和切图分别处理；末地图改内容完成文案，不显示不存在的下一地图。底页当前M01五栋L5、全绿25点、无升级价格。"
+}

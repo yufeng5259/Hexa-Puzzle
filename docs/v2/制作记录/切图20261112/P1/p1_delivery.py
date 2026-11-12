@@ -1,7 +1,7 @@
 """P1 incremental integration; keeps 9515e71 PNGs and historical records immutable."""
 from pathlib import Path
 import json,hashlib,subprocess,sys,copy,re
-from PIL import Image,ImageDraw,ImageFont,ImageOps,ImageChops
+from PIL import Image,ImageDraw,ImageFont,ImageOps,ImageChops,ImageFilter
 REC=Path(__file__).resolve().parent;V2=REC.parents[2];ROOT=V2.parents[1];A=V2/'素材'
 BASE='9515e71';GROUPS=[['S05','S07','S08','S09','S10','S11','S12'],['S01','S24','S13','S14','S15','S16','S25'],['S18'],['S19','S20','S21','S22','S23']]
 LANES=['characters','build_maps','signin_tasks','endless']
@@ -110,6 +110,7 @@ def render(m,sid,exclude=(),overrides=None):
  j=load(A/'布局'/f'{sid}.json');lookup={p:a for a in m['uiAssets'] for _,p in paths(a)}
  if j.get('underlay'):im=render(m,j['underlay'],j.get('underlayExcludeIds',[]),j.get('underlayOverrides',{}))
  else:im=Image.new('RGBA',tuple(j['size']),(14,42,92,255))
+ if j.get('underlayBlur'):im=im.filter(ImageFilter.GaussianBlur(j['underlayBlur']))
  for original in j['elements']:
   e={**original,**(overrides or {}).get(original['id'],{})}
   if e['id'] in exclude or e.get('visible') is False:continue
@@ -125,6 +126,10 @@ def render(m,sid,exclude=(),overrides=None):
    else:pic=source.resize((w,h),Image.Resampling.LANCZOS)
    if e.get('tint'):pic=ImageChops.multiply(pic,Image.new('RGBA',pic.size,e['tint']))
    if 'opacity' in e:pic.putalpha(pic.getchannel('A').point(lambda z:round(z*e['opacity'])))
+   if 'fillAmount' in e:
+    amount=max(0,min(1,e['fillAmount']));fw=round(w*amount)
+    if fw<=0:continue
+    pic=pic.crop((0,0,fw,h))
    im.alpha_composite(pic,(x,y))
   elif e.get('type')=='label':
    f=ImageFont.truetype('C:/Windows/Fonts/msyhbd.ttc' if e.get('bold') else 'C:/Windows/Fonts/msyh.ttc',round(e['fontSize']));d=ImageDraw.Draw(im)

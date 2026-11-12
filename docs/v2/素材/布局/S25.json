@@ -1,0 +1,392 @@
+{
+  "page": "S25",
+  "reference": "效果图/S25_首次建造欢迎奖励_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "aacdff8dad98e886b071ebd94d1e02ed4d18f5f47b0942275beff6ecefc86605",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-2",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.55
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        475,
+        712,
+        936
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        413,
+        547,
+        145
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "欢迎来到蜂巢小镇",
+      "rect": [
+        173,
+        438,
+        507,
+        105
+      ],
+      "fontSize": 41,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "bee_celebrate",
+      "asset": "角色/bee_celebrate.png",
+      "rect": [
+        354,
+        564,
+        147,
+        155
+      ]
+    },
+    {
+      "id": "welcome_description",
+      "type": "label",
+      "text": "第一座建筑落成啦！",
+      "rect": [
+        203,
+        751,
+        448,
+        50
+      ],
+      "fontSize": 34,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "panel_inner",
+      "asset": "UI/通用/panel_inner.png",
+      "rect": [
+        166,
+        830,
+        233,
+        263
+      ],
+      "slice": true
+    },
+    {
+      "id": "hint_reward_panel",
+      "asset": "UI/通用/panel_inner.png",
+      "rect": [
+        463,
+        830,
+        233,
+        263
+      ],
+      "slice": true
+    },
+    {
+      "id": "icon_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        220,
+        862,
+        123,
+        123
+      ]
+    },
+    {
+      "id": "coin_reward",
+      "type": "label",
+      "text": "+100",
+      "rect": [
+        202,
+        984,
+        159,
+        54
+      ],
+      "fontSize": 44,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "coin_label",
+      "type": "label",
+      "text": "金币",
+      "rect": [
+        229,
+        1041,
+        105,
+        38
+      ],
+      "fontSize": 27,
+      "color": "#7888A6",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "icon_hint",
+      "asset": "UI/图标/icon_hint.png",
+      "rect": [
+        522,
+        858,
+        113,
+        130
+      ],
+      "tint": "#FFC63D"
+    },
+    {
+      "id": "hint_reward",
+      "type": "label",
+      "text": "+1",
+      "rect": [
+        500,
+        984,
+        159,
+        54
+      ],
+      "fontSize": 44,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "hint_label",
+      "type": "label",
+      "text": "提示",
+      "rect": [
+        527,
+        1041,
+        105,
+        38
+      ],
+      "fontSize": 27,
+      "color": "#7888A6",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "welcome_caption",
+      "type": "label",
+      "text": "一起建设蜜蜂的家园吧",
+      "rect": [
+        208,
+        1147,
+        438,
+        44
+      ],
+      "fontSize": 27,
+      "color": "#8D96A7",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "claim_continue",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1266,
+        568,
+        92
+      ],
+      "slice": true
+    },
+    {
+      "id": "claim_continue_text",
+      "type": "label",
+      "text": "领取并继续",
+      "rect": [
+        153,
+        1274,
+        548,
+        76
+      ],
+      "fontSize": 35,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    }
+  ],
+  "overlay": true,
+  "underlay": "S03",
+  "underlayOverrides": {
+    "B01": {
+      "asset": "建筑/B01_蜂巢主屋/B01_L1.png",
+      "level": 1
+    },
+    "B01_dot_1": {
+      "asset": "UI/建造/build_dot_done.png"
+    },
+    "B01_dot_2": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B01_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B01_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B01_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B02": {
+      "asset": "建筑/B02_采蜜工坊/B02_L0.png",
+      "level": 0
+    },
+    "B02_dot_1": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B02_dot_2": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B02_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B02_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B02_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03": {
+      "asset": "建筑/B03_花粉仓库/B03_L0.png",
+      "level": 0
+    },
+    "B03_dot_1": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03_dot_2": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B03_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B04": {
+      "asset": "建筑/B04_蜂蜜水车/B04_L0.png",
+      "level": 0
+    },
+    "B04_dot_1": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B04_dot_2": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B04_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B04_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B04_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05": {
+      "asset": "建筑/B05_花园亭/B05_L0.png",
+      "level": 0
+    },
+    "B05_dot_1": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05_dot_2": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05_dot_3": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05_dot_4": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "B05_dot_5": {
+      "asset": "UI/建造/build_dot_todo.png"
+    },
+    "player_level": {
+      "text": "1"
+    },
+    "energy_value": {
+      "text": "5/5"
+    },
+    "coin_value": {
+      "text": "60"
+    },
+    "home_progress": {
+      "text": "1/25"
+    },
+    "bar_fill_green_2": {
+      "rect": [
+        211,
+        1751,
+        426,
+        36
+      ],
+      "fillAmount": 0.04,
+      "fillMode": "horizontal"
+    }
+  },
+  "modal": true,
+  "dismissOnMask": false,
+  "state": "welcome_reward_pending",
+  "interactionNotes": "一次持久化欢迎奖励和引导完成；保存失败保留待领奖态，不假显示到账、不因重新展示重复建造。"
+}
