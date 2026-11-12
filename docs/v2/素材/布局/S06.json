@@ -1,0 +1,270 @@
+{
+  "page": "S06",
+  "reference": "效果图/S06_主线通关_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "fe5f6d8621ad25e0db1ac6f3146af9b1f404d184add349f95ff95914c73caa48",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P0",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.55
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        515,
+        712,
+        857
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        456,
+        547,
+        145
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "通关成功",
+      "rect": [
+        250,
+        503,
+        354,
+        70
+      ],
+      "fontSize": 43,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "first_clear",
+      "type": "label",
+      "text": "第71关 · 首次通关",
+      "rect": [
+        245,
+        775,
+        365,
+        43
+      ],
+      "fontSize": 32,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "panel_inner",
+      "asset": "UI/通用/panel_inner.png",
+      "rect": [
+        234,
+        839,
+        389,
+        222
+      ],
+      "slice": true
+    },
+    {
+      "id": "icon_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        371,
+        864,
+        111,
+        109
+      ]
+    },
+    {
+      "id": "reward_coin",
+      "type": "label",
+      "text": "+100",
+      "rect": [
+        330,
+        974,
+        194,
+        56
+      ],
+      "fontSize": 49,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "reward_status",
+      "type": "label",
+      "text": "金币已到账",
+      "rect": [
+        322,
+        1023,
+        211,
+        35
+      ],
+      "fontSize": 25,
+      "color": "#8E9AAE",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "build_suggestion",
+      "type": "label",
+      "text": "金币充足，可以回家建造",
+      "rect": [
+        240,
+        1095,
+        374,
+        45
+      ],
+      "fontSize": 27,
+      "color": "#6B80A1",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "btn_green",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1171,
+        568,
+        102
+      ],
+      "slice": true
+    },
+    {
+      "id": "next",
+      "type": "label",
+      "text": "下一关",
+      "rect": [
+        249,
+        1192,
+        356,
+        58
+      ],
+      "fontSize": 37,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "btn_grey",
+      "asset": "UI/通用/btn_grey_normal.png",
+      "rect": [
+        143,
+        1283,
+        568,
+        78
+      ],
+      "slice": true
+    },
+    {
+      "id": "return_build",
+      "type": "label",
+      "text": "回家建造",
+      "rect": [
+        250,
+        1297,
+        354,
+        47
+      ],
+      "fontSize": 31,
+      "color": "#536B91",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    }
+  ],
+  "overlay": true,
+  "underlay": "S04",
+  "underlayExcludeIds": [
+    "board_cell_0",
+    "board_cell_1",
+    "board_cell_2",
+    "board_cell_3",
+    "board_cell_4",
+    "board_cell_5",
+    "board_cell_6",
+    "board_cell_7",
+    "board_cell_8",
+    "board_cell_9",
+    "board_cell_10",
+    "board_cell_11",
+    "board_cell_12",
+    "board_cell_13",
+    "board_cell_14",
+    "board_cell_15",
+    "board_cell_16",
+    "board_cell_17",
+    "board_cell_18",
+    "board_cell_19",
+    "board_cell_20",
+    "board_cell_21",
+    "board_cell_22",
+    "board_cell_23",
+    "tray_0_cell_0",
+    "tray_0_cell_1",
+    "tray_0_cell_2",
+    "tray_0_cell_3",
+    "tray_1_cell_0",
+    "tray_1_cell_1",
+    "tray_1_cell_2",
+    "tray_1_cell_3",
+    "tray_1_cell_4",
+    "tray_1_cell_5",
+    "tray_2_cell_0",
+    "tray_2_cell_1",
+    "tray_2_cell_2",
+    "tray_2_cell_3",
+    "tray_2_cell_4"
+  ],
+  "underlayState": "completed_cleared",
+  "notes": "只标注本弹窗自身；通关后底页棋盘和托盘清空，排除underlayExcludeIds，不沿用未通关对局。",
+  "deferredElements": [
+    {
+      "id": "bee_celebrate",
+      "priority": "P1",
+      "rect": [
+        354,
+        614,
+        147,
+        155
+      ],
+      "reason": "4.9角色属P1"
+    }
+  ]
+}

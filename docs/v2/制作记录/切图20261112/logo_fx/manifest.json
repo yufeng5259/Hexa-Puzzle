@@ -1,0 +1,194 @@
+[
+  {
+    "id": "logo_title",
+    "name": "蜂巢小镇标题与蜂巢叶片标志",
+    "states": {
+      "normal": "UI/通用/logo_title.png"
+    },
+    "size": [
+      428,
+      240
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S01 原像素透明抠图，文字特许；原框 [208,54,645,299]",
+    "priority": "P0",
+    "sha256": {
+      "normal": "433460599c9744fac56eef8958ef89c33e21fec11af6f3bf62555591c4edfa65"
+    },
+    "sourceFile": "效果图/S01_加载_BlockHexa风格.png",
+    "sourceSha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+  },
+  {
+    "id": "fx_glow_burst",
+    "name": "庆祝金色放射光",
+    "states": {
+      "normal": "UI/特效/fx_glow_burst.png"
+    },
+    "size": [
+      512,
+      512
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "新增；匹配 S02/S04 蜂蜜金高光，18道柔和光束",
+    "priority": "P0",
+    "sha256": {
+      "normal": "058aaaeb3ff13ba6070959c93a0e2dd701922f1c5d18106d9d82eefcdeb46c1d"
+    },
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceSha256": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0"
+  },
+  {
+    "id": "fx_confetti_01",
+    "name": "彩带单片 1",
+    "states": {
+      "normal": "UI/特效/fx_confetti_01.png"
+    },
+    "size": [
+      40,
+      44
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "新增；匹配 S02/S04 饱和彩色宽倒角",
+    "priority": "P0",
+    "sha256": {
+      "normal": "18d3c6f9f28a46d6e1dbc03b46190d70f4e2d8e5b3708e9afa5b0730b7a349b6"
+    },
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceSha256": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0"
+  },
+  {
+    "id": "fx_confetti_02",
+    "name": "彩带单片 2",
+    "states": {
+      "normal": "UI/特效/fx_confetti_02.png"
+    },
+    "size": [
+      40,
+      44
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "新增；匹配 S02/S04 饱和彩色宽倒角",
+    "priority": "P0",
+    "sha256": {
+      "normal": "01cb44e19f23fb39ed478db45fa8d48ccede70d133b7f29744662db218e8597f"
+    },
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceSha256": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0"
+  },
+  {
+    "id": "fx_confetti_03",
+    "name": "彩带单片 3",
+    "states": {
+      "normal": "UI/特效/fx_confetti_03.png"
+    },
+    "size": [
+      40,
+      44
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "新增；匹配 S02/S04 饱和彩色宽倒角",
+    "priority": "P0",
+    "sha256": {
+      "normal": "386a64878254459317bd49582ae27ee1900c42bfac44262b4ec0f39554923ce3"
+    },
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceSha256": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0"
+  },
+  {
+    "id": "fx_confetti_04",
+    "name": "彩带单片 4",
+    "states": {
+      "normal": "UI/特效/fx_confetti_04.png"
+    },
+    "size": [
+      40,
+      44
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "新增；匹配 S02/S04 饱和彩色宽倒角",
+    "priority": "P0",
+    "sha256": {
+      "normal": "787c7362bd8820357f018af8566ccf79391a77ac8e63f6d6de0b695afd057f33"
+    },
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceSha256": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0"
+  },
+  {
+    "id": "fx_coin_fly",
+    "name": "飞入小蜜蜂圆金币",
+    "states": {
+      "normal": "UI/特效/fx_coin_fly.png"
+    },
+    "size": [
+      48,
+      48
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "复用 P0 唯一规范图标缩小",
+    "priority": "P0",
+    "sha256": {
+      "normal": "bb48aac1ce37377b5747a4b769a1126c24c1c9d2f70f5c56e2d4813af249cc67"
+    },
+    "sourceFile": "素材/UI/图标/icon_coin.png",
+    "sourceSha256": "e920d8edba83490b3b049a4d9feb04a579b555d17b33fbc5a5e850e8b7dacfdd"
+  },
+  {
+    "id": "fx_exp_fly",
+    "name": "飞入经验",
+    "states": {
+      "normal": "UI/特效/fx_exp_fly.png"
+    },
+    "size": [
+      48,
+      48
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "复用 P0 唯一规范图标缩小",
+    "priority": "P0",
+    "sha256": {
+      "normal": "c20f29f1a85c18ca6e38a235297c4905a3236d0038b4b63e1d18462c5ac66181"
+    },
+    "sourceFile": "素材/UI/图标/icon_exp.png",
+    "sourceSha256": "12cac31b559337c05df5b4857f0ebbaf85557a8d20b833eb0b21fb8a0d7bd9f1"
+  }
+]

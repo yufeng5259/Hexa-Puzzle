@@ -1,0 +1,60 @@
+[
+  {
+    "id": "bg_loading",
+    "name": "加载页纯场景背景",
+    "states": {
+      "normal": "背景/bg_loading.png"
+    },
+    "size": [
+      853,
+      1844
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S01 imagegen CLI gpt-image-2 去除UI重建；原图不修改",
+    "sourceFiles": [
+      {
+        "file": "效果图/S01_加载_BlockHexa风格.png",
+        "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+      }
+    ],
+    "priority": "P0",
+    "opaque": true,
+    "sha256": {
+      "normal": "c82aac3f7c9b22b8e8232fd8b3a2e7e83f238b00661cf0b57e26fb3a82d4e446"
+    }
+  },
+  {
+    "id": "bg_puzzle",
+    "name": "拼图深蓝蜂巢背景",
+    "states": {
+      "normal": "背景/bg_puzzle.png"
+    },
+    "size": [
+      853,
+      1844
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 imagegen CLI gpt-image-2 去除UI重建；原图不修改",
+    "sourceFiles": [
+      {
+        "file": "效果图/S04_主玩法_BlockHexa风格.png",
+        "sha256": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0"
+      }
+    ],
+    "priority": "P0",
+    "opaque": true,
+    "sha256": {
+      "normal": "0fc4369f8244d0c9d78957085259204bb3cf2533935b75e2903237c5ed170856"
+    }
+  }
+]

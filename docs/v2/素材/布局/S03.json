@@ -1,0 +1,1166 @@
+{
+  "page": "S03",
+  "reference": "效果图/S03_建造页_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P0",
+  "elements": [
+    {
+      "id": "map_background",
+      "asset": "../地图/M01_晨露蜂园_背景.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "B01",
+      "asset": "建筑/B01_蜂巢主屋/B01_L3.png",
+      "rect": [
+        154,
+        147,
+        547,
+        547
+      ],
+      "buildingId": "B01",
+      "level": 3,
+      "spriteAnchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "zIndex": 136
+    },
+    {
+      "id": "B02",
+      "asset": "建筑/B02_采蜜工坊/B02_L2.png",
+      "rect": [
+        -17,
+        502,
+        453,
+        453
+      ],
+      "buildingId": "B02",
+      "level": 2,
+      "spriteAnchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "zIndex": 150
+    },
+    {
+      "id": "B03",
+      "asset": "建筑/B03_花粉仓库/B03_L1.png",
+      "rect": [
+        440,
+        535,
+        418,
+        418
+      ],
+      "buildingId": "B03",
+      "level": 1,
+      "spriteAnchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "zIndex": 150
+    },
+    {
+      "id": "B04",
+      "asset": "建筑/B04_蜂蜜水车/B04_L2.png",
+      "rect": [
+        -26,
+        884,
+        478,
+        478
+      ],
+      "buildingId": "B04",
+      "level": 2,
+      "spriteAnchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "zIndex": 172
+    },
+    {
+      "id": "B05",
+      "asset": "建筑/B05_花园亭/B05_L1.png",
+      "rect": [
+        457,
+        921,
+        410,
+        410
+      ],
+      "buildingId": "B05",
+      "level": 1,
+      "spriteAnchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "zIndex": 171
+    },
+    {
+      "id": "hud_bar_bg",
+      "asset": "UI/HUD/hud_bar_bg.png",
+      "rect": [
+        0,
+        0,
+        854,
+        147
+      ]
+    },
+    {
+      "id": "bar_bg",
+      "asset": "UI/通用/bar_bg.png",
+      "rect": [
+        70,
+        53,
+        214,
+        56
+      ],
+      "slice": true
+    },
+    {
+      "id": "bar_fill_green",
+      "asset": "UI/通用/bar_fill_green.png",
+      "rect": [
+        78,
+        59,
+        163,
+        42
+      ],
+      "slice": true
+    },
+    {
+      "id": "hud_level_badge",
+      "asset": "UI/HUD/hud_level_badge.png",
+      "rect": [
+        17,
+        25,
+        101,
+        108
+      ]
+    },
+    {
+      "id": "player_level",
+      "type": "label",
+      "text": "2",
+      "rect": [
+        27,
+        48,
+        77,
+        69
+      ],
+      "fontSize": 52,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "hud_energy",
+      "asset": "UI/HUD/hud_capsule_light.png",
+      "rect": [
+        299,
+        44,
+        189,
+        72
+      ],
+      "slice": true
+    },
+    {
+      "id": "energy_icon",
+      "asset": "UI/图标/icon_energy.png",
+      "rect": [
+        307,
+        46,
+        70,
+        64
+      ]
+    },
+    {
+      "id": "energy_value",
+      "type": "label",
+      "text": "4/5",
+      "rect": [
+        381,
+        53,
+        96,
+        54
+      ],
+      "fontSize": 38,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "hud_coin",
+      "asset": "UI/HUD/hud_capsule_light.png",
+      "rect": [
+        507,
+        44,
+        219,
+        72
+      ],
+      "slice": true
+    },
+    {
+      "id": "coin_icon",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        506,
+        40,
+        79,
+        79
+      ]
+    },
+    {
+      "id": "coin_value",
+      "type": "label",
+      "text": "1,280",
+      "rect": [
+        588,
+        54,
+        121,
+        53
+      ],
+      "fontSize": 38,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "hud_btn_square_purple",
+      "asset": "UI/HUD/hud_btn_square_purple_normal.png",
+      "rect": [
+        740,
+        29,
+        101,
+        100
+      ]
+    },
+    {
+      "id": "icon_settings",
+      "asset": "UI/图标/icon_settings.png",
+      "rect": [
+        760,
+        47,
+        62,
+        65
+      ]
+    },
+    {
+      "id": "map_name",
+      "type": "label",
+      "text": "晨露蜂园",
+      "rect": [
+        279,
+        164,
+        298,
+        64
+      ],
+      "fontSize": 52,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "B01_dot_bar",
+      "asset": "UI/建造/build_dot_bar.png",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        0.0,
+        20.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        142,
+        34
+      ]
+    },
+    {
+      "id": "B01_dot_1",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        -47.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B01_dot_2",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        -21.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B01_dot_3",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        4.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B01_dot_4",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        30.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B01_dot_5",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        56.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B01_cost",
+      "asset": "UI/建造/build_cost_capsule_normal.png",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        0.0,
+        64.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        220,
+        68
+      ],
+      "slice": true
+    },
+    {
+      "id": "B01_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        -69.5,
+        63.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "B01_cost_text",
+      "type": "label",
+      "text": "100",
+      "anchor": "building_feet",
+      "buildingId": "B01",
+      "offset": [
+        31,
+        64
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        118,
+        50
+      ],
+      "fontSize": 36,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "dynamic": true
+    },
+    {
+      "id": "B02_dot_bar",
+      "asset": "UI/建造/build_dot_bar.png",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        0.0,
+        20.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        142,
+        34
+      ]
+    },
+    {
+      "id": "B02_dot_1",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        -47.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B02_dot_2",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        -21.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B02_dot_3",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        4.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B02_dot_4",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        30.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B02_dot_5",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        56.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B02_cost",
+      "asset": "UI/建造/build_cost_capsule_normal.png",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        0.0,
+        64.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        220,
+        68
+      ],
+      "slice": true
+    },
+    {
+      "id": "B02_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        -69.5,
+        63.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "B02_cost_text",
+      "type": "label",
+      "text": "80",
+      "anchor": "building_feet",
+      "buildingId": "B02",
+      "offset": [
+        31,
+        64
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        118,
+        50
+      ],
+      "fontSize": 36,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "dynamic": true
+    },
+    {
+      "id": "B03_dot_bar",
+      "asset": "UI/建造/build_dot_bar.png",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        0.0,
+        20.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        142,
+        34
+      ]
+    },
+    {
+      "id": "B03_dot_1",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        -47.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B03_dot_2",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        -21.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B03_dot_3",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        4.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B03_dot_4",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        30.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B03_dot_5",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        56.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B03_cost",
+      "asset": "UI/建造/build_cost_capsule_normal.png",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        0.0,
+        64.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        220,
+        68
+      ],
+      "slice": true
+    },
+    {
+      "id": "B03_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        -69.5,
+        63.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "B03_cost_text",
+      "type": "label",
+      "text": "60",
+      "anchor": "building_feet",
+      "buildingId": "B03",
+      "offset": [
+        31,
+        64
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        118,
+        50
+      ],
+      "fontSize": 36,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "dynamic": true
+    },
+    {
+      "id": "B04_dot_bar",
+      "asset": "UI/建造/build_dot_bar.png",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        0.0,
+        20.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        142,
+        34
+      ]
+    },
+    {
+      "id": "B04_dot_1",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        -47.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B04_dot_2",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        -21.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B04_dot_3",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        4.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B04_dot_4",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        30.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B04_dot_5",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        56.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B04_cost",
+      "asset": "UI/建造/build_cost_capsule_normal.png",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        0.0,
+        64.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        220,
+        68
+      ],
+      "slice": true
+    },
+    {
+      "id": "B04_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        -69.5,
+        63.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "B04_cost_text",
+      "type": "label",
+      "text": "80",
+      "anchor": "building_feet",
+      "buildingId": "B04",
+      "offset": [
+        31,
+        64
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        118,
+        50
+      ],
+      "fontSize": 36,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "dynamic": true
+    },
+    {
+      "id": "B05_dot_bar",
+      "asset": "UI/建造/build_dot_bar.png",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        0.0,
+        20.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        142,
+        34
+      ]
+    },
+    {
+      "id": "B05_dot_1",
+      "asset": "UI/建造/build_dot_done.png",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        -47.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B05_dot_2",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        -21.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B05_dot_3",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        4.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B05_dot_4",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        30.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B05_dot_5",
+      "asset": "UI/建造/build_dot_todo.png",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        56.5,
+        18.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        23,
+        23
+      ],
+      "dynamic": true
+    },
+    {
+      "id": "B05_cost",
+      "asset": "UI/建造/build_cost_capsule_normal.png",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        0.0,
+        64.0
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        220,
+        68
+      ],
+      "slice": true
+    },
+    {
+      "id": "B05_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        -69.5,
+        63.5
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "B05_cost_text",
+      "type": "label",
+      "text": "60",
+      "anchor": "building_feet",
+      "buildingId": "B05",
+      "offset": [
+        31,
+        64
+      ],
+      "offsetAnchor": "center",
+      "size": [
+        118,
+        50
+      ],
+      "fontSize": 36,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "dynamic": true
+    },
+    {
+      "id": "home_bottom_bar",
+      "asset": "UI/主页/home_bottom_bar.png",
+      "rect": [
+        8,
+        1661,
+        838,
+        169
+      ],
+      "slice": true
+    },
+    {
+      "id": "home_btn_home",
+      "asset": "UI/主页/home_btn_home_normal.png",
+      "rect": [
+        35,
+        1683,
+        136,
+        126
+      ]
+    },
+    {
+      "id": "icon_home",
+      "asset": "UI/图标/icon_home.png",
+      "rect": [
+        59,
+        1707,
+        88,
+        79
+      ]
+    },
+    {
+      "id": "home_progress_title",
+      "type": "label",
+      "text": "家园建设",
+      "rect": [
+        330,
+        1688,
+        197,
+        51
+      ],
+      "fontSize": 37,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "bar_bg_2",
+      "asset": "UI/通用/bar_bg.png",
+      "rect": [
+        205,
+        1745,
+        438,
+        48
+      ],
+      "slice": true
+    },
+    {
+      "id": "bar_fill_green_2",
+      "asset": "UI/通用/bar_fill_green.png",
+      "rect": [
+        211,
+        1751,
+        156,
+        36
+      ],
+      "slice": true
+    },
+    {
+      "id": "home_progress",
+      "type": "label",
+      "text": "9/25",
+      "rect": [
+        375,
+        1750,
+        125,
+        43
+      ],
+      "fontSize": 33,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_gift",
+      "asset": "UI/图标/icon_gift.png",
+      "rect": [
+        674,
+        1672,
+        140,
+        142
+      ]
+    }
+  ],
+  "anchorContext": {
+    "B01": {
+      "feet": [
+        427,
+        663
+      ],
+      "source": "../地图/M01_建筑布局.json"
+    },
+    "B02": {
+      "feet": [
+        209,
+        930
+      ],
+      "source": "../地图/M01_建筑布局.json"
+    },
+    "B03": {
+      "feet": [
+        649,
+        930
+      ],
+      "source": "../地图/M01_建筑布局.json"
+    },
+    "B04": {
+      "feet": [
+        214,
+        1335
+      ],
+      "source": "../地图/M01_建筑布局.json"
+    },
+    "B05": {
+      "feet": [
+        662,
+        1308
+      ],
+      "source": "../地图/M01_建筑布局.json"
+    }
+  },
+  "deferredElements": [
+    {
+      "id": "bee_wave",
+      "priority": "P1",
+      "rect": [
+        531,
+        1412,
+        192,
+        218
+      ],
+      "reason": "4.9角色未纳入P0"
+    }
+  ]
+}
