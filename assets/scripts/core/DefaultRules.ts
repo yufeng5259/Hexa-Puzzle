@@ -12,7 +12,7 @@ const rewards: Record<string, Reward> = {
     clear_normal: r(100), clear_challenge: r(150),
     replay_normal: r(20), replay_challenge: r(30),
     building_max: r(30),
-    map_01_done: r(200), map_02_done: r(300), map_03_done: r(500),
+    m01_done: r(200), m02_done: r(300), m03_done: r(500),
     level_up: r(0, 1), level_up_5: r(0, 1, 1),
     sign_1: r(50), sign_2: r(0, 1), sign_3: r(100), sign_4: r(0, 0, 1), sign_5: r(150), sign_6: r(0, 2), sign_7: r(200, 0, 1),
     task_30: r(30), task_50: r(50),
@@ -37,14 +37,14 @@ function mainline(count: number): MainlineLevel[] {
 }
 
 const MAPS: readonly [string, number, readonly string[]][] = [
-    ['map_01', 1, ['B01', 'B02', 'B03', 'B04', 'B05']],
-    ['map_02', 1.6, ['B06', 'B07', 'B08', 'B09', 'B10']],
-    ['map_03', 2.4, ['B11', 'B12', 'B13', 'B14', 'B15']],
+    ['M01', 1, ['B01', 'B02', 'B03', 'B04', 'B05']],
+    ['M02', 1.6, ['B06', 'B07', 'B08', 'B09', 'B10']],
+    ['M03', 2.4, ['B11', 'B12', 'B13', 'B14', 'B15']],
 ];
 const maps: MapRule[] = MAPS.map(([id, factor, ids], i) => ({
     id,
     nextMapId: MAPS[i + 1]?.[0] ?? null,
-    completionRewardId: `${id}_done`,
+    completionRewardId: `${id.toLowerCase()}_done`,
     buildings: ids.map((b): BuildingRule => ({ id: b, costs: [40, 60, 80, 100, 120].map(c => Math.round(c * factor)), maxRewardId: 'building_max' })),
 }));
 
@@ -79,7 +79,7 @@ export function defaultRules(): Rules {
         guideBuildingId: 'B01',
         mainline: mainline(110),
         maps,
-        firstMapId: 'map_01',
+        firstMapId: 'M01',
         build: { expPerUpgrade: 20, constructionSeconds: 1.8 },
         // Linear 100 exp per level; every level gives 1 energy, levels 6/11/16… also a hint.
         levels: Array.from({ length: 30 }, (_, i) => ({ expToNext: 100, rewardId: i === 0 ? null : (i + 1) % 5 === 1 ? 'level_up_5' : 'level_up' })),

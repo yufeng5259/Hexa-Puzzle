@@ -23,7 +23,7 @@ const fresh = () => { const storage = memory(); return { storage, store: new Sto
 function finishGuide(store) {
     store.commit(s => Main.startAttempt(s, rules, T0, 1, 'a1'));
     store.commit(s => Main.completeAttempt(s, rules, 'a1', DAY));
-    store.commit(s => Prog.startBuild(s, rules, 'map_01', 'B01', 'b1'));
+    store.commit(s => Prog.startBuild(s, rules, 'M01', 'B01', 'b1'));
     store.commit(s => Prog.finishBuild(s, rules, 'b1', DAY));
     store.commit(s => Guide.claimWelcome(s, rules));
 }
@@ -97,7 +97,7 @@ test('guide resumes from real records and welcome is granted once with guide com
     store.commit(s => Main.completeAttempt(s, rules, 'a1', DAY));
     assert.equal(Guide.guideStep(store.state, rules), 'goBuild');
     assert.equal(Guide.guideAllowsBuild(store.state, rules, 'B02'), false);
-    store.commit(s => Prog.startBuild(s, rules, 'map_01', 'B01', 'b1'));
+    store.commit(s => Prog.startBuild(s, rules, 'M01', 'B01', 'b1'));
     assert.equal(Guide.guideStep(store.state, rules), 'finishBuild');
     store.commit(s => Prog.finishBuild(s, rules, 'b1', DAY));
     assert.equal(Guide.guideStep(store.state, rules), 'welcome');
@@ -111,17 +111,17 @@ test('guide resumes from real records and welcome is granted once with guide com
 test('build is two-step: pay once, interrupted build finishes without a second charge', () => {
     const { storage, store } = fresh();
     store.commit(s => { s.wallet.coins = 100; });
-    store.commit(s => Prog.startBuild(s, rules, 'map_01', 'B02', 'b1'));
+    store.commit(s => Prog.startBuild(s, rules, 'M01', 'B02', 'b1'));
     assert.equal(store.state.wallet.coins, 60);
-    assert.throws(() => store.commit(s => Prog.startBuild(s, rules, 'map_01', 'B03', 'b2')), /progress/);
+    assert.throws(() => store.commit(s => Prog.startBuild(s, rules, 'M01', 'B03', 'b2')), /progress/);
     const reopened = new Store(storage, rules); // app killed during construction
     assert.equal(reopened.state.pendingBuild.buildId, 'b1');
     reopened.commit(s => Prog.finishBuild(s, rules, 'b1', DAY));
-    assert.equal(reopened.state.maps.levels.map_01.B02, 1);
+    assert.equal(reopened.state.maps.levels.M01.B02, 1);
     assert.equal(reopened.state.wallet.coins, 60);
     assert.equal(reopened.state.player.exp, 20);
     assert.throws(() => reopened.commit(s => Prog.finishBuild(s, rules, 'b1', DAY)));
-    assert.throws(() => reopened.commit(s => { s.wallet.coins = 0; Prog.startBuild(s, rules, 'map_01', 'B02', 'b3'); }), /coins/);
+    assert.throws(() => reopened.commit(s => { s.wallet.coins = 0; Prog.startBuild(s, rules, 'M01', 'B02', 'b3'); }), /coins/);
 });
 
 test('25/25 completes the map once with building-max and level rewards, then moves to map 2', () => {
@@ -130,12 +130,12 @@ test('25/25 completes the map once with building-max and level rewards, then mov
     let n = 0;
     for (const b of rules.maps[0].buildings) for (let lv = 0; lv < 5; lv++) {
         const id = `b${n++}`;
-        store.commit(s => Prog.startBuild(s, rules, 'map_01', b.id, id));
+        store.commit(s => Prog.startBuild(s, rules, 'M01', b.id, id));
         store.commit(s => Prog.finishBuild(s, rules, id, DAY));
     }
     const s = store.state;
-    assert.deepEqual(Prog.mapProgress(s, rules, 'map_01'), { built: 25, total: 25 });
-    assert.equal(s.maps.completed.map_01, true);
+    assert.deepEqual(Prog.mapProgress(s, rules, 'M01'), { built: 25, total: 25 });
+    assert.equal(s.maps.completed.M01, true);
     assert.equal(s.player.level, 6); // 500 exp
     assert.equal(s.wallet.coins, 5 * 30 + 200);
     assert.equal(s.wallet.hints, 5 + 1); // level 6 bonus hint
@@ -143,9 +143,9 @@ test('25/25 completes the map once with building-max and level rewards, then mov
     const types = s.displayQueue.map(e => e.type);
     assert.equal(types.filter(t => t === 'buildingMax').length, 5);
     assert.equal(types.at(-1), 'mapComplete');
-    assert.throws(() => store.commit(st => Prog.startBuild(st, rules, 'map_01', 'B01', 'x')));
+    assert.throws(() => store.commit(st => Prog.startBuild(st, rules, 'M01', 'B01', 'x')));
     assert.equal(store.commit(st => Prog.goToNextMap(st, rules)), true);
-    assert.equal(Prog.upgradeCost(store.state, rules, 'map_02', 'B06'), 64);
+    assert.equal(Prog.upgradeCost(store.state, rules, 'M02', 'B06'), 64);
 });
 
 test('sign-in is cumulative: one claim per day, missed days not lost, seventh then restarts', () => {
@@ -175,7 +175,7 @@ test('daily tasks: unlocked after guide, count wins and builds, chest after all 
         store.commit(s => Main.completeAttempt(s, rules, `a${i}`, DAY));
     }
     assert.throws(() => store.commit(s => Daily.claimDailyChest(s, rules, DAY)), /complete/);
-    store.commit(s => Prog.startBuild(s, rules, 'map_01', 'B02', 'bx'));
+    store.commit(s => Prog.startBuild(s, rules, 'M01', 'B02', 'bx'));
     store.commit(s => Prog.finishBuild(s, rules, 'bx', DAY));
     for (const id of ['win_1', 'win_3', 'build_1']) store.commit(s => Daily.claimDailyTask(s, rules, DAY, id));
     store.commit(s => Daily.claimDailyChest(s, rules, DAY));
@@ -193,8 +193,8 @@ test('daily rotation: endless tasks once endless opens, fallback when nothing el
     assert.match(store.state.daily.tasks[2].type, /endless|build/);
     const allDone = JSON.parse(JSON.stringify(store.state));
     allDone.mainline.cleared = { 1: true };
-    allDone.maps.currentMapId = 'map_03';
-    allDone.maps.completed.map_03 = true;
+    allDone.maps.currentMapId = 'M03';
+    allDone.maps.completed.M03 = true;
     assert.equal(Daily.pickDailyTasks(allDone, rules, DAY)[2].id, 'place_10');
 });
 

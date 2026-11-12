@@ -1,15 +1,33 @@
 'use strict';
 // Three-row header convention adapted from island/meta_dev/app.js.
+// Every key here is one independent workbook config/excel/<name>.xlsx.
 const schemas = {
  Constants: {id:'string',valueType:'string',value:'string'},
- Maps: {id:'string',nameKey:'string',backgroundAssetId:'string',nextMapId:'string?',completionRewardId:'string'},
- MapBuildings: {id:'string',mapId:'string',slotId:'int',buildingId:'string',x:'number',y:'number',scale:'number',zOrder:'int',anchorX:'number',anchorY:'number',upgradeOffsetX:'number',upgradeOffsetY:'number'},
- BuildingStages: {id:'string',buildingId:'string',stage:'int',cost:'int',bodyAssetId:'string',effectId:'string?'},
- Mainline: {id:'string',levelNo:'int',puzzleId:'string',rewardId:'string'},
  Rewards: {id:'string',coins:'int',energy:'int',hints:'int'},
- GuideSteps: {id:'string',groupId:'string',nextStepId:'string?',triggerEvent:'string',pageId:'string',targetId:'string?',action:'string',completeEvent:'string',params:'json',textKey:'string?',shape:'string',offsetX:'number',offsetY:'number',padding:'number',width:'number?',height:'number?',radius:'number?',handOffsetX:'number',handOffsetY:'number',skippable:'bool',timeoutSeconds:'int'}
+ Maps: {id:'string',order:'int',name:'string',backgroundAssetId:'string',nextMapId:'string?',completionRewardId:'string?'},
+ MapBuildings: {id:'string',mapId:'string',slot:'int',name:'string',feetX:'number',feetY:'number',anchorX:'number',anchorY:'number',widthFraction:'number',flipX:'bool',zIndex:'int',maxRewardId:'string?'},
+ BuildingStages: {id:'string',buildingId:'string',level:'int',cost:'int',assetId:'string'},
+ Mainline: {id:'string',levelNo:'int',puzzleId:'string',kind:'string',firstClearRewardId:'string',replayRewardId:'string'},
+ PlayerLevels: {id:'string',level:'int',expToNext:'int',rewardId:'string?'},
+ SignIn: {id:'string',day:'int',rewardId:'string'},
+ DailyTasks: {id:'string',order:'int',type:'string',target:'int',rewardId:'string',slot:'string',weight:'int'},
+ EndlessShapes: {id:'string',order:'int',cells:'json',weight:'int',color:'int'},
+ EndlessStages: {id:'string',score:'int',rewardId:'string'},
+ GuideSteps: {id:'string',order:'int',step:'string',pageId:'string',targetId:'string?',textKey:'string?',params:'json'},
 };
-const buildingIds = ['treehouse','flowerbed','workshop','watermill','greenhouse'];
-const assetIds = ['garden1.background', ...buildingIds.flatMap(id=>Array.from({length:6},(_,stage)=>`building.${id}.stage${stage}`))];
-const targetIds = ['home.build','home.play','result.home','welcome.claim','building.slot1.upgrade',...Array.from({length:3},(_,i)=>[`puzzle.piece${i}`,`puzzle.target${i}`]).flat()];
-module.exports={schemas,buildingIds,assetIds,targetIds};
+/** Constants every build needs, with the value type each must have. */
+const constants = {
+ initialCoins:'int', initialHints:'int',
+ energyMax:'int', energyInitial:'int', energyRecoverSeconds:'int', energyStartCost:'int', energyFirstLevelFree:'bool',
+ welcomeRewardId:'string', guideBuildingId:'string', firstMapId:'string',
+ buildExpPerUpgrade:'int', buildConstructionSeconds:'number',
+ dailyChestRewardId:'string', dailyTaskCount:'int',
+ endlessUnlockAfterLevelNo:'int', endlessRadius:'int', endlessTraySize:'int',
+ endlessScorePerPlaced:'int', endlessScorePerCleared:'int', endlessScorePerLine:'int', endlessScoreMultiLine:'int',
+};
+const dailyTaskTypes = ['win','build','endlessLines','endlessScore','placePiece'];
+const dailyTaskSlots = ['fixed','rotate','fallback'];
+/** Guide steps match core/Guide.ts guideStep(); the runtime derives the step from records. */
+const guideSteps = ['firstPuzzle','goBuild','finishBuild','welcome'];
+const guidePages = ['home','build','puzzle','result','welcome'];
+module.exports={schemas,constants,dailyTaskTypes,dailyTaskSlots,guideSteps,guidePages};
