@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),vm=require('node:vm'),xlsx=require('node-xlsx');
 const {exportConfig}=require('../app.cjs');
-const project=path.resolve(__dirname,'../../..'),scratch=path.resolve(project,'../tmp/prototype/first-release/meta/tests');
+const project=path.resolve(__dirname,'../../..'),scratch=path.resolve(project,'../tmp/v2/meta-tests');
 const ts=require(process.env.TYPESCRIPT_PATH||'G:/cocosCreator/Editor/Creator/3.8.8/resources/app.asar.unpacked/node_modules/typescript/lib/typescript.js');
 function runtime(){const module={exports:{}},file=path.join(project,'assets/scripts/features/config/MetaManager.ts'),code=ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText;vm.runInThisContext('(function(module,exports){'+code+'\n})',{filename:file})(module,module.exports);return module.exports.MetaManager;}
 function fixture(){fs.mkdirSync(scratch,{recursive:true});const folder=fs.mkdtempSync(path.join(scratch,'transition-'));for(const name of fs.readdirSync(path.join(project,'config/excel')).filter(n=>n.endsWith('.xlsx')))fs.copyFileSync(path.join(project,'config/excel',name),path.join(folder,name));return folder;}

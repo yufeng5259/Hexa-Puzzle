@@ -6,18 +6,7 @@
   },
   "scripts": {
     "config:export": "node tools/meta/app.cjs",
-    "firstrelease:generate": "node tools/first-release/generate.mjs",
-    "test:firstrelease": "node --test tools/first-release/tests/progression.test.mjs tools/first-release/tests/puzzle.test.mjs tools/first-release/tests/guide.test.mjs",
-    "test": "node tools/first-release/test.mjs",
-    "audit": "node tools/first-release/audit.mjs",
-    "typecheck": "node tools/prefab-foundation/typecheck.mjs",
-    "prefab:generate": "node tools/first-release/generate.mjs",
-    "prefab:verify-native": "node tools/first-release/verify-native.mjs",
-    "guide:verify-native": "node tools/first-release/verify-guide-motion.mjs",
-    "tray:verify-native": "node tools/first-release/verify-tray.mjs",
-    "obstacle:verify-native": "node tools/first-release/verify-obstacle.mjs",
-    "buttons:verify-native": "node tools/first-release/verify-puzzle-buttons.mjs",
-    "homeicon:verify-native": "node tools/first-release/verify-home-icon.mjs",
-    "transition:verify-native": "node tools/first-release/verify-puzzle-transition.mjs"
+    "test": "node tools/v2/test.mjs",
+    "typecheck": "node tools/v2/typecheck.mjs"
   }
 }

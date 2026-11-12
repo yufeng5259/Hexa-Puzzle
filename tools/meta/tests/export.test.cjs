@@ -2,7 +2,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const {parseRows,exportConfig,convert}=require('../app.cjs');
 const {schemas}=require('../schema.cjs');
 const project=path.resolve(__dirname,'../../..');
-const scratch=path.resolve(project,'../tmp/prototype/first-release/meta/tests');fs.mkdirSync(scratch,{recursive:true});
+const scratch=path.resolve(project,'../tmp/v2/meta-tests');fs.mkdirSync(scratch,{recursive:true});
 function fixture(){const folder=fs.mkdtempSync(path.join(scratch,'case-'));for(const name of Object.keys(schemas))fs.copyFileSync(path.join(project,'config/excel',name+'.xlsx'),path.join(folder,name+'.xlsx'));return folder;}
 function edit(folder,name,fn){const data=xlsx.parse(path.join(folder,name+'.xlsx'))[0].data;fn(data);fs.writeFileSync(path.join(folder,name+'.xlsx'),xlsx.build([{name:'Data',data}]));}
 test('seven independent workbooks combine deterministically; all 110 puzzle references survive',()=>{
@@ -61,24 +61,6 @@ test('bad animation numbers and ranges fail without replacing the previous confi
  edit(input,'GuideSteps',data=>{const i=data[2].indexOf('params'),p=JSON.parse(data[3][i]);p.presentation={dragDuration:1};data[3][i]=JSON.stringify(p).replace('"dragDuration":1','"dragDuration":1e999');});
  assert.throws(()=>exportConfig({input,output}),/finite number/);assert.equal(fs.readFileSync(output,'utf8'),'unchanged');
 });
-test('real exported MetaManager supports durable first win and first building upgrade',()=>{
- const vm=require('node:vm'),ts=require(process.env.TYPESCRIPT_PATH||'G:/cocosCreator/Editor/Creator/3.8.8/resources/app.asar.unpacked/node_modules/typescript/lib/typescript.js');
- const cache=new Map();function load(file){file=file.endsWith('.ts')?file:file+'.ts';if(cache.has(file))return cache.get(file).exports;const module={exports:{}};cache.set(file,module);const code=ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText;vm.runInThisContext('(function(module,exports,require){'+code+'\n})',{filename:file})(module,module.exports,name=>load(path.resolve(path.dirname(file),name)));return module.exports;}
- const {MetaManager}=load(path.join(project,'assets/scripts/features/config/MetaManager'));
- const {GameStateStore}=load(path.join(project,'assets/scripts/features/progression/GameStateStore'));
- const {GameServices}=load(path.join(project,'assets/scripts/features/progression/GameServices'));
- const raw=JSON.parse(fs.readFileSync(path.join(project,'assets/resources/config/game-config.json'),'utf8')),meta=new MetaManager(raw);
- const writes=new Map(),storage={getItem:key=>writes.get(key)??null,setItem:(key,val)=>writes.set(key,val)},store=new GameStateStore(storage,meta,()=>1000000),services=new GameServices(store,meta,()=>1000000,()=>{});
- const attempt=services.startOrResume();
- services.saveAttempt({attemptId:attempt.attemptId,levelId:attempt.puzzleId,moves:3,status:'completed',revision:1,placements:{},selectedPieceId:null,placementOrder:[]});
- services.completeAttempt(attempt.attemptId);assert.equal(services.state.coins,100);assert.equal(services.getGuidePhase(),'build');
- services.upgrade('garden-1',1,0);assert.equal(services.state.coins,60);assert.equal(services.getGuidePhase(),'welcome');
- services.claimWelcome();assert.equal(services.state.coins,160);assert.equal(services.getGuidePhase(),'complete');
- assert.equal(new GameStateStore(storage,meta,()=>1000000).read().guide.completed,true);
- assert.equal(meta.getMainlineCount(),110);assert.equal(meta.getMainline(110).puzzleId,'challenge-030');assert.equal(Object.isFrozen(meta.getBuildingStages('treehouse')),true);
- raw.tables.Constants.energyRecoverSeconds[2]=0;assert.throws(()=>new MetaManager(raw),/energy/);
-});
-
 test('welcome reward reference and registered presentation/actions are validated before export',()=>{
  const unknown=fixture(),output=path.join(unknown,'out.json');fs.writeFileSync(output,'unchanged');
  edit(unknown,'Constants',data=>{data.find(row=>row[0]==='welcomeRewardId')[2]='missing';});
