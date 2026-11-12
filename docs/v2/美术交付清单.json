@@ -1544,9 +1544,9 @@
     "p0UiAssetGroups": 75,
     "p0UiPngs": 103,
     "p0Layouts": 4,
-    "p1UiAssetGroups": 24,
-    "p1UiPngs": 45,
-    "p1NewLayouts": 15
+    "p1UiAssetGroups": 30,
+    "p1UiPngs": 57,
+    "p1NewLayouts": 20
   },
   "originalStylePNGsPreserved": {
     "效果图/S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
@@ -4594,6 +4594,193 @@
       "partOf": "task_progress_bar",
       "derivedFrom": "素材/UI/通用/bar_fill_green.png",
       "batch": "P1-3"
+    },
+    {
+      "id": "endless_score_panel",
+      "name": "无尽积分蓝面板",
+      "size": [
+        246,
+        167
+      ],
+      "scale": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "priority": "P1",
+      "source": "S19原色参考，无字宽倒角九宫格重建",
+      "sourceFile": "效果图/S19_无尽活动_BlockHexa风格.png",
+      "sourceSha256": "d2143e87d6a6856b40949d34e90801b0716cd713787f46d3efec37f908eb6904",
+      "sha256": {
+        "normal": "6e8ac58895652b60b2e6e6b1c6cabbbd4666408ca9431b02b84edc2cbd3b71f0"
+      },
+      "states": {
+        "normal": "UI/无尽/endless_score_panel.png"
+      },
+      "slice": [
+        57,
+        56,
+        57,
+        56
+      ],
+      "batch": "P1-4"
+    },
+    {
+      "id": "endless_stage_row",
+      "name": "阶段奖励米白行",
+      "size": [
+        266,
+        135
+      ],
+      "scale": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "priority": "P1",
+      "source": "S19原色参考，无字宽倒角九宫格重建",
+      "sourceFile": "效果图/S19_无尽活动_BlockHexa风格.png",
+      "sourceSha256": "d2143e87d6a6856b40949d34e90801b0716cd713787f46d3efec37f908eb6904",
+      "sha256": {
+        "normal": "30a7d656b4dd73498a4eac582e7be1b75bbf9daa1c50c249537ad565a46eaf76"
+      },
+      "states": {
+        "normal": "UI/无尽/endless_stage_row.png"
+      },
+      "slice": [
+        45,
+        44,
+        45,
+        44
+      ],
+      "batch": "P1-4"
+    },
+    {
+      "id": "endless_stage_node",
+      "name": "阶段六边节点",
+      "size": [
+        152,
+        163
+      ],
+      "scale": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "priority": "P1",
+      "source": "S19 边框原像素提取、无字内面重建",
+      "sourceFile": "效果图/S19_无尽活动_BlockHexa风格.png",
+      "sourceSha256": "d2143e87d6a6856b40949d34e90801b0716cd713787f46d3efec37f908eb6904",
+      "sha256": {
+        "reached": "8ff35c6baa4914733605d4e24b4e003fa460f3cddeec1ce3acaf4b43dd2e66d3",
+        "unreached": "81a4cc0861aee05ff31d62323ef31f817c28260a70fdb09106ccafc882aeb916"
+      },
+      "states": {
+        "reached": "UI/无尽/endless_stage_node_reached.png",
+        "unreached": "UI/无尽/endless_stage_node_unreached.png"
+      },
+      "batch": "P1-4"
+    },
+    {
+      "id": "endless_stage_link",
+      "name": "节点连接条",
+      "size": [
+        48,
+        116
+      ],
+      "scale": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "priority": "P1",
+      "source": "S19 边框原像素提取、无字内面重建",
+      "sourceFile": "效果图/S19_无尽活动_BlockHexa风格.png",
+      "sourceSha256": "d2143e87d6a6856b40949d34e90801b0716cd713787f46d3efec37f908eb6904",
+      "sha256": {
+        "reached": "efb38e5ff4b1c3f98b42012e5deef55e7f8af10d7f726cfc708bf9663030fae8",
+        "unreached": "0551999be29c87e74299daf1933601a9a5015bf029ce701f7db32772ae5f7dce"
+      },
+      "states": {
+        "reached": "UI/无尽/endless_stage_link_reached.png",
+        "unreached": "UI/无尽/endless_stage_link_unreached.png"
+      },
+      "slice": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "batch": "P1-4"
+    },
+    {
+      "id": "bg_endless",
+      "name": "无尽背景",
+      "size": [
+        853,
+        1844
+      ],
+      "scale": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "priority": "P1",
+      "source": "4.7 允许与P0拼图背景共用，未修改源文件",
+      "sourceFile": "素材/背景/bg_puzzle.png",
+      "sourceSha256": "0fc4369f8244d0c9d78957085259204bb3cf2533935b75e2903237c5ed170856",
+      "sha256": {
+        "normal": "0fc4369f8244d0c9d78957085259204bb3cf2533935b75e2903237c5ed170856"
+      },
+      "states": {
+        "normal": "背景/bg_puzzle.png"
+      },
+      "reuseFrom": "背景/bg_puzzle.png",
+      "batch": "P1-4",
+      "opaque": true
+    },
+    {
+      "id": "fx_line_clear",
+      "name": "满线消除单格光效",
+      "size": [
+        121,
+        105
+      ],
+      "scale": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "priority": "P1",
+      "source": "新增柔和青蓝/暖白消除光；单格121x105，程序沿线实例播放",
+      "sourceFile": null,
+      "sourceSha256": null,
+      "sha256": {
+        "01": "80791a2489d7eb9520bf4eb4b49e50e667a88a31f01d47294d8528e26fe5d0e3",
+        "02": "1b912405fa344b837f893324925e00435eeb4bd4d2b378788829f36a47b58b2e",
+        "03": "257b40411a3d239afaf7991704c90881271dac73718f695b4bb788f8dd471709",
+        "04": "82a759bd8e24b643fab1b83922e2cd31f88881b388e8e554e5315d0f8e0a915f",
+        "05": "f52e94ffcb5e3d0c1c5c6e92999474cb9c0fa5f3b57e9ac36da9cfeb0a468548",
+        "06": "fe48a8f0b58e7507422b880fc684db73e1f1854f186d0427d13030c9c9e4294b"
+      },
+      "frames": [
+        "UI/特效/fx_line_clear/fx_line_clear_01.png",
+        "UI/特效/fx_line_clear/fx_line_clear_02.png",
+        "UI/特效/fx_line_clear/fx_line_clear_03.png",
+        "UI/特效/fx_line_clear/fx_line_clear_04.png",
+        "UI/特效/fx_line_clear/fx_line_clear_05.png",
+        "UI/特效/fx_line_clear/fx_line_clear_06.png"
+      ],
+      "fps": 12,
+      "frameNames": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06"
+      ],
+      "batch": "P1-4"
     }
   ],
   "uiLayouts": [
@@ -4724,6 +4911,41 @@
       "deferredElements": []
     },
     {
+      "id": "S19",
+      "file": "素材/布局/S19.json",
+      "sha256": "d93670921e7e8abfd399330e1ec180f67d1a42e4245c0d5f3579f3cf62b4d5ca",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S20",
+      "file": "素材/布局/S20.json",
+      "sha256": "90dfabde03a4a20c245fd84895b904cab9bc2d8fc64832a5a524418d926157be",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S21",
+      "file": "素材/布局/S21.json",
+      "sha256": "bb28a744ec39f6f2b86067fa5c8c4dd45466b41119ae634d008712ab11a15490",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S22",
+      "file": "素材/布局/S22.json",
+      "sha256": "fadb429602cfaae1b1009a459d1e22d0c09b140a4855f2de406704b2a2dbedeb",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S23",
+      "file": "素材/布局/S23.json",
+      "sha256": "3910f8098c578f0533249eb7ab7513c013dae73cc389e7c4912e3c6a4e12676b",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
       "id": "S24",
       "file": "素材/布局/S24.json",
       "sha256": "65fc1c6c7e30a71904dcf33babe5b343b0be69c3ddad5e1282a322ac4758c363",
@@ -4792,6 +5014,52 @@
       ],
       "verification": "制作记录/切图20261112/P1/P1-3_verification.json",
       "reusedPngFiles": 0
+    },
+    "P1-4": {
+      "date": "2026-11-12",
+      "newAssetGroups": 6,
+      "newPngFiles": 12,
+      "newLayouts": [
+        "S19",
+        "S20",
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "verification": "制作记录/切图20261112/P1/P1-4_verification.json",
+      "reusedPngFiles": 1
     }
+  },
+  "uiAssetDecisions": {
+    "endless_board_frame": {
+      "status": "not_applicable",
+      "source": "效果图/S20_无尽对局_BlockHexa风格.png",
+      "reason": "实图只有各空槽自带青蓝边沿，没有独立61格棋盘外圈，按4.7如效果图有条件不凭空增加。整棋盘由程序组合既有empty_well母件。"
+    },
+    "bg_endless": {
+      "reuse": "背景/bg_puzzle.png",
+      "sourceSHA256": "0fc4369f8244d0c9d78957085259204bb3cf2533935b75e2903237c5ed170856",
+      "modified": false
+    }
+  },
+  "p1DeliveryStatus": {
+    "status": "complete",
+    "groups": [
+      "P1-1",
+      "P1-2",
+      "P1-3",
+      "P1-4"
+    ],
+    "newPngs": 57,
+    "newLayouts": 20,
+    "completedExistingLayouts": [
+      "S02",
+      "S03",
+      "S04",
+      "S06",
+      "S17"
+    ],
+    "conditionalAssets": "endless_board_frame not_applicable per section4.7; see uiAssetDecisions",
+    "runtimeModified": false
   }
 }

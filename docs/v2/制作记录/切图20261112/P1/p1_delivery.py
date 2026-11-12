@@ -57,9 +57,14 @@ def integrate(n):
  base=json.loads(baseline('docs/v2/美术交付清单.json'));m=load(V2/'美术交付清单.json');items=copy.deepcopy(base['uiAssets'])
  for i in range(n):
   for a in load(REC/LANES[i]/'manifest.json'):
-   a.setdefault('batch',f'P1-{i+1}');items.append(a)
+   a.setdefault('batch',f'P1-{i+1}')
+   if a['id']=='bg_endless':a['opaque']=True
+   items.append(a)
  assert len({a['id'] for a in items})==len(items),'duplicate IDs'
  m['uiAssets']=items
+ if n==4:
+  m['uiAssetDecisions']=load(REC/'endless/decisions.json')
+  m['p1DeliveryStatus']={'status':'complete','groups':['P1-1','P1-2','P1-3','P1-4'],'newPngs':57,'newLayouts':20,'completedExistingLayouts':['S02','S03','S04','S06','S17'],'conditionalAssets':'endless_board_frame not_applicable per section4.7; see uiAssetDecisions','runtimeModified':False}
  selected=['S02','S03','S04','S06','S17']+sum(GROUPS[:n],[]);layouts=[]
  for sid in sorted(selected):
   p=A/'布局'/f'{sid}.json';j=load(p)
@@ -158,4 +163,5 @@ def compare(m,sids,folder):
  sheet.save(folder/'contact.jpg',quality=94)
 if __name__=='__main__':
  n=int(sys.argv[1]);m=integrate(n);compare(m,GROUPS[n-1]+(['S02','S03','S04','S06','S17'] if n in [1,3] else []),REC.parent/'对照'/'P1'/f'P1-{n}')
+ if n==4:compare(m,['S17','S18','S19','S20'],REC.parent/'对照/P1/最终')
  print(f'P1-{n} PASS; integrated {len(m["uiAssets"])} groups, {len(m["uiLayouts"])} layouts')

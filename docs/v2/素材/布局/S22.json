@@ -1,0 +1,199 @@
+{
+  "page": "S22",
+  "reference": "效果图/S22_无尽退出确认_BlockHexa风格.png",
+  "referenceSha256": "24153d71137b65222651fbd74f6b7675171af94988c46099d0cfd316b9b557ef",
+  "size": [
+    854,
+    1842
+  ],
+  "designResolution": [
+    853,
+    1844
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "priority": "P1",
+  "deliveryGroup": "P1-4",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.52
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        555,
+        712,
+        774
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        503,
+        547,
+        135
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "暂时离开？",
+      "rect": [
+        193,
+        541,
+        467,
+        80
+      ],
+      "fontSize": 43,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "btn_close_dialog",
+      "asset": "UI/通用/btn_close_dialog_normal.png",
+      "rect": [
+        722,
+        511,
+        52,
+        52
+      ]
+    },
+    {
+      "id": "bee_fly",
+      "asset": "角色/bee_fly.png",
+      "rect": [
+        351,
+        708,
+        152,
+        137
+      ]
+    },
+    {
+      "id": "preserve_board",
+      "type": "label",
+      "text": "棋盘与剩余拼块都会保留",
+      "rect": [
+        230,
+        844,
+        400,
+        47
+      ],
+      "fontSize": 31,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "resume_caption",
+      "type": "label",
+      "text": "随时回来继续挑战",
+      "rect": [
+        272,
+        897,
+        310,
+        47
+      ],
+      "fontSize": 28,
+      "color": "#8B9AB0",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "save_leave",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1020,
+        568,
+        105
+      ],
+      "slice": true
+    },
+    {
+      "id": "save_leave_label",
+      "type": "label",
+      "text": "保存并返回活动",
+      "rect": [
+        155,
+        1026,
+        544,
+        93
+      ],
+      "fontSize": 37,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "continue",
+      "asset": "UI/通用/btn_blue_normal.png",
+      "rect": [
+        143,
+        1134,
+        568,
+        95
+      ],
+      "slice": true
+    },
+    {
+      "id": "continue_label",
+      "type": "label",
+      "text": "继续游戏",
+      "rect": [
+        155,
+        1140,
+        544,
+        83
+      ],
+      "fontSize": 40,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "end_game",
+      "type": "label",
+      "text": "结束本局",
+      "rect": [
+        300,
+        1259,
+        256,
+        51
+      ],
+      "fontSize": 32,
+      "color": "#C57075",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    }
+  ],
+  "overlay": true,
+  "underlay": "S20",
+  "underlayBlur": 4,
+  "notes": "保存返回、继续、结束本局分别标注；结束本局需运行时二次确认，不等同清空活动积分。"
+}

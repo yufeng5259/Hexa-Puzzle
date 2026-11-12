@@ -1,0 +1,797 @@
+{
+  "page": "S19",
+  "reference": "效果图/S19_无尽活动_BlockHexa风格.png",
+  "referenceSha256": "d2143e87d6a6856b40949d34e90801b0716cd713787f46d3efec37f908eb6904",
+  "size": [
+    854,
+    1842
+  ],
+  "designResolution": [
+    853,
+    1844
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "priority": "P1",
+  "deliveryGroup": "P1-4",
+  "elements": [
+    {
+      "id": "background",
+      "asset": "背景/bg_puzzle.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "home_button",
+      "asset": "UI/HUD/hud_btn_square_blue_normal.png",
+      "rect": [
+        28,
+        37,
+        110,
+        97
+      ]
+    },
+    {
+      "id": "icon_home",
+      "asset": "UI/图标/icon_home.png",
+      "rect": [
+        52,
+        57,
+        62,
+        57
+      ]
+    },
+    {
+      "id": "back_button",
+      "asset": "UI/HUD/hud_btn_square_blue_normal.png",
+      "rect": [
+        148,
+        37,
+        115,
+        97
+      ]
+    },
+    {
+      "id": "icon_back",
+      "asset": "UI/图标/icon_back.png",
+      "rect": [
+        172,
+        57,
+        67,
+        57
+      ]
+    },
+    {
+      "id": "help_button",
+      "asset": "UI/HUD/hud_btn_square_blue_normal.png",
+      "rect": [
+        726,
+        37,
+        100,
+        97
+      ]
+    },
+    {
+      "id": "icon_help",
+      "asset": "UI/图标/icon_help.png",
+      "rect": [
+        750,
+        57,
+        52,
+        57
+      ]
+    },
+    {
+      "id": "bee_fly",
+      "asset": "角色/bee_fly.png",
+      "rect": [
+        137,
+        155,
+        133,
+        126
+      ]
+    },
+    {
+      "id": "event_title",
+      "type": "label",
+      "text": "蜂巢消消乐",
+      "rect": [
+        293,
+        169,
+        350,
+        82
+      ],
+      "fontSize": 63,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_honeycomb_deco",
+      "asset": "UI/图标/icon_honeycomb_deco.png",
+      "rect": [
+        643,
+        201,
+        73,
+        61
+      ]
+    },
+    {
+      "id": "puzzle_title_line",
+      "asset": "UI/拼图/puzzle_title_line.png",
+      "rect": [
+        269,
+        254,
+        367,
+        24
+      ]
+    },
+    {
+      "id": "endless_score_panel",
+      "asset": "UI/无尽/endless_score_panel.png",
+      "rect": [
+        36,
+        320,
+        782,
+        169
+      ],
+      "slice": true
+    },
+    {
+      "id": "weekly_label",
+      "type": "label",
+      "text": "本周积分",
+      "rect": [
+        147,
+        340,
+        190,
+        49
+      ],
+      "fontSize": 41,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "record_label",
+      "type": "label",
+      "text": "最高纪录",
+      "rect": [
+        546,
+        340,
+        190,
+        49
+      ],
+      "fontSize": 41,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        125,
+        388,
+        77,
+        77
+      ]
+    },
+    {
+      "id": "weekly_score",
+      "type": "label",
+      "text": "1,540",
+      "rect": [
+        206,
+        391,
+        170,
+        72
+      ],
+      "fontSize": 57,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_coin_2",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        526,
+        388,
+        77,
+        77
+      ]
+    },
+    {
+      "id": "record_score",
+      "type": "label",
+      "text": "2,680",
+      "rect": [
+        609,
+        391,
+        168,
+        72
+      ],
+      "fontSize": 57,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "weekly_reset",
+      "type": "label",
+      "text": "每周一0点刷新",
+      "rect": [
+        265,
+        493,
+        330,
+        53
+      ],
+      "fontSize": 31,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_link_0",
+      "asset": "UI/无尽/endless_stage_link_reached.png",
+      "rect": [
+        117,
+        699,
+        31,
+        179
+      ]
+    },
+    {
+      "id": "stage_link_1",
+      "asset": "UI/无尽/endless_stage_link_unreached.png",
+      "rect": [
+        117,
+        926,
+        31,
+        179
+      ]
+    },
+    {
+      "id": "stage_link_2",
+      "asset": "UI/无尽/endless_stage_link_unreached.png",
+      "rect": [
+        117,
+        1153,
+        31,
+        179
+      ]
+    },
+    {
+      "id": "stage_0_row",
+      "asset": "UI/无尽/endless_stage_row.png",
+      "rect": [
+        215,
+        592,
+        597,
+        136
+      ],
+      "slice": true
+    },
+    {
+      "id": "stage_0_node",
+      "asset": "UI/无尽/endless_stage_node_reached.png",
+      "rect": [
+        58,
+        576,
+        151,
+        165
+      ]
+    },
+    {
+      "id": "stage_0_threshold",
+      "type": "label",
+      "text": "500",
+      "rect": [
+        73,
+        629,
+        119,
+        61
+      ],
+      "fontSize": 37,
+      "color": "#603B09",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_coin_pile",
+      "asset": "UI/图标/icon_coin_pile.png",
+      "rect": [
+        257,
+        615,
+        110,
+        104
+      ]
+    },
+    {
+      "id": "stage_0_reward",
+      "type": "label",
+      "text": "金币 ×50",
+      "rect": [
+        376,
+        632,
+        182,
+        58
+      ],
+      "fontSize": 35,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_0_status",
+      "asset": "UI/通用/tag_claimed.png",
+      "rect": [
+        597,
+        625,
+        194,
+        66
+      ],
+      "slice": true
+    },
+    {
+      "id": "mark_check",
+      "asset": "UI/通用/mark_check.png",
+      "rect": [
+        620,
+        638,
+        38,
+        39
+      ]
+    },
+    {
+      "id": "stage_0_status_text",
+      "type": "label",
+      "text": "已领取",
+      "rect": [
+        661,
+        635,
+        115,
+        48
+      ],
+      "fontSize": 32,
+      "color": "#31664D",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_1_row",
+      "asset": "UI/无尽/endless_stage_row.png",
+      "rect": [
+        215,
+        820,
+        597,
+        136
+      ],
+      "slice": true
+    },
+    {
+      "id": "stage_1_node",
+      "asset": "UI/无尽/endless_stage_node_reached.png",
+      "rect": [
+        58,
+        804,
+        151,
+        165
+      ]
+    },
+    {
+      "id": "stage_1_threshold",
+      "type": "label",
+      "text": "1,500",
+      "rect": [
+        73,
+        857,
+        119,
+        61
+      ],
+      "fontSize": 37,
+      "color": "#603B09",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_coin_pile_2",
+      "asset": "UI/图标/icon_coin_pile.png",
+      "rect": [
+        257,
+        843,
+        110,
+        104
+      ]
+    },
+    {
+      "id": "stage_1_reward",
+      "type": "label",
+      "text": "金币 ×100",
+      "rect": [
+        376,
+        860,
+        182,
+        58
+      ],
+      "fontSize": 35,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_1_claim",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        600,
+        846,
+        184,
+        88
+      ],
+      "slice": true
+    },
+    {
+      "id": "stage_1_claim_label",
+      "type": "label",
+      "text": "领取",
+      "rect": [
+        612,
+        852,
+        160,
+        76
+      ],
+      "fontSize": 43,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_2_row",
+      "asset": "UI/无尽/endless_stage_row.png",
+      "rect": [
+        215,
+        1047,
+        597,
+        136
+      ],
+      "slice": true
+    },
+    {
+      "id": "stage_2_node",
+      "asset": "UI/无尽/endless_stage_node_unreached.png",
+      "rect": [
+        58,
+        1031,
+        151,
+        165
+      ]
+    },
+    {
+      "id": "stage_2_threshold",
+      "type": "label",
+      "text": "3,000",
+      "rect": [
+        73,
+        1084,
+        119,
+        61
+      ],
+      "fontSize": 37,
+      "color": "#34496E",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_hint",
+      "asset": "UI/图标/icon_hint.png",
+      "rect": [
+        257,
+        1070,
+        110,
+        104
+      ],
+      "tint": "#FFC63D"
+    },
+    {
+      "id": "stage_2_reward",
+      "type": "label",
+      "text": "提示 ×1",
+      "rect": [
+        376,
+        1087,
+        182,
+        58
+      ],
+      "fontSize": 35,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_2_status",
+      "asset": "UI/通用/tag_locked.png",
+      "rect": [
+        597,
+        1080,
+        194,
+        66
+      ],
+      "slice": true
+    },
+    {
+      "id": "mark_lock",
+      "asset": "UI/通用/mark_lock.png",
+      "rect": [
+        620,
+        1093,
+        38,
+        39
+      ]
+    },
+    {
+      "id": "stage_2_status_text",
+      "type": "label",
+      "text": "未解锁",
+      "rect": [
+        661,
+        1090,
+        115,
+        48
+      ],
+      "fontSize": 32,
+      "color": "#5E6C84",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_3_row",
+      "asset": "UI/无尽/endless_stage_row.png",
+      "rect": [
+        215,
+        1274,
+        597,
+        136
+      ],
+      "slice": true
+    },
+    {
+      "id": "stage_3_node",
+      "asset": "UI/无尽/endless_stage_node_unreached.png",
+      "rect": [
+        58,
+        1258,
+        151,
+        165
+      ]
+    },
+    {
+      "id": "stage_3_threshold",
+      "type": "label",
+      "text": "6,000",
+      "rect": [
+        73,
+        1311,
+        119,
+        61
+      ],
+      "fontSize": 37,
+      "color": "#34496E",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_coin_pile_3",
+      "asset": "UI/图标/icon_coin_pile.png",
+      "rect": [
+        269,
+        1284,
+        86,
+        78
+      ]
+    },
+    {
+      "id": "stage_3_coin",
+      "type": "label",
+      "text": "金币×150",
+      "rect": [
+        254,
+        1368,
+        130,
+        38
+      ],
+      "fontSize": 29,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_3_plus",
+      "type": "label",
+      "text": "+",
+      "rect": [
+        395,
+        1312,
+        41,
+        47
+      ],
+      "fontSize": 34,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_energy",
+      "asset": "UI/图标/icon_energy.png",
+      "rect": [
+        451,
+        1295,
+        73,
+        73
+      ]
+    },
+    {
+      "id": "stage_3_energy",
+      "type": "label",
+      "text": "体力×1",
+      "rect": [
+        434,
+        1368,
+        110,
+        38
+      ],
+      "fontSize": 28,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "stage_3_status",
+      "asset": "UI/通用/tag_locked.png",
+      "rect": [
+        597,
+        1307,
+        194,
+        66
+      ],
+      "slice": true
+    },
+    {
+      "id": "mark_lock_2",
+      "asset": "UI/通用/mark_lock.png",
+      "rect": [
+        620,
+        1320,
+        38,
+        39
+      ]
+    },
+    {
+      "id": "stage_3_status_text",
+      "type": "label",
+      "text": "未解锁",
+      "rect": [
+        661,
+        1317,
+        115,
+        48
+      ],
+      "fontSize": 32,
+      "color": "#5E6C84",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "start_challenge",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        129,
+        1482,
+        595,
+        166
+      ],
+      "slice": true
+    },
+    {
+      "id": "start_challenge_label",
+      "type": "label",
+      "text": "开始挑战",
+      "rect": [
+        141,
+        1488,
+        571,
+        154
+      ],
+      "fontSize": 70,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "free_play",
+      "type": "label",
+      "text": "免费游玩",
+      "rect": [
+        330,
+        1656,
+        194,
+        61
+      ],
+      "fontSize": 43,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "claim_reminder",
+      "type": "label",
+      "text": "奖励请及时领取",
+      "rect": [
+        214,
+        1742,
+        426,
+        61
+      ],
+      "fontSize": 33,
+      "color": "#D5E7FA",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    }
+  ],
+  "scrollViewport": [
+    47,
+    570,
+    776,
+    846
+  ],
+  "notes": "所有币使用S02圆形蜜蜂币；体力文案不用爱心。周积分与最高纪录分别标注。"
+}

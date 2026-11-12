@@ -1,0 +1,257 @@
+{
+  "page": "S21",
+  "reference": "效果图/S21_无尽结算_BlockHexa风格.png",
+  "referenceSha256": "fd8a1a91b2b97e84e57f0a0f2527226d606f277cf721446c1ae855b97bca6437",
+  "size": [
+    854,
+    1842
+  ],
+  "designResolution": [
+    853,
+    1844
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "priority": "P1",
+  "deliveryGroup": "P1-4",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.52
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        490,
+        712,
+        915
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        424,
+        547,
+        155
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "本局结束",
+      "rect": [
+        193,
+        462,
+        467,
+        100
+      ],
+      "fontSize": 43,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "bee_celebrate",
+      "asset": "角色/bee_celebrate.png",
+      "rect": [
+        351,
+        591,
+        152,
+        157
+      ]
+    },
+    {
+      "id": "game_score",
+      "type": "label",
+      "text": "1,540",
+      "rect": [
+        279,
+        744,
+        296,
+        91
+      ],
+      "fontSize": 76,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "game_score_label",
+      "type": "label",
+      "text": "本局得分",
+      "rect": [
+        336,
+        832,
+        182,
+        41
+      ],
+      "fontSize": 28,
+      "color": "#8291A8",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "best_label",
+      "type": "label",
+      "text": "本地最高分",
+      "rect": [
+        152,
+        904,
+        207,
+        51
+      ],
+      "fontSize": 29,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "best_value",
+      "type": "label",
+      "text": "2,680",
+      "rect": [
+        572,
+        900,
+        128,
+        55
+      ],
+      "fontSize": 39,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "weekly_delta_label",
+      "type": "label",
+      "text": "本局新增活动积分",
+      "rect": [
+        150,
+        980,
+        310,
+        51
+      ],
+      "fontSize": 29,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "weekly_delta",
+      "type": "label",
+      "text": "+1,540",
+      "rect": [
+        546,
+        978,
+        158,
+        55
+      ],
+      "fontSize": 39,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "reward_notice",
+      "type": "label",
+      "text": "阶段奖励请返回活动页领取",
+      "rect": [
+        237,
+        1081,
+        390,
+        47
+      ],
+      "fontSize": 27,
+      "color": "#8B9AB0",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "retry",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1190,
+        568,
+        105
+      ],
+      "slice": true
+    },
+    {
+      "id": "retry_label",
+      "type": "label",
+      "text": "再来一局",
+      "rect": [
+        155,
+        1196,
+        544,
+        93
+      ],
+      "fontSize": 42,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "return_event",
+      "asset": "UI/通用/btn_grey_normal.png",
+      "rect": [
+        143,
+        1310,
+        568,
+        85
+      ],
+      "slice": true
+    },
+    {
+      "id": "return_event_label",
+      "type": "label",
+      "text": "返回活动",
+      "rect": [
+        155,
+        1316,
+        544,
+        73
+      ],
+      "fontSize": 39,
+      "color": "#536B91",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    }
+  ],
+  "overlay": true,
+  "underlay": "S20",
+  "underlayBlur": 4,
+  "notes": "结算标签单局得分/本周新增积分明确分开；阶段奖仅指引返回活动页领取。"
+}

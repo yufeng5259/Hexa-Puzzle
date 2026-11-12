@@ -1,0 +1,273 @@
+{
+  "page": "S23",
+  "reference": "效果图/S23_设置_BlockHexa风格.png",
+  "referenceSha256": "1bb2d520c4d8fb4c30aeda4eb354502f3d81b91f2f56415a1442e97b3cd117fa",
+  "size": [
+    854,
+    1842
+  ],
+  "designResolution": [
+    853,
+    1844
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "priority": "P1",
+  "deliveryGroup": "P1-4",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.52
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        548,
+        712,
+        791
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        494,
+        547,
+        139
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "设置",
+      "rect": [
+        193,
+        532,
+        467,
+        84
+      ],
+      "fontSize": 43,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "btn_close_dialog",
+      "asset": "UI/通用/btn_close_dialog_normal.png",
+      "rect": [
+        722,
+        502,
+        52,
+        52
+      ]
+    },
+    {
+      "id": "music_name",
+      "type": "label",
+      "text": "音乐",
+      "rect": [
+        180,
+        762,
+        110,
+        61
+      ],
+      "fontSize": 40,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "music_state",
+      "type": "label",
+      "text": "开启",
+      "rect": [
+        390,
+        770,
+        80,
+        43
+      ],
+      "fontSize": 24,
+      "color": "#8B9AB0",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "music_toggle_track",
+      "asset": "UI/通用/toggle_track_on.png",
+      "rect": [
+        509,
+        750,
+        183,
+        79
+      ]
+    },
+    {
+      "id": "music_toggle_knob",
+      "asset": "UI/通用/toggle_knob_on.png",
+      "rect": [
+        620,
+        753,
+        72,
+        72
+      ]
+    },
+    {
+      "id": "sound_name",
+      "type": "label",
+      "text": "音效",
+      "rect": [
+        180,
+        912,
+        110,
+        61
+      ],
+      "fontSize": 40,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "sound_state",
+      "type": "label",
+      "text": "开启",
+      "rect": [
+        390,
+        920,
+        80,
+        43
+      ],
+      "fontSize": 24,
+      "color": "#8B9AB0",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "sound_toggle_track",
+      "asset": "UI/通用/toggle_track_on.png",
+      "rect": [
+        509,
+        900,
+        183,
+        79
+      ]
+    },
+    {
+      "id": "sound_toggle_knob",
+      "asset": "UI/通用/toggle_knob_on.png",
+      "rect": [
+        620,
+        903,
+        72,
+        72
+      ]
+    },
+    {
+      "id": "vibration_name",
+      "type": "label",
+      "text": "震动",
+      "rect": [
+        180,
+        1062,
+        110,
+        61
+      ],
+      "fontSize": 40,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "vibration_state",
+      "type": "label",
+      "text": "关闭",
+      "rect": [
+        390,
+        1070,
+        80,
+        43
+      ],
+      "fontSize": 24,
+      "color": "#8B9AB0",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "vibration_toggle_track",
+      "asset": "UI/通用/toggle_track_off.png",
+      "rect": [
+        509,
+        1050,
+        183,
+        79
+      ]
+    },
+    {
+      "id": "vibration_toggle_knob",
+      "asset": "UI/通用/toggle_knob_off.png",
+      "rect": [
+        509,
+        1053,
+        72,
+        72
+      ]
+    },
+    {
+      "id": "done",
+      "asset": "UI/通用/btn_blue_normal.png",
+      "rect": [
+        143,
+        1221,
+        568,
+        93
+      ],
+      "slice": true
+    },
+    {
+      "id": "done_label",
+      "type": "label",
+      "text": "完成",
+      "rect": [
+        155,
+        1227,
+        544,
+        81
+      ],
+      "fontSize": 42,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    }
+  ],
+  "overlay": true,
+  "underlay": "S02",
+  "underlayBlur": 4,
+  "underlayDynamic": true,
+  "notes": "示例来源为主页；运行时应保留实际来源页S02/S04/S20。三个开关独立，track/knob分离、文案同时表达状态，不新增语言/社交/付费入口。"
+}
