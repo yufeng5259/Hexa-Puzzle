@@ -34,7 +34,12 @@ def patch_existing(n):
    j['p1Completion']='按本轮用户授权补齐角色/签到格引用；原P0 PNG与其他元素保持不变。'
    if sid=='S17' and n>=3:
     j['priorityNote']='P1-3补齐7日签到格和角色，原P0通用件保持不变。'
-    if not any(e['id']=='signin_today_tag_bg' for e in j['elements']):j['elements'].insert(2+len(cells),{'id':'signin_today_tag_bg','asset':'UI/签到/signin_today_tag.png','rect':[141,994,126,58]})
+    if not any(e['id']=='signin_today_tag_bg' for e in j['elements']):j['elements'].insert(2+len(cells),{'id':'signin_today_tag_bg','asset':'UI/签到/signin_today_tag.png','rect':[138,982,138,58]})
+   if sid=='S17' and n>=3:
+    j['elements']=[e for e in j['elements'] if not e.get('asset','').endswith(('/mark_check.png','/mark_lock.png'))]
+    for el in j['elements']:
+     if el.get('asset','').endswith('/icon_hint.png'):el['tint']='#FFC63D'
+     if el['id']=='panel_feature_crown':el['slice']=False
    save(p,j)
 
 def paths(a):
@@ -44,6 +49,11 @@ def paths(a):
 
 def integrate(n):
  patch_existing(n)
+ if n>=3:
+  p=A/'布局/S17.json';j=load(p)
+  for e in j['elements']:
+   if e['id']=='today':e['color']='#FFFFFF'
+  save(p,j)
  base=json.loads(baseline('docs/v2/美术交付清单.json'));m=load(V2/'美术交付清单.json');items=copy.deepcopy(base['uiAssets'])
  for i in range(n):
   for a in load(REC/LANES[i]/'manifest.json'):

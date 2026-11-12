@@ -1,0 +1,593 @@
+{
+  "page": "S18",
+  "reference": "效果图/S18_每日任务_BlockHexa风格.png",
+  "referenceSha256": "7f517be4ea4b0c3ceeb6ab848d8858c2cb2f472808d92f1c72ad1628ab688ee8",
+  "size": [
+    854,
+    1842
+  ],
+  "designResolution": [
+    853,
+    1844
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "priority": "P1",
+  "deliveryGroup": "P1-3",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.52
+    },
+    {
+      "id": "panel_feature",
+      "asset": "UI/通用/panel_feature.png",
+      "rect": [
+        26,
+        485,
+        801,
+        999
+      ],
+      "slice": true
+    },
+    {
+      "id": "panel_feature_crown",
+      "asset": "UI/通用/panel_feature_crown.png",
+      "rect": [
+        140,
+        320,
+        565,
+        245
+      ]
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "每日任务",
+      "rect": [
+        230,
+        451,
+        390,
+        91
+      ],
+      "fontSize": 67,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "btn_close",
+      "asset": "UI/通用/btn_close_normal.png",
+      "rect": [
+        728,
+        454,
+        90,
+        100
+      ]
+    },
+    {
+      "id": "daily_reset",
+      "type": "label",
+      "text": "每日0点刷新",
+      "rect": [
+        269,
+        575,
+        317,
+        52
+      ],
+      "fontSize": 36,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_1_row",
+      "asset": "UI/任务/task_row_done.png",
+      "rect": [
+        55,
+        634,
+        744,
+        187
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_1_icon",
+      "asset": "UI/任务/task_icon_puzzle.png",
+      "rect": [
+        72,
+        668,
+        153,
+        130
+      ]
+    },
+    {
+      "id": "task_1_description",
+      "type": "label",
+      "text": "完成1次拼图",
+      "rect": [
+        243,
+        671,
+        236,
+        53
+      ],
+      "fontSize": 37,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_1_progress_bg",
+      "asset": "UI/任务/task_progress_bar_bg.png",
+      "rect": [
+        245,
+        738,
+        233,
+        43
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_1_progress_fill",
+      "asset": "UI/任务/task_progress_bar_fill.png",
+      "rect": [
+        250,
+        743,
+        223,
+        33
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_1_progress",
+      "type": "label",
+      "text": "1/1",
+      "rect": [
+        266,
+        740,
+        193,
+        37
+      ],
+      "fontSize": 32,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        513,
+        663,
+        77,
+        77
+      ]
+    },
+    {
+      "id": "task_1_coins",
+      "type": "label",
+      "text": "30",
+      "rect": [
+        515,
+        739,
+        78,
+        49
+      ],
+      "fontSize": 38,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_1_action",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        614,
+        684,
+        169,
+        98
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_1_action_label",
+      "type": "label",
+      "text": "领取",
+      "rect": [
+        626,
+        690,
+        145,
+        86
+      ],
+      "fontSize": 40,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_2_row",
+      "asset": "UI/任务/task_row_normal.png",
+      "rect": [
+        55,
+        835,
+        744,
+        187
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_2_icon",
+      "asset": "UI/任务/task_icon_puzzle.png",
+      "rect": [
+        72,
+        869,
+        153,
+        130
+      ]
+    },
+    {
+      "id": "task_2_description",
+      "type": "label",
+      "text": "完成3次拼图",
+      "rect": [
+        243,
+        872,
+        236,
+        53
+      ],
+      "fontSize": 37,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_2_progress_bg",
+      "asset": "UI/任务/task_progress_bar_bg.png",
+      "rect": [
+        245,
+        939,
+        233,
+        43
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_2_progress_fill",
+      "asset": "UI/任务/task_progress_bar_fill.png",
+      "rect": [
+        250,
+        944,
+        70,
+        33
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_2_progress",
+      "type": "label",
+      "text": "1/3",
+      "rect": [
+        266,
+        941,
+        193,
+        37
+      ],
+      "fontSize": 32,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_coin_2",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        513,
+        864,
+        77,
+        77
+      ]
+    },
+    {
+      "id": "task_2_coins",
+      "type": "label",
+      "text": "50",
+      "rect": [
+        515,
+        940,
+        78,
+        49
+      ],
+      "fontSize": 38,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_2_action",
+      "asset": "UI/通用/btn_blue_normal.png",
+      "rect": [
+        614,
+        885,
+        169,
+        98
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_2_action_label",
+      "type": "label",
+      "text": "前往",
+      "rect": [
+        626,
+        891,
+        145,
+        86
+      ],
+      "fontSize": 40,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_3_row",
+      "asset": "UI/任务/task_row_done.png",
+      "rect": [
+        55,
+        1036,
+        744,
+        187
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_3_icon",
+      "asset": "UI/任务/task_icon_build.png",
+      "rect": [
+        72,
+        1070,
+        153,
+        130
+      ]
+    },
+    {
+      "id": "task_3_description",
+      "type": "label",
+      "text": "完成1次建造",
+      "rect": [
+        243,
+        1073,
+        236,
+        53
+      ],
+      "fontSize": 37,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_3_progress_bg",
+      "asset": "UI/任务/task_progress_bar_bg.png",
+      "rect": [
+        245,
+        1140,
+        233,
+        43
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_3_progress_fill",
+      "asset": "UI/任务/task_progress_bar_fill.png",
+      "rect": [
+        250,
+        1145,
+        223,
+        33
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_3_progress",
+      "type": "label",
+      "text": "1/1",
+      "rect": [
+        266,
+        1142,
+        193,
+        37
+      ],
+      "fontSize": 32,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_coin_3",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        513,
+        1065,
+        77,
+        77
+      ]
+    },
+    {
+      "id": "task_3_coins",
+      "type": "label",
+      "text": "30",
+      "rect": [
+        515,
+        1141,
+        78,
+        49
+      ],
+      "fontSize": 38,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "task_3_action",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        614,
+        1086,
+        169,
+        98
+      ],
+      "slice": true
+    },
+    {
+      "id": "task_3_action_label",
+      "type": "label",
+      "text": "领取",
+      "rect": [
+        626,
+        1092,
+        145,
+        86
+      ],
+      "fontSize": 40,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "panel_inner",
+      "asset": "UI/通用/panel_inner.png",
+      "rect": [
+        56,
+        1263,
+        743,
+        164
+      ],
+      "slice": true
+    },
+    {
+      "id": "completion_progress",
+      "type": "label",
+      "text": "今日完成 2/3",
+      "rect": [
+        76,
+        1310,
+        241,
+        67
+      ],
+      "fontSize": 40,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_chest_closed",
+      "asset": "UI/图标/icon_chest_closed.png",
+      "rect": [
+        326,
+        1286,
+        127,
+        126
+      ]
+    },
+    {
+      "id": "icon_coin_4",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        478,
+        1294,
+        74,
+        74
+      ]
+    },
+    {
+      "id": "completion_coin",
+      "type": "label",
+      "text": "50",
+      "rect": [
+        478,
+        1361,
+        76,
+        48
+      ],
+      "fontSize": 35,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "completion_claim",
+      "asset": "UI/通用/btn_green_disabled.png",
+      "rect": [
+        577,
+        1306,
+        208,
+        87
+      ],
+      "slice": true
+    },
+    {
+      "id": "completion_claim_text",
+      "type": "label",
+      "text": "完成后领取",
+      "rect": [
+        583,
+        1320,
+        197,
+        60
+      ],
+      "fontSize": 31,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    }
+  ],
+  "overlay": true,
+  "underlay": "S03",
+  "listViewport": [
+    55,
+    634,
+    744,
+    589
+  ],
+  "scrollContent": "task_1_row..task_3_row",
+  "notes": "功能大面板遵循紫框蜂巢顶饰；任务列表坐标是首屏示例，运行时用独立item Prefab复用。"
+}

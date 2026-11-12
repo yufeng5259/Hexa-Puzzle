@@ -1,0 +1,27 @@
+{
+  "status": "reviewed",
+  "pages": [
+    "S18",
+    "S19",
+    "S20",
+    "S21",
+    "S22",
+    "S23"
+  ],
+  "evidence": "contact.jpg and individual Sxx_preview.jpg",
+  "findings": [
+    "S18 uses three separated rows and a completion section with live Label examples.",
+    "S19 fourth-row coin was reduced before final rendering so its amount label no longer overlaps the coin.",
+    "S20 renders exactly 61 unique axial cells from the approved radius-4 source and the three complete tray pieces.",
+    "S21/S22 preserve S20 beneath the standard cream dialog; S23 preserves S02 with separated tracks and knobs.",
+    "S20 dark capsules and all circular bee coins follow section 3.1 even where the source mockups differ.",
+    "S19 light-panel hint icon now multiplies tint #FFC63D at layout level; original PNG unchanged.",
+    "S18 crown uses ordinary scaling instead of nine-slice so the three honeycomb cells retain their shape.",
+    "S18 was re-rendered and visually checked at full size: each progress/coin amount occurs once and completion chest/coin/button remain inside its framed footer."
+  ],
+  "limitations": [
+    "Preview is a Pillow reconstruction for annotation QA, not a Creator runtime test or user visual approval.",
+    "S18 title/crown/row components intentionally reuse the registered common asset families rather than screenshot fragments.",
+    "S23 source page is an example. Runtime composition must use its actual opener."
+  ]
+}

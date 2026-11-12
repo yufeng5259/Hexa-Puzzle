@@ -1544,9 +1544,9 @@
     "p0UiAssetGroups": 75,
     "p0UiPngs": 103,
     "p0Layouts": 4,
-    "p1UiAssetGroups": 15,
-    "p1UiPngs": 29,
-    "p1NewLayouts": 14
+    "p1UiAssetGroups": 24,
+    "p1UiPngs": 45,
+    "p1NewLayouts": 15
   },
   "originalStylePNGsPreserved": {
     "效果图/S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
@@ -4260,6 +4260,340 @@
       "loop": false,
       "playbackNote": "transparent overlay frames; stop and destroy with owning building view",
       "batch": "P1-2"
+    },
+    {
+      "id": "signin_cell",
+      "name": "六边形签到日格",
+      "states": {
+        "normal": "UI/签到/signin_cell_normal.png",
+        "today": "UI/签到/signin_cell_today.png",
+        "claimed": "UI/签到/signin_cell_claimed.png",
+        "locked": "UI/签到/signin_cell_locked.png"
+      },
+      "size": [
+        240,
+        280
+      ],
+      "scale": 1,
+      "slice": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "S17 金色六边格轮廓与宽倒角复原，顶部空标签；today发光、claimed勾、locked锁，不烘焙日期/奖励",
+      "sourceFile": "效果图/S17_七日签到_BlockHexa风格.png",
+      "sourceSha256": "23ad6b1d48b5b187a739153aa3618b64b4d6210d1da50101572c23b003b09bcc",
+      "priority": "P1",
+      "sha256": {
+        "normal": "b642ccb4c67647638d67cede0b699b95a20f8ce5c65b28f9a2104d1b7563abc1",
+        "today": "b8d93b0afcd49863c4c852d2fb45087ea10a30eccbe380060e5969651202cdc9",
+        "claimed": "136a65be7195e5857dd7719796ef05f55e7e19f9a4085a0a0ee05d27a93d537b",
+        "locked": "f379a34a91e94bfd279851cace92eefbb14da589e037317f5e42dbd36bcb7963"
+      },
+      "contentBox": [
+        30,
+        70,
+        180,
+        130
+      ],
+      "labelBox": [
+        47,
+        10,
+        146,
+        52
+      ],
+      "stateSemantics": {
+        "normal": "未来日无光、无状态徽记",
+        "today": "黄色外辉光；今日文字由独立蓝底+Label绘制",
+        "claimed": "金框+底部绿色勾",
+        "locked": "偏灰金框+底部灰锁"
+      },
+      "batch": "P1-3"
+    },
+    {
+      "id": "signin_cell_big",
+      "name": "第七天加宽签到格",
+      "states": {
+        "normal": "UI/签到/signin_cell_big_normal.png",
+        "today": "UI/签到/signin_cell_big_today.png",
+        "claimed": "UI/签到/signin_cell_big_claimed.png",
+        "locked": "UI/签到/signin_cell_big_locked.png"
+      },
+      "size": [
+        660,
+        230
+      ],
+      "scale": 1,
+      "slice": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "S17 金色六边格轮廓与宽倒角复原，顶部空标签；today发光、claimed勾、locked锁，不烘焙日期/奖励",
+      "sourceFile": "效果图/S17_七日签到_BlockHexa风格.png",
+      "sourceSha256": "23ad6b1d48b5b187a739153aa3618b64b4d6210d1da50101572c23b003b09bcc",
+      "priority": "P1",
+      "sha256": {
+        "normal": "cc9040b5929e3e433b7a24051dd5ac13f5e5eebd8c87c1c8df7e876f1d5108db",
+        "today": "31e1a654b7a5ed9527a1265c958e4d84f804e2e0db347aaa46063052ecf53f4c",
+        "claimed": "9e8c17f6205c8f405f3b9ae6d571ec033f206d75ea5b85928871b60b7db217d5",
+        "locked": "5c386e0cf9830a0a0d995ff47d428a73ff46d0313449c574b22e7827a7fe8ebe"
+      },
+      "contentBox": [
+        48,
+        75,
+        564,
+        105
+      ],
+      "labelBox": [
+        238,
+        10,
+        184,
+        58
+      ],
+      "stateSemantics": {
+        "normal": "未来日无光、无状态徽记",
+        "today": "黄色外辉光；今日文字由独立蓝底+Label绘制",
+        "claimed": "金框+底部绿色勾",
+        "locked": "偏灰金框+底部灰锁"
+      },
+      "batch": "P1-3"
+    },
+    {
+      "id": "signin_today_tag",
+      "name": "今日蓝色小标签底",
+      "states": {
+        "default": "UI/签到/signin_today_tag.png"
+      },
+      "size": [
+        128,
+        54
+      ],
+      "scale": 1,
+      "slice": [
+        32,
+        16,
+        32,
+        16
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用P0蓝色按钮母件，缩小为签到今日标签，不含字",
+      "sourceFile": "素材/UI/通用/btn_blue_normal.png",
+      "sourceSha256": "1e823590b34a7bde521bbc7d906a1153ea352a2a849acdd68bfa82e27d3f4f10",
+      "priority": "P1",
+      "sha256": {
+        "default": "05725d4d4f070ef8f0324ddb2e0e500ce14cd8e656a8ef4bca5ed8b4a865fe14"
+      },
+      "reuseFrom": "素材/UI/通用/btn_blue_normal.png",
+      "batch": "P1-3"
+    },
+    {
+      "id": "task_row",
+      "name": "任务行米白底板",
+      "states": {
+        "normal": "UI/任务/task_row_normal.png",
+        "done": "UI/任务/task_row_done.png"
+      },
+      "size": [
+        256,
+        160
+      ],
+      "scale": 1,
+      "slice": [
+        46,
+        46,
+        46,
+        46
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "S18 浅奶油任务行倒角复原，不含任务/图标/分割线/按钮",
+      "sourceFile": "效果图/S18_每日任务_BlockHexa风格.png",
+      "sourceSha256": "7f517be4ea4b0c3ceeb6ab848d8858c2cb2f472808d92f1c72ad1628ab688ee8",
+      "priority": "P1",
+      "sha256": {
+        "normal": "395c24793927ac5a7d4522533c74b8e7103f338598863837184229148fbc67da",
+        "done": "3565e6bea03ffdf6b7ac7d2a9bb15c316b82f69ad55605766dffb365e7528a75"
+      },
+      "batch": "P1-3"
+    },
+    {
+      "id": "task_icon_build",
+      "name": "建造任务图标",
+      "states": {
+        "default": "UI/任务/task_icon_build.png"
+      },
+      "size": [
+        140,
+        146
+      ],
+      "scale": 2,
+      "slice": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用P0已交付同风格功能图标，独立登记来源SHA，不附加底框",
+      "sourceFile": "素材/UI/图标/icon_build.png",
+      "sourceSha256": "84b434ee4d619fceb8d241d527eff1b98de1310a4afb34c7387e68d1f4bfdfe7",
+      "priority": "P1",
+      "sha256": {
+        "default": "84b434ee4d619fceb8d241d527eff1b98de1310a4afb34c7387e68d1f4bfdfe7"
+      },
+      "reuseFrom": "素材/UI/图标/icon_build.png",
+      "batch": "P1-3"
+    },
+    {
+      "id": "task_icon_endless",
+      "name": "无尽任务图标",
+      "states": {
+        "default": "UI/任务/task_icon_endless.png"
+      },
+      "size": [
+        196,
+        186
+      ],
+      "scale": 2,
+      "slice": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用P0已交付同风格功能图标，独立登记来源SHA，不附加底框",
+      "sourceFile": "素材/UI/图标/icon_endless.png",
+      "sourceSha256": "42b7bed0e9ea943efb4f0dfd43b5803316b872d312da26b67abde15bab14e4df",
+      "priority": "P1",
+      "sha256": {
+        "default": "42b7bed0e9ea943efb4f0dfd43b5803316b872d312da26b67abde15bab14e4df"
+      },
+      "reuseFrom": "素材/UI/图标/icon_endless.png",
+      "batch": "P1-3"
+    },
+    {
+      "id": "task_icon_puzzle",
+      "name": "拼图任务金色拼片图标",
+      "states": {
+        "default": "UI/任务/task_icon_puzzle.png"
+      },
+      "size": [
+        264,
+        264
+      ],
+      "scale": 2,
+      "slice": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "S18 黄色拼片原图去米白底，2倍采样，无底框",
+      "sourceFile": "效果图/S18_每日任务_BlockHexa风格.png",
+      "sourceSha256": "7f517be4ea4b0c3ceeb6ab848d8858c2cb2f472808d92f1c72ad1628ab688ee8",
+      "priority": "P1",
+      "sha256": {
+        "default": "fa5677fae41eb1292ec65d40b5ce9195eb7c374da842773ec4e8a1e2938b2dd6"
+      },
+      "cropRect": [
+        78,
+        667,
+        212,
+        797
+      ],
+      "extraction": "RGB yellow/cream chroma separation, soft alpha",
+      "batch": "P1-3"
+    },
+    {
+      "id": "task_progress_bar_bg",
+      "name": "任务小进度条底",
+      "states": {
+        "default": "UI/任务/task_progress_bar_bg.png"
+      },
+      "size": [
+        110,
+        42
+      ],
+      "scale": 1,
+      "slice": [
+        22,
+        10,
+        22,
+        10
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "沿用P0进度条母件尺寸/配色，修整轮廓消除外边细碎像素；底填充分离，无分数文字",
+      "sourceFile": "素材/UI/通用/bar_bg.png",
+      "sourceSha256": "38f9727c8df004ee24ea302b8ad0fbf5b007c76a925eee859d542a33e35db282",
+      "priority": "P1",
+      "sha256": {
+        "default": "90f5c7b8ac8f66bc77b4f1523d78acb1e585408290992a4079515bdd000adbcd"
+      },
+      "partOf": "task_progress_bar",
+      "derivedFrom": "素材/UI/通用/bar_bg.png",
+      "batch": "P1-3"
+    },
+    {
+      "id": "task_progress_bar_fill",
+      "name": "任务小进度条绿填充",
+      "states": {
+        "default": "UI/任务/task_progress_bar_fill.png"
+      },
+      "size": [
+        110,
+        42
+      ],
+      "scale": 1,
+      "slice": [
+        22,
+        10,
+        22,
+        10
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "沿用P0进度条母件尺寸/配色，修整轮廓消除外边细碎像素；底填充分离，无分数文字",
+      "sourceFile": "素材/UI/通用/bar_fill_green.png",
+      "sourceSha256": "287826dba5f58def37a6198f4d7445631d3821ad5d6d30d1bc336b3a65b2674a",
+      "priority": "P1",
+      "sha256": {
+        "default": "62c237547aaf0cf36e002729b67b09ac1491db7b0dd7046bc25fba695c1c2894"
+      },
+      "partOf": "task_progress_bar",
+      "derivedFrom": "素材/UI/通用/bar_fill_green.png",
+      "batch": "P1-3"
     }
   ],
   "uiLayouts": [
@@ -4378,94 +4712,16 @@
     {
       "id": "S17",
       "file": "素材/布局/S17.json",
-      "sha256": "0f01618c42629ef36d432a476a6914f8d6fc09d2843248f3a277df701ab2c369",
+      "sha256": "dab744fafa9bb616762b12fdb39b29f0d3ba81c271c8cace98d7a54fe314d7e2",
       "priority": "P0",
-      "deferredElements": [
-        {
-          "id": "signin_cell_1",
-          "asset": "UI/签到/signin_cell_claimed.png",
-          "priority": "P1",
-          "rect": [
-            95,
-            546,
-            217,
-            243
-          ],
-          "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
-        },
-        {
-          "id": "signin_cell_2",
-          "asset": "UI/签到/signin_cell_claimed.png",
-          "priority": "P1",
-          "rect": [
-            319,
-            546,
-            217,
-            243
-          ],
-          "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
-        },
-        {
-          "id": "signin_cell_3",
-          "asset": "UI/签到/signin_cell_claimed.png",
-          "priority": "P1",
-          "rect": [
-            542,
-            546,
-            217,
-            243
-          ],
-          "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
-        },
-        {
-          "id": "signin_cell_4",
-          "asset": "UI/签到/signin_cell_today.png",
-          "priority": "P1",
-          "rect": [
-            95,
-            798,
-            217,
-            243
-          ],
-          "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
-        },
-        {
-          "id": "signin_cell_5",
-          "asset": "UI/签到/signin_cell_locked.png",
-          "priority": "P1",
-          "rect": [
-            319,
-            798,
-            217,
-            243
-          ],
-          "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
-        },
-        {
-          "id": "signin_cell_6",
-          "asset": "UI/签到/signin_cell_locked.png",
-          "priority": "P1",
-          "rect": [
-            542,
-            798,
-            217,
-            243
-          ],
-          "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
-        },
-        {
-          "id": "signin_cell_big_7",
-          "asset": "UI/签到/signin_cell_big_locked.png",
-          "priority": "P1",
-          "rect": [
-            107,
-            1055,
-            642,
-            218
-          ],
-          "reason": "4.6日格属P1"
-        }
-      ]
+      "deferredElements": []
+    },
+    {
+      "id": "S18",
+      "file": "素材/布局/S18.json",
+      "sha256": "559fcdc4e970e5439a58c5fd22ef3a7ba9bc4a077f10455c12024c34239a8822",
+      "priority": "P1",
+      "deferredElements": []
     },
     {
       "id": "S24",
@@ -4525,6 +4781,16 @@
         "S25"
       ],
       "verification": "制作记录/切图20261112/P1/P1-2_verification.json",
+      "reusedPngFiles": 0
+    },
+    "P1-3": {
+      "date": "2026-11-12",
+      "newAssetGroups": 9,
+      "newPngFiles": 16,
+      "newLayouts": [
+        "S18"
+      ],
+      "verification": "制作记录/切图20261112/P1/P1-3_verification.json",
       "reusedPngFiles": 0
     }
   }
