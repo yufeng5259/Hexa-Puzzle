@@ -1,0 +1,238 @@
+{
+  "map": "M03",
+  "name": "巨树蜂城",
+  "background": "地图/M03_巨树蜂城_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B11",
+      "name": "树洞蜂宫",
+      "normalized_feet": [
+        0.5,
+        0.36
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.64,
+      "flip_x": false,
+      "z_index": 136,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B11_树洞蜂宫/B11_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B11_树洞蜂宫/B11_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B11_树洞蜂宫/B11_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B11_树洞蜂宫/B11_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B11_树洞蜂宫/B11_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B11_树洞蜂宫/B11_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B12",
+      "name": "空中采蜜站",
+      "normalized_feet": [
+        0.245,
+        0.505
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.53,
+      "flip_x": false,
+      "z_index": 150,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B12_空中采蜜站/B12_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B12_空中采蜜站/B12_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B12_空中采蜜站/B12_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B12_空中采蜜站/B12_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B12_空中采蜜站/B12_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B12_空中采蜜站/B12_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B13",
+      "name": "树脂仓库",
+      "normalized_feet": [
+        0.76,
+        0.505
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.49,
+      "flip_x": false,
+      "z_index": 150,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B13_树脂仓库/B13_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B13_树脂仓库/B13_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B13_树脂仓库/B13_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B13_树脂仓库/B13_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B13_树脂仓库/B13_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B13_树脂仓库/B13_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B14",
+      "name": "升降平台",
+      "normalized_feet": [
+        0.25,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.56,
+      "flip_x": false,
+      "z_index": 172,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B14_升降平台/B14_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B14_升降平台/B14_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B14_升降平台/B14_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B14_升降平台/B14_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B14_升降平台/B14_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B14_升降平台/B14_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B15",
+      "name": "蜂群广场",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 171,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B15_蜂群广场/B15_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B15_蜂群广场/B15_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B15_蜂群广场/B15_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B15_蜂群广场/B15_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B15_蜂群广场/B15_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B15_蜂群广场/B15_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "Layout for v2 atlas composition; not written to runtime config. Original S03 is retained as style reference; this atlas defines new level-specific appearances."
+}

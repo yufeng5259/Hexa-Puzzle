@@ -12,3 +12,6 @@
 
 # Preserve the delivered art package byte-for-byte, including checksum files.
 /arts/** -text
+
+# Keep v2 design deliverables and their checksums byte-for-byte.
+/docs/v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

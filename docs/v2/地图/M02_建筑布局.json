@@ -1,0 +1,238 @@
+{
+  "map": "M02",
+  "name": "繁花溪谷",
+  "background": "地图/M02_繁花溪谷_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B06",
+      "name": "花瓣蜂屋",
+      "normalized_feet": [
+        0.5,
+        0.36
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 136,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B06_花瓣蜂屋/B06_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B06_花瓣蜂屋/B06_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B06_花瓣蜂屋/B06_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B06_花瓣蜂屋/B06_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B06_花瓣蜂屋/B06_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B06_花瓣蜂屋/B06_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B07",
+      "name": "酿蜜工坊",
+      "normalized_feet": [
+        0.76,
+        0.51
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 151,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B07_酿蜜工坊/B07_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B07_酿蜜工坊/B07_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B07_酿蜜工坊/B07_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B07_酿蜜工坊/B07_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B07_酿蜜工坊/B07_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B07_酿蜜工坊/B07_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B08",
+      "name": "溪流磨坊",
+      "normalized_feet": [
+        0.23,
+        0.735
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.49,
+      "flip_x": true,
+      "z_index": 174,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B08_溪流磨坊/B08_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B08_溪流磨坊/B08_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B08_溪流磨坊/B08_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B08_溪流磨坊/B08_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B08_溪流磨坊/B08_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B08_溪流磨坊/B08_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B09",
+      "name": "蜜罐商铺",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 172,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B09_蜜罐商铺/B09_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B09_蜜罐商铺/B09_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B09_蜜罐商铺/B09_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B09_蜜罐商铺/B09_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B09_蜜罐商铺/B09_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B09_蜜罐商铺/B09_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B10",
+      "name": "花桥",
+      "normalized_feet": [
+        0.245,
+        0.89
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 189,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B10_花桥/B10_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B10_花桥/B10_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B10_花桥/B10_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B10_花桥/B10_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B10_花桥/B10_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B10_花桥/B10_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "Layout for v2 atlas composition; not written to runtime config. Original S03 is retained as style reference; this atlas defines new level-specific appearances."
+}

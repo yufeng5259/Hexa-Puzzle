@@ -1,0 +1,1015 @@
+{
+  "date": "2026-11-12",
+  "status": "PASS for stated design-art scope",
+  "visual_inspection": "Actual 15 final white-composited boards viewed, covering all 90 states; RGB-keyed B02/B12/B13 additionally viewed on dark backgrounds after final neutral-stone opacity correction; all 3 bare backgrounds and L5 composites viewed. This is author review, not independent user acceptance.",
+  "counts": {
+    "backgrounds": 3,
+    "building_atlases": 15,
+    "stages": 90
+  },
+  "fixed_issues": [
+    "Adaptive row boundaries preserve B03 L5 top ornament rather than slicing at exact half height",
+    "Generic keyer initially removed lilac stone opacity; superseded by saturated-magenta-only matte in final package script",
+    "Independent review found thin visible key-color fringe at B12/B13 L0: final keyed-source boundary RGB is filled from nearest solid material pixels, preserving interior stone and alpha geometry",
+    "M02 layout corrected: mill at creek bank, wheel mirrored toward water; flower bridge placed across blue creek; other slots moved to right grass. All maps recomposited from final files."
+  ],
+  "checks": [
+    {
+      "asset": "素材/建筑/B01_蜂巢主屋/B01_L0.png",
+      "sha256": "d1b98a6cf21df326d81cba224a496494a639752c997a1729d1416398404fcc9f",
+      "bbox": [
+        144,
+        301,
+        431,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B01_蜂巢主屋/B01_L1.png",
+      "sha256": "33fa0ccd3384bd1815f16ea660e20af57fa486b8a7ff745d2f3a4245e7d3b7e2",
+      "bbox": [
+        135,
+        250,
+        440,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B01_蜂巢主屋/B01_L2.png",
+      "sha256": "e513f45520b3fc3daa37e1904210575bd82e7d30accb714a7c1179cb7821387f",
+      "bbox": [
+        99,
+        219,
+        476,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B01_蜂巢主屋/B01_L3.png",
+      "sha256": "bec0f263bb0ba263fc0ae6006e00d267f9ee216c2170386a6997e112adab32cb",
+      "bbox": [
+        98,
+        200,
+        478,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B01_蜂巢主屋/B01_L4.png",
+      "sha256": "01a6bb8b538552b649dc74418f0787bb7ffd4a2c00cb57c34e9a6ce684516b3f",
+      "bbox": [
+        92,
+        170,
+        483,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B01_蜂巢主屋/B01_L5.png",
+      "sha256": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d",
+      "bbox": [
+        66,
+        114,
+        510,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B02_采蜜工坊/B02_L0.png",
+      "sha256": "0cef6efcef214b6f26979f7cf7dc43b6ccb26be575fb03ec4c4950dab67e9810",
+      "bbox": [
+        135,
+        275,
+        440,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B02_采蜜工坊/B02_L1.png",
+      "sha256": "ed3795f49ed155aa3a5c92eeb84abc91e4d7204506a17cd8c3813cb540faaa1a",
+      "bbox": [
+        129,
+        245,
+        446,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B02_采蜜工坊/B02_L2.png",
+      "sha256": "ff8133135bf2037f5d6212f09d1a748db3763eea56f483d76c327094b3933c0d",
+      "bbox": [
+        106,
+        200,
+        469,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B02_采蜜工坊/B02_L3.png",
+      "sha256": "8fe8e017cd26ccf20dc5df59a5c52556a10eb7141b1fad340deb33478437f3c9",
+      "bbox": [
+        91,
+        208,
+        485,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B02_采蜜工坊/B02_L4.png",
+      "sha256": "8c4438b08a3da1b70591b7ae32e0a63c49790d402ea8565d144d722e93c87317",
+      "bbox": [
+        76,
+        203,
+        499,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B02_采蜜工坊/B02_L5.png",
+      "sha256": "ccdbd0735a6a08098b2ada1a2209111d28d1dc8131bafb6707373e17a37b879b",
+      "bbox": [
+        71,
+        182,
+        505,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B03_花粉仓库/B03_L0.png",
+      "sha256": "eb2e8db7094748573a0fe18d7e6e19cd6b39b52dbe10212674e619b34ef17b0f",
+      "bbox": [
+        137,
+        289,
+        438,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B03_花粉仓库/B03_L1.png",
+      "sha256": "03925a21d1b070dbffa981f528246b945f203c0e14fabb8012d2ad365eb942e1",
+      "bbox": [
+        142,
+        259,
+        434,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B03_花粉仓库/B03_L2.png",
+      "sha256": "547436ff69168aa7f9b5da4d0556e44d907616e98ba53a7c0439c2236e0fbb88",
+      "bbox": [
+        131,
+        226,
+        445,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B03_花粉仓库/B03_L3.png",
+      "sha256": "e167c75bd964e19d61941fc6d57e8ee01aee3f2b3eb7586e5f82b8181fbac91a",
+      "bbox": [
+        122,
+        169,
+        453,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B03_花粉仓库/B03_L4.png",
+      "sha256": "f5e0e70cf798a4cacb128c5a03014545b108fc08d30b390bade3717ea0556f06",
+      "bbox": [
+        111,
+        141,
+        464,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B03_花粉仓库/B03_L5.png",
+      "sha256": "e8880c91174a2797a5f553fd269314f5693f25dae5f80adc37a4156e987410e0",
+      "bbox": [
+        99,
+        98,
+        477,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B04_蜂蜜水车/B04_L0.png",
+      "sha256": "13c5056a209267a3ebbf9f6aafb373b6bfe459763a20ccef7ef14a40d1e03d69",
+      "bbox": [
+        142,
+        269,
+        433,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B04_蜂蜜水车/B04_L1.png",
+      "sha256": "8537b77720fcb03a6895287c31d7d7b2c03cb9e313099b42e0c9018f2549dbab",
+      "bbox": [
+        131,
+        252,
+        445,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B04_蜂蜜水车/B04_L2.png",
+      "sha256": "95f6aeab7f4e2a62d076bc59b50d2e6a0ebfa08a9d65b0a74344911d2bc43f06",
+      "bbox": [
+        119,
+        227,
+        457,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B04_蜂蜜水车/B04_L3.png",
+      "sha256": "f1e98385fd653b9c502beb7fdb482381675dccab05ba2028c6d6a61b9c28f9d4",
+      "bbox": [
+        97,
+        223,
+        478,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B04_蜂蜜水车/B04_L4.png",
+      "sha256": "7fd93ef8fcf66cc84dea33e5ad0a296e86ddf78077d68ff235c40394e8c50a66",
+      "bbox": [
+        90,
+        188,
+        485,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B04_蜂蜜水车/B04_L5.png",
+      "sha256": "94c85a8947f1b78ce58b4454b1c376e8dd43db2191ddefc26ee3651bf68fbe9a",
+      "bbox": [
+        82,
+        154,
+        494,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B05_花园亭/B05_L0.png",
+      "sha256": "04bb4a42ce81345ffa686e1ad5ba6859061cbf66e1d1e3e70d27ecc47e6c1a25",
+      "bbox": [
+        145,
+        295,
+        430,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B05_花园亭/B05_L1.png",
+      "sha256": "e3f1cf3983cddcdf302925355a4db8ecb5bf3e8e35bbe791337718fd6a2317f7",
+      "bbox": [
+        139,
+        247,
+        436,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B05_花园亭/B05_L2.png",
+      "sha256": "c9059fdd1c8db15559506cc79ec9a873920d9baf55e5b0d694a3f1010e52a88e",
+      "bbox": [
+        138,
+        202,
+        438,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B05_花园亭/B05_L3.png",
+      "sha256": "9bca7615b14eb27134396e2cf56e960868b1d67797e3cd65cbebd9eb61c48dc8",
+      "bbox": [
+        127,
+        160,
+        448,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B05_花园亭/B05_L4.png",
+      "sha256": "ebb3c8f7695f47c03fc187ac2443a9579502323eb83d51dd45164aa5dec73e49",
+      "bbox": [
+        113,
+        132,
+        462,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B05_花园亭/B05_L5.png",
+      "sha256": "b8eb90b4588f60b7986f38ecb5c0c890c9994fefa267eb8b1aeead19eed4d275",
+      "bbox": [
+        98,
+        82,
+        477,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B06_花瓣蜂屋/B06_L0.png",
+      "sha256": "fc22c3de81b45380c681fe673acec10b6365c093350e792a07803ca202405eac",
+      "bbox": [
+        137,
+        345,
+        438,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B06_花瓣蜂屋/B06_L1.png",
+      "sha256": "d2315379aaebb6bc54b49b039701e66a0eb93593c72333af68e63fadfabc0eab",
+      "bbox": [
+        121,
+        249,
+        454,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B06_花瓣蜂屋/B06_L2.png",
+      "sha256": "b14a4e36fb47b42fd0191d3e77873f46e2be98c96cbc6d3f41262ce15d9efdd8",
+      "bbox": [
+        96,
+        193,
+        480,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B06_花瓣蜂屋/B06_L3.png",
+      "sha256": "302df14709d2f4153aa972d0fc5ce80a9773c62a56c941011368554dcca4a828",
+      "bbox": [
+        81,
+        179,
+        494,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B06_花瓣蜂屋/B06_L4.png",
+      "sha256": "28939a7ec953a8a5c5cc21d10b9c335801646cc588d2d15ebfcb32af0d6b64dc",
+      "bbox": [
+        78,
+        155,
+        498,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B06_花瓣蜂屋/B06_L5.png",
+      "sha256": "169f607d495df3ace78ab1de1c9244fdf94d4ebbf3fa519e4e954a84527913da",
+      "bbox": [
+        47,
+        119,
+        529,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B07_酿蜜工坊/B07_L0.png",
+      "sha256": "f8730f8f088c42794e9059a899e63bb26e1e10d51e81d5931f9921e9b1646c40",
+      "bbox": [
+        143,
+        293,
+        433,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B07_酿蜜工坊/B07_L1.png",
+      "sha256": "5bef434fa130defe4deb755005cfe4f886843e9ae3b53b1624f81b8416a38165",
+      "bbox": [
+        142,
+        260,
+        433,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B07_酿蜜工坊/B07_L2.png",
+      "sha256": "d09a08185c38600b359e45a241f324030e0a95abef48d670e0a5566ccc3b05e5",
+      "bbox": [
+        127,
+        236,
+        449,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B07_酿蜜工坊/B07_L3.png",
+      "sha256": "978e92ccd12bb0834cda6e9169ab272d5542dbd8d7f4e1d4c8b9ecba1b485dc6",
+      "bbox": [
+        97,
+        228,
+        479,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B07_酿蜜工坊/B07_L4.png",
+      "sha256": "4a555e2a55a6a928cdec510bedc0d14da850b3f7326f615394f7f749f69de82e",
+      "bbox": [
+        77,
+        199,
+        499,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B07_酿蜜工坊/B07_L5.png",
+      "sha256": "b0b63471790976cd45b90fc2073d8bcc2bcb692bf64ea7fe02837bb3e7bb3d0f",
+      "bbox": [
+        67,
+        162,
+        509,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B08_溪流磨坊/B08_L0.png",
+      "sha256": "0183ea94c6095f9b598a35afc7279bbe91508db1c8c5f79e10dd18145bcf4966",
+      "bbox": [
+        148,
+        288,
+        428,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B08_溪流磨坊/B08_L1.png",
+      "sha256": "cade9cf5ceb7e00da5ba3452c28f87f82022524ec57ed300b76c086066aae4fb",
+      "bbox": [
+        130,
+        270,
+        446,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B08_溪流磨坊/B08_L2.png",
+      "sha256": "50f01bcd23fa347838c3dd58ac0fa2faf25aad3dfe4cd8345137d3b7665d9e88",
+      "bbox": [
+        121,
+        236,
+        455,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B08_溪流磨坊/B08_L3.png",
+      "sha256": "79e38f86db27ba66f5dba8c606d0f9d533bc5ed7f52eb33e1d807c858b845a77",
+      "bbox": [
+        94,
+        223,
+        482,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B08_溪流磨坊/B08_L4.png",
+      "sha256": "b1dad7091137ceb8f602a646b0413526a9c60204aa2c35b3b8ec43c242b23e1f",
+      "bbox": [
+        95,
+        196,
+        480,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B08_溪流磨坊/B08_L5.png",
+      "sha256": "b7c4f0cf795fe2856f4d3c496894b717ec72d08af43d74d2e7c5d8cbad153587",
+      "bbox": [
+        85,
+        169,
+        491,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B09_蜜罐商铺/B09_L0.png",
+      "sha256": "82200f992153e148cfe0cc04660f0819ca6dacd37c353ccf659598100411c9eb",
+      "bbox": [
+        140,
+        318,
+        435,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B09_蜜罐商铺/B09_L1.png",
+      "sha256": "9f8c849d0f1f2d9eee62a8639c26c18bb73f871353820b8634a7fe700a799b25",
+      "bbox": [
+        118,
+        241,
+        458,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B09_蜜罐商铺/B09_L2.png",
+      "sha256": "95e1464ac77950017974c2c9cad6f79cc9026f4ebb0ce569abc40f08b2ec7d26",
+      "bbox": [
+        100,
+        216,
+        475,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B09_蜜罐商铺/B09_L3.png",
+      "sha256": "266bf311778338c6203e8f7ee672c474a03769034c9d311f54d98c0246177c85",
+      "bbox": [
+        93,
+        218,
+        483,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B09_蜜罐商铺/B09_L4.png",
+      "sha256": "02e89d36ceebf7b3e25675a6186392035ddeb2dd94ad0c66dd432cc89841501e",
+      "bbox": [
+        74,
+        195,
+        501,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B09_蜜罐商铺/B09_L5.png",
+      "sha256": "3dd2f2771590bf3dd8f65815b069f6ee7366985617e278a2d8cbffbced20672d",
+      "bbox": [
+        61,
+        154,
+        515,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B10_花桥/B10_L0.png",
+      "sha256": "349a5c850d00f76e399992e12ad8c0ff49b17941cb4ea0b4e6652a378db98f73",
+      "bbox": [
+        131,
+        367,
+        444,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B10_花桥/B10_L1.png",
+      "sha256": "0c3af8b8c16950ecc7e2b15e11ced64d667e69b18ba6b51c1e525a204e0cb776",
+      "bbox": [
+        106,
+        346,
+        470,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B10_花桥/B10_L2.png",
+      "sha256": "89b6c72c5eef70225a38c430d09516e1c4c20a57a2622ea8bc3331f120e19e7f",
+      "bbox": [
+        107,
+        240,
+        468,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B10_花桥/B10_L3.png",
+      "sha256": "8f263abac696b6b34a2dd6e9628cfa8644441b7b11032f9d856b127e5b2a93df",
+      "bbox": [
+        97,
+        197,
+        478,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B10_花桥/B10_L4.png",
+      "sha256": "e83f3a6971e7fe1047b33433e949d2080c825f09c3c0a8a4a8916b6ff8cfbbef",
+      "bbox": [
+        94,
+        165,
+        482,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B10_花桥/B10_L5.png",
+      "sha256": "4e1ed971c252f60167ca3a671273481cadd867c260f3ad4cfca2f2d07293f8da",
+      "bbox": [
+        66,
+        102,
+        510,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B11_树洞蜂宫/B11_L0.png",
+      "sha256": "8ec6f1379e3dc8dd9d338c57d188855b386b198c36e52b202f3dfc32563b4329",
+      "bbox": [
+        154,
+        344,
+        421,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B11_树洞蜂宫/B11_L1.png",
+      "sha256": "00740572411e6a62e532ec909bc034a24a3dab17f022c62c9e0072d900d00673",
+      "bbox": [
+        148,
+        277,
+        427,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B11_树洞蜂宫/B11_L2.png",
+      "sha256": "76f7a8181ef851816d5fb98e83ffc524f40df92dee816adcce55cb48d079f322",
+      "bbox": [
+        138,
+        242,
+        438,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B11_树洞蜂宫/B11_L3.png",
+      "sha256": "9ee7ef4393bb79463c9c9b07c7d0f04afe960e29036cf2a897500a6cdecdc498",
+      "bbox": [
+        128,
+        151,
+        448,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B11_树洞蜂宫/B11_L4.png",
+      "sha256": "e35a27718ea85531882e4fb6a2c29fd694e4e718a17f83e2693acf89a17fbbd8",
+      "bbox": [
+        120,
+        121,
+        455,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B11_树洞蜂宫/B11_L5.png",
+      "sha256": "67757898eb6ce9c33c3593046355bfccd32ee6c2a333574a06bbdf55dceab9a6",
+      "bbox": [
+        102,
+        78,
+        474,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B12_空中采蜜站/B12_L0.png",
+      "sha256": "405d314958fca8bd958a51eb29945daa8b234db74839c4571c568e9782196446",
+      "bbox": [
+        145,
+        302,
+        430,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B12_空中采蜜站/B12_L1.png",
+      "sha256": "b97277fdd061b6fc6c9419f704ec2763c09641f5f40b72f5dc7ec99bba15b229",
+      "bbox": [
+        143,
+        245,
+        433,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B12_空中采蜜站/B12_L2.png",
+      "sha256": "0b2344d5db0e79fd6372c78b61d7fdf11e35449ea214c18c90238630d13a5f63",
+      "bbox": [
+        126,
+        206,
+        450,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B12_空中采蜜站/B12_L3.png",
+      "sha256": "cc0d7af57195181bcaa30ea4787be2ba71af729ac13d7cf970353b14d4ecfd27",
+      "bbox": [
+        124,
+        171,
+        452,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B12_空中采蜜站/B12_L4.png",
+      "sha256": "695fa0e1aa8aae4a73febd03ec367064d357ee380c12435af6b200ee0dbe4e45",
+      "bbox": [
+        113,
+        155,
+        463,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B12_空中采蜜站/B12_L5.png",
+      "sha256": "b526cf2f12af71e60d1381d1a0f961e9ed8b991c44b8ad72d47e2111b9dc234a",
+      "bbox": [
+        100,
+        93,
+        476,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B13_树脂仓库/B13_L0.png",
+      "sha256": "3a2d32eaa85a3493173b89c0850a9460b4c6228843590616b3dda65da7ad8baa",
+      "bbox": [
+        119,
+        283,
+        456,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B13_树脂仓库/B13_L1.png",
+      "sha256": "06485d5f5614c7299fc9f8f95039d8c2f8b45051da3a00c9206a5e72115390a4",
+      "bbox": [
+        110,
+        259,
+        465,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B13_树脂仓库/B13_L2.png",
+      "sha256": "c140b951298a01e1909766faf823838c387e8e7eab0b43e84279ac6020de05cd",
+      "bbox": [
+        95,
+        212,
+        480,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B13_树脂仓库/B13_L3.png",
+      "sha256": "409e556c8034dc0a06e35772752ba83ecb416b30a845a995ada155ca8c04f2f5",
+      "bbox": [
+        70,
+        204,
+        505,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B13_树脂仓库/B13_L4.png",
+      "sha256": "ca49455c8e665cfeec79e63eb0135d562504227f92f41a86ed6b959f465616c5",
+      "bbox": [
+        64,
+        173,
+        512,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B13_树脂仓库/B13_L5.png",
+      "sha256": "95e7e1b8227e1bcc92098c360345a5b2a0e82c6e0995fc65377be9ab28806be8",
+      "bbox": [
+        54,
+        136,
+        521,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B14_升降平台/B14_L0.png",
+      "sha256": "34f3d8c215b7b5611f515fa9392e69cbed9a40e19678faf19e1cd0ae2d1d52c1",
+      "bbox": [
+        167,
+        266,
+        408,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B14_升降平台/B14_L1.png",
+      "sha256": "9cca3b61e2ee1fc5544e73c45f90a18b2f0dda61494b9e1452faeb2a77039065",
+      "bbox": [
+        167,
+        188,
+        409,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B14_升降平台/B14_L2.png",
+      "sha256": "115e0d2eed640cf8b38b8c1fb55b72608ba5463058dddf8ed7d9b947a7d7ad57",
+      "bbox": [
+        146,
+        170,
+        430,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B14_升降平台/B14_L3.png",
+      "sha256": "026b07eeb35e4de9acb54fd29fcd6054a2daf2ee180ada872b2772498c8a95bf",
+      "bbox": [
+        138,
+        108,
+        438,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B14_升降平台/B14_L4.png",
+      "sha256": "c45bcc510bba387c3ce29678f90bdc239f3066e2ee46ddfd82cad3605b0e1f49",
+      "bbox": [
+        124,
+        99,
+        452,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B14_升降平台/B14_L5.png",
+      "sha256": "5d26e45174400a23d0c144b879c94d6c16cb70b2e48d6c7324bdfa617e0b612f",
+      "bbox": [
+        107,
+        57,
+        469,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B15_蜂群广场/B15_L0.png",
+      "sha256": "67613106fc32b010d0b1b87ff1ab689c960598842d225fe40e6a517de84bffd8",
+      "bbox": [
+        131,
+        319,
+        445,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B15_蜂群广场/B15_L1.png",
+      "sha256": "774b4dfb2f94cecd9c0b9ff20250e5ff30adec520a5ad93e225f78c633ed8842",
+      "bbox": [
+        131,
+        247,
+        445,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B15_蜂群广场/B15_L2.png",
+      "sha256": "fcf6fd0e37c51a3304c18d139bbd79f8e82e1eff8311a4e87b833885b048378e",
+      "bbox": [
+        130,
+        210,
+        446,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B15_蜂群广场/B15_L3.png",
+      "sha256": "307273b51e36a9e144e2bb2a2cc53de090d2c3f2d73e79bd264e51881e1f0509",
+      "bbox": [
+        130,
+        164,
+        445,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B15_蜂群广场/B15_L4.png",
+      "sha256": "d312eb4447528959cae9c37d42d9356645d4297a8dee01f33cfa4c81b37c2d0d",
+      "bbox": [
+        111,
+        146,
+        464,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    },
+    {
+      "asset": "素材/建筑/B15_蜂群广场/B15_L5.png",
+      "sha256": "c3cddf4615884ea3b9c94afe8d8d9a4540042d679df7fee02d9aed6b629079b9",
+      "bbox": [
+        83,
+        96,
+        492,
+        544
+      ],
+      "PNG_RGBA_alpha_SHA_visible_magenta": "PASS"
+    }
+  ],
+  "not_done": [
+    "Creator import and gameplay tests",
+    "User visual acceptance",
+    "Layered PSD production"
+  ],
+  "review_iteration": 2,
+  "independent_reviewer": "hex_atlases; final repair re-review requested"
+}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "date": "2026-11-12",
+  "checks": [
+    "25 unique page groups",
+    "55 design PNGs decode and SHA match",
+    "108 independent RGBA sprites",
+    "110 levels and519 pieces all mapped without geometry change",
+    "217 mainline shapes,48 endless proposed orientations",
+    "15 buildings eachL0-L5",
+    "3 backgrounds and3 placement configs references",
+    "original S03/S04 unchanged",
+    "all document relative links resolve"
+  ],
+  "counts": {
+    "pageGroups": 25,
+    "newPageGroups": 23,
+    "hexBoards": 12,
+    "mainlineShapes": 217,
+    "mainlinePieceInstances": 519,
+    "sourceLevels": 110,
+    "endlessProposedShapes": 48,
+    "backgrounds": 3,
+    "buildingBoards": 15,
+    "buildingStates": 90,
+    "hexMothersAndStates": 18
+  }
+}

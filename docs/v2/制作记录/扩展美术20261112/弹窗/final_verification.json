@@ -1,0 +1,151 @@
+{
+  "date": "2026-11-12",
+  "scope": "15 support-page static visual concepts, not runtime screenshots",
+  "production": "1 AI panel generation + source bitmap reuse, exact Chinese text and layout composition",
+  "model": "gpt-image-2 authorized CLI",
+  "count": 15,
+  "checks": [
+    {
+      "id": "S06",
+      "sha256": "fe5f6d8621ad25e0db1ac6f3146af9b1f404d184add349f95ff95914c73caa48",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S07",
+      "sha256": "9f2b57c54b78143946518127c4418ebe9519f8796b53f079bb5009892b5efef2",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S08",
+      "sha256": "d6497a67ac2a31af4a64760160cf53a3b4a6e25c430f702b024f9551b63e9b62",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S09",
+      "sha256": "32cf00ab01f3c4f3794951f8e8af3dcef78a00cbd9d4fb5870139ce56328abed",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S10",
+      "sha256": "a53a9c36e7f68410d5bf11d82925ba8f39672bdeff54ce364ba4825c3de5c506",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S11",
+      "sha256": "0159a0bce3e308aed9565a27b27c268d38f8ed46fccc681f395c11c019d5de04",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S12",
+      "sha256": "0f6a1fd09f5b2d5a0d708659548ae3c7b52755c578754b1994a457b817a1b253",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S13",
+      "sha256": "1f41dbd5a8e3c4b0fb1ab6dbf883d84ef981fd085f54131bcef4464a3b0917c7",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S21",
+      "sha256": "fd8a1a91b2b97e84e57f0a0f2527226d606f277cf721446c1ae855b97bca6437",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S22",
+      "sha256": "24153d71137b65222651fbd74f6b7675171af94988c46099d0cfd316b9b557ef",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S23",
+      "sha256": "1bb2d520c4d8fb4c30aeda4eb354502f3d81b91f2f56415a1442e97b3cd117fa",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S24",
+      "sha256": "fdb7fdb86d0d69b1eb2e5e97ccaf500d7bcad62913c084b680d8f849367a6e93",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S25",
+      "sha256": "aacdff8dad98e886b071ebd94d1e02ed4d18f5f47b0942275beff6ecefc86605",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S14",
+      "sha256": "07922218913fdf155dee9fc63431a7742eab33f5aebca958316c399c07ca5b47",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    },
+    {
+      "id": "S15",
+      "sha256": "3aebfa7be43551e4194f801e7ae7304d31126ffbfef7c9c3ec153fb93705d303",
+      "png_decode": "PASS",
+      "size": [
+        854,
+        1842
+      ]
+    }
+  ],
+  "visual_notes": [
+    "Actual full-size views covered all page groups across iterative checks; no intentionally added ads, rotation or shop",
+    "S06 uses solved 24-cell background with empty tray; S07 uses actual S05 with 0 remaining moves",
+    "S12 background hint counter 0; S13 actual 10-upgrade scene, level3 XP0; S14 actual L5 source",
+    "S25 actual first upgrade scene, level1 XP20%, progress1/25, energy5/5 and60 coins before reward",
+    "S23 directly derives from saved S02, with no substitute landscape"
+  ]
+}
