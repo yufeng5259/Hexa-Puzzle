@@ -1,0 +1,57 @@
+{
+  "status": "layout references checked",
+  "pages": [
+    {
+      "page": "S02",
+      "elements": 42,
+      "references": 32,
+      "missing": [],
+      "uniqueIds": true,
+      "sha256": "acadfd1957fb5e31777d7c0fffa2d40f2668c0ff843385fb336e6842b0096dd2",
+      "deferredP1": 1
+    },
+    {
+      "page": "S03",
+      "elements": 73,
+      "references": 62,
+      "missing": [],
+      "uniqueIds": true,
+      "sha256": "ec2ac0fd5eed68a11ea3e80b7f1ee206b5c67163c88407d152bbec7199c25b66",
+      "deferredP1": 1
+    },
+    {
+      "page": "S04",
+      "elements": 68,
+      "references": 60,
+      "missing": [],
+      "uniqueIds": true,
+      "sha256": "bf6ce60894afacb10cdabf896e786abab910c282ca1c5cf413a447f2d494e26d",
+      "deferredP1": 1
+    },
+    {
+      "page": "S06",
+      "elements": 14,
+      "references": 7,
+      "missing": [],
+      "uniqueIds": true,
+      "sha256": "29cb34063e058c7db64eb9e3d83485eba3f5853da72b9cb97dab222823cc84a6",
+      "deferredP1": 1
+    },
+    {
+      "page": "S17",
+      "elements": 38,
+      "references": 19,
+      "missing": [],
+      "uniqueIds": true,
+      "sha256": "eb147ee48829b1fa2d00417a44d649b073f24a38177e4ee8ba3cbd7824d575a9",
+      "deferredP1": 8
+    }
+  ],
+  "notes": [
+    "S17仅P0大面板及图标重组检查；P1日格和角色列在deferredElements",
+    "S03建筑位置依据已交付M01布局，offsetAnchor center，offset相对building_feet",
+    "S04样式颜色按效果图；原题几何和pieceId不变",
+    "S06通关底页排除24棋盘格+15托盘格，保留背景框和HUD",
+    "不改运行文件，不把效果图直接作为运行资源"
+  ]
+}

@@ -1,0 +1,697 @@
+[
+  {
+    "id": "hud_bar_bg",
+    "name": "顶部深蓝资源栏底条",
+    "states": {
+      "normal": "UI/HUD/hud_bar_bg.png"
+    },
+    "size": [
+      244,
+      148
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "cb080b242a8372ad39b170754841c9c01293756f11c27e078c8bf132978c01c0"
+    },
+    "slice": [
+      42,
+      24,
+      42,
+      42
+    ]
+  },
+  {
+    "id": "hud_capsule_light",
+    "name": "米白资源胶囊",
+    "states": {
+      "normal": "UI/HUD/hud_capsule_light.png"
+    },
+    "size": [
+      180,
+      73
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 clean cream right cap mirrored and middle strip extended",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "58d3e914db74ce1cbb29ef4c4de9937e043d97a9389abc9bb596dc439367c891"
+    },
+    "slice": [
+      40,
+      24,
+      40,
+      24
+    ],
+    "sourceRect": [
+      448,
+      44,
+      40,
+      73
+    ]
+  },
+  {
+    "id": "hud_capsule_dark",
+    "name": "深蓝资源胶囊",
+    "states": {
+      "normal": "UI/HUD/hud_capsule_dark.png"
+    },
+    "size": [
+      180,
+      84
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 clean dark blue right cap mirrored and middle strip extended",
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceHash": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0",
+    "priority": "P0",
+    "sha256": {
+      "normal": "3651adf0aaf7ee5c88279699a26c0080b8bc5146019f43b916f47fa05e83b978"
+    },
+    "slice": [
+      45,
+      28,
+      45,
+      28
+    ],
+    "sourceRect": [
+      653,
+      44,
+      45,
+      84
+    ]
+  },
+  {
+    "id": "hud_level_badge",
+    "name": "黄色六边形等级徽章",
+    "states": {
+      "normal": "UI/HUD/hud_level_badge.png"
+    },
+    "size": [
+      98,
+      108
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "e082b9de3e68979bf3e718a5d186a37e61f0d5f4ee07f476f6bda7230cf894b2"
+    },
+    "sourceRect": [
+      20,
+      27,
+      98,
+      108
+    ]
+  },
+  {
+    "id": "hud_btn_square_purple",
+    "name": "设置紫色底",
+    "states": {
+      "normal": "UI/HUD/hud_btn_square_purple_normal.png",
+      "pressed": "UI/HUD/hud_btn_square_purple_pressed.png"
+    },
+    "size": [
+      98,
+      98
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "7bf3caa8dfca6522a13fd7eedeb235fb33b6b28ee5d7d37253444fd0aee99738",
+      "pressed": "b46aa07caa8c9abbbd7417ac9e2087b22983d7f6be45e5bdb42b1b695d13c3ff"
+    }
+  },
+  {
+    "id": "hud_btn_square_blue",
+    "name": "拼图HUD蓝色底",
+    "states": {
+      "normal": "UI/HUD/hud_btn_square_blue_normal.png",
+      "pressed": "UI/HUD/hud_btn_square_blue_pressed.png"
+    },
+    "size": [
+      102,
+      92
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceHash": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0",
+    "priority": "P0",
+    "sha256": {
+      "normal": "df787dca948485359373c12bd314690680a97100597cb5141bb6897eca9241a1",
+      "pressed": "427ee52c3f9f599604bf985e421172db4d60d6141cab1717581c0812966e6f5f"
+    }
+  },
+  {
+    "id": "home_side_entry",
+    "name": "侧边入口紫框底",
+    "states": {
+      "normal": "UI/主页/home_side_entry.png"
+    },
+    "size": [
+      140,
+      140
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "26dab29b49f8589be98fe468783275a6dd234cdc7f5206ba0613a1ca66cbe0cd"
+    }
+  },
+  {
+    "id": "home_btn_home",
+    "name": "底栏蓝色回家底",
+    "states": {
+      "normal": "UI/主页/home_btn_home_normal.png",
+      "pressed": "UI/主页/home_btn_home_pressed.png"
+    },
+    "size": [
+      136,
+      100
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "f59e70bb67deffee755a530051db8e99a476aa20f42e13b7bd8521eb11377b04",
+      "pressed": "3aa2a65cab6bf16ef263d266200a1ece8b5a273cdf73ecd3b80dafb190a6acfc"
+    }
+  },
+  {
+    "id": "home_side_label",
+    "name": "侧边入口米白文字底",
+    "states": {
+      "normal": "UI/主页/home_side_label.png"
+    },
+    "size": [
+      132,
+      49
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "406e0b790e441447554f4f3bab5fef3121615a6b3ec7b6e11caa24288161f201"
+    },
+    "slice": [
+      26,
+      17,
+      26,
+      17
+    ]
+  },
+  {
+    "id": "home_play_btn",
+    "name": "开始游戏青绿主体",
+    "states": {
+      "normal": "UI/主页/home_play_btn_normal.png",
+      "pressed": "UI/主页/home_play_btn_pressed.png"
+    },
+    "size": [
+      300,
+      148
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 source clean right cap mirrored; symbol-free center column extended",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "f8ec3750f2b0b3902389fae2883a5ec0066f91c4701a14ec46d22deb4507b4f6",
+      "pressed": "c3179b48ac1eeba93a472e294093bbedc7bfd571fe8824ed4f68ef12b4002832"
+    },
+    "slice": [
+      75,
+      40,
+      75,
+      40
+    ],
+    "sourceRect": [
+      644,
+      1555,
+      75,
+      148
+    ]
+  },
+  {
+    "id": "home_play_level_arrow",
+    "name": "开始按钮左侧紫色关号箭头底",
+    "states": {
+      "normal": "UI/主页/home_play_level_arrow.png"
+    },
+    "size": [
+      198,
+      128
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 source crop; number removed with clean neighboring violet columns",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "33c8e4cfd82c56ee6a08c466d3a986341ed81756738416e553c7207ed202802f"
+    },
+    "sourceRect": [
+      140,
+      1563,
+      198,
+      128
+    ]
+  },
+  {
+    "id": "home_bottom_bar",
+    "name": "底部米白底栏",
+    "states": {
+      "normal": "UI/主页/home_bottom_bar.png"
+    },
+    "size": [
+      200,
+      115
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "bd33702706201074217cdcab16a9ee31a338acac55ca936f8e8d72fa3a79c1b3"
+    },
+    "slice": [
+      56,
+      34,
+      56,
+      34
+    ]
+  },
+  {
+    "id": "home_btn_build",
+    "name": "底栏建造胶囊底",
+    "states": {
+      "normal": "UI/主页/home_btn_build_normal.png",
+      "pressed": "UI/主页/home_btn_build_pressed.png"
+    },
+    "size": [
+      180,
+      86
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S02 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
+    "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
+    "priority": "P0",
+    "sha256": {
+      "normal": "44c196f23c330509eb1627238631dba7ab2cafd7afe83feb8fc5999311de3803",
+      "pressed": "a3504c0c474c41f9523a3e726e9313487b2e80d0d655a2e0bd80fee617787aed"
+    },
+    "slice": [
+      43,
+      28,
+      43,
+      28
+    ]
+  },
+  {
+    "id": "build_dot",
+    "name": "建筑等级圆点",
+    "states": {
+      "done": "UI/建造/build_dot_done.png",
+      "todo": "UI/建造/build_dot_todo.png"
+    },
+    "size": [
+      28,
+      28
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S03 source crop + circle alpha",
+    "sourceFile": "效果图/S03_建造页_BlockHexa风格.png",
+    "sourceHash": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+    "priority": "P0",
+    "sha256": {
+      "done": "ffebb33c161e81e7d314ca4540f2b7e36f17cab1e735cef3fb6247fbd693ad89",
+      "todo": "4c8e3d94d978970587fb18ecf0fcfb3c15127209f15b4a4ce59141fb72afeb42"
+    }
+  },
+  {
+    "id": "build_dot_bar",
+    "name": "五等级圆点底托",
+    "states": {
+      "normal": "UI/建造/build_dot_bar.png"
+    },
+    "size": [
+      148,
+      38
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S03 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S03_建造页_BlockHexa风格.png",
+    "sourceHash": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+    "priority": "P0",
+    "sha256": {
+      "normal": "5df988c15fd18f85763981d87021991eb810a6beb6be3ea2916d8b0199f3edc1"
+    },
+    "slice": [
+      19,
+      12,
+      19,
+      12
+    ]
+  },
+  {
+    "id": "build_cost_capsule",
+    "name": "建筑费用胶囊",
+    "states": {
+      "normal": "UI/建造/build_cost_capsule_normal.png",
+      "insufficient": "UI/建造/build_cost_capsule_insufficient.png"
+    },
+    "size": [
+      150,
+      70
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S03 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S03_建造页_BlockHexa风格.png",
+    "sourceHash": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+    "priority": "P0",
+    "sha256": {
+      "normal": "de6a92b732b150863cc92cc2e972c9f2298b51fd896c675f3381e1dde23ff57a",
+      "insufficient": "3d4be7478c0b3d8c518448151b145d4d0fdf9689f4642b0d77ac7ccad9b0da75"
+    },
+    "slice": [
+      35,
+      23,
+      35,
+      23
+    ]
+  },
+  {
+    "id": "puzzle_title_line",
+    "name": "关号下方金色弧线",
+    "states": {
+      "normal": "UI/拼图/puzzle_title_line.png"
+    },
+    "size": [
+      291,
+      36
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 source gold hue extraction",
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceHash": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0",
+    "priority": "P0",
+    "sha256": {
+      "normal": "067bac03dcfa5f6e077dd9e713ae7fdca4f831cff2126e66041209771221d33a"
+    },
+    "sourceRect": [
+      277,
+      263,
+      285,
+      30
+    ]
+  },
+  {
+    "id": "puzzle_tray_frame",
+    "name": "拼图托盘圆角框",
+    "states": {
+      "normal": "UI/拼图/puzzle_tray_frame.png"
+    },
+    "size": [
+      180,
+      180
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceHash": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0",
+    "priority": "P0",
+    "sha256": {
+      "normal": "61d7c94883b141167c50f1afd890415d8b659285de9662321e724722584a4f9e"
+    },
+    "slice": [
+      48,
+      48,
+      48,
+      48
+    ]
+  },
+  {
+    "id": "puzzle_btn_blue",
+    "name": "撤销蓝色按钮底",
+    "states": {
+      "normal": "UI/拼图/puzzle_btn_blue_normal.png",
+      "pressed": "UI/拼图/puzzle_btn_blue_pressed.png",
+      "disabled": "UI/拼图/puzzle_btn_blue_disabled.png"
+    },
+    "size": [
+      176,
+      146
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 source crop; center symbol removal using clean adjacent column interpolation",
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceHash": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0",
+    "priority": "P0",
+    "sha256": {
+      "normal": "c338340c15955d56c2e304d7c729bd58a41e7fc1cba6298bd82378c89e84f74c",
+      "pressed": "524673ea46f56e0ead673fa5ef567f346882e21c89c1584770289b34a812355b",
+      "disabled": "4081499e4a5e243b05dc9cd387b9de838217b1abd4cd3006cbd568058d3eab39"
+    },
+    "slice": [
+      43,
+      43,
+      43,
+      43
+    ],
+    "sourceRect": [
+      91,
+      1598,
+      176,
+      146
+    ]
+  },
+  {
+    "id": "puzzle_btn_purple",
+    "name": "重玩紫色按钮底",
+    "states": {
+      "normal": "UI/拼图/puzzle_btn_purple_normal.png",
+      "pressed": "UI/拼图/puzzle_btn_purple_pressed.png",
+      "disabled": "UI/拼图/puzzle_btn_purple_disabled.png"
+    },
+    "size": [
+      176,
+      146
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 source crop; center symbol removal using clean adjacent column interpolation",
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceHash": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0",
+    "priority": "P0",
+    "sha256": {
+      "normal": "530ac3572c50c9c806ed041212f1140c51d10ddc00d42f8dd058c51a1415df19",
+      "pressed": "05f3ab2ab152c8f7afa22f12c0fc74ad722491815fc7d893be57cfef4e916636",
+      "disabled": "8925b69e606961aca00c8d918dcd5c91d7c888562605702e2ca550be9158593e"
+    },
+    "slice": [
+      43,
+      43,
+      43,
+      43
+    ],
+    "sourceRect": [
+      340,
+      1598,
+      176,
+      146
+    ]
+  },
+  {
+    "id": "puzzle_btn_teal",
+    "name": "提示青绿按钮底",
+    "states": {
+      "normal": "UI/拼图/puzzle_btn_teal_normal.png",
+      "pressed": "UI/拼图/puzzle_btn_teal_pressed.png",
+      "disabled": "UI/拼图/puzzle_btn_teal_disabled.png"
+    },
+    "size": [
+      176,
+      146
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 source crop; center symbol removal using clean adjacent column interpolation",
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceHash": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0",
+    "priority": "P0",
+    "sha256": {
+      "normal": "663df8feca61788cf8d45b717e2f49c520c205659340553d0c8f9793e83db2d2",
+      "pressed": "40ba047ed5a554c71d6a3357055491d3bfebedb13bfbec88d01203110d0940e1",
+      "disabled": "b90eb73a73f709ea1a84a72218140d10d58a4b8f20cd9f80b68edb567ee2206a"
+    },
+    "slice": [
+      43,
+      43,
+      43,
+      43
+    ],
+    "sourceRect": [
+      590,
+      1598,
+      176,
+      146
+    ]
+  },
+  {
+    "id": "puzzle_badge_count",
+    "name": "工具数量角标底",
+    "states": {
+      "normal": "UI/拼图/puzzle_badge_count.png"
+    },
+    "size": [
+      42,
+      42
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 S04 reference palette; separate badge slot",
+    "sourceFile": "效果图/S04_主玩法_BlockHexa风格.png",
+    "sourceHash": "a77136de046cad2aab594e4974e157dbd030d4475d96e8668bfe4e0effaa81f0",
+    "priority": "P0",
+    "sha256": {
+      "normal": "2da66fb589fb5851e986588348e056de51f5a5868edcb9edab3379e5c1d8e2b2"
+    }
+  },
+  {
+    "id": "puzzle_steps_plate",
+    "name": "剩余步数小牌底",
+    "states": {
+      "normal": "UI/拼图/puzzle_steps_plate_normal.png",
+      "warning": "UI/拼图/puzzle_steps_plate_warning.png"
+    },
+    "size": [
+      166,
+      62
+    ],
+    "scale": 1,
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S05 reference palette/contour reconstruction",
+    "sourceFile": "效果图/S05_限步拼图_BlockHexa风格.png",
+    "sourceHash": "f1cd33a59f43fd8600ad6629da2ef22faea004cca14d21e1faf2190cd51bedcb",
+    "priority": "P0",
+    "sha256": {
+      "normal": "1432c44969ca7f3a79156d4a2b7d1a48cc9ed63863fa7ecb2fd232e528e03ab5",
+      "warning": "c97c5e67c782d84226010c32c2f1e14cb30e633ce07b61f231899a4ef2e83562"
+    },
+    "slice": [
+      32,
+      22,
+      32,
+      22
+    ]
+  }
+]

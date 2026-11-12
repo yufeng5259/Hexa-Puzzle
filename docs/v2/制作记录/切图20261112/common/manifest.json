@@ -1,0 +1,670 @@
+[
+  {
+    "id": "panel_dialog",
+    "name": "标准米白弹窗面板",
+    "states": {
+      "default": "UI/通用/panel_dialog.png"
+    },
+    "size": [
+      256,
+      256
+    ],
+    "scale": 1,
+    "slice": [
+      70,
+      70,
+      70,
+      70
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S06 参考米白母件的配色、圆角及宽倒角重建可拉伸空白面板",
+    "priority": "P0",
+    "sha256": {
+      "default": "1477a65eaf707e5ca5bb366a27826af0983869d08351c30dc5985461c06eef12"
+    },
+    "sourceFile": "制作记录/扩展美术20261112/弹窗/panel_alpha.png",
+    "sourceSha256": "0da4cf93c26e217457e5874f4cdbf6649ce41891cfcfe38f6395905f8961a593"
+  },
+  {
+    "id": "ribbon_title_blue",
+    "name": "蓝色标题飘带金色底沿",
+    "states": {
+      "default": "UI/通用/ribbon_title_blue.png"
+    },
+    "size": [
+      300,
+      140
+    ],
+    "scale": 1,
+    "slice": [
+      100,
+      8,
+      100,
+      18
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S06 同源无字标题母件裁切",
+    "priority": "P0",
+    "sha256": {
+      "default": "ea4cde98857f5b24cf0ce7b0783cf44b539ce4b72b224545334d137954f5d129"
+    }
+  },
+  {
+    "id": "panel_inner",
+    "name": "浅色奖励内框",
+    "states": {
+      "default": "UI/通用/panel_inner.png"
+    },
+    "size": [
+      128,
+      128
+    ],
+    "scale": 1,
+    "slice": [
+      34,
+      34,
+      34,
+      34
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S06 奖励框按其圆角和配色重建",
+    "priority": "P0",
+    "sha256": {
+      "default": "d45a7b112019586511db7f5b0c78e8d805b359d7cf67a094e5f4eb037ee0abae"
+    }
+  },
+  {
+    "id": "panel_feature",
+    "name": "紫色粗边功能面板",
+    "states": {
+      "default": "UI/通用/panel_feature.png"
+    },
+    "size": [
+      256,
+      256
+    ],
+    "scale": 1,
+    "slice": [
+      70,
+      70,
+      70,
+      70
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17 紫色宽倒角、米白空底重建，消除原图角色与场景对边角的遮挡",
+    "priority": "P0",
+    "sha256": {
+      "default": "88c39ebe8c4ecffb523a96edea38a71298e88b54850b850e130ae248fec82965"
+    },
+    "sourceFile": "效果图/S17_七日签到_BlockHexa风格.png",
+    "sourceSha256": "23ad6b1d48b5b187a739153aa3618b64b4d6210d1da50101572c23b003b09bcc"
+  },
+  {
+    "id": "panel_feature_crown",
+    "name": "蜂巢顶饰与无字标题底",
+    "states": {
+      "default": "UI/通用/panel_feature_crown.png"
+    },
+    "size": [
+      400,
+      180
+    ],
+    "scale": 1,
+    "slice": [
+      120,
+      100,
+      120,
+      24
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17 原图蜂巢顶饰裁切，标题字区域以两侧空白像素逐行插值清除",
+    "priority": "P0",
+    "sha256": {
+      "default": "09a245e5c2ca08ca6b09f05d502873248405a57438e2c2bc92830a563dade57c"
+    }
+  },
+  {
+    "id": "btn_green",
+    "name": "青绿主按钮",
+    "states": {
+      "normal": "UI/通用/btn_green_normal.png",
+      "pressed": "UI/通用/btn_green_pressed.png",
+      "disabled": "UI/通用/btn_green_disabled.png"
+    },
+    "size": [
+      240,
+      92
+    ],
+    "scale": 1,
+    "slice": [
+      70,
+      20,
+      70,
+      24
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17 无字原按钮母件，蓝/灰与按下禁用状态用确定性HSV派生",
+    "priority": "P0",
+    "sha256": {
+      "normal": "5015d1cf28f35f4b4dcd0bc69df7ed00d985380b13d2d09f4fbbf38873825100",
+      "pressed": "51bc40053c0d6ac7527fecc15dee1f4b78a586ce65ceb57b51f6c0331f902d55",
+      "disabled": "044d7f8a850d25884cd45f6674f787a758cd4508b4f83fe3bffb150fb63ccf9f"
+    }
+  },
+  {
+    "id": "btn_blue",
+    "name": "蓝色次要按钮",
+    "states": {
+      "normal": "UI/通用/btn_blue_normal.png",
+      "pressed": "UI/通用/btn_blue_pressed.png",
+      "disabled": "UI/通用/btn_blue_disabled.png"
+    },
+    "size": [
+      240,
+      92
+    ],
+    "scale": 1,
+    "slice": [
+      70,
+      20,
+      70,
+      24
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17 无字原按钮母件，蓝/灰与按下禁用状态用确定性HSV派生",
+    "priority": "P0",
+    "sha256": {
+      "normal": "1e823590b34a7bde521bbc7d906a1153ea352a2a849acdd68bfa82e27d3f4f10",
+      "pressed": "f4afd5791e03b8b40da1de79f7bf5197d6f89477279d5190b7de4c984ce47917",
+      "disabled": "27a4ba1a9a6156474358a2e73708a1197e01d39ae4fd6f3a4744dfe7d6859e99"
+    }
+  },
+  {
+    "id": "btn_grey",
+    "name": "灰蓝次级按钮",
+    "states": {
+      "normal": "UI/通用/btn_grey_normal.png",
+      "pressed": "UI/通用/btn_grey_pressed.png"
+    },
+    "size": [
+      240,
+      92
+    ],
+    "scale": 1,
+    "slice": [
+      70,
+      20,
+      70,
+      24
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17 无字原按钮母件，蓝/灰与按下禁用状态用确定性HSV派生",
+    "priority": "P0",
+    "sha256": {
+      "normal": "c882331a35dc6850ca340374a08569337ca24e56c926d5a3759bd2503dfcf6d4",
+      "pressed": "9f1a8f2ecabcd73ba2b5ea3038d7a4e61f1996d1a875982220bfa2a3e4cdfa01"
+    }
+  },
+  {
+    "id": "btn_small_green",
+    "name": "列表领取按钮",
+    "states": {
+      "normal": "UI/通用/btn_small_green_normal.png",
+      "pressed": "UI/通用/btn_small_green_pressed.png",
+      "disabled": "UI/通用/btn_small_green_disabled.png"
+    },
+    "size": [
+      180,
+      72
+    ],
+    "scale": 1,
+    "slice": [
+      55,
+      18,
+      55,
+      22
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17 无字原按钮母件，蓝/灰与按下禁用状态用确定性HSV派生",
+    "priority": "P0",
+    "sha256": {
+      "normal": "20854378067c22cdce2e933acd748c5472ef7790d1b3f009198ebf28bbd6b990",
+      "pressed": "0eae28d81af65ad3b0e55023db3f30fb7f9c06354712ba77b9e672c6bc62c641",
+      "disabled": "38cb93e62c249588e5b0c8c7f572938cae9a0632d86e220f7680132d4be349be"
+    }
+  },
+  {
+    "id": "tag_claimed",
+    "name": "已领取灰底胶囊",
+    "states": {
+      "default": "UI/通用/tag_claimed.png"
+    },
+    "size": [
+      140,
+      60
+    ],
+    "scale": 1,
+    "slice": [
+      30,
+      20,
+      30,
+      20
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S19 灰色标签空底按风格派生",
+    "priority": "P0",
+    "sha256": {
+      "default": "b63524e8630cbd2722c6ed183a1c5d35f1dac085a129be36f8c050743f01e7e2"
+    }
+  },
+  {
+    "id": "tag_locked",
+    "name": "未解锁灰底胶囊",
+    "states": {
+      "default": "UI/通用/tag_locked.png"
+    },
+    "size": [
+      140,
+      60
+    ],
+    "scale": 1,
+    "slice": [
+      30,
+      20,
+      30,
+      20
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S19 灰色标签空底按风格派生",
+    "priority": "P0",
+    "sha256": {
+      "default": "c1838ef4ab587421a2593c299a216da8034262c53515d1f1b1921b68f00f19a3"
+    }
+  },
+  {
+    "id": "btn_close",
+    "name": "紫底白叉关闭按钮",
+    "states": {
+      "normal": "UI/通用/btn_close_normal.png",
+      "pressed": "UI/通用/btn_close_pressed.png"
+    },
+    "size": [
+      92,
+      92
+    ],
+    "scale": 1,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17/S08 关闭形状与配色分离绘制",
+    "priority": "P0",
+    "sha256": {
+      "normal": "d56ae1cc89d789d17f9c10177f369b0d9e0dec7c1b150d9c713cacb9fdaef8cf",
+      "pressed": "835e1afa5cf7a5a194ff0eacee354182859b300784113f4321f943e9d905cc17"
+    }
+  },
+  {
+    "id": "btn_close_dialog",
+    "name": "标准弹窗小关闭按钮",
+    "states": {
+      "normal": "UI/通用/btn_close_dialog_normal.png",
+      "pressed": "UI/通用/btn_close_dialog_pressed.png"
+    },
+    "size": [
+      50,
+      50
+    ],
+    "scale": 1,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17/S08 关闭形状与配色分离绘制",
+    "priority": "P0",
+    "sha256": {
+      "normal": "87c31629ed71c19daf11cb82bc2ad00a0943dbeea8c42a79229b42176801d630",
+      "pressed": "03589c1676ea06447bc2b3a4d7d3bd76b9c3e725edba6f9ca815dde49c5dd698"
+    }
+  },
+  {
+    "id": "toggle_track",
+    "name": "开关底轨",
+    "states": {
+      "on": "UI/通用/toggle_track_on.png",
+      "off": "UI/通用/toggle_track_off.png",
+      "disabled": "UI/通用/toggle_track_disabled.png"
+    },
+    "size": [
+      186,
+      78
+    ],
+    "scale": 1,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S23 轨道独立导出；按原参考配色、曲面高光重建",
+    "priority": "P0",
+    "sha256": {
+      "on": "f68b3deb5ae840dc5f059fbef70448bd76fe2cebfea56684a5c7a9a0cb7c2037",
+      "off": "3f2b4e922ffafb19824306f6f3fbea8e55f27b10783fd629d083b4af9b8c05a0",
+      "disabled": "f5623647ad32c07b77865c42d7dc556566882faabb2fbd54747d210e3ed65cec"
+    },
+    "partOf": "toggle"
+  },
+  {
+    "id": "toggle_knob",
+    "name": "开关圆钮",
+    "states": {
+      "on": "UI/通用/toggle_knob_on.png",
+      "off": "UI/通用/toggle_knob_off.png",
+      "disabled": "UI/通用/toggle_knob_disabled.png"
+    },
+    "size": [
+      68,
+      68
+    ],
+    "scale": 1,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S23 圆钮独立导出；程序按状态移动圆钮",
+    "priority": "P0",
+    "sha256": {
+      "on": "387388e19ae9e294aacf448e1316acdfcc0af8fbd6d1ede2be8359a67f2e5146",
+      "off": "387388e19ae9e294aacf448e1316acdfcc0af8fbd6d1ede2be8359a67f2e5146",
+      "disabled": "db640d34640a6fc64fdf15d85ee641f5f7ee41ffa138350c5c9074f027168067"
+    },
+    "partOf": "toggle",
+    "trackPositions": {
+      "on": [
+        121,
+        5
+      ],
+      "off": [
+        5,
+        5
+      ],
+      "disabled": [
+        5,
+        5
+      ]
+    }
+  },
+  {
+    "id": "bar_bg",
+    "name": "进度条深蓝底",
+    "states": {
+      "default": "UI/通用/bar_bg.png"
+    },
+    "size": [
+      110,
+      42
+    ],
+    "scale": 1,
+    "slice": [
+      22,
+      10,
+      22,
+      10
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S01/S02/S03 圆头进度条样式独立重建",
+    "priority": "P0",
+    "sha256": {
+      "default": "38f9727c8df004ee24ea302b8ad0fbf5b007c76a925eee859d542a33e35db282"
+    }
+  },
+  {
+    "id": "bar_fill_green",
+    "name": "进度条绿填充",
+    "states": {
+      "default": "UI/通用/bar_fill_green.png"
+    },
+    "size": [
+      110,
+      42
+    ],
+    "scale": 1,
+    "slice": [
+      22,
+      10,
+      22,
+      10
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S01/S02/S03 圆头进度条样式独立重建",
+    "priority": "P0",
+    "sha256": {
+      "default": "287826dba5f58def37a6198f4d7445631d3821ad5d6d30d1bc336b3a65b2674a"
+    }
+  },
+  {
+    "id": "bar_fill_blue",
+    "name": "进度条蓝填充",
+    "states": {
+      "default": "UI/通用/bar_fill_blue.png"
+    },
+    "size": [
+      110,
+      42
+    ],
+    "scale": 1,
+    "slice": [
+      22,
+      10,
+      22,
+      10
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S01/S02/S03 圆头进度条样式独立重建",
+    "priority": "P0",
+    "sha256": {
+      "default": "6d71c280c9c935d5fed056fb3db139db56798308822c4801b30a4ebc61436b7b"
+    }
+  },
+  {
+    "id": "reddot",
+    "name": "红点",
+    "states": {
+      "default": "UI/通用/reddot.png"
+    },
+    "size": [
+      30,
+      30
+    ],
+    "scale": 1,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "规范新增，统一上左光源",
+    "priority": "P0",
+    "sha256": {
+      "default": "fa19ebe3b00f783647cdd6f692648d5ae452bf312a386b43bf494ed8bd298704"
+    }
+  },
+  {
+    "id": "mark_check",
+    "name": "绿色勾",
+    "states": {
+      "default": "UI/通用/mark_check.png"
+    },
+    "size": [
+      64,
+      60
+    ],
+    "scale": 1,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17 绿色勾形状提取重绘，不含圆底",
+    "priority": "P0",
+    "sha256": {
+      "default": "2025bf4574c796559fa57276cc6f5a05a4839d2a7ac12c4e136717820d6c3500"
+    }
+  },
+  {
+    "id": "mark_lock",
+    "name": "锁",
+    "states": {
+      "default": "UI/通用/mark_lock.png"
+    },
+    "size": [
+      48,
+      58
+    ],
+    "scale": 1,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S17 锁形状独立重绘，不含底框",
+    "priority": "P0",
+    "sha256": {
+      "default": "45ef99e2319e8ae6f7bdd50fac866f23842501e011f0cbaf27bca6f5942c3557"
+    }
+  },
+  {
+    "id": "mask_black",
+    "name": "黑色遮罩",
+    "states": {
+      "default": "UI/通用/mask_black.png"
+    },
+    "size": [
+      4,
+      4
+    ],
+    "scale": 1,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "规范指定4x4纯黑不透明；程序控制遮罩透明度",
+    "priority": "P0",
+    "sha256": {
+      "default": "87a21984814bc66d131e588fc3f3f93e6bf9dc509a8555a07e4830227b08457e"
+    },
+    "paddingException": "mask_black explicitly requires opaque 4x4"
+  },
+  {
+    "id": "divider_gold",
+    "name": "双六边形金色分隔线",
+    "states": {
+      "default": "UI/通用/divider_gold.png"
+    },
+    "size": [
+      240,
+      24
+    ],
+    "scale": 1,
+    "slice": [
+      22,
+      6,
+      22,
+      6
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "source": "S04 金色细线与两端六角装饰独立派生",
+    "priority": "P0",
+    "sha256": {
+      "default": "90b514fd7de58712541f6281489435b6dc02b5d871f0869b5fae6c562ba16b65"
+    }
+  }
+]

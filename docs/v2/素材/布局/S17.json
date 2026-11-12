@@ -1,0 +1,636 @@
+{
+  "page": "S17",
+  "reference": "效果图/S17_七日签到_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "23ad6b1d48b5b187a739153aa3618b64b4d6210d1da50101572c23b003b09bcc",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P0",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.45
+    },
+    {
+      "id": "panel_feature",
+      "asset": "UI/通用/panel_feature.png",
+      "rect": [
+        42,
+        450,
+        774,
+        1081
+      ],
+      "slice": true
+    },
+    {
+      "id": "panel_feature_crown",
+      "asset": "UI/通用/panel_feature_crown.png",
+      "rect": [
+        210,
+        320,
+        434,
+        203
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "七日签到",
+      "rect": [
+        266,
+        414,
+        335,
+        88
+      ],
+      "fontSize": 68,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false,
+      "outlineColor": "#51429A",
+      "outlineWidth": 2
+    },
+    {
+      "id": "btn_close",
+      "asset": "UI/通用/btn_close_normal.png",
+      "rect": [
+        700,
+        420,
+        103,
+        100
+      ]
+    },
+    {
+      "id": "caption",
+      "type": "label",
+      "text": "漏签保留进度",
+      "rect": [
+        311,
+        1295,
+        240,
+        50
+      ],
+      "fontSize": 32,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "btn_green",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        207,
+        1348,
+        440,
+        123
+      ],
+      "slice": true
+    },
+    {
+      "id": "claim",
+      "type": "label",
+      "text": "领取",
+      "rect": [
+        300,
+        1370,
+        254,
+        75
+      ],
+      "fontSize": 58,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "day_1",
+      "type": "label",
+      "text": "第1天",
+      "rect": [
+        132,
+        553,
+        148,
+        43
+      ],
+      "fontSize": 31,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "reward_icon_1",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        159,
+        602,
+        89,
+        89
+      ]
+    },
+    {
+      "id": "reward_1",
+      "type": "label",
+      "text": "50",
+      "rect": [
+        149,
+        689,
+        110,
+        50
+      ],
+      "fontSize": 39,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "state_1",
+      "asset": "UI/通用/mark_check.png",
+      "rect": [
+        167,
+        726,
+        74,
+        67
+      ]
+    },
+    {
+      "id": "day_2",
+      "type": "label",
+      "text": "第2天",
+      "rect": [
+        356,
+        553,
+        148,
+        43
+      ],
+      "fontSize": 31,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "reward_icon_2",
+      "asset": "UI/图标/icon_energy.png",
+      "rect": [
+        383,
+        602,
+        89,
+        89
+      ]
+    },
+    {
+      "id": "reward_2",
+      "type": "label",
+      "text": "1",
+      "rect": [
+        373,
+        689,
+        110,
+        50
+      ],
+      "fontSize": 39,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "state_2",
+      "asset": "UI/通用/mark_check.png",
+      "rect": [
+        391,
+        726,
+        74,
+        67
+      ]
+    },
+    {
+      "id": "day_3",
+      "type": "label",
+      "text": "第3天",
+      "rect": [
+        579,
+        553,
+        148,
+        43
+      ],
+      "fontSize": 31,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "reward_icon_3",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        606,
+        602,
+        89,
+        89
+      ]
+    },
+    {
+      "id": "reward_3",
+      "type": "label",
+      "text": "100",
+      "rect": [
+        596,
+        689,
+        110,
+        50
+      ],
+      "fontSize": 39,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "state_3",
+      "asset": "UI/通用/mark_check.png",
+      "rect": [
+        614,
+        726,
+        74,
+        67
+      ]
+    },
+    {
+      "id": "day_4",
+      "type": "label",
+      "text": "第4天",
+      "rect": [
+        132,
+        805,
+        148,
+        43
+      ],
+      "fontSize": 31,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "reward_icon_4",
+      "asset": "UI/图标/icon_hint.png",
+      "rect": [
+        159,
+        854,
+        89,
+        89
+      ]
+    },
+    {
+      "id": "reward_4",
+      "type": "label",
+      "text": "1",
+      "rect": [
+        149,
+        941,
+        110,
+        50
+      ],
+      "fontSize": 39,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "today",
+      "type": "label",
+      "text": "今日",
+      "rect": [
+        152,
+        986,
+        111,
+        45
+      ],
+      "fontSize": 31,
+      "color": "#2878BA",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "day_5",
+      "type": "label",
+      "text": "第5天",
+      "rect": [
+        356,
+        805,
+        148,
+        43
+      ],
+      "fontSize": 31,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "reward_icon_5",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        383,
+        854,
+        89,
+        89
+      ]
+    },
+    {
+      "id": "reward_5",
+      "type": "label",
+      "text": "150",
+      "rect": [
+        373,
+        941,
+        110,
+        50
+      ],
+      "fontSize": 39,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "state_5",
+      "asset": "UI/通用/mark_lock.png",
+      "rect": [
+        391,
+        978,
+        74,
+        67
+      ]
+    },
+    {
+      "id": "day_6",
+      "type": "label",
+      "text": "第6天",
+      "rect": [
+        579,
+        805,
+        148,
+        43
+      ],
+      "fontSize": 31,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "reward_icon_6",
+      "asset": "UI/图标/icon_energy.png",
+      "rect": [
+        606,
+        854,
+        89,
+        89
+      ]
+    },
+    {
+      "id": "reward_6",
+      "type": "label",
+      "text": "2",
+      "rect": [
+        596,
+        941,
+        110,
+        50
+      ],
+      "fontSize": 39,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "state_6",
+      "asset": "UI/通用/mark_lock.png",
+      "rect": [
+        614,
+        978,
+        74,
+        67
+      ]
+    },
+    {
+      "id": "day_7",
+      "type": "label",
+      "text": "第7天",
+      "rect": [
+        339,
+        1059,
+        178,
+        58
+      ],
+      "fontSize": 35,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": false
+    },
+    {
+      "id": "icon_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        234,
+        1122,
+        96,
+        94
+      ]
+    },
+    {
+      "id": "reward_7_coin",
+      "type": "label",
+      "text": "200 +",
+      "rect": [
+        330,
+        1133,
+        147,
+        56
+      ],
+      "fontSize": 43,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "icon_hint",
+      "asset": "UI/图标/icon_hint.png",
+      "rect": [
+        484,
+        1116,
+        83,
+        96
+      ]
+    },
+    {
+      "id": "reward_7_hint",
+      "type": "label",
+      "text": "1",
+      "rect": [
+        571,
+        1134,
+        45,
+        56
+      ],
+      "fontSize": 43,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "dynamic": true
+    },
+    {
+      "id": "mark_lock",
+      "asset": "UI/通用/mark_lock.png",
+      "rect": [
+        388,
+        1202,
+        79,
+        75
+      ]
+    }
+  ],
+  "overlay": true,
+  "underlay": "S03",
+  "priorityNote": "P0验收附加布局，仅验证P0通用大面板与图标；P1日格和角色尚未交付，不代表签到页完整验收。",
+  "deferredElements": [
+    {
+      "id": "bee_peek",
+      "priority": "P1",
+      "rect": [
+        60,
+        246,
+        220,
+        229
+      ],
+      "reason": "4.9角色属P1"
+    },
+    {
+      "id": "signin_cell_1",
+      "asset": "UI/签到/signin_cell_claimed.png",
+      "priority": "P1",
+      "rect": [
+        95,
+        546,
+        217,
+        243
+      ],
+      "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
+    },
+    {
+      "id": "signin_cell_2",
+      "asset": "UI/签到/signin_cell_claimed.png",
+      "priority": "P1",
+      "rect": [
+        319,
+        546,
+        217,
+        243
+      ],
+      "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
+    },
+    {
+      "id": "signin_cell_3",
+      "asset": "UI/签到/signin_cell_claimed.png",
+      "priority": "P1",
+      "rect": [
+        542,
+        546,
+        217,
+        243
+      ],
+      "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
+    },
+    {
+      "id": "signin_cell_4",
+      "asset": "UI/签到/signin_cell_today.png",
+      "priority": "P1",
+      "rect": [
+        95,
+        798,
+        217,
+        243
+      ],
+      "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
+    },
+    {
+      "id": "signin_cell_5",
+      "asset": "UI/签到/signin_cell_locked.png",
+      "priority": "P1",
+      "rect": [
+        319,
+        798,
+        217,
+        243
+      ],
+      "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
+    },
+    {
+      "id": "signin_cell_6",
+      "asset": "UI/签到/signin_cell_locked.png",
+      "priority": "P1",
+      "rect": [
+        542,
+        798,
+        217,
+        243
+      ],
+      "reason": "4.6日格各状态属P1；P0对照留空，不用原图残片掩盖缺件"
+    },
+    {
+      "id": "signin_cell_big_7",
+      "asset": "UI/签到/signin_cell_big_locked.png",
+      "priority": "P1",
+      "rect": [
+        107,
+        1055,
+        642,
+        218
+      ],
+      "reason": "4.6日格属P1"
+    }
+  ]
+}
