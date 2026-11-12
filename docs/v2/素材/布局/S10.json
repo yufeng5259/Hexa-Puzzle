@@ -1,0 +1,220 @@
+{
+  "page": "S10",
+  "reference": "效果图/S10_体力不足_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "a53a9c36e7f68410d5bf11d82925ba8f39672bdeff54ce364ba4825c3de5c506",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-1",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.55
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        525,
+        712,
+        825
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        470,
+        547,
+        132
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "体力不足",
+      "rect": [
+        173,
+        495,
+        507,
+        92
+      ],
+      "fontSize": 41,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "btn_close_dialog",
+      "asset": "UI/通用/btn_close_dialog_normal.png",
+      "rect": [
+        747,
+        473,
+        51,
+        51
+      ]
+    },
+    {
+      "id": "icon_energy",
+      "asset": "UI/图标/icon_energy.png",
+      "rect": [
+        350,
+        653,
+        154,
+        132
+      ]
+    },
+    {
+      "id": "energy_amount",
+      "type": "label",
+      "text": "0 / 5",
+      "rect": [
+        297,
+        804,
+        260,
+        63
+      ],
+      "fontSize": 56,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "energy_timer",
+      "type": "label",
+      "text": "下点恢复 04:32",
+      "rect": [
+        224,
+        897,
+        406,
+        49
+      ],
+      "fontSize": 33,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "energy_recovery",
+      "type": "label",
+      "text": "每5分钟恢复1点，离线也能恢复",
+      "rect": [
+        187,
+        965,
+        480,
+        40
+      ],
+      "fontSize": 24,
+      "color": "#8D96A7",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "go_endless",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1098,
+        568,
+        92
+      ],
+      "slice": true
+    },
+    {
+      "id": "go_endless_text",
+      "type": "label",
+      "text": "去玩蜂巢消消乐",
+      "rect": [
+        153,
+        1106,
+        548,
+        76
+      ],
+      "fontSize": 35,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "return",
+      "asset": "UI/通用/btn_grey_normal.png",
+      "rect": [
+        143,
+        1217,
+        568,
+        82
+      ],
+      "slice": true
+    },
+    {
+      "id": "return_text",
+      "type": "label",
+      "text": "返回",
+      "rect": [
+        153,
+        1225,
+        548,
+        66
+      ],
+      "fontSize": 35,
+      "color": "#536B91",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    }
+  ],
+  "overlay": true,
+  "underlay": "S03",
+  "underlayOverrides": {
+    "energy_value": {
+      "text": "0/5"
+    }
+  },
+  "modal": true,
+  "dismissOnMask": true,
+  "conditionalElements": {
+    "go_endless": "无尽已解锁时可见；未解锁隐藏按钮并仅保留返回"
+  },
+  "state": "energy_insufficient"
+}

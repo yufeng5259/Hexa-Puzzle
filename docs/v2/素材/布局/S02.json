@@ -553,20 +553,19 @@
       "align": "center",
       "verticalAlign": "center",
       "dynamic": false
-    }
-  ],
-  "existingAssetPolicy": "复用M01裸背景和分级建筑；其与效果图建筑像素并非完全一致，保持已交付资产，不重做。",
-  "deferredElements": [
+    },
     {
       "id": "bee_wave",
-      "priority": "P1",
       "rect": [
         528,
         1332,
         196,
         217
       ],
-      "reason": "角色属4.9 P1；未用原效果图裁片冒充独立切图"
+      "asset": "角色/bee_wave.png"
     }
-  ]
+  ],
+  "existingAssetPolicy": "复用M01裸背景和分级建筑；其与效果图建筑像素并非完全一致，保持已交付资产，不重做。",
+  "deferredElements": [],
+  "p1Completion": "按本轮用户授权补齐角色/签到格引用；原P0 PNG与其他元素保持不变。"
 }

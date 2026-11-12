@@ -1,0 +1,167 @@
+{
+  "status": "PASS",
+  "count": 9,
+  "uniformCanvas": [
+    384,
+    400
+  ],
+  "anchor": [
+    0.5,
+    0.95
+  ],
+  "results": [
+    {
+      "id": "bee_wave",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        51,
+        20,
+        332,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    },
+    {
+      "id": "bee_fly",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        18,
+        20,
+        366,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    },
+    {
+      "id": "bee_celebrate",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        51,
+        20,
+        332,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    },
+    {
+      "id": "bee_worry",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        81,
+        20,
+        304,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    },
+    {
+      "id": "bee_peek",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        18,
+        57,
+        366,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    },
+    {
+      "id": "bee_loading",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        59,
+        20,
+        325,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    },
+    {
+      "id": "bee_builder_01",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        49,
+        20,
+        326,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    },
+    {
+      "id": "bee_builder_02",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        49,
+        20,
+        322,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    },
+    {
+      "id": "bee_builder_03",
+      "mode": "RGBA",
+      "size": [
+        384,
+        400
+      ],
+      "alphaBBox": [
+        49,
+        20,
+        316,
+        380
+      ],
+      "safeBorder": "PASS",
+      "text": "none"
+    }
+  ],
+  "referenceIdentity": "S02 goggles bee; S01 materials",
+  "generation": "bundled image_gen.py fallback CLI with configured provider; gpt-image-2; returned native RGBA despite prompt chroma key request",
+  "visualReview": {
+    "whiteDarkChecker": "PASS",
+    "identity": "PASS",
+    "poses": "PASS",
+    "builderFrames": "PASS",
+    "remarks": "All nine final sprites inspected in three-background sheet. Goggles/cap/antennae colors consistent; loading holds round honey jar; worry has downturned mouth and worried eyes; builder shows lifted/mid/down hammer with common feet baseline. No residual isolated alpha specks or magenta background observed."
+  }
+}

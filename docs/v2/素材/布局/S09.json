@@ -1,0 +1,192 @@
+{
+  "page": "S09",
+  "reference": "效果图/S09_重玩确认_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "32cf00ab01f3c4f3794951f8e8af3dcef78a00cbd9d4fb5870139ce56328abed",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-1",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.55
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        565,
+        712,
+        750
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        513,
+        547,
+        132
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "重新开始？",
+      "rect": [
+        173,
+        538,
+        507,
+        92
+      ],
+      "fontSize": 41,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "btn_close_dialog",
+      "asset": "UI/通用/btn_close_dialog_normal.png",
+      "rect": [
+        747,
+        516,
+        51,
+        51
+      ]
+    },
+    {
+      "id": "icon_energy",
+      "asset": "UI/图标/icon_energy.png",
+      "rect": [
+        366,
+        703,
+        122,
+        117
+      ]
+    },
+    {
+      "id": "restart_warning",
+      "type": "label",
+      "text": "当前摆放将被清空",
+      "rect": [
+        222,
+        864,
+        410,
+        48
+      ],
+      "fontSize": 34,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "restart_cost",
+      "type": "label",
+      "text": "新开一局需要 1 点体力",
+      "rect": [
+        212,
+        919,
+        430,
+        43
+      ],
+      "fontSize": 27,
+      "color": "#8D96A7",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "restart",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1048,
+        568,
+        92
+      ],
+      "slice": true
+    },
+    {
+      "id": "restart_text",
+      "type": "label",
+      "text": "确认重玩",
+      "rect": [
+        153,
+        1056,
+        548,
+        76
+      ],
+      "fontSize": 35,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "continue",
+      "asset": "UI/通用/btn_grey_normal.png",
+      "rect": [
+        143,
+        1167,
+        568,
+        82
+      ],
+      "slice": true
+    },
+    {
+      "id": "continue_text",
+      "type": "label",
+      "text": "继续当前局",
+      "rect": [
+        153,
+        1175,
+        548,
+        66
+      ],
+      "fontSize": 35,
+      "color": "#536B91",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    }
+  ],
+  "overlay": true,
+  "underlay": "S04",
+  "modal": true,
+  "dismissOnMask": true
+}

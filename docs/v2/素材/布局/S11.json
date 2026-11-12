@@ -1,0 +1,273 @@
+{
+  "page": "S11",
+  "reference": "效果图/S11_金币不足_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "0159a0bce3e308aed9565a27b27c268d38f8ed46fccc681f395c11c019d5de04",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-1",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.55
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        535,
+        712,
+        810
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        480,
+        547,
+        132
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "金币不足",
+      "rect": [
+        173,
+        505,
+        507,
+        92
+      ],
+      "fontSize": 41,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "btn_close_dialog",
+      "asset": "UI/通用/btn_close_dialog_normal.png",
+      "rect": [
+        747,
+        483,
+        51,
+        51
+      ]
+    },
+    {
+      "id": "icon_coin",
+      "asset": "UI/图标/icon_coin.png",
+      "rect": [
+        354,
+        662,
+        147,
+        147
+      ]
+    },
+    {
+      "id": "cost_label_0",
+      "type": "label",
+      "text": "当前拥有",
+      "rect": [
+        237,
+        846,
+        228,
+        44
+      ],
+      "fontSize": 27,
+      "color": "#7A88A3",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "cost_value_0",
+      "type": "label",
+      "text": "20",
+      "rect": [
+        535,
+        846,
+        117,
+        44
+      ],
+      "fontSize": 33,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "cost_label_1",
+      "type": "label",
+      "text": "升级需要",
+      "rect": [
+        237,
+        909,
+        228,
+        44
+      ],
+      "fontSize": 27,
+      "color": "#7A88A3",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "cost_value_1",
+      "type": "label",
+      "text": "100",
+      "rect": [
+        535,
+        909,
+        117,
+        44
+      ],
+      "fontSize": 33,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "cost_label_2",
+      "type": "label",
+      "text": "还差",
+      "rect": [
+        237,
+        972,
+        228,
+        44
+      ],
+      "fontSize": 27,
+      "color": "#7A88A3",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "cost_value_2",
+      "type": "label",
+      "text": "80",
+      "rect": [
+        535,
+        972,
+        117,
+        44
+      ],
+      "fontSize": 33,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": true
+    },
+    {
+      "id": "play",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1103,
+        568,
+        92
+      ],
+      "slice": true
+    },
+    {
+      "id": "play_text",
+      "type": "label",
+      "text": "去闯关",
+      "rect": [
+        153,
+        1111,
+        548,
+        76
+      ],
+      "fontSize": 35,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "later",
+      "asset": "UI/通用/btn_grey_normal.png",
+      "rect": [
+        143,
+        1222,
+        568,
+        82
+      ],
+      "slice": true
+    },
+    {
+      "id": "later_text",
+      "type": "label",
+      "text": "稍后",
+      "rect": [
+        153,
+        1230,
+        548,
+        66
+      ],
+      "fontSize": 35,
+      "color": "#536B91",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    }
+  ],
+  "overlay": true,
+  "underlay": "S03",
+  "underlayOverrides": {
+    "coin_value": {
+      "text": "20"
+    }
+  },
+  "modal": true,
+  "dismissOnMask": true
+}

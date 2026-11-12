@@ -1543,7 +1543,10 @@
     "hexMothersAndStates": 18,
     "p0UiAssetGroups": 75,
     "p0UiPngs": 103,
-    "p0Layouts": 4
+    "p0Layouts": 4,
+    "p1UiAssetGroups": 7,
+    "p1UiPngs": 9,
+    "p1NewLayouts": 7
   },
   "originalStylePNGsPreserved": {
     "效果图/S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
@@ -3606,102 +3609,383 @@
       },
       "sourceFile": "素材/UI/图标/icon_exp.png",
       "sourceSha256": "12cac31b559337c05df5b4857f0ebbaf85557a8d20b833eb0b21fb8a0d7bd9f1"
+    },
+    {
+      "id": "bee_wave",
+      "name": "护目镜蜜蜂挥手",
+      "size": [
+        384,
+        400
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+      "sourceFile": "制作记录/切图20261112/P1/characters/bee_wave_raw.png",
+      "sourceSha256": "661c8411b7807954ab5a93d483b3b6ed6ad34ad3021cf5264435797323fbdb5f",
+      "priority": "P1",
+      "batch": "P1-1",
+      "referenceFiles": [
+        {
+          "file": "效果图/S02_主页_BlockHexa风格.png",
+          "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+        },
+        {
+          "file": "效果图/S01_加载_BlockHexa风格.png",
+          "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+        }
+      ],
+      "promptFile": "制作记录/切图20261112/P1/characters/bee_wave_prompt.txt",
+      "promptSha256": "602daa4ee5f257c29dfc7ed7bcd6a340dd50f61fc859e7756b8dbb25a6eebb6c",
+      "nativeAlpha": true,
+      "feetBaseline": 380,
+      "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+      "states": {
+        "normal": "角色/bee_wave.png"
+      },
+      "sha256": {
+        "normal": "2c106a8d6bccdb6a8399d0fbecc78a35536eab85919481bb9a09e041a15c99bc"
+      }
+    },
+    {
+      "id": "bee_fly",
+      "name": "护目镜蜜蜂侧身飞行",
+      "size": [
+        384,
+        400
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+      "sourceFile": "制作记录/切图20261112/P1/characters/bee_fly_raw.png",
+      "sourceSha256": "10d1386cd1f18a520a01fff95e76a63986befcbdcccc4301f22b879d91043e36",
+      "priority": "P1",
+      "batch": "P1-1",
+      "referenceFiles": [
+        {
+          "file": "效果图/S02_主页_BlockHexa风格.png",
+          "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+        },
+        {
+          "file": "效果图/S01_加载_BlockHexa风格.png",
+          "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+        }
+      ],
+      "promptFile": "制作记录/切图20261112/P1/characters/bee_fly_prompt.txt",
+      "promptSha256": "f26aa2b6b5ebffa9c2b9cb370b8777631fe213ecfd3ed83e91ec4abd62ccc6c5",
+      "nativeAlpha": true,
+      "feetBaseline": 380,
+      "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+      "states": {
+        "normal": "角色/bee_fly.png"
+      },
+      "sha256": {
+        "normal": "6598274ff037072bad48818f63b7971c5549fbea729f28772375f6da00d301ed"
+      }
+    },
+    {
+      "id": "bee_celebrate",
+      "name": "护目镜蜜蜂欢呼",
+      "size": [
+        384,
+        400
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+      "sourceFile": "制作记录/切图20261112/P1/characters/bee_celebrate_raw.png",
+      "sourceSha256": "036bcf22e6ad5ff170c3eef51e161db9de75ae9db592c12042ee7d3a17f1fc55",
+      "priority": "P1",
+      "batch": "P1-1",
+      "referenceFiles": [
+        {
+          "file": "效果图/S02_主页_BlockHexa风格.png",
+          "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+        },
+        {
+          "file": "效果图/S01_加载_BlockHexa风格.png",
+          "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+        }
+      ],
+      "promptFile": "制作记录/切图20261112/P1/characters/bee_celebrate_prompt.txt",
+      "promptSha256": "7de982043dbf43c4bf0265e19a6ea15dabd37164fc56a9d6a8e1df3ffa822902",
+      "nativeAlpha": true,
+      "feetBaseline": 380,
+      "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+      "states": {
+        "normal": "角色/bee_celebrate.png"
+      },
+      "sha256": {
+        "normal": "b7ea52814f6c9a0fc07c2f8645c197d9aff69ec4aaf02819a44f12ba715ceec9"
+      }
+    },
+    {
+      "id": "bee_worry",
+      "name": "护目镜蜜蜂苦恼",
+      "size": [
+        384,
+        400
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+      "sourceFile": "制作记录/切图20261112/P1/characters/bee_worry_raw.png",
+      "sourceSha256": "46e931ca1c06dcdf8d88a79f676f80e081166f20bb7737cb12e46fce900f645b",
+      "priority": "P1",
+      "batch": "P1-1",
+      "referenceFiles": [
+        {
+          "file": "效果图/S02_主页_BlockHexa风格.png",
+          "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+        },
+        {
+          "file": "效果图/S01_加载_BlockHexa风格.png",
+          "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+        }
+      ],
+      "promptFile": "制作记录/切图20261112/P1/characters/bee_worry_prompt.txt",
+      "promptSha256": "2c51d8508687931180a0070800e46ad174ba217d999436892038f1f3245c5191",
+      "nativeAlpha": true,
+      "feetBaseline": 380,
+      "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+      "states": {
+        "normal": "角色/bee_worry.png"
+      },
+      "sha256": {
+        "normal": "5233beffc51551a568b2ac872839887e8aa968123686cc54e237ed7a24f9e4bb"
+      }
+    },
+    {
+      "id": "bee_peek",
+      "name": "护目镜蜜蜂探头",
+      "size": [
+        384,
+        400
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+      "sourceFile": "制作记录/切图20261112/P1/characters/bee_peek_raw.png",
+      "sourceSha256": "29cb5f5442a30d56243ba5b774817302aa19d874ee5f41439fcb30af2417fa67",
+      "priority": "P1",
+      "batch": "P1-1",
+      "referenceFiles": [
+        {
+          "file": "效果图/S02_主页_BlockHexa风格.png",
+          "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+        },
+        {
+          "file": "效果图/S01_加载_BlockHexa风格.png",
+          "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+        }
+      ],
+      "promptFile": "制作记录/切图20261112/P1/characters/bee_peek_prompt.txt",
+      "promptSha256": "888bf97bf31ef494bf54184e492c2473520006f0f58135ca7b6a2dc248ad8618",
+      "nativeAlpha": true,
+      "feetBaseline": 380,
+      "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+      "states": {
+        "normal": "角色/bee_peek.png"
+      },
+      "sha256": {
+        "normal": "e88ddf6663d1f434fbd792f2e977cb7fdb93250cb3df70e8aed2d724b024ce81"
+      }
+    },
+    {
+      "id": "bee_loading",
+      "name": "护目镜蜜蜂抱蜜罐",
+      "size": [
+        384,
+        400
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+      "sourceFile": "制作记录/切图20261112/P1/characters/bee_loading_raw.png",
+      "sourceSha256": "1637e99ef756ba9dcd91004e3fe379ed59ba13c38df0ac9c02131121804eaf9a",
+      "priority": "P1",
+      "batch": "P1-1",
+      "referenceFiles": [
+        {
+          "file": "效果图/S02_主页_BlockHexa风格.png",
+          "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+        },
+        {
+          "file": "效果图/S01_加载_BlockHexa风格.png",
+          "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+        }
+      ],
+      "promptFile": "制作记录/切图20261112/P1/characters/bee_loading_prompt.txt",
+      "promptSha256": "f40289d6a03e159bc102ce98939be55de8c0505417028d7f7b3a0da607c3dbe8",
+      "nativeAlpha": true,
+      "feetBaseline": 380,
+      "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+      "states": {
+        "normal": "角色/bee_loading.png"
+      },
+      "sha256": {
+        "normal": "0640ec7d13b5dcbb9e4e10359e78acccfb33ace67414a9a92125862feae9da4c"
+      }
+    },
+    {
+      "id": "bee_builder",
+      "name": "安全帽蜜蜂敲打",
+      "size": [
+        384,
+        400
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+      "sourceFile": "制作记录/切图20261112/P1/characters/bee_builder_raw.png",
+      "sourceSha256": "e94c86bb8826368917db229bc9010e4331a70473926c4609323c34c6e5d437c8",
+      "priority": "P1",
+      "batch": "P1-1",
+      "referenceFiles": [
+        {
+          "file": "效果图/S02_主页_BlockHexa风格.png",
+          "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+        },
+        {
+          "file": "效果图/S01_加载_BlockHexa风格.png",
+          "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+        }
+      ],
+      "promptFile": "制作记录/切图20261112/P1/characters/bee_builder_prompt.txt",
+      "promptSha256": "a9cdc83bf554bdc55ff5009d09739e4c390cb1b5eff76b48e224b13f7c48ac81",
+      "nativeAlpha": true,
+      "feetBaseline": 380,
+      "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+      "frames": [
+        "角色/bee_builder/bee_builder_01.png",
+        "角色/bee_builder/bee_builder_02.png",
+        "角色/bee_builder/bee_builder_03.png"
+      ],
+      "fps": 8,
+      "sha256": {
+        "01": "9678ee9ccac30394d712c38685e75005a48a94d26eba6b61720b30430f634bd0",
+        "02": "918f0095a8106dedaf0cac3bac89cd3abc7bbe2cf6401dcc912748d8e1edfe02",
+        "03": "02e3f70264ba6efd0b7d55950446dd0eca9c0fda99ef3e4f8d1e30461363e510"
+      },
+      "frameOrder": [
+        "锤子抬起",
+        "锤子下挥",
+        "锤子落下"
+      ],
+      "loop": true
     }
   ],
   "uiLayouts": [
     {
       "id": "S02",
       "file": "素材/布局/S02.json",
-      "sha256": "acadfd1957fb5e31777d7c0fffa2d40f2668c0ff843385fb336e6842b0096dd2",
+      "sha256": "6ed497407fc14d62f34af0ca048b6e45a4a7610aa94e0bd3dc75c1c01767e060",
       "priority": "P0",
-      "deferredElements": [
-        {
-          "id": "bee_wave",
-          "priority": "P1",
-          "rect": [
-            528,
-            1332,
-            196,
-            217
-          ],
-          "reason": "角色属4.9 P1；未用原效果图裁片冒充独立切图"
-        }
-      ]
+      "deferredElements": []
     },
     {
       "id": "S03",
       "file": "素材/布局/S03.json",
-      "sha256": "ec2ac0fd5eed68a11ea3e80b7f1ee206b5c67163c88407d152bbec7199c25b66",
+      "sha256": "59ee5a3d1984f4f80802119dc8719b7989f58b80ebb8bcf92a10aa0c32a49308",
       "priority": "P0",
-      "deferredElements": [
-        {
-          "id": "bee_wave",
-          "priority": "P1",
-          "rect": [
-            531,
-            1412,
-            192,
-            218
-          ],
-          "reason": "4.9角色未纳入P0"
-        }
-      ]
+      "deferredElements": []
     },
     {
       "id": "S04",
       "file": "素材/布局/S04.json",
-      "sha256": "bf6ce60894afacb10cdabf896e786abab910c282ca1c5cf413a447f2d494e26d",
+      "sha256": "19ec12afb4e889a920211e4edc6386def55ba4afa5010733f00c2704bda34f14",
       "priority": "P0",
-      "deferredElements": [
-        {
-          "id": "bee_fly",
-          "priority": "P1",
-          "rect": [
-            151,
-            171,
-            128,
-            129
-          ],
-          "reason": "4.9角色属P1"
-        }
-      ]
+      "deferredElements": []
+    },
+    {
+      "id": "S05",
+      "file": "素材/布局/S05.json",
+      "sha256": "b0890baccd94e781901194f0847bf6a6cac2afc4d3752c9b296ac6704bcc7a65",
+      "priority": "P1",
+      "deferredElements": []
     },
     {
       "id": "S06",
       "file": "素材/布局/S06.json",
-      "sha256": "29cb34063e058c7db64eb9e3d83485eba3f5853da72b9cb97dab222823cc84a6",
+      "sha256": "ebda29935ab47050aa03f32eb5962eca40e194fc2f2eaff9fe71dc1f886efc56",
       "priority": "P0",
-      "deferredElements": [
-        {
-          "id": "bee_celebrate",
-          "priority": "P1",
-          "rect": [
-            354,
-            614,
-            147,
-            155
-          ],
-          "reason": "4.9角色属P1"
-        }
-      ]
+      "deferredElements": []
+    },
+    {
+      "id": "S07",
+      "file": "素材/布局/S07.json",
+      "sha256": "16d3f87a6416afb8c739fc575d5b68d865a4fe4bf13040809d1bdd6f270dcb92",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S08",
+      "file": "素材/布局/S08.json",
+      "sha256": "b9908f4717fa6e70518d1c65812c8731d71832067b780b13d2fec4f135a60be0",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S09",
+      "file": "素材/布局/S09.json",
+      "sha256": "a764e1ea6afbe4d60109508d5e181139d1722e390c29abbb3cc5e04b57e6b6f6",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S10",
+      "file": "素材/布局/S10.json",
+      "sha256": "29be0b95505f28d7646bb475d1a688ea09f373c0cac0288b72ec7e82d90cfa45",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S11",
+      "file": "素材/布局/S11.json",
+      "sha256": "e5f70a82103b3c647ee5d9468a24224a4151fa14b8212916c6e3dd9ea9fca3b3",
+      "priority": "P1",
+      "deferredElements": []
+    },
+    {
+      "id": "S12",
+      "file": "素材/布局/S12.json",
+      "sha256": "90e5615236811ae12ac0e7c26d786ecebc263305b787d194a560b42f1a116b6e",
+      "priority": "P1",
+      "deferredElements": []
     },
     {
       "id": "S17",
       "file": "素材/布局/S17.json",
-      "sha256": "eb147ee48829b1fa2d00417a44d649b073f24a38177e4ee8ba3cbd7824d575a9",
+      "sha256": "0f01618c42629ef36d432a476a6914f8d6fc09d2843248f3a277df701ab2c369",
       "priority": "P0",
       "deferredElements": [
-        {
-          "id": "bee_peek",
-          "priority": "P1",
-          "rect": [
-            60,
-            246,
-            220,
-            229
-          ],
-          "reason": "4.9角色属P1"
-        },
         {
           "id": "signin_cell_1",
           "asset": "UI/签到/signin_cell_claimed.png",
@@ -3800,5 +4084,23 @@
       "背景允许不透明；4x4黑遮罩按规范保持实色。",
       "P0包含4.10静态特效，序列补充仍属后续批次。"
     ]
+  },
+  "uiDeliveries": {
+    "P1-1": {
+      "date": "2026-11-12",
+      "newAssetGroups": 7,
+      "newPngFiles": 9,
+      "newLayouts": [
+        "S05",
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "verification": "制作记录/切图20261112/P1/P1-1_verification.json",
+      "reusedPngFiles": 0
+    }
   }
 }

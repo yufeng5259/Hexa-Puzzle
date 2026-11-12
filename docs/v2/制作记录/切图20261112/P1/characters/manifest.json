@@ -1,0 +1,293 @@
+[
+  {
+    "id": "bee_wave",
+    "name": "护目镜蜜蜂挥手",
+    "size": [
+      384,
+      400
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.95
+    ],
+    "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+    "sourceFile": "制作记录/切图20261112/P1/characters/bee_wave_raw.png",
+    "sourceSha256": "661c8411b7807954ab5a93d483b3b6ed6ad34ad3021cf5264435797323fbdb5f",
+    "priority": "P1",
+    "batch": "P1-1",
+    "referenceFiles": [
+      {
+        "file": "效果图/S02_主页_BlockHexa风格.png",
+        "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+      },
+      {
+        "file": "效果图/S01_加载_BlockHexa风格.png",
+        "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+      }
+    ],
+    "promptFile": "制作记录/切图20261112/P1/characters/bee_wave_prompt.txt",
+    "promptSha256": "602daa4ee5f257c29dfc7ed7bcd6a340dd50f61fc859e7756b8dbb25a6eebb6c",
+    "nativeAlpha": true,
+    "feetBaseline": 380,
+    "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+    "states": {
+      "normal": "角色/bee_wave.png"
+    },
+    "sha256": {
+      "normal": "2c106a8d6bccdb6a8399d0fbecc78a35536eab85919481bb9a09e041a15c99bc"
+    }
+  },
+  {
+    "id": "bee_fly",
+    "name": "护目镜蜜蜂侧身飞行",
+    "size": [
+      384,
+      400
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.95
+    ],
+    "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+    "sourceFile": "制作记录/切图20261112/P1/characters/bee_fly_raw.png",
+    "sourceSha256": "10d1386cd1f18a520a01fff95e76a63986befcbdcccc4301f22b879d91043e36",
+    "priority": "P1",
+    "batch": "P1-1",
+    "referenceFiles": [
+      {
+        "file": "效果图/S02_主页_BlockHexa风格.png",
+        "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+      },
+      {
+        "file": "效果图/S01_加载_BlockHexa风格.png",
+        "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+      }
+    ],
+    "promptFile": "制作记录/切图20261112/P1/characters/bee_fly_prompt.txt",
+    "promptSha256": "f26aa2b6b5ebffa9c2b9cb370b8777631fe213ecfd3ed83e91ec4abd62ccc6c5",
+    "nativeAlpha": true,
+    "feetBaseline": 380,
+    "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+    "states": {
+      "normal": "角色/bee_fly.png"
+    },
+    "sha256": {
+      "normal": "6598274ff037072bad48818f63b7971c5549fbea729f28772375f6da00d301ed"
+    }
+  },
+  {
+    "id": "bee_celebrate",
+    "name": "护目镜蜜蜂欢呼",
+    "size": [
+      384,
+      400
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.95
+    ],
+    "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+    "sourceFile": "制作记录/切图20261112/P1/characters/bee_celebrate_raw.png",
+    "sourceSha256": "036bcf22e6ad5ff170c3eef51e161db9de75ae9db592c12042ee7d3a17f1fc55",
+    "priority": "P1",
+    "batch": "P1-1",
+    "referenceFiles": [
+      {
+        "file": "效果图/S02_主页_BlockHexa风格.png",
+        "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+      },
+      {
+        "file": "效果图/S01_加载_BlockHexa风格.png",
+        "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+      }
+    ],
+    "promptFile": "制作记录/切图20261112/P1/characters/bee_celebrate_prompt.txt",
+    "promptSha256": "7de982043dbf43c4bf0265e19a6ea15dabd37164fc56a9d6a8e1df3ffa822902",
+    "nativeAlpha": true,
+    "feetBaseline": 380,
+    "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+    "states": {
+      "normal": "角色/bee_celebrate.png"
+    },
+    "sha256": {
+      "normal": "b7ea52814f6c9a0fc07c2f8645c197d9aff69ec4aaf02819a44f12ba715ceec9"
+    }
+  },
+  {
+    "id": "bee_worry",
+    "name": "护目镜蜜蜂苦恼",
+    "size": [
+      384,
+      400
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.95
+    ],
+    "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+    "sourceFile": "制作记录/切图20261112/P1/characters/bee_worry_raw.png",
+    "sourceSha256": "46e931ca1c06dcdf8d88a79f676f80e081166f20bb7737cb12e46fce900f645b",
+    "priority": "P1",
+    "batch": "P1-1",
+    "referenceFiles": [
+      {
+        "file": "效果图/S02_主页_BlockHexa风格.png",
+        "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+      },
+      {
+        "file": "效果图/S01_加载_BlockHexa风格.png",
+        "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+      }
+    ],
+    "promptFile": "制作记录/切图20261112/P1/characters/bee_worry_prompt.txt",
+    "promptSha256": "2c51d8508687931180a0070800e46ad174ba217d999436892038f1f3245c5191",
+    "nativeAlpha": true,
+    "feetBaseline": 380,
+    "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+    "states": {
+      "normal": "角色/bee_worry.png"
+    },
+    "sha256": {
+      "normal": "5233beffc51551a568b2ac872839887e8aa968123686cc54e237ed7a24f9e4bb"
+    }
+  },
+  {
+    "id": "bee_peek",
+    "name": "护目镜蜜蜂探头",
+    "size": [
+      384,
+      400
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.95
+    ],
+    "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+    "sourceFile": "制作记录/切图20261112/P1/characters/bee_peek_raw.png",
+    "sourceSha256": "29cb5f5442a30d56243ba5b774817302aa19d874ee5f41439fcb30af2417fa67",
+    "priority": "P1",
+    "batch": "P1-1",
+    "referenceFiles": [
+      {
+        "file": "效果图/S02_主页_BlockHexa风格.png",
+        "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+      },
+      {
+        "file": "效果图/S01_加载_BlockHexa风格.png",
+        "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+      }
+    ],
+    "promptFile": "制作记录/切图20261112/P1/characters/bee_peek_prompt.txt",
+    "promptSha256": "888bf97bf31ef494bf54184e492c2473520006f0f58135ca7b6a2dc248ad8618",
+    "nativeAlpha": true,
+    "feetBaseline": 380,
+    "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+    "states": {
+      "normal": "角色/bee_peek.png"
+    },
+    "sha256": {
+      "normal": "e88ddf6663d1f434fbd792f2e977cb7fdb93250cb3df70e8aed2d724b024ce81"
+    }
+  },
+  {
+    "id": "bee_loading",
+    "name": "护目镜蜜蜂抱蜜罐",
+    "size": [
+      384,
+      400
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.95
+    ],
+    "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+    "sourceFile": "制作记录/切图20261112/P1/characters/bee_loading_raw.png",
+    "sourceSha256": "1637e99ef756ba9dcd91004e3fe379ed59ba13c38df0ac9c02131121804eaf9a",
+    "priority": "P1",
+    "batch": "P1-1",
+    "referenceFiles": [
+      {
+        "file": "效果图/S02_主页_BlockHexa风格.png",
+        "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+      },
+      {
+        "file": "效果图/S01_加载_BlockHexa风格.png",
+        "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+      }
+    ],
+    "promptFile": "制作记录/切图20261112/P1/characters/bee_loading_prompt.txt",
+    "promptSha256": "f40289d6a03e159bc102ce98939be55de8c0505417028d7f7b3a0da607c3dbe8",
+    "nativeAlpha": true,
+    "feetBaseline": 380,
+    "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+    "states": {
+      "normal": "角色/bee_loading.png"
+    },
+    "sha256": {
+      "normal": "0640ec7d13b5dcbb9e4e10359e78acccfb33ace67414a9a92125862feae9da4c"
+    }
+  },
+  {
+    "id": "bee_builder",
+    "name": "安全帽蜜蜂敲打",
+    "size": [
+      384,
+      400
+    ],
+    "scale": 1,
+    "slice": null,
+    "anchor": [
+      0.5,
+      0.95
+    ],
+    "source": "S02护目镜蜜蜂统一身份，S01材质参考；gpt-image-2逐姿态重绘，保留原生RGBA并清理alpha噪点",
+    "sourceFile": "制作记录/切图20261112/P1/characters/bee_builder_raw.png",
+    "sourceSha256": "e94c86bb8826368917db229bc9010e4331a70473926c4609323c34c6e5d437c8",
+    "priority": "P1",
+    "batch": "P1-1",
+    "referenceFiles": [
+      {
+        "file": "效果图/S02_主页_BlockHexa风格.png",
+        "sha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f"
+      },
+      {
+        "file": "效果图/S01_加载_BlockHexa风格.png",
+        "sha256": "5d16a88ef59dbb3cd9f2586244328fcc95988cab2bff9dee299109c637d9620a"
+      }
+    ],
+    "promptFile": "制作记录/切图20261112/P1/characters/bee_builder_prompt.txt",
+    "promptSha256": "a9cdc83bf554bdc55ff5009d09739e4c390cb1b5eff76b48e224b13f7c48ac81",
+    "nativeAlpha": true,
+    "feetBaseline": 380,
+    "alphaProcessing": "largest connected silhouette; 2px binary opening at raw resolution; 0.65px feather; no RGB key replacement",
+    "frames": [
+      "角色/bee_builder/bee_builder_01.png",
+      "角色/bee_builder/bee_builder_02.png",
+      "角色/bee_builder/bee_builder_03.png"
+    ],
+    "fps": 8,
+    "sha256": {
+      "01": "9678ee9ccac30394d712c38685e75005a48a94d26eba6b61720b30430f634bd0",
+      "02": "918f0095a8106dedaf0cac3bac89cd3abc7bbe2cf6401dcc912748d8e1edfe02",
+      "03": "02e3f70264ba6efd0b7d55950446dd0eca9c0fda99ef3e4f8d1e30461363e510"
+    },
+    "frameOrder": [
+      "锤子抬起",
+      "锤子下挥",
+      "锤子落下"
+    ],
+    "loop": true
+  }
+]

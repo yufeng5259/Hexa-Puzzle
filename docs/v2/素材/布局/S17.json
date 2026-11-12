@@ -531,23 +531,22 @@
         79,
         75
       ]
-    }
-  ],
-  "overlay": true,
-  "underlay": "S03",
-  "priorityNote": "P0验收附加布局，仅验证P0通用大面板与图标；P1日格和角色尚未交付，不代表签到页完整验收。",
-  "deferredElements": [
+    },
     {
       "id": "bee_peek",
-      "priority": "P1",
       "rect": [
         60,
         246,
         220,
         229
       ],
-      "reason": "4.9角色属P1"
-    },
+      "asset": "角色/bee_peek.png"
+    }
+  ],
+  "overlay": true,
+  "underlay": "S03",
+  "priorityNote": "P0验收附加布局，仅验证P0通用大面板与图标；P1日格和角色尚未交付，不代表签到页完整验收。",
+  "deferredElements": [
     {
       "id": "signin_cell_1",
       "asset": "UI/签到/signin_cell_claimed.png",
@@ -632,5 +631,6 @@
       ],
       "reason": "4.6日格属P1"
     }
-  ]
+  ],
+  "p1Completion": "按本轮用户授权补齐角色/签到格引用；原P0 PNG与其他元素保持不变。"
 }

@@ -207,6 +207,16 @@
       "align": "center",
       "verticalAlign": "center",
       "dynamic": false
+    },
+    {
+      "id": "bee_celebrate",
+      "rect": [
+        354,
+        614,
+        147,
+        155
+      ],
+      "asset": "角色/bee_celebrate.png"
     }
   ],
   "overlay": true,
@@ -254,17 +264,6 @@
   ],
   "underlayState": "completed_cleared",
   "notes": "只标注本弹窗自身；通关后底页棋盘和托盘清空，排除underlayExcludeIds，不沿用未通关对局。",
-  "deferredElements": [
-    {
-      "id": "bee_celebrate",
-      "priority": "P1",
-      "rect": [
-        354,
-        614,
-        147,
-        155
-      ],
-      "reason": "4.9角色属P1"
-    }
-  ]
+  "deferredElements": [],
+  "p1Completion": "按本轮用户授权补齐角色/签到格引用；原P0 PNG与其他元素保持不变。"
 }

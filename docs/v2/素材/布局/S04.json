@@ -898,6 +898,16 @@
       "align": "center",
       "verticalAlign": "center",
       "dynamic": true
+    },
+    {
+      "id": "bee_fly",
+      "rect": [
+        151,
+        171,
+        128,
+        129
+      ],
+      "asset": "角色/bee_fly.png"
     }
   ],
   "texturePolicy": "关卡几何和pieceId保留classic-060；静态对照展示按S04上方蜜金/下方紫、托盘青蓝/青柠/桃粉映射美术母件颜色。",
@@ -1154,17 +1164,6 @@
       }
     ]
   },
-  "deferredElements": [
-    {
-      "id": "bee_fly",
-      "priority": "P1",
-      "rect": [
-        151,
-        171,
-        128,
-        129
-      ],
-      "reason": "4.9角色属P1"
-    }
-  ]
+  "deferredElements": [],
+  "p1Completion": "按本轮用户授权补齐角色/签到格引用；原P0 PNG与其他元素保持不变。"
 }

@@ -1,0 +1,213 @@
+{
+  "page": "S08",
+  "reference": "效果图/S08_主线退出确认_BlockHexa风格.png",
+  "size": [
+    854,
+    1842
+  ],
+  "coordinateSystem": "top-left, pixels; asset paths relative to 素材/",
+  "referenceSha256": "d6497a67ac2a31af4a64760160cf53a3b4a6e25c430f702b024f9551b63e9b62",
+  "designResolution": [
+    853,
+    1844
+  ],
+  "priority": "P1",
+  "batch": "P1-1",
+  "elements": [
+    {
+      "id": "mask_black",
+      "asset": "UI/通用/mask_black.png",
+      "rect": [
+        0,
+        0,
+        854,
+        1842
+      ],
+      "opacity": 0.55
+    },
+    {
+      "id": "panel_dialog",
+      "asset": "UI/通用/panel_dialog.png",
+      "rect": [
+        70,
+        550,
+        712,
+        790
+      ],
+      "slice": true
+    },
+    {
+      "id": "ribbon_title_blue",
+      "asset": "UI/通用/ribbon_title_blue.png",
+      "rect": [
+        153,
+        493,
+        547,
+        132
+      ],
+      "slice": true
+    },
+    {
+      "id": "title",
+      "type": "label",
+      "text": "回到家园？",
+      "rect": [
+        173,
+        518,
+        507,
+        92
+      ],
+      "fontSize": 41,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "btn_close_dialog",
+      "asset": "UI/通用/btn_close_dialog_normal.png",
+      "rect": [
+        747,
+        496,
+        51,
+        51
+      ]
+    },
+    {
+      "id": "bee_fly",
+      "asset": "角色/bee_fly.png",
+      "rect": [
+        354,
+        668,
+        147,
+        155
+      ]
+    },
+    {
+      "id": "save_summary",
+      "type": "label",
+      "text": "当前进度可以保留",
+      "rect": [
+        202,
+        848,
+        450,
+        51
+      ],
+      "fontSize": 34,
+      "color": "#233E7C",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "save_detail",
+      "type": "label",
+      "text": "下次回来，继续这一次拼图",
+      "rect": [
+        189,
+        902,
+        476,
+        44
+      ],
+      "fontSize": 27,
+      "color": "#8D96A7",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "save_home",
+      "asset": "UI/通用/btn_green_normal.png",
+      "rect": [
+        143,
+        1017,
+        568,
+        92
+      ],
+      "slice": true
+    },
+    {
+      "id": "save_home_text",
+      "type": "label",
+      "text": "保存并回家",
+      "rect": [
+        153,
+        1025,
+        548,
+        76
+      ],
+      "fontSize": 35,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "continue",
+      "asset": "UI/通用/btn_blue_normal.png",
+      "rect": [
+        143,
+        1137,
+        568,
+        92
+      ],
+      "slice": true
+    },
+    {
+      "id": "continue_text",
+      "type": "label",
+      "text": "继续拼图",
+      "rect": [
+        153,
+        1145,
+        548,
+        76
+      ],
+      "fontSize": 35,
+      "color": "#FFFFFF",
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false
+    },
+    {
+      "id": "abandon",
+      "type": "label",
+      "text": "放弃本局",
+      "rect": [
+        267,
+        1253,
+        320,
+        42
+      ],
+      "fontSize": 27,
+      "color": "#A2796B",
+      "bold": false,
+      "align": "center",
+      "verticalAlign": "center",
+      "outlineColor": "#00000000",
+      "outlineWidth": 0,
+      "dynamic": false,
+      "action": "open_abandon_confirmation"
+    }
+  ],
+  "overlay": true,
+  "underlay": "S04",
+  "modal": true,
+  "dismissOnMask": true,
+  "interactionNotes": "放弃本局打开S08-B二次确认；保存成功才回家。当前只交付S08主要状态布局。"
+}
