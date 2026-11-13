@@ -133,6 +133,11 @@ export function buildUi() {
     const all = [...pages, buildAnchor()];
     fs.mkdirSync(path.join(PROJECT, OUT), { recursive: true }); dirMeta(OUT);
     all.forEach(writePrefab);
+    // Runtime registry: ResourceLoader verifies each prefab by UUID before instantiating it.
+    const registry = all.map(p => ({ id: `prefab.${p.name}`, bundle: 'ui', path: `prefabs/${p.name}`, type: 'Prefab', uuid: stableUuid(`${OUT}/${p.name}.prefab`) }));
+    const out = path.join(PROJECT, 'assets/resources/config/ui-prefabs.json'), text = JSON.stringify({ schema: 'honey-town.prefabs.v1', resources: registry }, null, 1) + '\n';
+    if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== text) fs.writeFileSync(out, text);
+    if (!fs.existsSync(out + '.meta')) fs.writeFileSync(out + '.meta', JSON.stringify({ ver: '2.0.1', importer: 'json', imported: true, uuid: stableUuid('assets/resources/config/ui-prefabs.json'), files: ['.json'], subMetas: {}, userData: {} }, null, 2) + '\n');
     return all.map(p => p.name);
 }
 if (process.argv.includes('--run')) console.log('prefabs:', buildUi().join(' '));
