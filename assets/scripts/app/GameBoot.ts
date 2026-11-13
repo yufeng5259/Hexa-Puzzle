@@ -52,7 +52,8 @@ export class GameBoot extends Component {
     /** Serialized retry button on the scene status label. */
     public onRetry(): void { if (!this.game) void this.boot(); }
 
-    protected update(): void { this.home?.update(); this.puzzle?.update(); this.endless?.update(); }
+    private guide: GuideCoach | null = null;
+    protected update(dt: number): void { this.guide?.update(dt); this.home?.update(); this.puzzle?.update(); this.endless?.update(); }
 
     private async boot(): Promise<void> {
         if (this.booting || !this.host || !this.statusLabel) return;
@@ -71,7 +72,7 @@ export class GameBoot extends Component {
             game.tick();
             loading.setText('loading_percent', '100%');
             this.game = game;
-            const guide = new GuideCoach(game, this.host.guideLayer!, this.nav);
+            const guide = this.guide = new GuideCoach(game, this.host.guideLayer!, this.nav, this.host.dialogLayer!);
             this.home = new HomeController(game, this.nav, loader, guide);
             this.puzzle = new PuzzlePage(game, this.nav, loader, this.getComponent(Canvas)?.cameraComponent ?? null, guide);
             const camera = this.getComponent(Canvas)?.cameraComponent ?? null;

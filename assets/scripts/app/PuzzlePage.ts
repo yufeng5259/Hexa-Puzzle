@@ -1,4 +1,4 @@
-import { Button, Camera, JsonAsset, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
+import { Button, Camera, JsonAsset, Node, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { Game } from '../core/Game';
@@ -13,7 +13,7 @@ import { PuzzleSession, type PuzzleSessionSnapshot } from '../features/puzzle/se
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
-import type { GuideCoach } from './GuideCoach';
+import type { GuideCoach, Hole, Lesson } from './GuideCoach';
 import type { HexCell } from '../features/puzzle/data/LevelDefinition';
 
 const LOW_STEPS = 3;
@@ -38,6 +38,8 @@ export class PuzzlePage {
     private level: LevelDefinition | null = null;
     private levelNo = 0;
     private chargeHint = false;
+    /** The running teaching drag and the GuideSteps row it belongs to. */
+    private teaching: { rowId: string; lesson: Lesson } | null = null;
     private suspended = false;
     private request = 0;
     private unsubscribe: (() => void) | null = null;
@@ -111,6 +113,7 @@ export class PuzzlePage {
             controller.onOutcome = status => status === 'completed' ? this.win() : this.fail();
             controller.onError = error => this.rewards.failure(error);
             controller.inputCamera = this.inputCamera;
+            controller.onDragStateChanged = dragging => this.guide.setPaused(dragging);
             controller.allowPieceStart = id => { const l = this.lesson(); return !l || l.pieceId === id; };
             controller.allowPlacement = (id, at) => { const l = this.lesson(); return !l || l.pieceId === id && l.targetCell.q === at.q && l.targetCell.r === at.r; };
             controller.bind(session);
@@ -135,7 +138,7 @@ export class PuzzlePage {
         this.view = this.board = this.controller = this.session = this.level = null;
     }
 
-    private goHome(): void { this.guide.clear(); this.request++; this.leave(); this.onHome?.(); }
+    private goHome(): void { this.teaching = null; this.guide.clear(); this.request++; this.leave(); this.onHome?.(); }
 
     /** Every move, return and hint is saved with the board in one write; a failed write rejects the move. */
     private persist(candidate: PuzzleSessionSnapshot): void {
@@ -178,17 +181,53 @@ export class PuzzlePage {
     private renderLesson(): void {
         const controller = this.controller, view = this.view, lesson = this.lesson();
         if (!controller?.isValid || !view?.isValid) return;
-        if (!lesson) { controller.clearGuidePreview(); this.guide.clearHand(); view.setText('puzzle_instruction', '拖动拼块，填满蜂巢'); return; }
+        if (!lesson) {
+            controller.clearGuidePreview();
+            if (this.teaching) { this.teaching = null; this.guide.clear(); }
+            view.setText('puzzle_instruction', '拖动拼块，填满蜂巢');
+            return;
+        }
         controller.setGuidePreview(lesson.pieceId, lesson.targetCell, lesson.hand);
         view.setText('puzzle_instruction', this.guide.text(lesson.rowId));
-        // Hand demo: from the piece's first cell in the tray to the same cell's answer position on the board.
-        const board = this.board!, entry = board.pieceEntries().find(e => e.item.pieceId === lesson.pieceId);
-        const cell = entry?.item.cellsRoot?.children[0]?.getComponent(UITransform);
-        if (!cell || !board.boardMount) return;
-        const piece = this.level!.pieces.find(p => p.id === lesson.pieceId)!, first = piece.cells[0];
-        const target = board.pointOfCell({ q: lesson.targetCell.q + first.q, r: lesson.targetCell.r + first.r });
-        const from = cell.convertToWorldSpaceAR(new Vec3((0.5 - cell.anchorX) * cell.width, (0.5 - cell.anchorY) * cell.height, 0));
-        this.guide.drag(from, board.boardMount.getComponent(UITransform)!.convertToWorldSpaceAR(new Vec3(target.x, target.y, 0)), lesson.hand);
+        if (this.teaching?.rowId !== lesson.rowId) {
+            this.teaching = { rowId: lesson.rowId, lesson: this.teachingDrag(lesson.pieceId, lesson.targetCell, lesson.hand) };
+            this.guide.teach(this.teaching.lesson);
+        }
+    }
+    /**
+     * Live positions for the teaching hand and spotlight. The tray re-flows (animated)
+     * after every placement, so nothing is cached: the hand waits while it settles.
+     */
+    private teachingDrag(pieceId: string, targetCell: HexCell, hand: Record<string, number>): Lesson {
+        const page = this, piece = this.level!.pieces.find(p => p.id === pieceId)!, first = piece.cells[0];
+        const center = (node: Node) => {
+            const ui = node.getComponent(UITransform)!;
+            return ui.convertToWorldSpaceAR(new Vec3((0.5 - ui.anchorX) * ui.width, (0.5 - ui.anchorY) * ui.height, 0));
+        };
+        const trayCells = () => {
+            const board = page.board;
+            if (!board?.isValid) return null;
+            const entry = board.pieceEntries().find(e => e.item.pieceId === pieceId);
+            if (!entry || entry.node.parent !== board.piecesMount) return null;
+            return entry.item.cellsRoot!.children.filter(n => n.active);
+        };
+        const boardPoint = (cell: HexCell) => {
+            const board = page.board!, p = board.pointOfCell(cell);
+            return board.boardMount!.getComponent(UITransform)!.convertToWorldSpaceAR(new Vec3(p.x, p.y, 0));
+        };
+        return {
+            from: () => page.board?.isTraySettling ? null : (trayCells()?.[0] && center(trayCells()![0])) ?? null,
+            to: () => page.board?.isValid && page.board.boardFit ? boardPoint({ q: targetCell.q + first.q, r: targetCell.r + first.r }) : null,
+            holes: () => {
+                const board = page.board, cells = trayCells();
+                if (!board?.boardFit || !cells?.length) return null;
+                const trayRadius = cells[0].getComponent(UITransform)!.getBoundingBoxToWorld().width / 2;
+                const boardRadius = board.boardFit.radius * board.boardMount!.worldScale.x;
+                const holes: Hole[] = [{ hexes: cells.map(center), radius: trayRadius }, { hexes: piece.targetCells.map(boardPoint), radius: boardRadius }];
+                return holes;
+            },
+            motion: hand,
+        };
     }
     private renderHud(): void {
         const view = this.view;
