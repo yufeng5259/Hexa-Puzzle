@@ -13,6 +13,8 @@ import { PuzzleSession, type PuzzleSessionSnapshot } from '../features/puzzle/se
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
+import type { GuideCoach } from './GuideCoach';
+import type { HexCell } from '../features/puzzle/data/LevelDefinition';
 
 const LOW_STEPS = 3;
 const BUTTON_ART: Record<string, string> = { undo_button: 'blue', replay_button: 'purple', hint_button: 'teal' };
@@ -39,7 +41,7 @@ export class PuzzlePage {
     private unsubscribe: (() => void) | null = null;
 
     /** inputCamera: the Canvas camera, so drags map screen points into board space. */
-    public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly inputCamera: Camera | null) {
+    public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly inputCamera: Camera | null, private readonly guide: GuideCoach) {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.renderHud(), false);
     }
@@ -104,6 +106,8 @@ export class PuzzlePage {
             controller.onOutcome = status => status === 'completed' ? this.win() : this.fail();
             controller.onError = error => this.rewards.failure(error);
             controller.inputCamera = this.inputCamera;
+            controller.allowPieceStart = id => { const l = this.lesson(); return !l || l.pieceId === id; };
+            controller.allowPlacement = (id, at) => { const l = this.lesson(); return !l || l.pieceId === id && l.targetCell.q === at.q && l.targetCell.r === at.r; };
             controller.bind(session);
             this.unsubscribe = this.game.subscribe(() => this.renderHud());
             session.subscribe(() => this.render());
@@ -126,7 +130,7 @@ export class PuzzlePage {
         this.view = this.board = this.controller = this.session = this.level = null;
     }
 
-    private goHome(): void { this.request++; this.leave(); this.onHome?.(); }
+    private goHome(): void { this.guide.clear(); this.request++; this.leave(); this.onHome?.(); }
 
     /** Every move, return and hint is saved with the board in one write; a failed write rejects the move. */
     private persist(candidate: PuzzleSessionSnapshot): void {
@@ -148,11 +152,30 @@ export class PuzzlePage {
             view.setText('steps_count', `剩余步数 ${left}`);
             this.frame('puzzle_steps_plate', `UI/拼图/puzzle_steps_plate_${left <= LOW_STEPS ? 'warning' : 'normal'}.png`);
         }
-        this.enable('undo_button', snapshot.status === 'active' && (snapshot.placementOrder?.length ?? 0) > 0);
-        this.enable('replay_button', snapshot.status === 'active');
-        this.enable('hint_button', snapshot.status === 'active');
+        this.enable('undo_button', snapshot.status === 'active' && !this.lesson() && (snapshot.placementOrder?.length ?? 0) > 0);
+        const free = snapshot.status === 'active' && !this.lesson();
+        this.enable('replay_button', free);
+        this.enable('hint_button', free);
         const hint = snapshot.activeHintPieceId ? session.hintCandidate() : null;
         this.board?.drawHint(hint ? hint.cells : []);
+        this.renderLesson();
+    }
+    /** First-run teaching: the next GuideSteps drag row whose piece is not placed yet. */
+    private lesson(): { rowId: string; pieceId: string; targetCell: HexCell; hand: Record<string, number> } | null {
+        if (this.levelNo !== 1 || this.guide.step !== 'firstPuzzle' || !this.session) return null;
+        const placed = this.session.snapshot.placements;
+        for (const row of this.game.config.guide) {
+            const p = row.params as { pieceId?: string; targetCell?: HexCell; hand?: Record<string, number> };
+            if (row.step === 'firstPuzzle' && p.pieceId && p.targetCell && !placed[p.pieceId]) return { rowId: row.id, pieceId: p.pieceId, targetCell: p.targetCell, hand: p.hand ?? {} };
+        }
+        return null;
+    }
+    private renderLesson(): void {
+        const controller = this.controller, view = this.view, lesson = this.lesson();
+        if (!controller?.isValid || !view?.isValid) return;
+        if (!lesson) { controller.clearGuidePreview(); view.setText('puzzle_instruction', '拖动拼块，填满蜂巢'); return; }
+        controller.setGuidePreview(lesson.pieceId, lesson.targetCell, lesson.hand);
+        view.setText('puzzle_instruction', this.guide.text(lesson.rowId));
     }
     private renderHud(): void {
         const view = this.view;
@@ -175,6 +198,7 @@ export class PuzzlePage {
     private onAction(id: string): void {
         const session = this.session;
         if (this.nav.dialogOpen || !session) return;
+        if (this.lesson() && !this.guide.allows('puzzle', id)) return; // forced first drag: no way around it
         // A finished board (outcome dialog closed by a blocked retry) can only go home.
         if (session.snapshot.status !== 'active') { if (id === 'hud_btn_square_blue') this.goHome(); return; }
         switch (id) {
@@ -248,7 +272,9 @@ export class PuzzlePage {
         const s = this.game.state, finished = mainlineFinished(s, rules);
         const cheapest = Math.min(...rules.maps.find(m => m.id === s.maps.currentMapId)!.buildings
             .map(b => upgradeCost(s, rules, s.maps.currentMapId, b.id) ?? Infinity));
+        const guided = this.guide.active;
         void this.nav.showDialog('S06', id => {
+            if (guided && !this.guide.allows('result', id)) return;
             if (id === 'btn_green' && !finished && !replay) { this.nav.closeDialog(); void this.play(this.game.state.mainline.nextLevelNo); }
             else if (id === 'btn_grey' || id === 'btn_green') { this.nav.closeDialog(); this.goHome(); }
         }, v => {
@@ -256,6 +282,7 @@ export class PuzzlePage {
             v.setText('reward_coin', `+${prize.coins}`);
             v.setText('build_suggestion', s.wallet.coins >= cheapest ? '金币充足，可以回家建造' : '继续闯关，攒金币建造家园');
             if (finished || replay) v.setText('next', finished && !replay ? '主线完成' : '回家');
+            if (guided) { v.setVisible('btn_green', false); v.setVisible('next', false); this.guide.point(v.element('btn_grey'), 'home'); }
         });
     }
 

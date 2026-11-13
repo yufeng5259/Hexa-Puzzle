@@ -12,6 +12,7 @@ import { buildingLevel } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
+import type { GuideCoach } from './GuideCoach';
 
 const W = 853, H = 1844;
 const SCAFFOLD = [1, 2, 3].map(i => `UI/建造/fx_build_scaffold/fx_build_scaffold_0${i}.png`);
@@ -33,9 +34,9 @@ export class HomeController {
     private mapId = '';
     private lastTick = 0;
 
-    public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader) {
+    public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly guide: GuideCoach) {
         this.scope = loader.createScope();
-        this.rewards = new RewardPresenter(game, nav, () => this.render());
+        this.rewards = new RewardPresenter(game, nav, () => this.render(), true, guide);
     }
 
     public async enter(): Promise<void> {
@@ -108,6 +109,18 @@ export class HomeController {
         if (!this.construction) for (const b of map.buildings) this.buildings.get(b.id)?.isValid && this.setFrame(this.buildings.get(b.id)!, b.assetIds[buildingLevel(s, map.id, b.id)]);
         if (this.build?.isValid) this.renderBuild();
         this.renderEnergy();
+        this.renderGuide();
+    }
+    /** Points at the one control the first-run guide waits for; dialogs place their own pointer. */
+    private renderGuide(): void {
+        if (this.nav.dialogOpen) return;
+        const step = this.guide.step;
+        if (step === 'goBuild' && !this.build?.isValid) this.guide.point(this.home!.element('home_btn_build'), 'build');
+        else if (step === 'goBuild') {
+            const anchor = this.anchors.get(this.game.rules.guideBuildingId);
+            if (anchor?.isValid && anchor.has('cost')) this.guide.point(anchor.element('cost'), 'upgrade');
+        } else if (step === 'firstPuzzle') this.guide.point(this.home!.element('home_play_btn'), 'drag1');
+        else this.guide.clear();
     }
     private renderEnergy(): void {
         const s = this.game.state, max = this.game.rules.energy.max, left = secondsToNextEnergy(s, this.game.rules, this.game.now());
@@ -157,7 +170,7 @@ export class HomeController {
     }
 
     private upgrade(buildingId: string): void {
-        if (this.construction || this.nav.dialogOpen) return;
+        if (this.construction || this.nav.dialogOpen || !this.guide.allows('build', 'upgrade:' + buildingId)) return;
         const buildId = `${buildingId}:${this.game.now()}`;
         try {
             this.game.act(s => startBuild(s, this.game.rules, this.map.id, buildingId, buildId));
@@ -197,9 +210,9 @@ export class HomeController {
         }
     }
 
-    private play(): void { this.onPlay?.(); }
+    private play(): void { this.guide.clear(); this.onPlay?.(); }
     private onHomeAction(id: string): void {
-        if (this.nav.dialogOpen) return;
+        if (this.nav.dialogOpen || !this.guide.allows('home', id)) return;
         switch (id) {
             case 'home_play_btn': return this.play();
             case 'home_btn_build': void this.openBuild(); return;
@@ -208,7 +221,7 @@ export class HomeController {
         }
     }
     private onBuildAction(id: string): void {
-        if (this.nav.dialogOpen) return;
+        if (this.nav.dialogOpen || !this.guide.allows('build', id)) return;
         switch (id) {
             case 'home_btn_home': return this.closeBuild();
             case 'hud_btn_square_purple': return this.rewards.settings();

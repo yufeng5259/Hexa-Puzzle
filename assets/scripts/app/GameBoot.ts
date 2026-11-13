@@ -9,6 +9,7 @@ import { Store } from '../core/Store';
 import { Navigator } from './Navigator';
 import { HomeController } from './HomeController';
 import { PuzzlePage } from './PuzzlePage';
+import { GuideCoach } from './GuideCoach';
 
 const { ccclass, property } = _decorator;
 const TYPES: Record<string, RegisteredResource['type']> = { SpriteFrame, Prefab, JsonAsset };
@@ -55,12 +56,14 @@ export class GameBoot extends Component {
             game.tick();
             loading.setText('loading_percent', '100%');
             this.game = game;
-            this.home = new HomeController(game, this.nav, loader);
-            this.puzzle = new PuzzlePage(game, this.nav, loader, this.getComponent(Canvas)?.cameraComponent ?? null);
+            const guide = new GuideCoach(game, this.host.guideLayer!);
+            this.home = new HomeController(game, this.nav, loader, guide);
+            this.puzzle = new PuzzlePage(game, this.nav, loader, this.getComponent(Canvas)?.cameraComponent ?? null, guide);
             const home = this.home, puzzle = this.puzzle;
             home.onPlay = () => void puzzle.play();
             puzzle.onHome = () => void home.enter();
-            await this.home.enter();
+            // First run starts (or resumes) the teaching level directly.
+            if (guide.step === 'firstPuzzle') await puzzle.play(1); else await home.enter();
         } catch (error) {
             console.error(error);
             this.status('加载失败，点击重试');

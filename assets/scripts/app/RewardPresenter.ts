@@ -6,6 +6,7 @@ import { endlessUnlocked, goToNextMap } from '../core/Progress';
 import type { DisplayEvent } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
+import type { GuideCoach } from './GuideCoach';
 
 const KNOB_OFFSET = 55;
 /** Rewards shown by their own pages, not by the home queue. */
@@ -18,7 +19,7 @@ const OWN_PAGE = new Set<DisplayEvent['type']>(['firstClear', 'replay', 'signIn'
  */
 export class RewardPresenter {
     /** drains=false: closing a dialog does not pull in queued home rewards (used on the puzzle page). */
-    public constructor(private readonly game: Game, private readonly nav: Navigator, private readonly changed: () => void, private readonly drains = true) {}
+    public constructor(private readonly game: Game, private readonly nav: Navigator, private readonly changed: () => void, private readonly drains = true, private readonly guide: GuideCoach | null = null) {}
 
     /** Shows every pending reward in order, then the welcome step of the first-run guide. */
     public drain(): void {
@@ -29,7 +30,7 @@ export class RewardPresenter {
         if (guideStep(this.game.state, this.game.rules) === 'welcome') this.welcome();
     }
     private peek(): DisplayEvent | null { return this.game.state.displayQueue[0] ?? null; }
-    private next = (): void => { this.nav.closeDialog(); this.changed(); if (this.drains) this.drain(); };
+    private next = (): void => { this.guide?.clear(); this.nav.closeDialog(); this.changed(); if (this.drains) this.drain(); };
 
     private show(event: DisplayEvent): void {
         const r = event.reward;
@@ -65,7 +66,10 @@ export class RewardPresenter {
                 this.game.takeDisplay();
                 this.next();
             } catch (error) { this.nav.closeDialog(); this.failure(error, () => this.welcome()); }
-        }, v => { v.setText('coin_reward', `+${reward.coins}`); v.setText('hint_reward', `+${reward.hints}`); });
+        }, v => {
+            v.setText('coin_reward', `+${reward.coins}`); v.setText('hint_reward', `+${reward.hints}`);
+            this.guide?.point(v.element('claim_continue'), 'welcome');
+        });
     }
 
     public energy(blocking: boolean): void {
