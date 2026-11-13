@@ -80,3 +80,12 @@ for (const page of ['S04', 'S05']) {
         assert.equal(children.at(-1), 'DragRoot', 'dragged pieces render above everything');
     });
 }
+
+test('S02: side-entry red dots exist, hidden until feature code shows them', () => {
+    const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S02.prefab'), 'utf8'));
+    const view = objects.find(o => o.__type__ === VIEW);
+    for (const id of ['signin_reddot', 'task_reddot']) {
+        const node = objects[view.nodes[view.nodeIds.indexOf(id)].__id__];
+        assert.equal(node._name, id); assert.equal(node._active, false);
+    }
+});

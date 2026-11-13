@@ -28,6 +28,13 @@ const BUTTONS = {
     S20: ['hud_btn_square_blue', 'settings_button'], S21: ['retry', 'return_event'], S22: ['btn_close_dialog', 'save_leave', 'continue', 'end_game'],
     S23: ['btn_close_dialog', 'music_toggle_track', 'sound_toggle_track', 'vibration_toggle_track', 'done'], S24: ['retry_save', 'continue'], S25: ['claim_continue'],
 };
+/** Runtime-only decorations not drawn in the reference layouts; created hidden, shown by feature code. */
+const EXTRAS = {
+    S02: [
+        { id: 'signin_reddot', asset: 'UI/通用/reddot.png', rect: [124, 180, 34, 34], hidden: true },
+        { id: 'task_reddot', asset: 'UI/通用/reddot.png', rect: [124, 349, 34, 34], hidden: true },
+    ],
+};
 const MOUNTS = [
     { name: 'MapMount', test: e => e.buildingId !== undefined || e.id === 'map_background', fullScreen: true },
     { name: 'BoardMount', test: e => /^board_cell_\d+$/.test(e.id) },
@@ -66,7 +73,7 @@ function buildPage(file) {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, file), 'utf8')), page = layout.page;
     const b = new Builder(page, DESIGN), buttons = new Set([...(BUTTONS[page] ?? []), ...layout.elements.filter(e => e.action).map(e => e.id)]);
     const nodes = [], nodeIds = [], labels = [], labelIds = [], mounts = new Map();
-    for (const e of layout.elements) {
+    for (const e of [...layout.elements, ...(EXTRAS[page] ?? [])]) {
         const mount = MOUNTS.find(m => m.test(e));
         if (mount) {
             // Mount occupies the slot of its first element and the bounding box of all of them.
@@ -78,7 +85,7 @@ function buildPage(file) {
             continue;
         }
         if (!e.rect) throw new Error(`${page}/${e.id}: element without rect`);
-        const node = b.node(e.id, b.root, box(layout, e.rect));
+        const node = b.node(e.id, b.root, box(layout, e.rect), !e.hidden);
         nodes.push(ref(node)); nodeIds.push(e.id);
         if (e.type === 'label') { labels.push(ref(addLabel(b, node, e))); labelIds.push(e.id); }
         else addSprite(b, node, e);

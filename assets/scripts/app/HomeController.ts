@@ -13,6 +13,7 @@ import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
 import type { GuideCoach } from './GuideCoach';
+import { DailyPresenter } from './DailyPresenter';
 
 const W = 853, H = 1844;
 const SCAFFOLD = [1, 2, 3].map(i => `UI/建造/fx_build_scaffold/fx_build_scaffold_0${i}.png`);
@@ -23,6 +24,7 @@ const SCAFFOLD = [1, 2, 3].map(i => `UI/建造/fx_build_scaffold/fx_build_scaffo
  */
 export class HomeController {
     public onPlay: (() => void) | null = null;
+    public onEndless: (() => void) | null = null;
     private home: LayoutView | null = null;
     private build: LayoutView | null = null;
     private readonly scope: ResourceScope;
@@ -31,12 +33,14 @@ export class HomeController {
     private construction: { buildId: string; buildingId: string; elapsed: number; frame: number; overlay: Sprite } | null = null;
     private unsubscribe: (() => void) | null = null;
     private readonly rewards: RewardPresenter;
+    private readonly daily: DailyPresenter;
     private mapId = '';
     private lastTick = 0;
 
     public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly guide: GuideCoach) {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.render(), true, guide);
+        this.daily = new DailyPresenter(game, nav, this.rewards, { play: () => this.play(), build: () => void this.openBuild(), endless: () => this.onEndless?.() });
     }
 
     public async enter(): Promise<void> {
@@ -44,6 +48,7 @@ export class HomeController {
         this.build = null; this.anchors.clear(); this.buildings.clear(); this.mapId = '';
         this.unsubscribe?.();
         this.unsubscribe = this.game.subscribe(() => this.render());
+        this.daily.rollover();
         await this.renderMap();
         this.render();
         // A build paid for before a crash finishes without charging again.
@@ -54,7 +59,7 @@ export class HomeController {
 
     public update(): void {
         const now = this.game.now();
-        if (now - this.lastTick >= 1000) { this.lastTick = now; try { this.game.tick(); } catch (error) { console.error(error); } this.renderEnergy(); }
+        if (now - this.lastTick >= 1000) { this.lastTick = now; try { this.game.tick(); } catch (error) { console.error(error); } this.renderEnergy(); if (this.home?.isValid) this.daily.tick(); }
         if (this.construction) this.stepConstruction(1 / 60);
     }
 
@@ -106,6 +111,7 @@ export class HomeController {
             fill.width = Math.max(8, full * Math.min(1, s.player.exp / level.expToNext));
         }
         this.home.setText('play_level', mainlineFinished(s, rules) ? '复玩' : s.mainline.nextLevelNo);
+        if (!this.build?.isValid) { this.home.setVisible('signin_reddot', this.daily.signInDot()); this.home.setVisible('task_reddot', this.daily.taskDot()); }
         if (!this.construction) for (const b of map.buildings) this.buildings.get(b.id)?.isValid && this.setFrame(this.buildings.get(b.id)!, b.assetIds[buildingLevel(s, map.id, b.id)]);
         if (this.build?.isValid) this.renderBuild();
         this.renderEnergy();
@@ -218,6 +224,8 @@ export class HomeController {
             case 'home_btn_build': void this.openBuild(); return;
             case 'hud_btn_square_purple': return this.rewards.settings();
             case 'hud_energy': return this.rewards.energy(false);
+            case 'signin_entry': return this.daily.openSignIn();
+            case 'task_entry': return this.daily.openTasks();
         }
     }
     private onBuildAction(id: string): void {
