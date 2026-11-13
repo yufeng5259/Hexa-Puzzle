@@ -115,6 +115,8 @@ export function placeShape(state: GameState, rules: Rules, day: string, week: st
     state.endless.best = Math.max(state.endless.best, game.score);
     refreshWeek(state, week);
     state.endless.weekScore += gained;
+    if (game.weekId !== week) { game.weekId = week; game.weekGain = 0; }
+    game.weekGain = (game.weekGain ?? 0) + gained;
 
     const refilled = game.tray.every(id => id === null);
     if (refilled) refill(game, rules);

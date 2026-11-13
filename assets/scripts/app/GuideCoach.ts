@@ -63,6 +63,13 @@ export class GuideCoach {
         this.clear();
         this.label(TEXT[this.row(rowId)?.textKey ?? ''] ?? '').node.setPosition(0, 0, 0);
     }
+    /** A short notice (help text, locked entry) that disappears by itself. */
+    public flash(text: string, seconds = 2.5): void {
+        this.clear();
+        const label = this.label(text);
+        label.node.setPosition(0, 0, 0);
+        setTimeout(() => { if (this.bubble === label) this.clear(); }, seconds * 1000);
+    }
     public text(rowId: string): string { return TEXT[this.row(rowId)?.textKey ?? ''] ?? ''; }
 
     public clear(): void {
@@ -79,11 +86,12 @@ export class GuideCoach {
         const node = new Node('GuideBubble');
         node.layer = this.layer.layer;
         node.parent = this.layer;
-        node.addComponent(UITransform).setContentSize(400, 60);
+        node.addComponent(UITransform).setContentSize(640, 60);
         const label = node.addComponent(Label);
         label.string = text;
         label.fontSize = 36;
         label.lineHeight = 44;
+        label.overflow = Label.Overflow.RESIZE_HEIGHT;
         label.isBold = true;
         label.color = new Color(255, 255, 255, 255);
         label.enableOutline = true;

@@ -26,6 +26,7 @@ const BUTTON_ART: Record<string, string> = { undo_button: 'blue', replay_button:
  */
 export class PuzzlePage {
     public onHome: (() => void) | null = null;
+    public onEndless: (() => void) | null = null;
     private readonly scope: ResourceScope;
     private readonly rewards: RewardPresenter;
     private catalog: LevelCatalog | null = null;
@@ -44,6 +45,8 @@ export class PuzzlePage {
     public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly inputCamera: Camera | null, private readonly guide: GuideCoach) {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.renderHud(), false);
+        // The attempt is saved with every move, so leaving for endless keeps it intact.
+        this.rewards.onEndless = () => { this.request++; this.leave(); this.onEndless?.(); };
     }
 
     /** Play from home: resumes the saved attempt, otherwise starts the next level (paying energy). */

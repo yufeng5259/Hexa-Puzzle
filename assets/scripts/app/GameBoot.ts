@@ -10,6 +10,7 @@ import { Navigator } from './Navigator';
 import { HomeController } from './HomeController';
 import { PuzzlePage } from './PuzzlePage';
 import { GuideCoach } from './GuideCoach';
+import { EndlessPage } from './EndlessPage';
 
 const { ccclass, property } = _decorator;
 const TYPES: Record<string, RegisteredResource['type']> = { SpriteFrame, Prefab, JsonAsset };
@@ -30,6 +31,7 @@ export class GameBoot extends Component {
     public nav: Navigator | null = null;
     public home: HomeController | null = null;
     public puzzle: PuzzlePage | null = null;
+    public endless: EndlessPage | null = null;
     private booting = false;
 
     protected start(): void { if (!EDITOR) void this.boot(); }
@@ -37,7 +39,7 @@ export class GameBoot extends Component {
     /** Serialized retry button on the scene status label. */
     public onRetry(): void { if (!this.game) void this.boot(); }
 
-    protected update(): void { this.home?.update(); this.puzzle?.update(); }
+    protected update(): void { this.home?.update(); this.puzzle?.update(); this.endless?.update(); }
 
     private async boot(): Promise<void> {
         if (this.booting || !this.host || !this.statusLabel) return;
@@ -59,7 +61,11 @@ export class GameBoot extends Component {
             const guide = new GuideCoach(game, this.host.guideLayer!);
             this.home = new HomeController(game, this.nav, loader, guide);
             this.puzzle = new PuzzlePage(game, this.nav, loader, this.getComponent(Canvas)?.cameraComponent ?? null, guide);
-            const home = this.home, puzzle = this.puzzle;
+            const camera = this.getComponent(Canvas)?.cameraComponent ?? null;
+            this.endless = new EndlessPage(game, this.nav, loader, camera, guide);
+            const home = this.home, puzzle = this.puzzle, endless = this.endless;
+            home.onEndless = puzzle.onEndless = () => void endless.open();
+            endless.onHome = () => void home.enter();
             home.onPlay = () => void puzzle.play();
             puzzle.onHome = () => void home.enter();
             // First run starts (or resumes) the teaching level directly.
@@ -74,5 +80,5 @@ export class GameBoot extends Component {
     }
     private status(text: string): void { if (this.statusLabel) this.statusLabel.string = text; }
 
-    protected onDestroy(): void { this.home?.dispose(); this.puzzle?.dispose(); }
+    protected onDestroy(): void { this.home?.dispose(); this.puzzle?.dispose(); this.endless?.dispose(); }
 }

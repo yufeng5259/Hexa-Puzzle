@@ -95,3 +95,16 @@ test('weekly stages: each claimed once per week, new week resets progress but ke
     assert.deepEqual(state.endless.claimedStages, []);
     assert.equal(state.endless.game.score, 900);
 });
+
+test('a game remembers what it added to the current week; crossing a week counts only new points', () => {
+    const state = createState(rules);
+    const game = E.newEndlessGame(state, rules, 'g', 7);
+    game.tray = ['s1', 's1', 's1'];
+    const first = E.placeShape(state, rules, DAY, WEEK, 0, 0, 0);
+    assert.equal(game.weekGain, first.score);
+    const second = E.placeShape(state, rules, '2026-11-16', '2026-11-16', 1, 1, 0);
+    assert.equal(game.weekId, '2026-11-16');
+    assert.equal(game.weekGain, second.score, 'old-week points are not carried into the new week');
+    assert.equal(state.endless.weekScore, second.score);
+    assert.equal(game.score, first.score + second.score);
+});

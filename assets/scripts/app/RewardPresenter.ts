@@ -18,6 +18,8 @@ const OWN_PAGE = new Set<DisplayEvent['type']>(['firstClear', 'replay', 'signIn'
  * Rewards are already in the wallet when shown; closing a dialog never grants again.
  */
 export class RewardPresenter {
+    /** S10 "去无尽" (shown once endless is unlocked). */
+    public onEndless: (() => void) | null = null;
     /** drains=false: closing a dialog does not pull in queued home rewards (used on the puzzle page). */
     public constructor(private readonly game: Game, private readonly nav: Navigator, private readonly changed: () => void, private readonly drains = true, private readonly guide: GuideCoach | null = null) {}
 
@@ -74,7 +76,7 @@ export class RewardPresenter {
 
     public energy(blocking: boolean): void {
         const s = this.game.state, rules = this.game.rules, left = secondsToNextEnergy(s, rules, this.game.now());
-        void this.nav.showDialog('S10', id => { if (id === 'btn_close_dialog' || id === 'return') this.next(); }, v => {
+        void this.nav.showDialog('S10', id => { if (id === 'btn_close_dialog' || id === 'return') this.next(); else if (id === 'go_endless') { this.next(); this.onEndless?.(); } }, v => {
             v.setText('title', blocking ? '体力不足' : '体力');
             v.setText('energy_amount', `${s.energy.value} / ${rules.energy.max}`);
             v.setText('energy_timer', left === null ? '体力已满' : `下点恢复 ${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`);

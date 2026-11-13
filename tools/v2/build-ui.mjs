@@ -24,15 +24,25 @@ const BUTTONS = {
     S11: ['btn_close_dialog', 'play', 'later'], S12: ['btn_close_dialog', 'continue'], S13: ['confirm'],
     S15: ['claim_next', 'stay'], S16: ['hud_btn_square_blue', 'm01_card', 'm02_card', 'm03_card', 'enter', 'return_home'],
     S17: ['btn_close', 'btn_green'], S18: ['btn_close', 'task_1_action', 'task_2_action', 'task_3_action', 'completion_claim'],
-    S19: ['home_button', 'back_button', 'help_button', 'stage_0_status', 'stage_1_claim', 'start_challenge'],
+    S19: ['home_button', 'back_button', 'help_button', 'stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim', 'start_challenge'],
     S20: ['hud_btn_square_blue', 'settings_button'], S21: ['retry', 'return_event'], S22: ['btn_close_dialog', 'save_leave', 'continue', 'end_game'],
     S23: ['btn_close_dialog', 'music_toggle_track', 'sound_toggle_track', 'vibration_toggle_track', 'done'], S24: ['retry_save', 'continue'], S25: ['claim_continue'],
 };
+/** Same element as drawn on another stage row, moved onto row i (S19 draws each row in one state only). */
+const onRow = (layout, id, newId, from, to) => {
+    const el = key => layout.elements.find(e => e.id === key), r = el(id).rect, dy = el(`stage_${to}_row`).rect[1] - el(`stage_${from}_row`).rect[1];
+    return { ...el(id), id: newId, rect: [r[0], r[1] + dy, r[2], r[3]], hidden: true };
+};
 /** Runtime-only decorations not drawn in the reference layouts; created hidden, shown by feature code. */
 const EXTRAS = {
-    S02: [
+    S02: () => [
         { id: 'signin_reddot', asset: 'UI/通用/reddot.png', rect: [124, 180, 34, 34], hidden: true },
         { id: 'task_reddot', asset: 'UI/通用/reddot.png', rect: [124, 349, 34, 34], hidden: true },
+    ],
+    // Every stage row gets all three states: claimed/locked tag with mark, or the claim button.
+    S19: layout => [
+        ...[0, 2, 3].flatMap(i => [onRow(layout, 'stage_1_claim', `stage_${i}_claim`, 1, i), onRow(layout, 'stage_1_claim_label', `stage_${i}_claim_label`, 1, i)]),
+        onRow(layout, 'stage_2_status', 'stage_1_status', 2, 1), onRow(layout, 'mark_lock', 'stage_1_mark', 2, 1), onRow(layout, 'stage_2_status_text', 'stage_1_status_text', 2, 1),
     ],
 };
 const MOUNTS = [
@@ -73,7 +83,7 @@ function buildPage(file) {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, file), 'utf8')), page = layout.page;
     const b = new Builder(page, DESIGN), buttons = new Set([...(BUTTONS[page] ?? []), ...layout.elements.filter(e => e.action).map(e => e.id)]);
     const nodes = [], nodeIds = [], labels = [], labelIds = [], mounts = new Map();
-    for (const e of [...layout.elements, ...(EXTRAS[page] ?? [])]) {
+    for (const e of [...layout.elements, ...(EXTRAS[page]?.(layout) ?? [])]) {
         const mount = MOUNTS.find(m => m.test(e));
         if (mount) {
             // Mount occupies the slot of its first element and the bounding box of all of them.

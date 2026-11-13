@@ -89,3 +89,12 @@ test('S02: side-entry red dots exist, hidden until feature code shows them', () 
         assert.equal(node._name, id); assert.equal(node._active, false);
     }
 });
+
+test('S19: every stage row can show claimed, claimable and locked states', () => {
+    const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S19.prefab'), 'utf8'));
+    const view = objects.find(o => o.__type__ === VIEW), ids = new Set(view.nodeIds);
+    for (let i = 0; i < 4; i++) for (const id of [`stage_${i}_claim`, `stage_${i}_claim_label`, `stage_${i}_status`, `stage_${i}_status_text`]) assert.ok(ids.has(id), id);
+    for (const id of ['mark_check', 'stage_1_mark', 'mark_lock', 'mark_lock_2']) assert.ok(ids.has(id), id);
+    const claims = objects.filter(o => o.__type__ === 'cc.Button').flatMap(b => b.clickEvents.map(e => e.customEventData)).filter(d => /^stage_\d_claim$/.test(d));
+    assert.deepEqual(claims.sort(), ['stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim']);
+});

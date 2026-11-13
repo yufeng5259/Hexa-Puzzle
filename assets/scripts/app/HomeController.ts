@@ -7,6 +7,7 @@ import { secondsToNextEnergy } from '../core/Energy';
 import { finishBuild, mapProgress, startBuild, upgradeCost } from '../core/Progress';
 import { guideAllowsBuild } from '../core/Guide';
 import { mainlineFinished } from '../core/Mainline';
+import { endlessUnlocked } from '../core/Progress';
 import { RuleError } from '../core/Rules';
 import { buildingLevel } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
@@ -40,6 +41,7 @@ export class HomeController {
     public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly guide: GuideCoach) {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.render(), true, guide);
+        this.rewards.onEndless = () => this.onEndless?.();
         this.daily = new DailyPresenter(game, nav, this.rewards, { play: () => this.play(), build: () => void this.openBuild(), endless: () => this.onEndless?.() });
     }
 
@@ -226,6 +228,10 @@ export class HomeController {
             case 'hud_energy': return this.rewards.energy(false);
             case 'signin_entry': return this.daily.openSignIn();
             case 'task_entry': return this.daily.openTasks();
+            case 'endless_entry':
+                if (endlessUnlocked(this.game.state, this.game.rules)) this.onEndless?.();
+                else this.guide.flash(`通关第${this.game.rules.endless.unlockAfterLevelNo}关后开放蜂巢消消乐`);
+                return;
         }
     }
     private onBuildAction(id: string): void {

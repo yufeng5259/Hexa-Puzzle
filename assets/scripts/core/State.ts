@@ -39,6 +39,9 @@ export interface EndlessGame {
     score: number;
     /** Deterministic deal seed, advanced on every refill. */
     seed: number;
+    /** Points this game added to the week it is in now; restarts at 0 when a running game crosses into a new week. */
+    weekId?: string | null;
+    weekGain?: number;
 }
 
 export interface GameState {
