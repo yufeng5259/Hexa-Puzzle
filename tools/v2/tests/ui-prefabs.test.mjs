@@ -24,7 +24,7 @@ const known = new Set();
 test('every layout page builds a prefab and regeneration is byte-stable', () => {
     const before = fs.readdirSync(OUT).filter(f => f.endsWith('.prefab')).map(f => fs.readFileSync(path.join(OUT, f), 'utf8'));
     const names = buildUi();
-    assert.equal(names.length, 26);
+    assert.equal(names.length, 28);
     const after = fs.readdirSync(OUT).filter(f => f.endsWith('.prefab')).map(f => fs.readFileSync(path.join(OUT, f), 'utf8'));
     assert.deepEqual(after, before);
 });
@@ -42,6 +42,14 @@ for (const file of fs.readdirSync(OUT).filter(f => f.endsWith('.prefab'))) {
         })(objects);
         assert.ok(refs.every(id => objects[id]), 'internal reference out of range');
         for (const uuid of external) assert.ok(known.has(uuid), `unknown asset ${uuid}`);
+        if (file === 'ReplayRow.prefab') {
+            // List item: VirtualListItem root, top-left anchored, whole row clickable.
+            const item = objects.find(o => o.__type__ === scriptType('assets/scripts/framework/ui/VirtualListItem.ts'));
+            assert.equal(item.node.__id__, 1);
+            assert.deepEqual(objects[objects[1]._components[0].__id__]._anchorPoint, { __type__: 'cc.Vec2', x: 0, y: 1 });
+            assert.equal(objects.find(o => o.__type__ === 'cc.Button').clickEvents[0].handler, 'onItemClicked');
+            return;
+        }
         const view = objects.find(o => o.__type__ === VIEW);
         assert.ok(view, 'LayoutView on root');
         assert.equal(view.node.__id__, 1);
@@ -97,4 +105,15 @@ test('S19: every stage row can show claimed, claimable and locked states', () =>
     for (const id of ['mark_check', 'stage_1_mark', 'mark_lock', 'mark_lock_2']) assert.ok(ids.has(id), id);
     const claims = objects.filter(o => o.__type__ === 'cc.Button').flatMap(b => b.clickEvents.map(e => e.customEventData)).filter(d => /^stage_\d_claim$/.test(d));
     assert.deepEqual(claims.sort(), ['stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim']);
+});
+
+test('S16: map cards come from the MapCard prefab; the replay list is a VirtualList of ReplayRow', () => {
+    const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S16.prefab'), 'utf8'));
+    const view = objects.find(o => o.__type__ === VIEW);
+    assert.ok(view.nodeIds.includes('MapList') && view.nodeIds.includes('ReplayList'));
+    assert.ok(!view.nodeIds.some(id => /^m0d_|^enter$/.test(id)), 'layout cards are not baked into the page');
+    const list = objects.find(o => o.__type__ === scriptType('assets/scripts/framework/ui/VirtualList.ts'));
+    const registry = JSON.parse(fs.readFileSync(path.join(PROJECT, 'assets/resources/config/ui-prefabs.json'), 'utf8')).resources;
+    assert.equal(list.itemPrefab.__uuid__, registry.find(r => r.id === 'prefab.ReplayRow').uuid);
+    assert.ok(registry.some(r => r.id === 'prefab.MapCard'));
 });

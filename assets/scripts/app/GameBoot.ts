@@ -1,4 +1,4 @@
-import { _decorator, Canvas, Component, JsonAsset, Label, Prefab, resources, SpriteFrame, sys } from 'cc';
+import { _decorator, Canvas, Component, ResolutionPolicy, screen, view, JsonAsset, Label, Prefab, resources, SpriteFrame, sys } from 'cc';
 import { EDITOR } from 'cc/env';
 import { ViewHost } from '../framework/ui/ViewHost';
 import { RegisteredResource, ResourceLoader } from '../framework/resources/ResourceLoader';
@@ -8,9 +8,11 @@ import { Game } from '../core/Game';
 import { Store } from '../core/Store';
 import { Navigator } from './Navigator';
 import { HomeController } from './HomeController';
+import { DESIGN_HEIGHT, DESIGN_WIDTH } from '../features/ui/LayoutView';
 import { PuzzlePage } from './PuzzlePage';
 import { GuideCoach } from './GuideCoach';
 import { EndlessPage } from './EndlessPage';
+import { MapPage } from './MapPage';
 
 const { ccclass, property } = _decorator;
 const TYPES: Record<string, RegisteredResource['type']> = { SpriteFrame, Prefab, JsonAsset };
@@ -34,7 +36,18 @@ export class GameBoot extends Component {
     public endless: EndlessPage | null = null;
     private booting = false;
 
-    protected start(): void { if (!EDITOR) void this.boot(); }
+    protected start(): void {
+        if (EDITOR) return;
+        this.fitResolution();
+        screen.on('window-resize', this.fitResolution, this);
+        void this.boot();
+    }
+    /** Keeps the whole design area visible: wider screens get extra width, narrower ones extra height. */
+    private fitResolution(): void {
+        const size = screen.windowSize, wide = size.width / size.height >= DESIGN_WIDTH / DESIGN_HEIGHT;
+        const policy = wide ? ResolutionPolicy.FIXED_HEIGHT : ResolutionPolicy.FIXED_WIDTH;
+        view.setDesignResolutionSize(DESIGN_WIDTH, DESIGN_HEIGHT, policy);
+    }
 
     /** Serialized retry button on the scene status label. */
     public onRetry(): void { if (!this.game) void this.boot(); }
@@ -66,6 +79,9 @@ export class GameBoot extends Component {
             const home = this.home, puzzle = this.puzzle, endless = this.endless;
             home.onEndless = puzzle.onEndless = () => void endless.open();
             endless.onHome = () => void home.enter();
+            const maps = new MapPage(game, this.nav, { home: mapId => void home.enter(mapId), replay: levelNo => void puzzle.play(levelNo) });
+            home.onMaps = () => void maps.openMaps();
+            home.onReplay = puzzle.onReplayList = () => void maps.openReplay();
             home.onPlay = () => void puzzle.play();
             puzzle.onHome = () => void home.enter();
             // First run starts (or resumes) the teaching level directly.
@@ -80,5 +96,6 @@ export class GameBoot extends Component {
     }
     private status(text: string): void { if (this.statusLabel) this.statusLabel.string = text; }
 
-    protected onDestroy(): void { this.home?.dispose(); this.puzzle?.dispose(); this.endless?.dispose(); }
+    protected onDestroy(): void {
+        screen.off('window-resize', this.fitResolution, this); this.home?.dispose(); this.puzzle?.dispose(); this.endless?.dispose(); }
 }

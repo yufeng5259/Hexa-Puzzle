@@ -27,6 +27,7 @@ const BUTTON_ART: Record<string, string> = { undo_button: 'blue', replay_button:
 export class PuzzlePage {
     public onHome: (() => void) | null = null;
     public onEndless: (() => void) | null = null;
+    public onReplayList: (() => void) | null = null;
     private readonly scope: ResourceScope;
     private readonly rewards: RewardPresenter;
     private catalog: LevelCatalog | null = null;
@@ -53,6 +54,7 @@ export class PuzzlePage {
     public async play(levelNo = this.game.state.mainline.nextLevelNo): Promise<void> {
         const saved = this.game.state.mainline.attempt;
         if (saved) return this.show(saved);
+        if (!this.game.state.mainline.cleared[levelNo] && levelNo !== this.game.state.mainline.nextLevelNo) return;
         if (mainlineFinished(this.game.state, this.game.rules) && !this.game.state.mainline.cleared[levelNo]) return;
         const attempt = this.start(levelNo);
         if (attempt) await this.show(attempt);
@@ -278,13 +280,15 @@ export class PuzzlePage {
         const guided = this.guide.active;
         void this.nav.showDialog('S06', id => {
             if (guided && !this.guide.allows('result', id)) return;
-            if (id === 'btn_green' && !finished && !replay) { this.nav.closeDialog(); void this.play(this.game.state.mainline.nextLevelNo); }
+            if (id === 'btn_green' && replay) { this.nav.closeDialog(); this.request++; this.leave(); this.onReplayList?.(); }
+            else if (id === 'btn_green' && !finished) { this.nav.closeDialog(); void this.play(this.game.state.mainline.nextLevelNo); }
             else if (id === 'btn_grey' || id === 'btn_green') { this.nav.closeDialog(); this.goHome(); }
         }, v => {
             v.setText('first_clear', `第${levelNo}关 · ${replay ? '复玩' : '首次通关'}`);
             v.setText('reward_coin', `+${prize.coins}`);
             v.setText('build_suggestion', s.wallet.coins >= cheapest ? '金币充足，可以回家建造' : '继续闯关，攒金币建造家园');
-            if (finished || replay) v.setText('next', finished && !replay ? '主线完成' : '回家');
+            if (replay) v.setText('next', '继续复玩');
+            else if (finished) v.setText('next', '主线完成');
             if (guided) { v.setVisible('btn_green', false); v.setVisible('next', false); this.guide.point(v.element('btn_grey'), 'home'); }
         });
     }

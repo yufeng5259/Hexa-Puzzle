@@ -1,4 +1,4 @@
-import { instantiate, Node, Prefab, SpriteFrame } from 'cc';
+import { instantiate, Node, Prefab, SpriteFrame, view } from 'cc';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ViewHost } from '../framework/ui/ViewHost';
 import { LayoutView } from '../features/ui/LayoutView';
@@ -17,7 +17,10 @@ export class Navigator {
 
     /** Small shared UI frames (button states, dots); lives as long as the app. */
     private readonly frames;
-    public constructor(private readonly host: ViewHost, private readonly loader: ResourceLoader) { this.frames = loader.createScope(); }
+    public constructor(private readonly host: ViewHost, private readonly loader: ResourceLoader) {
+        this.frames = loader.createScope();
+        view.on('canvas-resize', () => { for (const v of [...this.pages, this.dialog]) if (v?.isValid) v.fitScreen(); });
+    }
     public loadFrame(id: string): Promise<SpriteFrame> { return this.frames.load(id, SpriteFrame); }
 
     public get topPage(): LayoutView | null { return this.pages[this.pages.length - 1] ?? null; }
@@ -86,8 +89,9 @@ export class Navigator {
         catch (error) { scope.release(); throw error; }
         const opened = this.host.open(prefab, layer, scope);
         if (!(opened instanceof LayoutView)) { opened.close(); throw new Error(`prefab.${id} is not a LayoutView`); }
-        const view = opened;
-        view.node.on('view-action', (event: { actionId: string }) => onAction(event.actionId, view));
-        return view;
+        const page = opened;
+        page.fitScreen();
+        page.node.on('view-action', (event: { actionId: string }) => onAction(event.actionId, page));
+        return page;
     }
 }

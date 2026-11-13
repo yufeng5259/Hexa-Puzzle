@@ -10,7 +10,7 @@ import { mainlineFinished } from '../core/Mainline';
 import { endlessUnlocked } from '../core/Progress';
 import { RuleError } from '../core/Rules';
 import { buildingLevel } from '../core/State';
-import type { LayoutView } from '../features/ui/LayoutView';
+import { coverScale, type LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
 import type { GuideCoach } from './GuideCoach';
@@ -26,6 +26,11 @@ const SCAFFOLD = [1, 2, 3].map(i => `UI/建造/fx_build_scaffold/fx_build_scaffo
 export class HomeController {
     public onPlay: (() => void) | null = null;
     public onEndless: (() => void) | null = null;
+    /** S16 map selection (map name) and the replay list (Play after all levels are cleared). */
+    public onMaps: (() => void) | null = null;
+    public onReplay: (() => void) | null = null;
+    /** A finished map being looked at; building stays on the current map. */
+    private viewMapId: string | null = null;
     private home: LayoutView | null = null;
     private build: LayoutView | null = null;
     private readonly scope: ResourceScope;
@@ -45,7 +50,8 @@ export class HomeController {
         this.daily = new DailyPresenter(game, nav, this.rewards, { play: () => this.play(), build: () => void this.openBuild(), endless: () => this.onEndless?.() });
     }
 
-    public async enter(): Promise<void> {
+    public async enter(viewMapId: string | null = null): Promise<void> {
+        this.viewMapId = viewMapId === this.game.state.maps.currentMapId ? null : viewMapId;
         this.home = await this.nav.replacePage('S02', id => this.onHomeAction(id));
         this.build = null; this.anchors.clear(); this.buildings.clear(); this.mapId = '';
         this.unsubscribe?.();
@@ -67,7 +73,7 @@ export class HomeController {
 
     public dispose(): void { this.unsubscribe?.(); this.scope.release(); }
 
-    private get map(): MapView { return this.game.config.maps.find(m => m.id === this.game.state.maps.currentMapId)!; }
+    private get map(): MapView { return this.game.config.maps.find(m => m.id === (this.viewMapId ?? this.game.state.maps.currentMapId))!; }
 
     private async renderMap(): Promise<void> {
         const home = this.home!, map = this.map, mount = home.element('MapMount');
@@ -75,6 +81,9 @@ export class HomeController {
         this.mapId = map.id;
         mount.removeAllChildren();
         this.buildings.clear();
+        // Screens wider or taller than the map see a cover-scaled copy around it; the map itself keeps its building anchors.
+        const cover = coverScale(W, H);
+        if (cover > 1) this.sprite(mount, 'backdrop', map.backgroundAssetId, W * cover, H * cover, 0.5, 0.5, 0, 0);
         this.sprite(mount, 'background', map.backgroundAssetId, W, H, 0.5, 0.5, 0, 0);
         for (const b of [...map.buildings].sort((x, y) => x.zIndex - y.zIndex)) {
             const size = b.widthFraction * W, level = buildingLevel(this.game.state, map.id, b.id);
@@ -112,7 +121,9 @@ export class HomeController {
             const fill = view.element('bar_fill_green').getComponent(UITransform)!, full = view.element('bar_bg').getComponent(UITransform)!.width;
             fill.width = Math.max(8, full * Math.min(1, s.player.exp / level.expToNext));
         }
-        this.home.setText('play_level', mainlineFinished(s, rules) ? '复玩' : s.mainline.nextLevelNo);
+        this.home.setText('play_level', mainlineFinished(s, rules) && !s.mainline.attempt ? '复玩' : s.mainline.attempt?.levelNo ?? s.mainline.nextLevelNo);
+        // Looking back at a finished map: no building there, the build button is hidden.
+        this.home.setVisible('home_btn_build', !this.viewMapId); this.home.setVisible('icon_build', !this.viewMapId); this.home.setVisible('build_text', !this.viewMapId);
         if (!this.build?.isValid) { this.home.setVisible('signin_reddot', this.daily.signInDot()); this.home.setVisible('task_reddot', this.daily.taskDot()); }
         if (!this.construction) for (const b of map.buildings) this.buildings.get(b.id)?.isValid && this.setFrame(this.buildings.get(b.id)!, b.assetIds[buildingLevel(s, map.id, b.id)]);
         if (this.build?.isValid) this.renderBuild();
@@ -222,7 +233,12 @@ export class HomeController {
     private onHomeAction(id: string): void {
         if (this.nav.dialogOpen || !this.guide.allows('home', id)) return;
         switch (id) {
-            case 'home_play_btn': return this.play();
+            case 'home_play_btn':
+                // A saved attempt always resumes first; the replay list never silently replaces it.
+                if (mainlineFinished(this.game.state, this.game.rules) && !this.game.state.mainline.attempt) { this.guide.clear(); this.onReplay?.(); return; }
+                return this.play();
+            case 'map_name': return this.onMaps?.();
+            case 'home_btn_home': if (this.viewMapId) void this.enter(); return;
             case 'home_btn_build': void this.openBuild(); return;
             case 'hud_btn_square_purple': return this.rewards.settings();
             case 'hud_energy': return this.rewards.energy(false);

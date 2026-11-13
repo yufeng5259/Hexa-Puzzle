@@ -22,7 +22,7 @@ const BUTTONS = {
     S06: ['btn_green', 'btn_grey'], S07: ['retry', 'home'], S08: ['btn_close_dialog', 'save_home', 'continue', 'abandon'],
     S09: ['btn_close_dialog', 'restart', 'continue'], S10: ['btn_close_dialog', 'go_endless', 'return'],
     S11: ['btn_close_dialog', 'play', 'later'], S12: ['btn_close_dialog', 'continue'], S13: ['confirm'],
-    S15: ['claim_next', 'stay'], S16: ['hud_btn_square_blue', 'm01_card', 'm02_card', 'm03_card', 'enter', 'return_home'],
+    S15: ['claim_next', 'stay'], S16: ['hud_btn_square_blue', 'hud_btn_square_purple', 'hud_energy', 'return_home'],
     S17: ['btn_close', 'btn_green'], S18: ['btn_close', 'task_1_action', 'task_2_action', 'task_3_action', 'completion_claim'],
     S19: ['home_button', 'back_button', 'help_button', 'stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim', 'start_challenge'],
     S20: ['hud_btn_square_blue', 'settings_button'], S21: ['retry', 'return_event'], S22: ['btn_close_dialog', 'save_leave', 'continue', 'end_game'],
@@ -45,7 +45,10 @@ const EXTRAS = {
         onRow(layout, 'stage_2_status', 'stage_1_status', 2, 1), onRow(layout, 'mark_lock', 'stage_1_mark', 2, 1), onRow(layout, 'stage_2_status_text', 'stage_1_status_text', 2, 1),
     ],
 };
+/** S16 map cards: the layout's three cards become one MapCard Prefab, listed by data. */
+const MAP_CARD = /^(m0\d_|map_tag_current$|current_tag$|map_progress|enter)/;
 const MOUNTS = [
+    { name: 'MapList', test: (e, page) => page === 'S16' && MAP_CARD.test(e.id), rect: layout => layout.scrollArea },
     { name: 'MapMount', test: e => e.buildingId !== undefined || e.id === 'map_background', fullScreen: true },
     { name: 'BoardMount', test: e => /^board_cell_\d+$/.test(e.id) },
     { name: 'TrayMount', test: e => /^tray_\d+_cell_\d+$/.test(e.id) },
@@ -84,7 +87,7 @@ function buildPage(file) {
     const b = new Builder(page, DESIGN), buttons = new Set([...(BUTTONS[page] ?? []), ...layout.elements.filter(e => e.action).map(e => e.id)]);
     const nodes = [], nodeIds = [], labels = [], labelIds = [], mounts = new Map();
     for (const e of [...layout.elements, ...(EXTRAS[page]?.(layout) ?? [])]) {
-        const mount = MOUNTS.find(m => m.test(e));
+        const mount = MOUNTS.find(m => m.test(e, page));
         if (mount) {
             // Mount occupies the slot of its first element and the bounding box of all of them.
             if (!mounts.has(mount.name)) {
@@ -102,10 +105,10 @@ function buildPage(file) {
         if (buttons.has(e.id)) { b.button(node, b.root, 'LayoutView', 'onAction', e.id); buttons.delete(e.id); }
     }
     for (const [name, { id, rects }] of mounts) {
-        const full = MOUNTS.find(m => m.name === name).fullScreen;
+        const spec = MOUNTS.find(m => m.name === name), full = spec.fullScreen;
         const left = Math.min(...rects.map(r => r[0])), top = Math.min(...rects.map(r => r[1]));
         const right = Math.max(...rects.map(r => r[0] + r[2])), bottom = Math.max(...rects.map(r => r[1] + r[3]));
-        const rect = full || !rects.length ? [0, 0, layout.size[0], layout.size[1]] : [left, top, right - left, bottom - top];
+        const rect = spec.rect ? spec.rect(layout) : full || !rects.length ? [0, 0, layout.size[0], layout.size[1]] : [left, top, right - left, bottom - top];
         const target = b.objects[id], at = box(layout, rect);
         target._lpos.x = at.x; target._lpos.y = at.y;
         b.objects[target._components[0].__id__]._contentSize = { __type__: 'cc.Size', width: at.width, height: at.height };
@@ -113,6 +116,7 @@ function buildPage(file) {
     if (buttons.size) throw new Error(`${page}: button ids not in layout: ${[...buttons]}`);
     b.component(b.root, VIEW, { pageId: page, nodes, nodeIds, labels, labelIds });
     if (PUZZLE_PAGES.has(page)) puzzleRig(b, layout, mounts.get('BoardMount').id, mounts.get('TrayMount').id);
+    if (page === 'S16') listRig(b, layout, mounts.get('MapList').id);
     return { name: page, objects: b.finish() };
 }
 
@@ -170,6 +174,77 @@ function puzzleRig(b, layout, boardId, trayId) {
     b.component(b.root, CONTROLLER, { board: ref(board), dragRoot: ref(drag), previewRoot: ref(preview), previewGraphics: ref(previewGraphics), previewOpacity: ref(previewOpacity) });
 }
 
+const VIRTUAL_LIST = scriptType('assets/scripts/framework/ui/VirtualList.ts');
+const LIST_ITEM = scriptType('assets/scripts/framework/ui/VirtualListItem.ts');
+const REPLAY_ROW = { width: 760, height: 132 };
+
+/** A top-left anchored ScrollView (view with rect Mask + content) filling an existing mount node. */
+function scrollRig(b, mountId, prefix, vertical = true) {
+    const ui = b.objects[b.objects[mountId]._components[0].__id__]._contentSize, topLeft = { anchorX: 0, anchorY: 1 };
+    const view = b.node(prefix + 'View', mountId, { x: -ui.width / 2, y: ui.height / 2, width: ui.width, height: ui.height, ...topLeft });
+    graphics(b, view);
+    b.component(view, 'cc.Mask', { _type: 0, _inverted: false, _segments: 64, _alphaThreshold: 0.1 });
+    const content = b.node(prefix + 'Content', view, { width: ui.width, height: ui.height, ...topLeft });
+    const scroll = b.component(mountId, 'cc.ScrollView', { bounceDuration: 0.23, brake: 0.75, elastic: true, inertia: true, horizontal: !vertical, vertical,
+        cancelInnerEvents: true, scrollEvents: [], _content: ref(content), _horizontalScrollBar: null, _verticalScrollBar: null });
+    return { view, content, scroll };
+}
+
+/**
+ * S16 holds two lists in the same scroll area: map cards (MapList, filled by the page)
+ * and the replay list of cleared levels (ReplayList, a VirtualList of ReplayRow, hidden
+ * until the page switches to its "选择已通关关卡" variant).
+ */
+function listRig(b, layout, mapListId) {
+    scrollRig(b, mapListId, 'Map');
+    const at = box(layout, layout.scrollArea);
+    const replay = b.node('ReplayList', b.root, at, false);
+    const rootChildren = b.objects[b.root]._children;
+    rootChildren.splice(rootChildren.findIndex(r => r.__id__ === mapListId) + 1, 0, rootChildren.pop());
+    const { view, content, scroll } = scrollRig(b, replay, 'Replay');
+    b.component(replay, VIRTUAL_LIST, { scrollView: ref(scroll), viewport: ref(view), content: ref(content),
+        itemPrefab: external(stableUuid(`${OUT}/ReplayRow.prefab`), 'cc.Prefab'), itemExtent: REPLAY_ROW.height, spacing: 14, buffer: 2, horizontal: false });
+    const view16 = b.objects.find(o => o.__type__ === VIEW);
+    view16.nodes.push(ref(replay)); view16.nodeIds.push('ReplayList');
+}
+
+/** One S16 card in every state: drawn as the current card, plus the locked row of the next card. */
+function buildMapCard() {
+    const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S16.json'), 'utf8')), el = id => layout.elements.find(e => e.id === id);
+    const card = el('m01_card').rect, cx = card[0] + card[2] / 2, cy = card[1] + card[3] / 2;
+    const nameShift = el('m01_name').rect[1] - el('m02_name').rect[1];
+    const parts = [['m01_card', 'card'], ['m01_thumbnail', 'thumbnail'], ['m01_name', 'name'], ['map_tag_current', 'tag'], ['current_tag', 'tag_text'],
+        ['map_progress_bg', 'progress_bg'], ['map_progress_fill', 'progress_fill'], ['map_progress', 'progress'], ['enter', 'enter'], ['enter_text', 'enter_text'],
+        ['m02_lock', 'lock', nameShift], ['m02_condition', 'condition', nameShift]];
+    const b = new Builder('MapCard', [card[2], card[3]]), nodes = [], nodeIds = [], labels = [], labelIds = [];
+    for (const [from, id, dy = 0] of parts) {
+        const e = el(from), [x, y, w, h] = e.rect;
+        const node = b.node(id, b.root, { x: x + w / 2 - cx, y: cy - (y + dy + h / 2), width: w, height: h });
+        nodes.push(ref(node)); nodeIds.push(id);
+        if (e.type === 'label') { labels.push(ref(addLabel(b, node, e))); labelIds.push(id); }
+        else addSprite(b, node, e);
+        if (id === 'enter') b.button(node, b.root, 'LayoutView', 'onAction', 'enter');
+    }
+    b.component(b.root, VIEW, { pageId: 'MapCard', nodes, nodeIds, labels, labelIds });
+    return { name: 'MapCard', objects: b.finish() };
+}
+
+/** One cleared level in the S16-B replay list; tapping it selects the level. */
+function buildReplayRow() {
+    const { width: w, height: h } = REPLAY_ROW, b = new Builder('ReplayRow', [w, h]);
+    const root = b.objects[b.objects[b.root]._components[0].__id__];
+    root._anchorPoint = { __type__: 'cc.Vec2', x: 0, y: 1 };
+    const row = { asset: 'UI/任务/task_row_normal.png' }, picked = { asset: 'UI/任务/task_row_done.png' };
+    addSprite(b, b.node('row', b.root, { x: w / 2, y: -h / 2, width: w - 16, height: h - 8 }), row);
+    const selected = b.node('selected', b.root, { x: w / 2, y: -h / 2, width: w - 16, height: h - 8 }, false);
+    addSprite(b, selected, picked);
+    const title = b.node('title', b.root, { x: w / 2, y: -h / 2, width: w - 80, height: h - 20 });
+    const label = addLabel(b, title, { text: '', fontSize: 38, color: '#5B3A16', bold: true });
+    b.button(b.root, b.root, 'VirtualListItem', 'onItemClicked');
+    b.component(b.root, LIST_ITEM, { titleLabel: ref(label), selectedMarker: ref(selected) });
+    return { name: 'ReplayRow', objects: b.finish() };
+}
+
 /** Per-building upgrade anchor (dots + cost) taken from S03's B01 group, positioned relative to the building feet. */
 function buildAnchor() {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S03.json'), 'utf8'));
@@ -202,7 +277,7 @@ function dirMeta(rel) {
 
 export function buildUi() {
     const pages = fs.readdirSync(LAYOUTS).filter(f => /^S\d\d\.json$/.test(f)).sort().map(buildPage);
-    const all = [...pages, buildAnchor()];
+    const all = [...pages, buildAnchor(), buildMapCard(), buildReplayRow()];
     fs.mkdirSync(path.join(PROJECT, OUT), { recursive: true }); dirMeta(OUT);
     all.forEach(writePrefab);
     // Runtime registry: ResourceLoader verifies each prefab by UUID before instantiating it.

@@ -1,8 +1,24 @@
-import { _decorator, CCString, Label, Node, Sprite, SpriteFrame } from 'cc';
+import { _decorator, CCString, Label, Node, Sprite, SpriteFrame, sys, UITransform, Vec3, view } from 'cc';
 import { BaseView } from '../../framework/ui/BaseView';
 import { requireBinding } from '../../framework/components/Binding';
 import type { ResourceScope } from '../../framework/resources/ResourceScope';
 const { ccclass, property } = _decorator;
+
+export const DESIGN_WIDTH = 853, DESIGN_HEIGHT = 1844;
+/** Elements entirely above / below these design-y edges (from the top) belong to the HUD / bottom button band. */
+const TOP_BAND = 140, BOTTOM_BAND = DESIGN_HEIGHT - 254;
+
+/** Uniform scale that makes a w×h picture cover the whole visible area. */
+export function coverScale(w: number, h: number): number {
+    const size = view.getVisibleSize();
+    return Math.max(size.width / w, size.height / h, 1);
+}
+/** Extra visible height beyond the design (each side), and how much of it the device's unsafe edges take. */
+export function screenInsets(): { extra: number; top: number; bottom: number } {
+    const size = view.getVisibleSize(), origin = view.getVisibleOrigin(), safe = sys.getSafeAreaRect();
+    return { extra: Math.max(0, (size.height - DESIGN_HEIGHT) / 2),
+        top: Math.max(0, origin.y + size.height - (safe.y + safe.height)), bottom: Math.max(0, safe.y - origin.y) };
+}
 
 /**
  * Root of every Prefab generated from docs/v2/素材/布局/Sxx.json. Element ids from
@@ -17,6 +33,8 @@ export class LayoutView extends BaseView {
     @property([Label]) public labels: Label[] = [];
     @property([CCString]) public labelIds: string[] = [];
     private index: Map<string, Node> | null = null;
+    /** Design-space positions, recorded before the first fit so refits never drift. */
+    private designPositions: Map<Node, Vec3> | null = null;
     private labelIndex: Map<string, Label> | null = null;
 
     public validateBindings(): void {
@@ -43,6 +61,26 @@ export class LayoutView extends BaseView {
     public setVisible(id: string, visible: boolean): void { this.element(id).active = visible; }
     public setFrame(id: string, frame: SpriteFrame | null): void {
         requireBinding(`LayoutView ${this.pageId}`, `${id}.Sprite`, this.element(id).getComponent(Sprite)).spriteFrame = frame;
+    }
+    /**
+     * Fits a full-screen page or dialog to the visible area: full-screen pictures cover it,
+     * the HUD band hugs the safe top, the bottom button band the safe bottom, and the rest
+     * stays centred in the 853×1844 design area (always fully visible, see GameBoot).
+     */
+    public fitScreen(): void {
+        const root = this.node.getComponent(UITransform)!, size = view.getVisibleSize(), inset = screenInsets();
+        root.setContentSize(size.width, size.height);
+        this.designPositions ??= new Map(this.nodes.map(node => [node, node.position.clone()]));
+        for (const node of this.nodes) {
+            const ui = node.getComponent(UITransform), at = this.designPositions.get(node)!;
+            if (!ui || node.parent !== this.node) continue;
+            const top = DESIGN_HEIGHT / 2 - (at.y + ui.height * (1 - ui.anchorY)), bottom = DESIGN_HEIGHT / 2 - (at.y - ui.height * ui.anchorY);
+            if (ui.width >= DESIGN_WIDTH - 20 && ui.height >= DESIGN_HEIGHT - 60) {
+                // Backgrounds and dim masks; data mounts (no Sprite) keep the design frame.
+                if (node.getComponent(Sprite)) { const s = coverScale(ui.width, ui.height); node.setScale(s * Math.sign(node.scale.x || 1), s, 1); }
+            } else if (bottom <= TOP_BAND) node.setPosition(at.x, at.y + inset.extra - inset.top, at.z);
+            else if (top >= BOTTOM_BAND) node.setPosition(at.x, at.y - inset.extra + inset.bottom, at.z);
+        }
     }
     private nodeMap(): Map<string, Node> {
         this.index ??= new Map(this.nodeIds.map((key, i) => [key, this.nodes[i]]));
