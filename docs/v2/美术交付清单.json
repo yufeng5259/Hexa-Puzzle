@@ -1711,22 +1711,23 @@
       ],
       "scale": 1,
       "slice": [
-        70,
+        46,
         20,
-        70,
+        46,
         24
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S17 无字原按钮母件，蓝/灰与按下禁用状态用确定性HSV派生",
+      "source": "P2-2 按 S06 半圆头重建轮廓；保留原状态中心配色与上左柔光。端圆半径43px+3px透明边，圆心x=46/194。",
       "priority": "P0",
       "sha256": {
-        "normal": "5015d1cf28f35f4b4dcd0bc69df7ed00d985380b13d2d09f4fbbf38873825100",
-        "pressed": "51bc40053c0d6ac7527fecc15dee1f4b78a586ce65ceb57b51f6c0331f902d55",
-        "disabled": "044d7f8a850d25884cd45f6674f787a758cd4508b4f83fe3bffb150fb63ccf9f"
-      }
+        "normal": "57c545925fe830c1824048931b45757ac4f563bb336e55179cdffb2c3938854a",
+        "pressed": "87e17706f83489a84e16ceea69b96350820082b4833b8afc2ae7c89905bf6b10",
+        "disabled": "998e817f57cf3989905a5e140a2ea8e6febe56a3e4751713f71fb3218ba7d4e4"
+      },
+      "revision": "P2-2"
     },
     {
       "id": "btn_blue",
@@ -1742,29 +1743,31 @@
       ],
       "scale": 1,
       "slice": [
-        70,
+        46,
         20,
-        70,
+        46,
         24
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S17 无字原按钮母件，蓝/灰与按下禁用状态用确定性HSV派生",
+      "source": "P2-2 按 S06 半圆头重建轮廓；保留原状态中心配色与上左柔光。端圆半径43px+3px透明边，圆心x=46/194。",
       "priority": "P0",
       "sha256": {
-        "normal": "1e823590b34a7bde521bbc7d906a1153ea352a2a849acdd68bfa82e27d3f4f10",
-        "pressed": "f4afd5791e03b8b40da1de79f7bf5197d6f89477279d5190b7de4c984ce47917",
-        "disabled": "27a4ba1a9a6156474358a2e73708a1197e01d39ae4fd6f3a4744dfe7d6859e99"
-      }
+        "normal": "1a6cba53ba44095e186a71d9453899b28695b9773d9e1fa0558b1f9482a12764",
+        "pressed": "a61c2534eb3b7508162868737049a822d4e63f422fae256c22fb39e134c07a47",
+        "disabled": "c2d4b07f1728db07b38e943d40ad63c4e195df9cec385a129659b1881f463819"
+      },
+      "revision": "P2-2"
     },
     {
       "id": "btn_grey",
       "name": "灰蓝次级按钮",
       "states": {
         "normal": "UI/通用/btn_grey_normal.png",
-        "pressed": "UI/通用/btn_grey_pressed.png"
+        "pressed": "UI/通用/btn_grey_pressed.png",
+        "disabled": "UI/通用/btn_grey_disabled.png"
       },
       "size": [
         240,
@@ -1772,21 +1775,23 @@
       ],
       "scale": 1,
       "slice": [
-        70,
+        46,
         20,
-        70,
+        46,
         24
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S17 无字原按钮母件，蓝/灰与按下禁用状态用确定性HSV派生",
+      "source": "P2-2 按 S06 半圆头重建轮廓；保留原状态中心配色与上左柔光。端圆半径43px+3px透明边，圆心x=46/194。",
       "priority": "P0",
       "sha256": {
-        "normal": "c882331a35dc6850ca340374a08569337ca24e56c926d5a3759bd2503dfcf6d4",
-        "pressed": "9f1a8f2ecabcd73ba2b5ea3038d7a4e61f1996d1a875982220bfa2a3e4cdfa01"
-      }
+        "normal": "67f785b4ef327b12260d0f36458d6735968211238c556bcd7ec132a0dc273145",
+        "pressed": "ff6a26f973dc82aa45b644f884379c263d7a6eeafef6d330f40b47b532b477d2",
+        "disabled": "04663ba48246013a93b236dbdc3e64226c9afec3197405c6cf762bf3c0773ac3"
+      },
+      "revision": "P2-2"
     },
     {
       "id": "btn_small_green",
@@ -1826,25 +1831,26 @@
         "default": "UI/通用/tag_claimed.png"
       },
       "size": [
-        140,
-        60
+        240,
+        92
       ],
       "scale": 1,
       "slice": [
-        30,
+        46,
         20,
-        30,
-        20
+        46,
+        24
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S19 灰色标签空底按风格派生",
+      "source": "P2-2 按 S06 半圆头重建轮廓；保留原状态中心配色与上左柔光。端圆半径43px+3px透明边，圆心x=46/194。",
       "priority": "P0",
       "sha256": {
-        "default": "b63524e8630cbd2722c6ed183a1c5d35f1dac085a129be36f8c050743f01e7e2"
-      }
+        "default": "7dd54ee5d0b2cd46e7f3219766c18d3517c0641c29d4808f28b67ebcf5615c6c"
+      },
+      "revision": "P2-2"
     },
     {
       "id": "tag_locked",
@@ -1853,25 +1859,26 @@
         "default": "UI/通用/tag_locked.png"
       },
       "size": [
-        140,
-        60
+        240,
+        92
       ],
       "scale": 1,
       "slice": [
-        30,
+        46,
         20,
-        30,
-        20
+        46,
+        24
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S19 灰色标签空底按风格派生",
+      "source": "P2-2 按 S06 半圆头重建轮廓；保留原状态中心配色与上左柔光。端圆半径43px+3px透明边，圆心x=46/194。",
       "priority": "P0",
       "sha256": {
-        "default": "c1838ef4ab587421a2593c299a216da8034262c53515d1f1b1921b68f00f19a3"
-      }
+        "default": "bd613ccb220fef548e4e4bf8775ec4a4e5347af82d3cfd3416915ac6ccd723e0"
+      },
+      "revision": "P2-2"
     },
     {
       "id": "btn_close",
@@ -5224,6 +5231,19 @@
       "newLayouts": [],
       "verification": "制作记录/补充20261113/verification.json",
       "comparisons": "制作记录/补充20261113/对照/",
+      "runtimeModified": false
+    },
+    "P2-2": {
+      "date": "2026-11-13",
+      "modifiedAssetGroups": 5,
+      "modifiedPngFiles": 10,
+      "newPngFiles": 1,
+      "verification": "制作记录/补充20261113/p2_2_verification.json",
+      "comparisons": "制作记录/补充20261113/对照/",
+      "notes": [
+        "btn_green/btn_grey/btn_blue三态及两个tag统一240×92、slice[46,20,46,24]。",
+        "补齐btn_grey_disabled。"
+      ],
       "runtimeModified": false
     }
   },

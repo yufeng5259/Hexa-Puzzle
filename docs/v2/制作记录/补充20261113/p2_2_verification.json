@@ -1,0 +1,141 @@
+{
+  "batch": "P2-2",
+  "baseline": "ab4db64",
+  "scopeBaseline": "23aaf70",
+  "result": "PASS",
+  "pngFiles": 11,
+  "modifiedPngFiles": 10,
+  "newPngFiles": 1,
+  "size": [
+    240,
+    92
+  ],
+  "slice": [
+    46,
+    20,
+    46,
+    24
+  ],
+  "allStateAlphaIdentical": true,
+  "semicircleContourTolerancePixels": 1.1,
+  "nineSlice3xWidthCapsByteIdentical": true,
+  "unchangedOtherUiEntries": true,
+  "runtimeToolsAndReferencesUnchanged": true,
+  "files": [
+    {
+      "id": "btn_green",
+      "state": "normal",
+      "file": "素材/UI/通用/btn_green_normal.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "57c545925fe830c1824048931b45757ac4f563bb336e55179cdffb2c3938854a"
+    },
+    {
+      "id": "btn_green",
+      "state": "pressed",
+      "file": "素材/UI/通用/btn_green_pressed.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "87e17706f83489a84e16ceea69b96350820082b4833b8afc2ae7c89905bf6b10"
+    },
+    {
+      "id": "btn_green",
+      "state": "disabled",
+      "file": "素材/UI/通用/btn_green_disabled.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "998e817f57cf3989905a5e140a2ea8e6febe56a3e4751713f71fb3218ba7d4e4"
+    },
+    {
+      "id": "btn_blue",
+      "state": "normal",
+      "file": "素材/UI/通用/btn_blue_normal.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "1a6cba53ba44095e186a71d9453899b28695b9773d9e1fa0558b1f9482a12764"
+    },
+    {
+      "id": "btn_blue",
+      "state": "pressed",
+      "file": "素材/UI/通用/btn_blue_pressed.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "a61c2534eb3b7508162868737049a822d4e63f422fae256c22fb39e134c07a47"
+    },
+    {
+      "id": "btn_blue",
+      "state": "disabled",
+      "file": "素材/UI/通用/btn_blue_disabled.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "c2d4b07f1728db07b38e943d40ad63c4e195df9cec385a129659b1881f463819"
+    },
+    {
+      "id": "btn_grey",
+      "state": "normal",
+      "file": "素材/UI/通用/btn_grey_normal.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "67f785b4ef327b12260d0f36458d6735968211238c556bcd7ec132a0dc273145"
+    },
+    {
+      "id": "btn_grey",
+      "state": "pressed",
+      "file": "素材/UI/通用/btn_grey_pressed.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "ff6a26f973dc82aa45b644f884379c263d7a6eeafef6d330f40b47b532b477d2"
+    },
+    {
+      "id": "btn_grey",
+      "state": "disabled",
+      "file": "素材/UI/通用/btn_grey_disabled.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "04663ba48246013a93b236dbdc3e64226c9afec3197405c6cf762bf3c0773ac3"
+    },
+    {
+      "id": "tag_claimed",
+      "state": "default",
+      "file": "素材/UI/通用/tag_claimed.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "7dd54ee5d0b2cd46e7f3219766c18d3517c0641c29d4808f28b67ebcf5615c6c"
+    },
+    {
+      "id": "tag_locked",
+      "state": "default",
+      "file": "素材/UI/通用/tag_locked.png",
+      "size": [
+        240,
+        92
+      ],
+      "sha256": "bd613ccb220fef548e4e4bf8775ec4a4e5347af82d3cfd3416915ac6ccd723e0"
+    }
+  ],
+  "notes": [
+    "按本轮统一尺寸要求，tag_claimed/tag_locked从140×60改为240×92。",
+    "btn_grey补齐disabled，其余文件名及状态路径保留。",
+    "无需生成接口；复用原状态像素配色，确定性重绘半圆轮廓。"
+  ]
+}
