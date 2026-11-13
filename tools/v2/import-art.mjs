@@ -28,16 +28,27 @@ function dirMeta(dir, bundle) {
     }
     fs.mkdirSync(dir, { recursive: true });
 }
-function imageMeta(target, [width, height]) {
+function imageMeta(target, [width, height], slice = null) {
     const metaFile = target + '.meta';
-    if (fs.existsSync(metaFile)) return JSON.parse(fs.readFileSync(metaFile, 'utf8')).uuid;
+    if (fs.existsSync(metaFile)) {
+        // Keep the UUID; only the nine-slice border is owned by the art manifest.
+        const meta = JSON.parse(fs.readFileSync(metaFile, 'utf8')), frame = meta.subMetas?.f9941?.userData;
+        if (frame && slice) {
+            const [l, t, r, b] = slice;
+            if (frame.borderLeft !== l || frame.borderTop !== t || frame.borderRight !== r || frame.borderBottom !== b) {
+                Object.assign(frame, { borderLeft: l, borderTop: t, borderRight: r, borderBottom: b });
+                write(metaFile, JSON.stringify(meta, null, 2) + '\n');
+            }
+        }
+        return meta.uuid;
+    }
     const uuid = stableUuid('image:' + rel(target)), name = path.basename(target, '.png');
     const sub = (importer, id, userData, ver) => ({ importer, uuid: `${uuid}@${id}`, displayName: name, id, name: importer === 'texture' ? 'texture' : 'spriteFrame', userData, ver, imported: true, files: ['.json'], subMetas: {} });
     write(metaFile, JSON.stringify({
         ver: '1.0.27', importer: 'image', imported: true, uuid, files: ['.json', '.png'],
         subMetas: {
             '6c48a': sub('texture', '6c48a', { wrapModeS: 'clamp-to-edge', wrapModeT: 'clamp-to-edge', imageUuidOrDatabaseUri: uuid, isUuid: true, visible: false, minfilter: 'linear', magfilter: 'linear', mipfilter: 'none', anisotropy: 0 }, '1.0.22'),
-            f9941: sub('sprite-frame', 'f9941', { trimThreshold: 1, rotated: false, offsetX: 0, offsetY: 0, trimX: 0, trimY: 0, width, height, rawWidth: width, rawHeight: height, borderTop: 0, borderBottom: 0, borderLeft: 0, borderRight: 0, packable: true, pixelsToUnit: 100, pivotX: 0.5, pivotY: 0.5, meshType: 0,
+            f9941: sub('sprite-frame', 'f9941', { trimThreshold: 1, rotated: false, offsetX: 0, offsetY: 0, trimX: 0, trimY: 0, width, height, rawWidth: width, rawHeight: height, borderTop: slice?.[1] ?? 0, borderBottom: slice?.[3] ?? 0, borderLeft: slice?.[0] ?? 0, borderRight: slice?.[2] ?? 0, packable: true, pixelsToUnit: 100, pivotX: 0.5, pivotY: 0.5, meshType: 0,
                 vertices: { rawPosition: [-width / 2, -height / 2, 0, width / 2, -height / 2, 0, -width / 2, height / 2, 0, width / 2, height / 2, 0], indexes: [0, 1, 2, 2, 1, 3], uv: [0, height, width, height, 0, 0, width, 0], nuv: [0, 0, 1, 0, 0, 1, 1, 1], minPos: [-width / 2, -height / 2, 0], maxPos: [width / 2, height / 2, 0] },
                 isUuid: true, imageUuidOrDatabaseUri: `${uuid}@6c48a`, atlasUuid: '', trimType: 'none' }, '1.0.12'),
         },
@@ -61,6 +72,15 @@ export function plan() {
         const m = /^(\d+_png)_/.exec(file), key = m ? m[1] : file.slice(0, -4);
         items.push({ id: `hex.${key}`, bundle: 'puzzle', path: `textures/hex/${key}`, source: `素材/六角块/母件/${file}` });
     }
+    // UI cut-outs: the registry id is the path layouts use in their "asset" field (relative to 素材/).
+    const manifest = JSON.parse(fs.readFileSync(path.join(DOCS, '美术交付清单.json'), 'utf8')), seen = new Set();
+    for (const asset of manifest.uiAssets) {
+        for (const file of asset.states ? Object.values(asset.states) : asset.frames) {
+            if (seen.has(file)) continue;
+            seen.add(file);
+            items.push({ id: file, bundle: 'ui', path: `textures/${path.basename(file, '.png')}`, source: `素材/${file}`, slice: asset.slice ?? null });
+        }
+    }
     return items;
 }
 
@@ -72,7 +92,7 @@ export function importArt() {
         dirMeta(path.join(PROJECT, 'assets/bundles', item.bundle), item.bundle);
         dirMeta(path.dirname(target), null);
         write(target, bytes);
-        const uuid = imageMeta(target, pngSize(bytes));
+        const uuid = imageMeta(target, pngSize(bytes), item.slice);
         registry.push({ id: item.id, bundle: item.bundle, path: item.path + '/spriteFrame', type: 'SpriteFrame', uuid: `${uuid}@f9941`, source: item.source });
     }
     const out = path.join(PROJECT, 'assets/resources/config/resource-registry.json');
