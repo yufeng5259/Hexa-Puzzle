@@ -60,6 +60,8 @@ export class ResourceLoader {
         const record = this.record(id);
         if (record.type !== type) throw new Error(`Resource type mismatch: ${id}`);
     }
+    /** Whether an id is registered (optional art may not be delivered yet). */
+    public has(id: string): boolean { return this.records.has(this.aliases[id] || id); }
     public get activeEntryCount(): number { return this.pool.activeEntryCount; }
 
     private record(id: string): RegisteredResource {

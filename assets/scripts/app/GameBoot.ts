@@ -71,7 +71,7 @@ export class GameBoot extends Component {
             game.tick();
             loading.setText('loading_percent', '100%');
             this.game = game;
-            const guide = new GuideCoach(game, this.host.guideLayer!);
+            const guide = new GuideCoach(game, this.host.guideLayer!, this.nav);
             this.home = new HomeController(game, this.nav, loader, guide);
             this.puzzle = new PuzzlePage(game, this.nav, loader, this.getComponent(Canvas)?.cameraComponent ?? null, guide);
             const camera = this.getComponent(Canvas)?.cameraComponent ?? null;

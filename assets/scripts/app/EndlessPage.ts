@@ -19,7 +19,7 @@ const TRAY_INSET = 24;
 const LIFT = 150;
 const FEEDBACK_SECONDS = 1.6;
 const RULE_HINT = '三个方向填满整线即可消除';
-const HELP = '把拼块拖进蜂巢，横、左斜、右斜任一方向整线填满即可消除';
+const HELP = '把下方拼块拖进蜂巢。横向、左斜、右斜任一方向整条线填满就会消除，颜色不用相同。一次消除多条线得分更高；三块都放不下时本局结束。';
 
 interface CellView { base: Sprite; overlay: Sprite }
 interface Drag { slot: number; node: Node; pointer: number; target: { q: number; r: number } | null; valid: boolean }
@@ -127,7 +127,7 @@ export class EndlessPage {
         if (this.nav.dialogOpen) return;
         const stage = /^stage_(\d)_claim$/.exec(id);
         if (id === 'home_button' || id === 'back_button') this.leave();
-        else if (id === 'help_button') this.guide.flash(HELP);
+        else if (id === 'help_button') this.help();
         else if (id === 'start_challenge') void this.play();
         else if (stage) {
             const week = this.game.week();
@@ -135,6 +135,14 @@ export class EndlessPage {
             catch (error) { if (!(error instanceof RuleError)) this.rewards.failure(error); }
             this.render();
         }
+    }
+
+    /** S19 help: the HelpDialog prefab (standard dialog + rules illustration once delivered). */
+    private help(): void {
+        void this.nav.showDialog('HelpDialog', id => { if (id === 'confirm' || id === 'btn_close_dialog') this.nav.closeDialog(); }, v => {
+            v.setText('title', '玩法说明');
+            v.setText('help_text', HELP);
+        });
     }
 
     // ---- S20 -------------------------------------------------------------
@@ -270,7 +278,8 @@ export class EndlessPage {
         footprint.forEach(k => filled.add(k));
         // Lines this drop would complete are highlighted; the preview itself never scores.
         const lines = valid ? boardLines(this.game.rules.endless.radius).filter(line => line.every(([q, r]) => filled.has(key(q, r)))) : [];
-        for (const line of lines) for (const [q, r] of line) this.overlay(key(q, r), 'hex.line_highlight');
+        const glow = this.nav.hasFrame('hex.line_highlight_strong') ? 'hex.line_highlight_strong' : 'hex.line_highlight';
+        for (const line of lines) for (const [q, r] of line) this.overlay(key(q, r), glow);
         for (const k of footprint) this.overlay(k, valid ? 'hex.preview_valid' : 'hex.preview_invalid');
     }
     private overlay(k: string, asset: string): void {

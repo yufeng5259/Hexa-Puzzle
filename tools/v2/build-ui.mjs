@@ -245,6 +245,32 @@ function buildReplayRow() {
     return { name: 'ReplayRow', objects: b.finish() };
 }
 
+/**
+ * Standard help dialog (S19 "?"), built from the S22 dialog frame. The rules picture
+ * (05_美术补充任务 2.4) is included once it is imported; until then the text fills the panel.
+ */
+function buildHelpDialog() {
+    const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S22.json'), 'utf8')), el = id => layout.elements.find(e => e.id === id);
+    const art = 'UI/无尽/endless_help_axes.png', hasArt = frameBySource.has(art);
+    const elements = [el('mask_black'), el('panel_dialog'), el('ribbon_title_blue'), { ...el('title'), text: '玩法说明' }, el('btn_close_dialog'),
+        ...(hasArt ? [{ id: 'help_art', asset: art, rect: [147, 640, 560, 380] }] : []),
+        { id: 'help_text', type: 'label', text: '', fontSize: 30, color: '#5B3A16', rect: hasArt ? [110, 1030, 634, 130] : [110, 680, 634, 420], wrap: true },
+        { ...el('save_leave'), id: 'confirm', rect: [143, 1180, 568, 105] }, { ...el('save_leave_label'), id: 'confirm_label', text: '知道了', rect: [155, 1186, 544, 93] }];
+    const b = new Builder('HelpDialog', DESIGN), nodes = [], nodeIds = [], labels = [], labelIds = [];
+    for (const e of elements) {
+        const node = b.node(e.id, b.root, box(layout, e.rect));
+        nodes.push(ref(node)); nodeIds.push(e.id);
+        if (e.type === 'label') {
+            const id = addLabel(b, node, e);
+            if (e.wrap) Object.assign(b.objects[id], { _enableWrapText: true, _overflow: 1, _horizontalAlign: 0, _verticalAlign: hasArt ? 0 : 1, _lineHeight: hasArt ? 44 : 54, _fontSize: hasArt ? 30 : 36, _actualFontSize: hasArt ? 30 : 36 });
+            labels.push(ref(id)); labelIds.push(e.id);
+        } else addSprite(b, node, e);
+        if (e.id === 'confirm' || e.id === 'btn_close_dialog') b.button(node, b.root, 'LayoutView', 'onAction', e.id);
+    }
+    b.component(b.root, VIEW, { pageId: 'HelpDialog', nodes, nodeIds, labels, labelIds });
+    return { name: 'HelpDialog', objects: b.finish() };
+}
+
 /** Per-building upgrade anchor (dots + cost) taken from S03's B01 group, positioned relative to the building feet. */
 function buildAnchor() {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S03.json'), 'utf8'));
@@ -277,7 +303,7 @@ function dirMeta(rel) {
 
 export function buildUi() {
     const pages = fs.readdirSync(LAYOUTS).filter(f => /^S\d\d\.json$/.test(f)).sort().map(buildPage);
-    const all = [...pages, buildAnchor(), buildMapCard(), buildReplayRow()];
+    const all = [...pages, buildAnchor(), buildMapCard(), buildReplayRow(), buildHelpDialog()];
     fs.mkdirSync(path.join(PROJECT, OUT), { recursive: true }); dirMeta(OUT);
     all.forEach(writePrefab);
     // Runtime registry: ResourceLoader verifies each prefab by UUID before instantiating it.

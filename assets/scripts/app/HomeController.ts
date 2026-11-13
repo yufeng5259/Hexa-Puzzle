@@ -8,7 +8,7 @@ import { finishBuild, mapProgress, startBuild, upgradeCost } from '../core/Progr
 import { guideAllowsBuild } from '../core/Guide';
 import { mainlineFinished } from '../core/Mainline';
 import { endlessUnlocked } from '../core/Progress';
-import { RuleError } from '../core/Rules';
+import { reward, RuleError, type Reward } from '../core/Rules';
 import { buildingLevel } from '../core/State';
 import { coverScale, type LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
@@ -229,6 +229,19 @@ export class HomeController {
         }
     }
 
+    /** Level badge: current level, exp and what the next level gives. */
+    private levelInfo(): void {
+        const s = this.game.state, rules = this.game.rules, row = rules.levels[Math.min(s.player.level - 1, rules.levels.length - 1)];
+        const next = rules.levels[Math.min(s.player.level, rules.levels.length - 1)]?.rewardId ?? row.rewardId;
+        const prize = next ? rewardText(reward(rules, next)) : '';
+        this.guide.flash(`等级 ${s.player.level} · 经验 ${s.player.exp}/${row.expToNext}${prize ? `\n升级奖励 ${prize}` : ''}`);
+    }
+    /** Build-mode gift: the completion reward of the map being built. */
+    private giftInfo(): void {
+        const s = this.game.state, rules = this.game.rules, map = rules.maps.find(m => m.id === s.maps.currentMapId)!;
+        const p = mapProgress(s, rules, map.id), prize = map.completionRewardId ? rewardText(reward(rules, map.completionRewardId)) : '';
+        this.guide.flash(s.maps.completed[map.id] ? '本地图已完工，奖励已发放' : `建设进度 ${p.built}/${p.total}\n完工奖励 ${prize}`);
+    }
     private play(): void { this.guide.clear(); this.onPlay?.(); }
     private onHomeAction(id: string): void {
         if (this.nav.dialogOpen || !this.guide.allows('home', id)) return;
@@ -238,6 +251,7 @@ export class HomeController {
                 if (mainlineFinished(this.game.state, this.game.rules) && !this.game.state.mainline.attempt) { this.guide.clear(); this.onReplay?.(); return; }
                 return this.play();
             case 'map_name': return this.onMaps?.();
+            case 'hud_level_badge': return this.levelInfo();
             case 'home_btn_home': if (this.viewMapId) void this.enter(); return;
             case 'home_btn_build': void this.openBuild(); return;
             case 'hud_btn_square_purple': return this.rewards.settings();
@@ -254,8 +268,13 @@ export class HomeController {
         if (this.nav.dialogOpen || !this.guide.allows('build', id)) return;
         switch (id) {
             case 'home_btn_home': return this.closeBuild();
+            case 'icon_gift': return this.giftInfo();
             case 'hud_btn_square_purple': return this.rewards.settings();
             case 'hud_energy': return this.rewards.energy(false);
         }
     }
+}
+
+function rewardText(r: Reward): string {
+    return [r.coins && `金币+${r.coins}`, r.energy && `体力+${r.energy}`, r.hints && `提示+${r.hints}`].filter(Boolean).join(' ');
 }

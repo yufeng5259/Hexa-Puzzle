@@ -22,6 +22,8 @@ export class Navigator {
         view.on('canvas-resize', () => { for (const v of [...this.pages, this.dialog]) if (v?.isValid) v.fitScreen(); });
     }
     public loadFrame(id: string): Promise<SpriteFrame> { return this.frames.load(id, SpriteFrame); }
+    /** Optional art: true once the frame is delivered and imported. */
+    public hasFrame(id: string): boolean { return this.loader.has(id); }
 
     public get topPage(): LayoutView | null { return this.pages[this.pages.length - 1] ?? null; }
     public get dialogOpen(): boolean { return !!this.dialog || this.queue.length > 0; }

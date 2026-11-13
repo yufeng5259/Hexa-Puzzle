@@ -1,4 +1,4 @@
-import { Button, Camera, JsonAsset, Sprite, SpriteFrame } from 'cc';
+import { Button, Camera, JsonAsset, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { Game } from '../core/Game';
@@ -178,9 +178,17 @@ export class PuzzlePage {
     private renderLesson(): void {
         const controller = this.controller, view = this.view, lesson = this.lesson();
         if (!controller?.isValid || !view?.isValid) return;
-        if (!lesson) { controller.clearGuidePreview(); view.setText('puzzle_instruction', '拖动拼块，填满蜂巢'); return; }
+        if (!lesson) { controller.clearGuidePreview(); this.guide.clearHand(); view.setText('puzzle_instruction', '拖动拼块，填满蜂巢'); return; }
         controller.setGuidePreview(lesson.pieceId, lesson.targetCell, lesson.hand);
         view.setText('puzzle_instruction', this.guide.text(lesson.rowId));
+        // Hand demo: from the piece's first cell in the tray to the same cell's answer position on the board.
+        const board = this.board!, entry = board.pieceEntries().find(e => e.item.pieceId === lesson.pieceId);
+        const cell = entry?.item.cellsRoot?.children[0]?.getComponent(UITransform);
+        if (!cell || !board.boardMount) return;
+        const piece = this.level!.pieces.find(p => p.id === lesson.pieceId)!, first = piece.cells[0];
+        const target = board.pointOfCell({ q: lesson.targetCell.q + first.q, r: lesson.targetCell.r + first.r });
+        const from = cell.convertToWorldSpaceAR(new Vec3((0.5 - cell.anchorX) * cell.width, (0.5 - cell.anchorY) * cell.height, 0));
+        this.guide.drag(from, board.boardMount.getComponent(UITransform)!.convertToWorldSpaceAR(new Vec3(target.x, target.y, 0)), lesson.hand);
     }
     private renderHud(): void {
         const view = this.view;

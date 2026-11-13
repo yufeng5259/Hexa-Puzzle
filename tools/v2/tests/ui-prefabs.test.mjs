@@ -24,7 +24,7 @@ const known = new Set();
 test('every layout page builds a prefab and regeneration is byte-stable', () => {
     const before = fs.readdirSync(OUT).filter(f => f.endsWith('.prefab')).map(f => fs.readFileSync(path.join(OUT, f), 'utf8'));
     const names = buildUi();
-    assert.equal(names.length, 28);
+    assert.equal(names.length, 29);
     const after = fs.readdirSync(OUT).filter(f => f.endsWith('.prefab')).map(f => fs.readFileSync(path.join(OUT, f), 'utf8'));
     assert.deepEqual(after, before);
 });
