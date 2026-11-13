@@ -1,4 +1,5 @@
-import { _decorator, CCString, Label, Node, Sprite, SpriteFrame, sys, UITransform, Vec3, view } from 'cc';
+import { _decorator, CCString, Label, Node, Sprite, SpriteFrame, sys, tween, UIOpacity, UITransform, Vec3, view } from 'cc';
+import type { EventTouch } from 'cc';
 import { BaseView } from '../../framework/ui/BaseView';
 import { requireBinding } from '../../framework/components/Binding';
 import type { ResourceScope } from '../../framework/resources/ResourceScope';
@@ -35,6 +36,47 @@ export class LayoutView extends BaseView {
     private index: Map<string, Node> | null = null;
     /** Design-space positions, recorded before the first fit so refits never drift. */
     private designPositions: Map<Node, Vec3> | null = null;
+    /** Set once the view starts leaving: its buttons no longer act. */
+    private closing = false;
+
+    public onAction(event?: EventTouch, actionId = ''): void { if (!this.closing) super.onAction(event, actionId); }
+
+    /** Overlay page (build mode) appears. */
+    public fadeIn(seconds = 0.2): void {
+        const o = this.node.getComponent(UIOpacity) ?? this.node.addComponent(UIOpacity);
+        o.opacity = 0;
+        tween(o).to(seconds, { opacity: 255 }).start();
+    }
+    /**
+     * Dialog appears: full-screen dims fade in while the panel group grows 0.9 → 1 around
+     * the screen centre (each element scaled and moved, so the layout stays intact).
+     */
+    public popIn(seconds = 0.18): void {
+        const dims = this.nodes.filter(n => this.isFullScreen(n)), panel = this.nodes.filter(n => n.parent === this.node && !this.isFullScreen(n));
+        const base = new Map(panel.map(n => [n, { p: n.position.clone(), s: n.scale.clone() }]));
+        const dimOpacity = dims.map(n => n.getComponent(UIOpacity) ?? n.addComponent(UIOpacity));
+        const state = { k: 0 };
+        const apply = () => {
+            const k = state.k, s = 0.9 + 0.1 * k, eased = Math.max(0, Math.min(1, k));
+            dimOpacity.forEach(o => { o.opacity = 255 * eased; });
+            for (const [n, b] of base) if (n.isValid) { n.setPosition(b.p.x * s, b.p.y * s, b.p.z); n.setScale(b.s.x * s, b.s.y * s, b.s.z); }
+            const o = this.node.getComponent(UIOpacity) ?? this.node.addComponent(UIOpacity);
+            o.opacity = 255 * Math.max(0, Math.min(1, k * 1.6));
+        };
+        apply();
+        tween(state).to(seconds, { k: 1 }, { easing: 'backOut', onUpdate: apply }).call(() => { state.k = 1; apply(); }).start();
+    }
+    /** Leaves with a short fade; actions are ignored from the first frame. */
+    public fadeOutAndClose(seconds = 0.12): void {
+        if (this.closing || !this.isValid) return;
+        this.closing = true;
+        const o = this.node.getComponent(UIOpacity) ?? this.node.addComponent(UIOpacity);
+        tween(o).to(seconds, { opacity: 0 }).call(() => this.close()).start();
+    }
+    private isFullScreen(node: Node): boolean {
+        const ui = node.getComponent(UITransform);
+        return !!ui && ui.width >= DESIGN_WIDTH - 20 && ui.height >= DESIGN_HEIGHT - 60;
+    }
     private labelIndex: Map<string, Label> | null = null;
 
     public validateBindings(): void {

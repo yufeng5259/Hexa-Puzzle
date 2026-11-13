@@ -53,9 +53,10 @@ export class PuzzlePage {
     }
 
     /** Play from home: resumes the saved attempt, otherwise starts the next level (paying energy). */
-    public async play(levelNo = this.game.state.mainline.nextLevelNo): Promise<void> {
+    /** instant: first page under the boot loading screen (no transition). */
+    public async play(levelNo = this.game.state.mainline.nextLevelNo, instant = false): Promise<void> {
         const saved = this.game.state.mainline.attempt;
-        if (saved) return this.show(saved);
+        if (saved) return this.show(saved, instant);
         if (!this.game.state.mainline.cleared[levelNo] && levelNo !== this.game.state.mainline.nextLevelNo) return;
         if (mainlineFinished(this.game.state, this.game.rules) && !this.game.state.mainline.cleared[levelNo]) return;
         const attempt = this.start(levelNo);
@@ -92,16 +93,19 @@ export class PuzzlePage {
         return this.catalog;
     }
 
-    private async show(attempt: Attempt): Promise<void> {
+    private async show(attempt: Attempt, instant = false): Promise<void> {
         const request = ++this.request;
         try {
             const catalog = await this.loadCatalog();
             const level = catalog.getById(mainlineLevel(this.game.rules, attempt.levelNo).puzzleId);
-            const view = await this.nav.replacePage(level.mode === 'challenge' ? 'S05' : 'S04', id => this.onAction(id));
+            // The board and pieces are built while the transition still covers the screen.
+            let presented: Promise<void> = Promise.resolve();
+            const view = await this.nav.replacePage(level.mode === 'challenge' ? 'S05' : 'S04', id => this.onAction(id),
+                { instant, prepare: v => (presented = v.getComponent(PuzzleBoardPresentation)!.present(v.resources, level)) });
             if (request !== this.request) return;
             this.leave();
             const board = view.getComponent(PuzzleBoardPresentation)!, controller = view.getComponent(PuzzleController)!;
-            await board.present(view.resources, level);
+            await presented;
             if (request !== this.request || !view.isValid) return;
             const session = new PuzzleSession(level, attempt.attemptId);
             if (attempt.board) {

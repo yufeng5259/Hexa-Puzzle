@@ -1,4 +1,5 @@
-import { Node, Sprite, SpriteFrame, UITransform } from 'cc';
+import { JsonAsset, Node, Sprite, SpriteFrame, tween, UITransform, Vec3 } from 'cc';
+import { BuildFx, type BuildFxData } from '../features/fx/BuildFx';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { MapView } from '../core/Config';
@@ -17,7 +18,9 @@ import type { GuideCoach } from './GuideCoach';
 import { DailyPresenter } from './DailyPresenter';
 
 const W = 853, H = 1844;
-const SCAFFOLD = [1, 2, 3].map(i => `UI/建造/fx_build_scaffold/fx_build_scaffold_0${i}.png`);
+/** The migrated effect was drawn around a building about this wide; it scales with ours. */
+const FX_REFERENCE_WIDTH = 420;
+const FX_SCALE = { min: 0.55, max: 1.2 };
 
 /**
  * S02 home and S03 build mode. Both share one map instance: the map lives in the
@@ -36,7 +39,9 @@ export class HomeController {
     private readonly scope: ResourceScope;
     private readonly buildings = new Map<string, Sprite>();
     private readonly anchors = new Map<string, LayoutView>();
-    private construction: { buildId: string; buildingId: string; elapsed: number; frame: number; overlay: Sprite } | null = null;
+    private construction: { buildId: string; buildingId: string; elapsed: number; fx: Node | null } | null = null;
+    private fxData: Promise<BuildFxData | null> | null = null;
+    private readonly pendingFrames: Promise<unknown>[] = [];
     private unsubscribe: (() => void) | null = null;
     private readonly rewards: RewardPresenter;
     private readonly daily: DailyPresenter;
@@ -50,9 +55,11 @@ export class HomeController {
         this.daily = new DailyPresenter(game, nav, this.rewards, { play: () => this.play(), build: () => void this.openBuild(), endless: () => this.onEndless?.() });
     }
 
-    public async enter(viewMapId: string | null = null): Promise<void> {
+    /** instant: first page under the boot loading screen (no transition). */
+    public async enter(viewMapId: string | null = null, instant = false): Promise<void> {
         this.viewMapId = viewMapId === this.game.state.maps.currentMapId ? null : viewMapId;
-        this.home = await this.nav.replacePage('S02', id => this.onHomeAction(id));
+        // The transition stays closed until the map and building pictures are loaded.
+        this.home = await this.nav.replacePage('S02', id => this.onHomeAction(id), { instant, prepare: () => this.ready() });
         this.build = null; this.anchors.clear(); this.buildings.clear(); this.mapId = '';
         this.unsubscribe?.();
         this.unsubscribe = this.game.subscribe(() => this.render());
@@ -105,7 +112,14 @@ export class HomeController {
         return sprite;
     }
     private setFrame(sprite: Sprite, assetId: string): void {
-        this.scope.load(assetId, SpriteFrame).then(frame => { if (sprite.isValid) sprite.spriteFrame = frame; }, error => console.error(error));
+        const pending = this.scope.load(assetId, SpriteFrame).then(frame => { if (sprite.isValid) sprite.spriteFrame = frame; }, error => console.error(error))
+            .then(() => { const i = this.pendingFrames.indexOf(pending); if (i >= 0) this.pendingFrames.splice(i, 1); });
+        this.pendingFrames.push(pending);
+    }
+    /** Resolves once every picture requested so far (map, buildings) is on screen. */
+    public async ready(): Promise<void> {
+        await new Promise(resolve => setTimeout(resolve, 0)); // the page's synchronous setup runs first
+        while (this.pendingFrames.length) await Promise.all([...this.pendingFrames]);
     }
 
     private render(): void {
@@ -199,34 +213,62 @@ export class HomeController {
             else this.rewards.failure(error);
         }
     }
+/**
+     * Construction: the unified build effect plays over the old building; when its tools
+     * stop (config constructionSeconds) the level is committed, and only after a successful
+     * save the next-level picture pops in while the effect's sparkle finishes.
+     */
     private beginConstruction(buildId: string, buildingId: string): void {
         const building = this.buildings.get(buildingId);
         if (!building) return;
-        const overlay = this.sprite(building.node, 'scaffold', SCAFFOLD[0], building.node.getComponent(UITransform)!.width, building.node.getComponent(UITransform)!.height, 0.5, 0.5, 0, 0);
-        const ui = building.node.getComponent(UITransform)!;
-        overlay.node.setPosition((0.5 - ui.anchorX) * ui.width, (0.5 - ui.anchorY) * ui.height, 0);
-        this.construction = { buildId, buildingId, elapsed: 0, frame: 0, overlay };
+        const b = this.map.buildings.find(x => x.id === buildingId)!, pending = this.game.state.pendingBuild;
+        if (pending) void this.scope.load(b.assetIds[pending.toLevel], SpriteFrame).catch(() => undefined); // ready for the swap
+        this.construction = { buildId, buildingId, elapsed: 0, fx: null };
+        const c = this.construction;
+        void this.loadFx().then(data => {
+            if (!data || this.construction !== c || !building.isValid) return;
+            const ui = building.node.getComponent(UITransform)!, mount = building.node.parent!;
+            const node = new Node('BuildFx');
+            node.layer = mount.layer; node.parent = mount;
+            node.addComponent(UITransform);
+            // Centre of the building picture, whatever its anchor (feet) is.
+            node.setPosition(building.node.position.x + (0.5 - ui.anchorX) * ui.width * Math.sign(building.node.scale.x), building.node.position.y + (0.5 - ui.anchorY) * ui.height, 0);
+            const s = Math.max(FX_SCALE.min, Math.min(FX_SCALE.max, ui.width / FX_REFERENCE_WIDTH));
+            node.setScale(s, s, 1);
+            // Speed so the tools stop exactly at the configured construction time.
+            void node.addComponent(BuildFx).play(data, this.scope, BuildFx.revealTime(data) / this.game.rules.build.constructionSeconds);
+            c.fx = node;
+        });
         this.render();
+    }
+    private loadFx(): Promise<BuildFxData | null> {
+        this.fxData ??= this.scope.load('fx.build', JsonAsset).then(a => a.json as BuildFxData, error => { console.error(error); return null; });
+        return this.fxData;
     }
     private stepConstruction(dt: number): void {
         const c = this.construction!;
         c.elapsed += dt;
-        const frame = Math.floor(c.elapsed * 6) % SCAFFOLD.length;
-        if (frame !== c.frame) { c.frame = frame; this.setFrame(c.overlay, SCAFFOLD[frame]); }
         if (c.elapsed < this.game.rules.build.constructionSeconds) return;
         try {
             // Commit first; only a saved level is shown. A failed write keeps the pending build for retry.
             this.game.act(s => finishBuild(s, this.game.rules, c.buildId, this.game.day()));
-            c.overlay.node.destroy();
             this.construction = null;
             this.render();
+            this.popBuilding(c.buildingId);
             this.rewards.drain();
         } catch (error) {
-            c.elapsed = 0;
             this.construction = null;
-            c.overlay.node.destroy();
+            if (c.fx?.isValid) c.fx.destroy();
             this.rewards.failure(error, () => this.beginConstruction(c.buildId, c.buildingId));
         }
+    }
+    /** The new level appears with a small bounce (kept mirrored for flipped buildings). */
+    private popBuilding(buildingId: string): void {
+        const node = this.buildings.get(buildingId)?.node;
+        if (!node?.isValid) return;
+        const sx = Math.sign(node.scale.x) || 1, at = (k: number) => new Vec3(sx * k, k, 1);
+        node.setScale(at(0.88));
+        tween(node).to(0.16, { scale: at(1.06) }, { easing: 'quadOut' }).to(0.14, { scale: at(1) }, { easing: 'quadIn' }).start();
     }
 
     /** Level badge: current level, exp and what the next level gives. */

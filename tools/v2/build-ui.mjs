@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { PROJECT } from './env.mjs';
-import { stableUuid } from './import-art.mjs';
+import { importImageTo, stableUuid } from './import-art.mjs';
 import { Builder, color, external, ref, scriptType } from './prefab-builder.mjs';
 
 const LAYOUTS = path.join(PROJECT, 'docs/v2/素材/布局');
@@ -63,8 +63,10 @@ function box(layout, rect) {
     const [x, y, w, h] = [rect[0] * sx, rect[1] * sy, rect[2] * sx, rect[3] * sy];
     return { x: x + w / 2 - DESIGN[0] / 2, y: DESIGN[1] / 2 - (y + h / 2), width: w, height: h };
 }
+/** Overrides used while building start-scene prefabs: their images live in the main package, not a bundle. */
+let frameOverride = null;
 function frame(asset) {
-    const uuid = frameBySource.get(asset.replace(/^\.\.\//, ''));
+    const uuid = frameOverride?.(asset) ?? frameBySource.get(asset.replace(/^\.\.\//, ''));
     if (!uuid) throw new Error(`asset not imported: ${asset}`);
     return uuid;
 }
@@ -271,6 +273,47 @@ function buildHelpDialog() {
     return { name: 'HelpDialog', objects: b.finish() };
 }
 
+const BOOT = 'assets/boot';
+const GAME_BOOT = scriptType('assets/scripts/app/GameBoot.ts');
+const manifestSlices = new Map(JSON.parse(fs.readFileSync(path.join(PROJECT, 'docs/v2/美术交付清单.json'), 'utf8')).uiAssets
+    .flatMap(a => Object.values(a.states ?? {}).concat(a.frames ?? []).map(file => [file, a.slice ?? null])));
+
+/**
+ * S01 loading as a start-scene prefab: it and its images sit in the main package and are
+ * referenced by Main.scene, so they load with the scene and the first frame is never black.
+ */
+function buildLoading() {
+    const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S01.json'), 'utf8'));
+    const copies = new Map(layout.elements.filter(e => e.asset).map(e => {
+        const file = e.asset.replace(/^\.\.\//, '');
+        return [e.asset, importImageTo(`素材/${file}`, `${BOOT}/textures/${path.basename(file)}`, manifestSlices.get(file) ?? null)];
+    }));
+    frameOverride = asset => copies.get(asset);
+    try {
+        const b = new Builder('Loading', DESIGN), nodes = [], nodeIds = [], labels = [], labelIds = [];
+        for (const e of layout.elements) {
+            const node = b.node(e.id, b.root, box(layout, e.rect));
+            nodes.push(ref(node)); nodeIds.push(e.id);
+            if (e.type === 'label') { labels.push(ref(addLabel(b, node, e))); labelIds.push(e.id); }
+            else addSprite(b, node, e);
+        }
+        // Tapping the caption retries a failed boot.
+        b.button(nodeIds.includes('loading_caption') ? nodes[nodeIds.indexOf('loading_caption')].__id__ : b.root, b.root, 'LayoutView', 'onAction', 'retry');
+        b.component(b.root, VIEW, { pageId: 'Loading', nodes, nodeIds, labels, labelIds });
+        return { name: 'Loading', dir: BOOT, objects: b.finish() };
+    } finally { frameOverride = null; }
+}
+
+/** Points GameBoot on Main.scene at the loading prefab (scene dependencies load before the first frame). */
+function linkBootScene(loadingUuid) {
+    const file = path.join(PROJECT, 'assets/scenes/Main.scene'), text = fs.readFileSync(file, 'utf8'), scene = JSON.parse(text);
+    const boot = scene.find(o => o.__type__ === GAME_BOOT);
+    if (!boot) throw new Error('Main.scene has no GameBoot');
+    boot.loadingPrefab = external(loadingUuid, 'cc.Prefab');
+    const next = JSON.stringify(scene, null, 2) + '\n';
+    if (next !== text) fs.writeFileSync(file, next);
+}
+
 /** Per-building upgrade anchor (dots + cost) taken from S03's B01 group, positioned relative to the building feet. */
 function buildAnchor() {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S03.json'), 'utf8'));
@@ -288,13 +331,13 @@ function buildAnchor() {
     return { name: 'BuildAnchor', objects: b.finish() };
 }
 
-function writePrefab({ name, objects }) {
-    const file = path.join(PROJECT, OUT, name + '.prefab');
+function writePrefab({ name, objects, dir = OUT }) {
+    const file = path.join(PROJECT, dir, name + '.prefab');
     fs.mkdirSync(path.dirname(file), { recursive: true });
     const text = JSON.stringify(objects, null, 2) + '\n';
     if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== text) fs.writeFileSync(file, text);
     if (!fs.existsSync(file + '.meta')) fs.writeFileSync(file + '.meta', JSON.stringify({ ver: '1.1.50', importer: 'prefab', imported: true,
-        uuid: stableUuid(`${OUT}/${name}.prefab`), files: ['.json'], subMetas: {}, userData: { syncNodeName: name } }, null, 2) + '\n');
+        uuid: stableUuid(`${dir}/${name}.prefab`), files: ['.json'], subMetas: {}, userData: { syncNodeName: name } }, null, 2) + '\n');
 }
 function dirMeta(rel) {
     const meta = path.join(PROJECT, rel + '.meta');
@@ -306,6 +349,9 @@ export function buildUi() {
     const all = [...pages, buildAnchor(), buildMapCard(), buildReplayRow(), buildHelpDialog()];
     fs.mkdirSync(path.join(PROJECT, OUT), { recursive: true }); dirMeta(OUT);
     all.forEach(writePrefab);
+    const loading = buildLoading();
+    writePrefab(loading);
+    linkBootScene(JSON.parse(fs.readFileSync(path.join(PROJECT, BOOT, 'Loading.prefab.meta'), 'utf8')).uuid);
     // Runtime registry: ResourceLoader verifies each prefab by UUID before instantiating it.
     const registry = all.map(p => ({ id: `prefab.${p.name}`, bundle: 'ui', path: `prefabs/${p.name}`, type: 'Prefab', uuid: stableUuid(`${OUT}/${p.name}.prefab`) }));
     const out = path.join(PROJECT, 'assets/resources/config/ui-prefabs.json'), text = JSON.stringify({ schema: 'honey-town.prefabs.v1', resources: registry }, null, 1) + '\n';

@@ -119,7 +119,7 @@ export class GuideCoach {
         if (!this.target && !this.lesson) return;
         if (this.target && !this.target.node.isValid) { this.clear(); return; }
         const covered = this.nav.dialogOpen && !!this.target && !this.inDialog(this.target.node) || this.nav.dialogOpen && !!this.lesson;
-        const hold = this.paused || covered;
+        const hold = this.paused || covered || this.nav.transitioning;
         this.settle = hold ? DIM.settle : Math.max(0, this.settle - dt);
         const holes = hold ? null : this.target ? this.targetHoles() : this.lesson!.holes();
         const showing = !hold && this.settle <= 0 && !!holes;

@@ -4974,6 +4974,150 @@
         "center": "three paired color sectors",
         "rotationForIllustrationOnly": 90
       }
+    },
+    {
+      "id": "fx_build_hammer",
+      "name": "建造特效（coinbeach24 复用）hammer",
+      "states": {
+        "default": "UI/特效/build/fx_build_hammer.png"
+      },
+      "size": [
+        133,
+        105
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
+      "reuseFrom": "coinbeach24/assets/LiveData/anim/build/building.png#hammer",
+      "priority": "P2",
+      "batch": "reuse-build-fx",
+      "sha256": {
+        "default": "990bd44ba953ca2d312139670f93c43824ffb5011f79923a257320471a80d760"
+      }
+    },
+    {
+      "id": "fx_build_saw",
+      "name": "建造特效（coinbeach24 复用）saw",
+      "states": {
+        "default": "UI/特效/build/fx_build_saw.png"
+      },
+      "size": [
+        180,
+        68
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
+      "reuseFrom": "coinbeach24/assets/LiveData/anim/build/building.png#saw",
+      "priority": "P2",
+      "batch": "reuse-build-fx",
+      "sha256": {
+        "default": "283b58f4dd6cac7b66b694c1492165d7041ca830d2b5e9ffbff048c982fc4191"
+      }
+    },
+    {
+      "id": "fx_build_smoke",
+      "name": "建造特效（coinbeach24 复用）smoke",
+      "states": {
+        "default": "UI/特效/build/fx_build_smoke.png"
+      },
+      "size": [
+        169,
+        160
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
+      "reuseFrom": "coinbeach24/assets/LiveData/anim/build/building.png#smoke particle",
+      "priority": "P2",
+      "batch": "reuse-build-fx",
+      "sha256": {
+        "default": "4f6b25f969249cc49a7e655b9317a613c033a4a3f97f896efa7d425f27bb2443"
+      }
+    },
+    {
+      "id": "fx_build_puff",
+      "name": "建造特效（coinbeach24 复用）puff",
+      "states": {
+        "default": "UI/特效/build/fx_build_puff.png"
+      },
+      "size": [
+        169,
+        160
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
+      "reuseFrom": "coinbeach24/assets/LiveData/anim/build/building-yan.png",
+      "priority": "P2",
+      "batch": "reuse-build-fx",
+      "sha256": {
+        "default": "b663608d6e1b45e5b07fc4e12179b3973e8b3ce0822a8149b5ace9fd8dc90814"
+      }
+    },
+    {
+      "id": "fx_build_ray",
+      "name": "建造特效（coinbeach24 复用）ray",
+      "states": {
+        "default": "UI/特效/build/fx_build_ray.png"
+      },
+      "size": [
+        156,
+        142
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
+      "reuseFrom": "coinbeach24/assets/Texture/effect/light/PopUpRay1.png",
+      "priority": "P2",
+      "batch": "reuse-build-fx",
+      "sha256": {
+        "default": "d9e816e06a327c8d999a51e668bdfd85df25552e8a8700f1d2c160f256008447"
+      }
+    },
+    {
+      "id": "fx_build_spark",
+      "name": "建造特效（coinbeach24 复用）spark",
+      "states": {
+        "default": "UI/特效/build/fx_build_spark.png"
+      },
+      "size": [
+        91,
+        87
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
+      "reuseFrom": "coinbeach24/assets/LiveData/particle/smoke/yan2.png",
+      "priority": "P2",
+      "batch": "reuse-build-fx",
+      "sha256": {
+        "default": "349f24d484d40257f4ec2ca08aa2a96256388aabf2a89e54b2b11507bb3f7661"
+      }
     }
   ],
   "uiLayouts": [

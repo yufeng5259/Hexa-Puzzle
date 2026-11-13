@@ -80,7 +80,7 @@ export function defaultRules(): Rules {
         mainline: mainline(110),
         maps,
         firstMapId: 'M01',
-        build: { expPerUpgrade: 20, constructionSeconds: 1.8 },
+        build: { expPerUpgrade: 20, constructionSeconds: 1.6 },
         // Linear 100 exp per level; every level gives 1 energy, levels 6/11/16… also a hint.
         levels: Array.from({ length: 30 }, (_, i) => ({ expToNext: 100, rewardId: i === 0 ? null : (i + 1) % 5 === 1 ? 'level_up_5' : 'level_up' })),
         signIn: ['sign_1', 'sign_2', 'sign_3', 'sign_4', 'sign_5', 'sign_6', 'sign_7'],

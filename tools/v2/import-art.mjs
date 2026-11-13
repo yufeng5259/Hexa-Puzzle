@@ -84,6 +84,17 @@ export function plan() {
     return items;
 }
 
+/**
+ * Copies one delivered image (path under docs/v2) to a project-relative PNG outside any bundle
+ * (e.g. assets/boot/ for the start scene) and returns its SpriteFrame UUID.
+ */
+export function importImageTo(source, targetRel, slice = null) {
+    const bytes = fs.readFileSync(path.join(DOCS, source)), target = path.join(PROJECT, targetRel);
+    dirMeta(path.dirname(target), null);
+    write(target, bytes);
+    return `${imageMeta(target, pngSize(bytes), slice)}@f9941`;
+}
+
 export function importArt() {
     const registry = [];
     for (const item of plan()) {
@@ -98,6 +109,9 @@ export function importArt() {
     // The 110-question catalog is kept as is; registering it lets the puzzle bundle load through ResourceLoader.
     const catalog = 'assets/bundles/puzzle/config/level-catalog.json';
     registry.push({ id: 'puzzle.catalog', bundle: 'puzzle', path: 'config/level-catalog', type: 'JsonAsset', uuid: JSON.parse(fs.readFileSync(path.join(PROJECT, catalog + '.meta'), 'utf8')).uuid, source: catalog });
+    // Effect timelines migrated by import-build-fx.mjs.
+    const fx = 'assets/bundles/ui/config/build-fx.json';
+    if (fs.existsSync(path.join(PROJECT, fx + '.meta'))) registry.push({ id: 'fx.build', bundle: 'ui', path: 'config/build-fx', type: 'JsonAsset', uuid: JSON.parse(fs.readFileSync(path.join(PROJECT, fx + '.meta'), 'utf8')).uuid, source: fx });
     const out = path.join(PROJECT, 'assets/resources/config/resource-registry.json');
     write(out, JSON.stringify({ schema: 'honey-town.resources.v1', resources: registry }, null, 1) + '\n');
     if (!fs.existsSync(out + '.meta')) write(out + '.meta', JSON.stringify({ ver: '2.0.1', importer: 'json', imported: true, uuid: stableUuid(rel(out)), files: ['.json'], subMetas: {}, userData: {} }, null, 2) + '\n');
