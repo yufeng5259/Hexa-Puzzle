@@ -18,8 +18,10 @@ const ART = {
     bubble: 'UI/引导/guide_bubble.png', tail: 'UI/引导/guide_bubble_tail.png', ring: 'UI/引导/guide_ring.png',
     toast: 'UI/通用/toast_bg.png',
 };
-/** Fingertip position inside the 140×200 hand canvas (manifest anchor, top-left origin). */
-const HAND = { width: 140, height: 200, tipX: 0.18, tipY: 0.06 };
+/** Fingertip pixel [20,36] in the 140×200 hand canvas (manifest anchor, top-left origin). */
+const HAND = { width: 140, height: 200, tipX: 20 / 140, tipY: 36 / 200 };
+/** The tail's open top edge overlaps the bubble bottom by this much (manifest attach.overlapPixels). */
+const TAIL = { width: 40, height: 28, overlap: 14 };
 const BUBBLE_GAP = 64;
 const PULSE = 1.08;
 const RING_PAD = 18;
@@ -61,7 +63,8 @@ export class GuideCoach {
     }
 
     /** Points at a node: ring (or pulse), tapping hand when delivered, and a text bubble above it. */
-    public point(target: Node, rowId: string): void {
+    /** side 'left': bubble beside the target (bottom-bar buttons, where above would cover other controls). */
+    public point(target: Node, rowId: string, side: 'above' | 'left' = 'above'): void {
         if (this.target === target && this.bubble?.isValid) return;
         this.clear();
         const ui = target.getComponent(UITransform);
@@ -78,9 +81,15 @@ export class GuideCoach {
             tween(target).repeatForever(tween(target).to(0.45, { scale: new Vec3(s.x * PULSE, s.y * PULSE, s.z) }).to(0.45, { scale: s })).start();
         }
         if (this.nav.hasFrame(ART.hand)) this.tapHand(new Vec3(center.x + ui.width * 0.15, center.y - ui.height * 0.15, 0));
+        const text = this.text(rowId);
+        if (side === 'left') {
+            const w = Math.min(600, measure(text, 36)) + 2 * TEXT_PAD.x;
+            this.say(text, new Vec3(center.x - ui.width / 2 - RING_PAD - 16 - w / 2, center.y, 0), true, false);
+            return;
+        }
         const top = this.local(ui.convertToWorldSpaceAR(new Vec3(0, ui.height * (1 - ui.anchorY) + BUBBLE_GAP, 0)));
         const half = this.layer.getComponent(UITransform)!.width / 2 - 200;
-        this.say(this.text(rowId), new Vec3(Math.max(-half, Math.min(half, top.x)), top.y, 0), true);
+        this.say(text, new Vec3(Math.max(-half, Math.min(half, top.x)), top.y, 0), true);
     }
 
     /**
@@ -129,7 +138,7 @@ export class GuideCoach {
     }
 
     /** Text with its background: guide bubble + tail, or toast capsule; outlined text until delivered. */
-    private say(text: string, at: Vec3, guide: boolean): Label {
+    private say(text: string, at: Vec3, guide: boolean, tail = true): Label {
         const art = guide ? ART.bubble : ART.toast, framed = this.nav.hasFrame(art);
         const background = framed ? this.sprite(guide ? 'GuideBubble' : 'Toast', art, 10, 10, true) : null;
         const node = this.make('GuideText', 600, 60);
@@ -145,7 +154,7 @@ export class GuideCoach {
             const h = node.getComponent(UITransform)!.height + 2 * TEXT_PAD.y, w = Math.min(600, measure(text, 36)) + 2 * TEXT_PAD.x;
             background.node.getComponent(UITransform)!.setContentSize(w, h);
             background.node.setPosition(at);
-            if (guide && this.nav.hasFrame(ART.tail)) this.sprite('GuideTail', ART.tail, 40, 28, false).node.setPosition(at.x, at.y - h / 2 - 12, 0);
+            if (guide && tail && this.nav.hasFrame(ART.tail)) this.sprite('GuideTail', ART.tail, TAIL.width, TAIL.height, false).node.setPosition(at.x, at.y - h / 2 - TAIL.height / 2 + TAIL.overlap, 0);
         } else {
             label.color = new Color(255, 255, 255, 255);
             label.enableOutline = true; label.outlineColor = new Color(96, 52, 12, 255); label.outlineWidth = 4;

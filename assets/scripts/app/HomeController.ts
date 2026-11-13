@@ -134,7 +134,7 @@ export class HomeController {
     private renderGuide(): void {
         if (this.nav.dialogOpen) return;
         const step = this.guide.step;
-        if (step === 'goBuild' && !this.build?.isValid) this.guide.point(this.home!.element('home_btn_build'), 'build');
+        if (step === 'goBuild' && !this.build?.isValid) this.guide.point(this.home!.element('home_btn_build'), 'build', 'left');
         else if (step === 'goBuild') {
             const anchor = this.anchors.get(this.game.rules.guideBuildingId);
             if (anchor?.isValid && anchor.has('cost')) this.guide.point(anchor.element('cost'), 'upgrade');
