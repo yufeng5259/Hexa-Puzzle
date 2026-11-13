@@ -95,6 +95,9 @@ export function importArt() {
         const uuid = imageMeta(target, pngSize(bytes), item.slice);
         registry.push({ id: item.id, bundle: item.bundle, path: item.path + '/spriteFrame', type: 'SpriteFrame', uuid: `${uuid}@f9941`, source: item.source });
     }
+    // The 110-question catalog is kept as is; registering it lets the puzzle bundle load through ResourceLoader.
+    const catalog = 'assets/bundles/puzzle/config/level-catalog.json';
+    registry.push({ id: 'puzzle.catalog', bundle: 'puzzle', path: 'config/level-catalog', type: 'JsonAsset', uuid: JSON.parse(fs.readFileSync(path.join(PROJECT, catalog + '.meta'), 'utf8')).uuid, source: catalog });
     const out = path.join(PROJECT, 'assets/resources/config/resource-registry.json');
     write(out, JSON.stringify({ schema: 'honey-town.resources.v1', resources: registry }, null, 1) + '\n');
     if (!fs.existsSync(out + '.meta')) write(out + '.meta', JSON.stringify({ ver: '2.0.1', importer: 'json', imported: true, uuid: stableUuid(rel(out)), files: ['.json'], subMetas: {}, userData: {} }, null, 2) + '\n');

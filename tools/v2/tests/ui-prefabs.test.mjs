@@ -52,3 +52,31 @@ for (const file of fs.readdirSync(OUT).filter(f => f.endsWith('.prefab'))) {
             for (const event of button.clickEvents) assert.deepEqual([event.component, event.handler, event.target.__id__], ['LayoutView', 'onAction', 1]);
     });
 }
+
+const BOARD = scriptType('assets/scripts/features/puzzle/presentation/PuzzleBoardPresentation.ts');
+const CONTROLLER = scriptType('assets/scripts/features/puzzle/controller/PuzzleController.ts');
+for (const page of ['S04', 'S05']) {
+    test(`${page}: board, scrolling tray and drag controller are wired for the puzzle feature`, () => {
+        const objects = JSON.parse(fs.readFileSync(path.join(OUT, page + '.prefab'), 'utf8'));
+        const node = ref => objects[ref.__id__], name = ref => node(ref)._name;
+        const board = objects.find(o => o.__type__ === BOARD), controller = objects.find(o => o.__type__ === CONTROLLER);
+        assert.equal(board.node.__id__, 1); assert.equal(controller.node.__id__, 1);
+        assert.deepEqual([name(board.boardMount), name(board.piecesMount), name(board.trayViewport)], ['BoardMount', 'TrayContent', 'TrayView']);
+        const scroll = node(board.trayScroll);
+        assert.equal(scroll.__type__, 'cc.ScrollView');
+        assert.equal(scroll._content.__id__, board.piecesMount.__id__, 'ScrollView content is the pieces mount');
+        assert.equal(node(node(board.piecesMount)._parent).__type__ === 'cc.Node' && name(node(board.piecesMount)._parent), 'TrayView');
+        assert.ok(node(board.trayViewport)._components.some(c => node(c).__type__ === 'cc.Mask'), 'tray clips extra pages');
+        const textures = JSON.parse(board.textureAssetIds);
+        const catalog = JSON.parse(fs.readFileSync(path.join(PROJECT, 'assets/bundles/puzzle/config/level-catalog.json'), 'utf8'));
+        const registry = new Set(JSON.parse(fs.readFileSync(path.join(PROJECT, 'assets/resources/config/resource-registry.json'), 'utf8')).resources.map(r => r.id));
+        for (const level of catalog.levels) for (const piece of level.pieces) assert.ok(registry.has(textures[piece.textureName]), piece.textureName);
+        assert.ok(registry.has(board.wellAssetId) && registry.has(board.obstacleAssetId) && registry.has('puzzle.catalog'));
+        assert.equal(node(controller.board).__type__, BOARD);
+        assert.equal(controller.previewRoot.__id__, node(controller.previewGraphics).node.__id__);
+        assert.equal(node(controller.previewRoot)._parent.__id__, board.boardMount.__id__, 'preview draws between cells and placed pieces');
+        const children = objects[1]._children.map(name);
+        assert.equal(children.indexOf('HintLayer'), children.indexOf('BoardMount') + 1, 'hint outlines sit right above the board');
+        assert.equal(children.at(-1), 'DragRoot', 'dragged pieces render above everything');
+    });
+}

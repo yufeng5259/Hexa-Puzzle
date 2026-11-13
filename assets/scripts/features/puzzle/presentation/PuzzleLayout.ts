@@ -69,9 +69,9 @@ export function fitTray(pieces: readonly { cells: readonly AxialCell[] }[], widt
 }
 
 /** Three visible slots with stable radius. Extra pieces extend horizontal content. */
-export function fitTrayWindow(pieces: readonly { cells: readonly AxialCell[] }[], width: number, height: number, gap=12,padding=12): TrayFit {
+export function fitTrayWindow(pieces: readonly { cells: readonly AxialCell[] }[], width: number, height: number, gap=12,padding=12,maxRadius=Infinity): TrayFit {
  const columns=3, slot=(width-2*padding-gap*2)/3;
- const radius=Math.min(...pieces.map(piece=>fitCells(piece.cells,slot,height-2*padding).radius));
+ const radius=Math.min(maxRadius,...pieces.map(piece=>fitCells(piece.cells,slot,height-2*padding).radius));
  const contentWidth=Math.max(width,padding*2+pieces.length*slot+Math.max(0,pieces.length-1)*gap);
  return {columns,rows:1,radius,contentWidth,pieces:pieces.map((piece,i)=>({...centeredCells(piece.cells,radius),position:{x:-contentWidth/2+padding+slot/2+i*(slot+gap),y:0}}))};
 }

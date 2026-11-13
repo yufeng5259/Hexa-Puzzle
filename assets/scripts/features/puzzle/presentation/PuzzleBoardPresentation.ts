@@ -4,7 +4,7 @@ import type { ResourceScope } from '../../../framework/resources/ResourceScope';
 import { PresentationItem } from '../../presentation/PresentationItem';
 import { SourceGeometry } from '../../presentation/SourceGeometry';
 import type { LevelDefinition } from '../data/LevelCatalog';
-import { axialPoint, fitCells, fitTray, fitTrayWindow, pieceCenter, type AxialCell, type HexFit, type Point2, type TrayFit } from './PuzzleLayout';
+import { axialPoint, centeredCells, fitCells, fitTray, fitTrayWindow, pieceCenter, type AxialCell, type HexFit, type Point2, type TrayFit } from './PuzzleLayout';
 import type { PuzzleSessionSnapshot } from '../session/PuzzleSession';
 import { PuzzlePiecePresentation } from './PuzzlePiecePresentation';
 const { ccclass, property } = _decorator;
@@ -31,6 +31,9 @@ export class PuzzleBoardPresentation extends Component {
     @property(CCString) public obstacleAssetId = '';
     @property(CCString) public textureAssetIds = '{}';
     @property public boardPadding = 32;
+    /** Largest cell radius on the board and in the tray; 0 lets small levels fill the mount. */
+    @property public maxRadius = 0;
+    @property public trayMaxRadius = 0;
     @property public trayGap = 12;
     @property public trayPadding = 8;
     @property(ScrollView) public trayScroll: ScrollView | null = null;
@@ -74,7 +77,8 @@ export class PuzzleBoardPresentation extends Component {
         const trayUI = requireBinding('PuzzleBoardPresentation', 'piecesMount.UITransform', tray.getComponent(UITransform));
         const cellPrefab = requireBinding('PuzzleBoardPresentation', 'cellPrefab', this.cellPrefab);
         const piecePrefab = requireBinding('PuzzleBoardPresentation', 'piecePrefab', this.piecePrefab);
-        const geometries = [this.boardShadow, this.boardFloor, this.boardRim].map((g, i) => requireBinding('PuzzleBoardPresentation', ['boardShadow', 'boardFloor', 'boardRim'][i], g));
+        // Board frame geometry is optional: a skin may draw the board with cell art only.
+        const geometries = [this.boardShadow, this.boardFloor, this.boardRim];
         if (scope.isReleased || !this.wellAssetId || !this.obstacleAssetId) throw new Error('PuzzleBoardPresentation: registered cell assets and live borrowed scope required');
         let textures: Record<string, string>;
         try { textures = JSON.parse(this.textureAssetIds); } catch { throw new Error('PuzzleBoardPresentation: invalid textureAssetIds JSON'); }
@@ -82,10 +86,11 @@ export class PuzzleBoardPresentation extends Component {
             throw new Error('PuzzleBoardPresentation: every piece textureName requires a registered asset mapping');
         }
         const allCells = [...level.targetCells, ...level.obstacleCells];
-        const fit = fitCells(allCells, boardUI.width, boardUI.height, this.boardPadding);
+        const fitted = fitCells(allCells, boardUI.width, boardUI.height, this.boardPadding);
+        const fit = this.maxRadius > 0 && fitted.radius > this.maxRadius ? centeredCells(allCells, this.maxRadius) : fitted;
         const viewport = this.trayViewport?.getComponent(UITransform);
         const trayWidth = viewport?.width || trayUI.width;
-        const trayFit = this.trayScroll ? fitTrayWindow(level.pieces, trayWidth, trayUI.height, this.trayGap, this.trayPadding) : fitTray(level.pieces, trayUI.width, trayUI.height, this.trayGap, this.trayPadding);
+        const trayFit = this.trayScroll ? fitTrayWindow(level.pieces, trayWidth, trayUI.height, this.trayGap, this.trayPadding, this.trayMaxRadius || Infinity) : fitTray(level.pieces, trayUI.width, trayUI.height, this.trayGap, this.trayPadding);
         if (this.trayScroll) {
             if (this.trayScroll.content !== tray) throw new Error('PuzzleBoardPresentation: ScrollView content binding mismatch');
             trayUI.width = trayFit.contentWidth!;
@@ -125,6 +130,7 @@ export class PuzzleBoardPresentation extends Component {
             ]);
             if (!this.current(revision) || scope.isReleased) return;
             geometries.forEach((geometry, i) => {
+                if (!geometry) return;
                 geometry.node.active = true;
                 const ui = requireBinding('PuzzleBoardPresentation', 'geometry.UITransform', geometry.node.getComponent(UITransform));
                 ui.setContentSize(boardUI.width, boardUI.height);

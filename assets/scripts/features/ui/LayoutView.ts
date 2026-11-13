@@ -1,6 +1,7 @@
 import { _decorator, CCString, Label, Node, Sprite, SpriteFrame } from 'cc';
 import { BaseView } from '../../framework/ui/BaseView';
 import { requireBinding } from '../../framework/components/Binding';
+import type { ResourceScope } from '../../framework/resources/ResourceScope';
 const { ccclass, property } = _decorator;
 
 /**
@@ -24,6 +25,8 @@ export class LayoutView extends BaseView {
         this.nodes.forEach((node, i) => requireBinding(`LayoutView ${this.pageId}`, this.nodeIds[i], node));
         this.labels.forEach((label, i) => requireBinding(`LayoutView ${this.pageId}`, this.labelIds[i], label));
     }
+    /** The scope this view owns; data-driven children (board cells, pieces) borrow it. */
+    public get resources(): ResourceScope { return this.resourceScope; }
     public has(id: string): boolean { return this.nodeMap().has(id); }
     public element(id: string): Node {
         const node = this.nodeMap().get(id);

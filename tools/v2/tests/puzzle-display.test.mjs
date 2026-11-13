@@ -197,3 +197,14 @@ test('piece input remains an intent port and listeners unsubscribe symmetrically
     const position={...node.position};node.emit('start');node.emit('end');assert.deepEqual(events.map(e=>e.phase),['start','end']);assert.deepEqual(node.position,position);
     piece.onDisable();node.emit('start');assert.equal(events.length,2);piece.onEnable();node.emit('start');assert.equal(events.length,3);
 });
+test('frameless skin: board geometry is optional and maxRadius caps small boards and trays',async()=>{
+    const r=runtime(),board=r.board();
+    board.boardFloor=board.boardRim=board.boardShadow=null;board.maxRadius=40;
+    await board.present(r.scope,level());
+    assert.equal(board.boardFit.radius,40,'small board does not blow up to the mount size');
+    const uncapped=r.fitCells([...level().targetCells,...level().obstacleCells],703,705,32);
+    assert.ok(uncapped.radius>40);
+    const tray=r.fitTrayWindow(level().pieces,780,280,12,12,30),free=r.fitTrayWindow(level().pieces,780,280,12,12);
+    assert.equal(tray.radius,30);assert.ok(free.radius>30);
+    tray.pieces.forEach((piece,i)=>assert.deepEqual(piece.position,free.pieces[i].position,'slots stay where they were'));
+});

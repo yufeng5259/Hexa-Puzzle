@@ -95,7 +95,62 @@ function buildPage(file) {
     }
     if (buttons.size) throw new Error(`${page}: button ids not in layout: ${[...buttons]}`);
     b.component(b.root, VIEW, { pageId: page, nodes, nodeIds, labels, labelIds });
+    if (PUZZLE_PAGES.has(page)) puzzleRig(b, layout, mounts.get('BoardMount').id, mounts.get('TrayMount').id);
     return { name: page, objects: b.finish() };
+}
+
+const PUZZLE_PAGES = new Set(['S04', 'S05']);
+const BOARD = scriptType('assets/scripts/features/puzzle/presentation/PuzzleBoardPresentation.ts');
+const CONTROLLER = scriptType('assets/scripts/features/puzzle/controller/PuzzleController.ts');
+const metaUuid = rel => JSON.parse(fs.readFileSync(path.join(PROJECT, rel + '.meta'), 'utf8')).uuid;
+const TEXTURES = ['1', '3', '6', '7', '8', '9', '10', '11', '12', '13', '16', '17'].map(n => `${n}_png`);
+const graphics = (b, node) => b.component(node, 'cc.Graphics', { _customMaterial: null, _visFlags: 0, _srcBlendFactor: 2, _dstBlendFactor: 4, _color: color(),
+    _lineWidth: 1, _strokeColor: color([0, 0, 0]), _lineJoin: 2, _lineCap: 0, _fillColor: color(), _miterLimit: 10 });
+
+/**
+ * Board and tray of S04/S05. The sample cells in the layout only mark the regions: the
+ * board spans title to instruction, the tray sits inside its frame. Cells and pieces are
+ * instantiated by PuzzleBoardPresentation; PuzzleController drags on the page root.
+ */
+function puzzleRig(b, layout, boardId, trayId) {
+    const el = id => layout.elements.find(e => e.id === id);
+    const top = Math.max(...['puzzle_title_line', 'puzzle_steps_plate'].map(el).filter(Boolean).map(e => e.rect[1] + e.rect[3])) + 20;
+    const bottom = el('puzzle_instruction').rect[1] - 16, frameRect = el('puzzle_tray_frame').rect, inset = 18;
+    const place = (id, rect) => {
+        const at = box(layout, rect), node = b.objects[id];
+        node._lpos.x = at.x; node._lpos.y = at.y;
+        b.objects[node._components[0].__id__]._contentSize = { __type__: 'cc.Size', width: at.width, height: at.height };
+        return at;
+    };
+    const boardBox = place(boardId, [30, top, layout.size[0] - 60, bottom - top]);
+    const trayBox = place(trayId, [frameRect[0] + inset, frameRect[1] + inset, frameRect[2] - 2 * inset, frameRect[3] - 2 * inset]);
+    const size = at => ({ width: at.width, height: at.height });
+
+    const preview = b.node('PreviewRoot', boardId, size(boardBox), false);
+    const previewGraphics = graphics(b, preview), previewOpacity = b.component(preview, 'cc.UIOpacity', { _opacity: 255 });
+    // Hint outlines draw above cells and pieces, in the board's coordinates.
+    const hint = b.node('HintLayer', b.root, { x: boardBox.x, y: boardBox.y, ...size(boardBox) });
+    const rootChildren = b.objects[b.root]._children;
+    rootChildren.splice(rootChildren.findIndex(r => r.__id__ === boardId) + 1, 0, rootChildren.pop());
+    const hintGraphics = graphics(b, hint);
+
+    const view = b.node('TrayView', trayId, size(trayBox));
+    graphics(b, view);
+    b.component(view, 'cc.Mask', { _type: 0, _inverted: false, _segments: 64, _alphaThreshold: 0.1 });
+    const content = b.node('TrayContent', view, size(trayBox));
+    const scroll = b.component(trayId, 'cc.ScrollView', { bounceDuration: 0.23, brake: 0.75, elastic: true, inertia: true, horizontal: true, vertical: false,
+        cancelInnerEvents: true, scrollEvents: [], _content: ref(content), _horizontalScrollBar: null, _verticalScrollBar: null });
+    const drag = b.node('DragRoot', b.root, { width: DESIGN[0], height: DESIGN[1] });
+
+    const board = b.component(b.root, BOARD, {
+        liveRoot: ref(boardId), fixtureNodes: [], boardMount: ref(boardId), piecesMount: ref(content),
+        cellPrefab: external(metaUuid('assets/bundles/puzzle/prefabs/items/HexCellItem.prefab'), 'cc.Prefab'),
+        piecePrefab: external(metaUuid('assets/bundles/puzzle/prefabs/items/PuzzlePieceItem.prefab'), 'cc.Prefab'),
+        boardFloor: null, boardRim: null, boardShadow: null, remainingLabel: null, remainingCaptionLabel: null, levelLabel: null, totalCellsLabel: null, moveLimitLabel: null,
+        wellAssetId: 'hex.empty_well', obstacleAssetId: 'hex.obstacle_riveted', textureAssetIds: JSON.stringify(Object.fromEntries(TEXTURES.map(t => [t, `hex.${t}`]))),
+        boardPadding: 8, maxRadius: 62, trayMaxRadius: 37, trayGap: 12, trayPadding: 12, trayScroll: ref(scroll), trayViewport: ref(view), hintGraphics: ref(hintGraphics), countMoves: false,
+    });
+    b.component(b.root, CONTROLLER, { board: ref(board), dragRoot: ref(drag), previewRoot: ref(preview), previewGraphics: ref(previewGraphics), previewOpacity: ref(previewOpacity) });
 }
 
 /** Per-building upgrade anchor (dots + cost) taken from S03's B01 group, positioned relative to the building feet. */

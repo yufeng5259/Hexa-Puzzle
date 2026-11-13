@@ -17,7 +17,8 @@ const OWN_PAGE = new Set<DisplayEvent['type']>(['firstClear', 'replay', 'signIn'
  * Rewards are already in the wallet when shown; closing a dialog never grants again.
  */
 export class RewardPresenter {
-    public constructor(private readonly game: Game, private readonly nav: Navigator, private readonly changed: () => void) {}
+    /** drains=false: closing a dialog does not pull in queued home rewards (used on the puzzle page). */
+    public constructor(private readonly game: Game, private readonly nav: Navigator, private readonly changed: () => void, private readonly drains = true) {}
 
     /** Shows every pending reward in order, then the welcome step of the first-run guide. */
     public drain(): void {
@@ -28,7 +29,7 @@ export class RewardPresenter {
         if (guideStep(this.game.state, this.game.rules) === 'welcome') this.welcome();
     }
     private peek(): DisplayEvent | null { return this.game.state.displayQueue[0] ?? null; }
-    private next = (): void => { this.nav.closeDialog(); this.changed(); this.drain(); };
+    private next = (): void => { this.nav.closeDialog(); this.changed(); if (this.drains) this.drain(); };
 
     private show(event: DisplayEvent): void {
         const r = event.reward;
