@@ -95,6 +95,8 @@ test('S02: side-entry red dots exist, hidden until feature code shows them', () 
     for (const id of ['signin_reddot', 'task_reddot']) {
         const node = objects[view.nodes[view.nodeIds.indexOf(id)].__id__];
         assert.equal(node._name, id); assert.equal(node._active, false);
+        const pin = node._components.map(c => objects[c.__id__]).find(c => c.side !== undefined);
+        assert.equal(pin?.side, 0, `${id} pinned left with its entry`);
     }
 });
 
@@ -164,4 +166,55 @@ test('prefabs only reference their own bundle, the main package, or bundles load
         }
     })(path.join(PROJECT, 'assets/bundles', name));
     assert.deepEqual(bad, []);
+});
+
+test('edge pins: HUD / bottom band groups follow their side, centre stays, children inherit', async () => {
+    const { edgePins, pageLayout } = await import('../build-ui.mjs');
+    const pins = edgePins(pageLayout('S02.json'));
+    for (const id of ['hud_level_badge', 'player_level', 'signin_entry', 'signin_text', 'home_btn_build', 'build_text', 'build_reddot', 'home_btn_back', 'back_text']) assert.equal(pins.get(id), 0, id);
+    for (const id of ['hud_btn_square_purple', 'icon_settings', 'hud_coin', 'coin_value', 'endless_entry']) assert.equal(pins.get(id), 1, id);
+    for (const id of ['hud_energy', 'energy_icon', 'energy_count', 'home_play_btn', 'play_text', 'map_name']) assert.equal(pins.has(id), false, id);
+    const s03 = edgePins(pageLayout('S03.json'));
+    assert.equal(s03.get('home_btn_home'), 0); assert.equal(s03.get('icon_gift'), 1);
+});
+
+test('S02 bottom: no bar or home button; square build button bottom-left, Play centred, back button hidden', async () => {
+    const { pageLayout, HOME_ROW } = await import('../build-ui.mjs');
+    const layout = pageLayout('S02.json'), el = id => layout.elements.find(e => e.id === id), [W, H] = layout.size;
+    for (const id of ['home_bottom_bar', 'home_btn_home', 'icon_home']) assert.equal(el(id), undefined, id);
+    const play = el('home_play_btn').rect, build = el('home_btn_build').rect;
+    assert.deepEqual(el('home_btn_back').rect, build, 'back button takes the build button place');
+    assert.equal(build[2], build[3], 'square'); assert.equal(build[3], HOME_ROW.height);
+    assert.ok(Math.abs(play[0] + play[2] / 2 - W / 2) <= 1, 'Play centred');
+    assert.ok(build[0] + build[2] < play[0], 'build left of Play');
+    assert.equal(play[1], build[1]); assert.equal(H - (play[1] + play[3]), HOME_ROW.margin);
+    const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S02.prefab'), 'utf8'));
+    const view = objects.find(o => o.__type__ === VIEW), node = id => objects[view.nodes[view.nodeIds.indexOf(id)].__id__];
+    for (const id of ['home_btn_back', 'icon_back', 'back_text', 'build_reddot']) assert.equal(node(id)._active, false, id);
+    for (const id of ['home_btn_build', 'icon_build', 'build_text']) assert.equal(node(id)._active, true, id);
+    const actions = objects.filter(o => o.__type__ === 'cc.Button').flatMap(b => b.clickEvents.map(e => e.customEventData));
+    for (const id of ['home_btn_build', 'home_btn_back', 'home_play_btn']) assert.ok(actions.includes(id), id);
+});
+
+test('HUD energy: count label drawn over the enlarged heart on every page with the energy capsule', async () => {
+    const { pageLayout } = await import('../build-ui.mjs');
+    for (const page of ['S02', 'S03', 'S04', 'S05', 'S16']) {
+        const els = pageLayout(`${page}.json`).elements, ids = els.map(e => e.id), el = id => els.find(e => e.id === id);
+        assert.equal(ids.indexOf('energy_count'), ids.indexOf('energy_icon') + 1, `${page}: count right above the heart`);
+        const heart = el('energy_icon').rect, capsule = el('hud_energy').rect, value = el('energy_value').rect;
+        assert.ok(heart[3] > capsule[3], `${page}: heart taller than the capsule`);
+        assert.ok(value[0] >= heart[0] + heart[2] && value[0] + value[2] <= capsule[0] + capsule[2], `${page}: status text inside the capsule, right of the heart`);
+    }
+});
+
+
+test('HomeController only touches element ids that exist on S02 / S03 / BuildAnchor', () => {
+    const ids = new Set(['S02', 'S03', 'BuildAnchor'].flatMap(name => {
+        const view = JSON.parse(fs.readFileSync(path.join(OUT, `${name}.prefab`), 'utf8')).find(o => o.__type__ === VIEW);
+        return [...view.nodeIds, ...view.labelIds];
+    }));
+    const src = fs.readFileSync(path.join(PROJECT, 'assets/scripts/app/HomeController.ts'), 'utf8');
+    const used = src.split('\n').filter(l => /setVisible|setText|element\(/.test(l)).flatMap(l => [...l.matchAll(/'([a-z][a-z0-9_]+)'/g)].map(m => m[1]));
+    assert.ok(used.length > 10);
+    assert.deepEqual([...new Set(used)].filter(id => !ids.has(id) && !['build', 'left', 'upgrade', 'drag1'].includes(id)), []);
 });

@@ -52,12 +52,19 @@ export class Navigator {
     public replacePage(id: string, onAction: ActionHandler, options: PageOptions = {}): Promise<LayoutView> {
         this.swaps++;
         const run = this.swapping.then(async () => {
+            const animate = !options.instant && !!this.transition;
+            // Cover right away; the Prefab loads while the hexagons grow.
+            const covering = animate ? this.transition!.cover() : Promise.resolve();
             const scope = this.loader.createScope();
             let prefab: Prefab;
             try { prefab = await scope.load(`prefab.${id}`, Prefab); }
-            catch (error) { scope.release(); throw error; }
-            const animate = !options.instant && !!this.transition;
-            if (animate) await this.transition!.cover();
+            catch (error) {
+                scope.release();
+                await covering;
+                if (this.swaps === 1) await this.transition?.reveal(); // never leave the screen covered
+                throw error;
+            }
+            await covering;
             const page = this.mount(prefab, scope, id, 'page', onAction);
             for (const old of this.pages.splice(0)) old.close();
             this.pages.push(page);
@@ -65,7 +72,9 @@ export class Navigator {
                 try { if (options.prepare) await Promise.race([options.prepare(page), wait(PREPARE_LIMIT_MS)]); }
                 catch (error) { console.error(error); }
                 await wait(0); // let the caller's code after `await replacePage` run first
-                if (animate) await this.transition!.reveal();
+                // Another page change already queued: stay covered and let it reveal, so the
+                // transition never opens and closes again.
+                if (this.swaps === 1 && (animate || this.transition?.busy)) await this.transition!.reveal();
             })();
             return { page, reveal };
         });
@@ -144,7 +153,8 @@ export class Navigator {
         if (!(opened instanceof LayoutView)) { opened.close(); throw new Error(`prefab.${id} is not a LayoutView`); }
         const page = opened;
         page.fitScreen();
-        page.node.on('view-action', (event: { actionId: string }) => onAction(event.actionId, page));
+        // Taps while a page change is pending (before the cover is up) would queue a second change.
+        page.node.on('view-action', (event: { actionId: string }) => { if (!this.transitioning) onAction(event.actionId, page); });
         return page;
     }
 }

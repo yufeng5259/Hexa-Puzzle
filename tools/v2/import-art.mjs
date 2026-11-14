@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { pathToFileURL } from 'node:url';
 import { PROJECT } from './env.mjs';
 
 const DOCS = path.join(PROJECT, 'docs/v2');
@@ -61,12 +62,26 @@ function imageMeta(target, [width, height], slice = null) {
     return uuid;
 }
 
+/**
+ * Outpainted backgrounds (P2-4): original path under docs/v2 -> wider picture with the original
+ * embedded unchanged at offset [x, y] (pixels). They replace the original under the same id and
+ * UUID, so phones wider or taller than 853x1844 see real picture instead of a zoom.
+ */
+export function extensions() {
+    const manifest = JSON.parse(fs.readFileSync(path.join(DOCS, '美术交付清单.json'), 'utf8'));
+    return new Map((manifest.p2Extensions ?? []).map(e => [e.original, { file: e.file, size: e.size, offset: e.originalOffset }]));
+}
+const extended = (ext, source) => ext.get(source)?.file ?? source;
+
+/** Delivered but not used: tablets leave the sides black instead (P2-4 side art cancelled). */
+const UNUSED = new Set(['bg_pad_side_light', 'bg_pad_side_dark', 'pad_frame_edge']);
+
 /** Each entry: registry id, bundle, path inside the bundle (no extension), source file under docs/v2. */
 export function plan() {
-    const items = [];
+    const items = [], ext = extensions();
     for (const map of ['M01', 'M02', 'M03']) {
         const layout = JSON.parse(fs.readFileSync(path.join(DOCS, `地图/${map}_建筑布局.json`), 'utf8'));
-        items.push({ id: `map.${map}.background`, bundle: 'map', path: `backgrounds/${map}`, source: layout.background });
+        items.push({ id: `map.${map}.background`, bundle: 'map', path: `backgrounds/${map}`, source: extended(ext, layout.background), original: layout.background });
         for (const p of layout.placements) for (const s of p.stages)
             items.push({ id: `building.${p.building}.L${s.level}`, bundle: 'map', path: `buildings/${p.building}/${p.building}_L${s.level}`, source: s.file });
     }
@@ -79,10 +94,11 @@ export function plan() {
     // UI cut-outs: the registry id is the path layouts use in their "asset" field (relative to 素材/).
     const manifest = JSON.parse(fs.readFileSync(path.join(DOCS, '美术交付清单.json'), 'utf8')), seen = new Set();
     for (const asset of manifest.uiAssets) {
+        if (UNUSED.has(asset.id)) continue;
         for (const file of asset.states ? Object.values(asset.states) : asset.frames) {
             if (seen.has(file)) continue;
             seen.add(file);
-            items.push({ id: file, bundle: 'ui', path: `textures/${path.basename(file, '.png')}`, source: `素材/${file}`, slice: asset.slice ?? null });
+            items.push({ id: file, bundle: 'ui', path: `textures/${path.basename(file, '.png')}`, source: extended(ext, `素材/${file}`), original: `素材/${file}`, slice: asset.slice ?? null });
         }
     }
     return items;
@@ -108,7 +124,8 @@ export function importArt() {
         dirMeta(path.dirname(target), null);
         write(target, bytes);
         const uuid = imageMeta(target, pngSize(bytes), item.slice);
-        registry.push({ id: item.id, bundle: item.bundle, path: item.path + '/spriteFrame', type: 'SpriteFrame', uuid: `${uuid}@f9941`, source: item.source });
+        registry.push({ id: item.id, bundle: item.bundle, path: item.path + '/spriteFrame', type: 'SpriteFrame', uuid: `${uuid}@f9941`, source: item.source,
+            ...(item.original !== item.source ? { original: item.original } : {}) });
     }
     // The 110-question catalog is kept as is; registering it lets the puzzle bundle load through ResourceLoader.
     const catalog = 'assets/bundles/puzzle/config/level-catalog.json';
@@ -122,4 +139,4 @@ export function importArt() {
     return registry;
 }
 
-if (process.argv.includes('--run')) console.log(`imported ${importArt().length} images`);
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href && process.argv.includes('--run')) console.log(`imported ${importArt().length} images`);

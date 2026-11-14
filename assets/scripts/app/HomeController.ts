@@ -4,7 +4,7 @@ import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { MapView } from '../core/Config';
 import type { Game } from '../core/Game';
-import { secondsToNextEnergy } from '../core/Energy';
+import { showEnergy } from './EnergyHud';
 import { finishBuild, mapProgress, startBuild, upgradeCost } from '../core/Progress';
 import { guideAllowsBuild } from '../core/Guide';
 import { mainlineFinished } from '../core/Mainline';
@@ -13,7 +13,7 @@ import { reward, RuleError, type Reward } from '../core/Rules';
 import { buildingLevel } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
 import { ScreenFit } from '../features/ui/ScreenFit';
-import { placeMap } from '../features/ui/FitMath';
+import { placeMap, type Picture } from '../features/ui/FitMath';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
 import type { GuideCoach } from './GuideCoach';
@@ -44,10 +44,11 @@ export class HomeController {
     private construction: { buildId: string; buildingId: string; elapsed: number; fx: Node | null } | null = null;
     private fxData: Promise<BuildFxData | null> | null = null;
     private readonly pendingFrames: Promise<unknown>[] = [];
-    /** Opaque building extent per map (tools/v2/map-bounds.mjs), map design coordinates y down. */
-    public mapBounds: Record<string, { left: number; right: number; top: number; bottom: number }> = {};
-    /** Mirrored background copies that fill what the enlarged map cannot cover (left, right, top, bottom). */
-    private mirrors: Sprite[] = [];
+    /**
+     * Per map (tools/v2/map-bounds.mjs): opaque building extent, map design coordinates y down, and
+     * the drawn (outpainted) background around the design centre, y up.
+     */
+    public mapBounds: Record<string, { left: number; right: number; top: number; bottom: number; picture?: Picture }> = {};
     private readonly onFit = () => this.placeMapNodes();
     private unsubscribe: (() => void) | null = null;
     private readonly rewards: RewardPresenter;
@@ -97,13 +98,9 @@ export class HomeController {
         this.mapId = map.id;
         mount.removeAllChildren();
         this.buildings.clear();
-        this.sprite(mount, 'background', map.backgroundAssetId, W, H, 0.5, 0.5, 0, 0);
-        // Mirrored neighbours continue the picture seamlessly where the enlarged map stops short of the frame.
-        this.mirrors = ([[-W, 0, -1, 1], [W, 0, -1, 1], [0, H, 1, -1], [0, -H, 1, -1]] as const).map(([x, y, sx, sy], i) => {
-            const s = this.sprite(mount, ['mirror_left', 'mirror_right', 'mirror_top', 'mirror_bottom'][i], map.backgroundAssetId, W, H, 0.5, 0.5, x, y);
-            s.node.setScale(sx, sy, 1);
-            return s;
-        });
+        // The outpainted picture reaches past the design area so wide/tall screens see more map.
+        const pic = this.picture(map.id);
+        this.sprite(mount, 'background', map.backgroundAssetId, pic.width, pic.height, 0.5, 0.5, pic.x, pic.y);
         for (const b of [...map.buildings].sort((x, y) => x.zIndex - y.zIndex)) {
             const size = b.widthFraction * W, level = buildingLevel(this.game.state, map.id, b.id);
             const sprite = this.sprite(mount, b.id, b.assetIds[level], size, size, b.anchorX, 1 - b.anchorY, (b.feetX - 0.5) * W, (0.5 - b.feetY) * H);
@@ -122,18 +119,17 @@ export class HomeController {
         // Fill to the screen edges (under notches and rounded corners).
         const cover = fit.tablet ? { x: 0, y: -frame.y, width: frame.width, height: fit.visible.height }
             : { x: -frame.x, y: -frame.y, width: fit.visible.width, height: fit.visible.height };
-        const p = b ? placeMap(frame, { top: b.top - H / 2, bottom: b.bottom - H / 2 }, { width: W, height: H }, cover)
-            : { scale: Math.max(frame.width / W, frame.height / H), offsetY: 0, gaps: { left: 0, right: 0, top: 0, bottom: 0 } };
+        const p = b ? placeMap(frame, { top: b.top - H / 2, bottom: b.bottom - H / 2 }, { width: W, height: H }, cover, this.picture(map.id))
+            : { scale: Math.max(frame.width / W, frame.height / H), offsetY: 0 };
         for (const view of [this.home, this.build]) {
             if (!view?.isValid) continue;
             const mount = view.element('MapMount');
             mount.setScale(p.scale, p.scale, 1);
             mount.setPosition(frame.x, frame.y + p.offsetY, 0);
         }
-        const g = p.gaps;
-        [g.left, g.right, g.top, g.bottom].forEach((gap, i) => { const m = this.mirrors[i]; if (m?.isValid) m.node.active = gap > 0.5; });
         for (const anchor of this.anchors.values()) if (anchor.isValid) anchor.node.setScale(1 / p.scale, 1 / p.scale, 1);
     }
+    private picture(mapId: string): Picture { return this.mapBounds[mapId]?.picture ?? { x: 0, y: 0, width: W, height: H }; }
     private sprite(parent: Node, name: string, assetId: string, w: number, h: number, ax: number, ay: number, x: number, y: number): Sprite {
         const node = new Node(name);
         node.parent = parent;
@@ -171,13 +167,24 @@ export class HomeController {
             fill.width = Math.max(8, full * Math.min(1, s.player.exp / level.expToNext));
         }
         this.home.setText('play_level', mainlineFinished(s, rules) && !s.mainline.attempt ? '复玩' : s.mainline.attempt?.levelNo ?? s.mainline.nextLevelNo);
-        // Looking back at a finished map: no building there, the build button is hidden.
-        this.home.setVisible('home_btn_build', !this.viewMapId); this.home.setVisible('icon_build', !this.viewMapId); this.home.setVisible('build_text', !this.viewMapId);
+        // Looking back at a finished map: nothing to build there, the back entry takes the build entry's place.
+        // In build mode every S02 control stays hidden (openBuild).
+        if (!this.build?.isValid) {
+            const current = !this.viewMapId;
+            for (const id of ['home_btn_build', 'icon_build', 'build_text']) this.home.setVisible(id, current);
+            for (const id of ['home_btn_back', 'icon_back', 'back_text']) this.home.setVisible(id, !current);
+            this.home.setVisible('build_reddot', current && this.canBuild());
+        }
         if (!this.build?.isValid) { this.home.setVisible('signin_reddot', this.daily.signInDot()); this.home.setVisible('task_reddot', this.daily.taskDot()); }
         if (!this.construction) for (const b of map.buildings) this.buildings.get(b.id)?.isValid && this.setFrame(this.buildings.get(b.id)!, b.assetIds[buildingLevel(s, map.id, b.id)]);
         if (this.build?.isValid) this.renderBuild();
         this.renderEnergy();
         this.renderGuide();
+    }
+    /** Light build prompt: some building on the current map is affordable now. */
+    private canBuild(): boolean {
+        const s = this.game.state, rules = this.game.rules, mapId = s.maps.currentMapId;
+        return rules.maps.find(m => m.id === mapId)!.buildings.some(b => { const cost = upgradeCost(s, rules, mapId, b.id); return cost !== null && s.wallet.coins >= cost; });
     }
     /** Points at the one control the first-run guide waits for; dialogs place their own pointer. */
     private renderGuide(): void {
@@ -191,9 +198,8 @@ export class HomeController {
         else this.guide.clear();
     }
     private renderEnergy(): void {
-        const s = this.game.state, max = this.game.rules.energy.max, left = secondsToNextEnergy(s, this.game.rules, this.game.now());
-        const text = left === null ? `${s.energy.value}/${max}` : `${s.energy.value}/${max} ${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`;
-        for (const view of [this.home, this.build]) if (view?.isValid) view.setText('energy_value', text);
+        // Ticks every second from update(); the top page may be the map list or a puzzle.
+        for (const view of new Set([this.home, this.build, this.nav.topPage])) showEnergy(view, this.game);
     }
 
     private async openBuild(): Promise<void> {
@@ -330,7 +336,7 @@ export class HomeController {
                 return this.play();
             case 'map_name': return this.onMaps?.();
             case 'hud_level_badge': return this.levelInfo();
-            case 'home_btn_home': if (this.viewMapId) void this.enter(); return;
+            case 'home_btn_back': void this.enter(); return;
             case 'home_btn_build': void this.openBuild(); return;
             case 'hud_btn_square_purple': return this.rewards.settings();
             case 'hud_energy': return this.rewards.energy(false);

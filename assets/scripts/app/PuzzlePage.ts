@@ -10,6 +10,7 @@ import { LevelCatalog, type LevelDefinition } from '../features/puzzle/data/Leve
 import { PuzzleBoardPresentation } from '../features/puzzle/presentation/PuzzleBoardPresentation';
 import { PuzzleController } from '../features/puzzle/controller/PuzzleController';
 import { PuzzleSession, type PuzzleSessionSnapshot } from '../features/puzzle/session/PuzzleSession';
+import { showEnergy } from './EnergyHud';
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
@@ -30,7 +31,7 @@ export class PuzzlePage {
     public onReplayList: (() => void) | null = null;
     private readonly scope: ResourceScope;
     private readonly rewards: RewardPresenter;
-    private catalog: LevelCatalog | null = null;
+    private catalog: Promise<LevelCatalog> | null = null;
     private view: LayoutView | null = null;
     private board: PuzzleBoardPresentation | null = null;
     private controller: PuzzleController | null = null;
@@ -50,6 +51,7 @@ export class PuzzlePage {
         this.rewards = new RewardPresenter(game, nav, () => this.renderHud(), false);
         // The attempt is saved with every move, so leaving for endless keeps it intact.
         this.rewards.onEndless = () => { this.request++; this.leave(); this.onEndless?.(); };
+        this.loadCatalog().catch(error => console.error(error));
     }
 
     /** Play from home: resumes the saved attempt, otherwise starts the next level (paying energy). */
@@ -84,11 +86,15 @@ export class PuzzlePage {
         }
     }
 
-    private async loadCatalog(): Promise<LevelCatalog> {
+    /** Loaded once (started at construction) so a tap reaches the page change without waiting. */
+    private loadCatalog(): Promise<LevelCatalog> {
         if (!this.catalog) {
-            const catalog = new LevelCatalog((await this.scope.load('puzzle.catalog', JsonAsset)).json);
-            for (const level of this.game.rules.mainline) catalog.getById(level.puzzleId); // config must match the 110 questions
-            this.catalog = catalog;
+            const loading = this.catalog = this.scope.load('puzzle.catalog', JsonAsset).then(asset => {
+                const catalog = new LevelCatalog(asset.json);
+                for (const level of this.game.rules.mainline) catalog.getById(level.puzzleId); // config must match the 110 questions
+                return catalog;
+            });
+            loading.catch(() => { if (this.catalog === loading) this.catalog = null; }); // retry on the next play
         }
         return this.catalog;
     }
@@ -237,7 +243,7 @@ export class PuzzlePage {
         const view = this.view;
         if (!view?.isValid) return;
         const s = this.game.state;
-        view.setText('energy_value', `${s.energy.value}/${this.game.rules.energy.max}`);
+        showEnergy(view, this.game);
         view.setText('coin_value', s.wallet.coins.toLocaleString('en-US'));
         view.setText('hint_count', s.wallet.hints);
     }

@@ -6,11 +6,13 @@ const SPREAD = 0.35;
 const FILL = new Color(20, 46, 104, 255);
 const EDGE = new Color(48, 92, 178, 255);
 const TIMES = { cover: 0.28, reveal: 0.34 };
+/** Share of the reveal order that is per-cell scatter rather than height. */
+const SCATTER = 0.15;
 
 /**
  * Full-screen honeycomb transition above every layer. cover() grows hexagons from the
- * centre until the screen is hidden; reveal() opens them again from the centre. While
- * it runs the node blocks all touches.
+ * centre until the screen is hidden; reveal() opens them from the top down with a little
+ * scatter, so the two halves read differently. While it runs the node blocks all touches.
  */
 export class Transition {
     private readonly node: Node;
@@ -61,7 +63,7 @@ export class Transition {
         return new Promise(done => { this.anim = { from: this.amount, to, time: 0, length, reveal, done }; });
     }
 
-    /** Covering grows from the centre outwards; revealing shrinks the centre first. */
+    /** Covering grows from the centre outwards; revealing sweeps from the top edge down. */
     private draw(reveal: boolean): void {
         const g = this.g, size = view.getVisibleSize(), r = HEX_RADIUS;
         const w = 1.5 * r, h = Math.sqrt(3) * r, cols = Math.ceil(size.width / 2 / w) + 1, rows = Math.ceil(size.height / 2 / h) + 1;
@@ -69,8 +71,11 @@ export class Transition {
         g.clear();
         g.fillColor = FILL; g.strokeColor = EDGE; g.lineWidth = 4;
         for (let c = -cols; c <= cols; c++) for (let row = -rows; row <= rows; row++) {
-            const x = c * w, y = row * h + (c & 1 ? h / 2 : 0), d = Math.hypot(x, y) / maxDist;
-            const front = reveal ? 1 - d : d;
+            const x = c * w, y = row * h + (c & 1 ? h / 2 : 0);
+            // 0..1: the order cells grow in (cover) or, from the largest down, shrink in (reveal).
+            const front = reveal
+                ? Math.min(1, Math.max(0, (y / size.height + 0.5) * (1 - SCATTER) + SCATTER * scatter(c, row)))
+                : Math.hypot(x, y) / maxDist;
             const grow = Math.max(0, Math.min(1, (this.amount * (1 + SPREAD) - front) / SPREAD));
             if (grow <= 0) continue;
             const k = r * grow * 1.06; // slight overlap so a covered screen has no gaps
@@ -81,3 +86,6 @@ export class Transition {
         if (this.amount < 1) g.stroke();
     }
 }
+
+/** Stable 0..1 noise per cell. */
+function scatter(c: number, row: number): number { const v = Math.sin(c * 12.9898 + row * 78.233) * 43758.5453; return v - Math.floor(v); }

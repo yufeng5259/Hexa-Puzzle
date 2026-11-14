@@ -41,26 +41,45 @@ export function isTablet(smallestWidthDp: number | null, screen: { width: number
     return smallestWidthDp !== null ? smallestWidthDp >= TABLET_MIN_DP : screen.width / screen.height > TABLET_ASPECT;
 }
 
+/** Largest growth of the HUD / bottom bands (LayoutView) on phones wider than the design (16:9 ≈ 1.22). */
+export const BAND_SCALE_MAX = 1.2;
+/** Band growth: the frame width over the design width, 1 on long phones and tablets. */
+export function bandScale(fit: { tablet: boolean; frame: { width: number } }): number {
+    return fit.tablet ? 1 : Math.min(BAND_SCALE_MAX, Math.max(1, fit.frame.width / DESIGN.width));
+}
+
 /** UI bands over the map: HUD bottom and bottom-bar top, in design units from the frame top. */
 export const MAP_BANDS = { hudBottom: 160, barTop: 1550 } as const;
+/** A picture's extent relative to a reference centre: centre offset (y up) and size, design units. */
+export interface Picture { x: number; y: number; width: number; height: number }
+
+/**
+ * Smallest scale (at least min) at which the picture, scaled about `about` (its centre lands at
+ * about + picture offset * scale), covers the cover rect. All in one coordinate space, y up.
+ */
+export function coverScale(about: { x: number; y: number }, picture: Picture, cover: Rect, min = 1): number {
+    const axis = (u: number, half: number, off: number, size: number) => Math.max((half + u) / (size / 2 - off), (half - u) / (size / 2 + off));
+    return Math.max(min, axis(about.x - cover.x, cover.width / 2, picture.x, picture.width), axis(about.y - cover.y, cover.height / 2, picture.y, picture.height));
+}
+
 export interface MapPlacement {
     scale: number;
     /** Map centre relative to the frame centre, y up (Cocos). */
     offsetY: number;
-    /** Uncovered strips between the map picture and the frame edges (design units). */
-    gaps: { left: number; right: number; top: number; bottom: number };
 }
 
 /**
  * Enlarges the map (background + buildings together) to cover the frame, but only as far as
  * every building stays clear of the HUD and the bottom bar (where the design already overlaps
  * them it may keep doing so); the map may move vertically to make room.
- * buildings: opaque extent relative to the background centre (y down). bg: background size.
- * cover: area the picture (with fillers) must cover, centre relative to the frame centre (y up);
- * defaults to the frame. Pass the screen so notches and rounded edges get filled too.
+ * buildings: opaque extent relative to the background centre (y down). bg: design background size.
+ * picture: the drawn background (the outpainted one is larger than bg), relative to the bg centre.
+ * cover: area the picture must cover, centre relative to the frame centre (y up); defaults to the
+ * frame. Pass the screen so notches and rounded edges get filled too. Only if the picture still
+ * falls short there (screens beyond the outpainting) is the map enlarged further.
  */
 export function placeMap(frame: { width: number; height: number }, buildings: { top: number; bottom: number }, bg: { width: number; height: number },
-    cover: Rect = { x: 0, y: 0, width: frame.width, height: frame.height }): MapPlacement {
+    cover: Rect = { x: 0, y: 0, width: frame.width, height: frame.height }, picture: Picture = { x: 0, y: 0, ...bg }): MapPlacement {
     const F = frame.height, fill = Math.max(frame.width / bg.width, frame.height / bg.height);
     // Allowed band in frame coordinates (y down from the frame top).
     const allowTop = Math.min(MAP_BANDS.hudBottom, DESIGN.height / 2 + buildings.top);
@@ -70,12 +89,5 @@ export function placeMap(frame: { width: number; height: number }, buildings: { 
     // Building y = F/2 + d + y * scale (d = downward shift); keep it inside [allowTop, allowBottom].
     const dMin = allowTop - F / 2 - buildings.top * scale, dMax = allowBottom - F / 2 - buildings.bottom * scale;
     const d = dMin > dMax ? (dMin + dMax) / 2 : Math.min(Math.max(0, dMin), dMax);
-    const halfW = bg.width * scale / 2, halfH = bg.height * scale / 2, cw = cover.width / 2, ch = cover.height / 2;
-    return {
-        scale, offsetY: -d,
-        gaps: {
-            left: Math.max(0, cw - cover.x - halfW), right: Math.max(0, cw + cover.x - halfW),
-            top: Math.max(0, ch + cover.y + d - halfH), bottom: Math.max(0, ch - cover.y - d - halfH),
-        },
-    };
+    return { scale: coverScale({ x: 0, y: -d }, picture, cover, scale), offsetY: -d };
 }

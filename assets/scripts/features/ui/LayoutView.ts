@@ -4,6 +4,8 @@ import { BaseView } from '../../framework/ui/BaseView';
 import { requireBinding } from '../../framework/components/Binding';
 import type { ResourceScope } from '../../framework/resources/ResourceScope';
 import { ScreenFit } from './ScreenFit';
+import { bandScale } from './FitMath';
+import { EdgePin, EdgeSide } from './EdgePin';
 const { ccclass, property } = _decorator;
 
 export const DESIGN_WIDTH = 853, DESIGN_HEIGHT = 1844;
@@ -29,9 +31,8 @@ export class LayoutView extends BaseView {
     @property([Label]) public labels: Label[] = [];
     @property([CCString]) public labelIds: string[] = [];
     private index: Map<string, Node> | null = null;
-    /** Design-space positions, recorded before the first fit so refits never drift. */
     /** Design-space position and width of every root child, recorded before the first fit so refits never drift. */
-    private design: Map<Node, { position: Vec3; width: number }> | null = null;
+    private design: Map<Node, { position: Vec3; scale: Vec3; width: number }> | null = null;
     /** Set once the view starts leaving: its buttons no longer act. */
     private closing = false;
 
@@ -105,28 +106,39 @@ export class LayoutView extends BaseView {
      * Fits a full-screen page or dialog to the visible area: full-screen pictures cover it,
      * the HUD band hugs the safe top, the bottom button band the safe bottom, and the rest
      * stays centred in the 853×1844 design area (always fully visible, see GameBoot).
+     * On phones wider than the design (16:9) the two bands and the EdgePin side entries grow
+     * with the screen width (bandScale), so buttons keep their share of the width; EdgePin
+     * elements keep their (scaled) distance to the left or right frame edge.
      */
     public fitScreen(): void {
-        const fit = ScreenFit.current, frame = fit.frame;
+        const fit = ScreenFit.current, frame = fit.frame, k = bandScale(fit);
         this.node.getComponent(UITransform)!.setContentSize(fit.visible.width, fit.visible.height);
         // Every root child, also the unnamed rig nodes (hint layer, drag root) that must move with the board.
-        this.design ??= new Map(this.node.children.map(node => [node, { position: node.position.clone(), width: node.getComponent(UITransform)?.width ?? 0 }]));
-        const frameTop = frame.y + frame.height / 2, frameBottom = frame.y - frame.height / 2;
+        this.design ??= new Map(this.node.children.map(node => [node, { position: node.position.clone(), scale: node.scale.clone(), width: node.getComponent(UITransform)?.width ?? 0 }]));
+        const frameTop = frame.y + frame.height / 2, frameBottom = frame.y - frame.height / 2, left = frame.x - frame.width / 2, right = frame.x + frame.width / 2;
         for (const [node, d] of this.design) {
             const ui = node.getComponent(UITransform), at = d.position;
             if (!ui || !node.isValid || node.parent !== this.node) continue;
-            const top = DESIGN_HEIGHT / 2 - (at.y + ui.height * (1 - ui.anchorY)), bottom = DESIGN_HEIGHT / 2 - (at.y - ui.height * ui.anchorY);
+            const height = ui.height * Math.abs(d.scale.y);
+            const top = DESIGN_HEIGHT / 2 - (at.y + height * (1 - ui.anchorY)), bottom = DESIGN_HEIGHT / 2 - (at.y - height * ui.anchorY);
             if (d.width >= DESIGN_WIDTH - 20 && ui.height >= DESIGN_HEIGHT - 60) {
                 // Full-screen pictures (backgrounds, dims) cover the whole screen; data mounts (no Sprite,
                 // e.g. the home map) are placed by their feature code.
                 if (node.getComponent(Sprite)) { const s = coverScale(ui.width, ui.height); node.setScale(s * Math.sign(node.scale.x || 1), s, 1); node.setPosition(0, 0, at.z); }
                 continue;
             }
-            // HUD band hugs the frame top, the bottom button band its bottom, the rest its centre.
-            const dy = bottom <= TOP_BAND ? frameTop - DESIGN_HEIGHT / 2 : top >= BOTTOM_BAND ? frameBottom + DESIGN_HEIGHT / 2 : frame.y;
-            node.setPosition(at.x + frame.x, at.y + dy, at.z);
+            const pin = node.getComponent(EdgePin), band = bottom <= TOP_BAND ? 'top' : top >= BOTTOM_BAND ? 'bottom' : null;
+            const s = band || pin ? k : 1;
+            // HUD band hugs the frame top, the bottom button band its bottom, the rest its centre;
+            // grown elements keep their scaled distance to the nearer design edge.
+            const y = band === 'top' ? frameTop - (DESIGN_HEIGHT / 2 - at.y) * s
+                : band === 'bottom' ? frameBottom + (at.y + DESIGN_HEIGHT / 2) * s
+                : at.y >= 0 ? frame.y + DESIGN_HEIGHT / 2 - (DESIGN_HEIGHT / 2 - at.y) * s : frame.y - DESIGN_HEIGHT / 2 + (at.y + DESIGN_HEIGHT / 2) * s;
+            const x = !pin ? frame.x + at.x * s : pin.side === EdgeSide.Left ? left + (at.x + DESIGN_WIDTH / 2) * s : right - (DESIGN_WIDTH / 2 - at.x) * s;
+            node.setPosition(x, y, at.z);
+            node.setScale(d.scale.x * s, d.scale.y * s, d.scale.z);
             // Full-width bars (HUD backdrop) span the frame.
-            if (d.width >= DESIGN_WIDTH - 20 && bottom <= TOP_BAND && node.getComponent(Sprite)) ui.width = frame.width / Math.abs(node.scale.x || 1);
+            if (d.width >= DESIGN_WIDTH - 20 && band === 'top' && node.getComponent(Sprite)) ui.width = frame.width / Math.abs(node.scale.x || 1);
         }
     }
     private nodeMap(): Map<string, Node> {

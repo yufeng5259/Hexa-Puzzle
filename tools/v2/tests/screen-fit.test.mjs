@@ -49,24 +49,19 @@ test('map placement: covers when the buildings allow it, never pushes them under
     const bounds = JSON.parse(fs.readFileSync(path.join(PROJECT, 'assets/resources/config/map-bounds.json'), 'utf8')).maps;
     const bg = { width: 854, height: 1842 };
     for (const [id, b] of Object.entries(bounds)) {
-        const rel = { top: b.top - 921, bottom: b.bottom - 921 };
+        const rel = { top: b.top - 921, bottom: b.bottom - 921 }, pic = b.picture ?? { x: 0, y: 0, ...bg };
         for (const frame of [{ width: 853, height: 1844 }, { width: 1037, height: 1844 }, { width: 853, height: 1990 }]) {
-            const p = F.placeMap(frame, rel, bg);
+            const p = F.placeMap(frame, rel, bg, { x: 0, y: 0, ...frame }, pic);
             assert.ok(p.scale >= 1 - 1e-9, `${id} never shrinks`);
             const d = -p.offsetY, top = frame.height / 2 + d + rel.top * p.scale, bottom = frame.height / 2 + d + rel.bottom * p.scale;
             assert.ok(top >= Math.min(160, 922 + rel.top) - 1e-6, `${id} ${frame.width}x${frame.height}: top building under HUD (${top})`);
             assert.ok(bottom <= frame.height - (1844 - Math.max(1550, 922 + rel.bottom)) + 1e-6, `${id}: bottom building under the bar (${bottom})`);
         }
-        const exact = F.placeMap({ width: 853, height: 1844 }, rel, bg);
-        assert.ok(exact.gaps.left < 1 && exact.gaps.top < 2 && exact.gaps.bottom < 2, `${id}: design size needs no filler`);
-        // A notch outside the frame still gets filled: the screen is the cover area.
-        const fit = F.computeFit({ width: 1080, height: 2400 }, { top: 126, bottom: 0, left: 0, right: 0 }, false);
-        const notch = F.placeMap(fit.frame, rel, bg, { x: -fit.frame.x, y: -fit.frame.y, ...fit.visible });
-        // Picture top, measured down from the screen top: below the notch inset + inside the frame.
-        const pictureTop = 126 / fit.scale + fit.frame.height / 2 - notch.offsetY - bg.height * notch.scale / 2;
-        assert.ok(pictureTop > 0, 'the case under test: the picture alone leaves the notch strip bare');
-        near(notch.gaps.top, pictureTop, 1e-6);
-        near(notch.gaps.bottom, F.placeMap(fit.frame, rel, bg).gaps.bottom, 1e-6);
+        const exact = F.placeMap({ width: 853, height: 1844 }, rel, bg, { x: 0, y: 0, width: 853, height: 1844 }, pic);
+        // Outpainted pics cover up to the design size; beyond that exact.scale >1.
+        assert.ok(exact.scale < 1.01, `${id}: no upscaling at design size (${exact.scale})`);
+        // Outpainting covers most tall phones (up to ~2042 design units = a 1080x2400 safe area).
+        assert.ok(pic.height >= 2040, `${id}: picture is outpainted`);
     }
 });
 
@@ -75,4 +70,12 @@ test('map bounds file is generated from the building pictures', async () => {
     const fresh = await mapBounds();
     const saved = JSON.parse(fs.readFileSync(path.join(PROJECT, 'assets/resources/config/map-bounds.json'), 'utf8')).maps;
     assert.deepEqual(saved, fresh);
+});
+
+test('band scale: HUD and bottom bands grow with the width on wide phones only, capped', () => {
+    const fit = (w, h, tablet = false) => F.computeFit({ width: w, height: h }, none, tablet);
+    near(F.bandScale(fit(1080, 2400)), 1, 1e-9);
+    near(F.bandScale(fit(1080, 1920)), F.BAND_SCALE_MAX, 1e-9);
+    near(F.bandScale(fit(1080, 2100)), (1080 / 2100 * 1844) / 853, 1e-6);
+    near(F.bandScale(fit(1536, 2048, true)), 1, 1e-9);
 });
