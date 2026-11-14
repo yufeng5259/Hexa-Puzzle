@@ -117,3 +117,51 @@ test('S16: map cards come from the MapCard prefab; the replay list is a VirtualL
     assert.equal(list.itemPrefab.__uuid__, registry.find(r => r.id === 'prefab.ReplayRow').uuid);
     assert.ok(registry.some(r => r.id === 'prefab.MapCard'));
 });
+
+test('every imported picture: sprite-frame meta matches the PNG size (redrawn art renews its geometry)', () => {
+    const bad = [];
+    (function walk(dir) {
+        for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+            const file = path.join(dir, e.name);
+            if (e.isDirectory()) walk(file);
+            else if (e.name.endsWith('.png') && fs.existsSync(file + '.meta')) {
+                const png = fs.readFileSync(file), frame = JSON.parse(fs.readFileSync(file + '.meta', 'utf8')).subMetas?.f9941?.userData;
+                if (frame && (frame.rawWidth !== png.readUInt32BE(16) || frame.rawHeight !== png.readUInt32BE(20))) bad.push(path.relative(PROJECT, file));
+            }
+        }
+    })(path.join(PROJECT, 'assets/bundles'));
+    assert.deepEqual(bad, []);
+});
+
+test('capsule buttons keep round ends: laid out at the picture height and scaled uniformly', () => {
+    const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S06.prefab'), 'utf8'));
+    for (const name of ['btn_green', 'btn_grey']) {
+        const node = objects.find(o => o.__type__ === 'cc.Node' && o._name === name), ui = objects[node._components[0].__id__];
+        assert.equal(ui._contentSize.height, 92, name);
+        assert.equal(node._lscale.x, node._lscale.y, name);
+    }
+});
+
+test('prefabs only reference their own bundle, the main package, or bundles loaded at boot (built games load bundles separately)', () => {
+    const boot = /const BUNDLES = \[([^\]]*)\]/.exec(fs.readFileSync(path.join(PROJECT, 'assets/scripts/app/GameBoot.ts'), 'utf8'))[1].match(/'([^']+)'/g).map(s => s.slice(1, -1));
+    const bundleOf = new Map(), roots = fs.readdirSync(path.join(PROJECT, 'assets/bundles'), { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name);
+    for (const name of roots) (function walk(dir) {
+        for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+            const file = path.join(dir, e.name);
+            if (e.isDirectory()) walk(file);
+            else if (e.name.endsWith('.meta')) { const m = JSON.parse(fs.readFileSync(file, 'utf8')); bundleOf.set(m.uuid, name); for (const s of Object.values(m.subMetas ?? {})) bundleOf.set(s.uuid, name); }
+        }
+    })(path.join(PROJECT, 'assets/bundles', name));
+    const bad = [];
+    for (const name of roots) (function walk(dir) {
+        for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+            const file = path.join(dir, e.name);
+            if (e.isDirectory()) walk(file);
+            else if (e.name.endsWith('.prefab')) for (const [, uuid] of fs.readFileSync(file, 'utf8').matchAll(/"__uuid__": "([^"]+)"/g)) {
+                const target = bundleOf.get(uuid);
+                if (target && target !== name && !boot.includes(target)) bad.push(`${path.relative(PROJECT, file)} -> ${target}`);
+            }
+        }
+    })(path.join(PROJECT, 'assets/bundles', name));
+    assert.deepEqual(bad, []);
+});

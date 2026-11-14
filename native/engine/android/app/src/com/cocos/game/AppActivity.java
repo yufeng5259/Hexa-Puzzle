@@ -28,6 +28,8 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.provider.Settings;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.cocos.service.SDKWrapper;
@@ -37,12 +39,18 @@ import com.hexa.block.puzzlegame.SDKHandleClass;
 public class AppActivity extends CocosActivity {
     // Window brightness uses 0..1. Keep a readable baseline in dark environments.
     private static final float MIN_GAME_BRIGHTNESS = 0.3f;
+    /** The engine surface is black until its first frame; this cover shows the loading look instead. */
+    private static final long LAUNCH_COVER_TIMEOUT_MS = 10000;
+    private static AppActivity sInstance;
+    private View mLaunchCover;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Keep the screen awake while the game window is visible.
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        sInstance = this;
+        showLaunchCover();
         // DO OTHER INITIALIZATION BELOW
         SDKWrapper.shared().init(this);
         SDKHandleClass.attach(this);
@@ -67,6 +75,31 @@ public class AppActivity extends CocosActivity {
         SDKWrapper.shared().onPause();
     }
 
+    private void showLaunchCover() {
+        int id = getResources().getIdentifier("launch_background", "drawable", getPackageName());
+        if (id == 0) return;
+        mLaunchCover = new View(this);
+        mLaunchCover.setBackgroundResource(id);
+        addContentView(mLaunchCover, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        // Never keep it forever, even if the script side fails before calling hideLaunchCover().
+        mLaunchCover.postDelayed(this::removeLaunchCover, LAUNCH_COVER_TIMEOUT_MS);
+    }
+
+    private void removeLaunchCover() {
+        final View cover = mLaunchCover;
+        if (cover == null) return;
+        mLaunchCover = null;
+        cover.animate().alpha(0f).setDuration(200).withEndAction(() -> {
+            if (cover.getParent() instanceof ViewGroup) ((ViewGroup) cover.getParent()).removeView(cover);
+        }).start();
+    }
+
+    /** Called from script (GameBoot) once the loading screen has been drawn by the engine. */
+    public static void hideLaunchCover() {
+        final AppActivity activity = sInstance;
+        if (activity != null) activity.runOnUiThread(activity::removeLaunchCover);
+    }
+
     private void applyGameBrightness() {
         float brightness = MIN_GAME_BRIGHTNESS;
         try {
@@ -83,6 +116,7 @@ public class AppActivity extends CocosActivity {
 
     @Override
     protected void onDestroy() {
+        if (sInstance == this) sInstance = null;
         SDKHandleClass.onDestroy(this);
         super.onDestroy();
         // Workaround in https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508

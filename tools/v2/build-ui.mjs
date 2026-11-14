@@ -70,12 +70,33 @@ function frame(asset) {
     if (!uuid) throw new Error(`asset not imported: ${asset}`);
     return uuid;
 }
+/** Art manifest entry of each delivered file (size, nine-slice), keyed by its path under 素材/. */
+const manifestByFile = new Map(JSON.parse(fs.readFileSync(path.join(PROJECT, 'docs/v2/美术交付清单.json'), 'utf8')).uiAssets
+    .flatMap(a => Object.values(a.states ?? {}).concat(a.frames ?? []).map(file => [file, a])));
+/**
+ * Capsule art (buttons, tags, HUD capsules): both ends are half circles whose radius is the
+ * picture's height, so the nine-slice may only stretch them in width. Their width is never
+ * changed at runtime (progress bars are, so they are not listed).
+ */
+const CAPSULE = /^(btn_|tag_|hud_capsule_|home_play_btn$|home_btn_build$|build_cost_capsule$|map_tag_current$|signin_today_tag$|puzzle_steps_plate$|home_side_label$)/;
+
 function addSprite(b, node, e) {
     const id = b.sprite(node, frame(e.asset), e.opacity ?? 1);
     const sprite = b.objects[id];
     if (e.slice) sprite._type = 1;
     if (e.tint) sprite._color = color(hex(e.tint));
     if (e.flipX) b.objects[node]._lscale.x = -1;
+    const art = manifestByFile.get(e.asset.replace(/^\.\.\//, '').replace(/^素材\//, ''));
+    if (e.slice && art?.size && CAPSULE.test(art.id)) {
+        // Lay the capsule out at the picture's own height and scale the node to the layout height:
+        // the round ends keep their shape at any button height.
+        const ui = b.objects[b.objects[node]._components[0].__id__], { width, height } = ui._contentSize, k = height / art.size[1];
+        if (Math.abs(k - 1) > 0.01) {
+            ui._contentSize = { __type__: 'cc.Size', width: width / k, height: art.size[1] };
+            const sc = b.objects[node]._lscale;
+            b.objects[node]._lscale = { __type__: 'cc.Vec3', x: Math.sign(sc.x || 1) * k, y: k, z: 1 };
+        }
+    }
 }
 function addLabel(b, node, e) {
     const id = b.label(node, e.text ?? '', { font_size: e.fontSize, color_rgb: e.color ? hex(e.color) : [255, 255, 255], align: e.align ?? 'center', weight: e.bold ? 'bold' : 'normal',

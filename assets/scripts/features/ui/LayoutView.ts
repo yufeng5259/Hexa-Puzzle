@@ -54,11 +54,12 @@ export class LayoutView extends BaseView {
     public popIn(seconds = 0.18): void {
         const dims = this.nodes.filter(n => this.isFullScreen(n)), panel = this.nodes.filter(n => n.parent === this.node && !this.isFullScreen(n));
         const base = new Map(panel.map(n => [n, { p: n.position.clone(), s: n.scale.clone() }]));
-        const dimOpacity = dims.map(n => n.getComponent(UIOpacity) ?? n.addComponent(UIOpacity));
+        // Dims keep the opacity the layout gave them (e.g. a 60% black mask); they fade up to it.
+        const dimOpacity = dims.map(n => { const o = n.getComponent(UIOpacity); return { o: o ?? n.addComponent(UIOpacity), full: o ? o.opacity : 255 }; });
         const state = { k: 0 };
         const apply = () => {
             const k = state.k, s = 0.9 + 0.1 * k, eased = Math.max(0, Math.min(1, k));
-            dimOpacity.forEach(o => { o.opacity = 255 * eased; });
+            dimOpacity.forEach(d => { d.o.opacity = d.full * eased; });
             for (const [n, b] of base) if (n.isValid) { n.setPosition(b.p.x * s, b.p.y * s, b.p.z); n.setScale(b.s.x * s, b.s.y * s, b.s.z); }
             const o = this.node.getComponent(UIOpacity) ?? this.node.addComponent(UIOpacity);
             o.opacity = 255 * Math.max(0, Math.min(1, k * 1.6));

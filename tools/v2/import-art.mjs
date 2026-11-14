@@ -28,17 +28,22 @@ function dirMeta(dir, bundle) {
     }
     fs.mkdirSync(dir, { recursive: true });
 }
+/** Untrimmed full-picture sprite frame of the given size. */
+function frameGeometry(width, height) {
+    return { offsetX: 0, offsetY: 0, trimX: 0, trimY: 0, width, height, rawWidth: width, rawHeight: height,
+        vertices: { rawPosition: [-width / 2, -height / 2, 0, width / 2, -height / 2, 0, -width / 2, height / 2, 0, width / 2, height / 2, 0], indexes: [0, 1, 2, 2, 1, 3], uv: [0, height, width, height, 0, 0, width, 0], nuv: [0, 0, 1, 0, 0, 1, 1, 1], minPos: [-width / 2, -height / 2, 0], maxPos: [width / 2, height / 2, 0] } };
+}
 function imageMeta(target, [width, height], slice = null) {
     const metaFile = target + '.meta';
     if (fs.existsSync(metaFile)) {
-        // Keep the UUID; only the nine-slice border is owned by the art manifest.
+        // Keep the UUID. The art manifest owns the nine-slice; a redrawn picture of a new size
+        // also renews the frame geometry (trim, vertices), otherwise Cocos would draw the old size.
         const meta = JSON.parse(fs.readFileSync(metaFile, 'utf8')), frame = meta.subMetas?.f9941?.userData;
-        if (frame && slice) {
-            const [l, t, r, b] = slice;
-            if (frame.borderLeft !== l || frame.borderTop !== t || frame.borderRight !== r || frame.borderBottom !== b) {
-                Object.assign(frame, { borderLeft: l, borderTop: t, borderRight: r, borderBottom: b });
-                write(metaFile, JSON.stringify(meta, null, 2) + '\n');
-            }
+        if (frame) {
+            const before = JSON.stringify(frame);
+            if (frame.rawWidth !== width || frame.rawHeight !== height) Object.assign(frame, frameGeometry(width, height));
+            if (slice) { const [l, t, r, b] = slice; Object.assign(frame, { borderLeft: l, borderTop: t, borderRight: r, borderBottom: b }); }
+            if (JSON.stringify(frame) !== before) write(metaFile, JSON.stringify(meta, null, 2) + '\n');
         }
         return meta.uuid;
     }
@@ -48,8 +53,7 @@ function imageMeta(target, [width, height], slice = null) {
         ver: '1.0.27', importer: 'image', imported: true, uuid, files: ['.json', '.png'],
         subMetas: {
             '6c48a': sub('texture', '6c48a', { wrapModeS: 'clamp-to-edge', wrapModeT: 'clamp-to-edge', imageUuidOrDatabaseUri: uuid, isUuid: true, visible: false, minfilter: 'linear', magfilter: 'linear', mipfilter: 'none', anisotropy: 0 }, '1.0.22'),
-            f9941: sub('sprite-frame', 'f9941', { trimThreshold: 1, rotated: false, offsetX: 0, offsetY: 0, trimX: 0, trimY: 0, width, height, rawWidth: width, rawHeight: height, borderTop: slice?.[1] ?? 0, borderBottom: slice?.[3] ?? 0, borderLeft: slice?.[0] ?? 0, borderRight: slice?.[2] ?? 0, packable: true, pixelsToUnit: 100, pivotX: 0.5, pivotY: 0.5, meshType: 0,
-                vertices: { rawPosition: [-width / 2, -height / 2, 0, width / 2, -height / 2, 0, -width / 2, height / 2, 0, width / 2, height / 2, 0], indexes: [0, 1, 2, 2, 1, 3], uv: [0, height, width, height, 0, 0, width, 0], nuv: [0, 0, 1, 0, 0, 1, 1, 1], minPos: [-width / 2, -height / 2, 0], maxPos: [width / 2, height / 2, 0] },
+            f9941: sub('sprite-frame', 'f9941', { trimThreshold: 1, rotated: false, ...frameGeometry(width, height), borderTop: slice?.[1] ?? 0, borderBottom: slice?.[3] ?? 0, borderLeft: slice?.[0] ?? 0, borderRight: slice?.[2] ?? 0, packable: true, pixelsToUnit: 100, pivotX: 0.5, pivotY: 0.5, meshType: 0,
                 isUuid: true, imageUuidOrDatabaseUri: `${uuid}@6c48a`, atlasUuid: '', trimType: 'none' }, '1.0.12'),
         },
         userData: { type: 'sprite-frame', fixAlphaTransparencyArtifacts: true, hasAlpha: true, redirect: `${uuid}@6c48a` },

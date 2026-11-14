@@ -7,6 +7,7 @@
   "scripts": {
     "config:export": "node tools/meta/app.cjs",
     "test": "node tools/v2/test.mjs",
-    "typecheck": "node tools/v2/typecheck.mjs"
+    "typecheck": "node tools/v2/typecheck.mjs",
+    "build:apk": "node tools/v2/build-apk.mjs --install"
   }
 }

@@ -1,4 +1,4 @@
-import { _decorator, assetManager, Canvas, Component, instantiate, JsonAsset, Label, Node, Prefab, ResolutionPolicy, resources, screen, SpriteFrame, sys, UITransform, view } from 'cc';
+import { _decorator, assetManager, Canvas, Component, director, Director, native, instantiate, JsonAsset, Label, Node, Prefab, ResolutionPolicy, resources, screen, SpriteFrame, sys, UITransform, view } from 'cc';
 import { EDITOR } from 'cc/env';
 import { ViewHost } from '../framework/ui/ViewHost';
 import { RegisteredResource, ResourceLoader } from '../framework/resources/ResourceLoader';
@@ -53,6 +53,22 @@ export class GameBoot extends Component {
         this.fitResolution();
         screen.on('window-resize', this.fitResolution, this);
         this.showLoading();
+        this.hideLaunchCover();
+    }
+    /**
+     * Android shows a native launch cover (AppActivity) while the engine starts; drop it once
+     * the engine has drawn the loading screen twice, so there is never a black frame between.
+     */
+    private hideLaunchCover(): void {
+        if (!sys.isNative || sys.os !== sys.OS.ANDROID) return;
+        let frames = 0;
+        const after = () => {
+            if (++frames < 2) return;
+            director.off(Director.EVENT_AFTER_DRAW, after);
+            try { native.reflection.callStaticMethod('com/cocos/game/AppActivity', 'hideLaunchCover', '()V'); }
+            catch (error) { console.warn('launch cover', error); }
+        };
+        director.on(Director.EVENT_AFTER_DRAW, after);
     }
     protected start(): void { if (!EDITOR) void this.boot(); }
 
