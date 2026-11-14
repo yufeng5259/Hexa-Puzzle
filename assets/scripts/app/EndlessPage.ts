@@ -14,7 +14,6 @@ import type { GuideCoach } from './GuideCoach';
 /** Shape colour index -> piece texture (the mainline catalog's hex art). */
 const COLORS = ['1_png', '6_png', '8_png', '9_png', '10_png', '3_png'].map(t => `hex.${t}`);
 const TRAY_MAX_RADIUS = 34;
-const TRAY_INSET = 24;
 /** The dragged shape floats above the finger so the target cells stay visible. */
 const LIFT = 150;
 const FEEDBACK_SECONDS = 1.6;
@@ -179,10 +178,6 @@ export class EndlessPage {
             overlay.node.active = false;
             this.cells.set(key(q, r), { base, overlay });
         });
-        // The tray fills its frame; the sample cells in the layout only mark its middle.
-        const frame = v.element('puzzle_tray_frame'), fui = frame.getComponent(UITransform)!, tray = v.element('TrayMount');
-        tray.setPosition(frame.position);
-        tray.getComponent(UITransform)!.setContentSize(fui.width - 2 * TRAY_INSET, fui.height - 2 * TRAY_INSET);
     }
 
     private renderGame(v: LayoutView): void {

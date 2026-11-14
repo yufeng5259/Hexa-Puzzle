@@ -140,6 +140,13 @@ function buildPage(file) {
     b.component(b.root, VIEW, { pageId: page, nodes, nodeIds, labels, labelIds });
     if (PUZZLE_PAGES.has(page)) puzzleRig(b, layout, mounts.get('BoardMount').id, mounts.get('TrayMount').id);
     if (page === 'S16') listRig(b, layout, mounts.get('MapList').id);
+    if (page === 'S20') {
+        // Endless tray fills its frame (inset 24); the sample cells only mark its middle.
+        const frameRect = layout.elements.find(e => e.id === 'puzzle_tray_frame').rect, inset = 24, id = mounts.get('TrayMount').id;
+        const at = box(layout, [frameRect[0] + inset, frameRect[1] + inset, frameRect[2] - 2 * inset, frameRect[3] - 2 * inset]), node = b.objects[id];
+        node._lpos.x = at.x; node._lpos.y = at.y;
+        b.objects[node._components[0].__id__]._contentSize = { __type__: 'cc.Size', width: at.width, height: at.height };
+    }
     return { name: page, objects: b.finish() };
 }
 

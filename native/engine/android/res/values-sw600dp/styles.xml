@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tablets / unfolded foldables: the game keeps the design ratio with black sides, so the
+         window starts black; AppActivity's launch cover then draws the gradient inside the frame. -->
+    <style name="LaunchTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+</resources>

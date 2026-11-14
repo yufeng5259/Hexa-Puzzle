@@ -11,7 +11,9 @@ import { mainlineFinished } from '../core/Mainline';
 import { endlessUnlocked } from '../core/Progress';
 import { reward, RuleError, type Reward } from '../core/Rules';
 import { buildingLevel } from '../core/State';
-import { coverScale, type LayoutView } from '../features/ui/LayoutView';
+import type { LayoutView } from '../features/ui/LayoutView';
+import { ScreenFit } from '../features/ui/ScreenFit';
+import { placeMap } from '../features/ui/FitMath';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
 import type { GuideCoach } from './GuideCoach';
@@ -42,6 +44,11 @@ export class HomeController {
     private construction: { buildId: string; buildingId: string; elapsed: number; fx: Node | null } | null = null;
     private fxData: Promise<BuildFxData | null> | null = null;
     private readonly pendingFrames: Promise<unknown>[] = [];
+    /** Opaque building extent per map (tools/v2/map-bounds.mjs), map design coordinates y down. */
+    public mapBounds: Record<string, { left: number; right: number; top: number; bottom: number }> = {};
+    /** Mirrored background copies that fill what the enlarged map cannot cover (left, right, top, bottom). */
+    private mirrors: Sprite[] = [];
+    private readonly onFit = () => this.placeMapNodes();
     private unsubscribe: (() => void) | null = null;
     private readonly rewards: RewardPresenter;
     private readonly daily: DailyPresenter;
@@ -63,6 +70,8 @@ export class HomeController {
         this.build = null; this.anchors.clear(); this.buildings.clear(); this.mapId = '';
         this.unsubscribe?.();
         this.unsubscribe = this.game.subscribe(() => this.render());
+        ScreenFit.events.off('changed', this.onFit);
+        ScreenFit.events.on('changed', this.onFit);
         this.daily.rollover();
         await this.renderMap();
         this.render();
@@ -78,7 +87,7 @@ export class HomeController {
         if (this.construction) this.stepConstruction(1 / 60);
     }
 
-    public dispose(): void { this.unsubscribe?.(); this.scope.release(); }
+    public dispose(): void { this.unsubscribe?.(); ScreenFit.events.off('changed', this.onFit); this.scope.release(); }
 
     private get map(): MapView { return this.game.config.maps.find(m => m.id === (this.viewMapId ?? this.game.state.maps.currentMapId))!; }
 
@@ -88,16 +97,42 @@ export class HomeController {
         this.mapId = map.id;
         mount.removeAllChildren();
         this.buildings.clear();
-        // Screens wider or taller than the map see a cover-scaled copy around it; the map itself keeps its building anchors.
-        const cover = coverScale(W, H);
-        if (cover > 1) this.sprite(mount, 'backdrop', map.backgroundAssetId, W * cover, H * cover, 0.5, 0.5, 0, 0);
         this.sprite(mount, 'background', map.backgroundAssetId, W, H, 0.5, 0.5, 0, 0);
+        // Mirrored neighbours continue the picture seamlessly where the enlarged map stops short of the frame.
+        this.mirrors = ([[-W, 0, -1, 1], [W, 0, -1, 1], [0, H, 1, -1], [0, -H, 1, -1]] as const).map(([x, y, sx, sy], i) => {
+            const s = this.sprite(mount, ['mirror_left', 'mirror_right', 'mirror_top', 'mirror_bottom'][i], map.backgroundAssetId, W, H, 0.5, 0.5, x, y);
+            s.node.setScale(sx, sy, 1);
+            return s;
+        });
         for (const b of [...map.buildings].sort((x, y) => x.zIndex - y.zIndex)) {
             const size = b.widthFraction * W, level = buildingLevel(this.game.state, map.id, b.id);
             const sprite = this.sprite(mount, b.id, b.assetIds[level], size, size, b.anchorX, 1 - b.anchorY, (b.feetX - 0.5) * W, (0.5 - b.feetY) * H);
             if (b.flipX) sprite.node.setScale(-1, 1, 1);
             this.buildings.set(b.id, sprite);
         }
+        this.placeMapNodes();
+    }
+    /**
+     * Enlarges the whole map (background, buildings, build anchors, effects) to fill the game
+     * frame as far as the buildings stay clear of the HUD and bottom bar (FitMath.placeMap).
+     * The build page's anchor layer gets the same transform; its capsules keep their size.
+     */
+    private placeMapNodes(): void {
+        const map = this.map, b = this.mapBounds[map.id], fit = ScreenFit.current, frame = fit.frame;
+        // Fill to the screen edges (under notches and rounded corners).
+        const cover = fit.tablet ? { x: 0, y: -frame.y, width: frame.width, height: fit.visible.height }
+            : { x: -frame.x, y: -frame.y, width: fit.visible.width, height: fit.visible.height };
+        const p = b ? placeMap(frame, { top: b.top - H / 2, bottom: b.bottom - H / 2 }, { width: W, height: H }, cover)
+            : { scale: Math.max(frame.width / W, frame.height / H), offsetY: 0, gaps: { left: 0, right: 0, top: 0, bottom: 0 } };
+        for (const view of [this.home, this.build]) {
+            if (!view?.isValid) continue;
+            const mount = view.element('MapMount');
+            mount.setScale(p.scale, p.scale, 1);
+            mount.setPosition(frame.x, frame.y + p.offsetY, 0);
+        }
+        const g = p.gaps;
+        [g.left, g.right, g.top, g.bottom].forEach((gap, i) => { const m = this.mirrors[i]; if (m?.isValid) m.node.active = gap > 0.5; });
+        for (const anchor of this.anchors.values()) if (anchor.isValid) anchor.node.setScale(1 / p.scale, 1 / p.scale, 1);
     }
     private sprite(parent: Node, name: string, assetId: string, w: number, h: number, ax: number, ay: number, x: number, y: number): Sprite {
         const node = new Node(name);
@@ -173,6 +208,7 @@ export class HomeController {
             view.node.setPosition((b.feetX - 0.5) * W, (0.5 - b.feetY) * H, 0);
             this.anchors.set(b.id, view);
         }
+        this.placeMapNodes();
         this.render();
     }
     private closeBuild(): void {

@@ -1,4 +1,5 @@
-import { instantiate, Node, Prefab, SpriteFrame, view } from 'cc';
+import { instantiate, Node, Prefab, SpriteFrame } from 'cc';
+import { ScreenFit } from '../features/ui/ScreenFit';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ViewHost } from '../framework/ui/ViewHost';
 import { LayoutView } from '../features/ui/LayoutView';
@@ -32,7 +33,7 @@ export class Navigator {
     private readonly frames;
     public constructor(private readonly host: ViewHost, private readonly loader: ResourceLoader, private readonly transition: Transition | null = null) {
         this.frames = loader.createScope();
-        view.on('canvas-resize', () => { for (const v of [...this.pages, this.dialog]) if (v?.isValid) v.fitScreen(); });
+        ScreenFit.events.on('changed', () => { for (const v of [...this.pages, this.dialog]) if (v?.isValid) v.fitScreen(); });
     }
     public loadFrame(id: string): Promise<SpriteFrame> { return this.frames.load(id, SpriteFrame); }
     /** Optional art: true once the frame is delivered and imported. */

@@ -28,8 +28,14 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.provider.Settings;
+import android.os.Build;
+import android.view.DisplayCutout;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.view.WindowManager;
 
 import com.cocos.service.SDKWrapper;
@@ -43,10 +49,22 @@ public class AppActivity extends CocosActivity {
     private static final long LAUNCH_COVER_TIMEOUT_MS = 10000;
     private static AppActivity sInstance;
     private View mLaunchCover;
+    /** Same numbers as the game's layout (features/ui/FitMath.ts, S01 logo_title in docs/v2 layout). */
+    private static final float DESIGN_W = 853f, DESIGN_H = 1844f;
+    private static final float[] LOGO_RECT = { 200f, 55f, 454f, 248f };
+    /** Same boundary as FitMath.TABLET_MIN_DP: tablets keep the design ratio with black sides. */
+    private static final int TABLET_MIN_DP = 600;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // The engine asks for short edges only; waterfall / curved screens put their insets on the
+        // long edges, which would stay black. Draw everywhere; the game keeps its UI in the safe area.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
+            getWindow().setAttributes(lp);
+        }
         // Keep the screen awake while the game window is visible.
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         sInstance = this;
@@ -75,14 +93,65 @@ public class AppActivity extends CocosActivity {
         SDKWrapper.shared().onPause();
     }
 
+    /**
+     * Gradient + logo while the engine starts. The logo is placed with the game's own fit
+     * (design area scaled into the safe area, centred), so the loading screen that replaces
+     * it shows the logo at exactly the same spot. On tablets the gradient is limited to the
+     * design-ratio frame with black sides, matching the game.
+     */
     private void showLaunchCover() {
-        int id = getResources().getIdentifier("launch_background", "drawable", getPackageName());
-        if (id == 0) return;
-        mLaunchCover = new View(this);
-        mLaunchCover.setBackgroundResource(id);
-        addContentView(mLaunchCover, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        int background = getResources().getIdentifier("launch_background", "drawable", getPackageName());
+        int logo = getResources().getIdentifier("launch_logo", "drawable", getPackageName());
+        if (background == 0) return;
+        final FrameLayout cover = new FrameLayout(this);
+        cover.setBackgroundColor(0xFF000000);
+        final View gradientView = new View(this);
+        gradientView.setBackgroundResource(background);
+        cover.addView(gradientView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        final ImageView logoView = new ImageView(this);
+        if (logo != 0) {
+            logoView.setImageResource(logo);
+            logoView.setScaleType(ImageView.ScaleType.FIT_XY);
+            logoView.setVisibility(View.INVISIBLE);
+            cover.addView(logoView, new FrameLayout.LayoutParams(1, 1, Gravity.TOP | Gravity.START));
+        }
+        mLaunchCover = cover;
+        addContentView(cover, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        cover.post(() -> placeLaunchLogo(cover, gradientView, logoView));
         // Never keep it forever, even if the script side fails before calling hideLaunchCover().
-        mLaunchCover.postDelayed(this::removeLaunchCover, LAUNCH_COVER_TIMEOUT_MS);
+        cover.postDelayed(this::removeLaunchCover, LAUNCH_COVER_TIMEOUT_MS);
+    }
+
+    private void placeLaunchLogo(View cover, View gradientView, ImageView logoView) {
+        int w = cover.getWidth(), h = cover.getHeight();
+        if (w == 0 || h == 0) return;
+        int top = 0, bottom = 0, left = 0, right = 0;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            WindowInsets insets = cover.getRootWindowInsets();
+            DisplayCutout cutout = insets == null ? null : insets.getDisplayCutout();
+            if (cutout != null) { top = cutout.getSafeInsetTop(); bottom = cutout.getSafeInsetBottom(); left = cutout.getSafeInsetLeft(); right = cutout.getSafeInsetRight(); }
+        }
+        float safeW = w - left - right, safeH = h - top - bottom;
+        float scale = Math.min(safeW / DESIGN_W, safeH / DESIGN_H);
+        float cx = left + safeW / 2f, cy = top + safeH / 2f;
+        // Tablets: gradient only across the design-ratio frame (full height), black sides, like the game.
+        if (getResources().getConfiguration().smallestScreenWidthDp >= TABLET_MIN_DP) {
+            int frameW = Math.round(DESIGN_W * scale);
+            FrameLayout.LayoutParams frame = new FrameLayout.LayoutParams(frameW, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.TOP | Gravity.START);
+            frame.leftMargin = Math.round(cx - frameW / 2f);
+            gradientView.setLayoutParams(frame);
+        }
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(Math.round(LOGO_RECT[2] * scale), Math.round(LOGO_RECT[3] * scale), Gravity.TOP | Gravity.START);
+        params.leftMargin = Math.round(cx + (LOGO_RECT[0] - DESIGN_W / 2f) * scale);
+        params.topMargin = Math.round(cy + (LOGO_RECT[1] - DESIGN_H / 2f) * scale);
+        logoView.setLayoutParams(params);
+        logoView.setVisibility(View.VISIBLE);
+    }
+
+    /** Smallest screen width in dp: Android's phone/tablet boundary is 600 (tablets, unfolded foldables). */
+    public static int getSmallestWidthDp() {
+        final AppActivity activity = sInstance;
+        return activity == null ? 0 : activity.getResources().getConfiguration().smallestScreenWidthDp;
     }
 
     private void removeLaunchCover() {

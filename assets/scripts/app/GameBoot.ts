@@ -8,7 +8,10 @@ import { Game } from '../core/Game';
 import { Store } from '../core/Store';
 import { Navigator } from './Navigator';
 import { HomeController } from './HomeController';
-import { DESIGN_HEIGHT, DESIGN_WIDTH, LayoutView } from '../features/ui/LayoutView';
+import { LayoutView } from '../features/ui/LayoutView';
+import { ScreenFit } from '../features/ui/ScreenFit';
+import type { Insets } from '../features/ui/FitMath';
+import { SideCurtains } from './SideCurtains';
 import { PuzzlePage } from './PuzzlePage';
 import { GuideCoach } from './GuideCoach';
 import { EndlessPage } from './EndlessPage';
@@ -43,6 +46,7 @@ export class GameBoot extends Component {
     public endless: EndlessPage | null = null;
     private guide: GuideCoach | null = null;
     private transition: Transition | null = null;
+    private curtains: SideCurtains | null = null;
     private loading: LayoutView | null = null;
     private progress = 0;
     private fillWidth = 0;
@@ -53,7 +57,10 @@ export class GameBoot extends Component {
         this.fitResolution();
         screen.on('window-resize', this.fitResolution, this);
         this.showLoading();
+        this.curtains = new SideCurtains(this.host!.pageLayer!.parent!);
         this.hideLaunchCover();
+        // Debug hook: simulate extra safe insets (screen px), e.g. an iPhone Dynamic Island: { top: 141, bottom: 102, left: 0, right: 0 }.
+        (globalThis as unknown as { __setSafeInsets?: (i: Insets | null) => void }).__setSafeInsets = insets => { ScreenFit.debugInsets = insets; this.fitResolution(); };
     }
     /**
      * Android shows a native launch cover (AppActivity) while the engine starts; drop it once
@@ -72,11 +79,10 @@ export class GameBoot extends Component {
     }
     protected start(): void { if (!EDITOR) void this.boot(); }
 
-    /** Keeps the whole design area visible: wider screens get extra width, narrower ones extra height. */
+    /** Phones fill, tablets keep the design ratio; the design area always sits inside the safe area (ScreenFit). */
     private fitResolution(): void {
-        const size = screen.windowSize, wide = size.width / size.height >= DESIGN_WIDTH / DESIGN_HEIGHT;
-        const policy = wide ? ResolutionPolicy.FIXED_HEIGHT : ResolutionPolicy.FIXED_WIDTH;
-        view.setDesignResolutionSize(DESIGN_WIDTH, DESIGN_HEIGHT, policy);
+        ScreenFit.apply();
+        this.loading?.fitScreen();
     }
 
     /** Loading prefab above the page layer, created synchronously in onLoad. */
@@ -112,6 +118,7 @@ export class GameBoot extends Component {
 
     protected update(dt: number): void {
         this.transition?.update(dt);
+        this.curtains?.update();
         this.guide?.update(dt); this.home?.update(); this.puzzle?.update(); this.endless?.update();
     }
 
@@ -120,12 +127,14 @@ export class GameBoot extends Component {
         this.booting = true;
         this.setProgress(this.progress, '正在准备蜂巢家园…');
         try {
-            const [config, art, prefabs] = await Promise.all(['config/game-config', 'config/resource-registry', 'config/ui-prefabs'].map(loadJson)) as [unknown, { resources: { id: string; bundle: string; path: string; type: string; uuid: string }[] }, typeof art];
+            const [config, art, prefabs, bounds] = await Promise.all(['config/game-config', 'config/resource-registry', 'config/ui-prefabs', 'config/map-bounds'].map(loadJson)) as [unknown, { resources: { id: string; bundle: string; path: string; type: string; uuid: string }[] }, typeof art, { maps: HomeController['mapBounds'] }];
             this.setProgress(STEPS.config);
             await this.loadBundles();
             const records = [...art.resources, ...prefabs.resources].map(r => ({ id: r.id, bundle: r.bundle, path: r.path, uuid: r.uuid, type: TYPES[r.type] }));
             const loader = new ResourceLoader(records);
             this.transition ??= new Transition(this.host.pageLayer!.parent!);
+            this.curtains?.placeBelow(null); // curtains above pages, dialogs, guides and loading …
+            this.transition.toTop();         // … and the transition above everything
             this.nav = new Navigator(this.host, loader, this.transition);
             const parsed = parseGameConfig(config);
             const game = new Game(parsed, new Store(sys.localStorage, parsed.rules), systemClock);
@@ -135,6 +144,7 @@ export class GameBoot extends Component {
             const camera = this.getComponent(Canvas)?.cameraComponent ?? null;
             const guide = this.guide = new GuideCoach(game, this.host.guideLayer!, this.nav, this.host.dialogLayer!);
             const home = this.home = new HomeController(game, this.nav, loader, guide);
+            home.mapBounds = bounds.maps;
             const puzzle = this.puzzle = new PuzzlePage(game, this.nav, loader, camera, guide);
             const endless = this.endless = new EndlessPage(game, this.nav, loader, camera, guide);
             home.onEndless = puzzle.onEndless = () => void endless.open();

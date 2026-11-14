@@ -30,6 +30,7 @@ export class Transition {
     }
 
     public get busy(): boolean { return this.node.active; }
+    public toTop(): void { this.node.setSiblingIndex(this.node.parent!.children.length - 1); }
     public get covered(): boolean { return this.amount >= 1; }
 
     public cover(): Promise<void> { return this.run(1, TIMES.cover, false); }
