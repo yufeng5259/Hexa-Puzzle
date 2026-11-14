@@ -4977,7 +4977,7 @@
     },
     {
       "id": "fx_build_hammer",
-      "name": "建造特效（coinbeach24 复用）hammer",
+      "name": "建造特效·卡通木柄铁锤",
       "states": {
         "default": "UI/特效/build/fx_build_hammer.png"
       },
@@ -4991,17 +4991,16 @@
         0.5,
         0.5
       ],
-      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
-      "reuseFrom": "coinbeach24/assets/LiveData/anim/build/building.png#hammer",
+      "source": "P2-3 按bee_builder及S03重绘；旧图仅作朝向/占位定位参考，新绘像素见制作记录/补充20261114/生成原稿。",
       "priority": "P2",
-      "batch": "reuse-build-fx",
+      "batch": "P2-3",
       "sha256": {
-        "default": "990bd44ba953ca2d312139670f93c43824ffb5011f79923a257320471a80d760"
+        "default": "a19d420a57d7eaf7f15efceb967ceaccd973146adb98d806312820d7d6b08908"
       }
     },
     {
       "id": "fx_build_saw",
-      "name": "建造特效（coinbeach24 复用）saw",
+      "name": "建造特效·卡通手锯",
       "states": {
         "default": "UI/特效/build/fx_build_saw.png"
       },
@@ -5015,17 +5014,16 @@
         0.5,
         0.5
       ],
-      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
-      "reuseFrom": "coinbeach24/assets/LiveData/anim/build/building.png#saw",
+      "source": "P2-3 按bee_builder及S03重绘；旧图仅作朝向/占位定位参考，新绘像素见制作记录/补充20261114/生成原稿。",
       "priority": "P2",
-      "batch": "reuse-build-fx",
+      "batch": "P2-3",
       "sha256": {
-        "default": "283b58f4dd6cac7b66b694c1492165d7041ca830d2b5e9ffbff048c982fc4191"
+        "default": "2833828307448c9fb3ac3e64895fdae7d0faeaa47d3c4a11638b01827ac35f57"
       }
     },
     {
       "id": "fx_build_smoke",
-      "name": "建造特效（coinbeach24 复用）smoke",
+      "name": "建造特效·卡通圆尘云",
       "states": {
         "default": "UI/特效/build/fx_build_smoke.png"
       },
@@ -5039,17 +5037,16 @@
         0.5,
         0.5
       ],
-      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
-      "reuseFrom": "coinbeach24/assets/LiveData/anim/build/building.png#smoke particle",
+      "source": "P2-3 按bee_builder及S03重绘；旧图仅作朝向/占位定位参考，新绘像素见制作记录/补充20261114/生成原稿。",
       "priority": "P2",
-      "batch": "reuse-build-fx",
+      "batch": "P2-3",
       "sha256": {
-        "default": "4f6b25f969249cc49a7e655b9317a613c033a4a3f97f896efa7d425f27bb2443"
+        "default": "92c0d51cc58a607f5d7df9dc866643ec3518720342409877a0c032c82643d229"
       }
     },
     {
       "id": "fx_build_puff",
-      "name": "建造特效（coinbeach24 复用）puff",
+      "name": "建造特效·卡通喷出尘团",
       "states": {
         "default": "UI/特效/build/fx_build_puff.png"
       },
@@ -5063,17 +5060,16 @@
         0.5,
         0.5
       ],
-      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
-      "reuseFrom": "coinbeach24/assets/LiveData/anim/build/building-yan.png",
+      "source": "P2-3 按bee_builder及S03重绘；旧图仅作朝向/占位定位参考，新绘像素见制作记录/补充20261114/生成原稿。",
       "priority": "P2",
-      "batch": "reuse-build-fx",
+      "batch": "P2-3",
       "sha256": {
-        "default": "b663608d6e1b45e5b07fc4e12179b3973e8b3ce0822a8149b5ace9fd8dc90814"
+        "default": "cfde14026e69964f8b408800d521f01134b7479c097e077b5e56234cfa08a3ea"
       }
     },
     {
       "id": "fx_build_ray",
-      "name": "建造特效（coinbeach24 复用）ray",
+      "name": "建造特效·蜂蜜金放射光",
       "states": {
         "default": "UI/特效/build/fx_build_ray.png"
       },
@@ -5087,17 +5083,16 @@
         0.5,
         0.5
       ],
-      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
-      "reuseFrom": "coinbeach24/assets/Texture/effect/light/PopUpRay1.png",
+      "source": "P2-3 按bee_builder及S03重绘；旧图仅作朝向/占位定位参考，新绘像素见制作记录/补充20261114/生成原稿。",
       "priority": "P2",
-      "batch": "reuse-build-fx",
+      "batch": "P2-3",
       "sha256": {
-        "default": "d9e816e06a327c8d999a51e668bdfd85df25552e8a8700f1d2c160f256008447"
+        "default": "d9a1932f4502fa5f45575c01e344b53b79cf1426bcdaa6cd274e24222595cf25"
       }
     },
     {
       "id": "fx_build_spark",
-      "name": "建造特效（coinbeach24 复用）spark",
+      "name": "建造特效·蜂蜜金四角星光",
       "states": {
         "default": "UI/特效/build/fx_build_spark.png"
       },
@@ -5111,12 +5106,11 @@
         0.5,
         0.5
       ],
-      "source": "复用 coinbeach24 建造特效，待按 v2 风格重绘",
-      "reuseFrom": "coinbeach24/assets/LiveData/particle/smoke/yan2.png",
+      "source": "P2-3 按bee_builder及S03重绘；旧图仅作朝向/占位定位参考，新绘像素见制作记录/补充20261114/生成原稿。",
       "priority": "P2",
-      "batch": "reuse-build-fx",
+      "batch": "P2-3",
       "sha256": {
-        "default": "349f24d484d40257f4ec2ca08aa2a96256388aabf2a89e54b2b11507bb3f7661"
+        "default": "3ba28e8e4c19314378311c74868a94ca751811dfc07d5fa4450030594494771c"
       }
     }
   ],
