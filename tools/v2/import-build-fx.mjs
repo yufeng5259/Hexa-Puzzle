@@ -69,9 +69,14 @@ export async function importBuildFx(source = DEFAULT_SOURCE) {
         { name: 'fx_build_ray', from: 'Texture/effect/light/PopUpRay1.png', bytes: fs.readFileSync(path.join(source, 'Texture/effect/light/PopUpRay1.png')) },
         { name: 'fx_build_spark', from: 'LiveData/particle/smoke/yan2.png', bytes: fs.readFileSync(path.join(source, 'LiveData/particle/smoke/yan2.png')) },
     ];
+    // Pictures the art team has redrawn (manifest batch no longer 'reuse-build-fx') are never overwritten;
+    // only the reused originals are (re)copied. The timelines below are always refreshed.
+    const manifest = JSON.parse(fs.readFileSync(path.join(PROJECT, 'docs/v2/美术交付清单.json'), 'utf8'));
+    const redrawn = new Set(manifest.uiAssets.filter(a => a.id.startsWith('fx_build_') && a.batch && a.batch !== 'reuse-build-fx').map(a => a.id));
+    const reused = files.filter(f => !redrawn.has(f.name));
     fs.mkdirSync(path.join(PROJECT, OUT_ART), { recursive: true });
-    for (const f of files) fs.writeFileSync(path.join(PROJECT, OUT_ART, f.name + '.png'), f.bytes);
-    registerArt(files, source);
+    for (const f of reused) fs.writeFileSync(path.join(PROJECT, OUT_ART, f.name + '.png'), f.bytes);
+    registerArt(reused, source);
 
     const size = n => [node(n)._contentSize.width, node(n)._contentSize.height];
     const spark = comp('cc.ParticleSystem'), sk = comp('sp.Skeleton'), skNode = node('building');
