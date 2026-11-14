@@ -1,0 +1,307 @@
+{
+  "batch": "P2-4",
+  "baseline": "ae571a7",
+  "date": "2026-11-14",
+  "result": "PASS",
+  "newRuntimePngs": 7,
+  "extensions": [
+    {
+      "file": "地图/M01_晨露蜂园_背景_扩展.png",
+      "original": "地图/M01_晨露蜂园_背景.png",
+      "size": [
+        1120,
+        2040
+      ],
+      "originalOffset": [
+        133,
+        99
+      ],
+      "sha256": "51f49a7554b4f345c53990890498c720a12310136eab6317af710c0b9c91880d",
+      "priority": "P2",
+      "batch": "P2-4"
+    },
+    {
+      "file": "地图/M02_繁花溪谷_背景_扩展.png",
+      "original": "地图/M02_繁花溪谷_背景.png",
+      "size": [
+        1120,
+        2040
+      ],
+      "originalOffset": [
+        133,
+        99
+      ],
+      "sha256": "f0652d443c3c4a83a5dca247e60756f833c5b8c9cb983086e56e0d97b311a09a",
+      "priority": "P2",
+      "batch": "P2-4"
+    },
+    {
+      "file": "地图/M03_巨树蜂城_背景_扩展.png",
+      "original": "地图/M03_巨树蜂城_背景.png",
+      "size": [
+        1120,
+        2040
+      ],
+      "originalOffset": [
+        133,
+        99
+      ],
+      "sha256": "183c1358c0ae87b9a9a30cd2fe132e7356dd38874ef82113a5d4a3e1203b8629",
+      "priority": "P2",
+      "batch": "P2-4"
+    },
+    {
+      "file": "素材/背景/bg_loading_扩展.png",
+      "original": "素材/背景/bg_loading.png",
+      "size": [
+        1120,
+        2040
+      ],
+      "originalOffset": [
+        133,
+        98
+      ],
+      "sha256": "951dab40027842e119e3d823406af1bd56f3aebb61d34fb22e702df4c0ee7391",
+      "priority": "P2",
+      "batch": "P2-4"
+    }
+  ],
+  "uiAssets": [
+    {
+      "id": "bg_pad_side_light",
+      "name": "平板侧边背景浅色",
+      "states": {
+        "default": "背景/bg_pad_side_light.png"
+      },
+      "size": [
+        2304,
+        1844
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "P2-4 参考M01/bg_puzzle新绘；重点为左右700px低对比装饰区",
+      "priority": "P2",
+      "batch": "P2-4",
+      "sha256": {
+        "default": "8c8725d4b933569ebdba6ebb96deb1fc7a9511e07e0eef941dd179671b361e49"
+      }
+    },
+    {
+      "id": "bg_pad_side_dark",
+      "name": "平板侧边背景深色",
+      "states": {
+        "default": "背景/bg_pad_side_dark.png"
+      },
+      "size": [
+        2304,
+        1844
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "P2-4 参考M01/bg_puzzle新绘；重点为左右700px低对比装饰区",
+      "priority": "P2",
+      "batch": "P2-4",
+      "sha256": {
+        "default": "0b318cdf48b10c3963e2e2168777ae01da5e643f4806744ab120aa4e2d8e4e77"
+      }
+    },
+    {
+      "id": "pad_frame_edge",
+      "name": "平板游戏区蜂蜜金边线柔影",
+      "states": {
+        "default": "UI/通用/pad_frame_edge.png"
+      },
+      "size": [
+        48,
+        256
+      ],
+      "scale": 1,
+      "slice": [
+        0,
+        32,
+        0,
+        32
+      ],
+      "anchor": [
+        1,
+        0.5
+      ],
+      "source": "P2-4 精确像素竖边：右2px金线，左46px暗影渐隐；全高同剖面，仅纵向拉伸",
+      "priority": "P2",
+      "batch": "P2-4",
+      "sha256": {
+        "default": "b1e29c4e5f7b34895c56ca0e56cfc7ce7ad0e14621295d7889e76c351495cbb4"
+      }
+    }
+  ],
+  "originalCenterMaxDifference": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "allPreviousUiEntriesUnchanged": true,
+  "allPreviouslyTrackedAssetsUnchanged": true,
+  "runtimeToolsUnchanged": true,
+  "frame2048StretchConstant": true,
+  "frameMirroredSymmetry": true,
+  "frameGoldLinePixels": 2,
+  "registration": [
+    {
+      "id": "M01",
+      "sourceFile": "制作记录/补充20261114/适配/生成原稿/M01_raw.png",
+      "sourceSha256": "28168d2710a241f0b44f82f815ac1963fbafa58efcaac87d2a6effe64bb76353",
+      "rawSize": [
+        887,
+        1774
+      ],
+      "matches": 1097,
+      "inliers": 796,
+      "generatedBorderAlignment": [
+        [
+          0.9450840045965151,
+          -0.0024306321215045988,
+          22.042842275118016
+        ],
+        [
+          -0.0014427980148101274,
+          1.0161811453976037,
+          -2.268356406842714
+        ]
+      ],
+      "rightContourAnchors": {
+        "method": "square masked local cloud/mountain continuation; only new right133px used",
+        "sourceFile": "制作记录/补充20261114/适配/生成原稿/M01_sky_raw.png",
+        "sourceSha256": "9eeca909c19662b87044fa66141ef526e3ee697d53d3b0bfad2daa141e75915b",
+        "canvasBox": [
+          608,
+          200,
+          1120,
+          712
+        ],
+        "protectedPatchWidth": 379
+      },
+      "centerDifferenceMax": 0,
+      "originalSha256": "5c89a5646ca9e337a8e0f71682cef6f9417e80b73aa02b34bef3455fa103e869"
+    },
+    {
+      "id": "M02",
+      "sourceFile": "制作记录/补充20261114/适配/生成原稿/M02_raw.png",
+      "sourceSha256": "bde1d8737242e354b57861dc041f1b00f07e5cbee5a81d74c4c07a31b91f485f",
+      "rawSize": [
+        887,
+        1774
+      ],
+      "matches": 905,
+      "inliers": 765,
+      "generatedBorderAlignment": [
+        [
+          0.9320647347393808,
+          -0.0022748886176806133,
+          22.185924463621262
+        ],
+        [
+          -0.00015817314035275145,
+          1.0071083855110086,
+          2.6566273359646346
+        ]
+      ],
+      "rightContourAnchors": {
+        "method": "square masked local cloud/mountain continuation; only new right133px used",
+        "sourceFile": "制作记录/补充20261114/适配/生成原稿/M02_sky_raw.png",
+        "sourceSha256": "c7b88b08b6aa4e01a41820b8b45d02be8e5a135742e7277dca8ec73249881089",
+        "canvasBox": [
+          608,
+          200,
+          1120,
+          712
+        ],
+        "protectedPatchWidth": 379
+      },
+      "centerDifferenceMax": 0,
+      "originalSha256": "5121b7e0f93f45f4c175cf906848897a63ab674b73f610c10b5cc0d92376ba22"
+    },
+    {
+      "id": "M03",
+      "sourceFile": "制作记录/补充20261114/适配/生成原稿/M03_raw.png",
+      "sourceSha256": "0fa89095484f707844c149968a5eb69fb98c99616f7bdcacb16ddea43164b36e",
+      "rawSize": [
+        887,
+        1774
+      ],
+      "matches": 1180,
+      "inliers": 978,
+      "generatedBorderAlignment": [
+        [
+          0.9357858399766018,
+          -0.0014738451930477825,
+          17.15057187986891
+        ],
+        [
+          0.00034683828330124843,
+          1.0072675883667181,
+          0.1845007539547739
+        ]
+      ],
+      "rightContourAnchors": null,
+      "centerDifferenceMax": 0,
+      "originalSha256": "af2c39391a646e35deacc90db3bd02398e90e998e8e3fbd4edc4c6d32722d8ac"
+    },
+    {
+      "id": "loading",
+      "sourceFile": "制作记录/补充20261114/适配/生成原稿/loading_raw.png",
+      "sourceSha256": "33f3389544c09815c70193439538051d3cf25bb06e3458aeede3563ada57e7e0",
+      "rawSize": [
+        887,
+        1774
+      ],
+      "matches": 1775,
+      "inliers": 1559,
+      "generatedBorderAlignment": [
+        [
+          0.9371090096935466,
+          -0.004675260526453618,
+          31.44736998083769
+        ],
+        [
+          0.0023246425153256025,
+          1.0214997223726174,
+          -7.035727733290035
+        ]
+      ],
+      "rightContourAnchors": null,
+      "centerDifferenceMax": 0,
+      "originalSha256": "c82aac3f7c9b22b8e8232fd8b3a2e7e83f238b00661cf0b57e26fb3a82d4e446"
+    },
+    {
+      "id": "pad_light",
+      "sourceFile": "制作记录/补充20261114/适配/生成原稿/pad_light_raw.png",
+      "sourceSha256": "fffdc95a5e61cf6daa61afeb08ce5a119a52a607773d79721975d6023ab8484b",
+      "rawSize": [
+        1401,
+        1123
+      ]
+    },
+    {
+      "id": "pad_dark",
+      "sourceFile": "制作记录/补充20261114/适配/生成原稿/pad_dark_raw.png",
+      "sourceSha256": "2eab3c7e9c1da96dc056a48d67b736c524459843bdb666949fac260015727370",
+      "rawSize": [
+        1401,
+        1123
+      ]
+    }
+  ],
+  "notes": [
+    "只有生成的外圈像素可配准与边界色校正；四张中心原图不重采样、不调色。",
+    "最终适配模拟为离线美术检查，不宣称真机多屏测试。"
+  ]
+}

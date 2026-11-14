@@ -5112,6 +5112,80 @@
       "sha256": {
         "default": "3ba28e8e4c19314378311c74868a94ca751811dfc07d5fa4450030594494771c"
       }
+    },
+    {
+      "id": "bg_pad_side_light",
+      "name": "平板侧边背景浅色",
+      "states": {
+        "default": "背景/bg_pad_side_light.png"
+      },
+      "size": [
+        2304,
+        1844
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "P2-4 参考M01/bg_puzzle新绘；重点为左右700px低对比装饰区",
+      "priority": "P2",
+      "batch": "P2-4",
+      "sha256": {
+        "default": "8c8725d4b933569ebdba6ebb96deb1fc7a9511e07e0eef941dd179671b361e49"
+      }
+    },
+    {
+      "id": "bg_pad_side_dark",
+      "name": "平板侧边背景深色",
+      "states": {
+        "default": "背景/bg_pad_side_dark.png"
+      },
+      "size": [
+        2304,
+        1844
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "P2-4 参考M01/bg_puzzle新绘；重点为左右700px低对比装饰区",
+      "priority": "P2",
+      "batch": "P2-4",
+      "sha256": {
+        "default": "0b318cdf48b10c3963e2e2168777ae01da5e643f4806744ab120aa4e2d8e4e77"
+      }
+    },
+    {
+      "id": "pad_frame_edge",
+      "name": "平板游戏区蜂蜜金边线柔影",
+      "states": {
+        "default": "UI/通用/pad_frame_edge.png"
+      },
+      "size": [
+        48,
+        256
+      ],
+      "scale": 1,
+      "slice": [
+        0,
+        32,
+        0,
+        32
+      ],
+      "anchor": [
+        1,
+        0.5
+      ],
+      "source": "P2-4 精确像素竖边：右2px金线，左46px暗影渐隐；全高同剖面，仅纵向拉伸",
+      "priority": "P2",
+      "batch": "P2-4",
+      "sha256": {
+        "default": "b1e29c4e5f7b34895c56ca0e56cfc7ce7ad0e14621295d7889e76c351495cbb4"
+      }
     }
   ],
   "uiLayouts": [
@@ -5434,6 +5508,68 @@
       "sourceFile": "素材/六角块/母件/empty_well.png",
       "sourceSha256": "277a9f0522ca587abc85932c5fbc4a523c7ccf654032b788de3da11d283eb5cf",
       "centerOpacity": 0.34901960784313724
+    }
+  ],
+  "p2Extensions": [
+    {
+      "file": "地图/M01_晨露蜂园_背景_扩展.png",
+      "original": "地图/M01_晨露蜂园_背景.png",
+      "size": [
+        1120,
+        2040
+      ],
+      "originalOffset": [
+        133,
+        99
+      ],
+      "sha256": "51f49a7554b4f345c53990890498c720a12310136eab6317af710c0b9c91880d",
+      "priority": "P2",
+      "batch": "P2-4"
+    },
+    {
+      "file": "地图/M02_繁花溪谷_背景_扩展.png",
+      "original": "地图/M02_繁花溪谷_背景.png",
+      "size": [
+        1120,
+        2040
+      ],
+      "originalOffset": [
+        133,
+        99
+      ],
+      "sha256": "f0652d443c3c4a83a5dca247e60756f833c5b8c9cb983086e56e0d97b311a09a",
+      "priority": "P2",
+      "batch": "P2-4"
+    },
+    {
+      "file": "地图/M03_巨树蜂城_背景_扩展.png",
+      "original": "地图/M03_巨树蜂城_背景.png",
+      "size": [
+        1120,
+        2040
+      ],
+      "originalOffset": [
+        133,
+        99
+      ],
+      "sha256": "183c1358c0ae87b9a9a30cd2fe132e7356dd38874ef82113a5d4a3e1203b8629",
+      "priority": "P2",
+      "batch": "P2-4"
+    },
+    {
+      "file": "素材/背景/bg_loading_扩展.png",
+      "original": "素材/背景/bg_loading.png",
+      "size": [
+        1120,
+        2040
+      ],
+      "originalOffset": [
+        133,
+        98
+      ],
+      "sha256": "951dab40027842e119e3d823406af1bd56f3aebb61d34fb22e702df4c0ee7391",
+      "priority": "P2",
+      "batch": "P2-4"
     }
   ]
 }
