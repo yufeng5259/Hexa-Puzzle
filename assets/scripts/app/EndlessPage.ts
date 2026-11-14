@@ -1,4 +1,4 @@
-import { Camera, EventTouch, Node, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
+import { Camera, Color, EventTouch, Node, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { Game } from '../core/Game';
@@ -18,6 +18,8 @@ const TRAY_INSET = 24;
 /** The dragged shape floats above the finger so the target cells stay visible. */
 const LIFT = 150;
 const FEEDBACK_SECONDS = 1.6;
+/** S19 status text colours as drawn: "已领取" (row 0) and "未解锁" (rows 2, 3). */
+const STATUS_COLOR = { claimed: new Color(0x31, 0x66, 0x4d, 255), locked: new Color(0x5e, 0x6c, 0x84, 255) };
 const RULE_HINT = '三个方向填满整线即可消除';
 const HELP = '把下方拼块拖进蜂巢。横向、左斜、右斜任一方向整条线填满就会消除，颜色不用相同。一次消除多条线得分更高；三块都放不下时本局结束。';
 
@@ -118,6 +120,7 @@ export class EndlessPage {
             for (const id of [`stage_${i}_status`, marks[i], `stage_${i}_status_text`]) v.setVisible(id, !claimable);
             if (!claimable) {
                 v.setText(`stage_${i}_status_text`, claimed ? '已领取' : '未解锁');
+                v.label(`stage_${i}_status_text`).color = claimed ? STATUS_COLOR.claimed : STATUS_COLOR.locked;
                 this.frame(v, `stage_${i}_status`, `UI/通用/tag_${claimed ? 'claimed' : 'locked'}.png`);
                 this.frame(v, marks[i], `UI/通用/mark_${claimed ? 'check' : 'lock'}.png`);
             }
