@@ -87,7 +87,8 @@ export function refreshWeek(state: GameState, week: string): void {
 }
 
 export function newEndlessGame(state: GameState, rules: Rules, gameId: string, seed: number): EndlessGame {
-    const game: EndlessGame = { gameId, board: {}, tray: [], score: 0, seed: seed >>> 0, bestAtStart: state.endless.best };
+    const tools = { swap: rules.endless.tools.swap, hammer: rules.endless.tools.hammer };
+    const game: EndlessGame = { gameId, board: {}, tray: [], score: 0, seed: seed >>> 0, bestAtStart: state.endless.best, tools };
     refill(game, rules);
     state.endless.game = game;
     return game;
@@ -103,7 +104,9 @@ export interface PlaceResult {
     readonly cleared: readonly string[];
     readonly color: number;
     readonly refilled: boolean;
+    /** No tray shape fits anywhere (the game may still go on through a tool, see outcome). */
     readonly gameOver: boolean;
+    readonly outcome: EndlessOutcome;
 }
 
 /** Places a tray shape, clears full lines, refills when the tray is empty and checks for game over. */
@@ -136,8 +139,95 @@ export function placeShape(state: GameState, rules: Rules, day: string, week: st
     return {
         score: gained, lines: full.length, placed: piece.cells.map(([dq, dr]) => key(q + dq, r + dr)),
         fullLines: full.map(line => line.map(([lq, lr]) => key(lq, lr))), cleared: [...cleared], color: piece.color,
-        refilled, gameOver: isGameOver(game, rules),
+        refilled, gameOver: isGameOver(game, rules), outcome: endlessOutcome(game, rules),
     };
+}
+
+// ---- Tools (docs/v2/09 §7.2): "换一手" and "单格锤", free per new game, saved with the board ----
+
+export type EndlessTool = 'swap' | 'hammer';
+/** Why a tool cannot be used right now: none left, no unused tray slot, no different hand that leaves a move, or nothing to hit. */
+export type ToolBlock = 'used' | 'noSlot' | 'noShape' | 'emptyBoard';
+
+export function toolsLeft(game: EndlessGame, rules: Rules): { swap: number; hammer: number } {
+    return game.tools ?? { swap: rules.endless.tools.swap, hammer: rules.endless.tools.hammer };
+}
+
+/** The hand with one unused slot changed to the smallest other shape that still leaves a move (null when none exists). */
+function fallbackTray(game: EndlessGame, rules: Rules): (string | null)[] | null {
+    const pool = rules.endless.shapes.map((s, order) => ({ s, order })).sort((a, b) => a.s.cells.length - b.s.cells.length || a.order - b.order).map(x => x.s);
+    const fits = new Map(pool.map(s => [s.id, hasAnyPlacement(game, rules, s.id)]));
+    for (const placeableOnly of [true, false]) for (let i = 0; i < game.tray.length; i++) {
+        if (game.tray[i] === null) continue;
+        for (const s of pool) {
+            if (s.id === game.tray[i] || (placeableOnly && !fits.get(s.id))) continue;
+            const tray = [...game.tray];
+            tray[i] = s.id;
+            if (tray.some(id => id !== null && fits.get(id))) return tray;
+        }
+    }
+    return null;
+}
+
+export function toolBlock(game: EndlessGame, rules: Rules, tool: EndlessTool): ToolBlock | null {
+    if (toolsLeft(game, rules)[tool] <= 0) return 'used';
+    if (tool === 'hammer') return Object.keys(game.board).length ? null : 'emptyBoard';
+    if (!game.tray.some(id => id !== null)) return 'noSlot';
+    return fallbackTray(game, rules) ? null : 'noShape';
+}
+
+/** play: some tray shape fits; rescue: none fits but a tool can still change that; over: the game ends. */
+export type EndlessOutcome = 'play' | 'rescue' | 'over';
+export function endlessOutcome(game: EndlessGame, rules: Rules): EndlessOutcome {
+    if (!isGameOver(game, rules)) return 'play';
+    return toolBlock(game, rules, 'swap') === null || toolBlock(game, rules, 'hammer') === null ? 'rescue' : 'over';
+}
+
+export interface ToolResult {
+    /** Swap: tray slots dealt anew. Hammer: the one cell removed ("q,r") and its colour. */
+    readonly slots: readonly number[];
+    readonly cell: string | null;
+    readonly color: number;
+    readonly outcome: EndlessOutcome;
+}
+
+/**
+ * "换一手": redraws every unused slot (used ones stay null) with a bounded number of seeded tries;
+ * a try counts when some slot changed and the hand has a move. Otherwise a deterministic fallback
+ * changes one slot. Tray, the advanced seed and the use are saved together; board and score stay.
+ */
+export function swapTray(state: GameState, rules: Rules): ToolResult {
+    const game = state.endless.game;
+    if (!game) throw new RuleError('invalid', 'No endless game');
+    const block = toolBlock(game, rules, 'swap');
+    if (block) throw new RuleError('invalid', `Swap unavailable: ${block}`);
+    const left = toolsLeft(game, rules), draft: EndlessGame = { ...game, tray: [...game.tray] };
+    const open = game.tray.map((id, i) => (id === null ? -1 : i)).filter(i => i >= 0);
+    const changed = (tray: (string | null)[]) => open.some(i => tray[i] !== game.tray[i]) && tray.some(id => id !== null && hasAnyPlacement(game, rules, id));
+    let tray: (string | null)[] | null = null;
+    for (let i = 0; i < rules.endless.tools.swapRetries && !tray; i++) {
+        const batch = drawBatch(draft, rules), candidate = game.tray.map((id, j) => (id === null ? null : batch[j]));
+        if (changed(candidate)) tray = candidate;
+    }
+    tray ??= fallbackTray(game, rules);
+    if (!tray) throw new RuleError('invalid', 'No different hand');
+    game.tray = tray;
+    game.seed = draft.seed;
+    game.tools = { ...left, swap: left.swap - 1 };
+    return { slots: open, cell: null, color: 0, outcome: endlessOutcome(game, rules) };
+}
+
+/** "单格锤": removes one filled cell; no score, no line, no task progress, the tray stays. */
+export function hammerCell(state: GameState, rules: Rules, q: number, r: number): ToolResult {
+    const game = state.endless.game;
+    if (!game) throw new RuleError('invalid', 'No endless game');
+    const left = toolsLeft(game, rules), k = key(q, r);
+    if (left.hammer <= 0) throw new RuleError('invalid', 'Hammer used');
+    if (!(k in game.board)) throw new RuleError('invalid', 'Empty cell');
+    const color = game.board[k];
+    delete game.board[k];
+    game.tools = { ...left, hammer: left.hammer - 1 };
+    return { slots: [], cell: k, color, outcome: endlessOutcome(game, rules) };
 }
 
 /** Strictly above the best before the game started; a tie or an older save without bestAtStart is no record. */

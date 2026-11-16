@@ -1,7 +1,7 @@
 import { Color, game as engine, Game as Engine, Label, LabelOutline, Node, Sprite, SpriteFrame, UIOpacity, UITransform, Vec3 } from 'cc';
 import {
     badgeScale, boardDim, burstFrame, clearProgress, confetti, confettoPose, floatPose, floatText, ghostAlpha, ghostScale,
-    lineGlow, planPlace, planResult, pulse, rolledScore, scoreArrived, scorePulse, settleScale, slideIn,
+    hammerPose, lineGlow, planHammer, planPlace, planResult, planSwap, popIn, pulse, rolledScore, scoreArrived, scorePulse, settleScale, shatter, slideIn, swapOut,
     type EndlessTimings, type PlaceInput, type ResultInput, type ResultPlan,
 } from './EndlessTimeline';
 
@@ -10,6 +10,7 @@ export interface EndlessArt {
     readonly glow: SpriteFrame | null;
     readonly burst: readonly SpriteFrame[];
     readonly confetti: readonly SpriteFrame[];
+    readonly hammer: SpriteFrame | null;
 }
 export interface BoardCell { readonly base: Sprite; readonly overlay: Sprite }
 
@@ -29,6 +30,19 @@ export interface PlaceShow extends PlaceInput {
     /** The saved score shows. */
     readonly onScore: () => void;
 }
+/** "换一手": the old tray pieces shrink out, then the saved tray shows and its dealt slots pop in. */
+export interface SwapShow {
+    readonly slots: readonly number[];
+    readonly old: readonly (Node | null)[];
+    /** The saved tray shows; returns the slot nodes. */
+    readonly onSwap: () => readonly (Node | null)[];
+}
+/** "单格锤": the hammer drops on the cell; at the hit the saved board shows and the old cell shatters. */
+export interface HammerShow {
+    readonly cell: BoardCell;
+    readonly mount: Node;
+    readonly onHit: () => void;
+}
 export interface ResultShow extends ResultInput {
     readonly scoreLabel: Label;
     readonly badge: readonly Node[];
@@ -40,6 +54,8 @@ export interface ResultShow extends ResultInput {
 const CONFETTI = 10, CONFETTO = 26;
 const FLOAT = { size: 46, color: new Color(255, 226, 92, 255), outline: new Color(122, 66, 10, 255) };
 const DIM = 0.42;
+/** fx_build_hammer is 133×105. */
+const HAMMER_ASPECT = 105 / 133;
 
 interface Cue { at: number; fn: () => void; fired: boolean }
 interface Running { at: number; end: number; input: number; draw: (at: number) => void; cues: Cue[]; restore: () => void; done: () => void }
@@ -142,6 +158,65 @@ export class EndlessFx {
             if (scoreBase && show.scoreNode?.isValid) show.scoreNode.setScale(scoreBase);
             for (const n of temp) if (n.isValid) n.destroy();
         });
+    }
+
+    /** One saved swap; resolves when the new tray has settled. Input waits for the whole show. */
+    public swap(show: SwapShow): Promise<void> {
+        this.stop();
+        const plan = planSwap(show.slots, this.t);
+        const old = show.slots.map(i => show.old[i]).filter((n): n is Node => !!n?.isValid)
+            .map(node => ({ node, base: node.scale.clone(), opacity: node.getComponent(UIOpacity) ?? node.addComponent(UIOpacity) }));
+        let fresh: { node: Node; base: Vec3; start: number }[] = [];
+        const cues: Cue[] = [{
+            at: plan.outEnd, fired: false, fn: () => {
+                const nodes = show.onSwap();
+                fresh = plan.slots.map(s => {
+                    const node = nodes[s.slot];
+                    return node?.isValid ? { node, base: node.scale.clone(), start: s.start } : null;
+                }).filter((x): x is NonNullable<typeof x> => !!x);
+            },
+        }];
+        return this.run(plan.end, plan.end, cues, at => {
+            const o = swapOut(plan, at);
+            for (const x of old) if (x.node.isValid) { x.node.setScale(x.base.x * o.scale, x.base.y * o.scale, x.base.z); x.opacity.opacity = Math.round(255 * o.alpha); }
+            for (const x of fresh) if (x.node.isValid) { const k = popIn(x.start, plan.inSeconds, at); x.node.setScale(x.base.x * k, x.base.y * k, x.base.z); }
+        }, () => { for (const x of fresh) if (x.node.isValid) x.node.setScale(x.base); });
+    }
+
+    /** One saved hammer hit; resolves when the shatter has faded. */
+    public hammer(show: HammerShow): Promise<void> {
+        this.stop();
+        const plan = planHammer(this.t), art = this.art(), temp: Node[] = [], base = show.cell.base;
+        if (!base.isValid) { show.onHit(); return Promise.resolve(); }
+        const size = base.node.getComponent(UITransform)!.width, at0 = base.node.position.clone();
+        const hammer = art.hammer ? this.cellSprite(show.mount, base, art.hammer) : null;
+        if (hammer) { hammer.node.getComponent(UITransform)!.setContentSize(size * 1.4, size * 1.4 * HAMMER_ASPECT); temp.push(hammer.node); }
+        const hit: { ghost: Sprite | null; burst: Sprite | null } = { ghost: null, burst: null };
+        const cues: Cue[] = [{
+            at: plan.hit, fired: false, fn: () => {
+                // The old cell art lives on as a shattering ghost over the saved (empty) cell.
+                hit.ghost = this.cellSprite(show.mount, base, base.spriteFrame);
+                hit.burst = art.burst.length ? this.cellSprite(show.mount, base, null) : null;
+                temp.push(hit.ghost.node); if (hit.burst) temp.push(hit.burst.node);
+                if (hammer?.isValid) hammer.node.setSiblingIndex(show.mount.children.length - 1);
+                show.onHit();
+            },
+        }];
+        return this.run(plan.end, plan.end, cues, at => {
+            if (hammer?.isValid) {
+                const p = hammerPose(plan, at);
+                hammer.node.setPosition(at0.x + size * 0.35, at0.y + size * 0.35 + p.dy, 0);
+                hammer.node.angle = p.angle;
+                hammer.color = alpha(Color.WHITE, p.alpha);
+            }
+            const k = shatter(plan, at);
+            if (hit.ghost?.isValid) { hit.ghost.node.setScale(1 + 0.3 * k, 1 + 0.3 * k, 1); hit.ghost.color = alpha(Color.WHITE, 1 - k); }
+            if (hit.burst?.isValid) {
+                const f = burstFrame(k);
+                hit.burst.node.active = f >= 0;
+                if (f >= 0) hit.burst.spriteFrame = art.burst[Math.min(f, art.burst.length - 1)];
+            }
+        }, () => { for (const n of temp) if (n.isValid) n.destroy(); });
     }
 
     /** Before S21: an ended game's board and tray dim (and stay dim); an abandoned one fades out. */

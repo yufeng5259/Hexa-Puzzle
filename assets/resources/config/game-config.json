@@ -47,6 +47,11 @@
     "number",
     0.18
    ],
+   "animEndlessHammerSeconds": [
+    "animEndlessHammerSeconds",
+    "number",
+    0.15
+   ],
    "animEndlessHighlightSeconds": [
     "animEndlessHighlightSeconds",
     "number",
@@ -66,6 +71,21 @@
     "animEndlessSettleSeconds",
     "number",
     0.1
+   ],
+   "animEndlessShatterSeconds": [
+    "animEndlessShatterSeconds",
+    "number",
+    0.2
+   ],
+   "animEndlessSwapInSeconds": [
+    "animEndlessSwapInSeconds",
+    "number",
+    0.2
+   ],
+   "animEndlessSwapOutSeconds": [
+    "animEndlessSwapOutSeconds",
+    "number",
+    0.12
    ],
    "animFailSeconds": [
     "animFailSeconds",
@@ -152,6 +172,11 @@
     "int",
     3
    ],
+   "endlessHammerPerGame": [
+    "endlessHammerPerGame",
+    "int",
+    1
+   ],
    "endlessRadius": [
     "endlessRadius",
     "int",
@@ -176,6 +201,16 @@
     "endlessScorePerPlaced",
     "int",
     1
+   ],
+   "endlessSwapPerGame": [
+    "endlessSwapPerGame",
+    "int",
+    1
+   ],
+   "endlessSwapRetries": [
+    "endlessSwapRetries",
+    "int",
+    8
    ],
    "endlessTraySize": [
     "endlessTraySize",

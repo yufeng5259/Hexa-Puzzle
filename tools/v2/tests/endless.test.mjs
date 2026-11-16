@@ -182,3 +182,106 @@ test('summary: week gain and claimable stages of the current week only', () => {
     assert.equal(s.claimable, false);
     assert.equal(E.endlessSummary(createState(rules), rules, WEEK, false), null);
 });
+
+// ---- P5 tools (docs/v2/09 §7.2) ----
+
+/** Every cell full except the given ones. */
+function packed(game, ...free) {
+    game.board = {};
+    for (const [q, r] of E.boardCells(4)) game.board[E.key(q, r)] = 1;
+    for (const k of free) delete game.board[k];
+}
+
+test('a new game gets the configured tool uses; an older save without them reads the default', () => {
+    const state = createState(rules), game = E.newEndlessGame(state, rules, 'g', 1);
+    assert.deepEqual(game.tools, { swap: rules.endless.tools.swap, hammer: rules.endless.tools.hammer });
+    delete game.tools;
+    assert.deepEqual(E.toolsLeft(game, rules), { swap: 1, hammer: 1 });
+});
+
+test('swap redraws unused slots only, keeps board and score, advances the seed and spends one use', () => {
+    const state = createState(rules), game = E.newEndlessGame(state, rules, 'g', 11);
+    game.board = { '0,0': 2 }; game.score = 40;
+    game.tray = ['i3a', null, 'o4'];
+    const seed = game.seed, result = E.swapTray(state, rules);
+    assert.deepEqual(result.slots, [0, 2]);
+    assert.equal(game.tray[1], null, 'a used slot stays used');
+    assert.ok(game.tray[0] !== 'i3a' || game.tray[2] !== 'o4', 'some unused slot changed');
+    assert.ok(game.tray.some(id => id && E.hasAnyPlacement(game, rules, id)));
+    assert.notEqual(game.seed, seed);
+    assert.deepEqual(game.board, { '0,0': 2 });
+    assert.equal(game.score, 40);
+    assert.equal(game.tools.swap, 0);
+    assert.equal(E.toolBlock(game, rules, 'swap'), 'used');
+    assert.throws(() => E.swapTray(state, rules), /Swap unavailable: used/);
+});
+
+test('the same saved game swaps to the same hand', () => {
+    const make = () => { const s = createState(rules), g = E.newEndlessGame(s, rules, 'g', 99); g.tray = ['s1', 'i2a', null]; return s; };
+    const a = make(), b = make();
+    E.swapTray(a, rules); E.swapTray(b, rules);
+    assert.deepEqual(a.endless.game.tray, b.endless.game.tray);
+    assert.equal(a.endless.game.seed, b.endless.game.seed);
+});
+
+test('swap falls back deterministically when no seeded try changes the hand', () => {
+    const noTries = { ...rules, endless: { ...rules.endless, tools: { ...rules.endless.tools, swapRetries: 0 } } };
+    const state = createState(rules), game = E.newEndlessGame(state, rules, 'g', 5);
+    game.tray = ['i5a', null, null];
+    const seed = game.seed;
+    E.swapTray(state, noTries);
+    assert.equal(game.tray[0], 's1', 'smallest other placeable shape');
+    assert.deepEqual(game.tray.slice(1), [null, null]);
+    assert.equal(game.seed, seed, 'no try drew anything');
+});
+
+test('swap is blocked with a reason and changes nothing when no other hand has a move', () => {
+    const state = createState(rules), game = E.newEndlessGame(state, rules, 'g', 5);
+    packed(game, '0,0');
+    // Only single cells fit; the only open slot already holds one.
+    game.tray = ['s1', null, null];
+    assert.equal(E.toolBlock(game, rules, 'swap'), 'noShape');
+    const before = JSON.stringify(game);
+    assert.throws(() => E.swapTray(state, rules), /noShape/);
+    assert.equal(JSON.stringify(game), before);
+    packed(game);
+    game.tray = ['i2a', null, null];
+    assert.equal(E.toolBlock(game, rules, 'swap'), 'noShape');
+});
+
+test('hammer removes one filled cell without score or task progress; empty cells cost nothing', () => {
+    const state = createState(rules), game = E.newEndlessGame(state, rules, 'g', 5);
+    game.board = { '1,1': 3 }; game.score = 10;
+    const tray = [...game.tray];
+    assert.throws(() => E.hammerCell(state, rules, 0, 0), /Empty/);
+    assert.equal(game.tools.hammer, 1);
+    const result = E.hammerCell(state, rules, 1, 1);
+    assert.equal(result.cell, '1,1');
+    assert.equal(result.color, 3);
+    assert.deepEqual(game.board, {});
+    assert.equal(game.score, 10);
+    assert.deepEqual(game.tray, tray);
+    assert.equal(state.endless.weekScore, 0);
+    assert.equal(game.tools.hammer, 0);
+    assert.equal(E.toolBlock(game, rules, 'hammer'), 'used');
+    assert.equal(E.toolBlock(E.newEndlessGame(createState(rules), rules, 'h', 1), rules, 'hammer'), 'emptyBoard');
+});
+
+test('stuck with a usable tool is a rescue, not the end; once tools are spent it is over', () => {
+    const state = createState(rules), game = E.newEndlessGame(state, rules, 'g', 5);
+    packed(game, '0,0', '2,2');
+    game.tray = ['i2a', 'o4', null];
+    assert.equal(E.isGameOver(game, rules), true);
+    assert.equal(E.endlessOutcome(game, rules), 'rescue');
+    // The hammer opens a pair of cells next to the hole: the i2a now fits.
+    const hit = E.hammerCell(state, rules, 1, 0);
+    assert.equal(hit.outcome, 'play');
+    // Hammer spent, swap left: a hand of single cells still fits the hole, so it is a rescue.
+    packed(game, '0,0');
+    game.tray = ['i2a', null, null];
+    assert.equal(E.endlessOutcome(game, rules), 'rescue');
+    game.tools = { swap: 0, hammer: 0 };
+    assert.equal(E.endlessOutcome(game, rules), 'over');
+    game.tools = { swap: 0, hammer: 1 };
+    assert.equal(E.endlessOutcome(game, rules), 'rescue');
+});

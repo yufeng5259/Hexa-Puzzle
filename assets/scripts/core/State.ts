@@ -44,6 +44,8 @@ export interface EndlessGame {
     weekGain?: number;
     /** Best score before this game started; only a final score strictly above it is a new record. Missing (older save) = the best when read. */
     bestAtStart?: number;
+    /** Tool uses left in this game (saved with the board, never refilled on resume). Missing = the configured default. */
+    tools?: { swap: number; hammer: number };
 }
 
 export interface GameState {

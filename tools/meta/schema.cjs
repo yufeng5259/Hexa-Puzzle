@@ -24,12 +24,14 @@ const constants = {
  dailyChestRewardId:'string', dailyTaskCount:'int',
  endlessUnlockAfterLevelNo:'int', endlessRadius:'int', endlessTraySize:'int',
  endlessScorePerPlaced:'int', endlessScorePerCleared:'int', endlessScorePerLine:'int', endlessScoreMultiLine:'int',
+ endlessSwapPerGame:'int', endlessHammerPerGame:'int', endlessSwapRetries:'int',
  animProgressSeconds:'number',
  animCardSeconds:'number', animCardStaggerSeconds:'number', animScatterSeconds:'number', animFlySeconds:'number', animPulseSeconds:'number',
  animSkipAfterSeconds:'number', animRewardTimeoutSeconds:'number', animChestShakeSeconds:'number', animChestOpenSeconds:'number', animCoinParticlesMax:'int',
  animWinHoldSeconds:'number', animWinWaveSeconds:'number', animResultEnterSeconds:'number', animFailSeconds:'number', animBoardFadeSeconds:'number', animFirstWinLimitSeconds:'number',
  animEndlessSettleSeconds:'number', animEndlessHighlightSeconds:'number', animEndlessClearSeconds:'number', animEndlessScoreSeconds:'number', animEndlessRefillSeconds:'number',
  animEndlessDimSeconds:'number', animScoreRollSeconds:'number', animRecordSeconds:'number',
+ animEndlessSwapOutSeconds:'number', animEndlessSwapInSeconds:'number', animEndlessHammerSeconds:'number', animEndlessShatterSeconds:'number',
 };
 const dailyTaskTypes = ['win','build','endlessLines','endlessScore','placePiece'];
 const dailyTaskSlots = ['fixed','rotate','fallback'];

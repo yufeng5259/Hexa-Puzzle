@@ -184,3 +184,48 @@ export function confettoPose(c: Confetto, k: number): { readonly x: number; read
     if (k <= 0) return { x: 0, y: 0, angle: 0, alpha: 1 };
     return { x: c.dx * e, y: c.dy * e - 60 * k * k, angle: c.spin * k, alpha: k >= 1 ? 0 : 1 - clamp01((k - 0.5) / 0.5) };
 }
+
+// ---- tools (docs/v2/09 §7.2) ------------------------------------------------
+
+/** "换一手": the old pieces shrink out together, then the new ones pop in, staggered. Input waits for the end. */
+export interface SwapPlan {
+    readonly outEnd: number;
+    readonly slots: readonly { readonly slot: number; readonly start: number }[];
+    readonly inSeconds: number;
+    readonly end: number;
+}
+export function planSwap(slots: readonly number[], t: EndlessTimings): SwapPlan {
+    const outEnd = Math.max(0, t.endlessSwapOutSeconds), inSeconds = Math.max(1e-3, t.endlessSwapInSeconds);
+    const list = slots.map((slot, i) => ({ slot, start: outEnd + i * REFILL_STAGGER }));
+    return { outEnd, slots: list, inSeconds, end: list.length ? list[list.length - 1].start + inSeconds : outEnd };
+}
+/** An old piece leaving: scale and alpha 1 → 0.6 / 0 by outEnd. */
+export function swapOut(plan: SwapPlan, at: number): { readonly scale: number; readonly alpha: number } {
+    const k = plan.outEnd <= 0 ? 1 : clamp01(at / plan.outEnd);
+    return { scale: 1 - 0.4 * easeOut(k), alpha: 1 - k };
+}
+/** A new piece: hidden (0) before its turn, 0 → 1.15 → 1, then 1. */
+export function popIn(start: number, seconds: number, at: number): number {
+    if (at < start) return 0;
+    const k = clamp01((at - start) / seconds);
+    return k >= 1 ? 1 : k < 0.6 ? 1.15 * easeOut(k / 0.6) : 1.15 - 0.15 * ((k - 0.6) / 0.4);
+}
+
+/** "单格锤": the hammer drops onto the cell, then the cell shatters; the saved (empty) cell shows from the hit. */
+export interface HammerPlan { readonly hit: number; readonly end: number }
+/** Design units above the cell the hammer starts from. */
+export const HAMMER_DROP = 140;
+export function planHammer(t: EndlessTimings): HammerPlan {
+    const hit = Math.max(0, t.endlessHammerSeconds);
+    return { hit, end: hit + Math.max(1e-3, t.endlessShatterSeconds) };
+}
+/** Hammer above the cell: falls (ease-in) and swings level by the hit, then fades while the cell shatters. */
+export function hammerPose(plan: HammerPlan, at: number): { readonly dy: number; readonly angle: number; readonly alpha: number } {
+    if (at < plan.hit) {
+        const k = plan.hit <= 0 ? 1 : clamp01(at / plan.hit);
+        return { dy: HAMMER_DROP * (1 - k * k), angle: 40 * (1 - k), alpha: 1 };
+    }
+    return { dy: 0, angle: 0, alpha: 1 - clamp01((at - plan.hit) / (plan.end - plan.hit)) };
+}
+/** Shatter progress of the hit cell, 0 before the hit and 1 at the end. */
+export function shatter(plan: HammerPlan, at: number): number { return at < plan.hit ? 0 : clamp01((at - plan.hit) / (plan.end - plan.hit)); }

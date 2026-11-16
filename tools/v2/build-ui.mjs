@@ -26,7 +26,7 @@ const BUTTONS = {
     S15: ['claim_next', 'stay'], S16: ['hud_btn_square_blue', 'hud_btn_square_purple', 'hud_energy', 'return_home'],
     S17: ['btn_close', 'btn_green'], S18: ['btn_close', 'task_1_action', 'task_2_action', 'task_3_action', 'completion_claim'],
     S19: ['home_button', 'help_button', 'stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim', 'start_challenge'],
-    S20: ['hud_btn_square_blue', 'settings_button'], S21: ['retry', 'return_event'], S22: ['btn_close_dialog', 'save_leave', 'continue', 'end_game'],
+    S20: ['hud_btn_square_blue', 'settings_button', 'tool_swap', 'tool_hammer', 'end_rescue'], S21: ['retry', 'return_event'], S22: ['btn_close_dialog', 'save_leave', 'continue', 'end_game'],
     S23: ['btn_close_dialog', 'music_toggle_track', 'sound_toggle_track', 'vibration_toggle_track', 'done'], S24: ['retry_save', 'continue'], S25: ['claim_continue'],
 };
 /** Same element as drawn on another stage row, moved onto row i (S19 draws each row in one state only). */
@@ -135,7 +135,33 @@ const LAYOUT_PATCH = {
     }])),
     // Home and back both left the activity: one home button, as on S20.
     S19: layout => ({ ...layout, elements: layout.elements.filter(e => e.id !== 'back_button' && e.id !== 'icon_back') }),
+    S20: endlessTools,
 };
+/**
+ * S20 tools (P5, docs/v2/09 §7.2, decided 2026-11-16): "换一手" bottom-left and "单格锤" bottom-right
+ * under the tray, each a blue capsule with its icon, name and uses left; "结束本局" sits between
+ * them only while no piece fits (rescue). The rule line moves up between board and tray, where
+ * the placement feedback already showed.
+ */
+export const TOOL_ROW = { y: 1660, height: 100, width: 250, side: 40, endWidth: 226, hintY: 1212 };
+function endlessTools(layout) {
+    const { y, height: h, width: w, side, endWidth, hintY } = TOOL_ROW, W = layout.size[0];
+    const up = { rule_hint: hintY, divider_gold: hintY + 17, divider_right: hintY + 17 };
+    const elements = layout.elements.map(e => up[e.id] !== undefined ? { ...e, rect: [e.rect[0], up[e.id], e.rect[2], e.rect[3]] } : e);
+    const text = { type: 'label', color: '#FFFFFF', bold: true, verticalAlign: 'center', outlineColor: '#1F3F8C', outlineWidth: 3 };
+    const tool = (id, x, icon, name) => [
+        { id, asset: 'UI/通用/btn_blue_normal.png', slice: true, rect: [x, y, w, h] },
+        { id: `${id}_icon`, asset: icon, rect: [x + 12, y + 8, 84, 84] },
+        { ...text, id: `${id}_label`, text: name, rect: [x + 96, y + 4, w - 108, 52], fontSize: 36, align: 'center' },
+        { ...text, id: `${id}_count`, text: '剩1次', rect: [x + 96, y + 52, w - 108, 42], fontSize: 30, align: 'center' },
+    ];
+    const ex = (W - endWidth) / 2;
+    return { ...layout, elements: [...elements,
+        ...tool('tool_swap', side, 'UI/图标/icon_replay.png', '换一手'), ...tool('tool_hammer', W - side - w, 'UI/图标/icon_build.png', '单格锤'),
+        { id: 'end_rescue', asset: 'UI/通用/btn_grey_normal.png', slice: true, rect: [ex, y, endWidth, h], hidden: true },
+        { ...text, id: 'end_rescue_label', text: '结束本局', rect: [ex, y, endWidth, h], fontSize: 36, align: 'center', outlineColor: '#4A4F5C', hidden: true },
+    ] };
+}
 export function pageLayout(file) {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, file), 'utf8'));
     return progressSlots(readable(LAYOUT_PATCH[layout.page]?.(layout) ?? layout));

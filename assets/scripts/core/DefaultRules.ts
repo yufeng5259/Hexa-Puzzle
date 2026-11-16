@@ -87,6 +87,7 @@ export function defaultRules(): Rules {
             winHoldSeconds: 0.12, winWaveSeconds: 0.6, resultEnterSeconds: 0.18, failSeconds: 0.18, boardFadeSeconds: 0.18, firstWinLimitSeconds: 2.2,
             endlessSettleSeconds: 0.1, endlessHighlightSeconds: 0.12, endlessClearSeconds: 0.22, endlessScoreSeconds: 0.3, endlessRefillSeconds: 0.18,
             endlessDimSeconds: 0.18, scoreRollSeconds: 0.45, recordSeconds: 0.3,
+            endlessSwapOutSeconds: 0.12, endlessSwapInSeconds: 0.2, endlessHammerSeconds: 0.15, endlessShatterSeconds: 0.2,
         },
         // Linear 100 exp per level; every level gives 1 energy, levels 6/11/16… also a hint.
         levels: Array.from({ length: 30 }, (_, i) => ({ expToNext: 100, rewardId: i === 0 ? null : (i + 1) % 5 === 1 ? 'level_up_5' : 'level_up' })),
@@ -99,6 +100,7 @@ export function defaultRules(): Rules {
             shapes,
             score: { perPlaced: 1, perCleared: 10, perLine: 20, multiLine: 20 },
             stages: [{ score: 500, rewardId: 'endless_1' }, { score: 1500, rewardId: 'endless_2' }, { score: 3000, rewardId: 'endless_3' }, { score: 6000, rewardId: 'endless_4' }],
+            tools: { swap: 1, hammer: 1, swapRetries: 8 },
         },
     };
 }

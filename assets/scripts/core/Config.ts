@@ -133,6 +133,8 @@ export function parseGameConfig(json: unknown): GameConfig {
             endlessClearSeconds: k('animEndlessClearSeconds', 'number'), endlessScoreSeconds: k('animEndlessScoreSeconds', 'number'),
             endlessRefillSeconds: k('animEndlessRefillSeconds', 'number'), endlessDimSeconds: k('animEndlessDimSeconds', 'number'),
             scoreRollSeconds: k('animScoreRollSeconds', 'number'), recordSeconds: k('animRecordSeconds', 'number'),
+            endlessSwapOutSeconds: k('animEndlessSwapOutSeconds', 'number'), endlessSwapInSeconds: k('animEndlessSwapInSeconds', 'number'),
+            endlessHammerSeconds: k('animEndlessHammerSeconds', 'number'), endlessShatterSeconds: k('animEndlessShatterSeconds', 'number'),
         },
         levels, signIn,
         daily: { tasks, chestRewardId: rewardRef(k('dailyChestRewardId', 'string'))!, count: k('dailyTaskCount', 'number') },
@@ -140,6 +142,7 @@ export function parseGameConfig(json: unknown): GameConfig {
             unlockAfterLevelNo: k('endlessUnlockAfterLevelNo', 'number'), radius: k('endlessRadius', 'number'), traySize: k('endlessTraySize', 'number'), shapes,
             score: { perPlaced: k('endlessScorePerPlaced', 'number'), perCleared: k('endlessScorePerCleared', 'number'), perLine: k('endlessScorePerLine', 'number'), multiLine: k('endlessScoreMultiLine', 'number') },
             stages: endlessStages,
+            tools: { swap: k('endlessSwapPerGame', 'number'), hammer: k('endlessHammerPerGame', 'number'), swapRetries: k('endlessSwapRetries', 'number') },
         },
     };
     if (!maps.some(m => m.id === rules.firstMapId)) fail('firstMapId');

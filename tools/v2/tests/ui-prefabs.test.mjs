@@ -255,3 +255,36 @@ test('progress bars: every fill is a left-anchored masked viewport holding a ful
     }
     for (const id of ['Loading.prefab/bar_fill_green', 'S02.prefab/bar_fill_green', 'S03.prefab/bar_fill_green_2', 'S18.prefab/task_1_progress_fill', 'MapCard.prefab/progress_fill']) assert.ok(fills.includes(id), id);
 });
+
+test('S20 tools (09 §7.2): swap bottom-left, hammer bottom-right under the tray, rescue end between them hidden; rule line moved above the tray', async () => {
+    const { edgePins, pageLayout, TOOL_ROW } = await import('../build-ui.mjs');
+    const layout = pageLayout('S20.json'), el = id => layout.elements.find(e => e.id === id), W = layout.size[0];
+    const tray = el('puzzle_tray_frame').rect, swap = el('tool_swap').rect, hammer = el('tool_hammer').rect, end = el('end_rescue').rect, hint = el('rule_hint').rect;
+    assert.ok(swap[1] >= tray[1] + tray[3] + 20, 'tools under the tray, not over it');
+    assert.equal(swap[1], hammer[1]); assert.equal(swap[3], TOOL_ROW.height);
+    assert.ok(swap[3] >= 92 && swap[2] >= 200, 'easy to tap');
+    assert.ok(end[0] - (swap[0] + swap[2]) >= 24 && hammer[0] - (end[0] + end[2]) >= 24, 'at least 24 apart');
+    assert.ok(Math.abs(end[0] + end[2] / 2 - W / 2) <= 1, 'end button centred');
+    assert.ok(hint[1] + hint[3] <= tray[1] && hint[1] >= 1197, 'rule line between board and tray');
+    const pins = edgePins(layout);
+    for (const id of ['tool_swap', 'tool_swap_icon', 'tool_swap_label', 'tool_swap_count']) assert.equal(pins.get(id), 0, id);
+    for (const id of ['tool_hammer', 'tool_hammer_icon', 'tool_hammer_label', 'tool_hammer_count']) assert.equal(pins.get(id), 1, id);
+    assert.equal(pins.has('end_rescue'), false);
+    const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S20.prefab'), 'utf8'));
+    const view = objects.find(o => o.__type__ === VIEW), node = id => objects[view.nodes[view.nodeIds.indexOf(id)].__id__];
+    for (const id of ['end_rescue', 'end_rescue_label']) assert.equal(node(id)._active, false, id);
+    for (const id of ['tool_swap', 'tool_hammer', 'tool_swap_count', 'tool_hammer_count']) assert.equal(node(id)._active, true, id);
+    const actions = objects.filter(o => o.__type__ === 'cc.Button').flatMap(b => b.clickEvents.map(e => e.customEventData));
+    for (const id of ['tool_swap', 'tool_hammer', 'end_rescue']) assert.ok(actions.includes(id), id);
+});
+
+test('EndlessPage only touches element ids that exist on S19–S22 and the help dialog', () => {
+    const ids = new Set(['S19', 'S20', 'S21', 'S22', 'HelpDialog'].flatMap(name => {
+        const view = JSON.parse(fs.readFileSync(path.join(OUT, `${name}.prefab`), 'utf8')).find(o => o.__type__ === VIEW);
+        return [...view.nodeIds, ...view.labelIds];
+    }));
+    const src = fs.readFileSync(path.join(PROJECT, 'assets/scripts/app/EndlessPage.ts'), 'utf8');
+    const used = src.split('\n').filter(l => /setVisible|setText|element\(/.test(l)).flatMap(l => [...l.matchAll(/'([a-z][a-z0-9_]+)'/g)].map(m => m[1]));
+    assert.ok(used.includes('end_rescue') && used.includes('rule_hint'));
+    assert.deepEqual([...new Set(used)].filter(id => !ids.has(id) && id !== 'hammer'), []);
+});

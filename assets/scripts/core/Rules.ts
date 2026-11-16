@@ -73,6 +73,9 @@ export interface Rules {
         readonly endlessScoreSeconds: number; readonly endlessRefillSeconds: number;
         /** Endless end: the board dims, S21 rolls the score up, a new record badge pops with a little confetti. */
         readonly endlessDimSeconds: number; readonly scoreRollSeconds: number; readonly recordSeconds: number;
+        /** Endless tools: old tray shrinks out, the new one pops in staggered; the hammer drops on a cell, which shatters. */
+        readonly endlessSwapOutSeconds: number; readonly endlessSwapInSeconds: number;
+        readonly endlessHammerSeconds: number; readonly endlessShatterSeconds: number;
     };
     /** expToNext[i] is the exp needed to go from level i+1 to i+2; the last entry repeats. */
     readonly levels: readonly { readonly expToNext: number; readonly rewardId: string | null }[];
@@ -85,6 +88,8 @@ export interface Rules {
         readonly shapes: readonly EndlessShape[];
         readonly score: { readonly perPlaced: number; readonly perCleared: number; readonly perLine: number; readonly multiLine: number };
         readonly stages: readonly { readonly score: number; readonly rewardId: string }[];
+        /** Free uses per new game of "换一手" and "单格锤" (0 hides the tool) and the bounded redraws of one swap. */
+        readonly tools: { readonly swap: number; readonly hammer: number; readonly swapRetries: number };
     };
 }
 

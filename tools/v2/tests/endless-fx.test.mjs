@@ -131,3 +131,29 @@ test('confetti is deterministic, bounded and gone at the end', () => {
         assert.equal(T.confettoPose(c, 1).alpha, 0);
     }
 });
+
+test('swap: old pieces shrink out together, new ones pop in staggered after; the plan ends with the last pop', () => {
+    const plan = T.planSwap([0, 2], t);
+    assert.equal(plan.outEnd, t.endlessSwapOutSeconds);
+    assert.deepEqual(plan.slots.map(s => s.slot), [0, 2]);
+    assert.equal(plan.slots[0].start, plan.outEnd);
+    assert.ok(plan.slots[1].start > plan.slots[0].start);
+    assert.equal(plan.end, plan.slots[1].start + t.endlessSwapInSeconds);
+    assert.deepEqual(T.swapOut(plan, 0), { scale: 1, alpha: 1 });
+    assert.equal(T.swapOut(plan, plan.outEnd).alpha, 0);
+    assert.equal(T.popIn(plan.slots[1].start, plan.inSeconds, plan.slots[1].start - 0.01), 0, 'hidden before its turn');
+    assert.ok(T.popIn(0, 0.2, 0.12) > 1, 'overshoots');
+    assert.equal(T.popIn(0, 0.2, 0.2), 1);
+    assert.equal(T.planSwap([], t).end, plan.outEnd);
+});
+
+test('hammer: drops from above and lands level at the hit, then the cell shatters and the hammer fades', () => {
+    const plan = T.planHammer(t);
+    assert.equal(plan.hit, t.endlessHammerSeconds);
+    assert.equal(plan.end, t.endlessHammerSeconds + t.endlessShatterSeconds);
+    assert.equal(T.hammerPose(plan, 0).dy, T.HAMMER_DROP);
+    assert.deepEqual(T.hammerPose(plan, plan.hit), { dy: 0, angle: 0, alpha: 1 });
+    assert.equal(T.hammerPose(plan, plan.end).alpha, 0);
+    assert.equal(T.shatter(plan, plan.hit / 2), 0);
+    assert.equal(T.shatter(plan, plan.end), 1);
+});

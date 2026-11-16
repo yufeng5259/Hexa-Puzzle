@@ -1,8 +1,11 @@
-import { Camera, Color, EventTouch, Node, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
+import { Camera, Color, EventTouch, game as engine, Game as Engine, Node, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { Game } from '../core/Game';
-import { boardCells, boardLines, canPlace, claimEndlessStage, endEndlessGame, endlessSummary, isGameOver, key, newEndlessGame, placeShape, refreshWeek } from '../core/Endless';
+import {
+    boardCells, boardLines, canPlace, claimEndlessStage, endEndlessGame, endlessOutcome, endlessSummary, hammerCell, key, newEndlessGame, placeShape, refreshWeek,
+    swapTray, toolBlock, toolsLeft, type EndlessOutcome, type EndlessTool, type ToolBlock,
+} from '../core/Endless';
 import { reward, RuleError, type EndlessShape } from '../core/Rules';
 import { EndlessFx, type EndlessArt } from '../features/fx/EndlessFx';
 import { axialPoint, centeredCells, fitCells, nearestAxial, type Point2 } from '../features/puzzle/presentation/PuzzleLayout';
@@ -20,7 +23,14 @@ const FEEDBACK_SECONDS = 1.6;
 /** S19 status text colours as drawn: "已领取" (row 0) and "未解锁" (rows 2, 3). */
 const STATUS_COLOR = { claimed: new Color(0x31, 0x66, 0x4d, 255), locked: new Color(0x5e, 0x6c, 0x84, 255) };
 const RULE_HINT = '三个方向填满整线即可消除';
-const HELP = '把下方拼块拖进蜂巢。横向、左斜、右斜任一方向整条线填满就会消除，颜色不用相同。一次消除多条线得分更高；三块都放不下时本局结束。';
+const RESCUE_HINT = '暂无位置：可用道具继续，或结束本局';
+const AIM_HINT = '选择要移除的一格（再点锤子取消）';
+const TOOL_NAME: Record<EndlessTool, string> = { swap: '换一手', hammer: '单格锤' };
+const BLOCKED: Record<ToolBlock, (tool: EndlessTool) => string> = {
+    used: tool => `${TOOL_NAME[tool]}本局已用完`, noSlot: () => '没有可换的拼块', noShape: () => '没有能放下的新拼块', emptyBoard: () => '棋盘上还没有可移除的格子',
+};
+const HAMMER_ART = 'UI/特效/build/fx_build_hammer.png';
+const HELP = '把下方拼块拖进蜂巢。横向、左斜、右斜任一方向整条线填满就会消除，颜色不用相同。一次消除多条线得分更高。每局可免费用一次“换一手”（替换托盘里剩下的拼块）和“单格锤”（敲掉一格，不得分）；拼块都放不下且道具用完时本局结束。';
 
 interface CellView { base: Sprite; overlay: Sprite }
 /** What S20 shows instead of the saved game while a placement plays (each part returns to the saved one on its cue). */
@@ -47,10 +57,15 @@ export class EndlessPage {
     private trayRadius = 0;
     private drag: Drag | null = null;
     private feedbackUntil = 0;
+    private feedback = '';
+    /** "单格锤" picked: the next tap on a filled cell removes it (nothing is spent until then). */
+    private aiming = false;
+    /** Last frame state of each tool button, so a render only reloads a picture when it changes. */
+    private toolLook: Partial<Record<EndlessTool, boolean>> = {};
     private request = 0;
     private unsubscribe: (() => void) | null = null;
     private readonly fx: EndlessFx;
-    private art: EndlessArt = { glow: null, burst: [], confetti: [] };
+    private art: EndlessArt = { glow: null, burst: [], confetti: [], hammer: null };
     private artLoading = false;
     private shown: Shown | null = null;
     /** From the end-of-game save until S21's buttons work: no dragging, no leaving. */
@@ -61,6 +76,7 @@ export class EndlessPage {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.render(), false);
         this.fx = new EndlessFx(game.rules.anim, () => this.art);
+        engine.on(Engine.EVENT_HIDE, this.cancelAim, this);
     }
 
     private get state() { return this.game.state.endless; }
@@ -81,11 +97,12 @@ export class EndlessPage {
         this.fx.update(dt);
         if (!this.view?.isValid) return;
         if (this.page === 'S19') { this.rollWeek(); this.view.setText('weekly_reset', `每周一0点刷新 · ${countdown(this.game.msToNextWeek())}`); }
-        if (this.page === 'S20' && this.feedbackUntil && this.game.now() > this.feedbackUntil) { this.feedbackUntil = 0; this.view.setText('rule_hint', RULE_HINT); }
+        if (this.page === 'S20' && this.feedbackUntil && this.game.now() > this.feedbackUntil) { this.feedbackUntil = 0; this.renderHint(this.view); }
         if (this.page === 'S20' && this.nav.dialogOpen && this.drag) this.cancelDrag();
+        if (this.page === 'S20' && this.nav.dialogOpen && this.aiming) this.cancelAim();
     }
 
-    public dispose(): void { this.detach(); this.fx.dispose(); this.scope.release(); }
+    public dispose(): void { engine.off(Engine.EVENT_HIDE, this.cancelAim, this); this.detach(); this.fx.dispose(); this.scope.release(); }
 
     private rollWeek(): void {
         if (this.state.weekId === this.game.week()) return;
@@ -98,7 +115,7 @@ export class EndlessPage {
         this.unsubscribe = this.game.subscribe(() => this.render());
     }
     private detach(): void {
-        this.fx.stop(); this.shown = null; this.finishing = false;
+        this.fx.stop(); this.shown = null; this.finishing = false; this.aiming = false; this.toolLook = {}; this.feedbackUntil = 0;
         this.unsubscribe?.(); this.unsubscribe = null;
         this.drag = null; this.cells.clear(); this.slots = [];
         this.view = null; this.page = null;
@@ -182,7 +199,7 @@ export class EndlessPage {
         this.buildBoard(view);
         this.listen(view);
         this.render();
-        if (isGameOver(this.state.game!, this.game.rules)) this.finish(false);
+        if (endlessOutcome(this.state.game!, this.game.rules) === 'over') void this.finish(false);
     }
 
     private buildBoard(v: LayoutView): void {
@@ -209,6 +226,41 @@ export class EndlessPage {
         v.setText('record', `最高 ${Math.max(g.bestAtStart ?? this.state.best, score).toLocaleString('en-US')}`);
         for (const [k, cell] of this.cells) this.setFrame(cell.base, k in board ? COLORS[board[k] % COLORS.length] : 'hex.empty_well');
         if (!this.drag) this.renderTray(v, this.shown?.tray ?? g.tray);
+        this.renderTools(v);
+        if (this.aiming) this.markTargets();
+    }
+
+    /** No piece fits but a tool can still change that: the game waits for a tool or "结束本局" (09 §7.2). */
+    private get rescue(): boolean {
+        const g = this.state.game;
+        return !!g && !this.shown && !this.finishing && endlessOutcome(g, this.game.rules) === 'rescue';
+    }
+
+    /** Tool buttons: uses left, greyed out when not usable now; a tool configured to 0 per game is not shown. */
+    private renderTools(v: LayoutView): void {
+        const g = this.state.game!, rules = this.game.rules, left = toolsLeft(g, rules);
+        for (const tool of ['swap', 'hammer'] as const) {
+            const id = `tool_${tool}`, shown = rules.endless.tools[tool] > 0;
+            for (const part of [id, `${id}_icon`, `${id}_label`, `${id}_count`]) v.setVisible(part, shown);
+            if (!shown) continue;
+            const on = toolBlock(g, rules, tool) === null;
+            v.setText(`${id}_label`, tool === 'hammer' && this.aiming ? '取消' : TOOL_NAME[tool]);
+            v.setText(`${id}_count`, `剩${left[tool]}次`);
+            if (this.toolLook[tool] !== on) { this.toolLook[tool] = on; this.frame(v, id, `UI/通用/btn_blue_${on ? 'normal' : 'disabled'}.png`); }
+        }
+        const rescue = this.rescue;
+        v.setVisible('end_rescue', rescue); v.setVisible('end_rescue_label', rescue);
+        this.renderHint(v);
+    }
+    /** Rule line: picking a cell, then a fresh feedback, then the rescue prompt, else the rule. */
+    private renderHint(v: LayoutView): void {
+        const feedback = this.feedbackUntil && this.game.now() <= this.feedbackUntil ? this.feedback : '';
+        v.setText('rule_hint', this.aiming ? AIM_HINT : feedback || (this.rescue ? RESCUE_HINT : RULE_HINT));
+    }
+    private say(text: string): void {
+        this.feedback = text;
+        this.feedbackUntil = this.game.now() + FEEDBACK_SECONDS * 1000;
+        if (this.view?.isValid) this.renderHint(this.view);
     }
 
     private renderTray(v: LayoutView, ids: readonly (string | null)[]): void {
@@ -250,6 +302,7 @@ export class EndlessPage {
     private onStart(event: EventTouch): void {
         const v = this.view, g = this.state.game;
         if (!v?.isValid || !g || this.drag || this.nav.dialogOpen || this.finishing || this.fx.locked) return;
+        if (this.aiming) { this.aim(event); return; }
         const tray = v.element('TrayMount'), ui = tray.getComponent(UITransform)!, p = ui.convertToNodeSpaceAR(this.world(event));
         if (Math.abs(p.x) > ui.width / 2 || Math.abs(p.y) > ui.height / 2 + 30) return;
         const slot = Math.min(g.tray.length - 1, Math.max(0, Math.floor((p.x + ui.width / 2) / (ui.width / g.tray.length))));
@@ -332,10 +385,7 @@ export class EndlessPage {
             this.render();
         };
         this.render();
-        if (result.lines) {
-            v.setText('rule_hint', `消除 ${result.lines} 条线  +${result.score}`);
-            this.feedbackUntil = this.game.now() + FEEDBACK_SECONDS * 1000;
-        }
+        if (result.lines) this.say(`消除 ${result.lines} 条线  +${result.score}`);
         const dealt = result.refilled ? (this.state.game?.tray ?? []).map((_, i) => i) : [];
         void this.fx.place({
             lines: result.fullLines, score: result.score, refillSlots: dealt, lineCount: result.lines, placed: result.placed,
@@ -345,14 +395,91 @@ export class EndlessPage {
             onScore: () => cue('score'),
         }).then(() => {
             if (this.shown === shown) { this.shown = null; this.render(); }
-            if (request === this.request && this.view === v && result.gameOver) void this.finish(false);
+            if (request === this.request && this.view === v && result.outcome === 'over') void this.finish(false);
         });
+    }
+
+    // ---- tools (docs/v2/09 §7.2) -------------------------------------------
+
+    /** Tools wait for the board: no drag, no running effect, no dialog, not while ending. */
+    private get toolsIdle(): boolean { return !!this.state.game && !this.drag && !this.fx.busy && !this.finishing && !this.nav.dialogOpen; }
+
+    private useTool(tool: EndlessTool): void {
+        const g = this.state.game;
+        if (!g || !this.toolsIdle) return;
+        if (tool === 'hammer' && this.aiming) { this.cancelAim(); return; }
+        const block = toolBlock(g, this.game.rules, tool);
+        if (block) { this.say(BLOCKED[block](tool)); return; }
+        if (tool === 'swap') { this.cancelAim(); this.swap(); return; }
+        this.aiming = true;
+        this.render();
+    }
+    private cancelAim(): void {
+        if (!this.aiming) return;
+        this.aiming = false;
+        this.clearPreview();
+        this.render();
+    }
+    /** Picking a cell: filled cells light up. */
+    private markTargets(): void {
+        const g = this.state.game;
+        this.clearPreview();
+        if (g) for (const k of Object.keys(g.board)) this.overlay(k, 'hex.preview_valid');
+    }
+
+    /** "换一手": one save (tray, seed, use), then the old pieces shrink out and the saved ones pop in. */
+    private swap(): void {
+        const g = this.state.game!, before = [...g.tray];
+        let result;
+        try { result = this.game.act(s => swapTray(s, this.game.rules)); }
+        catch (error) { this.render(); if (error instanceof RuleError) this.say(BLOCKED.noShape('swap')); else this.rewards.failure(error); return; }
+        const v = this.view, request = this.request;
+        if (!v?.isValid) return;
+        const shown: Shown = this.shown = { tray: before };
+        this.render();
+        const old = [...this.slots], outcome = result.outcome;
+        void this.fx.swap({
+            slots: result.slots, old,
+            onSwap: () => { if (this.shown === shown) { this.shown = null; this.render(); } return this.slots; },
+        }).then(() => this.settled(shown, request, v, outcome));
+    }
+
+    /** A tap while aiming: a filled cell is hit (one save), anything else keeps aiming and costs nothing. */
+    private aim(event: EventTouch): void {
+        const v = this.view!, g = this.state.game!, mount = v.element('BoardMount').getComponent(UITransform)!;
+        const p = mount.convertToNodeSpaceAR(this.world(event)), at = nearestAxial({ x: p.x - this.offset.x, y: p.y - this.offset.y }, this.radius);
+        const k = key(at.q, at.r), cell = this.cells.get(k);
+        if (!cell || !(k in g.board)) return;
+        const board = { ...g.board };
+        let result;
+        try { result = this.game.act(s => hammerCell(s, this.game.rules, at.q, at.r)); }
+        catch (error) { if (!(error instanceof RuleError)) this.rewards.failure(error); this.render(); return; }
+        this.aiming = false;
+        this.clearPreview();
+        const request = this.request, shown: Shown = this.shown = { board }, outcome = result.outcome;
+        this.render();
+        void this.fx.hammer({
+            cell, mount: v.element('BoardMount'),
+            onHit: () => { if (this.shown === shown) { this.shown = null; this.render(); } },
+        }).then(() => this.settled(shown, request, v, outcome));
+    }
+
+    /** After a tool's show: the saved state is on screen; a game no tool can save any more ends. */
+    private settled(shown: Shown, request: number, v: LayoutView, outcome: EndlessOutcome): void {
+        if (this.shown === shown) this.shown = null;
+        if (request !== this.request || this.view !== v) return;
+        this.render();
+        if (outcome === 'over') void this.finish(false);
     }
 
     private onGame(id: string): void {
         if (this.nav.dialogOpen || this.finishing) return;
+        if (id === 'tool_swap') { this.useTool('swap'); return; }
+        if (id === 'tool_hammer') { this.useTool('hammer'); return; }
+        this.cancelAim();
         if (id === 'settings_button') this.rewards.settings();
         else if (id === 'hud_btn_square_blue') this.confirmLeave(false);
+        else if (id === 'end_rescue' && this.rescue && !this.fx.busy) this.confirmLeave(true);
     }
 
     /** S22; ending the game goes through its confirmation variant on the same dialog. */
@@ -362,7 +489,8 @@ export class EndlessPage {
             else if (id === 'end_game' && !ending) { this.nav.closeDialog(); this.confirmLeave(true); }
             else if (id === 'save_leave') {
                 this.nav.closeDialog();
-                if (ending) this.finish(true); else void this.open(); // every placement is already saved
+                // Ending a stuck game (rescue offered, declined) is its natural end, not an abandon.
+                if (ending) void this.finish(!this.rescue); else void this.open(); // every placement is already saved
             }
         }, v => {
             if (!ending) return;
@@ -384,6 +512,7 @@ export class EndlessPage {
         const rules = this.game.rules, summary = endlessSummary(this.game.state, rules, this.game.week(), abandoned);
         if (!summary || this.finishing) return;
         this.finishing = true;
+        this.aiming = false;
         if (this.drag) this.cancelDrag();
         try { this.game.act(s => endEndlessGame(s)); }
         catch (error) { this.finishing = false; this.rewards.failure(error, () => void this.finish(abandoned)); return; }
@@ -423,8 +552,8 @@ export class EndlessPage {
         const all = (ids: readonly string[]) => Promise.all(ids.map(id => this.nav.loadFrame(id).catch(() => null)))
             .then(list => list.filter((f): f is SpriteFrame => !!f));
         const glow = this.nav.hasFrame('hex.line_highlight_strong') ? 'hex.line_highlight_strong' : 'hex.line_highlight';
-        void Promise.all([this.scope.load(glow, SpriteFrame).catch(() => null), all(BURST), all(CONFETTI)])
-            .then(([g, burst, confetti]) => { this.art = { glow: g, burst, confetti }; });
+        void Promise.all([this.scope.load(glow, SpriteFrame).catch(() => null), all(BURST), all(CONFETTI), this.nav.loadFrame(HAMMER_ART).catch(() => null)])
+            .then(([g, burst, confetti, hammer]) => { this.art = { glow: g, burst, confetti, hammer }; });
     }
 
     private sprite(parent: Node, name: string, w: number, h: number): Sprite {
