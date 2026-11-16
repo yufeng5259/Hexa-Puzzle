@@ -24,6 +24,7 @@ const constants = {
  dailyChestRewardId:'string', dailyTaskCount:'int',
  endlessUnlockAfterLevelNo:'int', endlessRadius:'int', endlessTraySize:'int',
  endlessScorePerPlaced:'int', endlessScorePerCleared:'int', endlessScorePerLine:'int', endlessScoreMultiLine:'int',
+ animProgressSeconds:'number',
 };
 const dailyTaskTypes = ['win','build','endlessLines','endlessScore','placePiece'];
 const dailyTaskSlots = ['fixed','rotate','fallback'];

@@ -119,6 +119,7 @@ export function parseGameConfig(json: unknown): GameConfig {
         guideBuildingId: k('guideBuildingId', 'string'),
         mainline, maps, firstMapId: k('firstMapId', 'string'),
         build: { expPerUpgrade: k('buildExpPerUpgrade', 'number'), constructionSeconds: k('buildConstructionSeconds', 'number') },
+        anim: { progressSeconds: k('animProgressSeconds', 'number') },
         levels, signIn,
         daily: { tasks, chestRewardId: rewardRef(k('dailyChestRewardId', 'string'))!, count: k('dailyTaskCount', 'number') },
         endless: {

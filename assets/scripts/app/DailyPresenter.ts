@@ -5,6 +5,7 @@ import { dailyUnlocked } from '../core/Progress';
 import { reward, RuleError, type DailyTaskType, type Reward } from '../core/Rules';
 import type { DailyTask } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
+import { setProgress } from '../features/ui/ProgressBar';
 import type { Navigator } from './Navigator';
 import type { RewardPresenter } from './RewardPresenter';
 
@@ -27,7 +28,6 @@ export interface DailyRoutes { play(): void; build(): void; endless(): void }
 export class DailyPresenter {
     private view: LayoutView | null = null;
     private kind: 'signIn' | 'tasks' | null = null;
-    private fill = new Map<string, { left: number; width: number }>();
     private day = '';
 
     public constructor(private readonly game: Game, private readonly nav: Navigator, private readonly rewards: RewardPresenter, private readonly routes: DailyRoutes) {}
@@ -69,13 +69,7 @@ export class DailyPresenter {
             else if (id === 'completion_claim') this.claim(s => claimDailyChest(s, this.game.rules, this.game.day()));
             else if (row) this.taskAction(Number(row[1]) - 1);
         }, v => {
-            this.view = v; this.kind = 'tasks'; this.fill.clear();
-            for (let i = 1; i <= 3; i++) {
-                const node = v.element(`task_${i}_progress_fill`), ui = node.getComponent(UITransform)!;
-                // Dialogs are scaled with the screen (LayoutView.dialog): local width × node scale.
-                this.fill.set(`task_${i}_progress_fill`, { left: node.position.x - ui.width * ui.anchorX * node.scale.x, width: ui.width });
-                ui.setAnchorPoint(0, ui.anchorY);
-            }
+            this.view = v; this.kind = 'tasks';
             this.repaint();
             this.tick();
         });
@@ -148,10 +142,7 @@ export class DailyPresenter {
             v.setText(`task_${i}_description`, TASK_TEXT[t.type](t.target));
             v.setText(`task_${i}_progress`, `${t.progress}/${t.target}`);
             v.setText(`task_${i}_coins`, reward(rules, row.rewardId).coins);
-            const fill = this.fill.get(`task_${i}_progress_fill`)!, node = v.element(`task_${i}_progress_fill`);
-            node.getComponent(UITransform)!.width = Math.max(1, fill.width * t.progress / t.target);
-            node.setPosition(fill.left, node.position.y, 0);
-            node.active = t.progress > 0;
+            setProgress(v.element(`task_${i}_progress_fill`), t.progress / t.target);
             const art = t.claimed ? 'btn_grey_normal' : complete ? 'btn_green_normal' : 'btn_blue_normal';
             v.setText(`task_${i}_action_label`, t.claimed ? '已领取' : complete ? '领取' : '前往');
             this.button(v, `task_${i}_action`, !t.claimed, `UI/通用/${art}.png`);

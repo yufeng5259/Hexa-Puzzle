@@ -8,6 +8,7 @@ import { VirtualList } from '../framework/ui/VirtualList';
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { showEnergy, showLevel } from './EnergyHud';
+import { setProgress } from '../features/ui/ProgressBar';
 
 const CARD_GAP = 18;
 const LOCKED = { card: 388, thumbTop: 19, thumbHeight: 268, row: 332 };
@@ -93,11 +94,7 @@ export class MapPage {
         if (open) {
             card.setText('progress', `${p.built}/${p.total}`);
             card.setText('enter_text', state === 'current' ? '进入' : '回看');
-            const fill = card.element('progress_fill').getComponent(UITransform)!, bg = card.element('progress_bg');
-            const full = bg.getComponent(UITransform)!.width - 12;
-            fill.setAnchorPoint(0, 0.5);
-            fill.width = Math.max(1, full * p.built / p.total);
-            card.element('progress_fill').setPosition(bg.position.x - full / 2, bg.position.y, 0);
+            setProgress(card.element('progress_fill'), p.built / p.total);
         } else {
             // S16 draws locked cards shorter: card 388, thumbnail 268 from 19, name row centred at 332 (layout px from the card top).
             const k = 1844 / 1842, h = LOCKED.card * k, top = h / 2;

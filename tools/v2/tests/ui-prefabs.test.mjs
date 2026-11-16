@@ -235,3 +235,23 @@ test('readability: every button is easy to tap and no text is smaller than the m
     }
     assert.deepEqual(bad, []);
 });
+
+test('progress bars: every fill is a left-anchored masked viewport holding a full-width sliced picture (09 §9)', () => {
+    const fills = [];
+    for (const [dir, files] of [[OUT, fs.readdirSync(OUT)], [path.join(PROJECT, 'assets/boot'), ['Loading.prefab']]]) {
+        for (const file of files.filter(f => f.endsWith('.prefab'))) {
+            const objects = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+            for (const node of objects.filter(o => o.__type__ === 'cc.Node' && /(fill_green(_\d)?|progress_fill)$/.test(o._name))) {
+                const comps = node._components.map(c => objects[c.__id__]), ui = comps.find(c => c.__type__ === 'cc.UITransform');
+                const art = objects[node._children[0]?.__id__], artUi = art && objects[art._components[0].__id__], sprite = art && art._components.map(c => objects[c.__id__]).find(c => c.__type__ === 'cc.Sprite');
+                fills.push(`${file}/${node._name}`);
+                assert.equal(ui._anchorPoint.x, 0, `${file}/${node._name} anchor`);
+                assert.ok(comps.some(c => c.__type__ === 'cc.Mask'), `${file}/${node._name} mask`);
+                assert.equal(art?._name, `${node._name}_art`, `${file}/${node._name} picture`);
+                assert.equal(artUi._contentSize.width, ui._contentSize.width, `${file}/${node._name} picture spans the slot`);
+                assert.equal(sprite._type, 1, `${file}/${node._name} sliced`);
+            }
+        }
+    }
+    for (const id of ['Loading.prefab/bar_fill_green', 'S02.prefab/bar_fill_green', 'S03.prefab/bar_fill_green_2', 'S18.prefab/task_1_progress_fill', 'MapCard.prefab/progress_fill']) assert.ok(fills.includes(id), id);
+});

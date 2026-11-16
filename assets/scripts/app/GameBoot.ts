@@ -10,6 +10,7 @@ import { Navigator } from './Navigator';
 import { HomeController } from './HomeController';
 import { LayoutView } from '../features/ui/LayoutView';
 import { ScreenFit } from '../features/ui/ScreenFit';
+import { setProgress } from '../features/ui/ProgressBar';
 import type { Insets } from '../features/ui/FitMath';
 import { SideCurtains } from './SideCurtains';
 import { PuzzlePage } from './PuzzlePage';
@@ -49,7 +50,6 @@ export class GameBoot extends Component {
     private curtains: SideCurtains | null = null;
     private loading: LayoutView | null = null;
     private progress = 0;
-    private fillWidth = 0;
     private booting = false;
 
     protected onLoad(): void {
@@ -95,12 +95,6 @@ export class GameBoot extends Component {
         view.fitScreen();
         view.node.on('view-action', (event: { actionId: string }) => { if (event.actionId === 'retry') this.onRetry(); });
         this.loading = view;
-        const fill = view.element('bar_fill_green').getComponent(UITransform)!;
-        this.fillWidth = fill.width;
-        // Grow the fill from its left edge.
-        const left = view.element('bar_fill_green').position.x - fill.width * fill.anchorX;
-        fill.setAnchorPoint(0, fill.anchorY);
-        view.element('bar_fill_green').setPosition(left, view.element('bar_fill_green').position.y, 0);
         this.setProgress(0, '正在准备蜂巢家园…');
         if (this.statusLabel) this.statusLabel.node.active = false;
     }
@@ -109,7 +103,7 @@ export class GameBoot extends Component {
         const v = this.loading;
         if (!v?.isValid) return;
         v.setText('loading_percent', `${Math.round(this.progress * 100)}%`);
-        v.element('bar_fill_green').getComponent(UITransform)!.width = Math.max(24, this.fillWidth * this.progress);
+        setProgress(v.element('bar_fill_green'), this.progress);
         if (caption) v.setText('loading_caption', caption);
     }
 

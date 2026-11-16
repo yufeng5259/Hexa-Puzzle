@@ -5,6 +5,7 @@ import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { MapView } from '../core/Config';
 import type { Game } from '../core/Game';
 import { showEnergy, showLevel } from './EnergyHud';
+import { setProgress } from '../features/ui/ProgressBar';
 import { finishBuild, mapProgress, startBuild, upgradeCost } from '../core/Progress';
 import { guideAllowsBuild } from '../core/Guide';
 import { mainlineFinished } from '../core/Mainline';
@@ -54,6 +55,8 @@ export class HomeController {
     private readonly rewards: RewardPresenter;
     private readonly daily: DailyPresenter;
     private mapId = '';
+    /** Build progress last drawn on the build page. */
+    private shownBuilt: { mapId: string; built: number } | null = null;
     private lastTick = 0;
 
     public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly guide: GuideCoach) {
@@ -68,7 +71,7 @@ export class HomeController {
         this.viewMapId = viewMapId === this.game.state.maps.currentMapId ? null : viewMapId;
         // The transition stays closed until the map and building pictures are loaded.
         this.home = await this.nav.replacePage('S02', id => this.onHomeAction(id), { instant, prepare: () => this.ready() });
-        this.build = null; this.anchors.clear(); this.buildings.clear(); this.mapId = '';
+        this.build = null; this.anchors.clear(); this.shownBuilt = null; this.buildings.clear(); this.mapId = '';
         this.unsubscribe?.();
         this.unsubscribe = this.game.subscribe(() => this.render());
         ScreenFit.events.off('changed', this.onFit);
@@ -217,15 +220,17 @@ export class HomeController {
     private closeBuild(): void {
         if (this.construction) return; // leaving is locked while building
         this.nav.popPage();
-        this.build = null; this.anchors.clear();
+        this.build = null; this.anchors.clear(); this.shownBuilt = null;
         for (const id of this.home!.nodeIds) this.home!.setVisible(id, true);
         this.render();
     }
     private renderBuild(): void {
         const s = this.game.state, map = this.map, progress = mapProgress(s, this.game.rules, map.id);
         this.build!.setText('home_progress', `${progress.built}/${progress.total}`);
-        const bar = this.build!.element('bar_fill_green_2').getComponent(UITransform)!;
-        bar.width = Math.max(8, this.build!.element('bar_bg_2').getComponent(UITransform)!.width * progress.built / progress.total);
+        // Rises smoothly after a build lands; a new map or a reopened build page shows its value at once.
+        const rose = this.shownBuilt?.mapId === map.id && progress.built > this.shownBuilt.built;
+        setProgress(this.build!.element('bar_fill_green_2'), progress.built / progress.total, rose ? this.game.rules.anim.progressSeconds : 0);
+        this.shownBuilt = { mapId: map.id, built: progress.built };
         for (const b of map.buildings) {
             const anchor = this.anchors.get(b.id);
             if (!anchor?.isValid) continue;

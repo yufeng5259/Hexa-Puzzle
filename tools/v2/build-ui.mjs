@@ -101,8 +101,31 @@ function hudBar(layout) {
     });
     return { ...layout, elements };
 }
-/** Progress fills laid out from their left end (code only changes the width). */
-const LEFT_FILLS = { S02: ['bar_fill_green'], S03: ['bar_fill_green'], S16: ['bar_fill_green'] };
+/**
+ * Progress bars (09 §9): the fill element becomes a left-anchored viewport with a rect Mask over
+ * the whole inner slot (its track minus the fill's inset on both sides); the nine-slice fill
+ * picture inside keeps the full slot width, so any progress keeps the round left end. Code only
+ * changes the viewport width (features/ui/ProgressBar.ts). Fill id → its track id.
+ */
+const trackOf = id => /fill_green/.test(id) ? id.replace('fill_green', 'bg') : /progress_fill$/.test(id) ? id.replace(/progress_fill$/, 'progress_bg') : null;
+function progressSlots(layout) {
+    const byId = new Map(layout.elements.map(e => [e.id, e]));
+    const elements = layout.elements.map(e => {
+        const track = byId.get(trackOf(e.id) ?? '');
+        if (!track || e.type === 'label') return e;
+        const inset = e.rect[0] - track.rect[0];
+        return { ...e, progress: true, rect: [e.rect[0], e.rect[1], track.rect[2] - 2 * inset, e.rect[3]] };
+    });
+    return { ...layout, elements };
+}
+/** Node box of a progress viewport: anchored at its left end. */
+const progressBox = at => ({ ...at, x: at.x - at.width / 2, anchorX: 0 });
+/** Mask on the viewport node and the full-width fill picture inside it. */
+function addProgress(b, node, e, width, height) {
+    graphics(b, node);
+    b.component(node, 'cc.Mask', { _type: 0, _inverted: false, _segments: 64, _alphaThreshold: 0.1 });
+    addSprite(b, b.node(`${e.id}_art`, node, { width, height, anchorX: 0 }), e);
+}
 const ENERGY_PAGES = ['S02', 'S03', 'S04', 'S05', 'S16'];
 /** Page-level layout changes decided after the reference art; applied before building and pinning. */
 const LAYOUT_PATCH = {
@@ -115,7 +138,7 @@ const LAYOUT_PATCH = {
 };
 export function pageLayout(file) {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, file), 'utf8'));
-    return readable(LAYOUT_PATCH[layout.page]?.(layout) ?? layout);
+    return progressSlots(readable(LAYOUT_PATCH[layout.page]?.(layout) ?? layout));
 }
 
 /**
@@ -286,10 +309,10 @@ function buildPage(file) {
         if (!e.rect) throw new Error(`${page}/${e.id}: element without rect`);
         // A small tappable picture becomes a transparent hit area (the element) holding the picture.
         const hit = buttons.has(e.id) ? hitRect(layout, e) : null, at = box(layout, grown(e));
-        const left = LEFT_FILLS[page]?.includes(e.id) ? { x: at.x - at.width / 2, anchorX: 0 } : {};
-        const node = b.node(e.id, b.root, hit ? box(layout, hit) : { ...at, ...left }, !e.hidden);
+        const node = b.node(e.id, b.root, hit ? box(layout, hit) : e.progress ? progressBox(at) : at, !e.hidden);
         nodes.push(ref(node)); nodeIds.push(e.id);
         if (e.type === 'label') { labels.push(ref(addLabel(b, node, e))); labelIds.push(e.id); }
+        else if (e.progress) addProgress(b, node, e, at.width, at.height);
         else if (hit) { const outer = box(layout, hit); addSprite(b, b.node(`${e.id}_art`, node, { x: at.x - outer.x, y: at.y - outer.y, width: at.width, height: at.height }), e); }
         else addSprite(b, node, e);
         if (buttons.has(e.id)) { b.button(node, b.root, 'LayoutView', 'onAction', e.id); buttons.delete(e.id); }
@@ -408,7 +431,7 @@ function listRig(b, layout, mapListId) {
 
 /** One S16 card in every state: drawn as the current card, plus the locked row of the next card. */
 function buildMapCard() {
-    const layout = readable(JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S16.json'), 'utf8'))), el = id => layout.elements.find(e => e.id === id);
+    const layout = progressSlots(readable(JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S16.json'), 'utf8')))), el = id => layout.elements.find(e => e.id === id);
     const card = el('m01_card').rect, cx = card[0] + card[2] / 2, cy = card[1] + card[3] / 2;
     const nameShift = el('m01_name').rect[1] - el('m02_name').rect[1];
     const parts = [['m01_card', 'card'], ['m01_thumbnail', 'thumbnail'], ['m01_name', 'name'], ['map_tag_current', 'tag'], ['current_tag', 'tag_text'],
@@ -417,9 +440,11 @@ function buildMapCard() {
     const b = new Builder('MapCard', [card[2], card[3]]), nodes = [], nodeIds = [], labels = [], labelIds = [];
     for (const [from, id, dy = 0] of parts) {
         const e = el(from), [x, y, w, h] = e.rect;
-        const node = b.node(id, b.root, { x: x + w / 2 - cx, y: cy - (y + dy + h / 2), width: w, height: h });
+        const at = { x: x + w / 2 - cx, y: cy - (y + dy + h / 2), width: w, height: h };
+        const node = b.node(id, b.root, e.progress ? progressBox(at) : at);
         nodes.push(ref(node)); nodeIds.push(id);
         if (e.type === 'label') { labels.push(ref(addLabel(b, node, e))); labelIds.push(id); }
+        else if (e.progress) addProgress(b, node, { ...e, id }, w, h);
         else addSprite(b, node, e);
         if (id === 'enter') b.button(node, b.root, 'LayoutView', 'onAction', 'enter');
     }
@@ -482,7 +507,7 @@ const manifestSlices = new Map(JSON.parse(fs.readFileSync(path.join(PROJECT, 'do
  * Outpainted backgrounds are drawn from their wider file (see grown).
  */
 function buildLoading() {
-    const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S01.json'), 'utf8'));
+    const layout = progressSlots(JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S01.json'), 'utf8')));
     const ext = extensions(), copies = new Map(layout.elements.filter(e => e.asset).map(e => {
         const file = e.asset.replace(/^\.\.\//, ''), src = `素材/${file}`, draw = ext.get(src)?.file ?? src;
         return [e.asset, importImageTo(draw, `${BOOT}/textures/${path.basename(file)}`, manifestSlices.get(file) ?? null)];
@@ -491,9 +516,10 @@ function buildLoading() {
     try {
         const b = new Builder('Loading', DESIGN), nodes = [], nodeIds = [], labels = [], labelIds = [];
         for (const e of layout.elements) {
-            const node = b.node(e.id, b.root, box(layout, grown(e)));
+            const at = box(layout, grown(e)), node = b.node(e.id, b.root, e.progress ? progressBox(at) : at);
             nodes.push(ref(node)); nodeIds.push(e.id);
             if (e.type === 'label') { labels.push(ref(addLabel(b, node, e))); labelIds.push(e.id); }
+            else if (e.progress) addProgress(b, node, e, at.width, at.height);
             else addSprite(b, node, e);
         }
         // Tapping the caption retries a failed boot.

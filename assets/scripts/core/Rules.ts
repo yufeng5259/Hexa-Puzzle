@@ -51,6 +51,8 @@ export interface Rules {
     readonly maps: readonly MapRule[];
     readonly firstMapId: string;
     readonly build: { readonly expPerUpgrade: number; readonly constructionSeconds: number };
+    /** Presentation timings in seconds (Constants anim*). */
+    readonly anim: { readonly progressSeconds: number };
     /** expToNext[i] is the exp needed to go from level i+1 to i+2; the last entry repeats. */
     readonly levels: readonly { readonly expToNext: number; readonly rewardId: string | null }[];
     readonly signIn: readonly string[];
