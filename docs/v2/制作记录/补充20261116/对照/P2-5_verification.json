@@ -1,0 +1,96 @@
+{
+  "batch": "P2-5",
+  "files": [
+    {
+      "id": "icon_energy",
+      "state": "normal",
+      "file": "UI/图标/icon_energy.png",
+      "size": [
+        240,
+        202
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 2034,
+      "sha256": "f914e976ceda4e8bd365c2d8cbc6d5631afeec6339f728237e15bf15d673a446"
+    },
+    {
+      "id": "home_play_btn",
+      "state": "normal",
+      "file": "UI/主页/home_play_btn_normal.png",
+      "size": [
+        600,
+        296
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 4895,
+      "sha256": "089df5083204f33d2cc4dfb41a87f4218b92871c41cd3769e0793e71f0a51b8b"
+    },
+    {
+      "id": "home_play_btn",
+      "state": "pressed",
+      "file": "UI/主页/home_play_btn_pressed.png",
+      "size": [
+        600,
+        296
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 4895,
+      "sha256": "085c2421bfa0c35717b7e9bc2f2967fca9e2e299dcc0f0713be14d5bbbc06d62"
+    },
+    {
+      "id": "home_play_level_arrow",
+      "state": "normal",
+      "file": "UI/主页/home_play_level_arrow.png",
+      "size": [
+        396,
+        256
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 3226,
+      "sha256": "d084ec2f11d08b77ca4c3cdfb7d8a48d4cadab2d04313ce28490711afb37df86"
+    },
+    {
+      "id": "home_btn_square_large",
+      "state": "normal",
+      "file": "UI/主页/home_btn_square_large_normal.png",
+      "size": [
+        336,
+        336
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 3836,
+      "sha256": "8ef802407d4e982c7191724f576887d8f922cd74473a502c1a0fd94c376db56e"
+    },
+    {
+      "id": "home_btn_square_large",
+      "state": "pressed",
+      "file": "UI/主页/home_btn_square_large_pressed.png",
+      "size": [
+        336,
+        336
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 3836,
+      "sha256": "9054f37fe00020296c1bf3aa5bbad7070cde37161262a24507f3fe09a59a5be6"
+    }
+  ],
+  "checks": {
+    "dimensions_rgba_safety_sha": "passed",
+    "visual_review": "passed: four backgrounds, native-pixel 4x nearest comparisons and alpha transitions inspected",
+    "scope": "only requested PNGs, manifest, new records in 制作记录/补充20261116/对照"
+  },
+  "method": "Native geometry redrawn at 6x+ supersampling; no upscaled old alpha or background cutouts. Old image comparisons normalized to new canvas with NEAREST; new 4x crops also NEAREST. size follows each request document verbatim.",
+  "sourceScriptSha256": "f51e5c931b09be0aeb62442d5c889483cad87f8253885b4df817e04a504e5687"
+}

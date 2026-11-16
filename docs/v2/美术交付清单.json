@@ -2263,21 +2263,22 @@
         "normal": "UI/图标/icon_energy.png"
       },
       "size": [
-        140,
-        118
+        120,
+        101
       ],
       "scale": 2,
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S02 原图精细去底；2倍采样",
+      "source": "P2-5 原生轮廓重建：参照S02/S04与既有母件配色，6倍超采样，干净自身色RGBA边缘",
       "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
       "sourceSha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
       "priority": "P0",
       "sha256": {
-        "normal": "80fb62e0eaf48031a054a7e787f5b6f6067221d7e8233700fe17b88cdab7db08"
-      }
+        "normal": "f914e976ceda4e8bd365c2d8cbc6d5631afeec6339f728237e15bf15d673a446"
+      },
+      "batch": "P2-5"
     },
     {
       "id": "icon_settings",
@@ -2938,31 +2939,32 @@
         300,
         148
       ],
-      "scale": 1,
+      "scale": 2,
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S02 source clean right cap mirrored; symbol-free center column extended",
+      "source": "P2-5 原生轮廓重建：参照S02/S04与既有母件配色，6倍超采样，干净自身色RGBA边缘",
       "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
       "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
       "priority": "P0",
       "sha256": {
-        "normal": "f8ec3750f2b0b3902389fae2883a5ec0066f91c4701a14ec46d22deb4507b4f6",
-        "pressed": "c3179b48ac1eeba93a472e294093bbedc7bfd571fe8824ed4f68ef12b4002832"
+        "normal": "089df5083204f33d2cc4dfb41a87f4218b92871c41cd3769e0793e71f0a51b8b",
+        "pressed": "085c2421bfa0c35717b7e9bc2f2967fca9e2e299dcc0f0713be14d5bbbc06d62"
       },
       "slice": [
-        75,
-        40,
-        75,
-        40
+        150,
+        80,
+        150,
+        80
       ],
       "sourceRect": [
         644,
         1555,
         75,
         148
-      ]
+      ],
+      "batch": "P2-5"
     },
     {
       "id": "home_play_level_arrow",
@@ -2974,24 +2976,25 @@
         198,
         128
       ],
-      "scale": 1,
+      "scale": 2,
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S02 source crop; number removed with clean neighboring violet columns",
+      "source": "P2-5 原生轮廓重建：参照S02/S04与既有母件配色，6倍超采样，干净自身色RGBA边缘",
       "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
       "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
       "priority": "P0",
       "sha256": {
-        "normal": "33c8e4cfd82c56ee6a08c466d3a986341ed81756738416e553c7207ed202802f"
+        "normal": "d084ec2f11d08b77ca4c3cdfb7d8a48d4cadab2d04313ce28490711afb37df86"
       },
       "sourceRect": [
         140,
         1563,
         198,
         128
-      ]
+      ],
+      "batch": "P2-5"
     },
     {
       "id": "home_bottom_bar",
@@ -5293,6 +5296,30 @@
         "04": "8b7341ebb0be4fd9632d57554d14b03fcead1851aefb77bbec9b9e2658d870e4",
         "05": "98891a296a86df78a71b84ebb577126bf34df929e1060cd0f5144c66c6de6d81",
         "06": "1b830de4419b3516200c567d322b3c8121d21a95fc2ff65f4bcac563a80c129f"
+      }
+    },
+    {
+      "id": "home_btn_square_large",
+      "name": "主页大型蓝色方按钮底",
+      "states": {
+        "normal": "UI/主页/home_btn_square_large_normal.png",
+        "pressed": "UI/主页/home_btn_square_large_pressed.png"
+      },
+      "size": [
+        168,
+        168
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "batch": "P2-5",
+      "priority": "P2",
+      "source": "P2-5 原生轮廓重建：参照S02/S04与既有母件配色，6倍超采样，干净自身色RGBA边缘",
+      "sha256": {
+        "normal": "8ef802407d4e982c7191724f576887d8f922cd74473a502c1a0fd94c376db56e",
+        "pressed": "9054f37fe00020296c1bf3aa5bbad7070cde37161262a24507f3fe09a59a5be6"
       }
     }
   ],
