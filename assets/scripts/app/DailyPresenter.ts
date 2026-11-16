@@ -71,8 +71,9 @@ export class DailyPresenter {
         }, v => {
             this.view = v; this.kind = 'tasks'; this.fill.clear();
             for (let i = 1; i <= 3; i++) {
-                const ui = v.element(`task_${i}_progress_fill`).getComponent(UITransform)!;
-                this.fill.set(`task_${i}_progress_fill`, { left: v.element(`task_${i}_progress_fill`).position.x - ui.width * ui.anchorX, width: ui.width });
+                const node = v.element(`task_${i}_progress_fill`), ui = node.getComponent(UITransform)!;
+                // Dialogs are scaled with the screen (LayoutView.dialog): local width × node scale.
+                this.fill.set(`task_${i}_progress_fill`, { left: node.position.x - ui.width * ui.anchorX * node.scale.x, width: ui.width });
                 ui.setAnchorPoint(0, ui.anchorY);
             }
             this.repaint();
@@ -125,7 +126,8 @@ export class DailyPresenter {
         tag.active = label.active = !!todayCell;
         if (todayCell) {
             // The tag sits on the lower-left of whichever cell is today's, as drawn on day 4.
-            const ui = todayCell.getComponent(UITransform)!, x = todayCell.position.x - ui.width / 2 + 112, y = todayCell.position.y - ui.height / 2 + 30;
+            const ui = todayCell.getComponent(UITransform)!, k = todayCell.scale.x;
+            const x = todayCell.position.x + (112 - ui.width / 2) * k, y = todayCell.position.y + (30 - ui.height / 2) * k;
             tag.setPosition(x, y, 0); label.setPosition(x, y, 0);
         }
         v.setText('claim', open ? '领取' : '明日再来');

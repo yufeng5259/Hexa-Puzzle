@@ -128,7 +128,7 @@ export class EndlessPage {
     private onActivity(id: string): void {
         if (this.nav.dialogOpen) return;
         const stage = /^stage_(\d)_claim$/.exec(id);
-        if (id === 'home_button' || id === 'back_button') this.leave();
+        if (id === 'home_button') this.leave();
         else if (id === 'help_button') this.help();
         else if (id === 'start_challenge') void this.play();
         else if (stage) {

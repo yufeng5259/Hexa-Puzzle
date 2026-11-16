@@ -59,6 +59,10 @@ const settings = path.join(PROJ, 'settings.gradle');
 const text = fs.readFileSync(settings, 'utf8');
 fs.writeFileSync(settings, text.replace(/rootProject\.name\s*=\s*".*"/, 'rootProject.name = "HexaPuzzle"'));
 
+// Gradle's incremental asset merge/compress trips over re-exported files ("Duplicate resources",
+// "zip already contains entry"); these two caches are cheap to rebuild.
+for (const dir of ['merged_assets', 'compressed_assets']) fs.rmSync(path.join(PROJ, 'build/CocosGame/intermediates', dir), { recursive: true, force: true });
+
 const gradle = run(path.join(PROJ, 'gradlew.bat'), [':CocosGame:assembleDebug', '--console=plain'], { cwd: PROJ, shell: true, env: { ...process.env, JAVA_HOME: JAVA } });
 if (gradle !== 0) throw new Error('gradle assembleDebug failed');
 console.log(`[build-apk] ${APK} (${Math.round(fs.statSync(APK).size / 1048576)} MB)`);

@@ -7,7 +7,7 @@ import type { GameState } from '../core/State';
 import { VirtualList } from '../framework/ui/VirtualList';
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
-import { showEnergy } from './EnergyHud';
+import { showEnergy, showLevel } from './EnergyHud';
 
 const CARD_GAP = 18;
 const LOCKED = { card: 388, thumbTop: 19, thumbHeight: 268, row: 332 };
@@ -74,13 +74,9 @@ export class MapPage {
     }
 
     private renderHud(v: LayoutView): void {
-        const s = this.game.state, rules = this.game.rules;
-        const level = rules.levels[Math.min(s.player.level - 1, rules.levels.length - 1)];
-        v.setText('player_level', s.player.level);
-        v.setText('coin_value', s.wallet.coins.toLocaleString('en-US'));
+        showLevel(v, this.game);
+        v.setText('coin_value', this.game.state.wallet.coins.toLocaleString('en-US'));
         showEnergy(v, this.game);
-        const fill = v.element('bar_fill_green').getComponent(UITransform)!, full = v.element('bar_bg').getComponent(UITransform)!.width;
-        fill.width = Math.max(8, full * Math.min(1, s.player.exp / level.expToNext));
     }
 
     private paintCard(card: LayoutView, mapId: string): void {

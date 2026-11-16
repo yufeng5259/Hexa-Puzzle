@@ -100,8 +100,7 @@ export class RewardPresenter {
         const keys = ['music', 'sound', 'vibration'] as const;
         const paint = (v: LayoutView) => keys.forEach(key => {
             const on = this.game.state.settings[key], track = v.element(`${key}_toggle_track`);
-            v.setText(`${key}_state`, on ? '开启' : '关闭');
-            v.element(`${key}_toggle_knob`).setPosition(track.position.x + (on ? KNOB_OFFSET : -KNOB_OFFSET), track.position.y, 0);
+            v.element(`${key}_toggle_knob`).setPosition(track.position.x + (on ? KNOB_OFFSET : -KNOB_OFFSET) * track.scale.x, track.position.y, 0);
             this.frame(v, `${key}_toggle_track`, `UI/通用/toggle_track_${on ? 'on' : 'off'}.png`);
             this.frame(v, `${key}_toggle_knob`, `UI/通用/toggle_knob_${on ? 'on' : 'off'}.png`);
         });

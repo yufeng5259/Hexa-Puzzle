@@ -4,7 +4,7 @@ import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { MapView } from '../core/Config';
 import type { Game } from '../core/Game';
-import { showEnergy } from './EnergyHud';
+import { showEnergy, showLevel } from './EnergyHud';
 import { finishBuild, mapProgress, startBuild, upgradeCost } from '../core/Progress';
 import { guideAllowsBuild } from '../core/Guide';
 import { mainlineFinished } from '../core/Mainline';
@@ -157,14 +157,11 @@ export class HomeController {
         if (!this.home?.isValid) return;
         void this.renderMap();
         const s = this.game.state, rules = this.game.rules, map = this.map;
-        const level = rules.levels[Math.min(s.player.level - 1, rules.levels.length - 1)];
         for (const view of [this.home, this.build]) {
             if (!view?.isValid) continue;
-            view.setText('player_level', s.player.level);
+            showLevel(view, this.game);
             view.setText('coin_value', s.wallet.coins.toLocaleString('en-US'));
             view.setText('map_name', map.name);
-            const fill = view.element('bar_fill_green').getComponent(UITransform)!, full = view.element('bar_bg').getComponent(UITransform)!.width;
-            fill.width = Math.max(8, full * Math.min(1, s.player.exp / level.expToNext));
         }
         this.home.setText('play_level', mainlineFinished(s, rules) && !s.mainline.attempt ? '复玩' : s.mainline.attempt?.levelNo ?? s.mainline.nextLevelNo);
         // Looking back at a finished map: nothing to build there, the back entry takes the build entry's place.

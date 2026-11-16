@@ -139,7 +139,7 @@ test('capsule buttons keep round ends: laid out at the picture height and scaled
     const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S06.prefab'), 'utf8'));
     for (const name of ['btn_green', 'btn_grey']) {
         const node = objects.find(o => o.__type__ === 'cc.Node' && o._name === name), ui = objects[node._components[0].__id__];
-        assert.equal(ui._contentSize.height, 92, name);
+        assert.equal(Math.round(ui._contentSize.height), 92, name);
         assert.equal(node._lscale.x, node._lscale.y, name);
     }
 });
@@ -217,4 +217,21 @@ test('HomeController only touches element ids that exist on S02 / S03 / BuildAnc
     const used = src.split('\n').filter(l => /setVisible|setText|element\(/.test(l)).flatMap(l => [...l.matchAll(/'([a-z][a-z0-9_]+)'/g)].map(m => m[1]));
     assert.ok(used.length > 10);
     assert.deepEqual([...new Set(used)].filter(id => !ids.has(id) && !['build', 'left', 'upgrade', 'drag1'].includes(id)), []);
+});
+
+test('readability: every button is easy to tap and no text is smaller than the minimum (build-ui UI_RULES)', async () => {
+    const { UI_RULES } = await import('../build-ui.mjs');
+    const bad = [];
+    for (const file of fs.readdirSync(OUT).filter(f => f.endsWith('.prefab'))) {
+        const objects = JSON.parse(fs.readFileSync(path.join(OUT, file), 'utf8'));
+        const size = node => { const ui = objects[node._components[0].__id__]; return [ui._contentSize.width * Math.abs(node._lscale.x), ui._contentSize.height * Math.abs(node._lscale.y)]; };
+        for (const button of objects.filter(o => o.__type__ === 'cc.Button')) {
+            const node = objects[button.node.__id__];
+            if (node._parent === null) continue; // whole-row list items
+            const [w, h] = size(node).map(Math.round);
+            if (w >= UI_RULES.WIDE ? h < 80 : Math.min(w, h) < UI_RULES.HIT) bad.push(`${file}/${node._name} ${w}x${h}`);
+        }
+        for (const label of objects.filter(o => o.__type__ === 'cc.Label' && o._fontSize < UI_RULES.MIN_FONT)) bad.push(`${file}/${objects[label.node.__id__]._name} font ${label._fontSize}`);
+    }
+    assert.deepEqual(bad, []);
 });

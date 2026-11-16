@@ -25,7 +25,7 @@ const BUTTONS = {
     S11: ['btn_close_dialog', 'play', 'later'], S12: ['btn_close_dialog', 'continue'], S13: ['confirm'],
     S15: ['claim_next', 'stay'], S16: ['hud_btn_square_blue', 'hud_btn_square_purple', 'hud_energy', 'return_home'],
     S17: ['btn_close', 'btn_green'], S18: ['btn_close', 'task_1_action', 'task_2_action', 'task_3_action', 'completion_claim'],
-    S19: ['home_button', 'back_button', 'help_button', 'stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim', 'start_challenge'],
+    S19: ['home_button', 'help_button', 'stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim', 'start_challenge'],
     S20: ['hud_btn_square_blue', 'settings_button'], S21: ['retry', 'return_event'], S22: ['btn_close_dialog', 'save_leave', 'continue', 'end_game'],
     S23: ['btn_close_dialog', 'music_toggle_track', 'sound_toggle_track', 'vibration_toggle_track', 'done'], S24: ['retry_save', 'continue'], S25: ['claim_continue'],
 };
@@ -63,25 +63,99 @@ function homeRow(layout) {
  * energy count; the capsule shows "已满" or the countdown to the next point.
  */
 const ENERGY = {
-    light: { heart: [286, 34, 109, 92], value: [397, 53, 84, 54], count: 46 },
-    dark: { heart: [148, 37, 119, 100], value: [272, 59, 84, 55], count: 50 },
+    light: { heart: [-13, -10, 109, 92], value: [98, 9, 84, 54], count: 46 },
+    dark: { heart: [2, -7, 119, 100], value: [126, 15, 84, 55], count: 50 },
 };
 function energyHud(layout) {
     const capsule = layout.elements.find(e => e.id === 'hud_energy');
     if (!capsule || !layout.elements.some(e => e.id === 'energy_value')) return layout;
-    const spec = ENERGY[capsule.asset.includes('dark') ? 'dark' : 'light'], [hx, hy, hw, hh] = spec.heart;
+    // Offsets from the capsule's top-left corner.
+    const spec = ENERGY[capsule.asset.includes('dark') ? 'dark' : 'light'], at = ([x, y, w, h]) => [capsule.rect[0] + x, capsule.rect[1] + y, w, h];
+    const [hx, hy, hw, hh] = at(spec.heart);
     const count = { id: 'energy_count', type: 'label', text: '5', rect: [hx, hy + 8, hw, hh - 22], fontSize: spec.count, color: '#FFFFFF', bold: true,
         align: 'center', verticalAlign: 'center', outlineColor: '#9C1230', outlineWidth: 4 };
-    const elements = layout.elements.flatMap(e => e.id === 'energy_icon' ? [{ ...e, rect: spec.heart }, count]
-        : e.id === 'energy_value' ? [{ ...e, rect: spec.value, fontSize: 34, text: '已满' }] : [e]);
+    const elements = layout.elements.flatMap(e => e.id === 'energy_icon' ? [{ ...e, rect: at(spec.heart) }, count]
+        : e.id === 'energy_value' ? [{ ...e, rect: at(spec.value), fontSize: 34, text: '已满' }] : [e]);
     return { ...layout, elements };
 }
+/**
+ * HUD of the map pages (decided 2026-11-14): no full-width backdrop (it stretched on wide
+ * screens); level, energy and coins each sit in their own dark capsule like the puzzle HUD,
+ * settings stays a square button. Layout units (854 wide).
+ */
+const HUD_PAGES = new Set(['S02', 'S03', 'S16']);
+const HUD_RECTS = {
+    hud_level_capsule: [62, 46, 232, 80], hud_level_badge: [12, 26, 110, 118], player_level: [22, 52, 90, 72],
+    bar_bg: [124, 63, 154, 46], bar_fill_green: [130, 68, 142, 36],
+    hud_energy: [310, 46, 212, 80], hud_coin: [536, 46, 194, 80], coin_icon: [524, 40, 88, 88], coin_value: [608, 58, 112, 56],
+    hud_btn_square_purple: [744, 36, 98, 100], icon_settings: [762, 54, 62, 65],
+};
+const DARK_CAPSULE = 'UI/HUD/hud_capsule_dark.png';
+function hudBar(layout) {
+    const elements = layout.elements.flatMap(e => {
+        if (e.id === 'hud_bar_bg') return [{ id: 'hud_level_capsule', asset: DARK_CAPSULE, slice: true, rect: HUD_RECTS.hud_level_capsule }];
+        // Capsule text was dark on the light capsules; white on the dark ones, as on the puzzle HUD.
+        const white = e.id === 'energy_value' || e.id === 'coin_value' ? { color: '#FFFFFF' } : {};
+        if (!HUD_RECTS[e.id]) return [{ ...e, ...white }];
+        return [{ ...e, rect: HUD_RECTS[e.id], ...white, ...(/^hud_(energy|coin)$/.test(e.id) ? { asset: DARK_CAPSULE } : {}) }];
+    });
+    return { ...layout, elements };
+}
+/** Progress fills laid out from their left end (code only changes the width). */
+const LEFT_FILLS = { S02: ['bar_fill_green'], S03: ['bar_fill_green'], S16: ['bar_fill_green'] };
 const ENERGY_PAGES = ['S02', 'S03', 'S04', 'S05', 'S16'];
 /** Page-level layout changes decided after the reference art; applied before building and pinning. */
-const LAYOUT_PATCH = { ...Object.fromEntries(ENERGY_PAGES.map(p => [p, energyHud])), S02: layout => homeRow(energyHud(layout)) };
+const LAYOUT_PATCH = {
+    ...Object.fromEntries(ENERGY_PAGES.map(p => [p, layout => {
+        const hud = energyHud(HUD_PAGES.has(p) ? hudBar(layout) : layout);
+        return p === 'S02' ? homeRow(hud) : hud;
+    }])),
+    // Home and back both left the activity: one home button, as on S20.
+    S19: layout => ({ ...layout, elements: layout.elements.filter(e => e.id !== 'back_button' && e.id !== 'icon_back') }),
+};
 export function pageLayout(file) {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, file), 'utf8'));
-    return LAYOUT_PATCH[layout.page]?.(layout) ?? layout;
+    return readable(LAYOUT_PATCH[layout.page]?.(layout) ?? layout);
+}
+
+/**
+ * Readability rules (decided 2026-11-14), applied to every generated layout in design units:
+ * tappable areas at least HIT (icon buttons get a transparent hit area around the picture),
+ * text at least MIN_FONT, dialog buttons at least BUTTON_HEIGHT, text links a full row to tap.
+ */
+export const UI_RULES = { HIT: 110, WIDE: 200, MIN_FONT: 30, BUTTON_HEIGHT: 92, LINK: [400, 88], CLOSE: 84 };
+/** Labels only the reference art needed (a toggle shows its own state). */
+const READABLE_DROP = new Set(['music_state', 'sound_state', 'vibration_state']);
+/** A full-screen dim marks a dialog: it scales about the screen centre (LayoutView.dialog). */
+export const isDialog = layout => layout.elements.some(e => e.id === 'mask_black');
+const grow = ([x, y, w, h], nw, nh) => [x - (nw - w) / 2, y - (nh - h) / 2, nw, nh];
+function readable(layout) {
+    const panel = layout.elements.find(e => e.id === 'panel_dialog')?.rect, { MIN_FONT, BUTTON_HEIGHT, LINK, CLOSE } = UI_RULES;
+    const elements = layout.elements.filter(e => !READABLE_DROP.has(e.id)).map(e => {
+        if (e.id === 'btn_close_dialog' && panel) {
+            // The small round close sat outside the panel corner: the large one sits inside it, right of the title ribbon.
+            return { ...e, asset: 'UI/通用/btn_close_normal.png', rect: [panel[0] + panel[2] - CLOSE - 8, panel[1] + 14, CLOSE, CLOSE] };
+        }
+        if (e.type === 'label' && (e.action || BUTTONS[layout.page]?.includes(e.id))) return { ...e, rect: grow(e.rect, Math.max(e.rect[2], LINK[0]), Math.max(e.rect[3], LINK[1])), fontSize: Math.max(e.fontSize ?? MIN_FONT, MIN_FONT) };
+        if (e.type === 'label' && e.fontSize && e.fontSize < MIN_FONT) {
+            const k = MIN_FONT / e.fontSize, [x, y, w, h] = e.rect, nw = w * k, nh = h * k;
+            const nx = e.align === 'left' ? x : e.align === 'right' ? x + w - nw : x - (nw - w) / 2;
+            return { ...e, fontSize: MIN_FONT, rect: [nx, y - (nh - h) / 2, nw, nh] };
+        }
+        // Wide dialog buttons (secondary ones were drawn flatter) share the primary height.
+        if (panel && e.asset && /btn_|^(continue|return|later|return_event|retry|save_|restart|play|go_)/.test(e.id) && e.rect[2] >= 400 && e.rect[3] < BUTTON_HEIGHT)
+            return { ...e, rect: grow(e.rect, e.rect[2], BUTTON_HEIGHT) };
+        return e;
+    });
+    return { ...layout, elements };
+}
+/**
+ * Icon-sized tappable picture (narrower than WIDE) smaller than HIT: the rect of its transparent
+ * hit area (layout units), else null. Wide buttons keep their own size (≥ BUTTON_HEIGHT tall).
+ */
+function hitRect(layout, e) {
+    const k = layout.size[0] / DESIGN[0], min = UI_RULES.HIT * k, [, , w, h] = e.rect;
+    return e.type !== 'label' && w < UI_RULES.WIDE * k && (w < min || h < min) ? grow(e.rect, Math.max(w, min), Math.max(h, min)) : null;
 }
 /** Runtime-only decorations not drawn in the reference layouts; created hidden, shown by feature code. */
 const EXTRAS = {
@@ -210,9 +284,13 @@ function buildPage(file) {
             continue;
         }
         if (!e.rect) throw new Error(`${page}/${e.id}: element without rect`);
-        const node = b.node(e.id, b.root, box(layout, grown(e)), !e.hidden);
+        // A small tappable picture becomes a transparent hit area (the element) holding the picture.
+        const hit = buttons.has(e.id) ? hitRect(layout, e) : null, at = box(layout, grown(e));
+        const left = LEFT_FILLS[page]?.includes(e.id) ? { x: at.x - at.width / 2, anchorX: 0 } : {};
+        const node = b.node(e.id, b.root, hit ? box(layout, hit) : { ...at, ...left }, !e.hidden);
         nodes.push(ref(node)); nodeIds.push(e.id);
         if (e.type === 'label') { labels.push(ref(addLabel(b, node, e))); labelIds.push(e.id); }
+        else if (hit) { const outer = box(layout, hit); addSprite(b, b.node(`${e.id}_art`, node, { x: at.x - outer.x, y: at.y - outer.y, width: at.width, height: at.height }), e); }
         else addSprite(b, node, e);
         if (buttons.has(e.id)) { b.button(node, b.root, 'LayoutView', 'onAction', e.id); buttons.delete(e.id); }
         if (pins.has(e.id)) b.component(node, EDGE_PIN, { side: pins.get(e.id) });
@@ -227,7 +305,7 @@ function buildPage(file) {
         b.objects[target._components[0].__id__]._contentSize = { __type__: 'cc.Size', width: at.width, height: at.height };
     }
     if (buttons.size) throw new Error(`${page}: button ids not in layout: ${[...buttons]}`);
-    b.component(b.root, VIEW, { pageId: page, nodes, nodeIds, labels, labelIds });
+    b.component(b.root, VIEW, { pageId: page, nodes, nodeIds, labels, labelIds, dialog: isDialog(layout) });
     if (PUZZLE_PAGES.has(page)) puzzleRig(b, layout, mounts.get('BoardMount').id, mounts.get('TrayMount').id);
     if (page === 'S16') listRig(b, layout, mounts.get('MapList').id);
     if (page === 'S20') {
@@ -330,7 +408,7 @@ function listRig(b, layout, mapListId) {
 
 /** One S16 card in every state: drawn as the current card, plus the locked row of the next card. */
 function buildMapCard() {
-    const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S16.json'), 'utf8')), el = id => layout.elements.find(e => e.id === id);
+    const layout = readable(JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S16.json'), 'utf8'))), el = id => layout.elements.find(e => e.id === id);
     const card = el('m01_card').rect, cx = card[0] + card[2] / 2, cy = card[1] + card[3] / 2;
     const nameShift = el('m01_name').rect[1] - el('m02_name').rect[1];
     const parts = [['m01_card', 'card'], ['m01_thumbnail', 'thumbnail'], ['m01_name', 'name'], ['map_tag_current', 'tag'], ['current_tag', 'tag_text'],
@@ -370,7 +448,7 @@ function buildReplayRow() {
  * (05_美术补充任务 2.4) is included once it is imported; until then the text fills the panel.
  */
 function buildHelpDialog() {
-    const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S22.json'), 'utf8')), el = id => layout.elements.find(e => e.id === id);
+    const layout = pageLayout('S22.json'), el = id => layout.elements.find(e => e.id === id);
     const art = 'UI/无尽/endless_help_axes.png', hasArt = frameBySource.has(art);
     const elements = [el('mask_black'), el('panel_dialog'), el('ribbon_title_blue'), { ...el('title'), text: '玩法说明' }, el('btn_close_dialog'),
         ...(hasArt ? [{ id: 'help_art', asset: art, rect: [147, 640, 560, 380] }] : []),
@@ -378,16 +456,18 @@ function buildHelpDialog() {
         { ...el('save_leave'), id: 'confirm', rect: [143, 1180, 568, 105] }, { ...el('save_leave_label'), id: 'confirm_label', text: '知道了', rect: [155, 1186, 544, 93] }];
     const b = new Builder('HelpDialog', DESIGN), nodes = [], nodeIds = [], labels = [], labelIds = [];
     for (const e of elements) {
-        const node = b.node(e.id, b.root, box(layout, e.rect));
+        const hit = e.id === 'btn_close_dialog' ? hitRect(layout, e) : null, at = box(layout, e.rect);
+        const node = b.node(e.id, b.root, hit ? box(layout, hit) : at);
         nodes.push(ref(node)); nodeIds.push(e.id);
-        if (e.type === 'label') {
+        if (hit) { const outer = box(layout, hit); addSprite(b, b.node(`${e.id}_art`, node, { x: at.x - outer.x, y: at.y - outer.y, width: at.width, height: at.height }), e); }
+        else if (e.type === 'label') {
             const id = addLabel(b, node, e);
             if (e.wrap) Object.assign(b.objects[id], { _enableWrapText: true, _overflow: 1, _horizontalAlign: 0, _verticalAlign: hasArt ? 0 : 1, _lineHeight: hasArt ? 44 : 54, _fontSize: hasArt ? 30 : 36, _actualFontSize: hasArt ? 30 : 36 });
             labels.push(ref(id)); labelIds.push(e.id);
         } else addSprite(b, node, e);
         if (e.id === 'confirm' || e.id === 'btn_close_dialog') b.button(node, b.root, 'LayoutView', 'onAction', e.id);
     }
-    b.component(b.root, VIEW, { pageId: 'HelpDialog', nodes, nodeIds, labels, labelIds });
+    b.component(b.root, VIEW, { pageId: 'HelpDialog', nodes, nodeIds, labels, labelIds, dialog: true });
     return { name: 'HelpDialog', objects: b.finish() };
 }
 
@@ -439,11 +519,12 @@ function buildAnchor() {
     const group = layout.elements.filter(e => e.anchor === 'building_feet' && e.buildingId === 'B01');
     const b = new Builder('BuildAnchor', [200, 120]), nodes = [], nodeIds = [], labels = [], labelIds = [];
     for (const e of group) {
-        const id = e.id.replace(/^B01_/, ''), [w, h] = e.size ?? [120, 40];
-        const node = b.node(id, b.root, { x: e.offset[0], y: -e.offset[1], width: w, height: h });
+        const id = e.id.replace(/^B01_/, ''), [w, h] = e.size ?? [120, 40], tap = id === 'cost' && h < UI_RULES.HIT;
+        // The price tag is the upgrade button: a taller transparent hit area holds its picture.
+        const node = b.node(id, b.root, { x: e.offset[0], y: -e.offset[1], width: w, height: tap ? UI_RULES.HIT : h });
         nodes.push(ref(node)); nodeIds.push(id);
         if (e.type === 'label') { labels.push(ref(addLabel(b, node, e))); labelIds.push(id); }
-        else addSprite(b, node, e);
+        else addSprite(b, tap ? b.node(`${id}_art`, node, { width: w, height: h }) : node, e);
         if (id === 'cost') b.button(node, b.root, 'LayoutView', 'onAction', 'upgrade');
     }
     b.component(b.root, VIEW, { pageId: 'BuildAnchor', nodes, nodeIds, labels, labelIds });

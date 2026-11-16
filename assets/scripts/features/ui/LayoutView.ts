@@ -30,6 +30,8 @@ export class LayoutView extends BaseView {
     @property([CCString]) public nodeIds: string[] = [];
     @property([Label]) public labels: Label[] = [];
     @property([CCString]) public labelIds: string[] = [];
+    /** A dialog (full-screen dim): everything but the dim grows with the screen width about the frame centre. */
+    @property public dialog = false;
     private index: Map<string, Node> | null = null;
     /** Design-space position and width of every root child, recorded before the first fit so refits never drift. */
     private design: Map<Node, { position: Vec3; scale: Vec3; width: number }> | null = null;
@@ -100,7 +102,9 @@ export class LayoutView extends BaseView {
     public setText(id: string, text: string | number): void { this.label(id).string = String(text); }
     public setVisible(id: string, visible: boolean): void { this.element(id).active = visible; }
     public setFrame(id: string, frame: SpriteFrame | null): void {
-        requireBinding(`LayoutView ${this.pageId}`, `${id}.Sprite`, this.element(id).getComponent(Sprite)).spriteFrame = frame;
+        // A small button's picture sits in its transparent hit area.
+        const node = this.element(id);
+        requireBinding(`LayoutView ${this.pageId}`, `${id}.Sprite`, node.getComponent(Sprite) ?? node.getChildByName(`${id}_art`)?.getComponent(Sprite) ?? null).spriteFrame = frame;
     }
     /**
      * Fits a full-screen page or dialog to the visible area: full-screen pictures cover it,
@@ -127,6 +131,7 @@ export class LayoutView extends BaseView {
                 if (node.getComponent(Sprite)) { const s = coverScale(ui.width, ui.height); node.setScale(s * Math.sign(node.scale.x || 1), s, 1); node.setPosition(0, 0, at.z); }
                 continue;
             }
+            if (this.dialog) { node.setPosition(frame.x + at.x * k, frame.y + at.y * k, at.z); node.setScale(d.scale.x * k, d.scale.y * k, d.scale.z); continue; }
             const pin = node.getComponent(EdgePin), band = bottom <= TOP_BAND ? 'top' : top >= BOTTOM_BAND ? 'bottom' : null;
             const s = band || pin ? k : 1;
             // HUD band hugs the frame top, the bottom button band its bottom, the rest its centre;
