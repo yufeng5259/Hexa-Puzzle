@@ -20,7 +20,7 @@ const constants = {
  initialCoins:'int', initialHints:'int',
  energyMax:'int', energyInitial:'int', energyRecoverSeconds:'int', energyStartCost:'int', energyFirstLevelFree:'bool',
  welcomeRewardId:'string', guideBuildingId:'string', firstMapId:'string',
- buildExpPerUpgrade:'int', buildConstructionSeconds:'number',
+ buildExpPerUpgrade:'int', buildConstructionSeconds:'number', buildFxToolFraction:'number', buildFxToolSpread:'number', buildFxSmokeScale:'number',
  dailyChestRewardId:'string', dailyTaskCount:'int',
  endlessUnlockAfterLevelNo:'int', endlessRadius:'int', endlessTraySize:'int',
  endlessScorePerPlaced:'int', endlessScorePerCleared:'int', endlessScorePerLine:'int', endlessScoreMultiLine:'int',

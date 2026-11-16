@@ -54,3 +54,59 @@ test('matrix decompose keeps the original node scale (0.5) on an unrotated bone 
     near(p.x, 10 + 0.5 * 100); near(p.y, 20 + 0.5 * 10); near(p.angle, 90); near(p.scaleX, 0.5); near(p.scaleY, 0.5);
     near(p.color[3], 0x80 / 255);
 });
+
+test('tuned skeleton: tools reach the configured fraction of the building, smoke 1.5×, source untouched', () => {
+    const before = JSON.stringify(data.skeleton), tuning = { toolFraction: 0.6, toolSpread: 1, smokeScale: 1.5 }; // spread 1: positions follow width/s only
+    for (const width of [367, 546]) {
+        const s = Math.max(0.55, Math.min(1.2, width / 420)), sk = fx.tuneBuildSkeleton(data.skeleton, width, s, tuning);
+        for (const tool of ['hammer', 'saw']) {
+            const a = sk.attachments[tool][tool], o = data.skeleton.attachments[tool][tool], k = a.width / o.width;
+            near(Math.max(a.width, a.height) * sk.scale[0] * s, 0.6 * width, 1e-6);
+            near(a.height / o.height, k); near(a.x / o.x, k); near(a.y / o.y, k); // swing radius grows with the tool
+            assert.ok(k > 2, `${tool} grows: ${k}`);
+        }
+        const smoke = sk.slots.find(x => x.name.startsWith('smoke')).name, name = Object.keys(sk.attachments[smoke])[0];
+        near(sk.attachments[smoke][name].width / data.skeleton.attachments[smoke][name].width, 1.5);
+        assert.equal(fx.skeletonLength(sk), fx.skeletonLength(data.skeleton));
+    }
+    assert.equal(JSON.stringify(data.skeleton), before);
+});
+
+test('redrawn 3× tools are imported at their logical size', () => {
+    assert.deepEqual([data.skeleton.attachments.hammer.hammer.width, data.skeleton.attachments.hammer.hammer.height], [133, 105]);
+    assert.deepEqual([data.skeleton.attachments.saw.saw.width, data.skeleton.attachments.saw.saw.height], [180, 68]);
+});
+
+const overlaps = (A, B) => {
+    for (const P of [A, B]) for (let i = 0; i < 4; i++) {
+        const [x1, y1] = P[i], [x2, y2] = P[(i + 1) % 4], nx = y2 - y1, ny = x1 - x2, pr = Q => Q.map(([x, y]) => x * nx + y * ny), a = pr(A), b = pr(B);
+        if (Math.max(...a) < Math.min(...b) || Math.max(...b) < Math.min(...a)) return false;
+    }
+    return true;
+};
+const corners = p => { const r = p.angle * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+    return [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([u, v]) => { const x = u * p.width / 2 * p.scaleX, y = v * p.height / 2 * p.scaleY; return [p.x + x * c - y * s, p.y + x * s + y * c]; }); };
+
+test('configured tuning: hammer and saw never overlap on any building width, spread is horizontal only', () => {
+    const { parseGameConfig } = loader()('assets/scripts/core/Config');
+    const config = parseGameConfig(JSON.parse(fs.readFileSync(path.join(PROJECT, 'assets/resources/config/game-config.json'), 'utf8')));
+    const tuning = config.rules.build.fx;
+    const widths = new Set(config.maps.flatMap(m => m.buildings.map(b => Math.round(b.widthFraction * 853))));
+    for (const width of widths) {
+        const s = Math.max(0.55, Math.min(1.2, width / 420)), sk = fx.tuneBuildSkeleton(data.skeleton, width, s, tuning, 420);
+        const end = fx.skeletonLength(sk) / sk.timeScale;
+        for (let t = 0; t <= end; t += 0.02) {
+            const P = Object.fromEntries(fx.sampleSkeleton(sk, t).map(p => [p.slot, p])), on = p => p.asset && p.color[3] > 0.01;
+            if (on(P.hammer) && on(P.saw)) assert.ok(!overlaps(corners(P.hammer), corners(P.saw)), `width ${width} t=${t.toFixed(2)}`);
+        }
+        assert.equal(sk.bones.find(b => b.name === 'hammer').y, data.skeleton.bones.find(b => b.name === 'hammer').y);
+    }
+});
+
+test('tool extent and fitting: the sweep box moves inside the frame, centred when too big', () => {
+    const e = fx.toolExtent(data.skeleton);
+    assert.ok(e.right > e.left && e.top > e.bottom);
+    assert.deepEqual(fx.fitInside({ left: -50, right: 50, bottom: 0, top: 100 }, { left: 0, right: 200, bottom: -100, top: 80 }), { dx: 50, dy: -20 });
+    assert.deepEqual(fx.fitInside({ left: 0, right: 10, bottom: 0, top: 10 }, { left: -100, right: 100, bottom: -100, top: 100 }), { dx: 0, dy: 0 });
+    assert.deepEqual(fx.fitInside({ left: 0, right: 300, bottom: 0, top: 10 }, { left: -100, right: 100, bottom: -100, top: 100 }), { dx: -150, dy: 0 });
+});

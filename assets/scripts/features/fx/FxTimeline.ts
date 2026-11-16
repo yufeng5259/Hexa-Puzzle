@@ -108,3 +108,78 @@ export function sampleSkeleton(data: SkeletonData, t: number): SlotPose[] {
         return { slot: slot.name, attachment: region ? attachment : null, asset: region?.asset ?? null, width: region?.width ?? 0, height: region?.height ?? 0, color, ...decompose(m) };
     });
 }
+
+export interface BuildFxTuning {
+    /** Longest side of each tool as a fraction of the building width. */
+    readonly toolFraction: number;
+    /** Horizontal swing positions of the tools multiplied by this, so the enlarged hammer and saw stay apart. */
+    readonly toolSpread: number;
+    /** Smoke puff size and drift multiplier. */
+    readonly smokeScale: number;
+}
+
+const scaleMoves = (frames: Frame[] | undefined, kx: number, ky: number): void => {
+    for (const f of frames ?? []) { if (typeof f.x === 'number') f.x *= kx; if (typeof f.y === 'number') f.y *= ky; }
+};
+const TOOLS = ['hammer', 'saw'];
+/** Setup x of a bone chain plus its first animated translate (the effect's parent bones are unrotated, unscaled). */
+function parentX(sk: SkeletonData, name: string | null): number {
+    let x = 0;
+    for (let b = sk.bones.find(o => o.name === name); b; b = sk.bones.find(o => o.name === b!.parent)) {
+        const first = sk.animation.bones?.[b.name]?.translate?.[0];
+        x += b.x + (typeof first?.x === 'number' ? first.x : 0);
+    }
+    return x;
+}
+
+/**
+ * Copy of the build skeleton resized for one building: the hammer and saw are enlarged
+ * independently to toolFraction × buildingWidth (their swing radius, the attachment offset
+ * from the bone, grows with them), their swing positions are pushed apart horizontally and
+ * the smoke is scaled. nodeScale is the scale of the node the skeleton is drawn on, clamped
+ * from buildingWidth / referenceWidth; the spread follows the unclamped ratio so wide
+ * buildings keep the tools as far apart as their size needs. Timing is unchanged.
+ */
+export function tuneBuildSkeleton(data: SkeletonData, buildingWidth: number, nodeScale: number, tuning: BuildFxTuning, referenceWidth = 420): SkeletonData {
+    const sk: SkeletonData = JSON.parse(JSON.stringify(data));
+    const bones = sk.animation.bones ?? {}, spread = tuning.toolSpread * buildingWidth / (nodeScale * referenceWidth);
+    for (const slot of sk.slots) {
+        const tool = TOOLS.includes(slot.name), smoke = slot.name.startsWith('smoke');
+        if (!tool && !smoke) continue;
+        const bone = sk.bones.find(b => b.name === slot.bone)!;
+        for (const a of Object.values(sk.attachments[slot.name] ?? {})) {
+            const k = tool ? tuning.toolFraction * buildingWidth / (Math.max(a.width, a.height) * Math.abs(sk.scale[0]) * nodeScale) : tuning.smokeScale;
+            a.x *= k; a.y *= k; a.width *= k; a.height *= k;
+        }
+        const [kx, ky] = tool ? [spread, 1] : [tuning.smokeScale, tuning.smokeScale];
+        bone.x *= kx; bone.y *= ky;
+        scaleMoves(bones[bone.name]?.translate, kx, ky);
+        // Spread about the effect centre (node origin), not about the parent bone, which sits off-centre:
+        // x_node = offset + scale·(parentX + x)  →  shift x so that x_node becomes spread·x_node.
+        if (tool) bone.x += (spread - 1) * (sk.offset[0] / sk.scale[0] + parentX(sk, bone.parent));
+    }
+    return sk;
+}
+
+/** Box the visible hammer and saw sweep over the whole animation, in the skeleton node's space. */
+export function toolExtent(data: SkeletonData, step = 1 / 30): { left: number; right: number; bottom: number; top: number } {
+    const box = { left: Infinity, right: -Infinity, bottom: Infinity, top: -Infinity };
+    const end = skeletonLength(data) / data.timeScale;
+    for (let t = 0; t <= end + 1e-9; t += step) {
+        for (const p of sampleSkeleton(data, t)) {
+            if (!TOOLS.includes(p.slot) || !p.asset || p.color[3] < 0.01) continue;
+            const r = p.angle * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+            for (const [u, v] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+                const x = u * p.width / 2 * p.scaleX, y = v * p.height / 2 * p.scaleY, px = p.x + x * c - y * s, py = p.y + x * s + y * c;
+                box.left = Math.min(box.left, px); box.right = Math.max(box.right, px); box.bottom = Math.min(box.bottom, py); box.top = Math.max(box.top, py);
+            }
+        }
+    }
+    return box;
+}
+
+/** Shift (dx, dy) that moves a box inside a frame; centred when it is larger than the frame. */
+export function fitInside(box: { left: number; right: number; bottom: number; top: number }, frame: { left: number; right: number; bottom: number; top: number }): { dx: number; dy: number } {
+    const axis = (lo: number, hi: number, flo: number, fhi: number) => hi - lo > fhi - flo ? (flo + fhi) / 2 - (lo + hi) / 2 : lo < flo ? flo - lo : hi > fhi ? fhi - hi : 0;
+    return { dx: axis(box.left, box.right, frame.left, frame.right), dy: axis(box.bottom, box.top, frame.bottom, frame.top) };
+}

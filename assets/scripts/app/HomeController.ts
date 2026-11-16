@@ -1,5 +1,6 @@
 import { type Camera, type EventTouch, JsonAsset, Node, Sprite, SpriteFrame, Tween, tween, UITransform, Vec3 } from 'cc';
 import { BuildFx, type BuildFxData } from '../features/fx/BuildFx';
+import { fitInside, toolExtent } from '../features/fx/FxTimeline';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { MapView } from '../core/Config';
@@ -26,6 +27,8 @@ const W = 853, H = 1844;
 /** The migrated effect was drawn around a building about this wide; it scales with ours. */
 const FX_REFERENCE_WIDTH = 420;
 const FX_SCALE = { min: 0.55, max: 1.2 };
+/** Gap kept between the build tools and the screen edge / HUD (design units). */
+const FX_MARGIN = 8;
 
 /**
  * S02 home and S03 build mode. Both share one map instance: the map lives in the
@@ -336,11 +339,30 @@ export class HomeController {
             node.setPosition(building.node.position.x + (0.5 - ui.anchorX) * ui.width * Math.sign(building.node.scale.x), building.node.position.y + (0.5 - ui.anchorY) * ui.height, 0);
             const s = Math.max(FX_SCALE.min, Math.min(FX_SCALE.max, ui.width / FX_REFERENCE_WIDTH));
             node.setScale(s, s, 1);
+            // Tools sized to the building on their own (FX_SCALE alone leaves them tiny on wide buildings).
+            const fx = BuildFx.tuned(data, ui.width, s, this.game.rules.build.fx, FX_REFERENCE_WIDTH);
+            this.keepOnScreen(node, toolExtent(fx.skeleton));
             // Speed so the tools stop exactly at the configured construction time.
-            void node.addComponent(BuildFx).play(data, this.scope, BuildFx.revealTime(data) / this.game.rules.build.constructionSeconds);
+            void node.addComponent(BuildFx).play(fx, this.scope, BuildFx.revealTime(fx) / this.game.rules.build.constructionSeconds);
             c.fx = node;
         });
         this.render();
+    }
+    /**
+     * Moves the effect so the tools' whole swing stays on screen, below the top HUD and above the
+     * bottom bar (enlarged tools beside an edge building would otherwise leave the screen).
+     */
+    private keepOnScreen(node: Node, extent: { left: number; right: number; bottom: number; top: number }): void {
+        const view = this.build?.isValid ? this.build : this.home, mount = node.parent!;
+        if (!view?.isValid) return;
+        const f = ScreenFit.current.frame, edge = (id: string) => view.has(id) && view.element(id).activeInHierarchy ? view.element(id).getComponent(UITransform)!.getBoundingBoxToWorld() : null;
+        const top = edge('map_name')?.yMin ?? f.y + f.height / 2, bar = edge('home_bottom_bar');
+        const frame = { left: f.x - f.width / 2 + FX_MARGIN, right: f.x + f.width / 2 - FX_MARGIN, top: top - FX_MARGIN, bottom: (bar ? bar.yMax : f.y - f.height / 2) + FX_MARGIN };
+        const ms = mount.worldScale.x, mp = mount.worldPosition, at = node.position, s = node.scale.x;
+        const world = (x: number, y: number) => ({ x: mp.x + (at.x + s * x) * ms, y: mp.y + (at.y + s * y) * ms });
+        const lo = world(extent.left, extent.bottom), hi = world(extent.right, extent.top);
+        const { dx, dy } = fitInside({ left: lo.x, right: hi.x, bottom: lo.y, top: hi.y }, frame);
+        node.setPosition(at.x + dx / ms, at.y + dy / ms, 0);
     }
     private loadFx(): Promise<BuildFxData | null> {
         this.fxData ??= this.scope.load('fx.build', JsonAsset).then(a => a.json as BuildFxData, error => { console.error(error); return null; });

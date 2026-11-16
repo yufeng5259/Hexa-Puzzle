@@ -77,6 +77,17 @@ export async function importBuildFx(source = DEFAULT_SOURCE) {
     fs.mkdirSync(path.join(PROJECT, OUT_ART), { recursive: true });
     for (const f of reused) fs.writeFileSync(path.join(PROJECT, OUT_ART, f.name + '.png'), f.bytes);
     registerArt(reused, source);
+    // Redrawn tools are delivered on an N× canvas (manifest scale); the skeleton draws them at the
+    // logical size = PNG size / scale, which must keep the original region's proportions.
+    const logical = {};
+    for (const id of ['fx_build_hammer', 'fx_build_saw']) {
+        const entry = manifest.uiAssets.find(a => a.id === id), [rw, rh] = regions[id.slice(9)].size;
+        if (!redrawn.has(id) || !entry) { logical[id] = [rw, rh]; continue; }
+        const png = fs.readFileSync(path.join(PROJECT, OUT_ART, id + '.png')), scale = entry.scale ?? 1;
+        const w = png.readUInt32BE(16) / scale, h = png.readUInt32BE(20) / scale;
+        if (Math.abs(w / h - rw / rh) > 0.02) throw new Error(`${id}: ${w}×${h} does not keep the ${rw}×${rh} proportions`);
+        logical[id] = [Math.round(w * 100) / 100, Math.round(h * 100) / 100];
+    }
 
     const size = n => [node(n)._contentSize.width, node(n)._contentSize.height];
     const spark = comp('cc.ParticleSystem'), sk = comp('sp.Skeleton'), skNode = node('building');
@@ -104,10 +115,10 @@ export async function importBuildFx(source = DEFAULT_SOURCE) {
             offset: skNode._trs.array.slice(0, 2), scale: skNode._trs.array.slice(7, 9), timeScale: sk.timeScale,
             bones: skeleton.bones.map(b => ({ name: b.name, parent: b.parent ?? null, x: b.x ?? 0, y: b.y ?? 0, rotation: b.rotation ?? 0, scaleX: b.scaleX ?? 1, scaleY: b.scaleY ?? 1 })),
             slots: skeleton.slots.map(s => ({ name: s.name, bone: s.bone, attachment: s.attachment ?? null, color: s.color ?? 'ffffffff' })),
-            attachments: Object.fromEntries(Object.entries(skin).map(([slot, map]) => [slot, Object.fromEntries(Object.entries(map).map(([name, a]) => [name, {
-                asset: asset({ hammer: 'fx_build_hammer', saw: 'fx_build_saw' }[name] ?? 'fx_build_smoke'),
-                x: a.x ?? 0, y: a.y ?? 0, rotation: a.rotation ?? 0, scaleX: a.scaleX ?? 1, scaleY: a.scaleY ?? 1, width: a.width, height: a.height,
-            }]))])),
+            attachments: Object.fromEntries(Object.entries(skin).map(([slot, map]) => [slot, Object.fromEntries(Object.entries(map).map(([name, a]) => {
+                const id = { hammer: 'fx_build_hammer', saw: 'fx_build_saw' }[name] ?? 'fx_build_smoke', [width, height] = logical[id] ?? [a.width, a.height];
+                return [name, { asset: asset(id), x: a.x ?? 0, y: a.y ?? 0, rotation: a.rotation ?? 0, scaleX: a.scaleX ?? 1, scaleY: a.scaleY ?? 1, width, height }];
+            }))])),
             animation: skeleton.animations[sk.defaultAnimation ?? 'animation'],
         },
     };

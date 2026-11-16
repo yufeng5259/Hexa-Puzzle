@@ -118,7 +118,10 @@ export function parseGameConfig(json: unknown): GameConfig {
         rewards, welcomeRewardId: rewardRef(k('welcomeRewardId', 'string'))!,
         guideBuildingId: k('guideBuildingId', 'string'),
         mainline, maps, firstMapId: k('firstMapId', 'string'),
-        build: { expPerUpgrade: k('buildExpPerUpgrade', 'number'), constructionSeconds: k('buildConstructionSeconds', 'number') },
+        build: {
+            expPerUpgrade: k('buildExpPerUpgrade', 'number'), constructionSeconds: k('buildConstructionSeconds', 'number'),
+            fx: { toolFraction: k('buildFxToolFraction', 'number'), toolSpread: k('buildFxToolSpread', 'number'), smokeScale: k('buildFxSmokeScale', 'number') },
+        },
         anim: {
             progressSeconds: k('animProgressSeconds', 'number'),
             cardSeconds: k('animCardSeconds', 'number'), cardStaggerSeconds: k('animCardStaggerSeconds', 'number'),

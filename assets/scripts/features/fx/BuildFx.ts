@@ -1,6 +1,6 @@
 import { _decorator, Color, Component, Node, ParticleSystem2D, Sprite, SpriteFrame, UIOpacity, UITransform, Vec2 } from 'cc';
 import type { ResourceScope } from '../../framework/resources/ResourceScope';
-import { sampleSkeleton, sampleTrack, skeletonLength, type SkeletonData } from './FxTimeline';
+import { sampleSkeleton, sampleTrack, skeletonLength, tuneBuildSkeleton, type BuildFxTuning, type SkeletonData } from './FxTimeline';
 const { ccclass } = _decorator;
 
 export interface BuildFxData {
@@ -30,6 +30,18 @@ export class BuildFx extends Component {
 
     /** Time (effect seconds, before speed) when the tools stop: the moment to reveal the new building. */
     public static revealTime(data: BuildFxData): number { return skeletonLength(data.skeleton) / data.skeleton.timeScale; }
+
+    /** The effect sized for one building (see tuneBuildSkeleton); the clip smoke puffs grow with smokeScale too. */
+    public static tuned(data: BuildFxData, buildingWidth: number, nodeScale: number, tuning: BuildFxTuning, referenceWidth?: number): BuildFxData {
+        const k = tuning.smokeScale, sprites = { ...data.sprites }, tracks = { ...data.clip.tracks };
+        for (const name of Object.keys(sprites)) {
+            if (!name.startsWith('building-yan')) continue;
+            sprites[name] = { ...sprites[name], size: [sprites[name].size[0] * k, sprites[name].size[1] * k] };
+            const t = tracks[name];
+            if (t?.position) tracks[name] = { ...t, position: t.position.map(([time, x, y]) => [time, x * k, y * k]) };
+        }
+        return { ...data, sprites, clip: { ...data.clip, tracks }, skeleton: tuneBuildSkeleton(data.skeleton, buildingWidth, nodeScale, tuning, referenceWidth) };
+    }
 
     public play(data: BuildFxData, scope: ResourceScope, speed = 1): Promise<void> {
         this.data = data; this.scope = scope; this.speed = speed; this.time = 0;

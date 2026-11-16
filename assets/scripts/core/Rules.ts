@@ -50,7 +50,11 @@ export interface Rules {
     readonly mainline: readonly MainlineLevel[];
     readonly maps: readonly MapRule[];
     readonly firstMapId: string;
-    readonly build: { readonly expPerUpgrade: number; readonly constructionSeconds: number };
+    readonly build: {
+        readonly expPerUpgrade: number; readonly constructionSeconds: number;
+        /** Build effect sizing (FxTimeline.tuneBuildSkeleton). */
+        readonly fx: { readonly toolFraction: number; readonly toolSpread: number; readonly smokeScale: number };
+    };
     /** Presentation timings in seconds and the coin particle cap (Constants anim*). Shows saved results only. */
     readonly anim: {
         readonly progressSeconds: number;
