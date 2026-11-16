@@ -51,8 +51,24 @@ export interface Rules {
     readonly maps: readonly MapRule[];
     readonly firstMapId: string;
     readonly build: { readonly expPerUpgrade: number; readonly constructionSeconds: number };
-    /** Presentation timings in seconds (Constants anim*). */
-    readonly anim: { readonly progressSeconds: number };
+    /** Presentation timings in seconds and the coin particle cap (Constants anim*). Shows saved results only. */
+    readonly anim: {
+        readonly progressSeconds: number;
+        /** Reward card pop and the gap between cards. */
+        readonly cardSeconds: number; readonly cardStaggerSeconds: number;
+        /** Particles scatter around the card, then fly to the HUD target, which pulses once. */
+        readonly scatterSeconds: number; readonly flySeconds: number; readonly pulseSeconds: number;
+        /** A tap fast-forwards after skipAfter; a show never runs past rewardTimeout. */
+        readonly skipAfterSeconds: number; readonly rewardTimeoutSeconds: number;
+        readonly chestShakeSeconds: number; readonly chestOpenSeconds: number;
+        readonly coinParticlesMax: number;
+        /** Puzzle win: the finished board holds, then a glow wave spreads from the last piece. */
+        readonly winHoldSeconds: number; readonly winWaveSeconds: number;
+        /** Result dialog pop-in before its reward show; failure dim and sway; board fade on leave/restart. */
+        readonly resultEnterSeconds: number; readonly failSeconds: number; readonly boardFadeSeconds: number;
+        /** First guided win plays in full, but never longer than this before its buttons work. */
+        readonly firstWinLimitSeconds: number;
+    };
     /** expToNext[i] is the exp needed to go from level i+1 to i+2; the last entry repeats. */
     readonly levels: readonly { readonly expToNext: number; readonly rewardId: string | null }[];
     readonly signIn: readonly string[];

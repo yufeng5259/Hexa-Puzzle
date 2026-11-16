@@ -1,4 +1,6 @@
-import { instantiate, Node, Prefab, SpriteFrame } from 'cc';
+import { instantiate, Node, Prefab, SpriteFrame, UITransform } from 'cc';
+import { RewardFx } from '../features/fx/RewardFx';
+import type { RewardTimings } from '../features/fx/RewardTimeline';
 import { ScreenFit } from '../features/ui/ScreenFit';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ViewHost } from '../framework/ui/ViewHost';
@@ -20,6 +22,7 @@ const PREPARE_LIMIT_MS = 4000;
  * layer (home map + build overlay); dialogs are one at a time, the rest queue.
  * Each view owns its resource scope, released by BaseView when destroyed.
  * Page changes run behind the honeycomb transition, overlays fade, dialogs pop.
+ * Reward shows (fx) play on an effects layer just above the dialogs and below the transition.
  */
 export class Navigator {
     private readonly pages: LayoutView[] = [];
@@ -31,10 +34,19 @@ export class Navigator {
 
     /** Small shared UI frames (button states, dots); lives as long as the app. */
     private readonly frames;
-    public constructor(private readonly host: ViewHost, private readonly loader: ResourceLoader, private readonly transition: Transition | null = null) {
+    public readonly fx: RewardFx;
+    public constructor(private readonly host: ViewHost, private readonly loader: ResourceLoader, timings: RewardTimings, private readonly transition: Transition | null = null) {
         this.frames = loader.createScope();
         ScreenFit.events.on('changed', () => { for (const v of [...this.pages, this.dialog]) if (v?.isValid) v.fitScreen(); });
+        const dialogs = host.dialogLayer!, layer = new Node('FxLayer');
+        layer.layer = dialogs.layer; layer.parent = dialogs.parent;
+        layer.setSiblingIndex(dialogs.getSiblingIndex() + 1);
+        layer.setPosition(dialogs.position);
+        layer.addComponent(UITransform);
+        this.fx = new RewardFx(layer, id => this.loadFrame(id), timings);
     }
+    /** Called every frame by GameBoot. */
+    public update(dt: number): void { this.fx.update(dt); }
     public loadFrame(id: string): Promise<SpriteFrame> { return this.frames.load(id, SpriteFrame); }
     /** Optional art: true once the frame is delivered and imported. */
     public hasFrame(id: string): boolean { return this.loader.has(id); }

@@ -57,7 +57,8 @@ function validate(tables,levels){
  const k=id=>C[id].value;
  if(k('energyMax')<1||k('energyRecoverSeconds')<1||k('energyInitial')>k('energyMax'))error('Constants.xlsx','invalid energy bounds');
  if(k('endlessRadius')<1||k('endlessTraySize')<1||k('dailyTaskCount')<1)error('Constants.xlsx','radius, tray size and task count must be positive');
- for(const id of Object.keys(C).filter(id=>id.startsWith('anim')))if(!(k(id)>=0&&k(id)<=5))error('Constants.xlsx',`${id} must be 0..5 seconds`);
+ for(const id of Object.keys(C).filter(id=>id.startsWith('anim')&&id.endsWith('Seconds')))if(!(k(id)>=0&&k(id)<=5))error('Constants.xlsx',`${id} must be 0..5 seconds`);
+ if(!(k('animCoinParticlesMax')>=1))error('Constants.xlsx','animCoinParticlesMax must be at least 1');
  for(const id of ['welcomeRewardId','dailyChestRewardId'])check(C[id],'value',own(tables.Rewards,k(id)),`${id} points to unknown reward ${k(id)}`);
  check(C.firstMapId,'value',own(tables.Maps,k('firstMapId')),'unknown map');
  for(const row of list('Rewards'))for(const f of ['coins','energy','hints'])check(row,f,row[f]>=0,'negative reward');

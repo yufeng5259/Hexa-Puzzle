@@ -37,6 +37,11 @@ export function abandonAttempt(state: GameState, attemptId: string): void {
     if (state.mainline.attempt?.attemptId === attemptId) state.mainline.attempt = null;
 }
 
+/** Display event id of a win; the puzzle page reads the paid reward from the queue by this id. */
+export function winEventId(kind: 'firstClear' | 'replay', levelNo: number, attemptId: string): string {
+    return kind === 'firstClear' ? `firstClear:${levelNo}` : `replay:${attemptId}`;
+}
+
 /** Win: first clear pays and advances, replay pays the lower replay reward. Repeated calls do nothing. */
 export function completeAttempt(state: GameState, rules: Rules, attemptId: string, day: string): 'firstClear' | 'replay' | 'duplicate' {
     const attempt = state.mainline.attempt;
@@ -48,10 +53,10 @@ export function completeAttempt(state: GameState, rules: Rules, attemptId: strin
         kind = 'firstClear';
         state.mainline.cleared[level.levelNo] = true;
         state.mainline.nextLevelNo = Math.max(state.mainline.nextLevelNo, level.levelNo + 1);
-        grantAndShow(state, { id: `firstClear:${level.levelNo}`, type: 'firstClear', reward: reward(rules, level.firstClearRewardId), detail: { levelNo: level.levelNo } });
+        grantAndShow(state, { id: winEventId('firstClear', level.levelNo, attemptId), type: 'firstClear', reward: reward(rules, level.firstClearRewardId), detail: { levelNo: level.levelNo } });
     } else {
         kind = 'replay';
-        grantAndShow(state, { id: `replay:${attemptId}`, type: 'replay', reward: reward(rules, level.replayRewardId), detail: { levelNo: level.levelNo } });
+        grantAndShow(state, { id: winEventId('replay', level.levelNo, attemptId), type: 'replay', reward: reward(rules, level.replayRewardId), detail: { levelNo: level.levelNo } });
     }
     recordDaily(state, rules, day, 'win', 1);
     return kind;

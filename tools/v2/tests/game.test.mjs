@@ -35,12 +35,40 @@ test('tick writes only when energy recovery changes something', () => {
     assert.equal(game.state.energy.value, 4);
 });
 
-test('day/week ids follow the clock and display queue is taken in order', () => {
-    const { game } = setup();
+const ev = (id, type = 'levelUp') => ({ id, type, reward: { coins: 0, energy: 1, hints: 0 } });
+
+test('day/week ids follow the clock; reading the display queue never removes, ackDisplay removes by id', () => {
+    const { storage, game } = setup();
     assert.equal(game.day(), '2026-11-09');
     assert.equal(game.week(), '2026-11-09');
-    game.act(s => { s.displayQueue.push({ id: 'a', type: 'levelUp', reward: { coins: 0, energy: 1, hints: 0 } }, { id: 'b', type: 'levelUp', reward: { coins: 0, energy: 1, hints: 0 } }); });
-    assert.equal(game.takeDisplay().id, 'a');
-    assert.equal(game.takeDisplay().id, 'b');
-    assert.equal(game.takeDisplay(), null);
+    game.act(s => { s.displayQueue.push(ev('a'), ev('b'), ev('c')); });
+    assert.deepEqual(game.displays.map(e => e.id), ['a', 'b', 'c']);
+    assert.deepEqual(game.displays.map(e => e.id), ['a', 'b', 'c'], 'peeking twice shows the same events');
+    game.ackDisplay(['b']);
+    assert.deepEqual(game.displays.map(e => e.id), ['a', 'c'], 'out-of-order confirm removes only that id');
+    const writes = storage.writes;
+    game.ackDisplay(['b', 'zzz']);
+    assert.equal(storage.writes, writes, 'confirming unknown or already removed ids writes nothing');
+    game.ackDisplay(['a', 'c']);
+    assert.deepEqual(game.displays, []);
+});
+
+test('a failed confirm keeps the events (shown again next launch) and does not throw', () => {
+    const { storage, game } = setup();
+    game.act(s => { s.wallet.coins = 50; s.displayQueue.push(ev('a')); });
+    storage.fail = true;
+    const error = console.error; console.error = () => undefined;
+    try { game.ackDisplay(['a']); } finally { console.error = error; }
+    assert.deepEqual(game.displays.map(e => e.id), ['a']);
+    assert.equal(game.state.wallet.coins, 50, 'reward untouched');
+});
+
+test('only events already queued at launch count as left over from an earlier run', () => {
+    const { storage, clock, game } = setup();
+    game.act(s => { s.displayQueue.push(ev('old', 'signIn')); });
+    assert.equal(game.fromEarlierRun('old'), false, 'claimed in this run');
+    const next = new Game(config, new Store(storage, rules), clock);
+    assert.equal(next.fromEarlierRun('old'), true);
+    next.act(s => { s.displayQueue.push(ev('new', 'dailyTask')); });
+    assert.equal(next.fromEarlierRun('new'), false);
 });

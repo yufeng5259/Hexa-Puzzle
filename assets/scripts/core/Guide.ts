@@ -1,5 +1,5 @@
 import { reward, RuleError, Rules } from './Rules';
-import { buildingLevel, GameState, grantAndShow } from './State';
+import { buildingLevel, DisplayEvent, GameState, grantAndShow } from './State';
 
 /**
  * First-run guide position, derived from real records (clear, build, welcome
@@ -22,10 +22,12 @@ export function guideAllowsBuild(state: GameState, rules: Rules, buildingId: str
     return step === 'done' || (step === 'goBuild' && buildingId === rules.guideBuildingId);
 }
 
-/** Grants the welcome reward and finishes the guide in one commit. */
-export function claimWelcome(state: GameState, rules: Rules): void {
+/** Grants the welcome reward and finishes the guide in one commit; returns the queued display event. */
+export function claimWelcome(state: GameState, rules: Rules): DisplayEvent | null {
     if (guideStep(state, rules) !== 'welcome') throw new RuleError('locked', 'Welcome reward is not available');
-    grantAndShow(state, { id: 'welcome', type: 'welcome', reward: reward(rules, rules.welcomeRewardId) });
+    const event: DisplayEvent = { id: 'welcome', type: 'welcome', reward: reward(rules, rules.welcomeRewardId) };
+    const granted = grantAndShow(state, event);
     state.guide.completed = true;
     state.guide.stepId = 'done';
+    return granted ? event : null;
 }

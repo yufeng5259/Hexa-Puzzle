@@ -1,5 +1,5 @@
 import { DailyTaskType, reward, RuleError, Rules } from './Rules';
-import { DailyTask, GameState, grantAndShow } from './State';
+import { DailyTask, DisplayEvent, GameState, grantAndShow } from './State';
 import { allBuildingsDone, dailyUnlocked, endlessUnlocked } from './Progress';
 
 /** Small deterministic hash so a day always rotates to the same task. */
@@ -39,7 +39,8 @@ export function recordDaily(state: GameState, rules: Rules, day: string, type: D
     for (const task of state.daily.tasks) if (task.type === type) task.progress = Math.min(task.target, task.progress + amount);
 }
 
-export function claimDailyTask(state: GameState, rules: Rules, day: string, taskId: string): void {
+/** The claim functions return the display event they queued (its page confirms it once shown), or null when its receipt was already paid. */
+export function claimDailyTask(state: GameState, rules: Rules, day: string, taskId: string): DisplayEvent | null {
     refreshDaily(state, rules, day);
     const task = state.daily.tasks.find(t => t.id === taskId);
     const row = rules.daily.tasks.find(t => t.id === taskId);
@@ -47,15 +48,15 @@ export function claimDailyTask(state: GameState, rules: Rules, day: string, task
     if (task.claimed) throw new RuleError('claimed', 'Task reward already claimed');
     if (task.progress < task.target) throw new RuleError('locked', 'Task not complete');
     task.claimed = true;
-    grantAndShow(state, { id: `daily:${day}:${taskId}`, type: 'dailyTask', reward: reward(rules, row.rewardId), detail: { taskId } });
+    return show(state, { id: `daily:${day}:${taskId}`, type: 'dailyTask', reward: reward(rules, row.rewardId), detail: { taskId } });
 }
 
-export function claimDailyChest(state: GameState, rules: Rules, day: string): void {
+export function claimDailyChest(state: GameState, rules: Rules, day: string): DisplayEvent | null {
     refreshDaily(state, rules, day);
     if (state.daily.chestClaimed) throw new RuleError('claimed', 'Chest already claimed');
     if (!state.daily.tasks.length || state.daily.tasks.some(t => t.progress < t.target)) throw new RuleError('locked', 'Not all tasks complete');
     state.daily.chestClaimed = true;
-    grantAndShow(state, { id: `dailyChest:${day}`, type: 'dailyChest', reward: reward(rules, rules.daily.chestRewardId) });
+    return show(state, { id: `dailyChest:${day}`, type: 'dailyChest', reward: reward(rules, rules.daily.chestRewardId) });
 }
 
 /** Seven-day cumulative sign-in: one claim per local day, missed days are not lost or refilled. */
@@ -65,10 +66,13 @@ export function canSignIn(state: GameState, day: string): boolean {
 
 export function signInSlot(state: GameState, rules: Rules): number { return state.signIn.claimedCount % rules.signIn.length; }
 
-export function claimSignIn(state: GameState, rules: Rules, day: string): void {
+export function claimSignIn(state: GameState, rules: Rules, day: string): DisplayEvent | null {
     if (!canSignIn(state, day)) throw new RuleError('claimed', 'Already signed in today');
     const slot = signInSlot(state, rules);
     state.signIn.claimedCount += 1;
     state.signIn.lastClaimDay = day;
-    grantAndShow(state, { id: `signIn:${state.signIn.claimedCount}`, type: 'signIn', reward: reward(rules, rules.signIn[slot]), detail: { day: slot + 1 } });
+    return show(state, { id: `signIn:${state.signIn.claimedCount}`, type: 'signIn', reward: reward(rules, rules.signIn[slot]), detail: { day: slot + 1 } });
 }
+
+/** null: this receipt was already paid, so nothing was granted and nothing is to be shown. */
+function show(state: GameState, event: DisplayEvent): DisplayEvent | null { return grantAndShow(state, event) ? event : null; }

@@ -131,12 +131,18 @@ export class EndlessPage {
         if (id === 'home_button') this.leave();
         else if (id === 'help_button') this.help();
         else if (id === 'start_challenge') void this.play();
-        else if (stage) {
-            const week = this.game.week();
-            try { this.game.act(s => claimEndlessStage(s, this.game.rules, week, Number(stage[1]))); }
-            catch (error) { if (!(error instanceof RuleError)) this.rewards.failure(error); }
-            this.render();
-        }
+        else if (stage) this.claimStage(Number(stage[1]));
+    }
+    /** One save per stage; the saved reward then pops from the stage row (S19 has no wallet HUD, so it stays listed). */
+    private claimStage(index: number): void {
+        const v = this.view;
+        if (!v?.isValid || this.nav.fx.busy) return;
+        const week = this.game.week();
+        let event;
+        try { event = this.game.act(s => claimEndlessStage(s, this.game.rules, week, index)); }
+        catch (error) { if (!(error instanceof RuleError)) this.rewards.failure(error); this.render(); return; }
+        this.render();
+        if (event) void this.rewards.collect(event.reward, [event.id], { owner: v.node, from: v.element(`stage_${index}_row`) });
     }
 
     /** S19 help: the HelpDialog prefab (standard dialog + rules illustration once delivered). */

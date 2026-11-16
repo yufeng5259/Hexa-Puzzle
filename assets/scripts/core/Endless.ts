@@ -1,5 +1,5 @@
 import { EndlessShape, reward, RuleError, Rules } from './Rules';
-import { EndlessGame, GameState, grantAndShow } from './State';
+import { DisplayEvent, EndlessGame, GameState, grantAndShow } from './State';
 import { recordDaily } from './Daily';
 
 /** Axial hex cell. A radius-R board holds every cell with max(|q|,|r|,|q+r|) <= R. */
@@ -128,12 +128,15 @@ export function placeShape(state: GameState, rules: Rules, day: string, week: st
 /** Ends the game; scores already saved stay counted and no extra reward is paid. */
 export function endEndlessGame(state: GameState): void { state.endless.game = null; }
 
-export function claimEndlessStage(state: GameState, rules: Rules, week: string, index: number): void {
+/** Returns the queued display event; the activity page confirms it once shown. */
+export function claimEndlessStage(state: GameState, rules: Rules, week: string, index: number): DisplayEvent | null {
     refreshWeek(state, week);
     const stage = rules.endless.stages[index];
     if (!stage) throw new RuleError('invalid', `No stage ${index}`);
     if (state.endless.claimedStages.includes(index)) throw new RuleError('claimed', 'Stage already claimed');
     if (state.endless.weekScore < stage.score) throw new RuleError('locked', 'Stage score not reached');
     state.endless.claimedStages.push(index);
-    grantAndShow(state, { id: `endlessStage:${week}:${index}`, type: 'endlessStage', reward: reward(rules, stage.rewardId), detail: { stage: index } });
+    const event: DisplayEvent = { id: `endlessStage:${week}:${index}`, type: 'endlessStage', reward: reward(rules, stage.rewardId), detail: { stage: index } };
+    const granted = grantAndShow(state, event);
+    return granted ? event : null;
 }

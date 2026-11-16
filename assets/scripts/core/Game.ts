@@ -1,7 +1,7 @@
 import type { GameConfig } from './Config';
 import { Clock, dayId, msUntilNextDay, msUntilNextWeek, weekId } from './Clock';
 import { settleEnergy } from './Energy';
-import type { GameState } from './State';
+import type { DisplayEvent, GameState } from './State';
 import type { Store } from './Store';
 
 export type Listener = (state: Readonly<GameState>) => void;
@@ -12,7 +12,11 @@ export type Listener = (state: Readonly<GameState>) => void;
  */
 export class Game {
     private readonly listeners = new Set<Listener>();
-    public constructor(public readonly config: GameConfig, private readonly store: Store, public readonly clock: Clock) {}
+    /** Display events already waiting when this run started (their page never confirmed them). */
+    private readonly launchQueue: ReadonlySet<string>;
+    public constructor(public readonly config: GameConfig, private readonly store: Store, public readonly clock: Clock) {
+        this.launchQueue = new Set(store.state.displayQueue.map(e => e.id));
+    }
 
     public get rules() { return this.config.rules; }
     public get state(): Readonly<GameState> { return this.store.state; }
@@ -37,8 +41,19 @@ export class Game {
         if (probe.energy.value !== before.value || probe.energy.anchor !== before.anchor) this.act(s => settleEnergy(s, this.rules, this.now()));
     }
 
-    /** Takes the oldest already-granted reward that still waits to be shown. */
-    public takeDisplay() { return this.store.state.displayQueue.length ? this.act(s => s.displayQueue.shift()!) : null; }
+    /** Already-granted rewards still waiting to be shown, oldest first. Reading never removes them. */
+    public get displays(): readonly DisplayEvent[] { return this.store.state.displayQueue; }
+    /** True for an event left over from an earlier run (shown again as a short summary, never granted again). */
+    public fromEarlierRun(id: string): boolean { return this.launchQueue.has(id); }
+    /**
+     * Confirms shown rewards by event id. The rewards are already in the wallet, so a failed
+     * write is only logged: those events show once more on the next launch.
+     */
+    public ackDisplay(ids: readonly string[]): void {
+        if (!this.store.state.displayQueue.some(e => ids.includes(e.id))) return;
+        try { this.act(s => { s.displayQueue = s.displayQueue.filter(e => !ids.includes(e.id)); }); }
+        catch (error) { console.error(error); }
+    }
 
     public subscribe(listener: Listener): () => void {
         this.listeners.add(listener);

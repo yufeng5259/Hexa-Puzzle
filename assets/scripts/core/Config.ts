@@ -119,7 +119,17 @@ export function parseGameConfig(json: unknown): GameConfig {
         guideBuildingId: k('guideBuildingId', 'string'),
         mainline, maps, firstMapId: k('firstMapId', 'string'),
         build: { expPerUpgrade: k('buildExpPerUpgrade', 'number'), constructionSeconds: k('buildConstructionSeconds', 'number') },
-        anim: { progressSeconds: k('animProgressSeconds', 'number') },
+        anim: {
+            progressSeconds: k('animProgressSeconds', 'number'),
+            cardSeconds: k('animCardSeconds', 'number'), cardStaggerSeconds: k('animCardStaggerSeconds', 'number'),
+            scatterSeconds: k('animScatterSeconds', 'number'), flySeconds: k('animFlySeconds', 'number'), pulseSeconds: k('animPulseSeconds', 'number'),
+            skipAfterSeconds: k('animSkipAfterSeconds', 'number'), rewardTimeoutSeconds: k('animRewardTimeoutSeconds', 'number'),
+            chestShakeSeconds: k('animChestShakeSeconds', 'number'), chestOpenSeconds: k('animChestOpenSeconds', 'number'),
+            coinParticlesMax: k('animCoinParticlesMax', 'number'),
+            winHoldSeconds: k('animWinHoldSeconds', 'number'), winWaveSeconds: k('animWinWaveSeconds', 'number'),
+            resultEnterSeconds: k('animResultEnterSeconds', 'number'), failSeconds: k('animFailSeconds', 'number'),
+            boardFadeSeconds: k('animBoardFadeSeconds', 'number'), firstWinLimitSeconds: k('animFirstWinLimitSeconds', 'number'),
+        },
         levels, signIn,
         daily: { tasks, chestRewardId: rewardRef(k('dailyChestRewardId', 'string'))!, count: k('dailyTaskCount', 'number') },
         endless: {

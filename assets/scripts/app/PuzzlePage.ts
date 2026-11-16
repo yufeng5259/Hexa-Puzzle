@@ -2,15 +2,17 @@ import { Button, Camera, JsonAsset, Node, Sprite, SpriteFrame, UITransform, Vec3
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { Game } from '../core/Game';
-import { abandonAttempt, completeAttempt, mainlineFinished, recordPlacement, saveBoard, startAttempt, startCost, useHint } from '../core/Mainline';
+import { abandonAttempt, completeAttempt, mainlineFinished, recordPlacement, saveBoard, startAttempt, startCost, useHint, winEventId } from '../core/Mainline';
 import { upgradeCost } from '../core/Progress';
-import { mainlineLevel, reward, RuleError } from '../core/Rules';
+import { mainlineLevel, RuleError, type Reward } from '../core/Rules';
+import { rewardText } from '../core/Display';
+import { BoardFx } from '../features/fx/BoardFx';
 import type { Attempt } from '../core/State';
 import { LevelCatalog, type LevelDefinition } from '../features/puzzle/data/LevelCatalog';
 import { PuzzleBoardPresentation } from '../features/puzzle/presentation/PuzzleBoardPresentation';
 import { PuzzleController } from '../features/puzzle/controller/PuzzleController';
 import { PuzzleSession, type PuzzleSessionSnapshot } from '../features/puzzle/session/PuzzleSession';
-import { showEnergy } from './EnergyHud';
+import { hudText, hudValue, showEnergy } from './EnergyHud';
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
@@ -35,6 +37,9 @@ export class PuzzlePage {
     private view: LayoutView | null = null;
     private board: PuzzleBoardPresentation | null = null;
     private controller: PuzzleController | null = null;
+    private boardFx: BoardFx | null = null;
+    /** A board finish (celebration, failure, fade-out) runs: no drag, button or second outcome. */
+    private finishing = false;
     private session: PuzzleSession | null = null;
     private level: LevelDefinition | null = null;
     private levelNo = 0;
@@ -65,12 +70,14 @@ export class PuzzlePage {
         if (attempt) await this.show(attempt);
     }
 
-    /** Pauses dragging while any dialog is up, including shared ones (settings, energy). */
-    public update(): void {
+    /** Pauses dragging while any dialog is up (including shared ones: settings, energy) or a board finish runs. */
+    public update(dt = 0): void {
+        this.boardFx?.update(dt);
         const controller = this.controller;
         if (!controller?.isValid) return;
-        if (this.nav.dialogOpen && !this.suspended) { this.suspended = true; controller.suspend(); }
-        else if (!this.nav.dialogOpen && this.suspended) { this.suspended = false; controller.resume(); }
+        const pause = this.nav.dialogOpen || this.finishing;
+        if (pause && !this.suspended) { this.suspended = true; controller.suspend(); }
+        else if (!pause && this.suspended) { this.suspended = false; controller.resume(); }
     }
 
     public dispose(): void { this.leave(); this.scope.release(); }
@@ -99,18 +106,27 @@ export class PuzzlePage {
         return this.catalog;
     }
 
-    private async show(attempt: Attempt, instant = false): Promise<void> {
+    /** fadeIn: restart on the same page; no page transition, the new board fades in instead. */
+    private async show(attempt: Attempt, instant = false, fadeIn = false): Promise<void> {
         const request = ++this.request;
         try {
             const catalog = await this.loadCatalog();
             const level = catalog.getById(mainlineLevel(this.game.rules, attempt.levelNo).puzzleId);
-            // The board and pieces are built while the transition still covers the screen.
-            let presented: Promise<void> = Promise.resolve();
-            const view = await this.nav.replacePage(level.mode === 'challenge' ? 'S05' : 'S04', id => this.onAction(id),
-                { instant, prepare: v => (presented = v.getComponent(PuzzleBoardPresentation)!.present(v.resources, level)) });
-            if (request !== this.request) return;
+            // The board and pieces are built while the transition (or the faded-out board) still covers it.
+            let presented: Promise<void> = Promise.resolve(), fx: BoardFx | null = null;
+            const view = await this.nav.replacePage(level.mode === 'challenge' ? 'S05' : 'S04', id => this.onAction(id), {
+                instant: instant || fadeIn,
+                prepare: v => {
+                    const board = v.getComponent(PuzzleBoardPresentation)!;
+                    fx = new BoardFx(board, this.game.rules.anim);
+                    if (fadeIn) fx.hide();
+                    return (presented = board.present(v.resources, level));
+                },
+            });
+            if (request !== this.request) { (fx as BoardFx | null)?.dispose(); return; }
             this.leave();
             const board = view.getComponent(PuzzleBoardPresentation)!, controller = view.getComponent(PuzzleController)!;
+            this.boardFx = fx ?? new BoardFx(board, this.game.rules.anim);
             await presented;
             if (request !== this.request || !view.isValid) return;
             const session = new PuzzleSession(level, attempt.attemptId);
@@ -120,7 +136,7 @@ export class PuzzlePage {
             }
             Object.assign(this, { view, board, controller, session, level, levelNo: attempt.levelNo, suspended: false });
             session.beforeCommit = candidate => this.persist(candidate);
-            controller.onOutcome = status => status === 'completed' ? this.win() : this.fail();
+            controller.onOutcome = status => void (status === 'completed' ? this.win() : this.fail());
             controller.onError = error => this.rewards.failure(error);
             controller.inputCamera = this.inputCamera;
             controller.onDragStateChanged = dragging => this.guide.setPaused(dragging);
@@ -132,9 +148,10 @@ export class PuzzlePage {
             view.setText('level_title', attempt.mode === 'replay' ? `复玩 第${attempt.levelNo}关` : `第${attempt.levelNo}关`);
             this.render();
             this.renderHud();
+            if (fadeIn) void this.boardFx.fadeIn();
             // A board saved at its final move still owes its outcome.
             const status = session.snapshot.status;
-            if (status === 'completed') this.win(); else if (status === 'failed') this.fail();
+            if (status === 'completed') void this.win(); else if (status === 'failed') void this.fail();
         } catch (error) {
             if (request === this.request) this.rewards.failure(error);
         }
@@ -145,10 +162,29 @@ export class PuzzlePage {
         this.unsubscribe = null;
         if (this.session) this.session.beforeCommit = null;
         if (this.controller?.isValid) { this.controller.onOutcome = null; this.controller.onError = null; }
+        this.boardFx?.dispose();
+        this.boardFx = null;
+        this.finishing = false;
         this.view = this.board = this.controller = this.session = this.level = null;
     }
 
     private goHome(): void { this.teaching = null; this.guide.clear(); this.request++; this.leave(); this.onHome?.(); }
+    /** Saved or abandoned board going home: it fades out first (no result dialog). */
+    private async fadeHome(): Promise<void> {
+        const request = this.request;
+        this.finishing = true;
+        await this.boardFx?.fadeOut();
+        if (request === this.request) this.goHome();
+    }
+    /** New attempt of the same level: paid and saved first, then the old board fades out and the new one in. */
+    private async restart(): Promise<void> {
+        const attempt = this.start(this.levelNo);
+        if (!attempt) return;
+        const request = this.request;
+        this.finishing = true;
+        await this.boardFx?.fadeOut();
+        if (request === this.request) await this.show(attempt, false, true);
+    }
 
     /** Every move, return and hint is saved with the board in one write; a failed write rejects the move. */
     private persist(candidate: PuzzleSessionSnapshot): void {
@@ -242,10 +278,9 @@ export class PuzzlePage {
     private renderHud(): void {
         const view = this.view;
         if (!view?.isValid) return;
-        const s = this.game.state;
-        showEnergy(view, this.game);
-        view.setText('coin_value', s.wallet.coins.toLocaleString('en-US'));
-        view.setText('hint_count', s.wallet.hints);
+        showEnergy(view, this.game, this.nav.fx);
+        hudText(view, 'coin_value', hudValue(this.game, 'coins'), this.nav.fx);
+        hudText(view, 'hint_count', hudValue(this.game, 'hints'), this.nav.fx);
     }
     private enable(id: string, on: boolean): void {
         const node = this.view!.element(id), button = node.getComponent(Button);
@@ -259,7 +294,7 @@ export class PuzzlePage {
 
     private onAction(id: string): void {
         const session = this.session;
-        if (this.nav.dialogOpen || !session) return;
+        if (this.nav.dialogOpen || !session || this.finishing) return;
         if (this.lesson() && !this.guide.allows('puzzle', id)) return; // forced first drag: no way around it
         // A finished board (outcome dialog closed by a blocked retry) can only go home.
         if (session.snapshot.status !== 'active') { if (id === 'hud_btn_square_blue') this.goHome(); return; }
@@ -299,7 +334,7 @@ export class PuzzlePage {
                     this.game.act(s => abandon ? abandonAttempt(s, session.attemptId) : saveBoard(s, session.attemptId, session.serialize()));
                 } catch (error) { this.nav.closeDialog(); this.rewards.failure(error); return; }
                 this.nav.closeDialog();
-                this.goHome();
+                void this.fadeHome();
             }
         }, v => {
             if (!abandon) return;
@@ -316,51 +351,92 @@ export class PuzzlePage {
         const cost = startCost(this.game.state, this.game.rules, this.levelNo);
         void this.nav.showDialog('S09', id => {
             if (id === 'btn_close_dialog' || id === 'continue') this.nav.closeDialog();
-            else if (id === 'restart') {
-                this.nav.closeDialog();
-                const attempt = this.start(this.levelNo);
-                if (attempt) void this.show(attempt);
-            }
+            else if (id === 'restart') { this.nav.closeDialog(); void this.restart(); }
         }, v => v.setText('restart_cost', cost ? `新开一局需要 ${cost} 点体力` : '首关免费，不消耗体力'));
     }
 
-    private win(): void {
-        const session = this.session!, levelNo = this.levelNo, rules = this.game.rules;
+
+    /**
+     * Win (docs/v2/09 §5.1): saved first; then the finished board celebrates, S06 comes in and the
+     * reward this commit actually paid (read from the display queue by its event id) flies to the HUD.
+     * The event is confirmed when that show ends; S06 buttons and the guide hand work only then.
+     */
+    private async win(): Promise<void> {
+        const session = this.session!, levelNo = this.levelNo, rules = this.game.rules, request = this.request;
+        this.finishing = true;
+        this.controller?.cancelDrag();
         let kind: 'firstClear' | 'replay' | 'duplicate';
         try { kind = this.game.act(s => completeAttempt(s, rules, session.attemptId, this.game.day())); }
-        catch (error) { this.rewards.failure(error, () => this.win()); return; }
-        const level = mainlineLevel(rules, levelNo), replay = kind === 'replay';
-        const prize = reward(rules, replay ? level.replayRewardId : level.firstClearRewardId);
-        const s = this.game.state, finished = mainlineFinished(s, rules);
+        catch (error) { this.finishing = false; this.rewards.failure(error, () => void this.win()); return; }
+        const id = kind === 'duplicate' ? null : winEventId(kind, levelNo, session.attemptId);
+        const event = id ? this.game.displays.find(e => e.id === id) ?? null : null;
+        const guided = this.guide.active;
+        // The first guided win plays once in full, but its buttons never wait longer than this.
+        const deadline = { passed: false };
+        const guard = guided ? setTimeout(() => { deadline.passed = true; this.boardFx?.stop(); this.nav.fx.settle(); }, rules.anim.firstWinLimitSeconds * 1000) : null;
+        // A repeated outcome does not celebrate again.
+        if (kind !== 'duplicate' && this.boardFx) await this.boardFx.win(session.snapshot);
+        if (request !== this.request) { if (guard) clearTimeout(guard); return; }
+        this.result(kind, levelNo, event?.reward ?? null, event ? id : null, guided, guard, deadline);
+    }
+
+    private result(kind: 'firstClear' | 'replay' | 'duplicate', levelNo: number, prize: Reward | null, id: string | null, guided: boolean, guard: ReturnType<typeof setTimeout> | null, deadline: { passed: boolean }): void {
+        const rules = this.game.rules, s = this.game.state, finished = mainlineFinished(s, rules), replay = kind === 'replay';
+        const challenge = mainlineLevel(rules, levelNo).kind === 'challenge';
         const cheapest = Math.min(...rules.maps.find(m => m.id === s.maps.currentMapId)!.buildings
             .map(b => upgradeCost(s, rules, s.maps.currentMapId, b.id) ?? Infinity));
-        const guided = this.guide.active;
-        void this.nav.showDialog('S06', id => {
-            if (guided && !this.guide.allows('result', id)) return;
-            if (id === 'btn_green' && replay) { this.nav.closeDialog(); this.request++; this.leave(); this.onReplayList?.(); }
-            else if (id === 'btn_green' && !finished) { this.nav.closeDialog(); void this.play(this.game.state.mainline.nextLevelNo); }
-            else if (id === 'btn_grey' || id === 'btn_green') { this.nav.closeDialog(); this.goHome(); }
+        let ready = false, gone = false;
+        void this.nav.showDialog('S06', action => {
+            if (!ready || gone || guided && !this.guide.allows('result', action)) return;
+            // The first tap decides; a second one in the same frame never routes again.
+            if (action === 'btn_green' && replay) { gone = true; this.nav.closeDialog(); this.request++; this.leave(); this.onReplayList?.(); }
+            else if (action === 'btn_green' && !finished) { gone = true; this.nav.closeDialog(); void this.play(this.game.state.mainline.nextLevelNo); }
+            else if (action === 'btn_grey' || action === 'btn_green') { gone = true; this.nav.closeDialog(); this.goHome(); }
         }, v => {
-            v.setText('first_clear', `第${levelNo}关 · ${replay ? '复玩' : '首次通关'}`);
-            v.setText('reward_coin', `+${prize.coins}`);
+            v.setText('first_clear', `第${levelNo}关 · ${replay ? '复玩完成' : challenge ? '挑战首次通关' : '首次通关'}`);
+            const coins = prize?.coins ?? 0;
+            v.setVisible('icon_coin', coins > 0);
+            v.setVisible('reward_coin', coins > 0);
+            if (coins) v.setText('reward_coin', `+${coins}`);
+            if (prize && rewardText(prize)) v.setText('reward_status', coins && !prize.energy && !prize.hints ? '金币已到账' : `${rewardText(prize)} 已到账`);
+            else v.setVisible('reward_status', false);
             v.setText('build_suggestion', s.wallet.coins >= cheapest ? '金币充足，可以回家建造' : '继续闯关，攒金币建造家园');
             if (replay) v.setText('next', '继续复玩');
             else if (finished) v.setText('next', '主线完成');
-            if (guided) { v.setVisible('btn_green', false); v.setVisible('next', false); this.guide.point(v.element('btn_grey'), 'home'); }
+            if (guided) { v.setVisible('btn_green', false); v.setVisible('next', false); }
+            const settled = () => {
+                if (guard) clearTimeout(guard);
+                if (!v.isValid) return;
+                ready = true;
+                this.finishing = false;
+                if (guided) this.guide.point(v.element('btn_grey'), 'home');
+            };
+            setTimeout(() => {
+                if (!v.isValid || !prize || !id) return settled();
+                this.rewards.collect(prize, [id], { owner: v.node, from: v.element('panel_inner'), sources: { coins: v.element('icon_coin') }, skippable: !guided })
+                    .then(settled, error => { console.error(error); settled(); });
+                // Past the guided limit already: the show lands on its stable state at once.
+                if (deadline.passed) this.nav.fx.settle();
+            }, rules.anim.resultEnterSeconds * 1000);
         });
     }
 
-    private fail(): void {
-        const session = this.session!;
+    /** Failure (moves used up): saved first, the board darkens and sways once, then S07. */
+    private async fail(): Promise<void> {
+        const session = this.session!, request = this.request;
+        this.finishing = true;
+        this.controller?.cancelDrag();
         try { this.game.act(s => abandonAttempt(s, session.attemptId)); }
-        catch (error) { this.rewards.failure(error, () => this.fail()); return; }
+        catch (error) { this.finishing = false; this.rewards.failure(error, () => void this.fail()); return; }
+        await this.boardFx?.fail();
+        if (request !== this.request) return;
+        this.finishing = false;
         const cost = startCost(this.game.state, this.game.rules, this.levelNo);
         void this.nav.showDialog('S07', id => {
             if (id === 'home') { this.nav.closeDialog(); this.goHome(); }
             else if (id === 'retry') {
                 this.nav.closeDialog();
-                const attempt = this.start(this.levelNo);
-                if (attempt) void this.show(attempt);
+                void this.restart();
             }
         }, v => {
             v.setText('retry_energy', `重新挑战需要 ${cost} 点体力（现有 ${this.game.state.energy.value}）`);

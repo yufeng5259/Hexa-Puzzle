@@ -4,13 +4,14 @@ import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { MapView } from '../core/Config';
 import type { Game } from '../core/Game';
-import { showEnergy, showLevel } from './EnergyHud';
+import { hudText, hudValue, showEnergy, showLevel } from './EnergyHud';
 import { setProgress } from '../features/ui/ProgressBar';
 import { finishBuild, mapProgress, startBuild, upgradeCost } from '../core/Progress';
 import { guideAllowsBuild } from '../core/Guide';
 import { mainlineFinished } from '../core/Mainline';
 import { endlessUnlocked } from '../core/Progress';
-import { reward, RuleError, type Reward } from '../core/Rules';
+import { reward, RuleError } from '../core/Rules';
+import { rewardText } from '../core/Display';
 import { buildingLevel } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
 import { ScreenFit } from '../features/ui/ScreenFit';
@@ -163,7 +164,7 @@ export class HomeController {
         for (const view of [this.home, this.build]) {
             if (!view?.isValid) continue;
             showLevel(view, this.game);
-            view.setText('coin_value', s.wallet.coins.toLocaleString('en-US'));
+            hudText(view, 'coin_value', hudValue(this.game, 'coins'), this.nav.fx);
             view.setText('map_name', map.name);
         }
         this.home.setText('play_level', mainlineFinished(s, rules) && !s.mainline.attempt ? '复玩' : s.mainline.attempt?.levelNo ?? s.mainline.nextLevelNo);
@@ -199,7 +200,7 @@ export class HomeController {
     }
     private renderEnergy(): void {
         // Ticks every second from update(); the top page may be the map list or a puzzle.
-        for (const view of new Set([this.home, this.build, this.nav.topPage])) showEnergy(view, this.game);
+        for (const view of new Set([this.home, this.build, this.nav.topPage])) showEnergy(view, this.game, this.nav.fx);
     }
 
     private async openBuild(): Promise<void> {
@@ -359,8 +360,4 @@ export class HomeController {
             case 'hud_energy': return this.rewards.energy(false);
         }
     }
-}
-
-function rewardText(r: Reward): string {
-    return [r.coins && `金币+${r.coins}`, r.energy && `体力+${r.energy}`, r.hints && `提示+${r.hints}`].filter(Boolean).join(' ');
 }

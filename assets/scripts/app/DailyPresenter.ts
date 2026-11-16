@@ -1,13 +1,13 @@
 import { Button, Node, UITransform } from 'cc';
 import type { Game } from '../core/Game';
-import { canSignIn, claimDailyChest, claimDailyTask, claimSignIn, refreshDaily } from '../core/Daily';
+import { canSignIn, claimDailyChest, claimDailyTask, claimSignIn, refreshDaily, signInSlot } from '../core/Daily';
 import { dailyUnlocked } from '../core/Progress';
 import { reward, RuleError, type DailyTaskType, type Reward } from '../core/Rules';
-import type { DailyTask } from '../core/State';
+import type { DailyTask, DisplayEvent, GameState } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
 import { setProgress } from '../features/ui/ProgressBar';
 import type { Navigator } from './Navigator';
-import type { RewardPresenter } from './RewardPresenter';
+import { bounce, type RewardPresenter } from './RewardPresenter';
 
 const TASK_TEXT: Record<DailyTaskType, (n: number) => string> = {
     win: n => `完成${n}次拼图`, build: n => `完成${n}次建造`, endlessLines: n => `无尽消除${n}条线`,
@@ -24,11 +24,15 @@ export interface DailyRoutes { play(): void; build(): void; endless(): void }
  * S17 seven-day sign-in and S18 daily tasks, opened from the home side entries.
  * Every claim is one save; the dialog repaints from the saved state, so a failed
  * write never shows a claimed cell. The day is re-read on every open and claim.
+ * A saved claim then plays its reward (cell/button pop, cards, flight to the home HUD);
+ * the daily chest shakes and opens first.
  */
 export class DailyPresenter {
     private view: LayoutView | null = null;
     private kind: 'signIn' | 'tasks' | null = null;
     private day = '';
+    /** The chest keeps its closed picture until the show opens it. */
+    private chestOpening = false;
 
     public constructor(private readonly game: Game, private readonly nav: Navigator, private readonly rewards: RewardPresenter, private readonly routes: DailyRoutes) {}
 
@@ -58,7 +62,7 @@ export class DailyPresenter {
     public openSignIn(): void {
         void this.nav.showDialog('S17', id => {
             if (id === 'btn_close') this.close();
-            else if (id === 'btn_green') this.claim(s => claimSignIn(s, this.game.rules, this.game.day()));
+            else if (id === 'btn_green') this.claimSignIn();
         }, v => { this.view = v; this.kind = 'signIn'; this.repaint(); });
     }
     public openTasks(): void {
@@ -66,7 +70,7 @@ export class DailyPresenter {
         void this.nav.showDialog('S18', id => {
             const row = /^task_(\d)_action$/.exec(id);
             if (id === 'btn_close') this.close();
-            else if (id === 'completion_claim') this.claim(s => claimDailyChest(s, this.game.rules, this.game.day()));
+            else if (id === 'completion_claim') this.claimChest();
             else if (row) this.taskAction(Number(row[1]) - 1);
         }, v => {
             this.view = v; this.kind = 'tasks';
@@ -76,18 +80,38 @@ export class DailyPresenter {
     }
 
     private close(): void { this.view = null; this.kind = null; this.nav.closeDialog(); }
-    private claim(change: Parameters<Game['act']>[0]): void {
-        try { this.game.act(change); }
+    /** Saves a claim, repaints, then shows the saved reward from `from` (an optional chest opens first). */
+    private claim(change: (draft: GameState) => DisplayEvent | null, from: Node, chest = false): void {
+        const v = this.view;
+        if (!v?.isValid || this.nav.fx.busy) return;
+        let event: DisplayEvent | null;
+        this.chestOpening = chest;
+        try { event = this.game.act(change); }
         catch (error) {
+            this.chestOpening = false;
             if (!(error instanceof RuleError)) { this.close(); this.rewards.failure(error); return; }
             console.warn(error.message); // stale button after a day change or a double tap: just repaint
+            this.repaint();
+            return;
         }
+        // null: the receipt was already paid; nothing new to show.
+        if (!event) this.chestOpening = false;
         this.repaint();
+        if (!event) return;
+        if (!chest) bounce(from);
+        const open = () => { this.chestOpening = false; this.repaint(); };
+        void this.rewards.collect(event.reward, [event.id], { owner: v.node, from, chest: chest ? { node: from, open } : undefined }).then(() => { if (this.chestOpening) open(); });
     }
+    private claimSignIn(): void {
+        const slot = signInSlot(this.game.state, this.game.rules);
+        const cell = this.view!.element(slot === DAYS - 1 ? 'signin_cell_big_7' : `signin_cell_${slot + 1}`);
+        this.claim(s => claimSignIn(s, this.game.rules, this.game.day()), cell);
+    }
+    private claimChest(): void { this.claim(s => claimDailyChest(s, this.game.rules, this.game.day()), this.view!.element('icon_chest_closed'), true); }
     private taskAction(index: number): void {
         const task = this.game.state.daily.tasks[index];
         if (!task || task.claimed) return;
-        if (task.progress >= task.target) { this.claim(s => claimDailyTask(s, this.game.rules, this.game.day(), task.id)); return; }
+        if (task.progress >= task.target) { this.claim(s => claimDailyTask(s, this.game.rules, this.game.day(), task.id), this.view!.element(`task_${index + 1}_action`)); return; }
         // "Go" only navigates; it never pays energy or drops the current attempt by itself.
         this.close();
         if (task.type === 'build') this.routes.build();
@@ -151,7 +175,7 @@ export class DailyPresenter {
         v.setText('completion_progress', `今日完成 ${done}/${tasks.length}`);
         v.setText('completion_coin', reward(rules, rules.daily.chestRewardId).coins);
         v.setText('completion_claim_text', d.chestClaimed ? '已领取' : all ? '领取宝箱' : '完成后领取');
-        this.frame(v, 'icon_chest_closed', `UI/图标/icon_chest_${d.chestClaimed ? 'open' : 'closed'}.png`);
+        this.frame(v, 'icon_chest_closed', `UI/图标/icon_chest_${d.chestClaimed && !this.chestOpening ? 'open' : 'closed'}.png`);
         this.button(v, 'completion_claim', all && !d.chestClaimed, `UI/通用/btn_green_${all && !d.chestClaimed ? 'normal' : 'disabled'}.png`);
     }
 

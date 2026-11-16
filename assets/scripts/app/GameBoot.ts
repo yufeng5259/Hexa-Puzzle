@@ -112,8 +112,9 @@ export class GameBoot extends Component {
 
     protected update(dt: number): void {
         this.transition?.update(dt);
+        this.nav?.update(dt);
         this.curtains?.update();
-        this.guide?.update(dt); this.home?.update(); this.puzzle?.update(); this.endless?.update();
+        this.guide?.update(dt); this.home?.update(); this.puzzle?.update(dt); this.endless?.update();
     }
 
     private async boot(): Promise<void> {
@@ -129,8 +130,8 @@ export class GameBoot extends Component {
             this.transition ??= new Transition(this.host.pageLayer!.parent!);
             this.curtains?.placeBelow(null); // curtains above pages, dialogs, guides and loading …
             this.transition.toTop();         // … and the transition above everything
-            this.nav = new Navigator(this.host, loader, this.transition);
             const parsed = parseGameConfig(config);
+            this.nav = new Navigator(this.host, loader, parsed.rules.anim, this.transition);
             const game = new Game(parsed, new Store(sys.localStorage, parsed.rules), systemClock);
             game.tick();
             this.setProgress(STEPS.save, '正在打开家园…');

@@ -25,6 +25,9 @@ const constants = {
  endlessUnlockAfterLevelNo:'int', endlessRadius:'int', endlessTraySize:'int',
  endlessScorePerPlaced:'int', endlessScorePerCleared:'int', endlessScorePerLine:'int', endlessScoreMultiLine:'int',
  animProgressSeconds:'number',
+ animCardSeconds:'number', animCardStaggerSeconds:'number', animScatterSeconds:'number', animFlySeconds:'number', animPulseSeconds:'number',
+ animSkipAfterSeconds:'number', animRewardTimeoutSeconds:'number', animChestShakeSeconds:'number', animChestOpenSeconds:'number', animCoinParticlesMax:'int',
+ animWinHoldSeconds:'number', animWinWaveSeconds:'number', animResultEnterSeconds:'number', animFailSeconds:'number', animBoardFadeSeconds:'number', animFirstWinLimitSeconds:'number',
 };
 const dailyTaskTypes = ['win','build','endlessLines','endlessScore','placePiece'];
 const dailyTaskSlots = ['fixed','rotate','fallback'];
