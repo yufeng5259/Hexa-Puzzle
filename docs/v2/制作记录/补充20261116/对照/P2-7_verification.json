@@ -1,0 +1,113 @@
+{
+  "batch": "P2-7",
+  "files": [
+    {
+      "id": "panel_feature_crown",
+      "state": "default",
+      "file": "UI/通用/panel_feature_crown.png",
+      "size": [
+        1128,
+        490
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 7103,
+      "sha256": "f83e66f0f9dd46af6152957221c95c083ddd0001bb39fbb2190247e919f4b981"
+    },
+    {
+      "id": "reddot",
+      "state": "default",
+      "file": "UI/通用/reddot.png",
+      "size": [
+        80,
+        80
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 483,
+      "sha256": "fbdf0d3b391e2ecd11510274414ab06dff130a6f007f9caa074df6dad864d111"
+    },
+    {
+      "id": "mark_check",
+      "state": "default",
+      "file": "UI/通用/mark_check.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 712,
+      "sha256": "91677442ef73ad6d0785467ffee2f45f012a430937c0a522a85185ec6001e6d6"
+    },
+    {
+      "id": "mark_lock",
+      "state": "default",
+      "file": "UI/通用/mark_lock.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 1011,
+      "sha256": "73ac60545213c728a73f3d94cd09161276c5554f78cdf70cd321bd406233a8c2"
+    },
+    {
+      "id": "icon_signin",
+      "state": "normal",
+      "file": "UI/图标/icon_signin.png",
+      "size": [
+        188,
+        212
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 1804,
+      "sha256": "e784018f98bd225bdcd4ab64d72a16543ffe98a11188e8a945cf85738730ce17"
+    },
+    {
+      "id": "hud_level_badge",
+      "state": "normal",
+      "file": "UI/HUD/hud_level_badge.png",
+      "size": [
+        320,
+        352
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 2186,
+      "sha256": "5cfe6fb5b922450905214b73d42dded8df6d1274d9a1de498bae86803b189882"
+    },
+    {
+      "id": "signin_today_tag",
+      "state": "default",
+      "file": "UI/签到/signin_today_tag.png",
+      "size": [
+        276,
+        116
+      ],
+      "mode": "RGBA",
+      "safety6px": true,
+      "transparentRgbZero": true,
+      "semiTransparentPixels": 1388,
+      "sha256": "4d01efba5ec9df8044a427839b14d0f777db0e36ee858627978df401aaedab35"
+    }
+  ],
+  "checks": {
+    "dimensions_rgba_safety_sha": "passed",
+    "visual_review": "passed: four backgrounds, native-pixel 4x nearest comparisons and alpha transitions inspected",
+    "scope": "only requested PNGs, manifest, new records in 制作记录/补充20261116/对照"
+  },
+  "method": "Native geometry redrawn at 6x+ supersampling; no upscaled old alpha or background cutouts. Old image comparisons normalized to new canvas with NEAREST; new 4x crops also NEAREST. size follows each request document verbatim.",
+  "sourceScriptSha256": "59ca9f24a8389d2972593ebf467200da013eb58ce231766ebffd03ca5c12b6e4",
+  "limitations": [
+    "指定皇冠slice中央包含蜂巢，额外双向2倍九宫格拉伸会使装饰变形；03通用无形变项未通过。12第5节明确要求拉伸的今日标签通过。"
+  ]
+}

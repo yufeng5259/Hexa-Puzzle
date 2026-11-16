@@ -1677,25 +1677,26 @@
         "default": "UI/通用/panel_feature_crown.png"
       },
       "size": [
-        400,
-        180
+        1128,
+        490
       ],
-      "scale": 1,
+      "scale": 2,
       "slice": [
-        120,
-        100,
-        120,
-        24
+        240,
+        200,
+        240,
+        48
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S17 原图蜂巢顶饰裁切，标题字区域以两侧空白像素逐行插值清除",
-      "priority": "P0",
+      "source": "P2-7 重绘：边缘抗锯齿、去残边",
+      "priority": "P1",
       "sha256": {
-        "default": "09a245e5c2ca08ca6b09f05d502873248405a57438e2c2bc92830a563dade57c"
-      }
+        "default": "f83e66f0f9dd46af6152957221c95c083ddd0001bb39fbb2190247e919f4b981"
+      },
+      "batch": "P2-7"
     },
     {
       "id": "btn_green",
@@ -2104,10 +2105,10 @@
         "default": "UI/通用/reddot.png"
       },
       "size": [
-        30,
-        30
+        80,
+        80
       ],
-      "scale": 1,
+      "scale": 2,
       "slice": [
         0,
         0,
@@ -2118,11 +2119,12 @@
         0.5,
         0.5
       ],
-      "source": "规范新增，统一上左光源",
-      "priority": "P0",
+      "source": "P2-7 重绘：边缘抗锯齿、去残边",
+      "priority": "P1",
       "sha256": {
-        "default": "fa19ebe3b00f783647cdd6f692648d5ae452bf312a386b43bf494ed8bd298704"
-      }
+        "default": "fbdf0d3b391e2ecd11510274414ab06dff130a6f007f9caa074df6dad864d111"
+      },
+      "batch": "P2-7"
     },
     {
       "id": "mark_check",
@@ -2131,10 +2133,10 @@
         "default": "UI/通用/mark_check.png"
       },
       "size": [
-        64,
-        60
+        128,
+        128
       ],
-      "scale": 1,
+      "scale": 2,
       "slice": [
         0,
         0,
@@ -2145,11 +2147,12 @@
         0.5,
         0.5
       ],
-      "source": "S17 绿色勾形状提取重绘，不含圆底",
-      "priority": "P0",
+      "source": "P2-7 重绘：边缘抗锯齿、去残边",
+      "priority": "P1",
       "sha256": {
-        "default": "2025bf4574c796559fa57276cc6f5a05a4839d2a7ac12c4e136717820d6c3500"
-      }
+        "default": "91677442ef73ad6d0785467ffee2f45f012a430937c0a522a85185ec6001e6d6"
+      },
+      "batch": "P2-7"
     },
     {
       "id": "mark_lock",
@@ -2158,10 +2161,10 @@
         "default": "UI/通用/mark_lock.png"
       },
       "size": [
-        48,
-        58
+        128,
+        128
       ],
-      "scale": 1,
+      "scale": 2,
       "slice": [
         0,
         0,
@@ -2172,11 +2175,12 @@
         0.5,
         0.5
       ],
-      "source": "S17 锁形状独立重绘，不含底框",
-      "priority": "P0",
+      "source": "P2-7 重绘：边缘抗锯齿、去残边",
+      "priority": "P1",
       "sha256": {
-        "default": "45ef99e2319e8ae6f7bdd50fac866f23842501e011f0cbaf27bca6f5942c3557"
-      }
+        "default": "73ac60545213c728a73f3d94cd09161276c5554f78cdf70cd321bd406233a8c2"
+      },
+      "batch": "P2-7"
     },
     {
       "id": "mask_black",
@@ -2502,13 +2506,14 @@
         0.5,
         0.5
       ],
-      "source": "S02 原图轮廓蒙版去底；2倍采样",
+      "source": "P2-7 重绘：边缘抗锯齿、去残边",
       "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
       "sourceSha256": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
-      "priority": "P0",
+      "priority": "P1",
       "sha256": {
-        "normal": "2ed875c8530d8c836cbd5db085ea904c521cd33a9cf80a03f62f2891324bef46"
-      }
+        "normal": "e784018f98bd225bdcd4ab64d72a16543ffe98a11188e8a945cf85738730ce17"
+      },
+      "batch": "P2-7"
     },
     {
       "id": "icon_task",
@@ -2779,27 +2784,28 @@
         "normal": "UI/HUD/hud_level_badge.png"
       },
       "size": [
-        98,
-        108
+        320,
+        352
       ],
-      "scale": 1,
+      "scale": 2,
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "S02 reference palette/contour reconstruction",
+      "source": "P2-7 重绘：边缘抗锯齿、去残边",
       "sourceFile": "效果图/S02_主页_BlockHexa风格.png",
       "sourceHash": "0205e3417012efb08aebcbbb3dcddbae8031095b41367c965dc43f13488e897f",
-      "priority": "P0",
+      "priority": "P1",
       "sha256": {
-        "normal": "e082b9de3e68979bf3e718a5d186a37e61f0d5f4ee07f476f6bda7230cf894b2"
+        "normal": "5cfe6fb5b922450905214b73d42dded8df6d1274d9a1de498bae86803b189882"
       },
       "sourceRect": [
         20,
         27,
         98,
         108
-      ]
+      ],
+      "batch": "P2-7"
     },
     {
       "id": "hud_btn_square_purple",
@@ -4386,29 +4392,29 @@
         "default": "UI/签到/signin_today_tag.png"
       },
       "size": [
-        128,
-        54
+        276,
+        116
       ],
-      "scale": 1,
+      "scale": 2,
       "slice": [
+        64,
         32,
-        16,
-        32,
-        16
+        64,
+        32
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "复用P0蓝色按钮母件，缩小为签到今日标签，不含字",
+      "source": "P2-7 重绘：边缘抗锯齿、去残边",
       "sourceFile": "素材/UI/通用/btn_blue_normal.png",
       "sourceSha256": "1e823590b34a7bde521bbc7d906a1153ea352a2a849acdd68bfa82e27d3f4f10",
       "priority": "P1",
       "sha256": {
-        "default": "05725d4d4f070ef8f0324ddb2e0e500ce14cd8e656a8ef4bca5ed8b4a865fe14"
+        "default": "4d01efba5ec9df8044a427839b14d0f777db0e36ee858627978df401aaedab35"
       },
       "reuseFrom": "素材/UI/通用/btn_blue_normal.png",
-      "batch": "P1-3"
+      "batch": "P2-7"
     },
     {
       "id": "task_row",
