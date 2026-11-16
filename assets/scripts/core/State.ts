@@ -42,6 +42,8 @@ export interface EndlessGame {
     /** Points this game added to the week it is in now; restarts at 0 when a running game crosses into a new week. */
     weekId?: string | null;
     weekGain?: number;
+    /** Best score before this game started; only a final score strictly above it is a new record. Missing (older save) = the best when read. */
+    bestAtStart?: number;
 }
 
 export interface GameState {

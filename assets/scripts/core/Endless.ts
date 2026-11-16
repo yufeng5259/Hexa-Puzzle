@@ -87,13 +87,24 @@ export function refreshWeek(state: GameState, week: string): void {
 }
 
 export function newEndlessGame(state: GameState, rules: Rules, gameId: string, seed: number): EndlessGame {
-    const game: EndlessGame = { gameId, board: {}, tray: [], score: 0, seed: seed >>> 0 };
+    const game: EndlessGame = { gameId, board: {}, tray: [], score: 0, seed: seed >>> 0, bestAtStart: state.endless.best };
     refill(game, rules);
     state.endless.game = game;
     return game;
 }
 
-export interface PlaceResult { readonly score: number; readonly lines: number; readonly cleared: readonly string[]; readonly refilled: boolean; readonly gameOver: boolean }
+export interface PlaceResult {
+    readonly score: number;
+    readonly lines: number;
+    /** Cells the piece filled ("q,r"), and every full line it completed (cells in axis order). */
+    readonly placed: readonly string[];
+    readonly fullLines: readonly (readonly string[])[];
+    /** Union of the full lines: a crossing cell is listed once. */
+    readonly cleared: readonly string[];
+    readonly color: number;
+    readonly refilled: boolean;
+    readonly gameOver: boolean;
+}
 
 /** Places a tray shape, clears full lines, refills when the tray is empty and checks for game over. */
 export function placeShape(state: GameState, rules: Rules, day: string, week: string, slot: number, q: number, r: number): PlaceResult {
@@ -122,7 +133,41 @@ export function placeShape(state: GameState, rules: Rules, day: string, week: st
     if (refilled) refill(game, rules);
     recordDaily(state, rules, day, 'endlessLines', full.length);
     recordDaily(state, rules, day, 'endlessScore', gained);
-    return { score: gained, lines: full.length, cleared: [...cleared], refilled, gameOver: isGameOver(game, rules) };
+    return {
+        score: gained, lines: full.length, placed: piece.cells.map(([dq, dr]) => key(q + dq, r + dr)),
+        fullLines: full.map(line => line.map(([lq, lr]) => key(lq, lr))), cleared: [...cleared], color: piece.color,
+        refilled, gameOver: isGameOver(game, rules),
+    };
+}
+
+/** Strictly above the best before the game started; a tie or an older save without bestAtStart is no record. */
+export function isNewRecord(game: EndlessGame, best: number): boolean {
+    return game.score > (game.bestAtStart ?? best);
+}
+
+export interface EndlessSummary {
+    readonly score: number;
+    readonly best: number;
+    readonly record: boolean;
+    /** Points this game added to the current week (0 once the week it scored in has passed). */
+    readonly weekGain: number;
+    readonly weekScore: number;
+    /** A reached, unclaimed stage of the current week waits on S19. */
+    readonly claimable: boolean;
+}
+
+/** S21 facts of a game about to end, read from the saved state. An abandoned game never celebrates. */
+export function endlessSummary(state: GameState, rules: Rules, week: string, abandoned: boolean): EndlessSummary | null {
+    const game = state.endless.game;
+    if (!game) return null;
+    const sameWeek = state.endless.weekId === week, weekScore = sameWeek ? state.endless.weekScore : 0;
+    const claimed = sameWeek ? state.endless.claimedStages : [];
+    return {
+        score: game.score, best: Math.max(state.endless.best, game.score),
+        record: !abandoned && isNewRecord(game, state.endless.best),
+        weekGain: game.weekId === week ? game.weekGain ?? 0 : 0, weekScore,
+        claimable: rules.endless.stages.some((stage, i) => weekScore >= stage.score && !claimed.includes(i)),
+    };
 }
 
 /** Ends the game; scores already saved stay counted and no extra reward is paid. */

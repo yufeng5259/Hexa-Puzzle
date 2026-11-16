@@ -68,6 +68,11 @@ export interface Rules {
         readonly resultEnterSeconds: number; readonly failSeconds: number; readonly boardFadeSeconds: number;
         /** First guided win plays in full, but never longer than this before its buttons work. */
         readonly firstWinLimitSeconds: number;
+        /** Endless placement: piece settles, full lines light up, then clear along their axis; "+score" floats; new tray slides in. */
+        readonly endlessSettleSeconds: number; readonly endlessHighlightSeconds: number; readonly endlessClearSeconds: number;
+        readonly endlessScoreSeconds: number; readonly endlessRefillSeconds: number;
+        /** Endless end: the board dims, S21 rolls the score up, a new record badge pops with a little confetti. */
+        readonly endlessDimSeconds: number; readonly scoreRollSeconds: number; readonly recordSeconds: number;
     };
     /** expToNext[i] is the exp needed to go from level i+1 to i+2; the last entry repeats. */
     readonly levels: readonly { readonly expToNext: number; readonly rewardId: string | null }[];

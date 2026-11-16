@@ -108,3 +108,77 @@ test('a game remembers what it added to the current week; crossing a week counts
     assert.equal(state.endless.weekScore, second.score);
     assert.equal(game.score, first.score + second.score);
 });
+
+test('placement result lists the dropped cells and each full line in axis order', () => {
+    const state = createState(rules);
+    const game = E.newEndlessGame(state, rules, 'g', 1);
+    for (const [q, r] of E.boardCells(4)) if ((q === 0 || r === 0) && !(q === 0 && r === 0)) game.board[E.key(q, r)] = 1;
+    game.tray = ['s1', 'i2a', 'i2b'];
+    const result = E.placeShape(state, rules, DAY, WEEK, 0, 0, 0);
+    assert.deepEqual(result.placed, ['0,0']);
+    assert.equal(result.fullLines.length, 2);
+    assert.ok(result.fullLines.every(line => line.length === 9 && line.includes('0,0')));
+    assert.equal(new Set(result.fullLines.flat()).size, result.cleared.length);
+    assert.equal(result.color, rules.endless.shapes.find(s => s.id === 's1').color);
+    assert.equal(result.gameOver, false);
+});
+
+// docs/v2/09 §8, 10 R1: the record is judged against the best at the game's start, strictly.
+test('new record only when the final score is strictly above the best at the start of the game', () => {
+    const state = createState(rules);
+    state.endless.best = 120;
+    const game = E.newEndlessGame(state, rules, 'g', 1);
+    assert.equal(game.bestAtStart, 120);
+    game.score = 120;
+    assert.equal(E.isNewRecord(game, state.endless.best), false, 'a tie is no record');
+    game.score = 121; state.endless.best = 121; // best is refreshed per placement
+    assert.equal(E.isNewRecord(game, state.endless.best), true);
+    assert.equal(E.endlessSummary(state, rules, WEEK, false).record, true);
+    assert.equal(E.endlessSummary(state, rules, WEEK, true).record, false, 'an abandoned game never celebrates');
+    // An older save without bestAtStart takes the best as read: no record.
+    delete game.bestAtStart;
+    assert.equal(E.isNewRecord(game, state.endless.best), false);
+    // A zero game on a fresh save is no record either.
+    const fresh = createState(rules), zero = E.newEndlessGame(fresh, rules, 'z', 2);
+    assert.equal(E.isNewRecord(zero, fresh.endless.best), false);
+});
+
+test('a real game: bestAtStart stays put while best follows the score; a tie at the end is no record', () => {
+    const state = createState(rules);
+    state.endless.best = 3;
+    const game = E.newEndlessGame(state, rules, 'g', 9);
+    game.tray = ['s1', 's1', 's1'];
+    E.placeShape(state, rules, DAY, WEEK, 0, 0, 0);
+    E.placeShape(state, rules, DAY, WEEK, 1, 1, 0);
+    assert.equal(game.score, 2);
+    assert.equal(E.endlessSummary(state, rules, WEEK, false).record, false);
+    E.placeShape(state, rules, DAY, WEEK, 2, 2, 0);
+    assert.equal(game.score, 3);
+    assert.equal(state.endless.best, 3);
+    assert.equal(game.bestAtStart, 3);
+    assert.equal(E.endlessSummary(state, rules, WEEK, false).record, false, 'equal to the old record');
+    game.tray = ['s1', null, null];
+    E.placeShape(state, rules, DAY, WEEK, 0, 3, 0);
+    assert.equal(state.endless.best, 4);
+    assert.equal(game.bestAtStart, 3);
+    assert.equal(E.endlessSummary(state, rules, WEEK, false).record, true);
+});
+
+test('summary: week gain and claimable stages of the current week only', () => {
+    const state = createState(rules);
+    const game = E.newEndlessGame(state, rules, 'g', 7);
+    game.tray = ['s1', 's1', 's1'];
+    E.placeShape(state, rules, DAY, WEEK, 0, 0, 0);
+    state.endless.weekScore = rules.endless.stages[0].score;
+    let s = E.endlessSummary(state, rules, WEEK, false);
+    assert.equal(s.weekGain, 1);
+    assert.equal(s.claimable, true);
+    state.endless.claimedStages = [0];
+    assert.equal(E.endlessSummary(state, rules, WEEK, false).claimable, false);
+    // Read in the next week before anything was placed there: nothing from the old week counts.
+    s = E.endlessSummary(state, rules, '2026-11-16', false);
+    assert.equal(s.weekGain, 0);
+    assert.equal(s.weekScore, 0);
+    assert.equal(s.claimable, false);
+    assert.equal(E.endlessSummary(createState(rules), rules, WEEK, false), null);
+});

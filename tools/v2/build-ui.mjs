@@ -191,6 +191,11 @@ const EXTRAS = {
         ...[0, 2, 3].flatMap(i => [onRow(layout, 'stage_1_claim', `stage_${i}_claim`, 1, i), onRow(layout, 'stage_1_claim_label', `stage_${i}_claim_label`, 1, i)]),
         onRow(layout, 'stage_2_status', 'stage_1_status', 2, 1), onRow(layout, 'mark_lock', 'stage_1_mark', 2, 1), onRow(layout, 'stage_2_status_text', 'stage_1_status_text', 2, 1),
     ],
+    // "新纪录" badge beside the score (docs/v2/09 §8), reusing the map tag; only a strict new record pops it.
+    S21: () => [
+        { id: 'record_badge', asset: 'UI/地图选择/map_tag_current.png', rect: [568, 700, 174, 54], hidden: true },
+        { id: 'record_badge_label', type: 'label', text: '新纪录', rect: [568, 700, 174, 54], fontSize: 32, color: '#FFFFFF', bold: true, align: 'center', verticalAlign: 'center', outlineColor: '#A2530B', outlineWidth: 3, hidden: true },
+    ],
 };
 /** S16 map cards: the layout's three cards become one MapCard Prefab, listed by data. */
 const MAP_CARD = /^(m0\d_|map_tag_current$|current_tag$|map_progress|enter)/;

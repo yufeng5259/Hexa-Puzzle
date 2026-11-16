@@ -2,9 +2,9 @@ import { Camera, Color, EventTouch, Node, Sprite, SpriteFrame, UITransform, Vec3
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { Game } from '../core/Game';
-import { boardCells, boardLines, canPlace, claimEndlessStage, endEndlessGame, isGameOver, key, newEndlessGame, placeShape, refreshWeek } from '../core/Endless';
+import { boardCells, boardLines, canPlace, claimEndlessStage, endEndlessGame, endlessSummary, isGameOver, key, newEndlessGame, placeShape, refreshWeek } from '../core/Endless';
 import { reward, RuleError, type EndlessShape } from '../core/Rules';
-import type { EndlessGame } from '../core/State';
+import { EndlessFx, type EndlessArt } from '../features/fx/EndlessFx';
 import { axialPoint, centeredCells, fitCells, nearestAxial, type Point2 } from '../features/puzzle/presentation/PuzzleLayout';
 import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
@@ -23,6 +23,10 @@ const RULE_HINT = '三个方向填满整线即可消除';
 const HELP = '把下方拼块拖进蜂巢。横向、左斜、右斜任一方向整条线填满就会消除，颜色不用相同。一次消除多条线得分更高；三块都放不下时本局结束。';
 
 interface CellView { base: Sprite; overlay: Sprite }
+/** What S20 shows instead of the saved game while a placement plays (each part returns to the saved one on its cue). */
+interface Shown { board?: Record<string, number>; tray?: (string | null)[]; score?: number }
+const BURST = Array.from({ length: 6 }, (_, i) => `UI/特效/fx_line_clear/fx_line_clear_0${i + 1}.png`);
+const CONFETTI = Array.from({ length: 4 }, (_, i) => `UI/特效/fx_confetti_0${i + 1}.png`);
 interface Drag { slot: number; node: Node; pointer: number; target: { q: number; r: number } | null; valid: boolean }
 
 /**
@@ -45,11 +49,18 @@ export class EndlessPage {
     private feedbackUntil = 0;
     private request = 0;
     private unsubscribe: (() => void) | null = null;
+    private readonly fx: EndlessFx;
+    private art: EndlessArt = { glow: null, burst: [], confetti: [] };
+    private artLoading = false;
+    private shown: Shown | null = null;
+    /** From the end-of-game save until S21's buttons work: no dragging, no leaving. */
+    private finishing = false;
 
     public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader,
         private readonly inputCamera: Camera | null, private readonly guide: GuideCoach) {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.render(), false);
+        this.fx = new EndlessFx(game.rules.anim, () => this.art);
     }
 
     private get state() { return this.game.state.endless; }
@@ -66,14 +77,15 @@ export class EndlessPage {
         this.render();
     }
 
-    public update(): void {
+    public update(dt = 0): void {
+        this.fx.update(dt);
         if (!this.view?.isValid) return;
         if (this.page === 'S19') { this.rollWeek(); this.view.setText('weekly_reset', `每周一0点刷新 · ${countdown(this.game.msToNextWeek())}`); }
         if (this.page === 'S20' && this.feedbackUntil && this.game.now() > this.feedbackUntil) { this.feedbackUntil = 0; this.view.setText('rule_hint', RULE_HINT); }
         if (this.page === 'S20' && this.nav.dialogOpen && this.drag) this.cancelDrag();
     }
 
-    public dispose(): void { this.detach(); this.scope.release(); }
+    public dispose(): void { this.detach(); this.fx.dispose(); this.scope.release(); }
 
     private rollWeek(): void {
         if (this.state.weekId === this.game.week()) return;
@@ -86,6 +98,7 @@ export class EndlessPage {
         this.unsubscribe = this.game.subscribe(() => this.render());
     }
     private detach(): void {
+        this.fx.stop(); this.shown = null; this.finishing = false;
         this.unsubscribe?.(); this.unsubscribe = null;
         this.drag = null; this.cells.clear(); this.slots = [];
         this.view = null; this.page = null;
@@ -165,6 +178,7 @@ export class EndlessPage {
         const view = await this.nav.replacePage('S20', id => this.onGame(id));
         if (request !== this.request) return;
         this.attach(view, 'S20');
+        this.loadArt();
         this.buildBoard(view);
         this.listen(view);
         this.render();
@@ -186,22 +200,24 @@ export class EndlessPage {
         });
     }
 
+    /** While a placement plays, the parts not yet on their cue show the copy from before the move. */
     private renderGame(v: LayoutView): void {
         const g = this.state.game;
         if (!g) return;
-        v.setText('score', `本局 ${g.score.toLocaleString('en-US')}`);
-        v.setText('record', `最高 ${this.state.best.toLocaleString('en-US')}`);
-        for (const [k, cell] of this.cells) this.setFrame(cell.base, k in g.board ? COLORS[g.board[k] % COLORS.length] : 'hex.empty_well');
-        if (!this.drag) this.renderTray(v, g);
+        const board = this.shown?.board ?? g.board, score = this.shown?.score ?? g.score;
+        v.setText('score', `本局 ${score.toLocaleString('en-US')}`);
+        v.setText('record', `最高 ${Math.max(g.bestAtStart ?? this.state.best, score).toLocaleString('en-US')}`);
+        for (const [k, cell] of this.cells) this.setFrame(cell.base, k in board ? COLORS[board[k] % COLORS.length] : 'hex.empty_well');
+        if (!this.drag) this.renderTray(v, this.shown?.tray ?? g.tray);
     }
 
-    private renderTray(v: LayoutView, g: EndlessGame): void {
-        const tray = v.element('TrayMount'), ui = tray.getComponent(UITransform)!, width = ui.width / g.tray.length;
+    private renderTray(v: LayoutView, ids: readonly (string | null)[]): void {
+        const tray = v.element('TrayMount'), ui = tray.getComponent(UITransform)!, width = ui.width / ids.length;
         for (const node of this.slots) if (node?.isValid) node.destroy();
-        const fits = g.tray.filter((id): id is string => !!id)
+        const fits = ids.filter((id): id is string => !!id)
             .map(id => fitCells(this.shape(id).cells.map(([q, r]) => ({ q, r })), width - 16, ui.height - 16).radius);
         this.trayRadius = Math.min(TRAY_MAX_RADIUS, ...fits);
-        this.slots = g.tray.map((id, i) => {
+        this.slots = ids.map((id, i) => {
             if (!id) return null;
             const node = this.shapeNode(tray, id, this.trayRadius);
             node.setPosition(-ui.width / 2 + width * (i + 0.5), 0, 0);
@@ -233,7 +249,7 @@ export class EndlessPage {
     }
     private onStart(event: EventTouch): void {
         const v = this.view, g = this.state.game;
-        if (!v?.isValid || !g || this.drag || this.nav.dialogOpen) return;
+        if (!v?.isValid || !g || this.drag || this.nav.dialogOpen || this.finishing || this.fx.locked) return;
         const tray = v.element('TrayMount'), ui = tray.getComponent(UITransform)!, p = ui.convertToNodeSpaceAR(this.world(event));
         if (Math.abs(p.x) > ui.width / 2 || Math.abs(p.y) > ui.height / 2 + 30) return;
         const slot = Math.min(g.tray.length - 1, Math.max(0, Math.floor((p.x + ui.width / 2) / (ui.width / g.tray.length))));
@@ -294,20 +310,47 @@ export class EndlessPage {
     }
     private clearPreview(): void { for (const cell of this.cells.values()) cell.overlay.node.active = false; }
 
+    /**
+     * One saved transaction (place, clear, score, refill, game-over check); then the board plays it
+     * from the copy taken before the move (docs/v2/09 §7.1). The end of the game waits for the show.
+     */
     private place(slot: number, at: { q: number; r: number }): void {
+        const g = this.state.game!, before = { board: { ...g.board }, tray: [...g.tray], score: g.score };
         let result;
         try { result = this.game.act(s => placeShape(s, this.game.rules, this.game.day(), this.game.week(), slot, at.q, at.r)); }
         catch (error) { this.render(); if (!(error instanceof RuleError)) this.rewards.failure(error); return; }
+        const v = this.view, request = this.request;
+        if (!v?.isValid) return;
+        const board = before.board;
+        for (const k of result.placed) board[k] = result.color;
+        before.tray[slot] = null;
+        const shown: Shown = this.shown = { board, tray: before.tray, score: before.score };
+        const cue = (part: keyof Shown) => {
+            if (this.shown !== shown) return;
+            delete shown[part];
+            if (!Object.keys(shown).length) this.shown = null;
+            this.render();
+        };
         this.render();
-        if (result.lines && this.view?.isValid) {
-            this.view.setText('rule_hint', `消除 ${result.lines} 条线  +${result.score}`);
+        if (result.lines) {
+            v.setText('rule_hint', `消除 ${result.lines} 条线  +${result.score}`);
             this.feedbackUntil = this.game.now() + FEEDBACK_SECONDS * 1000;
         }
-        if (result.gameOver) this.finish(false);
+        const dealt = result.refilled ? (this.state.game?.tray ?? []).map((_, i) => i) : [];
+        void this.fx.place({
+            lines: result.fullLines, score: result.score, refillSlots: dealt, lineCount: result.lines, placed: result.placed,
+            cells: this.cells, mount: v.element('BoardMount'), root: v.node, scoreNode: v.element('score'),
+            onClear: () => cue('board'),
+            onRefill: () => { cue('tray'); return this.slots; },
+            onScore: () => cue('score'),
+        }).then(() => {
+            if (this.shown === shown) { this.shown = null; this.render(); }
+            if (request === this.request && this.view === v && result.gameOver) void this.finish(false);
+        });
     }
 
     private onGame(id: string): void {
-        if (this.nav.dialogOpen) return;
+        if (this.nav.dialogOpen || this.finishing) return;
         if (id === 'settings_button') this.rewards.settings();
         else if (id === 'hud_btn_square_blue') this.confirmLeave(false);
     }
@@ -332,25 +375,56 @@ export class EndlessPage {
         });
     }
 
-    /** S21. Scores were saved per placement; ending only clears the running game. */
-    private finish(abandoned: boolean): void {
-        const g = this.state.game;
-        if (!g) return;
-        const score = g.score, gain = g.weekId === this.game.week() ? g.weekGain ?? 0 : 0, best = this.state.best;
+    /**
+     * S21 (docs/v2/09 §8). Scores were saved per placement; ending only clears the running game.
+     * Saved first, then the board dims (ends) or fades (abandoned), S21 comes in and its score rolls;
+     * only a score strictly above the best at the game's start shows the record badge.
+     */
+    private async finish(abandoned: boolean): Promise<void> {
+        const rules = this.game.rules, summary = endlessSummary(this.game.state, rules, this.game.week(), abandoned);
+        if (!summary || this.finishing) return;
+        this.finishing = true;
+        if (this.drag) this.cancelDrag();
         try { this.game.act(s => endEndlessGame(s)); }
-        catch (error) { this.rewards.failure(error, () => this.finish(abandoned)); return; }
-        const record = !abandoned && score > 0 && score >= best;
+        catch (error) { this.finishing = false; this.rewards.failure(error, () => void this.finish(abandoned)); return; }
+        this.fx.stop();
+        const v = this.view, request = this.request, input = { score: summary.score, record: summary.record, abandoned, claimable: summary.claimable };
+        if (v?.isValid) await this.fx.board([v.element('BoardMount'), v.element('TrayMount')], this.cells.values(), input);
+        if (request !== this.request) return;
+        let ready = false, gone = false;
+        const skip = () => { if (!ready && this.fx.elapsed >= rules.anim.skipAfterSeconds) this.fx.stop(); };
         void this.nav.showDialog('S21', id => {
-            if (id === 'retry') { this.nav.closeDialog(); void this.play(); }
-            else if (id === 'return_event') { this.nav.closeDialog(); void this.open(); }
-        }, v => {
-            v.setText('title', abandoned ? '已结束本局' : record ? '新纪录！' : '本局结束');
-            v.setText('game_score', score.toLocaleString('en-US'));
-            v.setText('best_value', best.toLocaleString('en-US'));
-            v.setText('weekly_delta', `+${gain.toLocaleString('en-US')}`);
-            const open = this.game.rules.endless.stages.some((stage, i) => this.state.weekScore >= stage.score && !this.state.claimedStages.includes(i));
-            v.setText('reward_notice', open ? '有阶段奖励可领取，请返回活动页' : '阶段奖励请返回活动页领取');
+            if (gone) return;
+            if (!ready) { skip(); return; }
+            // The first tap decides; a second one in the same frame never routes again.
+            gone = true;
+            this.nav.closeDialog();
+            if (id === 'retry') void this.play(); else void this.open();
+        }, d => {
+            d.setText('title', abandoned ? '已结束本局' : summary.record ? '新纪录！' : '本局结束');
+            d.setText('game_score', summary.score.toLocaleString('en-US'));
+            d.setText('best_value', summary.best.toLocaleString('en-US'));
+            d.setText('weekly_delta', `+${summary.weekGain.toLocaleString('en-US')}`);
+            // A zero game has nothing to report under its score.
+            for (const id of ['weekly_delta', 'weekly_delta_label']) d.setVisible(id, summary.score > 0);
+            d.setVisible('reward_notice', summary.score > 0 || summary.claimable);
+            d.setText('reward_notice', summary.claimable ? '有阶段奖励可领取，请返回活动页' : '阶段奖励请返回活动页领取');
+            const badge = ['record_badge', 'record_badge_label'].filter(id => d.has(id)).map(id => d.element(id));
+            for (const n of badge) n.active = false;
+            d.node.on(Node.EventType.TOUCH_END, skip);
+            void this.fx.result({ ...input, scoreLabel: d.label('game_score'), badge, notice: d.element('reward_notice'), layer: d.node })
+                .then(() => { ready = true; if (request === this.request) this.finishing = false; });
         });
+    }
+
+    private loadArt(): void {
+        if (this.artLoading) return;
+        this.artLoading = true;
+        const all = (ids: readonly string[]) => Promise.all(ids.map(id => this.nav.loadFrame(id).catch(() => null)))
+            .then(list => list.filter((f): f is SpriteFrame => !!f));
+        const glow = this.nav.hasFrame('hex.line_highlight_strong') ? 'hex.line_highlight_strong' : 'hex.line_highlight';
+        void Promise.all([this.scope.load(glow, SpriteFrame).catch(() => null), all(BURST), all(CONFETTI)])
+            .then(([g, burst, confetti]) => { this.art = { glow: g, burst, confetti }; });
     }
 
     private sprite(parent: Node, name: string, w: number, h: number): Sprite {

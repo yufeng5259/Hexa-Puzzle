@@ -114,7 +114,7 @@ export class GameBoot extends Component {
         this.transition?.update(dt);
         this.nav?.update(dt);
         this.curtains?.update();
-        this.guide?.update(dt); this.home?.update(); this.puzzle?.update(dt); this.endless?.update();
+        this.guide?.update(dt); this.home?.update(); this.puzzle?.update(dt); this.endless?.update(dt);
     }
 
     private async boot(): Promise<void> {

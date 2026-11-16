@@ -28,6 +28,8 @@ const constants = {
  animCardSeconds:'number', animCardStaggerSeconds:'number', animScatterSeconds:'number', animFlySeconds:'number', animPulseSeconds:'number',
  animSkipAfterSeconds:'number', animRewardTimeoutSeconds:'number', animChestShakeSeconds:'number', animChestOpenSeconds:'number', animCoinParticlesMax:'int',
  animWinHoldSeconds:'number', animWinWaveSeconds:'number', animResultEnterSeconds:'number', animFailSeconds:'number', animBoardFadeSeconds:'number', animFirstWinLimitSeconds:'number',
+ animEndlessSettleSeconds:'number', animEndlessHighlightSeconds:'number', animEndlessClearSeconds:'number', animEndlessScoreSeconds:'number', animEndlessRefillSeconds:'number',
+ animEndlessDimSeconds:'number', animScoreRollSeconds:'number', animRecordSeconds:'number',
 };
 const dailyTaskTypes = ['win','build','endlessLines','endlessScore','placePiece'];
 const dailyTaskSlots = ['fixed','rotate','fallback'];
