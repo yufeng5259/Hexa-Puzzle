@@ -208,6 +208,36 @@ test('HUD energy: count label drawn over the enlarged heart on every page with t
 });
 
 
+test('puzzle button row: S05 sits where S04 has it, inside the bottom band, below the tray frame (no broken row on 16:9)', async () => {
+    const { pageLayout } = await import('../build-ui.mjs');
+    const rows = ['S04', 'S05'].map(p => pageLayout(`${p}.json`).elements);
+    const ids = ['undo_button', 'replay_button', 'hint_button', 'undo_text', 'replay_text', 'hint_text'];
+    for (const id of ids) assert.deepEqual(rows[1].find(e => e.id === id).rect, rows[0].find(e => e.id === id).rect, id);
+    for (const els of rows) {
+        const frame = els.find(e => e.id === 'puzzle_tray_frame').rect, button = els.find(e => e.id === 'undo_button').rect;
+        // Bottom band (LayoutView BOTTOM_BAND = 1844 - 254) grows by at most 1.2 towards the top.
+        assert.ok(button[1] >= 1590 && 1844 - (1844 - button[1]) * 1.2 > frame[1] + frame[3]);
+    }
+});
+
+test('S04/S05 win bar and ribbon: hidden parts of the page, the bar fully in the bottom band, buttons wired', () => {
+    for (const page of ['S04', 'S05']) {
+        const objects = JSON.parse(fs.readFileSync(path.join(OUT, `${page}.prefab`), 'utf8'));
+        const view = objects.find(o => o.__type__ === VIEW), ids = [...view.nodeIds, ...view.labelIds];
+        for (const id of ['win_ribbon', 'win_ribbon_text', 'win_bar', 'win_line', 'win_home', 'win_home_text', 'win_next', 'win_next_text']) {
+            assert.ok(ids.includes(id), `${page}/${id}`);
+            const node = objects.find(o => o.__type__ === 'cc.Node' && o._name === id);
+            assert.equal(node._active, false, `${page}/${id} hidden`);
+            if (/^win_(bar|line|home|next)/.test(id)) {
+                const ui = objects[node._components[0].__id__], top = 1844 / 2 - (node._lpos.y + ui._contentSize.height * Math.abs(node._lscale.y) * (1 - ui._anchorPoint.y));
+                assert.ok(top >= 1590, `${page}/${id} in the bottom band`);
+            }
+        }
+        const actions = objects.filter(o => o.__type__ === 'cc.Button').flatMap(b => b.clickEvents.map(e => e.customEventData));
+        for (const id of ['win_home', 'win_next']) assert.ok(actions.includes(id), `${page}/${id}`);
+    }
+});
+
 test('HomeController only touches element ids that exist on S02 / S03 / BuildAnchor', () => {
     const ids = new Set(['S02', 'S03', 'BuildAnchor'].flatMap(name => {
         const view = JSON.parse(fs.readFileSync(path.join(OUT, `${name}.prefab`), 'utf8')).find(o => o.__type__ === VIEW);

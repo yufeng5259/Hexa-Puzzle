@@ -1,10 +1,9 @@
-import { Button, Camera, JsonAsset, Node, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
+import { BlockInputEvents, Button, Camera, JsonAsset, Node, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { Game } from '../core/Game';
 import { abandonAttempt, completeAttempt, mainlineFinished, recordPlacement, saveBoard, startAttempt, startCost, useHint, winEventId } from '../core/Mainline';
-import { upgradeCost } from '../core/Progress';
-import { mainlineLevel, RuleError, type Reward } from '../core/Rules';
+import { mainlineLevel, RuleError } from '../core/Rules';
 import { winCopy } from '../core/Display';
 import { BoardFx } from '../features/fx/BoardFx';
 import type { Attempt } from '../core/State';
@@ -21,6 +20,11 @@ import type { HexCell } from '../features/puzzle/data/LevelDefinition';
 
 const LOW_STEPS = 3;
 const BUTTON_ART: Record<string, string> = { undo_button: 'blue', replay_button: 'purple', hint_button: 'teal' };
+/** Win bar elements (tools/v2/build-ui.mjs winBar) and the button row it replaces. */
+const WIN_BAR = ['win_bar', 'win_line', 'win_home', 'win_home_text', 'win_next', 'win_next_text'];
+const PUZZLE_ROW = ['undo_button', 'undo_icon', 'undo_text', 'replay_button', 'replay_icon', 'replay_text', 'hint_button', 'hint_icon', 'hint_text', 'puzzle_badge_count', 'hint_count'];
+/** The bar starts this far (design units) below its place. */
+const WIN_BAR_DROP = 300;
 
 /**
  * S04 normal / S05 move-limited puzzle and its dialogs S06–S09, S12. The attempt
@@ -47,6 +51,11 @@ export class PuzzlePage {
     /** The running teaching drag and the GuideSteps row it belongs to. */
     private teaching: { rowId: string; lesson: Lesson } | null = null;
     private suspended = false;
+    /** Win bar of the finished board: its nodes (base position once shown), whether its buttons work, the outcome, the tap catcher. */
+    private barNodes: { node: Node; base: Vec3 | null }[] = [];
+    private barReady = false;
+    private winKind: 'firstClear' | 'replay' | 'duplicate' | null = null;
+    private catcher: Node | null = null;
     private request = 0;
     private unsubscribe: (() => void) | null = null;
 
@@ -119,6 +128,7 @@ export class PuzzlePage {
                 prepare: v => {
                     const board = v.getComponent(PuzzleBoardPresentation)!;
                     fx = new BoardFx(board, this.game.rules.anim);
+                    fx.preload(id => this.nav.loadFrame(id));
                     if (fadeIn) fx.hide();
                     return (presented = board.present(v.resources, level));
                 },
@@ -127,6 +137,7 @@ export class PuzzlePage {
             this.leave();
             const board = view.getComponent(PuzzleBoardPresentation)!, controller = view.getComponent(PuzzleController)!;
             this.boardFx = fx ?? new BoardFx(board, this.game.rules.anim);
+            if (!fx) this.boardFx.preload(id => this.nav.loadFrame(id));
             await presented;
             if (request !== this.request || !view.isValid) return;
             const session = new PuzzleSession(level, attempt.attemptId);
@@ -165,6 +176,8 @@ export class PuzzlePage {
         this.boardFx?.dispose();
         this.boardFx = null;
         this.finishing = false;
+        if (this.catcher?.isValid) this.catcher.destroy();
+        this.catcher = null; this.barNodes = []; this.barReady = false; this.winKind = null;
         this.view = this.board = this.controller = this.session = this.level = null;
     }
 
@@ -296,8 +309,12 @@ export class PuzzlePage {
         const session = this.session;
         if (this.nav.dialogOpen || !session || this.finishing) return;
         if (this.lesson() && !this.guide.allows('puzzle', id)) return; // forced first drag: no way around it
-        // A finished board (outcome dialog closed by a blocked retry) can only go home.
-        if (session.snapshot.status !== 'active') { if (id === 'hud_btn_square_blue') this.goHome(); return; }
+        // A finished board: the win bar, or (failure dialog closed by a blocked retry) only home.
+        if (session.snapshot.status !== 'active') {
+            if (id === 'win_next' || id === 'win_home') this.onWinAction(id);
+            else if (id === 'hud_btn_square_blue' && (!this.guide.active || this.barReady)) this.goHome();
+            return;
+        }
         switch (id) {
             case 'hud_btn_square_blue': return this.confirmExit(false);
             case 'hud_btn_square_blue_2': return this.rewards.settings();
@@ -357,12 +374,14 @@ export class PuzzlePage {
 
 
     /**
-     * Win (docs/v2/09 §5.1): saved first; then the finished board celebrates, S06 comes in and the
-     * reward this commit actually paid (read from the display queue by its event id) flies to the HUD.
-     * The event is confirmed when that show ends; S06 buttons and the guide hand work only then.
+     * Win (docs/v2/10 §4.1): saved first; the board celebrates on its own timeline (punch, flash,
+     * rims and shine, ribbon, confetti, fireworks, bee), the reward this commit actually paid (read
+     * from the display queue by its event id) flies to the HUD on cue and the bottom bar slides in;
+     * no dialog. A tap after skipAfter (not on the first guided win) jumps to the bar. A repeated
+     * outcome does not celebrate: the bar comes in at once. The event is confirmed when its show ends.
      */
     private async win(): Promise<void> {
-        const session = this.session!, levelNo = this.levelNo, rules = this.game.rules, request = this.request;
+        const session = this.session!, levelNo = this.levelNo, rules = this.game.rules, request = this.request, view = this.view!;
         this.finishing = true;
         this.controller?.cancelDrag();
         let kind: 'firstClear' | 'replay' | 'duplicate';
@@ -370,56 +389,76 @@ export class PuzzlePage {
         catch (error) { this.finishing = false; this.rewards.failure(error, () => void this.win()); return; }
         const id = kind === 'duplicate' ? null : winEventId(kind, levelNo, session.attemptId);
         const event = id ? this.game.displays.find(e => e.id === id) ?? null : null;
-        const guided = this.guide.active;
+        const prize = event?.reward ?? null, guided = this.guide.active;
+        this.winKind = kind;
+        const copy = winCopy(kind, levelNo, mainlineLevel(rules, levelNo).kind === 'challenge', prize);
+        this.prepareBar(view, kind, copy.line, guided);
+        const fx = this.boardFx;
+        if (!copy.banner || !fx) { this.slideBar(view, 0, guided); return; }
+        view.setText('win_ribbon_text', copy.banner);
+        // Full-screen catcher above the page: nothing below acts meanwhile; a tap fast-forwards.
+        const skip = () => { if (!guided && fx.elapsed >= rules.anim.skipAfterSeconds) fx.stop(); };
+        this.catcher = this.cover(view, skip);
         // The first guided win plays once in full, but its buttons never wait longer than this.
-        const deadline = { passed: false };
-        const guard = guided ? setTimeout(() => { deadline.passed = true; this.boardFx?.stop(); this.nav.fx.settle(); }, rules.anim.firstWinLimitSeconds * 1000) : null;
-        // A repeated outcome does not celebrate again.
-        if (kind !== 'duplicate' && this.boardFx) await this.boardFx.win(session.snapshot);
-        if (request !== this.request) { if (guard) clearTimeout(guard); return; }
-        this.result(kind, levelNo, event?.reward ?? null, event ? id : null, guided, guard, deadline);
+        const guard = guided ? setTimeout(() => fx.stop(), rules.anim.firstWinLimitSeconds * 1000) : null;
+        await fx.win(session.snapshot, {
+            ribbon: [view.element('win_ribbon'), view.element('win_ribbon_text')],
+            coins: prize && event ? (from, late) => {
+                if (request !== this.request) return;
+                const ids = [event.id];
+                this.rewards.collect(prize, ids, { owner: view.node, from, sources: { coins: from }, skippable: !guided, onTap: skip })
+                    .catch(error => console.error(error));
+                if (late) this.nav.fx.settle();
+            } : null,
+            bar: offset => { if (request === this.request) this.slideBar(view, offset, guided); },
+        });
+        if (guard) clearTimeout(guard);
     }
 
-    private result(kind: 'firstClear' | 'replay' | 'duplicate', levelNo: number, prize: Reward | null, id: string | null, guided: boolean, guard: ReturnType<typeof setTimeout> | null, deadline: { passed: boolean }): void {
-        const rules = this.game.rules, s = this.game.state, finished = mainlineFinished(s, rules), replay = kind === 'replay';
-        const challenge = mainlineLevel(rules, levelNo).kind === 'challenge';
-        const cheapest = Math.min(...rules.maps.find(m => m.id === s.maps.currentMapId)!.buildings
-            .map(b => upgradeCost(s, rules, s.maps.currentMapId, b.id) ?? Infinity));
-        let ready = false, gone = false;
-        void this.nav.showDialog('S06', action => {
-            if (!ready || gone || guided && !this.guide.allows('result', action)) return;
-            // The first tap decides; a second one in the same frame never routes again.
-            if (action === 'btn_green' && replay) { gone = true; this.nav.closeDialog(); this.request++; this.leave(); this.onReplayList?.(); }
-            else if (action === 'btn_green' && !finished) { gone = true; this.nav.closeDialog(); void this.play(this.game.state.mainline.nextLevelNo); }
-            else if (action === 'btn_grey' || action === 'btn_green') { gone = true; this.nav.closeDialog(); this.goHome(); }
-        }, v => {
-            const copy = winCopy(kind, levelNo, challenge, prize);
-            v.setText('first_clear', copy.line);
-            v.setVisible('panel_inner', copy.card);
-            v.setVisible('icon_coin', copy.coins > 0);
-            v.setVisible('reward_coin', copy.coins > 0);
-            if (copy.coins) v.setText('reward_coin', `+${copy.coins}`);
-            v.setVisible('reward_status', !!copy.status);
-            if (copy.status) v.setText('reward_status', copy.status);
-            v.setText('build_suggestion', s.wallet.coins >= cheapest ? '金币充足，可以回家建造' : '继续闯关，攒金币建造家园');
-            if (replay) v.setText('next', '继续复玩');
-            else if (finished) v.setText('next', '主线完成');
-            if (guided) { v.setVisible('btn_green', false); v.setVisible('next', false); }
-            const settled = () => {
-                if (guard) clearTimeout(guard);
-                if (!v.isValid) return;
-                ready = true;
-                this.finishing = false;
-                if (guided) this.guide.point(v.element('btn_grey'), 'home');
-            };
-            setTimeout(() => {
-                if (!v.isValid || !prize || !id) return settled();
-                this.rewards.collect(prize, [id], { owner: v.node, from: v.element('panel_inner'), sources: { coins: v.element('icon_coin') }, skippable: !guided })
-                    .then(settled, error => { console.error(error); settled(); });
-                // Past the guided limit already: the show lands on its stable state at once.
-                if (deadline.passed) this.nav.fx.settle();
-            }, rules.anim.resultEnterSeconds * 1000);
-        });
+    /** Bar texts and buttons for this outcome; the bar stays hidden until it slides in. */
+    private prepareBar(view: LayoutView, kind: 'firstClear' | 'replay' | 'duplicate', line: string, guided: boolean): void {
+        const finished = mainlineFinished(this.game.state, this.game.rules);
+        view.setText('win_line', line);
+        view.setText('win_next_text', kind === 'replay' ? '继续复玩' : finished ? '主线完成' : '下一关');
+        this.barNodes = WIN_BAR.filter(id => !guided || !id.startsWith('win_next')).map(id => ({ node: view.element(id), base: null }));
+    }
+    /**
+     * Bottom bar slide: offset 1 hidden below the screen → 0 in place. The button row it covers hides
+     * when it starts; at 0 the buttons work (and the first guided win points at "回家建造").
+     */
+    private slideBar(view: LayoutView, offset: number, guided: boolean): void {
+        if (!view.isValid || this.barReady) return;
+        const drop = WIN_BAR_DROP * view.node.getComponent(UITransform)!.height / 1844;
+        for (const b of this.barNodes) {
+            if (!b.node.isValid) continue;
+            if (!b.base) { b.base = b.node.position.clone(); b.node.active = true; }
+            b.node.setPosition(b.base.x, b.base.y - drop * offset, b.base.z);
+        }
+        for (const id of PUZZLE_ROW) if (view.has(id)) view.setVisible(id, false);
+        if (offset > 0) return;
+        this.barReady = true;
+        this.catcher?.destroy();
+        this.catcher = null;
+        this.finishing = false;
+        if (guided) this.guide.point(view.element('win_home'), 'home');
+    }
+    /** Win bar buttons; the first tap decides, a second one in the same frame never routes again. */
+    private onWinAction(id: string): void {
+        if (!this.barReady || this.guide.active && !this.guide.allows('result', id)) return;
+        const finished = mainlineFinished(this.game.state, this.game.rules);
+        if (id === 'win_next' && this.winKind === 'replay') { this.request++; this.leave(); this.onReplayList?.(); }
+        else if (id === 'win_next' && !finished) void this.play(this.game.state.mainline.nextLevelNo);
+        else this.goHome();
+    }
+    /** A transparent full-screen node above the page that swallows taps. */
+    private cover(view: LayoutView, tap: () => void): Node {
+        const node = new Node('WinCatcher');
+        node.layer = view.node.layer; node.parent = view.node;
+        const size = view.node.getComponent(UITransform)!;
+        node.addComponent(UITransform).setContentSize(size.width, size.height);
+        node.addComponent(BlockInputEvents);
+        node.on(Node.EventType.TOUCH_END, tap);
+        return node;
     }
 
     /** Failure (moves used up): saved first, the board darkens and sways once, then S07. */

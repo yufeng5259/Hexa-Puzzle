@@ -29,6 +29,8 @@ export interface RewardShow {
     readonly chest?: { readonly node: Node; readonly open: () => void };
     /** false: taps do not fast-forward (the first guided win plays once in full). */
     readonly skippable?: boolean;
+    /** Also told about every tap on the show (the puzzle win fast-forwards its own timeline too). */
+    readonly onTap?: () => void;
 }
 
 const ICON: Record<RewardKind, string> = { coins: 'UI/图标/icon_coin.png', energy: 'UI/图标/icon_energy.png', hints: 'UI/图标/icon_hint.png' };
@@ -84,7 +86,7 @@ export class RewardFx {
             const run = new RewardRun(plan, this.t, reason => this.finish(r, reason));
             if (run.finished) return;
             r.run = run;
-            root.on(Node.EventType.TOUCH_END, () => { if (show.skippable !== false) run.skip(); });
+            root.on(Node.EventType.TOUCH_END, () => { if (show.skippable !== false) run.skip(); show.onTap?.(); });
             this.build(r, targets);
             this.draw(r, 0);
         });

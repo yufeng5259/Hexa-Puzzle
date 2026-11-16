@@ -72,7 +72,7 @@ export class GuideCoach {
             case 'home': return step === 'firstPuzzle' ? actionId === 'home_play_btn' : step === 'goBuild' && (actionId === 'home_btn_build' || actionId === 'building:' + this.game.rules.guideBuildingId);
             case 'build': return step === 'goBuild' && actionId === 'upgrade:' + this.game.rules.guideBuildingId;
             case 'puzzle': return false;
-            case 'result': return actionId === 'btn_grey';
+            case 'result': return actionId === 'win_home';
         }
     }
 

@@ -18,8 +18,8 @@ const EDGE_PIN = scriptType('assets/scripts/features/ui/EdgePin.ts');
 const BUTTONS = {
     S02: ['hud_btn_square_purple', 'hud_energy', 'hud_level_badge', 'map_name', 'signin_entry', 'task_entry', 'endless_entry', 'home_play_btn', 'home_btn_back', 'home_btn_build'],
     S03: ['hud_btn_square_purple', 'hud_energy', 'home_btn_home', 'icon_gift'],
-    S04: ['hud_btn_square_blue', 'hud_btn_square_blue_2', 'undo_button', 'replay_button', 'hint_button'],
-    S05: ['hud_btn_square_blue', 'hud_btn_square_blue_2', 'undo_button', 'replay_button', 'hint_button'],
+    S04: ['hud_btn_square_blue', 'hud_btn_square_blue_2', 'undo_button', 'replay_button', 'hint_button', 'win_next', 'win_home'],
+    S05: ['hud_btn_square_blue', 'hud_btn_square_blue_2', 'undo_button', 'replay_button', 'hint_button', 'win_next', 'win_home'],
     S06: ['btn_green', 'btn_grey'], S07: ['retry', 'home'], S08: ['btn_close_dialog', 'save_home', 'continue', 'abandon'],
     S09: ['btn_close_dialog', 'restart', 'continue'], S10: ['btn_close_dialog', 'go_endless', 'return'],
     S11: ['btn_close_dialog', 'play', 'later'], S12: ['btn_close_dialog', 'continue'], S13: ['confirm'],
@@ -127,11 +127,46 @@ function addProgress(b, node, e, width, height) {
     addSprite(b, b.node(`${e.id}_art`, node, { width, height, anchorX: 0 }), e);
 }
 const ENERGY_PAGES = ['S02', 'S03', 'S04', 'S05', 'S16'];
+/**
+ * S05 buttons (decided 2026-11-16): the reference drew the undo / replay / hint row 130 units
+ * higher than on S04, outside the bottom band. On 16:9 phones only the two pinned side buttons
+ * then grew and moved, the middle one and the captions did not, so the row broke apart. The row
+ * now sits where S04 has it, in the bottom band, and grows and pins as one row; it stays below
+ * the tray frame (bottom 1435) at any band scale.
+ */
+const PUZZLE_ROW = /^(undo|replay|hint)_(button|icon|text)$|^puzzle_badge_count$|^hint_count$/;
+export const S05_ROW_SHIFT = 130;
+function puzzleRow(layout) {
+    return { ...layout, elements: layout.elements.map(e => PUZZLE_ROW.test(e.id) ? { ...e, rect: [e.rect[0], e.rect[1] + S05_ROW_SHIFT, e.rect[2], e.rect[3]] } : e) };
+}
+/**
+ * Puzzle win (docs/v2/10 §4.1, decided 2026-11-16): no result dialog. A gold ribbon pops above the
+ * finished shape (placed by PuzzlePage) and a bar slides into the bottom band over the button row:
+ * one line (level, reward status), the secondary "回家建造" and the primary button. All hidden until
+ * the win; the whole bar lies in the bottom band so it grows and hugs the safe bottom as one block.
+ */
+export const WIN_BAR = { top: 1594, height: 236, side: 20, button: { y: 1680, width: 370, height: 110, side: 40 } };
+function winBar(layout) {
+    const W = layout.size[0], { top, height, side, button: bt } = WIN_BAR;
+    const text = { type: 'label', bold: true, align: 'center', verticalAlign: 'center', hidden: true };
+    const btn = (id, asset, x, label, outline) => [
+        { id, asset, slice: true, rect: [x, bt.y, bt.width, bt.height], hidden: true },
+        { ...text, id: `${id}_text`, text: label, rect: [x, bt.y + 4, bt.width, bt.height - 16], fontSize: 42, color: '#FFFFFF', outlineColor: outline, outlineWidth: 4 },
+    ];
+    return [
+        { id: 'win_ribbon', asset: 'UI/通用/ribbon_win_gold.png', slice: true, rect: [(W - 600) / 2, 300, 600, 140], hidden: true },
+        { ...text, id: 'win_ribbon_text', text: '通关！', rect: [(W - 360) / 2, 316, 360, 84], fontSize: 60, color: '#FFFFFF', outlineColor: '#8A4B08', outlineWidth: 5 },
+        { id: 'win_bar', asset: 'UI/通用/panel_inner.png', slice: true, rect: [side, top, W - 2 * side, height], hidden: true },
+        { ...text, id: 'win_line', text: '第1关 · 奖励已到账', rect: [side + 20, top + 14, W - 2 * side - 40, 60], fontSize: 36, color: '#6B3F12' },
+        ...btn('win_home', 'UI/通用/btn_grey_normal.png', bt.side, '回家建造', '#4A4F5C'),
+        ...btn('win_next', 'UI/通用/btn_green_normal.png', W - bt.side - bt.width, '下一关', '#2E6B12'),
+    ];
+}
 /** Page-level layout changes decided after the reference art; applied before building and pinning. */
 const LAYOUT_PATCH = {
     ...Object.fromEntries(ENERGY_PAGES.map(p => [p, layout => {
         const hud = energyHud(HUD_PAGES.has(p) ? hudBar(layout) : layout);
-        return p === 'S02' ? homeRow(hud) : hud;
+        return p === 'S02' ? homeRow(hud) : p === 'S05' ? puzzleRow(hud) : hud;
     }])),
     // Home and back both left the activity: one home button, as on S20.
     S19: layout => ({ ...layout, elements: layout.elements.filter(e => e.id !== 'back_button' && e.id !== 'icon_back') }),
@@ -217,6 +252,8 @@ const EXTRAS = {
         ...[0, 2, 3].flatMap(i => [onRow(layout, 'stage_1_claim', `stage_${i}_claim`, 1, i), onRow(layout, 'stage_1_claim_label', `stage_${i}_claim_label`, 1, i)]),
         onRow(layout, 'stage_2_status', 'stage_1_status', 2, 1), onRow(layout, 'mark_lock', 'stage_1_mark', 2, 1), onRow(layout, 'stage_2_status_text', 'stage_1_status_text', 2, 1),
     ],
+    S04: winBar,
+    S05: winBar,
     // "新纪录" badge beside the score (docs/v2/09 §8), reusing the map tag; only a strict new record pops it.
     S21: () => [
         { id: 'record_badge', asset: 'UI/地图选择/map_tag_current.png', rect: [568, 700, 174, 54], hidden: true },
@@ -239,12 +276,13 @@ const MOUNTS = [
  * stays centred. Decorations that frame centred text keep their place.
  */
 const PIN_BANDS = { top: 140, bottom: 1590 };
-const PIN_EXTRA = { S02: ['signin_entry', 'task_entry', 'endless_entry'], S05: ['undo_button', 'hint_button'], S16: ['hud_btn_square_blue'] };
+const PIN_EXTRA = { S02: ['signin_entry', 'task_entry', 'endless_entry'], S16: ['hud_btn_square_blue'] };
 const PIN_SKIP = /^divider/;
 export function edgePins(layout) {
     const [W, H] = layout.size, sy = H / DESIGN[1];
     const els = layout.elements.filter(e => e.rect && !e.buildingId && !PIN_SKIP.test(e.id) && e.rect[2] < W - 20);
-    const inside = (e, c) => c !== e && c.rect[2] * c.rect[3] > e.rect[2] * e.rect[3] && e.rect[0] + e.rect[2] / 2 >= c.rect[0] && e.rect[0] + e.rect[2] / 2 <= c.rect[0] + c.rect[2]
+    // Hidden runtime parts (the win bar over the button row) never group what lies under them.
+    const inside = (e, c) => c !== e && !c.hidden && c.rect[2] * c.rect[3] > e.rect[2] * e.rect[3] && e.rect[0] + e.rect[2] / 2 >= c.rect[0] && e.rect[0] + e.rect[2] / 2 <= c.rect[0] + c.rect[2]
         && e.rect[1] + e.rect[3] / 2 >= c.rect[1] && e.rect[1] + e.rect[3] / 2 <= c.rect[1] + c.rect[3];
     // Outermost element containing e (itself if none).
     const root = e => { let r = e; for (let c = els.find(x => inside(r, x)); c; c = els.find(x => inside(r, x))) r = c; return r; };
@@ -293,7 +331,7 @@ function grown(e) {
  * picture's height, so the nine-slice may only stretch them in width. Their width is never
  * changed at runtime (progress bars are, so they are not listed).
  */
-const CAPSULE = /^(btn_|tag_|hud_capsule_|home_play_btn$|home_btn_build$|build_cost_capsule$|map_tag_current$|signin_today_tag$|puzzle_steps_plate$|home_side_label$)/;
+const CAPSULE = /^(btn_|tag_|hud_capsule_|home_play_btn$|home_btn_build$|build_cost_capsule$|map_tag_current$|signin_today_tag$|puzzle_steps_plate$|home_side_label$|ribbon_win_gold$)/;
 
 function addSprite(b, node, e) {
     const id = b.sprite(node, frame(e.asset), e.opacity ?? 1);

@@ -41,10 +41,20 @@ export class RewardPresenter {
         return this.nav.fx.play({ ...show, reward, targets: hudTargets(this.nav.topPage, this.game) }).then(() => { this.game.ackDisplay(ids); this.changed(); });
     }
 
-    /** Shows the next pending reward (one at a time), then the welcome step of the first-run guide. */
-    public drain(): void {
+    /** Modal reward dialogs shown since the page arrived home (docs/v2/10 §4: at most MODALS_PER_VISIT). */
+    private modals = 0;
+    /**
+     * Shows the next pending reward (one at a time), then the welcome step of the first-run guide.
+     * Toasts (level up, building done) always show; a modal one (map complete, left-over rewards)
+     * only while this visit has not had one yet, otherwise it waits in the queue for the next visit.
+     * fresh: a new visit (arriving home, or a build just finished there).
+     */
+    public drain(fresh = false): void {
+        if (fresh) this.modals = 0;
         if (this.nav.dialogOpen || this.nav.fx.busy) return;
         const next = nextDisplay(this.game.displays, id => this.game.fromEarlierRun(id));
+        if (next && isModal(next) && this.modals >= MODALS_PER_VISIT) return;
+        if (next && isModal(next)) this.modals++;
         if (next?.kind === 'recover') this.recover(next.events);
         else if (next) this.show(next.events);
         else if (guideStep(this.game.state, this.game.rules) === 'welcome') this.welcome();
@@ -53,16 +63,12 @@ export class RewardPresenter {
 
     private show(events: DisplayEvent[]): void {
         const event = events[events.length - 1], r = sumRewards(events), ids = events.map(e => e.id);
-        if (event.type === 'levelUp') void this.nav.showDialog('S13', id => id === 'confirm' && this.next(), v => {
-            // Several level ups at once share one dialog: the last level and every level's reward.
+        if (event.type === 'levelUp') void this.nav.showDialog('S14', () => undefined, v => {
+            // Level up is a toast (docs/v2/10 §4): several at once share one, with every level's reward.
             const from = Number(events[0].detail!.level), to = Number(event.detail!.level);
-            v.setText('new_level_value', to); v.setText('new_level', from === to ? `等级 ${to}` : `等级 ${from}–${to}`);
-            v.setText('energy_reward', `+${r.energy}`);
-            if (r.hints) v.setText('reward_saved', `另得提示 +${r.hints}，奖励已到账`);
-            void this.afterPopIn(v, () => {
-                bounce(v.element('hud_level_badge'));
-                return this.collect(r, ids, { owner: v.node, from: v.element('panel_inner'), sources: { energy: v.element('icon_energy') } });
-            });
+            v.setText('building_complete', [from === to ? `升到 ${to} 级` : `升到 ${from}–${to} 级`, rewardText(r)].filter(Boolean).join(' · '));
+            const shown = this.afterPopIn(v, () => this.collect(r, ids, { owner: v.node, from: v.element('hud_capsule_light'), sources: { energy: v.element('hud_capsule_light') } }));
+            void Promise.all([shown, wait(TOAST_MS)]).then(() => { if (v.isValid) this.next(); });
         });
         else if (event.type === 'buildingMax') void this.nav.showDialog('S14', () => undefined, v => {
             v.setText('building_complete', r.coins ? `建筑完成  金币 +${r.coins}` : '建筑完成');
@@ -168,6 +174,12 @@ export class RewardPresenter {
     private frame(v: LayoutView, id: string, assetId: string): void {
         this.nav.loadFrame(assetId).then(f => { if (v.isValid) v.setFrame(id, f as SpriteFrame); }, error => console.error(error));
     }
+}
+
+/** docs/v2/10 §4: arriving home after a win shows at most one modal reward window. */
+const MODALS_PER_VISIT = 1;
+function isModal(next: { kind: 'recover' | 'show'; events: DisplayEvent[] }): boolean {
+    return next.kind === 'recover' || next.events[0].type === 'mapComplete';
 }
 
 function wait(ms: number): Promise<void> { return new Promise(resolve => setTimeout(resolve, ms)); }

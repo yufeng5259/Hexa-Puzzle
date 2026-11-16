@@ -33,12 +33,15 @@ export function rewardText(r: Reward): string {
     return [r.coins && `金币+${r.coins}`, r.energy && `体力+${r.energy}`, r.hints && `提示+${r.hints}`].filter(Boolean).join(' ');
 }
 
-/** What S06 says about a win. A repeated outcome (duplicate) paid nothing now: no card, just that it was paid before. */
-export interface WinCopy { readonly line: string; readonly coins: number; readonly status: string | null; readonly card: boolean }
+/**
+ * What a puzzle win says (docs/v2/10 §4.1): the ribbon text (null: a repeated outcome, no
+ * celebration) and the line of the bottom bar. A repeated outcome (duplicate) paid nothing now.
+ */
+export interface WinCopy { readonly banner: string | null; readonly line: string; readonly coins: number }
 export function winCopy(kind: 'firstClear' | 'replay' | 'duplicate', levelNo: number, challenge: boolean, prize: Reward | null): WinCopy {
-    if (kind === 'duplicate') return { line: `第${levelNo}关 · 已完成`, coins: 0, status: '本关奖励已发放', card: false };
+    if (kind === 'duplicate') return { banner: null, line: `第${levelNo}关 · 已完成 · 本关奖励已发放`, coins: 0 };
+    const paid = !!prize && prize.coins + prize.energy + prize.hints > 0;
+    const banner = kind === 'replay' ? '复玩完成' : challenge ? '挑战成功！' : '通关！';
     const what = kind === 'replay' ? '复玩完成' : challenge ? '挑战首次通关' : '首次通关';
-    const coins = prize?.coins ?? 0, text = prize ? rewardText(prize) : '';
-    const status = !text ? null : coins && !prize!.energy && !prize!.hints ? '金币已到账' : `${text} 已到账`;
-    return { line: `第${levelNo}关 · ${what}`, coins, status, card: !!status };
+    return { banner, line: `第${levelNo}关 · ${paid ? '奖励已到账' : what}`, coins: prize?.coins ?? 0 };
 }

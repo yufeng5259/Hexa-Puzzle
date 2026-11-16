@@ -66,8 +66,14 @@ export interface Rules {
         readonly skipAfterSeconds: number; readonly rewardTimeoutSeconds: number;
         readonly chestShakeSeconds: number; readonly chestOpenSeconds: number;
         readonly coinParticlesMax: number;
-        /** Puzzle win: the finished board holds, then a glow wave spreads from the last piece. */
-        readonly winHoldSeconds: number; readonly winWaveSeconds: number;
+        /**
+         * Puzzle win (docs/v2/10 §4.1): the board punches and the screen flashes (hold, flash), the outer
+         * ring lights up and a shine sweeps the shape (wave), the celebration (ribbon, confetti, fireworks,
+         * bee) starts at celebrateAt, coins fly at coinsAt, the bottom bar slides in at barAt over barSeconds.
+         */
+        readonly winHoldSeconds: number; readonly winWaveSeconds: number; readonly winFlashSeconds: number;
+        readonly winCelebrateAt: number; readonly winCelebrateSeconds: number; readonly winCoinsAt: number;
+        readonly winBarAt: number; readonly winBarSeconds: number; readonly winConfettiCount: number;
         /** Result dialog pop-in before its reward show; failure dim and sway; board fade on leave/restart. */
         readonly resultEnterSeconds: number; readonly failSeconds: number; readonly boardFadeSeconds: number;
         /** First guided win plays in full, but never longer than this before its buttons work. */

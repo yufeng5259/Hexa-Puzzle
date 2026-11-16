@@ -90,7 +90,7 @@ export class HomeController {
         // A build paid for before a crash finishes without charging again.
         const pending = this.game.state.pendingBuild;
         if (pending) { await this.openBuild(); this.beginConstruction(pending.buildId, pending.buildingId); }
-        else this.rewards.drain();
+        else this.rewards.drain(true);
     }
 
     public update(): void {
@@ -378,7 +378,7 @@ export class HomeController {
             this.construction = null;
             this.render();
             this.popBuilding(c.buildingId);
-            this.rewards.drain();
+            this.rewards.drain(true);
         } catch (error) {
             this.construction = null;
             if (c.fx?.isValid) c.fx.destroy();

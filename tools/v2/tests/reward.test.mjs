@@ -173,11 +173,11 @@ test('display helpers never touch the reward they show', () => {
     assert.deepEqual(reward, copy);
 });
 
-test('S06 copy: first clear / challenge / replay name what was paid; a repeated win shows no empty card', () => {
+test('win copy (10 §4.1): ribbon per outcome, bar line with level and reward status; a repeated win does not celebrate', () => {
     const coins = { coins: 100, energy: 0, hints: 0 }, mixed = { coins: 30, energy: 1, hints: 0 }, zero = { coins: 0, energy: 0, hints: 0 };
-    assert.deepEqual(Display.winCopy('firstClear', 7, false, coins), { line: '第7关 · 首次通关', coins: 100, status: '金币已到账', card: true });
-    assert.equal(Display.winCopy('firstClear', 7, true, coins).line, '第7关 · 挑战首次通关');
-    assert.deepEqual(Display.winCopy('replay', 3, false, mixed), { line: '第3关 · 复玩完成', coins: 30, status: '金币+30 体力+1 已到账', card: true });
-    assert.deepEqual(Display.winCopy('replay', 3, false, zero), { line: '第3关 · 复玩完成', coins: 0, status: null, card: false });
-    assert.deepEqual(Display.winCopy('duplicate', 9, false, null), { line: '第9关 · 已完成', coins: 0, status: '本关奖励已发放', card: false });
+    assert.deepEqual(Display.winCopy('firstClear', 7, false, coins), { banner: '通关！', line: '第7关 · 奖励已到账', coins: 100 });
+    assert.equal(Display.winCopy('firstClear', 7, true, coins).banner, '挑战成功！');
+    assert.deepEqual(Display.winCopy('replay', 3, false, mixed), { banner: '复玩完成', line: '第3关 · 奖励已到账', coins: 30 });
+    assert.deepEqual(Display.winCopy('replay', 3, false, zero), { banner: '复玩完成', line: '第3关 · 复玩完成', coins: 0 });
+    assert.deepEqual(Display.winCopy('duplicate', 9, false, null), { banner: null, line: '第9关 · 已完成 · 本关奖励已发放', coins: 0 });
 });
