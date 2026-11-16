@@ -69,7 +69,7 @@ export class GuideCoach {
         if (step === 'done') return true;
         if (/settings|hud_btn_square_purple|hud_btn_square_blue_2/.test(actionId) && page !== 'result') return true;
         switch (page) {
-            case 'home': return step === 'firstPuzzle' ? actionId === 'home_play_btn' : step === 'goBuild' && actionId === 'home_btn_build';
+            case 'home': return step === 'firstPuzzle' ? actionId === 'home_play_btn' : step === 'goBuild' && (actionId === 'home_btn_build' || actionId === 'building:' + this.game.rules.guideBuildingId);
             case 'build': return step === 'goBuild' && actionId === 'upgrade:' + this.game.rules.guideBuildingId;
             case 'puzzle': return false;
             case 'result': return actionId === 'btn_grey';

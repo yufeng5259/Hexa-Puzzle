@@ -1,4 +1,4 @@
-import { JsonAsset, Node, Sprite, SpriteFrame, tween, UITransform, Vec3 } from 'cc';
+import { type Camera, type EventTouch, JsonAsset, Node, Sprite, SpriteFrame, Tween, tween, UITransform, Vec3 } from 'cc';
 import { BuildFx, type BuildFxData } from '../features/fx/BuildFx';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
@@ -16,6 +16,7 @@ import { buildingLevel } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
 import { ScreenFit } from '../features/ui/ScreenFit';
 import { placeMap, type Picture } from '../features/ui/FitMath';
+import { hitBuilding, isTap } from '../features/ui/MapHit';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
 import type { GuideCoach } from './GuideCoach';
@@ -59,8 +60,10 @@ export class HomeController {
     /** Build progress last drawn on the build page. */
     private shownBuilt: { mapId: string; built: number } | null = null;
     private lastTick = 0;
+    /** Finger down on the map page (world point), to tell a building tap from a drag. */
+    private press: { pointer: number; x: number; y: number } | null = null;
 
-    public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly guide: GuideCoach) {
+    public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly guide: GuideCoach, private readonly inputCamera: Camera | null = null) {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.render(), true, guide);
         this.rewards.onEndless = () => this.onEndless?.();
@@ -72,6 +75,7 @@ export class HomeController {
         this.viewMapId = viewMapId === this.game.state.maps.currentMapId ? null : viewMapId;
         // The transition stays closed until the map and building pictures are loaded.
         this.home = await this.nav.replacePage('S02', id => this.onHomeAction(id), { instant, prepare: () => this.ready() });
+        this.listen(this.home);
         this.build = null; this.anchors.clear(); this.shownBuilt = null; this.buildings.clear(); this.mapId = '';
         this.unsubscribe?.();
         this.unsubscribe = this.game.subscribe(() => this.render());
@@ -203,9 +207,16 @@ export class HomeController {
         for (const view of new Set([this.home, this.build, this.nav.topPage])) showEnergy(view, this.game, this.nav.fx);
     }
 
-    private async openBuild(): Promise<void> {
-        if (this.build?.isValid) return;
+    private opening: Promise<void> | null = null;
+    /** One build page even if the entry button and a building are tapped in quick succession. */
+    private openBuild(): Promise<void> {
+        if (this.build?.isValid) return Promise.resolve();
+        this.opening ??= this.pushBuild().finally(() => { this.opening = null; });
+        return this.opening;
+    }
+    private async pushBuild(): Promise<void> {
         this.build = await this.nav.pushPage('S03', id => this.onBuildAction(id));
+        this.listen(this.build);
         // Only the operation layer changes: hide S02 controls, keep its map.
         for (const id of this.home!.nodeIds) if (id !== 'MapMount') this.home!.setVisible(id, false);
         const mount = this.build.element('MapMount');
@@ -217,6 +228,51 @@ export class HomeController {
         }
         this.placeMapNodes();
         this.render();
+    }
+    /**
+     * Building taps on S02/S03. Listened on the page root in the bubble phase: buttons (HUD, cost capsule)
+     * stop propagation, so only touches on bare map arrive here. The listener goes with the page node.
+     */
+    private listen(view: LayoutView): void {
+        view.node.on(Node.EventType.TOUCH_START, (e: EventTouch) => { const p = this.worldPoint(e); this.press = { pointer: e.getID(), x: p.x, y: p.y }; });
+        view.node.on(Node.EventType.TOUCH_CANCEL, () => { this.press = null; });
+        view.node.on(Node.EventType.TOUCH_END, (e: EventTouch) => {
+            const press = this.press, p = this.worldPoint(e);
+            this.press = null;
+            if (!press || press.pointer !== e.getID() || !isTap(press, p) || !this.home?.isValid) return;
+            const ui = this.home.element('MapMount').getComponent(UITransform)!, local = ui.convertToNodeSpaceAR(new Vec3(p.x, p.y, 0));
+            const id = hitBuilding(this.map.buildings, local.x, local.y, { width: W, height: H });
+            if (id) this.tapBuilding(id);
+        });
+    }
+    private worldPoint(event: EventTouch): { x: number; y: number } {
+        if (!this.inputCamera) return event.getUILocation();
+        const screen = event.getLocation(), world = this.inputCamera.screenToWorld(new Vec3(screen.x, screen.y, 0));
+        return { x: world.x, y: world.y };
+    }
+    /** S02: enter build mode with that building highlighted, nothing charged. S03: same as its cost capsule. */
+    private tapBuilding(buildingId: string): void {
+        if (this.nav.dialogOpen || this.nav.transitioning) return;
+        if (this.build?.isValid) {
+            if (!this.guide.allows('build', 'upgrade:' + buildingId)) return;
+            const s = this.game.state;
+            if (this.construction || s.pendingBuild) { this.nudge(buildingId); this.guide.flash('正在建造中，请稍候'); return; }
+            if (upgradeCost(s, this.game.rules, this.map.id, buildingId) === null) { this.nudge(buildingId); this.guide.flash('已建到最高级'); return; }
+            this.upgrade(buildingId);
+            return;
+        }
+        // A finished map being looked at has nothing to build.
+        if (this.viewMapId || !this.guide.allows('home', 'building:' + buildingId)) return;
+        void this.openBuild().then(() => this.nudge(buildingId));
+    }
+    /** Small bounce on a building: highlight after entering build mode, or "nothing to do" feedback. */
+    private nudge(buildingId: string): void {
+        const node = this.buildings.get(buildingId)?.node;
+        if (!node?.isValid || this.construction?.buildingId === buildingId) return;
+        const sx = Math.sign(node.scale.x) || 1, at = (k: number) => new Vec3(sx * k, k, 1);
+        Tween.stopAllByTarget(node);
+        node.setScale(at(1));
+        tween(node).to(0.1, { scale: at(1.06) }, { easing: 'quadOut' }).to(0.12, { scale: at(1) }, { easing: 'quadIn' }).start();
     }
     private closeBuild(): void {
         if (this.construction) return; // leaving is locked while building
@@ -312,6 +368,7 @@ export class HomeController {
         const node = this.buildings.get(buildingId)?.node;
         if (!node?.isValid) return;
         const sx = Math.sign(node.scale.x) || 1, at = (k: number) => new Vec3(sx * k, k, 1);
+        Tween.stopAllByTarget(node);
         node.setScale(at(0.88));
         tween(node).to(0.16, { scale: at(1.06) }, { easing: 'quadOut' }).to(0.14, { scale: at(1) }, { easing: 'quadIn' }).start();
     }

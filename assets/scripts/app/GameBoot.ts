@@ -138,7 +138,7 @@ export class GameBoot extends Component {
             this.game = game;
             const camera = this.getComponent(Canvas)?.cameraComponent ?? null;
             const guide = this.guide = new GuideCoach(game, this.host.guideLayer!, this.nav, this.host.dialogLayer!);
-            const home = this.home = new HomeController(game, this.nav, loader, guide);
+            const home = this.home = new HomeController(game, this.nav, loader, guide, camera);
             home.mapBounds = bounds.maps;
             const puzzle = this.puzzle = new PuzzlePage(game, this.nav, loader, camera, guide);
             const endless = this.endless = new EndlessPage(game, this.nav, loader, camera, guide);
