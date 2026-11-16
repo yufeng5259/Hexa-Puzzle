@@ -1,0 +1,189 @@
+{
+  "batch": "P2-6",
+  "date": "2026-11-16",
+  "status": "pass",
+  "runtimePngFiles": 11,
+  "newPngFiles": 9,
+  "overwrittenPngFiles": 2,
+  "acceptance": [
+    {
+      "item": 1,
+      "status": "pass",
+      "evidence": "11张RGBA路径和画布逐项断言；六角240×208，2:√3整数像素近似，相对误差0.074%"
+    },
+    {
+      "item": 2,
+      "status": "pass",
+      "evidence": "两工具按旧Alpha外接框3倍映射，新图缩1/3与旧图50%叠放；人工确认柄左头右/片左齿上把右；金属高光木纹清楚"
+    },
+    {
+      "item": 3,
+      "status": "pass",
+      "evidence": "全部3px透明安全边；有效光效像素无近黑底；白/深蓝/棋盘格与彩块叠放复查；帧01-03中心(192,192)，04-06保持同一径向爆心并按重力下坠、缩小淡出"
+    },
+    {
+      "item": 4,
+      "status": "pass",
+      "evidence": "无文字；以220px固定端帽横向拉伸1120→2240，检查两端和中段均无形变"
+    },
+    {
+      "item": 5,
+      "status": "pass",
+      "evidence": "6组字段与states/frames顺序断言通过，11文件SHA匹配；其他uiAssets与交付历史不变"
+    }
+  ],
+  "files": [
+    {
+      "id": "fx_build_hammer",
+      "file": "素材/UI/特效/build/fx_build_hammer.png",
+      "size": [
+        399,
+        315
+      ],
+      "mode": "RGBA",
+      "sha256": "4bd643e55782ee5e5866e92f99d8dd6da2205b5354dfc7584b565fcee8c6f886",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_build_saw",
+      "file": "素材/UI/特效/build/fx_build_saw.png",
+      "size": [
+        540,
+        204
+      ],
+      "mode": "RGBA",
+      "sha256": "e6d7bec14cddfc11e8235109d911f13379854ce831bc6a25d15ef13c54b36cb7",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_win_shine",
+      "file": "素材/UI/特效/win/fx_win_shine.png",
+      "size": [
+        256,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "f1f0e3472f62dfd058e53646ebf52e11dd318579214a06ab02c24c5f2cb6e792",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_win_hex_rim",
+      "file": "素材/UI/特效/win/fx_win_hex_rim.png",
+      "size": [
+        240,
+        208
+      ],
+      "mode": "RGBA",
+      "sha256": "44ef8f3a75e899e8be02e9f90a024fbc4091c5e51a690538c32d9e9966594d01",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "ribbon_win_gold",
+      "file": "素材/UI/通用/ribbon_win_gold.png",
+      "size": [
+        1120,
+        280
+      ],
+      "mode": "RGBA",
+      "sha256": "cd3c13e5da673ec2a24e9cb41375b97c403d48b8b8f88ade0fccb3f18c650d41",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_win_firework",
+      "file": "素材/UI/特效/win/fx_win_firework_01.png",
+      "size": [
+        384,
+        384
+      ],
+      "mode": "RGBA",
+      "sha256": "ab38a6c2ca3e1d229d26e74b232594ca4409c94a69c2b81b4daeb392e1f244b8",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_win_firework",
+      "file": "素材/UI/特效/win/fx_win_firework_02.png",
+      "size": [
+        384,
+        384
+      ],
+      "mode": "RGBA",
+      "sha256": "d4c2cf982587b34009aabb8765909f9722c5e0bf739b2191818841631130fc32",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_win_firework",
+      "file": "素材/UI/特效/win/fx_win_firework_03.png",
+      "size": [
+        384,
+        384
+      ],
+      "mode": "RGBA",
+      "sha256": "8d8d5eee4ac523c094b93a147a9c358db2b77826baf600df37d52199262ed53d",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_win_firework",
+      "file": "素材/UI/特效/win/fx_win_firework_04.png",
+      "size": [
+        384,
+        384
+      ],
+      "mode": "RGBA",
+      "sha256": "8b7341ebb0be4fd9632d57554d14b03fcead1851aefb77bbec9b9e2658d870e4",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_win_firework",
+      "file": "素材/UI/特效/win/fx_win_firework_05.png",
+      "size": [
+        384,
+        384
+      ],
+      "mode": "RGBA",
+      "sha256": "98891a296a86df78a71b84ebb577126bf34df929e1060cd0f5144c66c6de6d81",
+      "transparentSafetyBorder": 3
+    },
+    {
+      "id": "fx_win_firework",
+      "file": "素材/UI/特效/win/fx_win_firework_06.png",
+      "size": [
+        384,
+        384
+      ],
+      "mode": "RGBA",
+      "sha256": "1b830de4419b3516200c567d322b3c8121d21a95fc2ff65f4bcac563a80c129f",
+      "transparentSafetyBorder": 3
+    }
+  ],
+  "comparisons": [
+    "P2-6_01_工具朝向占位叠放.png",
+    "P2-6_02_B02_L1建造示意.png",
+    "P2-6_03_胜利合成示意.png",
+    "P2-6_04_烟花六帧.png",
+    "P2-6_05_三底透明检查.png",
+    "P2-6_06_横幅二倍拉伸.png"
+  ],
+  "previouslyDeliveredFilesPreserved": 882,
+  "modifiedExistingFiles": [
+    "docs/v2/美术交付清单.json",
+    "docs/v2/素材/UI/特效/build/fx_build_hammer.png",
+    "docs/v2/素材/UI/特效/build/fx_build_saw.png"
+  ],
+  "originalStagedFilesPreserved": true,
+  "runtimeModified": false,
+  "limitations": [
+    "本次仅美术交付；不导入assets、不改动作时长、不运行Creator/真机。真实动态时序验证由程序侧按需求第7节执行。"
+  ],
+  "generation": {
+    "mode": "configured API via bundled imagegen CLI",
+    "model": "gpt-image-2",
+    "prompts": "P2-6原稿/prompts.json",
+    "sources": "P2-6原稿/",
+    "processing": [
+      "两工具编辑重绘，绿幕去色溢出与透明化，按旧Alpha外接框3倍映射",
+      "横幅原生Alpha，裁切缩放到1120×280",
+      "扫光用双轴连续渐变；金边为平顶六角细线和Gaussian外发光",
+      "烟花从同一AI原稿派生；黑色晕底转换为直通Alpha，保留金色光能；统一爆心与后期星点运动"
+    ]
+  }
+}

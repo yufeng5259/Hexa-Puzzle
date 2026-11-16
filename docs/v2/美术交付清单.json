@@ -4982,20 +4982,20 @@
         "default": "UI/特效/build/fx_build_hammer.png"
       },
       "size": [
-        133,
-        105
+        399,
+        315
       ],
-      "scale": 1,
+      "scale": 3,
       "slice": null,
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "P2-3 按bee_builder及S03重绘；旧图仅作朝向/占位定位参考，新绘像素见制作记录/补充20261114/生成原稿。",
+      "source": "P2-6 按P2-3旧图朝向与Alpha占位高分辨率重绘；gpt-image-2 edit；原稿与提示词：制作记录/补充20261116/P2-6原稿/。",
       "priority": "P2",
-      "batch": "P2-3",
+      "batch": "P2-6",
       "sha256": {
-        "default": "a19d420a57d7eaf7f15efceb967ceaccd973146adb98d806312820d7d6b08908"
+        "default": "4bd643e55782ee5e5866e92f99d8dd6da2205b5354dfc7584b565fcee8c6f886"
       }
     },
     {
@@ -5005,20 +5005,20 @@
         "default": "UI/特效/build/fx_build_saw.png"
       },
       "size": [
-        180,
-        68
+        540,
+        204
       ],
-      "scale": 1,
+      "scale": 3,
       "slice": null,
       "anchor": [
         0.5,
         0.5
       ],
-      "source": "P2-3 按bee_builder及S03重绘；旧图仅作朝向/占位定位参考，新绘像素见制作记录/补充20261114/生成原稿。",
+      "source": "P2-6 按P2-3旧图朝向与Alpha占位高分辨率重绘；gpt-image-2 edit；原稿与提示词：制作记录/补充20261116/P2-6原稿/。",
       "priority": "P2",
-      "batch": "P2-3",
+      "batch": "P2-6",
       "sha256": {
-        "default": "2833828307448c9fb3ac3e64895fdae7d0faeaa47d3c4a11638b01827ac35f57"
+        "default": "e6d7bec14cddfc11e8235109d911f13379854ce831bc6a25d15ef13c54b36cb7"
       }
     },
     {
@@ -5185,6 +5185,114 @@
       "batch": "P2-4",
       "sha256": {
         "default": "b1e29c4e5f7b34895c56ca0e56cfc7ce7ad0e14621295d7889e76c351495cbb4"
+      }
+    },
+    {
+      "id": "fx_win_shine",
+      "name": "胜利暖白扫光条",
+      "states": {
+        "normal": "UI/特效/win/fx_win_shine.png"
+      },
+      "size": [
+        256,
+        1024
+      ],
+      "scale": 1,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "P2-6 数学渐变新绘：左右及上下双向渐隐，直通RGBA，无黑底",
+      "priority": "P2",
+      "batch": "P2-6",
+      "sha256": {
+        "normal": "f1f0e3472f62dfd058e53646ebf52e11dd318579214a06ab02c24c5f2cb6e792"
+      }
+    },
+    {
+      "id": "fx_win_hex_rim",
+      "name": "胜利平顶六角金边",
+      "states": {
+        "normal": "UI/特效/win/fx_win_hex_rim.png"
+      },
+      "size": [
+        240,
+        208
+      ],
+      "scale": 2,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "P2-6 平顶六角几何新绘：亮金细线及外缘柔光，中心透明",
+      "priority": "P2",
+      "batch": "P2-6",
+      "sha256": {
+        "normal": "44ef8f3a75e899e8be02e9f90a024fbc4091c5e51a690538c32d9e9966594d01"
+      }
+    },
+    {
+      "id": "ribbon_win_gold",
+      "name": "胜利金色无字横幅",
+      "states": {
+        "default": "UI/通用/ribbon_win_gold.png"
+      },
+      "size": [
+        1120,
+        280
+      ],
+      "scale": 2,
+      "slice": [
+        220,
+        0,
+        220,
+        0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "source": "P2-6 gpt-image-2新绘蜂蜜金横幅；两端固定220；原稿与提示词见制作记录/补充20261116/P2-6原稿/",
+      "priority": "P2",
+      "batch": "P2-6",
+      "sha256": {
+        "default": "cd3c13e5da673ec2a24e9cb41375b97c403d48b8b8f88ade0fccb3f18c650d41"
+      }
+    },
+    {
+      "id": "fx_win_firework",
+      "name": "胜利蜂蜜金烟花六帧",
+      "frames": [
+        "UI/特效/win/fx_win_firework_01.png",
+        "UI/特效/win/fx_win_firework_02.png",
+        "UI/特效/win/fx_win_firework_03.png",
+        "UI/特效/win/fx_win_firework_04.png",
+        "UI/特效/win/fx_win_firework_05.png",
+        "UI/特效/win/fx_win_firework_06.png"
+      ],
+      "size": [
+        384,
+        384
+      ],
+      "scale": 1.2,
+      "slice": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "fps": 12,
+      "source": "P2-6 gpt-image-2单朵烟花原稿，统一中心派生6帧；晚期星点径向散开、重力下坠与缩小淡出；原稿与提示词见制作记录/补充20261116/P2-6原稿/",
+      "priority": "P2",
+      "batch": "P2-6",
+      "sha256": {
+        "01": "ab38a6c2ca3e1d229d26e74b232594ca4409c94a69c2b81b4daeb392e1f244b8",
+        "02": "d4c2cf982587b34009aabb8765909f9722c5e0bf739b2191818841631130fc32",
+        "03": "8d8d5eee4ac523c094b93a147a9c358db2b77826baf600df37d52199262ed53d",
+        "04": "8b7341ebb0be4fd9632d57554d14b03fcead1851aefb77bbec9b9e2658d870e4",
+        "05": "98891a296a86df78a71b84ebb577126bf34df929e1060cd0f5144c66c6de6d81",
+        "06": "1b830de4419b3516200c567d322b3c8121d21a95fc2ff65f4bcac563a80c129f"
       }
     }
   ],
@@ -5456,6 +5564,17 @@
         "btn_green/btn_grey/btn_blue三态及两个tag统一240×92、slice[46,20,46,24]。",
         "补齐btn_grey_disabled。"
       ],
+      "runtimeModified": false
+    },
+    "P2-6": {
+      "date": "2026-11-16",
+      "newAssetGroups": 4,
+      "modifiedAssetGroups": 2,
+      "newPngFiles": 9,
+      "modifiedPngFiles": 2,
+      "totalPngFiles": 11,
+      "verification": "制作记录/补充20261116/P2-6_verification.json",
+      "comparisons": "制作记录/补充20261116/对照/",
       "runtimeModified": false
     }
   },
