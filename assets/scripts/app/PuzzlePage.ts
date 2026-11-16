@@ -5,7 +5,7 @@ import type { Game } from '../core/Game';
 import { abandonAttempt, completeAttempt, mainlineFinished, recordPlacement, saveBoard, startAttempt, startCost, useHint, winEventId } from '../core/Mainline';
 import { upgradeCost } from '../core/Progress';
 import { mainlineLevel, RuleError, type Reward } from '../core/Rules';
-import { rewardText } from '../core/Display';
+import { winCopy } from '../core/Display';
 import { BoardFx } from '../features/fx/BoardFx';
 import type { Attempt } from '../core/State';
 import { LevelCatalog, type LevelDefinition } from '../features/puzzle/data/LevelCatalog';
@@ -393,13 +393,14 @@ export class PuzzlePage {
             else if (action === 'btn_green' && !finished) { gone = true; this.nav.closeDialog(); void this.play(this.game.state.mainline.nextLevelNo); }
             else if (action === 'btn_grey' || action === 'btn_green') { gone = true; this.nav.closeDialog(); this.goHome(); }
         }, v => {
-            v.setText('first_clear', `第${levelNo}关 · ${replay ? '复玩完成' : challenge ? '挑战首次通关' : '首次通关'}`);
-            const coins = prize?.coins ?? 0;
-            v.setVisible('icon_coin', coins > 0);
-            v.setVisible('reward_coin', coins > 0);
-            if (coins) v.setText('reward_coin', `+${coins}`);
-            if (prize && rewardText(prize)) v.setText('reward_status', coins && !prize.energy && !prize.hints ? '金币已到账' : `${rewardText(prize)} 已到账`);
-            else v.setVisible('reward_status', false);
+            const copy = winCopy(kind, levelNo, challenge, prize);
+            v.setText('first_clear', copy.line);
+            v.setVisible('panel_inner', copy.card);
+            v.setVisible('icon_coin', copy.coins > 0);
+            v.setVisible('reward_coin', copy.coins > 0);
+            if (copy.coins) v.setText('reward_coin', `+${copy.coins}`);
+            v.setVisible('reward_status', !!copy.status);
+            if (copy.status) v.setText('reward_status', copy.status);
             v.setText('build_suggestion', s.wallet.coins >= cheapest ? '金币充足，可以回家建造' : '继续闯关，攒金币建造家园');
             if (replay) v.setText('next', '继续复玩');
             else if (finished) v.setText('next', '主线完成');
