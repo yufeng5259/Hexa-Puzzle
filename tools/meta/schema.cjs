@@ -14,6 +14,10 @@ const schemas = {
  EndlessShapes: {id:'string',order:'int',cells:'json',weight:'int',color:'int'},
  EndlessStages: {id:'string',score:'int',rewardId:'string'},
  GuideSteps: {id:'string',order:'int',step:'string',pageId:'string',targetId:'string?',textKey:'string?',params:'json'},
+ LeagueTiers: {id:'string',tier:'int',name:'string',starsToNext:'int',rewardMult:'number',strength:'number',floor:'int'},
+ LeagueRewards: {id:'string',order:'int',board:'string',rankFrom:'int',rankTo:'int',coins:'int',energy:'int',hints:'int',stars:'int',gift:'string'},
+ LeagueCurves: {id:'string',board:'string',slot:'int',mult:'number'},
+ LeagueBots: {id:'string',order:'int',name:'string',nameEn:'string',avatar:'string',avatarBg:'int',style:'string',skill:'number',sessionsMin:'int',sessionsMax:'int',activeFrom:'int',activeTo:'int',sprintShare:'number',tierMin:'int',tierMax:'int'},
 };
 /** Constants every build needs, with the value type each must have. */
 const constants = {
@@ -34,10 +38,18 @@ const constants = {
  animEndlessSettleSeconds:'number', animEndlessHighlightSeconds:'number', animEndlessClearSeconds:'number', animEndlessScoreSeconds:'number', animEndlessRefillSeconds:'number',
  animEndlessDimSeconds:'number', animScoreRollSeconds:'number', animRecordSeconds:'number',
  animEndlessSwapOutSeconds:'number', animEndlessSwapInSeconds:'number', animEndlessHammerSeconds:'number', animEndlessShatterSeconds:'number',
+ leagueDailySize:'int', leagueWeeklySize:'int', leagueAllTimeSize:'int', leagueDailyBaseDefault:'int', leagueWeeklyBaseDefault:'int',
+ leagueAllTimeMin:'int', leagueAllTimeMax:'int', leagueAllTimeGrowMin:'number', leagueAllTimeGrowMax:'number',
+ leaguePendingMax:'int', leagueJitter:'number', leagueSprintHours:'number',
 };
 const dailyTaskTypes = ['win','build','endlessLines','endlessScore','placePiece'];
 const dailyTaskSlots = ['fixed','rotate','fallback'];
 /** Guide steps match core/Guide.ts guideStep(); the runtime derives the step from records. */
 const guideSteps = ['firstPuzzle','goBuild','finishBuild','welcome'];
 const guidePages = ['home','build','puzzle','result','welcome'];
-module.exports={schemas,constants,dailyTaskTypes,dailyTaskSlots,guideSteps,guidePages};
+/** League (docs/v2/16): boards with rewards, opening gifts, bot play styles and the 24 animal avatars (docs/v2/17 §3.1). */
+const leagueBoards = ['daily','weekly'];
+const leagueGifts = ['gold','silver','bronze','coin','none'];
+const leagueStyles = ['casual','steady','sprinter','nightOwl'];
+const leagueAvatars = ['bear','rabbit','fox','cat','dog','panda','raccoon','hedgehog','squirrel','frog','duck','chick','sloth','monkey','tiger','lion','elephant','giraffe','hippo','crocodile','seal','owl','penguin','koala'];
+module.exports={schemas,constants,dailyTaskTypes,dailyTaskSlots,guideSteps,guidePages,leagueBoards,leagueGifts,leagueStyles,leagueAvatars};

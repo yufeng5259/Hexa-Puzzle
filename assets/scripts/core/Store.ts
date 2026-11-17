@@ -1,5 +1,5 @@
 import type { Rules } from './Rules';
-import { clone, createState, GameState, isValidState, SAVE_KEY } from './State';
+import { clone, createLeague, createState, GameState, isValidState, SAVE_KEY } from './State';
 
 export interface Storage { getItem(key: string): string | null; setItem(key: string, value: string): void }
 
@@ -31,7 +31,11 @@ export class Store {
         if (raw) {
             try {
                 const parsed = JSON.parse(raw);
-                if (isValidState(parsed)) return parsed;
+                if (isValidState(parsed)) {
+                    // Saves made before the league (2026-11-17) start it fresh; nothing else changes.
+                    if (!parsed.league || !Array.isArray(parsed.league.pending)) parsed.league = createLeague();
+                    return parsed;
+                }
             } catch { /* fall through to a fresh state */ }
         }
         return createState(rules);

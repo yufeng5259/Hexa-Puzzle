@@ -37,6 +37,47 @@ export interface DailyTaskRule {
     readonly weight: number;
 }
 
+/** Bee league (docs/v2/16): local simulated opponents, daily / weekly / all-time boards. */
+export type LeagueBoard = 'daily' | 'weekly' | 'allTime';
+export type LeagueGift = 'gold' | 'silver' | 'bronze' | 'coin' | 'none';
+export interface LeagueTier {
+    readonly tier: number; readonly name: string;
+    /** Stars needed to move up from this tier (0 on the top tier). */
+    readonly starsToNext: number;
+    /** League coin rewards are multiplied by this; bots' targets by strength; base score never below floor. */
+    readonly rewardMult: number; readonly strength: number; readonly floor: number;
+}
+export interface LeagueRewardRule {
+    readonly board: 'daily' | 'weekly';
+    readonly rankFrom: number; readonly rankTo: number;
+    readonly reward: Reward; readonly stars: number; readonly gift: LeagueGift;
+}
+export interface LeagueBot {
+    readonly id: string; readonly name: string; readonly nameEn: string;
+    readonly avatar: string; readonly avatarBg: number;
+    /** sprinter bots score sprintShare of their day in the last hours of the period. */
+    readonly style: 'casual' | 'steady' | 'sprinter' | 'nightOwl';
+    /** Orders bots inside a group (strongest takes the top curve slot). */
+    readonly skill: number;
+    readonly sessionsMin: number; readonly sessionsMax: number;
+    /** Local hours [from, to) the bot plays in. */
+    readonly activeFrom: number; readonly activeTo: number;
+    readonly sprintShare: number;
+    readonly tierMin: number; readonly tierMax: number;
+}
+export interface LeagueRules {
+    readonly tiers: readonly LeagueTier[];
+    readonly rewards: readonly LeagueRewardRule[];
+    /** Target score multipliers of the bot slots, strongest first (size − 1 entries each). */
+    readonly curves: { readonly daily: readonly number[]; readonly weekly: readonly number[] };
+    readonly bots: readonly LeagueBot[];
+    readonly sizes: { readonly daily: number; readonly weekly: number; readonly allTime: number };
+    readonly dailyBaseDefault: number; readonly weeklyBaseDefault: number;
+    readonly allTimeMin: number; readonly allTimeMax: number; readonly allTimeGrowMin: number; readonly allTimeGrowMax: number;
+    /** Unclaimed settlements kept (newest); each bot target varies by ±jitter; sprinters use the last sprintHours. */
+    readonly pendingMax: number; readonly jitter: number; readonly sprintHours: number;
+}
+
 export interface EndlessShape { readonly id: string; readonly cells: readonly (readonly [number, number])[]; readonly weight: number; readonly color: number }
 
 export interface Rules {
@@ -109,6 +150,7 @@ export interface Rules {
         /** Free uses per new game of "换一手" and "单格锤" (0 hides the tool) and the bounded redraws of one swap. */
         readonly tools: { readonly swap: number; readonly hammer: number; readonly swapRetries: number };
     };
+    readonly league: LeagueRules;
 }
 
 export function reward(rules: Rules, id: string): Reward {

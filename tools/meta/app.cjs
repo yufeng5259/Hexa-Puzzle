@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),path=require('path'),xlsx=require('node-xlsx');
-const {schemas,constants,dailyTaskTypes,dailyTaskSlots,guideSteps,guidePages}=require('./schema.cjs');
+const {schemas,constants,dailyTaskTypes,dailyTaskSlots,guideSteps,guidePages,leagueBoards,leagueGifts,leagueStyles,leagueAvatars}=require('./schema.cjs');
 const PROJECT=path.resolve(__dirname,'../..');
 const own=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
 const forbidden=new Set(['keys','__proto__','constructor','prototype']);
@@ -132,7 +132,49 @@ function validate(tables,levels){
   }
   if(drags.length!==first.pieces.length||covered.size!==board.size)error('GuideSteps.xlsx','guided drags must solve the first level');
  }
+ validateLeague(tables,list,check,k);
  return tables;
+}
+/** League tables (docs/v2/16 §10): tiers 1..n, rank bands covering each board, one curve slot per opponent, enough bots. */
+function validateLeague(tables,list,check,k){
+ const tiers=list('LeagueTiers').sort((a,b)=>a.tier-b.tier);
+ tiers.forEach((t,i)=>{
+  check(t,'tier',t.tier===i+1,'tiers must be 1..n');
+  check(t,'starsToNext',i===tiers.length-1?t.starsToNext===0:t.starsToNext>0,'every tier but the top needs stars; the top tier 0');
+  for(const f of ['rewardMult','strength'])check(t,f,t[f]>0,'must be positive');check(t,'floor',t.floor>=0,'must not be negative');
+ });
+ const size={daily:k('leagueDailySize'),weekly:k('leagueWeeklySize')};
+ if(!(size.daily>=2&&size.weekly>=2&&k('leagueAllTimeSize')>=2))error('Constants.xlsx','league board sizes must be at least 2');
+ if(!(k('leagueAllTimeMin')>0&&k('leagueAllTimeMax')>k('leagueAllTimeMin')&&k('leagueAllTimeGrowMax')>=k('leagueAllTimeGrowMin')))error('Constants.xlsx','league all-time ranges');
+ if(!(k('leagueJitter')<1&&k('leaguePendingMax')>=1&&k('leagueSprintHours')>0&&k('leagueSprintHours')<=24))error('Constants.xlsx','league jitter, pending or sprint hours');
+ list('LeagueRewards').sort((a,b)=>a.order-b.order).forEach((r,i)=>check(r,'order',r.order===i+1,'orders must be continuous from 1'));
+ for(const board of leagueBoards){
+  let next=1;
+  for(const r of list('LeagueRewards').filter(r=>r.board===board).sort((a,b)=>a.rankFrom-b.rankFrom)){
+   check(r,'rankFrom',r.rankFrom===next&&r.rankTo>=r.rankFrom,'rank bands must be continuous from 1');next=r.rankTo+1;
+  }
+  if(next!==size[board]+1)error('LeagueRewards.xlsx',board+' bands must cover ranks 1..'+size[board]);
+  const slots=list('LeagueCurves').filter(c=>c.board===board).sort((a,b)=>a.slot-b.slot);
+  if(slots.length!==size[board]-1||slots.some((c,i)=>c.slot!==i+1))error('LeagueCurves.xlsx',board+' needs slots 1..'+(size[board]-1));
+  for(const c of slots)check(c,'mult',c.mult>0,'must be positive');
+ }
+ for(const r of list('LeagueRewards')){
+  check(r,'board',leagueBoards.includes(r.board),'daily or weekly');check(r,'gift',leagueGifts.includes(r.gift),'unknown gift');
+  for(const f of ['coins','energy','hints','stars'])check(r,f,r[f]>=0,'must not be negative');
+ }
+ for(const c of list('LeagueCurves'))check(c,'board',leagueBoards.includes(c.board),'daily or weekly');
+ const bots=list('LeagueBots').sort((a,b)=>a.order-b.order);
+ bots.forEach((b,i)=>check(b,'order',b.order===i+1,'orders must be continuous from 1'));
+ if(bots.length<Math.max(size.daily,size.weekly,k('leagueAllTimeSize'))-1)error('LeagueBots.xlsx','too few bots for the largest board');
+ for(const b of bots){
+  check(b,'avatar',leagueAvatars.includes(b.avatar),'unknown avatar');check(b,'style',leagueStyles.includes(b.style),'unknown style');
+  check(b,'avatarBg',b.avatarBg>=0&&b.avatarBg<=5,'0..5');check(b,'skill',b.skill>0,'must be positive');
+  check(b,'sessionsMax',b.sessionsMin>=1&&b.sessionsMax>=b.sessionsMin,'1 <= sessionsMin <= sessionsMax');
+  check(b,'activeTo',b.activeFrom>=0&&b.activeTo<=24&&b.activeFrom<b.activeTo,'0 <= activeFrom < activeTo <= 24');
+  check(b,'sprintShare',b.sprintShare>=0&&b.sprintShare<1,'0..1');
+  check(b,'tierMax',b.tierMin>=1&&b.tierMax<=tiers.length&&b.tierMin<=b.tierMax,'tier range');
+ }
+ for(let tier=1;tier<=tiers.length;tier++)if(!bots.some(b=>b.tierMin<=tier&&tier<=b.tierMax))error('LeagueBots.xlsx','no bot for tier '+tier);
 }
 function encode(tables){const output={schemaVersion:2,tables:{}};for(const name of Object.keys(schemas)){const keys=Object.keys(schemas[name]),table={keys};for(const id of Object.keys(tables[name]).sort())table[id]=keys.map(key=>tables[name][id][key]);output.tables[name]=table;}return output;}
 function exportConfig(options={}){

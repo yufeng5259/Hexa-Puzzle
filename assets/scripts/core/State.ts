@@ -23,7 +23,7 @@ export interface PendingBuild {
 /** A reward or milestone that was already granted and still waits to be shown. */
 export interface DisplayEvent {
     readonly id: string;
-    readonly type: 'firstClear' | 'replay' | 'levelUp' | 'buildingMax' | 'mapComplete' | 'welcome' | 'signIn' | 'dailyTask' | 'dailyChest' | 'endlessStage';
+    readonly type: 'firstClear' | 'replay' | 'levelUp' | 'buildingMax' | 'mapComplete' | 'welcome' | 'signIn' | 'dailyTask' | 'dailyChest' | 'endlessStage' | 'league';
     readonly reward: Reward;
     readonly detail?: Readonly<Record<string, string | number>>;
 }
@@ -48,6 +48,39 @@ export interface EndlessGame {
     tools?: { swap: number; hammer: number };
 }
 
+/** One opponent of a league group; its score over time is rebuilt from the seed (core/League.ts). */
+export interface LeagueEntry { readonly botId: string; readonly target: number; readonly seed: number }
+/** A daily or weekly group, fixed when created (docs/v2/16 §5.2). */
+export interface LeagueGroup {
+    readonly periodId: string;
+    readonly start: number; readonly end: number;
+    readonly tier: number; readonly base: number;
+    readonly bots: LeagueEntry[];
+}
+/** A finished period waiting on S27: rank and reward are fixed at settlement time. */
+export interface LeagueSettlement {
+    readonly id: string;
+    readonly board: 'daily' | 'weekly';
+    readonly periodId: string;
+    readonly rank: number; readonly size: number; readonly score: number;
+    readonly tier: number;
+}
+export interface LeagueState {
+    /** Random id made on the first league use; seeds every group. */
+    playerId: string;
+    tier: number; stars: number; firstPlaceCount: number;
+    /** Points of the current local day / week, added on every endless placement. */
+    day: { id: string | null; score: number };
+    week: { id: string | null; score: number };
+    daily: LeagueGroup | null;
+    weekly: LeagueGroup | null;
+    /** All-time board: bots drawn once, their bests grow a little each week after createdWeek. */
+    allTime: { createdWeek: string; seed: number } | null;
+    /** Recent finished day / week scores (> 0), newest last; they set the next group's base score. */
+    history: { daily: number[]; weekly: number[] };
+    pending: LeagueSettlement[];
+}
+
 export interface GameState {
     schemaVersion: number;
     revision: number;
@@ -61,6 +94,7 @@ export interface GameState {
     signIn: { claimedCount: number; lastClaimDay: string | null };
     daily: { day: string | null; tasks: DailyTask[]; chestClaimed: boolean };
     endless: { best: number; weekId: string | null; weekScore: number; claimedStages: number[]; game: EndlessGame | null };
+    league: LeagueState;
     guide: { stepId: string | null; completed: boolean };
     settings: { music: boolean; sound: boolean; vibration: boolean };
     receipts: Record<string, true>;
@@ -80,9 +114,18 @@ export function createState(rules: Rules): GameState {
         signIn: { claimedCount: 0, lastClaimDay: null },
         daily: { day: null, tasks: [], chestClaimed: false },
         endless: { best: 0, weekId: null, weekScore: 0, claimedStages: [], game: null },
+        league: createLeague(),
         guide: { stepId: null, completed: false },
         settings: { music: true, sound: true, vibration: true },
         receipts: {},
+    };
+}
+
+export function createLeague(): LeagueState {
+    return {
+        playerId: '', tier: 1, stars: 0, firstPlaceCount: 0,
+        day: { id: null, score: 0 }, week: { id: null, score: 0 },
+        daily: null, weekly: null, allTime: null, history: { daily: [], weekly: [] }, pending: [],
     };
 }
 

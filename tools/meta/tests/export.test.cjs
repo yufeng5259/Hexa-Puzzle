@@ -9,9 +9,9 @@ const col=(data,key)=>data[2].indexOf(key);
 const row=(data,id)=>data.find(r=>r[0]===id);
 function rejects(name,fn,pattern){const input=fixture(),output=path.join(input,'out.json');fs.writeFileSync(output,'previous');edit(input,name,fn);assert.throws(()=>exportConfig({input,output}),pattern);assert.equal(fs.readFileSync(output,'utf8'),'previous');}
 
-test('twelve workbooks export deterministically and the committed JSON is current',()=>{
+test('sixteen workbooks export deterministically and the committed JSON is current',()=>{
  const output=path.join(scratch,'valid.json'),report=exportConfig({output});
- assert.equal(report.tables,12);assert.equal(report.rows.Mainline,110);assert.equal(report.rows.BuildingStages,90);
+ assert.equal(report.tables,16);assert.equal(report.rows.Mainline,110);assert.equal(report.rows.BuildingStages,90);
  const bytes=fs.readFileSync(output,'utf8');exportConfig({output});assert.equal(fs.readFileSync(output,'utf8'),bytes);
  assert.equal(fs.readFileSync(path.join(project,'assets/resources/config/game-config.json'),'utf8'),bytes,'run npm run config:export after editing Excel');
 });
@@ -39,6 +39,16 @@ test('daily, sign-in, level and endless tables are checked',()=>{
  rejects('EndlessShapes',data=>{row(data,'i2a')[col(data,'cells')]='[[0,0],[2,0]]';},/connected/);
  rejects('EndlessShapes',data=>{row(data,'s1')[col(data,'cells')]='[[0,0';},/invalid JSON/);
  rejects('EndlessStages',data=>{row(data,'stage2')[col(data,'score')]=500;},/unique/);
+});
+test('league tables are checked',()=>{
+ rejects('LeagueTiers',data=>{row(data,'T5')[col(data,'starsToNext')]=10;},/top tier 0/);
+ rejects('LeagueRewards',data=>{row(data,'daily_4_10')[col(data,'rankTo')]=9;},/continuous from 1/);
+ rejects('LeagueRewards',data=>{row(data,'daily_11_20')[col(data,'rankTo')]=19;},/cover ranks 1..20/);
+ rejects('LeagueRewards',data=>{row(data,'daily_1_1')[col(data,'gift')]='diamond';},/unknown gift/);
+ rejects('LeagueCurves',data=>{data.splice(data.indexOf(row(data,'daily_19')),1);},/slots 1..19/);
+ rejects('LeagueBots',data=>{row(data,'bot001')[col(data,'avatar')]='dragon';},/unknown avatar/);
+ rejects('LeagueBots',data=>{row(data,'bot002')[col(data,'activeTo')]=5;},/activeFrom < activeTo/);
+ rejects('Constants',data=>{row(data,'leagueAllTimeSize')[2]='500';},/too few bots/);
 });
 test('guide drags must solve the first level exactly',()=>{
  rejects('GuideSteps',data=>{const i=col(data,'params'),r=row(data,'drag2'),p=JSON.parse(r[i]);p.targetCell={q:6,r:0};r[i]=JSON.stringify(p);},/solution/);

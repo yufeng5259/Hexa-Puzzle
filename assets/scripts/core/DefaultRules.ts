@@ -1,4 +1,4 @@
-import type { BuildingRule, DailyTaskRule, EndlessShape, MainlineLevel, MapRule, Reward, Rules } from './Rules';
+import type { BuildingRule, DailyTaskRule, EndlessShape, LeagueBot, LeagueRewardRule, LeagueRules, MainlineLevel, MapRule, Reward, Rules } from './Rules';
 
 /**
  * Suggested numbers from docs/v2/01_游戏策划案.md §5–§12. Used by tests and as
@@ -69,6 +69,70 @@ const SHAPES: readonly [string, readonly (readonly [number, number])[], number][
 ];
 const shapes: EndlessShape[] = SHAPES.map(([id, cells, weight], i) => ({ id, cells, weight, color: i % 6 }));
 
+/**
+ * Bee league (docs/v2/16 §4–§5). The bot pool is 24 animals × 5 honey nicknames, generated
+ * once here as the source of LeagueBots.xlsx; the numbers are tuned in Excel afterwards.
+ */
+export const LEAGUE_ANIMALS: readonly (readonly [string, string, string])[] = [
+    ['bear', '熊', 'Bear'], ['rabbit', '兔', 'Bunny'], ['fox', '狐', 'Fox'], ['cat', '猫', 'Cat'], ['dog', '狗', 'Pup'], ['panda', '熊猫', 'Panda'],
+    ['raccoon', '浣熊', 'Raccoon'], ['hedgehog', '刺猬', 'Hedgehog'], ['squirrel', '松鼠', 'Squirrel'], ['frog', '蛙', 'Frog'], ['duck', '鸭', 'Duck'], ['chick', '小鸡', 'Chick'],
+    ['sloth', '树懒', 'Sloth'], ['monkey', '猴', 'Monkey'], ['tiger', '虎', 'Tiger'], ['lion', '狮', 'Lion'], ['elephant', '象', 'Elephant'], ['giraffe', '长颈鹿', 'Giraffe'],
+    ['hippo', '河马', 'Hippo'], ['crocodile', '鳄鱼', 'Croc'], ['seal', '海豹', 'Seal'], ['owl', '猫头鹰', 'Owl'], ['penguin', '企鹅', 'Penguin'], ['koala', '考拉', 'Koala'],
+];
+const LEAGUE_PREFIXES: readonly (readonly [string, string])[] = [
+    ['蜜糖', 'Honey'], ['花粉', 'Pollen'], ['嗡嗡', 'Buzzy'], ['蜂蜡', 'Waxy'], ['甜甜', 'Sweet'],
+    ['金蜜', 'Golden'], ['花蜜', 'Nectar'], ['蜂巢', 'Comb'], ['小蜜', 'Little'], ['晨露', 'Dewy'],
+];
+const STYLES = ['casual', 'steady', 'steady', 'sprinter', 'nightOwl'] as const;
+function leagueBots(): LeagueBot[] {
+    const bots: LeagueBot[] = [];
+    for (let n = 0; n < 5; n++) LEAGUE_ANIMALS.forEach(([avatar, zh, en], a) => {
+        const i = n * LEAGUE_ANIMALS.length + a, [pz, pe] = LEAGUE_PREFIXES[(a + n * 3) % LEAGUE_PREFIXES.length];
+        const style = STYLES[(a * 7 + n * 3) % STYLES.length], skill = Math.round((0.3 + ((i * 37) % 120) / 119 * 1.7) * 100) / 100;
+        const night = style === 'nightOwl', sessions = style === 'casual' ? [1, 2] : style === 'steady' ? [3, 5] : [2, 4];
+        bots.push({
+            id: `bot${String(i + 1).padStart(3, '0')}`, name: `${pz}${zh}`, nameEn: `${pe} ${en}`, avatar, avatarBg: (a + n) % 6,
+            style, skill, sessionsMin: sessions[0], sessionsMax: sessions[1],
+            activeFrom: night ? 17 : 7 + (i % 3), activeTo: night ? 24 : 22 + (i % 2), sprintShare: style === 'sprinter' ? 0.4 : 0,
+            tierMin: skill >= 1.4 ? 2 : 1, tierMax: skill < 0.6 ? 3 : 5,
+        });
+    });
+    return bots;
+}
+const lr = (board: 'daily' | 'weekly', rankFrom: number, rankTo: number, reward: Reward, stars: number, gift: LeagueRewardRule['gift']): LeagueRewardRule => ({ board, rankFrom, rankTo, reward, stars, gift });
+/** Slot curve of an n-person group: 1.5× the base score on top down to 0.1× at the bottom (16 §5.2). */
+function curve(n: number): number[] {
+    const daily = [1.5, 1.3, 1.15, 1, 0.92, 0.85, 0.78, 0.72, 0.66, 0.6, 0.54, 0.48, 0.42, 0.36, 0.3, 0.25, 0.2, 0.15, 0.1];
+    if (n - 1 === daily.length) return daily;
+    return Array.from({ length: n - 1 }, (_, i) => {
+        const x = (i / (n - 2)) * (daily.length - 1), lo = Math.floor(x), hi = Math.min(daily.length - 1, lo + 1);
+        return Math.round((daily[lo] + (daily[hi] - daily[lo]) * (x - lo)) * 1000) / 1000;
+    });
+}
+export function defaultLeague(): LeagueRules {
+    return {
+        tiers: [
+            { tier: 1, name: '工蜂', starsToNext: 50, rewardMult: 1, strength: 1, floor: 400 },
+            { tier: 2, name: '采蜜蜂', starsToNext: 80, rewardMult: 1.2, strength: 1.08, floor: 600 },
+            { tier: 3, name: '守卫蜂', starsToNext: 120, rewardMult: 1.4, strength: 1.16, floor: 800 },
+            { tier: 4, name: '蜂王卫', starsToNext: 160, rewardMult: 1.6, strength: 1.24, floor: 1000 },
+            { tier: 5, name: '蜂后', starsToNext: 0, rewardMult: 2, strength: 1.32, floor: 1200 },
+        ],
+        rewards: [
+            lr('daily', 1, 1, r(150, 1, 1), 20, 'gold'), lr('daily', 2, 2, r(90, 1), 15, 'silver'), lr('daily', 3, 3, r(60, 0, 1), 10, 'bronze'),
+            lr('daily', 4, 10, r(20), 5, 'coin'), lr('daily', 11, 20, r(0), 1, 'none'),
+            lr('weekly', 1, 1, r(500, 3, 2), 0, 'gold'), lr('weekly', 2, 2, r(300, 2, 1), 0, 'silver'), lr('weekly', 3, 3, r(200, 1, 1), 0, 'bronze'),
+            lr('weekly', 4, 10, r(50), 0, 'coin'), lr('weekly', 11, 30, r(0), 0, 'none'),
+        ],
+        curves: { daily: curve(20), weekly: curve(30) },
+        bots: leagueBots(),
+        sizes: { daily: 20, weekly: 30, allTime: 100 },
+        dailyBaseDefault: 800, weeklyBaseDefault: 4000,
+        allTimeMin: 300, allTimeMax: 30000, allTimeGrowMin: 0.01, allTimeGrowMax: 0.03,
+        pendingMax: 7, jitter: 0.1, sprintHours: 3,
+    };
+}
+
 export function defaultRules(): Rules {
     return {
         initialCoins: 0,
@@ -106,5 +170,6 @@ export function defaultRules(): Rules {
             stages: [{ score: 500, rewardId: 'endless_1' }, { score: 1500, rewardId: 'endless_2' }, { score: 3000, rewardId: 'endless_3' }, { score: 6000, rewardId: 'endless_4' }],
             tools: { swap: 1, hammer: 1, swapRetries: 8 },
         },
+        league: defaultLeague(),
     };
 }

@@ -1,4 +1,4 @@
-import type { DailyTaskRule, EndlessShape, MapRule, Reward, Rules } from './Rules';
+import type { DailyTaskRule, EndlessShape, LeagueBot, LeagueRewardRule, LeagueTier, MapRule, Reward, Rules } from './Rules';
 
 /** How a building sits on its map; numbers come straight from the art layout JSON. */
 export interface BuildingLayout {
@@ -112,6 +112,22 @@ export function parseGameConfig(json: unknown): GameConfig {
         targetId: optStr(row, 'targetId'), textKey: optStr(row, 'textKey'), params: (row.params ?? {}) as Row,
     }));
 
+    const tiers = tableRows(t, 'LeagueTiers').sort(by('tier')).map((row, i): LeagueTier => {
+        if (num(row, 'tier') !== i + 1) fail('league tiers must be 1..n');
+        return { tier: i + 1, name: str(row, 'name'), starsToNext: num(row, 'starsToNext'), rewardMult: num(row, 'rewardMult'), strength: num(row, 'strength'), floor: num(row, 'floor') };
+    });
+    const leagueRewards = tableRows(t, 'LeagueRewards').sort(by('order')).map((row): LeagueRewardRule => ({
+        board: str(row, 'board') as LeagueRewardRule['board'], rankFrom: num(row, 'rankFrom'), rankTo: num(row, 'rankTo'),
+        reward: { coins: num(row, 'coins'), energy: num(row, 'energy'), hints: num(row, 'hints') }, stars: num(row, 'stars'), gift: str(row, 'gift') as LeagueRewardRule['gift'],
+    }));
+    const curveRows = tableRows(t, 'LeagueCurves');
+    const curveOf = (board: string) => curveRows.filter(row => row.board === board).sort(by('slot')).map(row => num(row, 'mult'));
+    const bots = tableRows(t, 'LeagueBots').sort(by('order')).map((row): LeagueBot => ({
+        id: str(row, 'id'), name: str(row, 'name'), nameEn: str(row, 'nameEn'), avatar: str(row, 'avatar'), avatarBg: num(row, 'avatarBg'),
+        style: str(row, 'style') as LeagueBot['style'], skill: num(row, 'skill'), sessionsMin: num(row, 'sessionsMin'), sessionsMax: num(row, 'sessionsMax'),
+        activeFrom: num(row, 'activeFrom'), activeTo: num(row, 'activeTo'), sprintShare: num(row, 'sprintShare'), tierMin: num(row, 'tierMin'), tierMax: num(row, 'tierMax'),
+    }));
+
     const rules: Rules = {
         initialCoins: k('initialCoins', 'number'), initialHints: k('initialHints', 'number'),
         energy: { max: k('energyMax', 'number'), initial: k('energyInitial', 'number'), recoverSeconds: k('energyRecoverSeconds', 'number'), startCost: k('energyStartCost', 'number'), firstLevelFree: k('energyFirstLevelFree', 'boolean') },
@@ -153,8 +169,19 @@ export function parseGameConfig(json: unknown): GameConfig {
             stages: endlessStages,
             tools: { swap: k('endlessSwapPerGame', 'number'), hammer: k('endlessHammerPerGame', 'number'), swapRetries: k('endlessSwapRetries', 'number') },
         },
+        league: {
+            tiers, rewards: leagueRewards, curves: { daily: curveOf('daily'), weekly: curveOf('weekly') }, bots,
+            sizes: { daily: k('leagueDailySize', 'number'), weekly: k('leagueWeeklySize', 'number'), allTime: k('leagueAllTimeSize', 'number') },
+            dailyBaseDefault: k('leagueDailyBaseDefault', 'number'), weeklyBaseDefault: k('leagueWeeklyBaseDefault', 'number'),
+            allTimeMin: k('leagueAllTimeMin', 'number'), allTimeMax: k('leagueAllTimeMax', 'number'),
+            allTimeGrowMin: k('leagueAllTimeGrowMin', 'number'), allTimeGrowMax: k('leagueAllTimeGrowMax', 'number'),
+            pendingMax: k('leaguePendingMax', 'number'), jitter: k('leagueJitter', 'number'), sprintHours: k('leagueSprintHours', 'number'),
+        },
     };
     if (!maps.some(m => m.id === rules.firstMapId)) fail('firstMapId');
+    const L = rules.league;
+    for (const board of ['daily', 'weekly'] as const) if (L.curves[board].length !== L.sizes[board] - 1) fail(`LeagueCurves ${board} needs ${L.sizes[board] - 1} slots`);
+    if (L.bots.length < Math.max(L.sizes.daily, L.sizes.weekly, L.sizes.allTime) - 1) fail('LeagueBots too few for the largest board');
     // Construction phases run in order inside the construction time.
     const fx = rules.build.fx, phases = [[0, fx.scaffoldEnd], [fx.carryStart, fx.carryEnd], [fx.hammerStart, fx.cloudStart], [fx.cloudStart, fx.revealAt], [0, fx.resumeFrom]];
     if (!(rules.build.constructionSeconds > 0) || fx.sparkleSeconds < 0 || !(fx.beeFraction > 0) || phases.some(([a, b]) => !(a >= 0 && a < b && b <= 1)) || fx.resumeFrom > fx.revealAt) fail('buildFx phases');
