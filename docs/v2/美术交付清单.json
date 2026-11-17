@@ -5456,6 +5456,439 @@
         "02": "c6b2a707c5d8c0792f6f16876d7cd728fb671034abdb21012ea30e660493db70",
         "03": "7e3f0f1f6b486e1e8fc3421ad7119835b8625c4b6441256fe7bc282010b230ab"
       }
+    },
+    {
+      "id": "avatar",
+      "name": "avatar",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        256,
+        256
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "gpt-image-2，24条独立提示词见 avatar_prompts.jsonl；原始输出与SHA见 avatar_provenance.json；去底色、边缘去污染后统一缩放",
+      "frames": [
+        "UI/排行榜/avatar/avatar_bear.png",
+        "UI/排行榜/avatar/avatar_rabbit.png",
+        "UI/排行榜/avatar/avatar_fox.png",
+        "UI/排行榜/avatar/avatar_cat.png",
+        "UI/排行榜/avatar/avatar_dog.png",
+        "UI/排行榜/avatar/avatar_panda.png",
+        "UI/排行榜/avatar/avatar_raccoon.png",
+        "UI/排行榜/avatar/avatar_hedgehog.png",
+        "UI/排行榜/avatar/avatar_squirrel.png",
+        "UI/排行榜/avatar/avatar_frog.png",
+        "UI/排行榜/avatar/avatar_duck.png",
+        "UI/排行榜/avatar/avatar_chick.png",
+        "UI/排行榜/avatar/avatar_sloth.png",
+        "UI/排行榜/avatar/avatar_monkey.png",
+        "UI/排行榜/avatar/avatar_tiger.png",
+        "UI/排行榜/avatar/avatar_lion.png",
+        "UI/排行榜/avatar/avatar_elephant.png",
+        "UI/排行榜/avatar/avatar_giraffe.png",
+        "UI/排行榜/avatar/avatar_hippo.png",
+        "UI/排行榜/avatar/avatar_crocodile.png",
+        "UI/排行榜/avatar/avatar_seal.png",
+        "UI/排行榜/avatar/avatar_owl.png",
+        "UI/排行榜/avatar/avatar_penguin.png",
+        "UI/排行榜/avatar/avatar_koala.png"
+      ],
+      "sha256": {
+        "01": "f5f5cb61f1ebe1ac7d79a77a43f5aafe9b1fab61de1c749b8a439247f85048cf",
+        "02": "dfd2fd0070f9c64db39b85e53a653b79d862c432a457f0babb9441b211db693a",
+        "03": "856b740ff9c0eae01ebc375302204acba9c6bf58fd7c28d0fc265701fc1c2ad3",
+        "04": "0258afa019d0f941eeccd9919821706e329b2be423453aac66a822ad56475aff",
+        "05": "b1b45bd0629ff59fa0aeb95741b7ac8b1a662f5fc58c64639c80ba47f402285d",
+        "06": "f7c2450efcf0231270c492efb07b1b020d7251c4dc3fc9e59794931c735cebc6",
+        "07": "daab5fe0653219f6e16ef57ea95c0bf27fc4a9d434b4e9f42dd733ee1995d016",
+        "08": "9f4601b82c1efe93b842f7b1a89163082fff1b109ceefc63f20bd21a7e57e84e",
+        "09": "d8fa2a45df6cb81685c748e6819d827e9f713b1213a6de199623b25ae3cc23ad",
+        "10": "3f72b113f6e0f2c1d219136f7ed006ff04a3c0da9ee805258b566acac056343b",
+        "11": "f6d4d117dd995f782b29beb056aef44a1fe6342058a09fb154ab332d0d4ae26f",
+        "12": "a38c0d41c421619c26ea815bdc66a364d91c3f0f63732665ac16b764fb3cd841",
+        "13": "d90970fd4c4b3a2e22861462e2279f1f944431cdf56b5657a20c5c270c0409c9",
+        "14": "afada26ec7ffc01b68eee6c75ae1f8147b7bf3f5940085e15f3828358f9b1e83",
+        "15": "5418d01118e8e7e42fb91ffc39cd0d90af53bb11fdf0ca49df57e5f3537f9715",
+        "16": "7cdb64670c9d5c8d7731fdda4289d9f2225d3a96da9883a0ba48220a0fcacc7b",
+        "17": "02edbe97eaf7ba1ae5f223207575fefadd940a1d17fb317346b1e4dda8c1c28c",
+        "18": "0bf3ad2a9dc8e4009432b93d23d638e4a834611445d2014f8a36f0ad31ec943b",
+        "19": "7f90efc334a75227735697ddce03afd23297751192c621abb468b61aa44d319b",
+        "20": "072b03da001d34a4deb9c93c6f417d8ea631c0ab677c287db01f75ce9b2a04f6",
+        "21": "6d8f5b0001d0d1ad1e903742a3afe4518ddfe3ffb3fe6240c7776deda39a199e",
+        "22": "d8f49442c9e3054ef80fcce0553f59309675ec929e5678ce1d047354ee0e0ecb",
+        "23": "80b80b5aacb05972c06e8fb9c69e47a817c1227df2205330e81daf3b0723fc7c",
+        "24": "9322334eed768f335ca20d5909ce2314f3707ee5f3590aa5a84cbfb36adf7759"
+      },
+      "ids": [
+        "bear",
+        "rabbit",
+        "fox",
+        "cat",
+        "dog",
+        "panda",
+        "raccoon",
+        "hedgehog",
+        "squirrel",
+        "frog",
+        "duck",
+        "chick",
+        "sloth",
+        "monkey",
+        "tiger",
+        "lion",
+        "elephant",
+        "giraffe",
+        "hippo",
+        "crocodile",
+        "seal",
+        "owl",
+        "penguin",
+        "koala"
+      ]
+    },
+    {
+      "id": "avatar_player_bee",
+      "name": "avatar_player_bee",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        256,
+        256
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "素材/角色/bee_wave.png 同角色头部裁切；原始SHA与裁切框见 avatar_provenance.json",
+      "states": {
+        "normal": "UI/排行榜/avatar/avatar_player_bee.png"
+      },
+      "sha256": {
+        "normal": "4a961ed8382421128b5040a179a4604a7f081c78a6294850d3b30373f3755499"
+      }
+    },
+    {
+      "id": "avatar_bg",
+      "name": "avatar_bg",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        256,
+        256
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "normal": "UI/排行榜/avatar_bg.png"
+      },
+      "sha256": {
+        "normal": "f72ddc6936e3d3e5a56957023047c3d08604b587eac7c3ef514e9ea80f78fccd"
+      }
+    },
+    {
+      "id": "icon_league_star",
+      "name": "icon_league_star",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        128,
+        128
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "normal": "UI/排行榜/icon_league_star.png"
+      },
+      "sha256": {
+        "normal": "f848125590e56203430ef99736cf36893f042d66bdf87a8fdb5803a735eb734a"
+      }
+    },
+    {
+      "id": "avatar_frame",
+      "name": "avatar_frame",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        288,
+        288
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "normal": "UI/排行榜/avatar_frame_normal.png",
+        "gold": "UI/排行榜/avatar_frame_gold.png",
+        "silver": "UI/排行榜/avatar_frame_silver.png",
+        "bronze": "UI/排行榜/avatar_frame_bronze.png",
+        "self": "UI/排行榜/avatar_frame_self.png"
+      },
+      "sha256": {
+        "normal": "7bf194206b3b6eccb7f47fc1e748bb44ad86a615a9178139862c988e33fc520d",
+        "gold": "f892f787774bd1d44377df2e05ffa6e01681036c4345d3f58fe540ddbf76a071",
+        "silver": "e27f9e89fd126d8a3f5df1747601eee7ad2566d938126102fe8ab125543ff432",
+        "bronze": "1b31b7007e59435bdad4149cd05b9c32e0cb2a8249dac0ece2b5aec10f2cd348",
+        "self": "93873510ee7130ceee50680da600699af414312685cae42fb1e6567d92b99810"
+      }
+    },
+    {
+      "id": "league_badge",
+      "name": "league_badge",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        320,
+        352
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "1": "UI/排行榜/league_badge_1.png",
+        "2": "UI/排行榜/league_badge_2.png",
+        "3": "UI/排行榜/league_badge_3.png",
+        "4": "UI/排行榜/league_badge_4.png",
+        "5": "UI/排行榜/league_badge_5.png"
+      },
+      "sha256": {
+        "1": "d79c640def9172b9fdcce56716d152aaa8ea6925d62556107888043677135c93",
+        "2": "23e4df5723aa877734e70b46f5f9a83187a9e8b569ac536c69f6b76e88fec97b",
+        "3": "8abda3e833851e789aa9b81fa22f980c7076e12beb9db70dd3c815d96fc21213",
+        "4": "d798cfd6edce9079e79e30299b3d2d3d011f5e6b5a0427d532d38197692717f2",
+        "5": "7d6d06fc8781529d6630970eceb56c071f3fe4831ec78a4c4892abdad3d36be1"
+      }
+    },
+    {
+      "id": "podium",
+      "name": "podium",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        440,
+        320
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "1": "UI/排行榜/podium_1.png",
+        "2": "UI/排行榜/podium_2.png",
+        "3": "UI/排行榜/podium_3.png"
+      },
+      "sha256": {
+        "1": "8d807d6004b6c46c5d59e7501f0b1720972f038159cc55835ab3d56a27fe8366",
+        "2": "8c7e9455c8e317621633b0876b2f24f3aa1cee6d30b5d6936ebd96a411d79d07",
+        "3": "9e1a9eec015af73d55ece33f0519a5ff220b70b900ea607834d56b51fbe1ee43"
+      },
+      "stateSizes": {
+        "1": [
+          440,
+          320
+        ],
+        "2": [
+          400,
+          240
+        ],
+        "3": [
+          400,
+          200
+        ]
+      }
+    },
+    {
+      "id": "rank_row",
+      "name": "rank_row",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        240,
+        144
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "normal": "UI/排行榜/rank_row_normal.png",
+        "self": "UI/排行榜/rank_row_self.png"
+      },
+      "sha256": {
+        "normal": "3aa5b2a92a8735966f51ecae542a63c66a6c7770678209c4d5702af89f7fd939",
+        "self": "d73475142099f42b28cc931bedb896c6bd2a212e073f4e6340a40b07f7206474"
+      }
+    },
+    {
+      "id": "tab",
+      "name": "tab",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        160,
+        96
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "normal": "UI/排行榜/tab_normal.png",
+        "selected": "UI/排行榜/tab_selected.png"
+      },
+      "sha256": {
+        "normal": "a75eefb8cca421c49cd2947982bc1c4e84082e1aad611f5e355f21cb803d881b",
+        "selected": "4844b2a7057bf8a6183feec62d739d68bf741da15b956e61e81b3cd7a1e97c9b"
+      }
+    },
+    {
+      "id": "rank_medal",
+      "name": "rank_medal",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        128,
+        128
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "1": "UI/排行榜/rank_medal_1.png",
+        "2": "UI/排行榜/rank_medal_2.png",
+        "3": "UI/排行榜/rank_medal_3.png"
+      },
+      "sha256": {
+        "1": "fbb9051611509e357bbb328374d5e30c4663d516974f36addef12ec6019fb696",
+        "2": "5566a198dcc3f9e9aa3b5d9f0949c10cefff331f3c7d1caed789c4f996e53efe",
+        "3": "7e7ff7f5bac3942d4b3b83cd971c0ac9e92efd755e5a6fc036d0b2823c78c1c8"
+      }
+    },
+    {
+      "id": "gift",
+      "name": "gift",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        400,
+        440
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "gold_closed": "UI/排行榜/gift_gold_closed.png",
+        "gold_open": "UI/排行榜/gift_gold_open.png",
+        "silver_closed": "UI/排行榜/gift_silver_closed.png",
+        "silver_open": "UI/排行榜/gift_silver_open.png",
+        "bronze_closed": "UI/排行榜/gift_bronze_closed.png",
+        "bronze_open": "UI/排行榜/gift_bronze_open.png"
+      },
+      "sha256": {
+        "gold_closed": "3e4bc2170c43030205c9075c5ac05f054b02e4f98a03419128d7a7a449d672f5",
+        "gold_open": "52754ecec8f60778465ee16f974d69bc5a2cf5dc33a82081d213e1c4d1777d7d",
+        "silver_closed": "5b2541175ef55ff196f3ee7689812f5f5b259b36c747f76d2044bedbb69b2bf7",
+        "silver_open": "ca5a6761c6f95523f9cbe70469833b80d15517435714f4ba64642669e8e127da",
+        "bronze_closed": "c0dc25a3426989627d0de1bfa782a958a0a98c2b03323e1e076046ab5989e7a1",
+        "bronze_open": "c4072100ad5ffeabfd7a5110400abc470383f9b45c2e41dadc90101faeef6c63"
+      }
+    },
+    {
+      "id": "icon_leaderboard",
+      "name": "icon_leaderboard",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        200,
+        200
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "normal": "UI/图标/icon_leaderboard.png"
+      },
+      "sha256": {
+        "normal": "a0f78510d81050916c31d3cd71aa0772025b96c06f9c8100d70fcf80c01496b1"
+      }
+    },
+    {
+      "id": "win_panel_header",
+      "name": "win_panel_header",
+      "batch": "P2-12",
+      "priority": "P1",
+      "size": [
+        1120,
+        360
+      ],
+      "scale": 2,
+      "anchor": [
+        0.5,
+        0
+      ],
+      "slice": null,
+      "source": "17_美术需求_排行榜头像与胜利弹窗.md；制作记录/补充20261117/P2-12/（原稿、提示词、来源哈希与生成脚本）",
+      "states": {
+        "normal": "UI/通用/win_panel_header.png"
+      },
+      "sha256": {
+        "normal": "aabc8d87031652a4a851e0b31819af6c2c277da4be51eec9e6b98ab740484496"
+      }
     }
   ],
   "uiLayouts": [
