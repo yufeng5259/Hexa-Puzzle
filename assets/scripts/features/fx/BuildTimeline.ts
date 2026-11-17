@@ -39,11 +39,8 @@ export const BEE_CANVAS: readonly [number, number] = [384, 400];
 export const BUILDER_FPS = 8, CARRIER_FPS = 12, DUST_FPS = 12;
 /** Hammer head when it lands (bee_builder_03), bee canvas pixels relative to the feet, y up. */
 export const HIT: readonly [number, number] = [96, 76];
-/**
- * Where the carried material sits on the carrier, bee canvas pixels (left-top origin). Placeholder
- * for bee_fly; set to the manifest's bee_carrier attach.carry when P2-8 is imported.
- */
-export const CARRY: readonly [number, number] = [292, 300];
+/** Where the carried material sits on bee_carrier: manifest attach.carry, canvas pixels (left-top origin). */
+export const CARRY: readonly [number, number] = [271, 241];
 export const CHIPS_PER_BUILDER = 3;
 /** Display sizes as fractions of W (docs/v2/13 §3: plank 120, brick 64, chip 24 at W ≈ 420). */
 export const SIZE = { plank: 0.29, brick: 0.15, chip: 0.06, spark: 0.13, puff: 0.42 } as const;
@@ -51,8 +48,8 @@ const SHAKE = 0.006;
 
 /** Builders on the scaffold's middle and top boards (canvas px), the right one facing left. */
 const BUILDERS = [{ cx: 172, cy: 372, flip: false }, { cx: 404, cy: 242, flip: true }];
-/** Carriers come in from the left (plank) and the right (brick): drop point above the scaffold, landing board. */
-const CARRIERS = [{ side: -1, cx: 196, cy: 150, landY: 360 }, { side: 1, cx: 384, cy: 136, landY: 232 }];
+/** Carriers come in from the left (plank) and the right (brick): drop point above the scaffold, landing spot in front of a hammer. */
+const CARRIERS = [{ side: -1, cx: 196, cy: 150, landX: 196, landY: 360 }, { side: 1, cx: 384, cy: 136, landX: 336, landY: 232 }];
 /** Dust-cloud puffs covering the building body (canvas px), bottom row first. */
 const PUFFS = [[140, 505, 0], [250, 520, 0], [360, 515, 0], [462, 500, 0], [190, 412, 1], [310, 422, 1], [420, 402, 1], [250, 322, 2], [362, 312, 2]];
 
@@ -114,7 +111,7 @@ export function buildPose(t: number, T: number, timing: BuildFxTiming, W: number
     const carriers: FxSprite[] = [], materials: FxSprite[] = [];
     CARRIERS.forEach((c, i) => {
         const inStart = i * 0.15, arrive = inStart + 0.5, fallEnd = arrive + 0.2, gone = arrive + 0.35;
-        const drop = canvasPoint(c.cx, c.cy, W), land = canvasPoint(c.cx, c.landY, W);
+        const drop = canvasPoint(c.cx, c.cy, W), land = canvasPoint(c.landX, c.landY, W);
         const start = { x: c.side * 0.95 * W, y: drop.y + 0.25 * W }, bob = 0.02 * W * Math.sin(t * Math.PI * 6 + i);
         const started = u >= tm.carryStart && k > inStart;
         const a = easeOut(span(k, inStart, arrive)), l = easeIn(span(k, arrive, gone));

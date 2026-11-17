@@ -16,7 +16,5 @@ export class ResourceScope {
         catch (error) { return Promise.reject(error); }
         return this.owned.load(canonical) as Promise<T>;
     }
-    /** Whether an id is registered (optional art may not be delivered yet). */
-    public has(id: string): boolean { return this.loader.has(this.aliases[id] || id); }
     public release(): void { this.owned.release(); }
 }

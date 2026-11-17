@@ -119,3 +119,15 @@ test('old skeleton data is no longer used by the runtime', () => {
     const src = ['assets/scripts/app/HomeController.ts', 'assets/scripts/features/fx/BuildFx.ts'].map(f => fs.readFileSync(path.join(PROJECT, f), 'utf8')).join('\n');
     assert.ok(!/fx\.build'|build-fx|FxTimeline|hammer\.png|saw\.png/.test(src));
 });
+
+test('every picture the construction draws is registered (P2-8 delivered, no placeholders)', () => {
+    const registry = new Set(JSON.parse(fs.readFileSync(path.join(PROJECT, 'assets/resources/config/resource-registry.json'), 'utf8')).resources.map(r => r.id));
+    const src = fs.readFileSync(path.join(PROJECT, 'assets/scripts/features/fx/BuildFx.ts'), 'utf8');
+    const ids = [...src.matchAll(/'([^']+\.png)'/g)].map(m => m[1]);
+    for (const [, dir, name, n] of src.matchAll(/seq\('([^']+)', '([^']+)', (\d)\)/g)) for (let i = 1; i <= +n; i++) ids.push(`${dir}/${name}_0${i}.png`);
+    assert.ok(ids.length >= 25, `${ids.length} ids`);
+    for (const id of ids) assert.ok(registry.has(id), id);
+    assert.ok(!/bee_fly|Graphics/.test(src));
+    const carrier = JSON.parse(fs.readFileSync(path.join(PROJECT, 'docs/v2/美术交付清单.json'), 'utf8')).uiAssets.find(a => a.id === 'bee_carrier');
+    assert.deepEqual([...fx.CARRY], carrier.attach.carry);
+});

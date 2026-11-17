@@ -253,7 +253,7 @@ export class RewardFx {
         return root.getComponent(UITransform)!.convertToNodeSpaceAR(world);
     }
     private card(root: Node, kind: RewardKind, amount: number, k: number): Node {
-        const node = this.sprite(root, ART.card, CARD.width * k, CARD.height * k);
+        const node = this.sprite(root, ART.card, CARD.width * k, CARD.height * k, false);
         node.getComponent(Sprite)!.type = Sprite.Type.SLICED;
         const icon = this.sprite(node, ICON[kind], CARD.icon * k, CARD.icon * k);
         icon.setPosition(-CARD.width * k / 2 + 40 * k, 0, 0);
@@ -270,15 +270,22 @@ export class RewardFx {
         label.verticalAlign = Label.VerticalAlign.CENTER;
         return node;
     }
-    private sprite(parent: Node, assetId: string, w: number, h: number): Node {
+    /** fit: the picture keeps its proportions inside w × h (icons); otherwise it fills the box. */
+    private sprite(parent: Node, assetId: string, w: number, h: number, fit = true): Node {
         const node = new Node(assetId.slice(assetId.lastIndexOf('/') + 1));
         node.layer = parent.layer; node.parent = parent;
-        node.addComponent(UITransform).setContentSize(w, h);
+        const ui = node.addComponent(UITransform);
+        ui.setContentSize(w, h);
         node.addComponent(UIOpacity);
         const sprite = node.addComponent(Sprite);
         sprite.sizeMode = Sprite.SizeMode.CUSTOM;
         // A missing picture leaves an empty node; the show still ends on time.
-        this.frame(assetId).then(f => { if (sprite.isValid) sprite.spriteFrame = f; }, error => console.error(error));
+        this.frame(assetId).then(f => {
+            if (!sprite.isValid) return;
+            sprite.spriteFrame = f;
+            const r = f.originalSize.width / f.originalSize.height;
+            if (fit && r > 0) ui.setContentSize(Math.min(w, h * r), Math.min(h, w / r));
+        }, error => console.error(error));
         return node;
     }
 }

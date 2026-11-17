@@ -198,7 +198,19 @@ function endlessTools(layout) {
 }
 export function pageLayout(file) {
     const layout = JSON.parse(fs.readFileSync(path.join(LAYOUTS, file), 'utf8'));
-    return progressSlots(readable(LAYOUT_PATCH[layout.page]?.(layout) ?? layout));
+    return progressSlots(readable(iconAspect(LAYOUT_PATCH[layout.page]?.(layout) ?? layout)));
+}
+/**
+ * Icons redrawn in P2-8 changed canvas shape, while the layout rects were measured on the old
+ * pictures: they are fitted inside the rect at their own proportions, centred.
+ */
+function iconAspect(layout) {
+    return { ...layout, elements: layout.elements.map(e => {
+        const art = !e.slice && e.rect && /^UI\/图标\//.test(e.asset ?? '') && manifestByFile.get(e.asset), size = art?.batch === 'P2-8' && art.size;
+        if (!size) return e;
+        const [x, y, w, h] = e.rect, k = Math.min(w / size[0], h / size[1]), fw = size[0] * k, fh = size[1] * k;
+        return Math.abs(fw - w) < 0.5 && Math.abs(fh - h) < 0.5 ? e : { ...e, rect: [x + (w - fw) / 2, y + (h - fh) / 2, fw, fh] };
+    }) };
 }
 
 /**
