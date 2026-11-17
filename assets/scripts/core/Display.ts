@@ -2,7 +2,7 @@ import type { Reward } from './Rules';
 import type { DisplayEvent } from './State';
 
 /** Rewards shown (and confirmed) by the page where they are claimed or won, not by the home queue. */
-export const OWN_PAGE: ReadonlySet<DisplayEvent['type']> = new Set<DisplayEvent['type']>(['firstClear', 'replay', 'signIn', 'dailyTask', 'dailyChest', 'endlessStage', 'welcome']);
+export const OWN_PAGE: ReadonlySet<DisplayEvent['type']> = new Set<DisplayEvent['type']>(['firstClear', 'replay', 'signIn', 'dailyTask', 'dailyChest', 'endlessStage', 'welcome', 'league']);
 
 /**
  * What the home queue shows next, in queue order. 'recover': page rewards left over from an

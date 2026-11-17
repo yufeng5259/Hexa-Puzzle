@@ -22,6 +22,7 @@ import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
 import type { GuideCoach } from './GuideCoach';
 import { DailyPresenter } from './DailyPresenter';
+import type { LocalLeaderboardService } from '../core/LeaderboardService';
 
 const W = 853, H = 1844;
 
@@ -32,6 +33,8 @@ const W = 853, H = 1844;
 export class HomeController {
     public onPlay: (() => void) | null = null;
     public onEndless: (() => void) | null = null;
+    /** Bee league (set by GameBoot): a waiting settlement puts a red dot on the endless entry. */
+    public leaderboard: LocalLeaderboardService | null = null;
     /** S16 map selection (map name) and the replay list (Play after all levels are cleared). */
     public onMaps: (() => void) | null = null;
     public onReplay: (() => void) | null = null;
@@ -70,6 +73,8 @@ export class HomeController {
     /** instant: first page under the boot loading screen (no transition). */
     public async enter(viewMapId: string | null = null, instant = false): Promise<void> {
         this.viewMapId = viewMapId === this.game.state.maps.currentMapId ? null : viewMapId;
+        // Settles a finished league day / week so its red dot shows (writes only when needed).
+        try { this.leaderboard?.refresh(); } catch (error) { console.error(error); }
         // The transition stays closed until the map and building pictures are loaded.
         this.home = await this.nav.replacePage('S02', id => this.onHomeAction(id), { instant, prepare: () => this.ready() });
         this.listen(this.home);
@@ -177,7 +182,10 @@ export class HomeController {
             for (const id of ['home_btn_back', 'icon_back', 'back_text']) this.home.setVisible(id, !current);
             this.home.setVisible('build_reddot', current && this.canBuild());
         }
-        if (!this.build?.isValid) { this.home.setVisible('signin_reddot', this.daily.signInDot()); this.home.setVisible('task_reddot', this.daily.taskDot()); }
+        if (!this.build?.isValid) {
+            this.home.setVisible('signin_reddot', this.daily.signInDot()); this.home.setVisible('task_reddot', this.daily.taskDot());
+            if (this.home.has('endless_reddot')) this.home.setVisible('endless_reddot', endlessUnlocked(s, this.game.rules) && (this.leaderboard?.pendingCount ?? 0) > 0);
+        }
         if (!this.construction) for (const b of map.buildings) this.buildings.get(b.id)?.isValid && this.setFrame(this.buildings.get(b.id)!, b.assetIds[buildingLevel(s, map.id, b.id)]);
         if (this.build?.isValid) this.renderBuild();
         this.renderEnergy();

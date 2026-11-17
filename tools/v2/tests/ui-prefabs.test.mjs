@@ -24,7 +24,7 @@ const known = new Set();
 test('every layout page builds a prefab and regeneration is byte-stable', () => {
     const before = fs.readdirSync(OUT).filter(f => f.endsWith('.prefab')).map(f => fs.readFileSync(path.join(OUT, f), 'utf8'));
     const names = buildUi();
-    assert.equal(names.length, 29);
+    assert.equal(names.length, 32);
     const after = fs.readdirSync(OUT).filter(f => f.endsWith('.prefab')).map(f => fs.readFileSync(path.join(OUT, f), 'utf8'));
     assert.deepEqual(after, before);
 });
@@ -42,6 +42,15 @@ for (const file of fs.readdirSync(OUT).filter(f => f.endsWith('.prefab'))) {
         })(objects);
         assert.ok(refs.every(id => objects[id]), 'internal reference out of range');
         for (const uuid of external) assert.ok(known.has(uuid), `unknown asset ${uuid}`);
+        if (file === 'LeagueRow.prefab') {
+            // League list item: LeagueRowItem root with every label and picture bound, top-left anchored.
+            const item = objects.find(o => o.__type__ === scriptType('assets/scripts/features/ui/LeagueRowItem.ts'));
+            assert.equal(item.node.__id__, 1);
+            assert.deepEqual(objects[objects[1]._components[0].__id__]._anchorPoint, { __type__: 'cc.Vec2', x: 0, y: 1 });
+            for (const key of ['rankLabel', 'nameLabel', 'scoreLabel', 'initialLabel']) assert.equal(objects[item[key].__id__].__type__, 'cc.Label', key);
+            for (const key of ['avatarBg', 'avatarSprite', 'giftSprite', 'rowSprite']) assert.equal(objects[item[key].__id__].__type__, 'cc.Sprite', key);
+            return;
+        }
         if (file === 'ReplayRow.prefab') {
             // List item: VirtualListItem root, top-left anchored, whole row clickable.
             const item = objects.find(o => o.__type__ === scriptType('assets/scripts/framework/ui/VirtualListItem.ts'));
@@ -220,22 +229,36 @@ test('puzzle button row: S05 sits where S04 has it, inside the bottom band, belo
     }
 });
 
-test('S04/S05 win bar and ribbon: hidden parts of the page, the bar fully in the bottom band, buttons wired', () => {
+test('the puzzle win ends in the S06 dialog: no win bar on S04/S05, gold ribbon, both ways wired', () => {
     for (const page of ['S04', 'S05']) {
-        const objects = JSON.parse(fs.readFileSync(path.join(OUT, `${page}.prefab`), 'utf8'));
-        const view = objects.find(o => o.__type__ === VIEW), ids = [...view.nodeIds, ...view.labelIds];
-        for (const id of ['win_ribbon', 'win_ribbon_text', 'win_bar', 'win_line', 'win_home', 'win_home_text', 'win_next', 'win_next_text']) {
-            assert.ok(ids.includes(id), `${page}/${id}`);
-            const node = objects.find(o => o.__type__ === 'cc.Node' && o._name === id);
-            assert.equal(node._active, false, `${page}/${id} hidden`);
-            if (/^win_(bar|line|home|next)/.test(id)) {
-                const ui = objects[node._components[0].__id__], top = 1844 / 2 - (node._lpos.y + ui._contentSize.height * Math.abs(node._lscale.y) * (1 - ui._anchorPoint.y));
-                assert.ok(top >= 1590, `${page}/${id} in the bottom band`);
-            }
-        }
-        const actions = objects.filter(o => o.__type__ === 'cc.Button').flatMap(b => b.clickEvents.map(e => e.customEventData));
-        for (const id of ['win_home', 'win_next']) assert.ok(actions.includes(id), `${page}/${id}`);
+        const view = JSON.parse(fs.readFileSync(path.join(OUT, `${page}.prefab`), 'utf8')).find(o => o.__type__ === VIEW);
+        for (const id of ['win_ribbon', 'win_bar', 'win_home', 'win_next']) assert.ok(!view.nodeIds.includes(id), `${page}/${id} gone`);
     }
+    const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S06.prefab'), 'utf8')), view = objects.find(o => o.__type__ === VIEW);
+    assert.equal(view.dialog, true);
+    assert.ok(view.nodeIds.includes('ribbon_win_gold') && !view.nodeIds.includes('ribbon_title_blue'));
+    const actions = objects.filter(o => o.__type__ === 'cc.Button').flatMap(b => b.clickEvents.map(e => e.customEventData));
+    assert.deepEqual(actions.sort(), ['btn_green', 'btn_grey']);
+});
+
+test('league: S19 entry, S21 rank line, S26 page with list and tabs, S27 claim dialog', () => {
+    const load = name => JSON.parse(fs.readFileSync(path.join(OUT, `${name}.prefab`), 'utf8'));
+    const ids = objects => { const v = objects.find(o => o.__type__ === VIEW); return new Set([...v.nodeIds, ...v.labelIds]); };
+    const actions = objects => objects.filter(o => o.__type__ === 'cc.Button').flatMap(b => b.clickEvents.map(e => e.customEventData));
+    const s19 = load('S19');
+    for (const id of ['league_entry', 'league_icon', 'league_entry_rank', 'league_reddot']) assert.ok(ids(s19).has(id), id);
+    assert.ok(actions(s19).includes('league_entry'));
+    assert.ok(ids(load('S21')).has('league_rank'));
+    assert.ok(ids(load('S02')).has('endless_reddot'));
+    const s26 = load('S26');
+    for (const id of ['tab_daily', 'tab_weekly', 'tab_all', 'tier_name', 'stars_fill_green', 'countdown', 'podium_1_name', 'podium_3_score', 'LeagueList', 'me_rank', 'me_score', 'go_play']) assert.ok(ids(s26).has(id), id);
+    assert.deepEqual(actions(s26).sort(), ['go_play', 'help_button', 'home_button', 'tab_all', 'tab_daily', 'tab_weekly']);
+    const list = s26.find(o => o.__type__ === scriptType('assets/scripts/framework/ui/VirtualList.ts'));
+    assert.equal(s26[list.node.__id__]._name, 'LeagueList');
+    const s27 = load('S27');
+    assert.equal(s27.find(o => o.__type__ === VIEW).dialog, true);
+    for (const id of ['result_rank', 'gift', 'reward_text', 'stars_text', 'tier_text', 'claim_label']) assert.ok(ids(s27).has(id), id);
+    assert.deepEqual(actions(s27), ['claim']);
 });
 
 test('HomeController only touches element ids that exist on S02 / S03 / BuildAnchor', () => {

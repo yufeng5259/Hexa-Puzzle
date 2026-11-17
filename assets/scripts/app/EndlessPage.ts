@@ -13,6 +13,8 @@ import type { LayoutView } from '../features/ui/LayoutView';
 import type { Navigator } from './Navigator';
 import { RewardPresenter } from './RewardPresenter';
 import type { GuideCoach } from './GuideCoach';
+import type { LocalLeaderboardService } from '../core/LeaderboardService';
+import type { LeaguePage } from './LeaguePage';
 
 /** Shape colour index -> piece texture (the mainline catalog's hex art). */
 const COLORS = ['1_png', '6_png', '8_png', '9_png', '10_png', '3_png'].map(t => `hex.${t}`);
@@ -46,6 +48,8 @@ interface Drag { slot: number; node: Node; pointer: number; target: { q: number;
  */
 export class EndlessPage {
     public onHome: (() => void) | null = null;
+    /** S26 bee league (set by GameBoot): the S19 entry opens it; waiting settlements pop up on S19. */
+    public league: LeaguePage | null = null;
     private readonly scope: ResourceScope;
     private readonly rewards: RewardPresenter;
     private view: LayoutView | null = null;
@@ -72,7 +76,7 @@ export class EndlessPage {
     private finishing = false;
 
     public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader,
-        private readonly inputCamera: Camera | null, private readonly guide: GuideCoach) {
+        private readonly inputCamera: Camera | null, private readonly guide: GuideCoach, private readonly leaderboard: LocalLeaderboardService) {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.render(), false);
         this.fx = new EndlessFx(game.rules.anim, () => this.art);
@@ -91,7 +95,21 @@ export class EndlessPage {
         if (request !== this.request) return;
         this.attach(view, 'S19');
         this.render();
+        this.renderLeague(view);
+        if (this.leaderboard.pendingCount && this.league) {
+            this.league.closed = () => { if (this.view === view) this.renderLeague(view); };
+            void this.league.showSettlements();
+        }
     }
+    /** S19 league entry: today's rank under the button, a red dot while a settlement waits. */
+    private renderLeague(v: LayoutView): void {
+        if (!v.isValid || !v.has('league_entry')) return;
+        v.setVisible('league_reddot', this.leaderboard.pendingCount > 0);
+        this.league?.todayRank().then(rank => { if (v.isValid) v.setText('league_entry_rank', rank || '联赛'); }, error => console.error(error));
+    }
+
+    /** Straight into a game (S26 "去挑战"): continues the saved one or starts a free new one. */
+    public start(): Promise<void> { return this.play(); }
 
     public update(dt = 0): void {
         this.fx.update(dt);
@@ -160,6 +178,7 @@ export class EndlessPage {
         const stage = /^stage_(\d)_claim$/.exec(id);
         if (id === 'home_button') this.leave();
         else if (id === 'help_button') this.help();
+        else if (id === 'league_entry' && this.league) { this.request++; this.detach(); void this.league.open(); }
         else if (id === 'start_challenge') void this.play();
         else if (stage) this.claimStage(Number(stage[1]));
     }
@@ -370,7 +389,8 @@ export class EndlessPage {
     private place(slot: number, at: { q: number; r: number }): void {
         const g = this.state.game!, before = { board: { ...g.board }, tray: [...g.tray], score: g.score };
         let result;
-        try { result = this.game.act(s => placeShape(s, this.game.rules, this.game.day(), this.game.week(), slot, at.q, at.r)); }
+        // The league points of the move are saved with it (docs/v2/16 §7).
+        try { result = this.game.act(s => { const r = placeShape(s, this.game.rules, this.game.day(), this.game.week(), slot, at.q, at.r); this.leaderboard.recordPoints(s, r.score); return r; }); }
         catch (error) { this.render(); if (!(error instanceof RuleError)) this.rewards.failure(error); return; }
         const v = this.view, request = this.request;
         if (!v?.isValid) return;
@@ -538,6 +558,10 @@ export class EndlessPage {
             for (const id of ['weekly_delta', 'weekly_delta_label']) d.setVisible(id, summary.score > 0);
             d.setVisible('reward_notice', summary.score > 0 || summary.claimable);
             d.setText('reward_notice', summary.claimable ? '有阶段奖励可领取，请返回活动页' : '阶段奖励请返回活动页领取');
+            if (d.has('league_rank')) {
+                d.setText('league_rank', '');
+                this.league?.todayRank().then(rank => { if (d.isValid && rank) d.setText('league_rank', `今日联赛 ${rank}`); }, error => console.error(error));
+            }
             const badge = ['record_badge', 'record_badge_label'].filter(id => d.has(id)).map(id => d.element(id));
             for (const n of badge) n.active = false;
             d.node.on(Node.EventType.TOUCH_END, skip);

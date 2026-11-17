@@ -152,7 +152,7 @@ export function defaultRules(): Rules {
             progressSeconds: 0.25, cardSeconds: 0.24, cardStaggerSeconds: 0.08, scatterSeconds: 0.12, flySeconds: 0.55, pulseSeconds: 0.16,
             skipAfterSeconds: 0.3, rewardTimeoutSeconds: 3, chestShakeSeconds: 0.24, chestOpenSeconds: 0.18, coinParticlesMax: 12,
             winHoldSeconds: 0.15, winWaveSeconds: 0.6, winFlashSeconds: 0.1,
-            winCelebrateAt: 0.6, winCelebrateSeconds: 0.6, winCoinsAt: 1.2, winBarAt: 1.9, winBarSeconds: 0.25, winConfettiCount: 40, resultEnterSeconds: 0.18, failSeconds: 0.18, boardFadeSeconds: 0.18, firstWinLimitSeconds: 2.2,
+            winCelebrateAt: 0.6, winCelebrateSeconds: 0.6, winCoinsAt: 1.2, winBarAt: 1.4, winBarSeconds: 0.25, winConfettiCount: 40, resultEnterSeconds: 0.18, failSeconds: 0.18, boardFadeSeconds: 0.18, firstWinLimitSeconds: 2.2,
             endlessSettleSeconds: 0.1, endlessHighlightSeconds: 0.12, endlessClearSeconds: 0.22, endlessScoreSeconds: 0.3, endlessRefillSeconds: 0.18,
             endlessDimSeconds: 0.18, scoreRollSeconds: 0.45, recordSeconds: 0.3,
             endlessSwapOutSeconds: 0.12, endlessSwapInSeconds: 0.2, endlessHammerSeconds: 0.15, endlessShatterSeconds: 0.2,

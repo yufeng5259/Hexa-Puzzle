@@ -4,7 +4,10 @@ import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { Game } from '../core/Game';
 import { abandonAttempt, completeAttempt, mainlineFinished, recordPlacement, saveBoard, startAttempt, startCost, useHint, winEventId } from '../core/Mainline';
 import { mainlineLevel, RuleError } from '../core/Rules';
-import { winCopy } from '../core/Display';
+import { winCopy, type WinCopy } from '../core/Display';
+import { upgradeCost } from '../core/Progress';
+import type { Reward } from '../core/Rules';
+import type { DisplayEvent } from '../core/State';
 import { BoardFx } from '../features/fx/BoardFx';
 import type { Attempt } from '../core/State';
 import { LevelCatalog, type LevelDefinition } from '../features/puzzle/data/LevelCatalog';
@@ -20,11 +23,10 @@ import type { HexCell } from '../features/puzzle/data/LevelDefinition';
 
 const LOW_STEPS = 3;
 const BUTTON_ART: Record<string, string> = { undo_button: 'blue', replay_button: 'purple', hint_button: 'teal' };
-/** Win bar elements (tools/v2/build-ui.mjs winBar) and the button row it replaces. */
-const WIN_BAR = ['win_bar', 'win_line', 'win_home', 'win_home_text', 'win_next', 'win_next_text'];
-const PUZZLE_ROW = ['undo_button', 'undo_icon', 'undo_text', 'replay_button', 'replay_icon', 'replay_text', 'hint_button', 'hint_icon', 'hint_text', 'puzzle_badge_count', 'hint_count'];
-/** The bar starts this far (design units) below its place. */
-const WIN_BAR_DROP = 300;
+/** The win dialog's own reward elements are used once its pop-in (LayoutView.popIn) has settled. */
+const POP_IN_MS = 200;
+/** Win dialog buttons (S06) → win actions. */
+const WIN_BUTTON: Record<string, 'win_next' | 'win_home'> = { btn_green: 'win_next', btn_grey: 'win_home' };
 
 /**
  * S04 normal / S05 move-limited puzzle and its dialogs S06–S09, S12. The attempt
@@ -51,9 +53,9 @@ export class PuzzlePage {
     /** The running teaching drag and the GuideSteps row it belongs to. */
     private teaching: { rowId: string; lesson: Lesson } | null = null;
     private suspended = false;
-    /** Win bar of the finished board: its nodes (base position once shown), whether its buttons work, the outcome, the tap catcher. */
-    private barNodes: { node: Node; base: Vec3 | null }[] = [];
-    private barReady = false;
+    /** Win dialog of the finished board (S06): opened once, its buttons work once ready; the outcome; the tap catcher. */
+    private popupOpened = false;
+    private popupReady = false;
     private winKind: 'firstClear' | 'replay' | 'duplicate' | null = null;
     private catcher: Node | null = null;
     private request = 0;
@@ -177,7 +179,9 @@ export class PuzzlePage {
         this.boardFx = null;
         this.finishing = false;
         if (this.catcher?.isValid) this.catcher.destroy();
-        this.catcher = null; this.barNodes = []; this.barReady = false; this.winKind = null;
+        this.catcher = null; this.winKind = null;
+        if (this.popupOpened && this.popupReady) this.nav.closeDialog();
+        this.popupOpened = false; this.popupReady = false;
         this.view = this.board = this.controller = this.session = this.level = null;
     }
 
@@ -309,10 +313,9 @@ export class PuzzlePage {
         const session = this.session;
         if (this.nav.dialogOpen || !session || this.finishing) return;
         if (this.lesson() && !this.guide.allows('puzzle', id)) return; // forced first drag: no way around it
-        // A finished board: the win bar, or (failure dialog closed by a blocked retry) only home.
+        // A finished board: its win dialog decides; (failure dialog closed by a blocked retry) only home.
         if (session.snapshot.status !== 'active') {
-            if (id === 'win_next' || id === 'win_home') this.onWinAction(id);
-            else if (id === 'hud_btn_square_blue' && (!this.guide.active || this.barReady)) this.goHome();
+            if (id === 'hud_btn_square_blue' && !this.guide.active && !this.popupOpened) this.goHome();
             return;
         }
         switch (id) {
@@ -374,11 +377,12 @@ export class PuzzlePage {
 
 
     /**
-     * Win (docs/v2/10 §4.1): saved first; the board celebrates on its own timeline (punch, flash,
-     * rims and shine, ribbon, confetti, fireworks, bee), the reward this commit actually paid (read
-     * from the display queue by its event id) flies to the HUD on cue and the bottom bar slides in;
-     * no dialog. A tap after skipAfter (not on the first guided win) jumps to the bar. A repeated
-     * outcome does not celebrate: the bar comes in at once. The event is confirmed when its show ends.
+     * Win (docs/v2/16 §9.4, decided 2026-11-17): saved first; the board celebrates on its own timeline
+     * (punch, flash, rims and shine, confetti, fireworks, bee; no ribbon over the board), then at the
+     * bar cue the centred result dialog S06 pops up over a dim: gold ribbon with the outcome, the level,
+     * the reward this commit actually paid (read from the display queue by its event id), which flies
+     * from the dialog to the HUD, and the two ways on. A tap after skipAfter (not on the first guided
+     * win) jumps to the dialog. A repeated outcome does not celebrate: the dialog comes at once.
      */
     private async win(): Promise<void> {
         const session = this.session!, levelNo = this.levelNo, rules = this.game.rules, request = this.request, view = this.view!;
@@ -389,62 +393,59 @@ export class PuzzlePage {
         catch (error) { this.finishing = false; this.rewards.failure(error, () => void this.win()); return; }
         const id = kind === 'duplicate' ? null : winEventId(kind, levelNo, session.attemptId);
         const event = id ? this.game.displays.find(e => e.id === id) ?? null : null;
-        const prize = event?.reward ?? null, guided = this.guide.active;
+        const guided = this.guide.active;
         this.winKind = kind;
-        const copy = winCopy(kind, levelNo, mainlineLevel(rules, levelNo).kind === 'challenge', prize);
-        this.prepareBar(view, kind, copy.line, guided);
-        const fx = this.boardFx;
-        if (!copy.banner || !fx) { this.slideBar(view, 0, guided); return; }
-        view.setText('win_ribbon_text', copy.banner);
+        const copy = winCopy(kind, levelNo, mainlineLevel(rules, levelNo).kind === 'challenge', event?.reward ?? null);
+        const fx = this.boardFx, popup = () => { if (request === this.request) this.openPopup(copy, event, guided); };
+        if (!copy.banner || !fx) { popup(); return; }
         // Full-screen catcher above the page: nothing below acts meanwhile; a tap fast-forwards.
         const skip = () => { if (!guided && fx.elapsed >= rules.anim.skipAfterSeconds) fx.stop(); };
         this.catcher = this.cover(view, skip);
-        // The first guided win plays once in full, but its buttons never wait longer than this.
+        // The first guided win plays once in full, but its dialog never waits longer than this.
         const guard = guided ? setTimeout(() => fx.stop(), rules.anim.firstWinLimitSeconds * 1000) : null;
-        await fx.win(session.snapshot, {
-            ribbon: [view.element('win_ribbon'), view.element('win_ribbon_text')],
-            coins: prize && event ? (from, late) => {
-                if (request !== this.request) return;
-                const ids = [event.id];
-                this.rewards.collect(prize, ids, { owner: view.node, from, sources: { coins: from }, skippable: !guided, onTap: skip })
-                    .catch(error => console.error(error));
-                if (late) this.nav.fx.settle();
-            } : null,
-            bar: offset => { if (request === this.request) this.slideBar(view, offset, guided); },
-        });
+        await fx.win(session.snapshot, { ribbon: [], coins: null, bar: popup });
         if (guard) clearTimeout(guard);
     }
 
-    /** Bar texts and buttons for this outcome; the bar stays hidden until it slides in. */
-    private prepareBar(view: LayoutView, kind: 'firstClear' | 'replay' | 'duplicate', line: string, guided: boolean): void {
-        const finished = mainlineFinished(this.game.state, this.game.rules);
-        view.setText('win_line', line);
-        view.setText('win_next_text', kind === 'replay' ? '继续复玩' : finished ? '主线完成' : '下一关');
-        this.barNodes = WIN_BAR.filter(id => !guided || !id.startsWith('win_next')).map(id => ({ node: view.element(id), base: null }));
-    }
-    /**
-     * Bottom bar slide: offset 1 hidden below the screen → 0 in place. The button row it covers hides
-     * when it starts; at 0 the buttons work (and the first guided win points at "回家建造").
-     */
-    private slideBar(view: LayoutView, offset: number, guided: boolean): void {
-        if (!view.isValid || this.barReady) return;
-        const drop = WIN_BAR_DROP * view.node.getComponent(UITransform)!.height / 1844;
-        for (const b of this.barNodes) {
-            if (!b.node.isValid) continue;
-            if (!b.base) { b.base = b.node.position.clone(); b.node.active = true; }
-            b.node.setPosition(b.base.x, b.base.y - drop * offset, b.base.z);
-        }
-        for (const id of PUZZLE_ROW) if (view.has(id)) view.setVisible(id, false);
-        if (offset > 0) return;
-        this.barReady = true;
-        this.catcher?.destroy();
+    /** S06 result dialog (once per win). Its buttons work after the pop-in; the paid reward then flies to the HUD. */
+    private openPopup(copy: WinCopy, event: DisplayEvent | null, guided: boolean): void {
+        if (this.popupOpened) return;
+        this.popupOpened = true;
+        if (this.catcher?.isValid) this.catcher.destroy();
         this.catcher = null;
-        this.finishing = false;
-        if (guided) this.guide.point(view.element('win_home'), 'home');
+        const request = this.request, s = this.game.state, rules = this.game.rules, prize: Reward | null = event?.reward ?? null;
+        const finished = mainlineFinished(s, rules), kind = this.winKind;
+        const mapId = s.maps.currentMapId, canBuild = rules.maps.find(m => m.id === mapId)!.buildings
+            .some(b => { const cost = upgradeCost(s, rules, mapId, b.id); return cost !== null && s.wallet.coins >= cost; });
+        void this.nav.showDialog('S06', action => { const id = WIN_BUTTON[action]; if (id) this.onWinAction(id); }, v => {
+            v.setText('title', copy.banner ?? '已完成');
+            v.setText('first_clear', copy.line);
+            const coins = prize?.coins ?? 0;
+            for (const part of ['panel_inner', 'icon_coin', 'reward_coin']) v.setVisible(part, coins > 0);
+            v.setText('reward_coin', `+${coins}`);
+            v.setText('reward_status', !event ? '本关奖励已发放' : coins > 0 ? '金币已到账' : '奖励已到账');
+            v.setText('build_suggestion', canBuild ? '金币充足，可以回家建造' : '');
+            v.setText('next', kind === 'replay' ? '继续复玩' : finished ? '主线完成' : '下一关');
+            v.setText('return_build', '回家建造');
+            // The first guided win only goes home.
+            v.setVisible('btn_green', !guided); v.setVisible('next', !guided);
+        }).then(v => setTimeout(() => {
+            if (request !== this.request || !v.isValid) return;
+            this.popupReady = true;
+            this.finishing = false;
+            if (guided) this.guide.point(v.element('btn_grey'), 'home');
+            if (prize && event) {
+                const from = v.element('icon_coin');
+                void this.rewards.collect(prize, [event.id], { owner: v.node, from, sources: { coins: from }, skippable: !guided }).catch(error => console.error(error));
+            }
+        }, POP_IN_MS), error => { this.popupOpened = false; this.finishing = false; this.rewards.failure(error); });
     }
-    /** Win bar buttons; the first tap decides, a second one in the same frame never routes again. */
-    private onWinAction(id: string): void {
-        if (!this.barReady || this.guide.active && !this.guide.allows('result', id)) return;
+    /** Win dialog buttons; the first tap decides, a second one in the same frame never routes again. */
+    private onWinAction(id: 'win_next' | 'win_home'): void {
+        if (!this.popupReady || this.guide.active && !this.guide.allows('result', id)) return;
+        this.popupReady = false;
+        this.popupOpened = false;
+        this.nav.closeDialog();
         const finished = mainlineFinished(this.game.state, this.game.rules);
         if (id === 'win_next' && this.winKind === 'replay') { this.request++; this.leave(); this.onReplayList?.(); }
         else if (id === 'win_next' && !finished) void this.play(this.game.state.mainline.nextLevelNo);

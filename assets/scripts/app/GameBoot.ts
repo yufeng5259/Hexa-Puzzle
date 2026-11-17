@@ -18,6 +18,8 @@ import { GuideCoach } from './GuideCoach';
 import { EndlessPage } from './EndlessPage';
 import { MapPage } from './MapPage';
 import { Transition } from './Transition';
+import { LocalLeaderboardService } from '../core/LeaderboardService';
+import { LeaguePage } from './LeaguePage';
 
 const { ccclass, property } = _decorator;
 const TYPES: Record<string, RegisteredResource['type']> = { SpriteFrame, Prefab, JsonAsset };
@@ -45,6 +47,7 @@ export class GameBoot extends Component {
     public home: HomeController | null = null;
     public puzzle: PuzzlePage | null = null;
     public endless: EndlessPage | null = null;
+    public league: LeaguePage | null = null;
     private guide: GuideCoach | null = null;
     private transition: Transition | null = null;
     private curtains: SideCurtains | null = null;
@@ -114,7 +117,7 @@ export class GameBoot extends Component {
         this.transition?.update(dt);
         this.nav?.update(dt);
         this.curtains?.update();
-        this.guide?.update(dt); this.home?.update(dt); this.puzzle?.update(dt); this.endless?.update(dt);
+        this.guide?.update(dt); this.home?.update(dt); this.puzzle?.update(dt); this.endless?.update(dt); this.league?.update();
     }
 
     private async boot(): Promise<void> {
@@ -141,7 +144,13 @@ export class GameBoot extends Component {
             const home = this.home = new HomeController(game, this.nav, loader, guide, camera);
             home.mapBounds = bounds.maps;
             const puzzle = this.puzzle = new PuzzlePage(game, this.nav, loader, camera, guide);
-            const endless = this.endless = new EndlessPage(game, this.nav, loader, camera, guide);
+            const leaderboard = new LocalLeaderboardService(game);
+            const endless = this.endless = new EndlessPage(game, this.nav, loader, camera, guide, leaderboard);
+            const league = this.league = new LeaguePage(game, this.nav, leaderboard);
+            endless.league = league;
+            home.leaderboard = leaderboard;
+            league.onBack = () => void endless.open();
+            league.onPlay = () => void endless.start();
             home.onEndless = puzzle.onEndless = () => void endless.open();
             endless.onHome = () => void home.enter();
             const maps = new MapPage(game, this.nav, { home: mapId => void home.enter(mapId), replay: levelNo => void puzzle.play(levelNo) });

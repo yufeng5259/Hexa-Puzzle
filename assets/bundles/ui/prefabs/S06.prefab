@@ -379,7 +379,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ribbon_title_blue",
+    "_name": "ribbon_win_gold",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -400,8 +400,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -0.49941451990633823,
-      "y": 392.9261672095548,
+      "x": -0.4994145199062814,
+      "y": 397.93159609120517,
       "z": 0
     },
     "_lrot": {
@@ -413,8 +413,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 0.5541724833255778,
+      "y": 0.5541724833255778,
       "z": 1
     },
     "_mobility": 0,
@@ -441,8 +441,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 546.3594847775175,
-      "height": 145.15743756786102
+      "width": 1057.9966779504698,
+      "height": 280
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -475,7 +475,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "4a1e846a-652c-5195-a772-c850540e311a@f9941",
+      "__uuid__": "80b2447c-0c0e-5aae-a8a6-bf6f0876266f@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 1,
@@ -592,10 +592,10 @@
     "_string": "通关成功",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 43,
-    "_fontSize": 43,
+    "_actualFontSize": 56,
+    "_fontSize": 56,
     "_fontFamily": "Microsoft YaHei",
-    "_lineHeight": 52,
+    "_lineHeight": 67,
     "_overflow": 2,
     "_enableWrapText": false,
     "_font": null,
@@ -606,15 +606,15 @@
     "_isUnderline": false,
     "_underlineHeight": 0,
     "_cacheMode": 0,
-    "_enableOutline": false,
+    "_enableOutline": true,
     "_outlineColor": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 138,
+      "g": 75,
+      "b": 8,
       "a": 255
     },
-    "_outlineWidth": 0,
+    "_outlineWidth": 5,
     "_enableShadow": false,
     "_shadowColor": {
       "__type__": "cc.Color",
@@ -2222,7 +2222,7 @@
     "nodeIds": [
       "mask_black",
       "panel_dialog",
-      "ribbon_title_blue",
+      "ribbon_win_gold",
       "title",
       "first_clear",
       "panel_inner",

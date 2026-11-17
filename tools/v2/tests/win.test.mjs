@@ -56,7 +56,7 @@ test('board finish timings come from config', () => {
 // Win celebration timeline (docs/v2/10 §4.1).
 test('win marks follow the configured stages: celebrate, coins, then the bar; the effect outlasts the bar slide', () => {
     const m = W.winMarks(t);
-    assert.deepEqual([t.winHoldSeconds, t.winFlashSeconds, t.winCelebrateAt, t.winCoinsAt, t.winBarAt], [0.15, 0.1, 0.6, 1.2, 1.9]);
+    assert.deepEqual([t.winHoldSeconds, t.winFlashSeconds, t.winCelebrateAt, t.winCoinsAt, t.winBarAt], [0.15, 0.1, 0.6, 1.2, 1.4]);
     assert.ok(t.winHoldSeconds < m.celebrate && m.celebrate < m.coins && m.coins < m.bar && m.bar < m.barDone && m.barDone <= m.end);
     assert.equal(t.winConfettiCount, 40);
 });

@@ -18,16 +18,17 @@ const EDGE_PIN = scriptType('assets/scripts/features/ui/EdgePin.ts');
 const BUTTONS = {
     S02: ['hud_btn_square_purple', 'hud_energy', 'hud_level_badge', 'map_name', 'signin_entry', 'task_entry', 'endless_entry', 'home_play_btn', 'home_btn_back', 'home_btn_build'],
     S03: ['hud_btn_square_purple', 'hud_energy', 'home_btn_home', 'icon_gift'],
-    S04: ['hud_btn_square_blue', 'hud_btn_square_blue_2', 'undo_button', 'replay_button', 'hint_button', 'win_next', 'win_home'],
-    S05: ['hud_btn_square_blue', 'hud_btn_square_blue_2', 'undo_button', 'replay_button', 'hint_button', 'win_next', 'win_home'],
+    S04: ['hud_btn_square_blue', 'hud_btn_square_blue_2', 'undo_button', 'replay_button', 'hint_button'],
+    S05: ['hud_btn_square_blue', 'hud_btn_square_blue_2', 'undo_button', 'replay_button', 'hint_button'],
     S06: ['btn_green', 'btn_grey'], S07: ['retry', 'home'], S08: ['btn_close_dialog', 'save_home', 'continue', 'abandon'],
     S09: ['btn_close_dialog', 'restart', 'continue'], S10: ['btn_close_dialog', 'go_endless', 'return'],
     S11: ['btn_close_dialog', 'play', 'later'], S12: ['btn_close_dialog', 'continue'], S13: ['confirm'],
     S15: ['claim_next', 'stay'], S16: ['hud_btn_square_blue', 'hud_btn_square_purple', 'hud_energy', 'return_home'],
     S17: ['btn_close', 'btn_green'], S18: ['btn_close', 'task_1_action', 'task_2_action', 'task_3_action', 'completion_claim'],
-    S19: ['home_button', 'help_button', 'stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim', 'start_challenge'],
+    S19: ['home_button', 'help_button', 'league_entry', 'stage_0_claim', 'stage_1_claim', 'stage_2_claim', 'stage_3_claim', 'start_challenge'],
     S20: ['hud_btn_square_blue', 'settings_button', 'tool_swap', 'tool_hammer', 'end_rescue'], S21: ['retry', 'return_event'], S22: ['btn_close_dialog', 'save_leave', 'continue', 'end_game'],
     S23: ['btn_close_dialog', 'music_toggle_track', 'sound_toggle_track', 'vibration_toggle_track', 'done'], S24: ['retry_save', 'continue'], S25: ['claim_continue'],
+    S26: ['home_button', 'help_button', 'tab_daily', 'tab_weekly', 'tab_all', 'go_play'], S27: ['claim'],
 };
 /** Same element as drawn on another stage row, moved onto row i (S19 draws each row in one state only). */
 const onRow = (layout, id, newId, from, to) => {
@@ -139,27 +140,20 @@ function puzzleRow(layout) {
     return { ...layout, elements: layout.elements.map(e => PUZZLE_ROW.test(e.id) ? { ...e, rect: [e.rect[0], e.rect[1] + S05_ROW_SHIFT, e.rect[2], e.rect[3]] } : e) };
 }
 /**
- * Puzzle win (docs/v2/10 §4.1, decided 2026-11-16): no result dialog. A gold ribbon pops above the
- * finished shape (placed by PuzzlePage) and a bar slides into the bottom band over the button row:
- * one line (level, reward status), the secondary "回家建造" and the primary button. All hidden until
- * the win; the whole bar lies in the bottom band so it grows and hugs the safe bottom as one block.
+ * Puzzle win dialog (docs/v2/16 §9.4, decided 2026-11-17): the bottom win bar of 10 §4.1 is gone; the
+ * win ends in the centred S06 dialog. It gets the gold win ribbon instead of the blue title ribbon
+ * and, once delivered (P2-12), the decoration above the panel.
  */
-export const WIN_BAR = { top: 1594, height: 236, side: 20, button: { y: 1680, width: 370, height: 110, side: 40 } };
-function winBar(layout) {
-    const W = layout.size[0], { top, height, side, button: bt } = WIN_BAR;
-    const text = { type: 'label', bold: true, align: 'center', verticalAlign: 'center', hidden: true };
-    const btn = (id, asset, x, label, outline) => [
-        { id, asset, slice: true, rect: [x, bt.y, bt.width, bt.height], hidden: true },
-        { ...text, id: `${id}_text`, text: label, rect: [x, bt.y + 4, bt.width, bt.height - 16], fontSize: 42, color: '#FFFFFF', outlineColor: outline, outlineWidth: 4 },
-    ];
-    return [
-        { id: 'win_ribbon', asset: 'UI/通用/ribbon_win_gold.png', slice: true, rect: [(W - 600) / 2, 300, 600, 140], hidden: true },
-        { ...text, id: 'win_ribbon_text', text: '通关！', rect: [(W - 360) / 2, 316, 360, 84], fontSize: 60, color: '#FFFFFF', outlineColor: '#8A4B08', outlineWidth: 5 },
-        { id: 'win_bar', asset: 'UI/通用/panel_inner.png', slice: true, rect: [side, top, W - 2 * side, height], hidden: true },
-        { ...text, id: 'win_line', text: '第1关 · 奖励已到账', rect: [side + 20, top + 14, W - 2 * side - 40, 60], fontSize: 36, color: '#6B3F12' },
-        ...btn('win_home', 'UI/通用/btn_grey_normal.png', bt.side, '回家建造', '#4A4F5C'),
-        ...btn('win_next', 'UI/通用/btn_green_normal.png', W - bt.side - bt.width, '下一关', '#2E6B12'),
-    ];
+const WIN_HEADER = 'UI/通用/win_panel_header.png';
+function winDialog(layout) {
+    const ribbon = layout.elements.find(e => e.id === 'ribbon_title_blue'), panel = layout.elements.find(e => e.id === 'panel_dialog');
+    const header = frameBySource.has(WIN_HEADER) ? [{ id: 'win_panel_header', asset: WIN_HEADER, rect: [panel.rect[0] + (panel.rect[2] - 560) / 2, panel.rect[1] - 160, 560, 180] }] : [];
+    const elements = layout.elements.flatMap(e => {
+        if (e.id === 'ribbon_title_blue') return [...header, { ...e, id: 'ribbon_win_gold', asset: 'UI/通用/ribbon_win_gold.png', slice: true, rect: [ribbon.rect[0] - 20, ribbon.rect[1] - 10, ribbon.rect[2] + 40, ribbon.rect[3] + 10] }];
+        if (e.id === 'title') return [{ ...e, fontSize: 56, color: '#FFFFFF', bold: true, outlineColor: '#8A4B08', outlineWidth: 5 }];
+        return [e];
+    });
+    return { ...layout, elements };
 }
 /** Page-level layout changes decided after the reference art; applied before building and pinning. */
 const LAYOUT_PATCH = {
@@ -170,6 +164,7 @@ const LAYOUT_PATCH = {
     // Home and back both left the activity: one home button, as on S20.
     S19: layout => ({ ...layout, elements: layout.elements.filter(e => e.id !== 'back_button' && e.id !== 'icon_back') }),
     S20: endlessTools,
+    S06: winDialog,
 };
 /**
  * S20 tools (P5, docs/v2/09 §7.2, decided 2026-11-16): "换一手" bottom-left and "单格锤" bottom-right
@@ -257,16 +252,17 @@ const EXTRAS = {
     S02: () => [
         { id: 'signin_reddot', asset: 'UI/通用/reddot.png', rect: [124, 180, 34, 34], hidden: true },
         { id: 'task_reddot', asset: 'UI/通用/reddot.png', rect: [124, 349, 34, 34], hidden: true },
+        { id: 'endless_reddot', asset: 'UI/通用/reddot.png', rect: [796, 180, 34, 34], hidden: true },
     ],
     // Every stage row gets all three states: claimed/locked tag with mark, or the claim button.
     S19: layout => [
+        ...leagueEntry(),
         ...[0, 2, 3].flatMap(i => [onRow(layout, 'stage_1_claim', `stage_${i}_claim`, 1, i), onRow(layout, 'stage_1_claim_label', `stage_${i}_claim_label`, 1, i)]),
         onRow(layout, 'stage_2_status', 'stage_1_status', 2, 1), onRow(layout, 'mark_lock', 'stage_1_mark', 2, 1), onRow(layout, 'stage_2_status_text', 'stage_1_status_text', 2, 1),
     ],
-    S04: winBar,
-    S05: winBar,
     // "新纪录" badge beside the score (docs/v2/09 §8), reusing the map tag; only a strict new record pops it.
     S21: () => [
+        { id: 'league_rank', type: 'label', text: '', rect: [150, 1130, 554, 50], fontSize: 30, color: '#B25A12', bold: true, align: 'center', verticalAlign: 'center' },
         { id: 'record_badge', asset: 'UI/地图选择/map_tag_current.png', rect: [568, 700, 174, 54], hidden: true },
         { id: 'record_badge_label', type: 'label', text: '新纪录', rect: [568, 700, 174, 54], fontSize: 32, color: '#FFFFFF', bold: true, align: 'center', verticalAlign: 'center', outlineColor: '#A2530B', outlineWidth: 3, hidden: true },
     ],
@@ -278,6 +274,7 @@ const MOUNTS = [
     { name: 'MapMount', test: e => e.buildingId !== undefined || e.id === 'map_background', fullScreen: true },
     { name: 'BoardMount', test: e => /^board_cell_\d+$/.test(e.id) },
     { name: 'TrayMount', test: e => /^tray_\d+_cell_\d+$/.test(e.id) },
+    { name: 'LeagueList', test: (e, page) => page === 'S26' && e.id === 'league_list' },
 ];
 
 /**
@@ -369,8 +366,9 @@ function addLabel(b, node, e) {
     return id;
 }
 
-function buildPage(file) {
-    const layout = pageLayout(file), page = layout.page;
+function buildPage(file) { return buildLayout(pageLayout(file)); }
+function buildLayout(layout) {
+    const page = layout.page;
     const b = new Builder(page, DESIGN), buttons = new Set([...(BUTTONS[page] ?? []), ...layout.elements.filter(e => e.action).map(e => e.id)]);
     // Extras (red dots) are pinned with the entry they sit on.
     const elements = [...layout.elements, ...(EXTRAS[page]?.(layout) ?? [])];
@@ -411,6 +409,7 @@ function buildPage(file) {
     b.component(b.root, VIEW, { pageId: page, nodes, nodeIds, labels, labelIds, dialog: isDialog(layout) });
     if (PUZZLE_PAGES.has(page)) puzzleRig(b, layout, mounts.get('BoardMount').id, mounts.get('TrayMount').id);
     if (page === 'S16') listRig(b, layout, mounts.get('MapList').id);
+    if (page === 'S26') leagueListRig(b, mounts.get('LeagueList').id);
     if (page === 'S20') {
         // Endless tray fills its frame (inset 24); the sample cells only mark its middle.
         const frameRect = layout.elements.find(e => e.id === 'puzzle_tray_frame').rect, inset = 24, id = mounts.get('TrayMount').id;
@@ -576,6 +575,142 @@ function buildHelpDialog() {
     return { name: 'HelpDialog', objects: b.finish() };
 }
 
+// ---- Bee league (docs/v2/16 §9) ------------------------------------------------------------
+
+/**
+ * Pictures of the league (P2-12, docs/v2/17). Until delivered the pages use these stand-ins:
+ * tabs and podium bases from the common capsule/panel art, chests for the gifts.
+ */
+export const LEAGUE_ART = {
+    entry: 'UI/图标/icon_leaderboard.png', entryStandIn: 'UI/图标/icon_gift.png',
+    tab: 'UI/排行榜/tab_normal.png', tabOn: 'UI/排行榜/tab_selected.png', tabStandIn: 'UI/通用/btn_blue_normal.png', tabOnStandIn: 'UI/通用/btn_green_normal.png',
+    row: 'UI/排行榜/rank_row_normal.png', rowSelf: 'UI/排行榜/rank_row_self.png', rowStandIn: 'UI/任务/task_row_normal.png', rowSelfStandIn: 'UI/任务/task_row_done.png',
+    avatarBg: 'UI/排行榜/avatar_bg.png', avatarBgStandIn: 'UI/通用/panel_inner.png',
+    podium: i => `UI/排行榜/podium_${i}.png`, podiumStandIn: 'UI/通用/panel_inner.png',
+    badge: i => `UI/排行榜/league_badge_${i}.png`, badgeStandIn: 'UI/HUD/hud_level_badge.png',
+    gift: 'UI/图标/icon_chest_closed.png',
+};
+const art = (file, standIn) => frameBySource.has(file) ? file : standIn;
+/** S19: league button left of help, today's rank under it, a red dot while a settlement waits. */
+function leagueEntry() {
+    const x = 600, y = 37;
+    return [
+        { id: 'league_entry', asset: 'UI/HUD/hud_btn_square_blue_normal.png', rect: [x, y, 110, 97] },
+        { id: 'league_icon', asset: art(LEAGUE_ART.entry, LEAGUE_ART.entryStandIn), rect: [x + 22, y + 12, 66, 66] },
+        { id: 'league_entry_rank', type: 'label', text: '联赛', rect: [x - 20, y + 98, 150, 40], fontSize: 30, color: '#FFFFFF', bold: true, align: 'center', verticalAlign: 'center', outlineColor: '#1F3F8C', outlineWidth: 3 },
+        { id: 'league_reddot', asset: 'UI/通用/reddot.png', rect: [x + 84, y - 6, 34, 34], hidden: true },
+    ];
+}
+const LEAGUE_W = 853, LEAGUE_H = 1844;
+export const LEAGUE_ROW = { width: 793, height: 110, spacing: 10 };
+export const LEAGUE_LIST = [30, 830, 793, 690];
+const label = (id, text, rect, fontSize, color, extra = {}) => ({ id, type: 'label', text, rect, fontSize, color, align: 'center', verticalAlign: 'center', ...extra });
+const white = { color: '#FFFFFF', bold: true, outlineColor: '#1F3F8C', outlineWidth: 3 };
+/** Avatar group: tinted square, the animal picture (hidden until art), its initial as a stand-in. */
+const avatar = (id, x, y, s) => [
+    { id: `${id}_bg`, asset: art(LEAGUE_ART.avatarBg, LEAGUE_ART.avatarBgStandIn), slice: !frameBySource.has(LEAGUE_ART.avatarBg), rect: [x, y, s, s] },
+    { id: `${id}_avatar`, asset: 'UI/图标/icon_coin.png', rect: [x + 4, y + 4, s - 8, s - 8], hidden: true },
+    label(`${id}_initial`, '', [x, y, s, s], Math.round(s * 0.42), '#FFFFFF', { bold: true, outlineColor: '#5B3A16', outlineWidth: 3 }),
+];
+/** S26 bee league page: header, three tabs, tier and countdown, podium, ranking list, the pinned own row. */
+function leagueLayout() {
+    const tabs = [['tab_daily', '每日'], ['tab_weekly', '每周'], ['tab_all', '总榜']].flatMap(([id, text], i) => {
+        const x = 40 + i * 266;
+        return [{ id, asset: art(LEAGUE_ART.tab, LEAGUE_ART.tabStandIn), slice: true, rect: [x, 160, 240, 92] }, label(`${id}_label`, text, [x, 164, 240, 80], 40, '#FFFFFF', white)];
+    });
+    const podium = [[1, 326, 640, 200, 170, 366, 500], [2, 106, 690, 180, 120, 136, 560], [3, 566, 710, 180, 100, 596, 580]].flatMap(([i, x, y, w, h, ax, ay]) => [
+        { id: `podium_${i}`, asset: art(LEAGUE_ART.podium(i), LEAGUE_ART.podiumStandIn), slice: !frameBySource.has(LEAGUE_ART.podium(i)), rect: [x, y, w, h],
+            tint: frameBySource.has(LEAGUE_ART.podium(i)) ? undefined : ['#F5C542', '#C9D6E8', '#E7A066'][i - 1] },
+        ...avatar(`podium_${i}`, ax, ay, 120),
+        label(`podium_${i}_rank`, String(i), [x, y + 6, w, 56], 46, '#FFFFFF', { bold: true, outlineColor: '#8A4B08', outlineWidth: 4 }),
+        label(`podium_${i}_name`, '', [x - 30, ay - 52, w + 60, 46], 30, '#FFFFFF', white),
+        label(`podium_${i}_score`, '', [x, y + Math.min(62, h - 54), w, 46], 32, '#6B3F12', { bold: true }),
+    ]);
+    const me = 1530;
+    return {
+        page: 'S26', size: [LEAGUE_W, LEAGUE_H], elements: [
+            { id: 'background', asset: '背景/bg_puzzle.png', rect: [0, 0, LEAGUE_W, LEAGUE_H] },
+            { id: 'home_button', asset: 'UI/HUD/hud_btn_square_blue_normal.png', rect: [28, 37, 110, 97] },
+            { id: 'icon_back', asset: 'UI/图标/icon_back.png', rect: [50, 57, 67, 57] },
+            { id: 'help_button', asset: 'UI/HUD/hud_btn_square_blue_normal.png', rect: [715, 37, 110, 97] },
+            { id: 'icon_help', asset: 'UI/图标/icon_help.png', rect: [744, 57, 52, 57] },
+            label('title', '蜂群联赛', [180, 45, 493, 80], 56, '#FFFFFF', { bold: true, outlineColor: '#1F3F8C', outlineWidth: 4 }),
+            ...tabs,
+            { id: 'tier_panel', asset: 'UI/无尽/endless_score_panel.png', rect: [36, 272, 781, 160] },
+            { id: 'tier_badge', asset: art(LEAGUE_ART.badge(1), LEAGUE_ART.badgeStandIn), rect: [58, 278, 128, 140] },
+            label('tier_badge_text', '1', [58, 300, 128, 80], 52, '#FFFFFF', { bold: true, outlineColor: '#8A4B08', outlineWidth: 4 }),
+            label('tier_name', '工蜂', [206, 290, 330, 56], 42, '#FFFFFF', { ...white, align: 'left' }),
+            { id: 'stars_bg', asset: 'UI/通用/bar_bg.png', slice: true, rect: [206, 360, 420, 42] },
+            { id: 'stars_fill_green', asset: 'UI/通用/bar_fill_green.png', slice: true, rect: [212, 365, 408, 32] },
+            label('stars_text', '0/50', [632, 352, 170, 56], 34, '#FFFFFF', white),
+            label('board_info', '', [80, 296, 460, 110], 34, '#FFFFFF', { ...white, align: 'left', hidden: true }),
+            { id: 'countdown_bg', asset: 'UI/HUD/hud_capsule_light.png', slice: true, rect: [560, 284, 240, 62] },
+            label('countdown', '00:00:00', [560, 284, 240, 62], 32, '#6B3F12', { bold: true }),
+            ...podium,
+            { id: 'league_list', rect: LEAGUE_LIST },
+            { id: 'me_row', asset: art(LEAGUE_ART.rowSelf, LEAGUE_ART.rowSelfStandIn), slice: true, rect: [30, me, 793, 110] },
+            label('me_rank', '-', [36, me, 90, 110], 42, '#B25A12', { bold: true }),
+            ...avatar('me', 130, me + 13, 84),
+            label('me_name', '我', [232, me, 280, 110], 36, '#5B3A16', { bold: true, align: 'left' }),
+            label('me_score', '0', [500, me, 170, 110], 38, '#5B3A16', { bold: true, align: 'right' }),
+            { id: 'me_gift', asset: LEAGUE_ART.gift, rect: [700, me + 18, 74, 74] },
+            { id: 'go_play', asset: 'UI/通用/btn_green_normal.png', slice: true, rect: [190, 1680, 473, 120] },
+            label('go_play_label', '去挑战', [190, 1686, 473, 104], 48, '#FFFFFF', { bold: true, outlineColor: '#2E6B12', outlineWidth: 4 }),
+        ],
+    };
+}
+/** S27 settlement dialog, on the S21 dialog frame: rank, gift, reward, stars and tier; one claim per settlement. */
+function leagueResultLayout() {
+    const s21 = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S21.json'), 'utf8')), el = id => s21.elements.find(e => e.id === id);
+    const sx = LEAGUE_W / s21.size[0], sy = LEAGUE_H / s21.size[1], scale = e => ({ ...e, rect: [e.rect[0] * sx, e.rect[1] * sy, e.rect[2] * sx, e.rect[3] * sy] });
+    return {
+        page: 'S27', size: [LEAGUE_W, LEAGUE_H], elements: [
+            ...['mask_black', 'panel_dialog', 'ribbon_title_blue'].map(id => scale(el(id))), { ...scale(el('title')), text: '每日联赛结算' },
+            label('result_rank', '第 1 名', [150, 600, 554, 100], 66, '#B25A12', { bold: true }),
+            label('result_info', '', [120, 700, 614, 50], 30, '#6B3F12'),
+            { id: 'gift', asset: 'UI/图标/icon_chest_closed.png', rect: [317, 760, 220, 256] },
+            label('reward_text', '', [120, 1020, 614, 56], 38, '#5B3A16', { bold: true }),
+            label('stars_text', '', [120, 1078, 614, 50], 32, '#6B3F12'),
+            label('tier_text', '', [120, 1128, 614, 50], 36, '#2E6B12', { bold: true, hidden: true }),
+            { id: 'claim', asset: 'UI/通用/btn_green_normal.png', slice: true, rect: [143, 1190, 568, 105] },
+            label('claim_label', '领取', [155, 1196, 544, 93], 44, '#FFFFFF', { bold: true, outlineColor: '#2E6B12', outlineWidth: 4 }),
+            label('page_text', '', [150, 1310, 554, 50], 30, '#6B3F12'),
+        ],
+    };
+}
+/** One ranking row (S26 list, rank 4 onwards): row picture, rank, avatar, name, score, prize. */
+function buildLeagueRow() {
+    const { width: w, height: h } = LEAGUE_ROW, b = new Builder('LeagueRow', [w, h]);
+    b.objects[b.objects[b.root]._components[0].__id__]._anchorPoint = { __type__: 'cc.Vec2', x: 0, y: 1 };
+    const at = (x, y, bw, bh) => ({ x: x + bw / 2, y: -(y + bh / 2), width: bw, height: bh });
+    const sprite = (name, asset, rect, slice = false) => { const n = b.node(name, b.root, at(...rect)); addSprite(b, n, { asset, slice }); return n; };
+    const text = (name, rect, e) => { const n = b.node(name, b.root, at(...rect)); return addLabel(b, n, { text: '', verticalAlign: 'center', ...e }); };
+    const row = sprite('row', art(LEAGUE_ART.row, LEAGUE_ART.rowStandIn), [0, 0, w, h], true);
+    const self = sprite('self', art(LEAGUE_ART.rowSelf, LEAGUE_ART.rowSelfStandIn), [0, 0, w, h], true);
+    b.objects[self]._active = false;
+    const rank = text('rank', [6, 0, 90, h], { fontSize: 40, color: '#B25A12', bold: true });
+    const bg = sprite('avatar_bg', art(LEAGUE_ART.avatarBg, LEAGUE_ART.avatarBgStandIn), [100, 13, 84, 84], !frameBySource.has(LEAGUE_ART.avatarBg));
+    const pic = sprite('avatar', 'UI/图标/icon_coin.png', [104, 17, 76, 76]);
+    b.objects[pic]._active = false;
+    const initial = text('initial', [100, 13, 84, 84], { fontSize: 36, color: '#FFFFFF', bold: true, outlineColor: '#5B3A16', outlineWidth: 3 });
+    const name = text('name', [202, 0, 300, h], { fontSize: 34, color: '#5B3A16', bold: true, align: 'left' });
+    const score = text('score', [470, 0, 200, h], { fontSize: 36, color: '#5B3A16', bold: true, align: 'right' });
+    const gift = sprite('gift', LEAGUE_ART.gift, [700, 18, 74, 74]);
+    const spriteOf = node => ref(b.objects[node]._components.find(c => b.objects[c.__id__].__type__ === 'cc.Sprite').__id__);
+    b.component(b.root, LEAGUE_ITEM, {
+        titleLabel: null, selectedMarker: ref(self), rankLabel: ref(rank), nameLabel: ref(name), scoreLabel: ref(score), initialLabel: ref(initial),
+        avatarBg: spriteOf(bg), avatarSprite: spriteOf(pic), giftSprite: spriteOf(gift), rowSprite: spriteOf(row),
+    });
+    return { name: 'LeagueRow', objects: b.finish() };
+}
+const LEAGUE_ITEM = scriptType('assets/scripts/features/ui/LeagueRowItem.ts');
+/** S26 ranking list: a VirtualList of LeagueRow in the list mount. */
+function leagueListRig(b, mountId) {
+    const { view, content, scroll } = scrollRig(b, mountId, 'League');
+    b.component(mountId, VIRTUAL_LIST, { scrollView: ref(scroll), viewport: ref(view), content: ref(content),
+        itemPrefab: external(stableUuid(`${OUT}/LeagueRow.prefab`), 'cc.Prefab'), itemExtent: LEAGUE_ROW.height, spacing: LEAGUE_ROW.spacing, buffer: 2, horizontal: false });
+}
+
 const BOOT = 'assets/boot';
 const GAME_BOOT = scriptType('assets/scripts/app/GameBoot.ts');
 const manifestSlices = new Map(JSON.parse(fs.readFileSync(path.join(PROJECT, 'docs/v2/美术交付清单.json'), 'utf8')).uiAssets
@@ -652,7 +787,8 @@ function dirMeta(rel) {
 
 export function buildUi() {
     const pages = fs.readdirSync(LAYOUTS).filter(f => /^S\d\d\.json$/.test(f)).sort().map(buildPage);
-    const all = [...pages, buildAnchor(), buildMapCard(), buildReplayRow(), buildHelpDialog()];
+    const league = [leagueLayout(), leagueResultLayout()].map(l => buildLayout(progressSlots(readable(l))));
+    const all = [...pages, ...league, buildAnchor(), buildMapCard(), buildReplayRow(), buildHelpDialog(), buildLeagueRow()];
     fs.mkdirSync(path.join(PROJECT, OUT), { recursive: true }); dirMeta(OUT);
     all.forEach(writePrefab);
     const loading = buildLoading();
