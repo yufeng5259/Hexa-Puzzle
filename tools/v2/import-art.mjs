@@ -34,12 +34,16 @@ function frameGeometry(width, height) {
     return { offsetX: 0, offsetY: 0, trimX: 0, trimY: 0, width, height, rawWidth: width, rawHeight: height,
         vertices: { rawPosition: [-width / 2, -height / 2, 0, width / 2, -height / 2, 0, -width / 2, height / 2, 0, width / 2, height / 2, 0], indexes: [0, 1, 2, 2, 1, 3], uv: [0, height, width, height, 0, 0, width, 0], nuv: [0, 0, 1, 0, 0, 1, 1, 1], minPos: [-width / 2, -height / 2, 0], maxPos: [width / 2, height / 2, 0] } };
 }
+/** Pictures drawn at well under half their pixel size get mipmaps, so they do not alias (docs/v2/12). */
+const MIPMAPPED = /^(bee_(celebrate|fly|worry)|icon_coin|icon_coin_pile|icon_chest_closed)\.png$/;
 function imageMeta(target, [width, height], slice = null) {
-    const metaFile = target + '.meta';
+    const metaFile = target + '.meta', mipfilter = MIPMAPPED.test(path.basename(target)) ? 'linear' : 'none';
     if (fs.existsSync(metaFile)) {
         // Keep the UUID. The art manifest owns the nine-slice; a redrawn picture of a new size
         // also renews the frame geometry (trim, vertices), otherwise Cocos would draw the old size.
         const meta = JSON.parse(fs.readFileSync(metaFile, 'utf8')), frame = meta.subMetas?.f9941?.userData;
+        const texture = meta.subMetas?.['6c48a']?.userData;
+        if (texture && texture.mipfilter !== mipfilter) { texture.mipfilter = mipfilter; write(metaFile, JSON.stringify(meta, null, 2) + '\n'); }
         if (frame) {
             const before = JSON.stringify(frame);
             if (frame.rawWidth !== width || frame.rawHeight !== height) Object.assign(frame, frameGeometry(width, height));
@@ -53,7 +57,7 @@ function imageMeta(target, [width, height], slice = null) {
     write(metaFile, JSON.stringify({
         ver: '1.0.27', importer: 'image', imported: true, uuid, files: ['.json', '.png'],
         subMetas: {
-            '6c48a': sub('texture', '6c48a', { wrapModeS: 'clamp-to-edge', wrapModeT: 'clamp-to-edge', imageUuidOrDatabaseUri: uuid, isUuid: true, visible: false, minfilter: 'linear', magfilter: 'linear', mipfilter: 'none', anisotropy: 0 }, '1.0.22'),
+            '6c48a': sub('texture', '6c48a', { wrapModeS: 'clamp-to-edge', wrapModeT: 'clamp-to-edge', imageUuidOrDatabaseUri: uuid, isUuid: true, visible: false, minfilter: 'linear', magfilter: 'linear', mipfilter, anisotropy: 0 }, '1.0.22'),
             f9941: sub('sprite-frame', 'f9941', { trimThreshold: 1, rotated: false, ...frameGeometry(width, height), borderTop: slice?.[1] ?? 0, borderBottom: slice?.[3] ?? 0, borderLeft: slice?.[0] ?? 0, borderRight: slice?.[2] ?? 0, packable: true, pixelsToUnit: 100, pivotX: 0.5, pivotY: 0.5, meshType: 0,
                 isUuid: true, imageUuidOrDatabaseUri: `${uuid}@6c48a`, atlasUuid: '', trimType: 'none' }, '1.0.12'),
         },

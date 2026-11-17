@@ -49,9 +49,8 @@ function homeRow(layout) {
     const fonts = { play_level: 72, play_text: 58 };
     const elements = layout.elements.filter(e => !HOME_DROP.has(e.id))
         .map(e => moved[e.id] ? { ...e, rect: moved[e.id], ...(fonts[e.id] ? { fontSize: fonts[e.id] } : {}) } : e);
-    // Placeholder base until P2-5 delivers the large square button (see docs/v2/08).
     const tile = (prefix, icon, text, hidden) => [
-        { id: `home_btn_${prefix}`, asset: 'UI/HUD/hud_btn_square_blue_normal.png', rect: [side, y, h, h], hidden },
+        { id: `home_btn_${prefix}`, asset: 'UI/主页/home_btn_square_large_normal.png', rect: [side, y, h, h], hidden },
         { id: `icon_${prefix}`, asset: icon, rect: [side + 22, y + 4, 124, 124], hidden },
         { id: `${prefix}_text`, type: 'label', text, rect: [side, y + h - 56, h, 48], fontSize: 36, color: '#FFFFFF', bold: true, align: 'center', verticalAlign: 'center', outlineColor: '#1F3F8C', outlineWidth: 4, hidden },
     ];
