@@ -45,6 +45,9 @@ export class HomeController {
     private readonly scope: ResourceScope;
     private readonly buildings = new Map<string, Sprite>();
     private readonly anchors = new Map<string, LayoutView>();
+    /** Map the build anchors were made for; a map change while building (S15 "前往下一图") remakes them. */
+    private anchorsMapId = '';
+    private anchorsRequest = 0;
     private construction: { buildId: string; buildingId: string; elapsed: number; fx: Node | null } | null = null;
     private readonly pendingFrames: Promise<unknown>[] = [];
     /**
@@ -78,7 +81,7 @@ export class HomeController {
         // The transition stays closed until the map and building pictures are loaded.
         this.home = await this.nav.replacePage('S02', id => this.onHomeAction(id), { instant, prepare: () => this.ready() });
         this.listen(this.home);
-        this.build = null; this.anchors.clear(); this.shownBuilt = null; this.buildings.clear(); this.mapId = '';
+        this.build = null; this.anchors.clear(); this.anchorsMapId = ''; this.anchorsRequest++; this.shownBuilt = null; this.buildings.clear(); this.mapId = '';
         this.unsubscribe?.();
         this.unsubscribe = this.game.subscribe(() => this.render());
         ScreenFit.events.off('changed', this.onFit);
@@ -187,6 +190,7 @@ export class HomeController {
             if (this.home.has('endless_reddot')) this.home.setVisible('endless_reddot', endlessUnlocked(s, this.game.rules) && (this.leaderboard?.pendingCount ?? 0) > 0);
         }
         if (!this.construction) for (const b of map.buildings) this.buildings.get(b.id)?.isValid && this.setFrame(this.buildings.get(b.id)!, b.assetIds[buildingLevel(s, map.id, b.id)]);
+        if (this.build?.isValid && this.anchorsMapId && this.anchorsMapId !== map.id) void this.makeAnchors();
         if (this.build?.isValid) this.renderBuild();
         this.renderEnergy();
         this.renderGuide();
@@ -224,10 +228,24 @@ export class HomeController {
         this.listen(this.build);
         // Only the operation layer changes: hide S02 controls, keep its map.
         for (const id of this.home!.nodeIds) if (id !== 'MapMount') this.home!.setVisible(id, false);
-        const mount = this.build.element('MapMount');
+        await this.makeAnchors();
+    }
+    /**
+     * One upgrade anchor (level dots + cost) per building of the shown map. Old anchors are removed
+     * first: after "前往下一图" in build mode they belonged to the finished map (all dots full, at
+     * that map's building places) and their cost buttons would upgrade buildings of the wrong map.
+     */
+    private async makeAnchors(): Promise<void> {
+        const build = this.build, map = this.map, request = ++this.anchorsRequest;
+        if (!build?.isValid) return;
+        for (const anchor of this.anchors.values()) if (anchor.isValid) anchor.node.destroy();
         this.anchors.clear();
-        for (const b of this.map.buildings) {
+        this.anchorsMapId = map.id;
+        const mount = build.element('MapMount');
+        for (const b of map.buildings) {
             const view = await this.nav.instantiate('BuildAnchor', mount, id => { if (id === 'upgrade') this.upgrade(b.id); });
+            // A newer request (another map change) or a closed build page owns the anchors now.
+            if (request !== this.anchorsRequest || !build.isValid) { view.node.destroy(); return; }
             view.node.setPosition((b.feetX - 0.5) * W, (0.5 - b.feetY) * H, 0);
             this.anchors.set(b.id, view);
         }
@@ -282,7 +300,7 @@ export class HomeController {
     private closeBuild(): void {
         if (this.construction) return; // leaving is locked while building
         this.nav.popPage();
-        this.build = null; this.anchors.clear(); this.shownBuilt = null;
+        this.build = null; this.anchors.clear(); this.anchorsMapId = ''; this.anchorsRequest++; this.shownBuilt = null;
         for (const id of this.home!.nodeIds) this.home!.setVisible(id, true);
         this.render();
     }
