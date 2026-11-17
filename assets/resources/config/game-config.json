@@ -190,27 +190,57 @@
    "buildConstructionSeconds": [
     "buildConstructionSeconds",
     "number",
-    1.6
+    2
    ],
    "buildExpPerUpgrade": [
     "buildExpPerUpgrade",
     "int",
     20
    ],
-   "buildFxSmokeScale": [
-    "buildFxSmokeScale",
+   "buildFxBeeFraction": [
+    "buildFxBeeFraction",
     "number",
-    1.5
+    0.3
    ],
-   "buildFxToolFraction": [
-    "buildFxToolFraction",
+   "buildFxCarryEnd": [
+    "buildFxCarryEnd",
     "number",
-    0.45
+    0.35
    ],
-   "buildFxToolSpread": [
-    "buildFxToolSpread",
+   "buildFxCarryStart": [
+    "buildFxCarryStart",
     "number",
-    2.2
+    0.05
+   ],
+   "buildFxCloudStart": [
+    "buildFxCloudStart",
+    "number",
+    0.8
+   ],
+   "buildFxHammerStart": [
+    "buildFxHammerStart",
+    "number",
+    0.25
+   ],
+   "buildFxResumeFrom": [
+    "buildFxResumeFrom",
+    "number",
+    0.75
+   ],
+   "buildFxRevealAt": [
+    "buildFxRevealAt",
+    "number",
+    0.92
+   ],
+   "buildFxScaffoldEnd": [
+    "buildFxScaffoldEnd",
+    "number",
+    0.1
+   ],
+   "buildFxSparkleSeconds": [
+    "buildFxSparkleSeconds",
+    "number",
+    0.4
    ],
    "dailyChestRewardId": [
     "dailyChestRewardId",

@@ -1,6 +1,6 @@
-import { type Camera, type EventTouch, JsonAsset, Node, Sprite, SpriteFrame, Tween, tween, UITransform, Vec3 } from 'cc';
-import { BuildFx, type BuildFxData } from '../features/fx/BuildFx';
-import { fitInside, toolExtent } from '../features/fx/FxTimeline';
+import { type Camera, type EventTouch, Node, Sprite, SpriteFrame, Tween, tween, UITransform, Vec3 } from 'cc';
+import { BuildFx } from '../features/fx/BuildFx';
+import { revealSeconds, startSeconds } from '../features/fx/BuildTimeline';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
 import type { ResourceScope } from '../framework/resources/ResourceScope';
 import type { MapView } from '../core/Config';
@@ -24,11 +24,6 @@ import type { GuideCoach } from './GuideCoach';
 import { DailyPresenter } from './DailyPresenter';
 
 const W = 853, H = 1844;
-/** The migrated effect was drawn around a building about this wide; it scales with ours. */
-const FX_REFERENCE_WIDTH = 420;
-const FX_SCALE = { min: 0.55, max: 1.2 };
-/** Gap kept between the build tools and the screen edge / HUD (design units). */
-const FX_MARGIN = 8;
 
 /**
  * S02 home and S03 build mode. Both share one map instance: the map lives in the
@@ -48,7 +43,6 @@ export class HomeController {
     private readonly buildings = new Map<string, Sprite>();
     private readonly anchors = new Map<string, LayoutView>();
     private construction: { buildId: string; buildingId: string; elapsed: number; fx: Node | null } | null = null;
-    private fxData: Promise<BuildFxData | null> | null = null;
     private readonly pendingFrames: Promise<unknown>[] = [];
     /**
      * Per map (tools/v2/map-bounds.mjs): opaque building extent, map design coordinates y down, and
@@ -89,14 +83,14 @@ export class HomeController {
         this.render();
         // A build paid for before a crash finishes without charging again.
         const pending = this.game.state.pendingBuild;
-        if (pending) { await this.openBuild(); this.beginConstruction(pending.buildId, pending.buildingId); }
+        if (pending) { await this.openBuild(); this.beginConstruction(pending.buildId, pending.buildingId, true); }
         else this.rewards.drain(true);
     }
 
-    public update(): void {
+    public update(dt: number): void {
         const now = this.game.now();
         if (now - this.lastTick >= 1000) { this.lastTick = now; try { this.game.tick(); } catch (error) { console.error(error); } this.renderEnergy(); if (this.home?.isValid) this.daily.tick(); }
-        if (this.construction) this.stepConstruction(1 / 60);
+        if (this.construction) this.stepConstruction(dt);
     }
 
     public dispose(): void { this.unsubscribe?.(); ScreenFit.events.off('changed', this.onFit); this.scope.release(); }
@@ -317,61 +311,32 @@ export class HomeController {
             else this.rewards.failure(error);
         }
     }
-/**
-     * Construction: the unified build effect plays over the old building; when its tools
-     * stop (config constructionSeconds) the level is committed, and only after a successful
-     * save the next-level picture pops in while the effect's sparkle finishes.
+    /**
+     * Construction (docs/v2/13 §2): the bee crew plays over the old building; at the reveal
+     * (config buildFxRevealAt, under the dust cloud) the level is committed, and only after a
+     * successful save the next-level picture pops in while the cloud clears and the sparkle ends.
+     * resumed: a build paid for before a restart plays a short finish.
      */
-    private beginConstruction(buildId: string, buildingId: string): void {
+    private beginConstruction(buildId: string, buildingId: string, resumed = false): void {
         const building = this.buildings.get(buildingId);
         if (!building) return;
-        const b = this.map.buildings.find(x => x.id === buildingId)!, pending = this.game.state.pendingBuild;
+        const b = this.map.buildings.find(x => x.id === buildingId)!, pending = this.game.state.pendingBuild, rules = this.game.rules.build;
         if (pending) void this.scope.load(b.assetIds[pending.toLevel], SpriteFrame).catch(() => undefined); // ready for the swap
-        this.construction = { buildId, buildingId, elapsed: 0, fx: null };
-        const c = this.construction;
-        void this.loadFx().then(data => {
-            if (!data || this.construction !== c || !building.isValid) return;
-            const ui = building.node.getComponent(UITransform)!, mount = building.node.parent!;
-            const node = new Node('BuildFx');
-            node.layer = mount.layer; node.parent = mount;
-            node.addComponent(UITransform);
-            // Centre of the building picture, whatever its anchor (feet) is.
-            node.setPosition(building.node.position.x + (0.5 - ui.anchorX) * ui.width * Math.sign(building.node.scale.x), building.node.position.y + (0.5 - ui.anchorY) * ui.height, 0);
-            const s = Math.max(FX_SCALE.min, Math.min(FX_SCALE.max, ui.width / FX_REFERENCE_WIDTH));
-            node.setScale(s, s, 1);
-            // Tools sized to the building on their own (FX_SCALE alone leaves them tiny on wide buildings).
-            const fx = BuildFx.tuned(data, ui.width, s, this.game.rules.build.fx, FX_REFERENCE_WIDTH);
-            this.keepOnScreen(node, toolExtent(fx.skeleton));
-            // Speed so the tools stop exactly at the configured construction time.
-            void node.addComponent(BuildFx).play(fx, this.scope, BuildFx.revealTime(fx) / this.game.rules.build.constructionSeconds);
-            c.fx = node;
-        });
+        const start = startSeconds(rules.constructionSeconds, rules.fx, resumed), mount = building.node.parent!;
+        const node = new Node('BuildFx');
+        node.layer = mount.layer;
+        node.addComponent(UITransform);
+        // Just above its building (buildings in front still cover it), at the building's feet.
+        mount.insertChild(node, building.node.getSiblingIndex() + 1);
+        node.setPosition(building.node.position);
+        node.addComponent(BuildFx).play({ building: building.node, seconds: rules.constructionSeconds, timing: rules.fx, scope: this.scope, start });
+        this.construction = { buildId, buildingId, elapsed: start, fx: node };
         this.render();
-    }
-    /**
-     * Moves the effect so the tools' whole swing stays on screen, below the top HUD and above the
-     * bottom bar (enlarged tools beside an edge building would otherwise leave the screen).
-     */
-    private keepOnScreen(node: Node, extent: { left: number; right: number; bottom: number; top: number }): void {
-        const view = this.build?.isValid ? this.build : this.home, mount = node.parent!;
-        if (!view?.isValid) return;
-        const f = ScreenFit.current.frame, edge = (id: string) => view.has(id) && view.element(id).activeInHierarchy ? view.element(id).getComponent(UITransform)!.getBoundingBoxToWorld() : null;
-        const top = edge('map_name')?.yMin ?? f.y + f.height / 2, bar = edge('home_bottom_bar');
-        const frame = { left: f.x - f.width / 2 + FX_MARGIN, right: f.x + f.width / 2 - FX_MARGIN, top: top - FX_MARGIN, bottom: (bar ? bar.yMax : f.y - f.height / 2) + FX_MARGIN };
-        const ms = mount.worldScale.x, mp = mount.worldPosition, at = node.position, s = node.scale.x;
-        const world = (x: number, y: number) => ({ x: mp.x + (at.x + s * x) * ms, y: mp.y + (at.y + s * y) * ms });
-        const lo = world(extent.left, extent.bottom), hi = world(extent.right, extent.top);
-        const { dx, dy } = fitInside({ left: lo.x, right: hi.x, bottom: lo.y, top: hi.y }, frame);
-        node.setPosition(at.x + dx / ms, at.y + dy / ms, 0);
-    }
-    private loadFx(): Promise<BuildFxData | null> {
-        this.fxData ??= this.scope.load('fx.build', JsonAsset).then(a => a.json as BuildFxData, error => { console.error(error); return null; });
-        return this.fxData;
     }
     private stepConstruction(dt: number): void {
         const c = this.construction!;
         c.elapsed += dt;
-        if (c.elapsed < this.game.rules.build.constructionSeconds) return;
+        if (c.elapsed < revealSeconds(this.game.rules.build.constructionSeconds, this.game.rules.build.fx)) return;
         try {
             // Commit first; only a saved level is shown. A failed write keeps the pending build for retry.
             this.game.act(s => finishBuild(s, this.game.rules, c.buildId, this.game.day()));
@@ -382,7 +347,7 @@ export class HomeController {
         } catch (error) {
             this.construction = null;
             if (c.fx?.isValid) c.fx.destroy();
-            this.rewards.failure(error, () => this.beginConstruction(c.buildId, c.buildingId));
+            this.rewards.failure(error, () => this.beginConstruction(c.buildId, c.buildingId, true));
         }
     }
     /** The new level appears with a small bounce (kept mirrored for flipped buildings). */

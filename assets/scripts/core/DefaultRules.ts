@@ -80,7 +80,10 @@ export function defaultRules(): Rules {
         mainline: mainline(110),
         maps,
         firstMapId: 'M01',
-        build: { expPerUpgrade: 20, constructionSeconds: 1.6, fx: { toolFraction: 0.45, toolSpread: 2.2, smokeScale: 1.5 } },
+        build: {
+            expPerUpgrade: 20, constructionSeconds: 2,
+            fx: { scaffoldEnd: 0.1, carryStart: 0.05, carryEnd: 0.35, hammerStart: 0.25, cloudStart: 0.8, revealAt: 0.92, sparkleSeconds: 0.4, beeFraction: 0.3, resumeFrom: 0.75 },
+        },
         anim: {
             progressSeconds: 0.25, cardSeconds: 0.24, cardStaggerSeconds: 0.08, scatterSeconds: 0.12, flySeconds: 0.55, pulseSeconds: 0.16,
             skipAfterSeconds: 0.3, rewardTimeoutSeconds: 3, chestShakeSeconds: 0.24, chestOpenSeconds: 0.18, coinParticlesMax: 12,

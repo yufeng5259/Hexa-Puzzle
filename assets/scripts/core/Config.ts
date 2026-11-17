@@ -120,7 +120,11 @@ export function parseGameConfig(json: unknown): GameConfig {
         mainline, maps, firstMapId: k('firstMapId', 'string'),
         build: {
             expPerUpgrade: k('buildExpPerUpgrade', 'number'), constructionSeconds: k('buildConstructionSeconds', 'number'),
-            fx: { toolFraction: k('buildFxToolFraction', 'number'), toolSpread: k('buildFxToolSpread', 'number'), smokeScale: k('buildFxSmokeScale', 'number') },
+            fx: {
+                scaffoldEnd: k('buildFxScaffoldEnd', 'number'), carryStart: k('buildFxCarryStart', 'number'), carryEnd: k('buildFxCarryEnd', 'number'),
+                hammerStart: k('buildFxHammerStart', 'number'), cloudStart: k('buildFxCloudStart', 'number'), revealAt: k('buildFxRevealAt', 'number'),
+                sparkleSeconds: k('buildFxSparkleSeconds', 'number'), beeFraction: k('buildFxBeeFraction', 'number'), resumeFrom: k('buildFxResumeFrom', 'number'),
+            },
         },
         anim: {
             progressSeconds: k('animProgressSeconds', 'number'),
@@ -151,6 +155,9 @@ export function parseGameConfig(json: unknown): GameConfig {
         },
     };
     if (!maps.some(m => m.id === rules.firstMapId)) fail('firstMapId');
+    // Construction phases run in order inside the construction time.
+    const fx = rules.build.fx, phases = [[0, fx.scaffoldEnd], [fx.carryStart, fx.carryEnd], [fx.hammerStart, fx.cloudStart], [fx.cloudStart, fx.revealAt], [0, fx.resumeFrom]];
+    if (!(rules.build.constructionSeconds > 0) || fx.sparkleSeconds < 0 || !(fx.beeFraction > 0) || phases.some(([a, b]) => !(a >= 0 && a < b && b <= 1)) || fx.resumeFrom > fx.revealAt) fail('buildFx phases');
     return deepFreeze({ rules, maps: views, guide });
 }
 

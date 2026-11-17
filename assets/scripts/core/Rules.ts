@@ -52,8 +52,16 @@ export interface Rules {
     readonly firstMapId: string;
     readonly build: {
         readonly expPerUpgrade: number; readonly constructionSeconds: number;
-        /** Build effect sizing (FxTimeline.tuneBuildSkeleton). */
-        readonly fx: { readonly toolFraction: number; readonly toolSpread: number; readonly smokeScale: number };
+        /**
+         * Construction animation (features/fx/BuildTimeline): phase boundaries as fractions of
+         * constructionSeconds, the sparkle tail in seconds, bee height as a fraction of the building width.
+         */
+        readonly fx: {
+            readonly scaffoldEnd: number; readonly carryStart: number; readonly carryEnd: number; readonly hammerStart: number;
+            readonly cloudStart: number; readonly revealAt: number; readonly sparkleSeconds: number; readonly beeFraction: number;
+            /** A build resumed after a restart starts here (short finish). */
+            readonly resumeFrom: number;
+        };
     };
     /** Presentation timings in seconds and the coin particle cap (Constants anim*). Shows saved results only. */
     readonly anim: {
