@@ -1,0 +1,24 @@
+{
+  "batch": "P2-13",
+  "scope": "B2",
+  "iterations": [
+    {
+      "verdict": "revise",
+      "finding": "首轮二维渐变拟合在拼图按钮透明角区出现颜色振荡；改为原生SDF倒角和单调颜色曲线。"
+    },
+    {
+      "verdict": "pass",
+      "evidence": "visual_before_after.png; verification.json",
+      "finding": "30件同显示尺寸对照已查看，原配色造型保持，连续边缘清晰；轮廓偏差均不超过1px。签到原设计外光与徽章引起的整图alpha差异如实保留。"
+    },
+    {
+      "verdict": "revise",
+      "finding": "独立视觉复核指出三色拼图按钮底部厚度暗边偏弱；保留原轮廓，按原不透明/半透明下缘配色恢复连续下侧倒角与最外暗边。"
+    },
+    {
+      "verdict": "pass",
+      "evidence": "puzzle_bottom_refinement.png; verification.json",
+      "finding": "已复核三色normal新旧对照；恢复原下缘深色描边及阴影厚度，9态共用同一轮廓，轮廓最大偏差仍≤1px；非按钮21张重绘参数未变。"
+    }
+  ]
+}

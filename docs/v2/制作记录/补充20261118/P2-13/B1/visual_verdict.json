@@ -1,0 +1,40 @@
+{
+  "status": "pass within assigned scope",
+  "fileCount": 21,
+  "halfSizeAlpha128ContourMaxDistance": 1.0,
+  "visual": [
+    "21新旧对比逐件查看，原造型和配色保留",
+    "四底图供独立复核，外缘RGB不引入底色",
+    "divider按原两条金线与六角几何6倍重绘后2倍导出，含半透明过渡"
+  ],
+  "existingStateDifferences": {
+    "nodeOldAlpha128Hausdorff": 10.770329614269007,
+    "linkOldAlpha128Hausdorff": 3.0,
+    "decision": "按集成人指示保留各态原轮廓，避免为强制统一轮廓改变设计"
+  },
+  "sources": [
+    {
+      "path": "制作记录/切图20261112/common/build_common.py",
+      "sha256": "173a463fa9da6b8109f929067672428b1394d0a76a7fda7413a4f85b775009fd"
+    },
+    {
+      "path": "制作记录/切图20261112/hud_puzzle/build_hud_puzzle.py",
+      "sha256": "11312766499909aa66fe05cbb6fefa3dbee4ed65fb21119fed405753886dda01"
+    },
+    {
+      "path": "制作记录/切图20261112/P1/signin_tasks/build_signin_tasks.py",
+      "sha256": "07f22f6dff0e568ed6e211fbcf72158dca042b9ce48c56ab66b98dad1c0589ac"
+    },
+    {
+      "path": "制作记录/切图20261112/P1/endless/build_endless.py",
+      "sha256": "9f327bd8dc07abcc9a428b3b092f003d90ad5bbb9be2b2149342784a263a54b4"
+    }
+  ],
+  "followup": {
+    "before": "revise",
+    "after": "pass",
+    "reason": "ribbon中央水平轮廓原像素台阶和色键残像已重绘为水平边与清洁青蓝高光，HUD等独立平滑AA，21张缩半轮廓仍≤1px"
+  },
+  "boundaryIncludingInternalHolesMaxPx": 1.0,
+  "measurementCorrection": "初次前景集距离未覆盖内部洞边界，已增加包含洞的腐蚀边界距离并恢复unreached洞与孤立高光；不改变断言"
+}
