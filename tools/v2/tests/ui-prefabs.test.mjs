@@ -148,7 +148,8 @@ test('capsule buttons keep round ends: laid out at the picture height and scaled
     const objects = JSON.parse(fs.readFileSync(path.join(OUT, 'S06.prefab'), 'utf8'));
     for (const name of ['btn_green', 'btn_grey']) {
         const node = objects.find(o => o.__type__ === 'cc.Node' && o._name === name), ui = objects[node._components[0].__id__];
-        assert.equal(Math.round(ui._contentSize.height), 92, name);
+        // Laid out at the picture's pixel height (184 since the P2-13 2x redraw), scaled to the layout height.
+        assert.equal(Math.round(ui._contentSize.height), 184, name);
         assert.equal(node._lscale.x, node._lscale.y, name);
     }
 });
@@ -301,7 +302,7 @@ test('progress bars: every fill is a left-anchored masked viewport holding a ful
                 assert.equal(ui._anchorPoint.x, 0, `${file}/${node._name} anchor`);
                 assert.ok(comps.some(c => c.__type__ === 'cc.Mask'), `${file}/${node._name} mask`);
                 assert.equal(art?._name, `${node._name}_art`, `${file}/${node._name} picture`);
-                assert.equal(artUi._contentSize.width, ui._contentSize.width, `${file}/${node._name} picture spans the slot`);
+                assert.equal(Math.round(artUi._contentSize.width * Math.abs(art._lscale.x)), Math.round(ui._contentSize.width), `${file}/${node._name} picture spans the slot`);
                 assert.equal(sprite._type, 1, `${file}/${node._name} sliced`);
             }
         }
