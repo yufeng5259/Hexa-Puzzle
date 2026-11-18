@@ -341,6 +341,16 @@ function grown(e) {
  */
 const CAPSULE = /^(btn_|tag_|hud_capsule_|home_play_btn$|home_btn_build$|build_cost_capsule$|map_tag_current$|signin_today_tag$|puzzle_steps_plate$|home_side_label$|ribbon_win_gold$)/;
 
+/** Pixel size of an imported picture (its sprite frame in the texture meta); null when not imported. */
+function texturePixels(asset) {
+    const id = asset.replace(/^\.\.\//, ''), entry = registry.find(r => (r.original ?? r.source).replace(/^素材\//, '') === id);
+    const m = entry && /^textures\/(.+)\/spriteFrame$/.exec(entry.path);
+    if (!m) return null;
+    const file = path.join(PROJECT, 'assets/bundles', entry.bundle, 'textures', m[1] + '.png.meta');
+    if (!fs.existsSync(file)) return null;
+    const frame = Object.values(JSON.parse(fs.readFileSync(file, 'utf8')).subMetas ?? {}).find(s => s.importer === 'sprite-frame');
+    return frame ? { width: frame.userData.rawWidth, height: frame.userData.rawHeight } : null;
+}
 function addSprite(b, node, e) {
     const id = b.sprite(node, frame(e.asset), e.opacity ?? 1);
     const sprite = b.objects[id];
@@ -349,11 +359,13 @@ function addSprite(b, node, e) {
     if (e.flipX) b.objects[node]._lscale.x = -1;
     const art = manifestByFile.get(e.asset.replace(/^\.\.\//, '').replace(/^素材\//, ''));
     if (e.slice && art?.size && CAPSULE.test(art.id)) {
-        // Lay the capsule out at the picture's own height and scale the node to the layout height:
-        // the round ends keep their shape at any button height.
-        const ui = b.objects[b.objects[node]._components[0].__id__], { width, height } = ui._contentSize, k = height / art.size[1];
+        // Lay the capsule out at the picture's own pixel height and scale the node to the layout height:
+        // the round ends keep their shape at any button height. The pixel height comes from the imported
+        // texture (2x art registers its size in 1x or 2x units), so the slice borders always fit.
+        const pixels = texturePixels(e.asset)?.height ?? art.size[1];
+        const ui = b.objects[b.objects[node]._components[0].__id__], { width, height } = ui._contentSize, k = height / pixels;
         if (Math.abs(k - 1) > 0.01) {
-            ui._contentSize = { __type__: 'cc.Size', width: width / k, height: art.size[1] };
+            ui._contentSize = { __type__: 'cc.Size', width: width / k, height: pixels };
             const sc = b.objects[node]._lscale;
             b.objects[node]._lscale = { __type__: 'cc.Vec3', x: Math.sign(sc.x || 1) * k, y: k, z: 1 };
         }
