@@ -650,7 +650,9 @@ function leagueEntry() {
     return [
         { id: 'league_entry', asset: 'UI/HUD/hud_btn_square_blue_normal.png', rect: [x, y, 110, 97] },
         { id: 'league_icon', asset: art(LEAGUE_ART.entry, LEAGUE_ART.entryStandIn), rect: [x + 22, y + 12, 66, 66] },
-        { id: 'league_entry_rank', type: 'label', text: '联赛', rect: [x - 20, y + 98, 150, 40], fontSize: 30, color: '#FFFFFF', bold: true, align: 'center', verticalAlign: 'center', outlineColor: '#1F3F8C', outlineWidth: 3 },
+        // Caption on the home side-entry label (seen floating on device 2026-11-18): over the button's lower edge, clear of the title.
+        { id: 'league_label_bg', asset: 'UI/主页/home_side_label.png', slice: true, rect: [x - 12, y + 70, 134, 46] },
+        { id: 'league_entry_rank', type: 'label', text: '联赛', rect: [x - 8, y + 72, 126, 42], fontSize: 30, color: '#233E7C', bold: true, align: 'center', verticalAlign: 'center' },
         { id: 'league_reddot', asset: 'UI/通用/reddot.png', rect: [x + 84, y - 6, 34, 34], hidden: true },
     ];
 }
