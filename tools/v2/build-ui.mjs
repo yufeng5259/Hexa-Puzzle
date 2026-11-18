@@ -358,6 +358,13 @@ function addSprite(b, node, e) {
     if (e.tint) sprite._color = color(hex(e.tint));
     if (e.flipX) b.objects[node]._lscale.x = -1;
     const art = manifestByFile.get(e.asset.replace(/^\.\.\//, '').replace(/^素材\//, ''));
+    if (e.slice && art?.slice && art.scale === 2 && !CAPSULE.test(art.id)) {
+        // 2x nine-slice art (P2-12 rows and tabs): borders are in 2x pixels, so the node is laid out at
+        // twice its size and drawn at half scale; corners then look as drawn at the 1x display size.
+        const ui = b.objects[b.objects[node]._components[0].__id__], { width, height } = ui._contentSize, sc = b.objects[node]._lscale;
+        ui._contentSize = { __type__: 'cc.Size', width: width * 2, height: height * 2 };
+        b.objects[node]._lscale = { __type__: 'cc.Vec3', x: sc.x * 0.5, y: sc.y * 0.5, z: 1 };
+    }
     if (e.slice && art?.size && CAPSULE.test(art.id)) {
         // Lay the capsule out at the picture's own pixel height and scale the node to the layout height:
         // the round ends keep their shape at any button height. The pixel height comes from the imported
@@ -619,25 +626,33 @@ export const LEAGUE_LIST = [30, 830, 793, 690];
 const label = (id, text, rect, fontSize, color, extra = {}) => ({ id, type: 'label', text, rect, fontSize, color, align: 'center', verticalAlign: 'center', ...extra });
 const white = { color: '#FFFFFF', bold: true, outlineColor: '#1F3F8C', outlineWidth: 3 };
 /** Avatar group: tinted square, the animal picture (hidden until art), its initial as a stand-in. */
-const avatar = (id, x, y, s) => [
-    { id: `${id}_bg`, asset: art(LEAGUE_ART.avatarBg, LEAGUE_ART.avatarBgStandIn), slice: !frameBySource.has(LEAGUE_ART.avatarBg), rect: [x, y, s, s] },
-    { id: `${id}_avatar`, asset: 'UI/图标/icon_coin.png', rect: [x + 4, y + 4, s - 8, s - 8], hidden: true },
-    label(`${id}_initial`, '', [x, y, s, s], Math.round(s * 0.42), '#FFFFFF', { bold: true, outlineColor: '#5B3A16', outlineWidth: 3 }),
-];
+const avatar = (id, x, y, s, frame = 'normal') => {
+    const ring = `UI/排行榜/avatar_frame_${frame}.png`, f = s * 288 / 256;
+    return [
+        { id: `${id}_bg`, asset: art(LEAGUE_ART.avatarBg, LEAGUE_ART.avatarBgStandIn), slice: !frameBySource.has(LEAGUE_ART.avatarBg), rect: [x, y, s, s] },
+        { id: `${id}_avatar`, asset: 'UI/图标/icon_coin.png', rect: [x + 4, y + 4, s - 8, s - 8], hidden: true },
+        label(`${id}_initial`, '', [x, y, s, s], Math.round(s * 0.42), '#FFFFFF', { bold: true, outlineColor: '#5B3A16', outlineWidth: 3 }),
+        ...(frameBySource.has(ring) ? [{ id: `${id}_frame`, asset: ring, rect: [x - (f - s) / 2, y - (f - s) / 2, f, f] }] : []),
+    ];
+};
+const MEDAL = i => `UI/排行榜/rank_medal_${i}.png`, STAR = 'UI/排行榜/icon_league_star.png';
 /** S26 bee league page: header, three tabs, tier and countdown, podium, ranking list, the pinned own row. */
-function leagueLayout() {
+export function leagueLayout() {
     const tabs = [['tab_daily', '每日'], ['tab_weekly', '每周'], ['tab_all', '总榜']].flatMap(([id, text], i) => {
         const x = 40 + i * 266;
         return [{ id, asset: art(LEAGUE_ART.tab, LEAGUE_ART.tabStandIn), slice: true, rect: [x, 160, 240, 92] }, label(`${id}_label`, text, [x, 164, 240, 80], 40, '#FFFFFF', white)];
     });
-    const podium = [[1, 326, 640, 200, 170, 366, 500], [2, 106, 690, 180, 120, 136, 560], [3, 566, 710, 180, 100, 596, 580]].flatMap(([i, x, y, w, h, ax, ay]) => [
-        { id: `podium_${i}`, asset: art(LEAGUE_ART.podium(i), LEAGUE_ART.podiumStandIn), slice: !frameBySource.has(LEAGUE_ART.podium(i)), rect: [x, y, w, h],
-            tint: frameBySource.has(LEAGUE_ART.podium(i)) ? undefined : ['#F5C542', '#C9D6E8', '#E7A066'][i - 1] },
-        ...avatar(`podium_${i}`, ax, ay, 120),
-        label(`podium_${i}_rank`, String(i), [x, y + 6, w, 56], 46, '#FFFFFF', { bold: true, outlineColor: '#8A4B08', outlineWidth: 4 }),
-        label(`podium_${i}_name`, '', [x - 30, ay - 52, w + 60, 46], 30, '#FFFFFF', white),
-        label(`podium_${i}_score`, '', [x, y + Math.min(62, h - 54), w, 46], 32, '#6B3F12', { bold: true }),
-    ]);
+    const podium = [[1, 316, 640, 220, 160, 366, 520], [2, 96, 700, 200, 120, 136, 580], [3, 556, 720, 200, 100, 596, 600]].flatMap(([i, x, y, w, h, ax, ay]) => {
+        const real = frameBySource.has(LEAGUE_ART.podium(i)), m = Math.min(56, h - 46), top = y + h * 0.2;
+        return [
+            { id: `podium_${i}`, asset: art(LEAGUE_ART.podium(i), LEAGUE_ART.podiumStandIn), slice: !real, rect: [x, y, w, h], tint: real ? undefined : ['#F5C542', '#C9D6E8', '#E7A066'][i - 1] },
+            ...avatar(`podium_${i}`, ax, ay, 120, ['gold', 'silver', 'bronze'][i - 1]),
+            ...(frameBySource.has(MEDAL(i)) ? [{ id: `podium_${i}_medal`, asset: MEDAL(i), rect: [x + (w - m) / 2, top, m, m] }] : []),
+            label(`podium_${i}_rank`, String(i), [x, top, w, m], Math.round(m * 0.62), '#FFFFFF', { bold: true, outlineColor: '#8A4B08', outlineWidth: 3 }),
+            label(`podium_${i}_name`, '', [x - 30, ay - 52, w + 60, 46], 30, '#FFFFFF', white),
+            label(`podium_${i}_score`, '', [x, y + h - 44, w, 40], 30, '#6B3F12', { bold: true }),
+        ];
+    });
     const me = 1530;
     return {
         page: 'S26', size: [LEAGUE_W, LEAGUE_H], elements: [
@@ -652,8 +667,9 @@ function leagueLayout() {
             { id: 'tier_badge', asset: art(LEAGUE_ART.badge(1), LEAGUE_ART.badgeStandIn), rect: [58, 278, 128, 140] },
             label('tier_badge_text', '1', [58, 300, 128, 80], 52, '#FFFFFF', { bold: true, outlineColor: '#8A4B08', outlineWidth: 4 }),
             label('tier_name', '工蜂', [206, 290, 330, 56], 42, '#FFFFFF', { ...white, align: 'left' }),
-            { id: 'stars_bg', asset: 'UI/通用/bar_bg.png', slice: true, rect: [206, 360, 420, 42] },
-            { id: 'stars_fill_green', asset: 'UI/通用/bar_fill_green.png', slice: true, rect: [212, 365, 408, 32] },
+            { id: 'stars_bg', asset: 'UI/通用/bar_bg.png', slice: true, rect: [230, 360, 396, 42] },
+            { id: 'stars_fill_green', asset: 'UI/通用/bar_fill_green.png', slice: true, rect: [236, 365, 384, 32] },
+            ...(frameBySource.has(STAR) ? [{ id: 'stars_icon', asset: STAR, rect: [196, 349, 64, 64] }] : []),
             label('stars_text', '0/50', [632, 352, 170, 56], 34, '#FFFFFF', white),
             label('board_info', '', [80, 296, 460, 110], 34, '#FFFFFF', { ...white, align: 'left', hidden: true }),
             { id: 'countdown_bg', asset: 'UI/HUD/hud_capsule_light.png', slice: true, rect: [560, 284, 240, 62] },
@@ -662,7 +678,7 @@ function leagueLayout() {
             { id: 'league_list', rect: LEAGUE_LIST },
             { id: 'me_row', asset: art(LEAGUE_ART.rowSelf, LEAGUE_ART.rowSelfStandIn), slice: true, rect: [30, me, 793, 110] },
             label('me_rank', '-', [36, me, 90, 110], 42, '#B25A12', { bold: true }),
-            ...avatar('me', 130, me + 13, 84),
+            ...avatar('me', 130, me + 13, 84, 'self'),
             label('me_name', '我', [232, me, 280, 110], 36, '#5B3A16', { bold: true, align: 'left' }),
             label('me_score', '0', [500, me, 170, 110], 38, '#5B3A16', { bold: true, align: 'right' }),
             { id: 'me_gift', asset: LEAGUE_ART.gift, rect: [700, me + 18, 74, 74] },
@@ -672,7 +688,7 @@ function leagueLayout() {
     };
 }
 /** S27 settlement dialog, on the S21 dialog frame: rank, gift, reward, stars and tier; one claim per settlement. */
-function leagueResultLayout() {
+export function leagueResultLayout() {
     const s21 = JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S21.json'), 'utf8')), el = id => s21.elements.find(e => e.id === id);
     const sx = LEAGUE_W / s21.size[0], sy = LEAGUE_H / s21.size[1], scale = e => ({ ...e, rect: [e.rect[0] * sx, e.rect[1] * sy, e.rect[2] * sx, e.rect[3] * sy] });
     return {
@@ -705,13 +721,14 @@ function buildLeagueRow() {
     const pic = sprite('avatar', 'UI/图标/icon_coin.png', [104, 17, 76, 76]);
     b.objects[pic]._active = false;
     const initial = text('initial', [100, 13, 84, 84], { fontSize: 36, color: '#FFFFFF', bold: true, outlineColor: '#5B3A16', outlineWidth: 3 });
+    const ring = 'UI/排行榜/avatar_frame_normal.png', ringNode = frameBySource.has(ring) ? sprite('avatar_frame', ring, [100 - 5.25, 13 - 5.25, 94.5, 94.5]) : null;
     const name = text('name', [202, 0, 300, h], { fontSize: 34, color: '#5B3A16', bold: true, align: 'left' });
     const score = text('score', [470, 0, 200, h], { fontSize: 36, color: '#5B3A16', bold: true, align: 'right' });
     const gift = sprite('gift', LEAGUE_ART.gift, [700, 18, 74, 74]);
     const spriteOf = node => ref(b.objects[node]._components.find(c => b.objects[c.__id__].__type__ === 'cc.Sprite').__id__);
     b.component(b.root, LEAGUE_ITEM, {
         titleLabel: null, selectedMarker: ref(self), rankLabel: ref(rank), nameLabel: ref(name), scoreLabel: ref(score), initialLabel: ref(initial),
-        avatarBg: spriteOf(bg), avatarSprite: spriteOf(pic), giftSprite: spriteOf(gift), rowSprite: spriteOf(row),
+        avatarBg: spriteOf(bg), avatarSprite: spriteOf(pic), giftSprite: spriteOf(gift), rowSprite: spriteOf(row), frameSprite: ringNode === null ? null : spriteOf(ringNode),
     });
     return { name: 'LeagueRow', objects: b.finish() };
 }

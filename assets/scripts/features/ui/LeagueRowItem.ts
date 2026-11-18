@@ -25,6 +25,8 @@ export class LeagueRowItem extends VirtualListItem {
     @property(Sprite) public avatarSprite: Sprite | null = null;
     @property(Sprite) public giftSprite: Sprite | null = null;
     @property(Sprite) public rowSprite: Sprite | null = null;
+    /** Avatar ring (normal; the page swaps in the "self" ring for the player's row). */
+    @property(Sprite) public frameSprite: Sprite | null = null;
 
     protected onBind(value: unknown): void {
         const row = value as LeagueRowData;

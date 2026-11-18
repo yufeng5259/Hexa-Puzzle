@@ -111,13 +111,15 @@ export class LeaguePage {
 
     private renderHeader(v: LayoutView, board: LeagueView): void {
         const daily = board.board === 'daily', tier = tierRule(this.game.rules, board.tier), top = !tier.starsToNext;
-        for (const id of ['tier_badge', 'tier_badge_text', 'tier_name', 'stars_bg', 'stars_fill_green', 'stars_text']) v.setVisible(id, daily);
+        for (const id of ['tier_badge', 'tier_badge_text', 'tier_name', 'stars_bg', 'stars_fill_green', 'stars_text', 'stars_icon']) if (v.has(id)) v.setVisible(id, daily);
         v.setVisible('board_info', !daily);
         for (const id of ['countdown_bg', 'countdown']) v.setVisible(id, board.endsAt !== null);
         if (daily) {
             v.setText('tier_badge_text', tier.tier);
             v.setText('tier_name', tier.name);
             this.art(v, 'tier_badge', `UI/排行榜/league_badge_${tier.tier}.png`, 'UI/HUD/hud_level_badge.png');
+            // The delivered tier badges carry their own emblem; the number only marks the stand-in badge.
+            v.setVisible('tier_badge_text', !this.nav.hasFrame(`UI/排行榜/league_badge_${tier.tier}.png`));
             v.setText('stars_text', top ? `第一 ×${this.game.state.league.firstPlaceCount}` : `${board.stars}/${board.starsToNext}`);
             setProgress(v.element('stars_fill_green'), top ? 1 : board.stars / board.starsToNext);
         } else {
@@ -127,12 +129,19 @@ export class LeaguePage {
 
     private renderPodium(v: LayoutView, place: number, row: LeagueRow | undefined): void {
         const id = `podium_${place}`;
-        for (const part of ['', '_bg', '_initial', '_name', '_score', '_rank']) v.setVisible(id + part, !!row);
+        for (const part of ['', '_bg', '_initial', '_name', '_score', '_rank', '_medal', '_frame']) if (v.has(id + part)) v.setVisible(id + part, !!row);
         if (!row) { v.setVisible(`${id}_avatar`, false); return; }
         v.setText(`${id}_name`, row.me ? '我' : row.name);
         v.label(`${id}_name`).color = row.me ? hex('#FFE27A') : NAME_COLOR;
         v.setText(`${id}_score`, number(row.score));
         this.paintAvatar(v.element(`${id}_bg`).getComponent(Sprite), v.label(`${id}_initial`), v.element(`${id}_avatar`), row, () => v.isValid);
+        // Podium rings are gold / silver / bronze; the player's own is the "self" ring.
+        if (v.has(`${id}_frame`)) this.ring(v.element(`${id}_frame`).getComponent(Sprite)!, row.me ? 'self' : (['gold', 'silver', 'bronze'] as const)[place - 1], () => v.isValid);
+    }
+    private ring(sprite: Sprite, kind: 'normal' | 'gold' | 'silver' | 'bronze' | 'self', alive: () => boolean): void {
+        const id = `UI/排行榜/avatar_frame_${kind}.png`;
+        if (!this.nav.hasFrame(id)) return;
+        this.nav.loadFrame(id).then(f => { if (alive() && sprite.isValid) sprite.spriteFrame = f; }, error => console.error(error));
     }
 
     private renderMe(v: LayoutView, board: LeagueView): void {
@@ -153,6 +162,7 @@ export class LeaguePage {
             paint: (item: LeagueRowItem, alive) => {
                 if (item.nameLabel) item.nameLabel.color = row.me ? ME_COLOR : hex('#5B3A16');
                 this.paintAvatar(item.avatarBg, item.initialLabel, item.avatarSprite?.node ?? null, row, alive);
+                if (item.frameSprite) this.ring(item.frameSprite, row.me ? 'self' : 'normal', alive);
                 if (item.giftSprite && row.gift !== 'none') { item.giftSprite.node.active = true; this.paintGift(item.giftSprite, row.gift, alive); }
             },
         };
