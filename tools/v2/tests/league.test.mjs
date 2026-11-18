@@ -188,3 +188,12 @@ test('the player wins ties and every bot of a group fits its tier', () => {
     assert.equal(L.leagueView(s, rules, 'daily', end).me.rank, 3);
     for (const e of g.bots) { const b = L.bot(rules, e.botId); assert.ok(b.tierMin <= 1 && 1 <= b.tierMax); }
 });
+
+test('before scoring this period the player is listed last, without a prize', () => {
+    const s = fresh(), v = L.leagueView(s, rules, 'daily', at(0, 0));
+    assert.equal(v.joined, false);
+    assert.equal(v.me.rank, 20);
+    assert.equal(v.me.reward, null);
+    assert.equal(v.me.gift, 'none');
+    assert.equal(v.rows.at(-1).me, true);
+});

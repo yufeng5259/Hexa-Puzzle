@@ -151,6 +151,8 @@ function winDialog(layout) {
     const elements = layout.elements.flatMap(e => {
         if (e.id === 'ribbon_title_blue') return [...header, { ...e, id: 'ribbon_win_gold', asset: 'UI/通用/ribbon_win_gold.png', slice: true, rect: [ribbon.rect[0] - 20, ribbon.rect[1] - 10, ribbon.rect[2] + 40, ribbon.rect[3] + 10] }];
         if (e.id === 'title') return [{ ...e, fontSize: 56, color: '#FFFFFF', bold: true, outlineColor: '#8A4B08', outlineWidth: 5 }];
+        // The coin amount sat 7 units into the line under it: coin and amount move up, the line stays inside the frame.
+        if (e.id === 'icon_coin' || e.id === 'reward_coin') return [{ ...e, rect: [e.rect[0], e.rect[1] - (e.id === 'icon_coin' ? 12 : 16), e.rect[2], e.rect[3]] }];
         return [e];
     });
     return { ...layout, elements };
@@ -642,15 +644,18 @@ export function leagueLayout() {
         const x = 40 + i * 266;
         return [{ id, asset: art(LEAGUE_ART.tab, LEAGUE_ART.tabStandIn), slice: true, rect: [x, 160, 240, 92] }, label(`${id}_label`, text, [x, 164, 240, 80], 40, '#FFFFFF', white)];
     });
-    const podium = [[1, 316, 640, 220, 160, 366, 520], [2, 96, 700, 200, 120, 136, 580], [3, 556, 720, 200, 100, 596, 600]].flatMap(([i, x, y, w, h, ax, ay]) => {
-        const real = frameBySource.has(LEAGUE_ART.podium(i)), m = Math.min(56, h - 46), top = y + h * 0.2;
+    // Bases at the delivered proportions (docs/v2/17 §3.4). The avatar stands on the top face; its name and
+    // score sit above it; the medal sits high on the front, clear of the honeycomb decoration (seen on device).
+    const podium = [[1, 316, 640, 220, 160], [2, 96, 700, 200, 120], [3, 556, 720, 200, 100]].flatMap(([i, x, y, w, h]) => {
+        const real = frameBySource.has(LEAGUE_ART.podium(i)), s = 120, ax = x + (w - s) / 2, ay = y + h * 0.1 - s;
+        const m = Math.round(Math.min(52, h * 0.44)), my = y + h * 0.22 - m / 2;
         return [
             { id: `podium_${i}`, asset: art(LEAGUE_ART.podium(i), LEAGUE_ART.podiumStandIn), slice: !real, rect: [x, y, w, h], tint: real ? undefined : ['#F5C542', '#C9D6E8', '#E7A066'][i - 1] },
-            ...avatar(`podium_${i}`, ax, ay, 120, ['gold', 'silver', 'bronze'][i - 1]),
-            ...(frameBySource.has(MEDAL(i)) ? [{ id: `podium_${i}_medal`, asset: MEDAL(i), rect: [x + (w - m) / 2, top, m, m] }] : []),
-            label(`podium_${i}_rank`, String(i), [x, top, w, m], Math.round(m * 0.62), '#FFFFFF', { bold: true, outlineColor: '#8A4B08', outlineWidth: 3 }),
-            label(`podium_${i}_name`, '', [x - 30, ay - 52, w + 60, 46], 30, '#FFFFFF', white),
-            label(`podium_${i}_score`, '', [x, y + h - 44, w, 40], 30, '#6B3F12', { bold: true }),
+            ...avatar(`podium_${i}`, ax, ay, s, ['gold', 'silver', 'bronze'][i - 1]),
+            ...(frameBySource.has(MEDAL(i)) ? [{ id: `podium_${i}_medal`, asset: MEDAL(i), rect: [x + (w - m) / 2, my, m, m] }] : []),
+            label(`podium_${i}_rank`, String(i), [x, my, w, m], Math.round(m * 0.62), '#FFFFFF', { bold: true, outlineColor: '#8A4B08', outlineWidth: 3 }),
+            label(`podium_${i}_name`, '', [x - 30, ay - 92, w + 60, 44], 30, '#FFFFFF', white),
+            label(`podium_${i}_score`, '', [x - 10, ay - 50, w + 20, 42], 32, '#FFE27A', { bold: true, outlineColor: '#5B3A16', outlineWidth: 3 }),
         ];
     });
     const me = 1530;

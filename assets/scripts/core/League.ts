@@ -249,11 +249,13 @@ export function leagueView(state: Readonly<GameState>, rules: Rules, board: Leag
     }
     const order = new Map(rules.league.bots.map((b, i) => [b.id, i]));
     const sorted = [...entries].sort((a, b) => b.score - a.score || bot(rules, b.botId).skill - bot(rules, a.botId).skill || order.get(a.botId)! - order.get(b.botId)!);
-    // The player wins ties: placed before every opponent with the same score.
-    const mine = sorted.findIndex(e => e.score <= myScore), at = mine < 0 ? sorted.length : mine;
+    // The player wins ties: placed before every opponent with the same score. Without points this period
+    // the player is not in the race yet: listed last, without a prize (16 §3).
+    const joined = myScore > 0, mine = joined ? sorted.findIndex(e => e.score <= myScore) : -1, at = mine < 0 ? sorted.length : mine;
     const prize = (rank: number) => board === 'allTime' ? { reward: null, gift: 'none' as LeagueGift, stars: 0 } : rankReward(state, rules, board, rank, lb.tier);
     const rows: LeagueRow[] = [];
-    const meRow = (rank: number): LeagueRow => ({ rank, botId: null, name: '我', avatar: PLAYER_AVATAR, avatarBg: 0, score: myScore, me: true, ...prize(rank) });
+    const meRow = (rank: number): LeagueRow => ({ rank, botId: null, name: '我', avatar: PLAYER_AVATAR, avatarBg: 0, score: myScore, me: true,
+        ...(joined || board === 'allTime' ? prize(rank) : { reward: null, gift: 'none' as LeagueGift, stars: 0 }) });
     sorted.forEach((e, i) => {
         if (i === at) rows.push(meRow(rows.length + 1));
         const b = bot(rules, e.botId);
@@ -262,7 +264,7 @@ export function leagueView(state: Readonly<GameState>, rules: Rules, board: Leag
     if (at === sorted.length) rows.push(meRow(rows.length + 1));
     return {
         board, periodId, endsAt, tier: tier.tier, tierName: tier.name, stars: lb.stars, starsToNext: tier.starsToNext,
-        rows, me: rows.find(r => r.me)!, joined: myScore > 0,
+        rows, me: rows.find(r => r.me)!, joined,
     };
 }
 
