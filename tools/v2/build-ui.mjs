@@ -198,16 +198,37 @@ export function pageLayout(file) {
     return progressSlots(readable(iconAspect(LAYOUT_PATCH[layout.page]?.(layout) ?? layout)));
 }
 /**
- * Icons redrawn in P2-8 changed canvas shape, while the layout rects were measured on the old
- * pictures: they are fitted inside the rect at their own proportions, centred.
+ * UI quality audit (2026-11-18). A simple (not nine-sliced) picture is drawn at its own proportions:
+ * when its layout rect differs by more than ASPECT_TOLERANCE (many rects were measured on older art
+ * with another canvas shape) it is fitted inside the rect — characters stand on the rect's bottom edge,
+ * everything else stays centred. Nine-slice art stretched beyond the tolerance is drawn nine-sliced
+ * instead (see sliceFor), and full-screen pictures (backgrounds, dims) cover the screen as before.
  */
+export const ASPECT_TOLERANCE = 1.06;
+const FULL = (layout, e) => e.rect[2] >= layout.size[0] - 20 && e.rect[3] >= layout.size[1] - 60;
 function iconAspect(layout) {
     return { ...layout, elements: layout.elements.map(e => {
-        const art = !e.slice && e.rect && /^UI\/图标\//.test(e.asset ?? '') && manifestByFile.get(e.asset), size = art?.batch === 'P2-8' && art.size;
-        if (!size) return e;
-        const [x, y, w, h] = e.rect, k = Math.min(w / size[0], h / size[1]), fw = size[0] * k, fh = size[1] * k;
-        return Math.abs(fw - w) < 0.5 && Math.abs(fh - h) < 0.5 ? e : { ...e, rect: [x + (w - fw) / 2, y + (h - fh) / 2, fw, fh] };
+        if (!e.asset || !e.rect || e.type === 'label' || e.progress || FULL(layout, e)) return e;
+        const px = texturePixels(e.asset);
+        if (!px || sliceFor(e, e.rect[2], e.rect[3], px)) return e;
+        const [x, y, w, h] = e.rect, k = Math.min(w / px.width, h / px.height), fw = px.width * k, fh = px.height * k;
+        if (Math.max(w / fw, h / fh) <= ASPECT_TOLERANCE) return e;
+        const standing = /^角色\//.test(e.asset.replace(/^\.\.\//, ''));
+        return { ...e, rect: [x + (w - fw) / 2, standing ? y + h - fh : y + (h - fh) / 2, fw, fh] };
     }) };
+}
+/**
+ * Whether a picture is drawn nine-sliced: the layout says so, or it is nine-slice art (borders in its
+ * import settings) stretched out of proportion; close to its proportions it keeps the plain drawing,
+ * which keeps the gloss and texture of its middle intact.
+ */
+/** Nine-slice art with decoration across a middle cell (the crown's honeycombs): never sliced automatically. */
+const DECORATED_MIDDLE = /panel_feature_crown/;
+function sliceFor(e, w, h, px = texturePixels(e.asset)) {
+    if (e.slice) return true;
+    if (!px?.borders || px.borders.every(b => !b) || DECORATED_MIDDLE.test(e.asset)) return false;
+    const r = (w / h) / (px.width / px.height);
+    return Math.max(r, 1 / r) > ASPECT_TOLERANCE;
 }
 
 /**
@@ -330,8 +351,15 @@ const manifestByFile = new Map(JSON.parse(fs.readFileSync(path.join(PROJECT, 'do
  * design part stays exactly where the layout put it.
  */
 const EXT = extensions();
+function pngSize(file) {
+    const full = path.join(PROJECT, 'docs/v2', file);
+    if (!fs.existsSync(full)) return null;
+    const b = fs.readFileSync(full);
+    return [b.readUInt32BE(16), b.readUInt32BE(20)];
+}
 function grown(e) {
-    const file = e.asset?.replace(/^\.\.\//, ''), x = file && EXT.get(`素材/${file}`), size = x && manifestByFile.get(file)?.size;
+    const file = e.asset?.replace(/^\.\.\//, ''), x = file && (EXT.get(`素材/${file}`) ?? EXT.get(file));
+    const size = x && (manifestByFile.get(file)?.size ?? pngSize(EXT.get(file) ? file : `素材/${file}`));
     if (!size) return e.rect;
     const [rx, ry, rw, rh] = e.rect, kx = rw / size[0], ky = rh / size[1];
     return [rx - x.offset[0] * kx, ry - x.offset[1] * ky, x.size[0] * kx, x.size[1] * ky];
@@ -351,9 +379,13 @@ function texturePixels(asset) {
     const file = path.join(PROJECT, 'assets/bundles', entry.bundle, 'textures', m[1] + '.png.meta');
     if (!fs.existsSync(file)) return null;
     const frame = Object.values(JSON.parse(fs.readFileSync(file, 'utf8')).subMetas ?? {}).find(s => s.importer === 'sprite-frame');
-    return frame ? { width: frame.userData.rawWidth, height: frame.userData.rawHeight } : null;
+    if (!frame) return null;
+    const u = frame.userData;
+    return { width: u.rawWidth, height: u.rawHeight, borders: [u.borderLeft ?? 0, u.borderRight ?? 0, u.borderTop ?? 0, u.borderBottom ?? 0] };
 }
 function addSprite(b, node, e) {
+    const size = b.objects[b.objects[node]._components[0].__id__]._contentSize;
+    if (!e.slice && sliceFor(e, size.width, size.height)) e = { ...e, slice: true };
     const id = b.sprite(node, frame(e.asset), e.opacity ?? 1);
     const sprite = b.objects[id];
     if (e.slice) sprite._type = 1;
@@ -686,7 +718,7 @@ export function leagueLayout() {
             ...avatar('me', 130, me + 13, 84, 'self'),
             label('me_name', '我', [232, me, 280, 110], 36, '#5B3A16', { bold: true, align: 'left' }),
             label('me_score', '0', [500, me, 170, 110], 38, '#5B3A16', { bold: true, align: 'right' }),
-            { id: 'me_gift', asset: LEAGUE_ART.gift, rect: [700, me + 18, 74, 74] },
+            { id: 'me_gift', asset: LEAGUE_ART.gift, rect: [703, me + 18, 67, 74] },
             { id: 'go_play', asset: 'UI/通用/btn_green_normal.png', slice: true, rect: [190, 1680, 473, 120] },
             label('go_play_label', '去挑战', [190, 1686, 473, 104], 48, '#FFFFFF', { bold: true, outlineColor: '#2E6B12', outlineWidth: 4 }),
         ],
@@ -701,7 +733,7 @@ export function leagueResultLayout() {
             ...['mask_black', 'panel_dialog', 'ribbon_title_blue'].map(id => scale(el(id))), { ...scale(el('title')), text: '每日联赛结算' },
             label('result_rank', '第 1 名', [150, 600, 554, 100], 66, '#B25A12', { bold: true }),
             label('result_info', '', [120, 700, 614, 50], 30, '#6B3F12'),
-            { id: 'gift', asset: 'UI/图标/icon_chest_closed.png', rect: [317, 760, 220, 256] },
+            { id: 'gift', asset: 'UI/图标/icon_chest_closed.png', rect: [310, 760, 233, 256] },
             label('reward_text', '', [120, 1020, 614, 56], 38, '#5B3A16', { bold: true }),
             label('stars_text', '', [120, 1078, 614, 50], 32, '#6B3F12'),
             label('tier_text', '', [120, 1128, 614, 50], 36, '#2E6B12', { bold: true, hidden: true }),
@@ -729,7 +761,7 @@ function buildLeagueRow() {
     const ring = 'UI/排行榜/avatar_frame_normal.png', ringNode = frameBySource.has(ring) ? sprite('avatar_frame', ring, [100 - 5.25, 13 - 5.25, 94.5, 94.5]) : null;
     const name = text('name', [202, 0, 300, h], { fontSize: 34, color: '#5B3A16', bold: true, align: 'left' });
     const score = text('score', [470, 0, 200, h], { fontSize: 36, color: '#5B3A16', bold: true, align: 'right' });
-    const gift = sprite('gift', LEAGUE_ART.gift, [700, 18, 74, 74]);
+    const gift = sprite('gift', LEAGUE_ART.gift, [703, 18, 67, 74]);
     const spriteOf = node => ref(b.objects[node]._components.find(c => b.objects[c.__id__].__type__ === 'cc.Sprite').__id__);
     b.component(b.root, LEAGUE_ITEM, {
         titleLabel: null, selectedMarker: ref(self), rankLabel: ref(rank), nameLabel: ref(name), scoreLabel: ref(score), initialLabel: ref(initial),
@@ -821,7 +853,7 @@ function dirMeta(rel) {
 
 export function buildUi() {
     const pages = fs.readdirSync(LAYOUTS).filter(f => /^S\d\d\.json$/.test(f)).sort().map(buildPage);
-    const league = [leagueLayout(), leagueResultLayout()].map(l => buildLayout(progressSlots(readable(l))));
+    const league = [leagueLayout(), leagueResultLayout()].map(l => buildLayout(progressSlots(readable(iconAspect(l)))));
     const all = [...pages, ...league, buildAnchor(), buildMapCard(), buildReplayRow(), buildHelpDialog(), buildLeagueRow()];
     fs.mkdirSync(path.join(PROJECT, OUT), { recursive: true }); dirMeta(OUT);
     all.forEach(writePrefab);

@@ -341,3 +341,35 @@ test('EndlessPage only touches element ids that exist on S19–S22 and the help 
     assert.ok(used.includes('end_rescue') && used.includes('rule_hint'));
     assert.deepEqual([...new Set(used)].filter(id => !ids.has(id) && id !== 'hammer'), []);
 });
+
+/**
+ * UI quality guard (2026-11-18 audit): no picture drawn out of proportion, no nine-slice art stretched as
+ * a plain picture, no nine-slice whose borders exceed its node. Full-screen pictures (backgrounds, dims) cover.
+ */
+test('no generated picture is distorted or squeezed', () => {
+    const frames = new Map();
+    (function walk(dir) {
+        for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+            const file = path.join(dir, e.name);
+            if (e.isDirectory()) walk(file);
+            else if (e.name.endsWith('.png.meta')) for (const s of Object.values(JSON.parse(fs.readFileSync(file, 'utf8')).subMetas ?? {}))
+                if (s.importer === 'sprite-frame') frames.set(s.uuid, { name: e.name, ...s.userData });
+        }
+    })(path.join(PROJECT, 'assets'));
+    const problems = [];
+    for (const file of fs.readdirSync(OUT).filter(f => f.endsWith('.prefab'))) {
+        const objects = JSON.parse(fs.readFileSync(path.join(OUT, file), 'utf8'));
+        for (const sprite of objects.filter(o => o.__type__ === 'cc.Sprite' && o._spriteFrame)) {
+            const node = objects[sprite.node.__id__], ui = objects[node._components[0].__id__]._contentSize, f = frames.get(sprite._spriteFrame.__uuid__);
+            if (!f) continue;
+            const full = ui.width >= 833 && ui.height >= 1784, borders = f.borderLeft + f.borderRight + f.borderTop + f.borderBottom > 0;
+            if (sprite._type === 1) {
+                if (f.borderLeft + f.borderRight > ui.width + 0.5 || f.borderTop + f.borderBottom > ui.height + 0.5) problems.push(`${file}/${node._name}: nine-slice borders exceed ${ui.width}x${ui.height}`);
+            } else if (!full) {
+                const r = (ui.width / ui.height) / (f.rawWidth / f.rawHeight);
+                if (Math.max(r, 1 / r) > 1.06) problems.push(`${file}/${node._name}: ${f.name} drawn ${r.toFixed(2)}x out of proportion${borders ? ' (nine-slice art not sliced)' : ''}`);
+            }
+        }
+    }
+    assert.deepEqual(problems, []);
+});
