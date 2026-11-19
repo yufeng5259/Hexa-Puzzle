@@ -10,6 +10,8 @@ export interface MainlineLevel {
     readonly kind: 'normal' | 'challenge';
     readonly firstClearRewardId: string;
     readonly replayRewardId: string;
+    /** Hex symmetry applied when the board loads (docs/v2/14 §5): 0 = as authored, 1–5 rotations by 60°, 6–11 mirrored then rotated. */
+    readonly transform: number;
 }
 
 export interface BuildingRule {
@@ -23,6 +25,8 @@ export interface MapRule {
     readonly id: string;
     readonly nextMapId: string | null;
     readonly completionRewardId: string | null;
+    /** Coin rewards marked scaleByMap pay ×this while this map is being built (docs/v2/14 §4.1). */
+    readonly incomeMult: number;
     readonly buildings: readonly BuildingRule[];
 }
 
@@ -85,10 +89,17 @@ export interface Rules {
     readonly initialHints: number;
     readonly energy: { readonly max: number; readonly initial: number; readonly recoverSeconds: number; readonly startCost: number; readonly firstLevelFree: boolean };
     readonly rewards: Readonly<Record<string, Reward>>;
+    /** Reward ids whose coins grow with the map being built (Rewards.scaleByMap). */
+    readonly scaledRewards: readonly string[];
     readonly welcomeRewardId: string;
     /** Building on the first map the first-run guide asks the player to upgrade. */
     readonly guideBuildingId: string;
     readonly mainline: readonly MainlineLevel[];
+    /**
+     * After the authored levels the mainline loops over them again, one symmetry per round
+     * (docs/v2/14 §5): round k uses loopTransforms[(k − 1) % length]. Empty = the mainline ends.
+     */
+    readonly loopTransforms: readonly number[];
     readonly maps: readonly MapRule[];
     readonly firstMapId: string;
     readonly build: {
@@ -165,10 +176,46 @@ export function mapRule(rules: Rules, id: string): MapRule {
     return value;
 }
 
+const loopOrders = new WeakMap<Rules, readonly number[]>();
+/**
+ * Question order of a loop round (docs/v2/14 §5): the authored order ends with a run of challenges,
+ * so a loop round spreads the challenges evenly among the normal levels, each group keeping its order.
+ */
+export function loopOrder(rules: Rules): readonly number[] {
+    let order = loopOrders.get(rules);
+    if (!order) {
+        const idx = rules.mainline.map((_, i) => i), hard = idx.filter(i => rules.mainline[i].kind === 'challenge'), easy = idx.filter(i => rules.mainline[i].kind !== 'challenge');
+        const slots = new Set(hard.map((_, j) => Math.floor((j + 1) * idx.length / hard.length) - 1));
+        let h = 0, e = 0;
+        order = idx.map(slot => slots.has(slot) ? hard[h++] : easy[e++]);
+        loopOrders.set(rules, order);
+    }
+    return order;
+}
+
+/** Levels past the authored ones repeat them (challenges spread evenly), each round with its own board symmetry. */
 export function mainlineLevel(rules: Rules, levelNo: number): MainlineLevel {
+    const count = rules.mainline.length;
+    if (Number.isSafeInteger(levelNo) && levelNo > count && rules.loopTransforms.length) {
+        const index = (levelNo - 1) % count, round = Math.floor((levelNo - 1) / count);
+        const base = rules.mainline[loopOrder(rules)[index]];
+        return { ...base, levelNo, transform: rules.loopTransforms[(round - 1) % rules.loopTransforms.length] };
+    }
     const value = rules.mainline[levelNo - 1];
     if (!value || value.levelNo !== levelNo) throw new Error(`Unknown mainline level ${levelNo}`);
     return value;
+}
+
+/** Income multiplier of the map being built. */
+export function incomeMult(state: { readonly maps: { readonly currentMapId: string } }, rules: Rules): number {
+    return rules.maps.find(m => m.id === state.maps.currentMapId)?.incomeMult ?? 1;
+}
+
+/** What a reward pays now: scaleByMap coins × the current map's multiplier, rounded to 5. Energy and hints never scale. */
+export function payout(state: { readonly maps: { readonly currentMapId: string } }, rules: Rules, id: string): Reward {
+    const base = reward(rules, id);
+    if (!base.coins || !rules.scaledRewards.includes(id)) return base;
+    return { ...base, coins: Math.max(5, Math.round(base.coins * incomeMult(state, rules) / 5) * 5) };
 }
 
 /** Thrown when a player action is not allowed; the state is left untouched. */

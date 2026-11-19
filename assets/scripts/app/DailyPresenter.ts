@@ -2,7 +2,7 @@ import { Button, Node, UITransform } from 'cc';
 import type { Game } from '../core/Game';
 import { canSignIn, claimDailyChest, claimDailyTask, claimSignIn, refreshDaily, signInSlot } from '../core/Daily';
 import { dailyUnlocked } from '../core/Progress';
-import { reward, RuleError, type DailyTaskType, type Reward } from '../core/Rules';
+import { payout, RuleError, type DailyTaskType, type Reward } from '../core/Rules';
 import type { DailyTask, DisplayEvent, GameState } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
 import { setProgress } from '../features/ui/ProgressBar';
@@ -136,7 +136,7 @@ export class DailyPresenter {
             const state = i <= done ? 'claimed' : i === done + 1 && open ? 'today' : 'locked';
             if (state === 'today') todayCell = v.element(id);
             this.frame(v, id, `UI/签到/signin_cell_${big}${state}.png`);
-            const r = reward(rules, rules.signIn[i - 1]);
+            const r = payout(this.game.state, rules, rules.signIn[i - 1]);
             if (i < DAYS) { v.setText(`reward_${i}`, AMOUNT(r)); this.frame(v, `reward_icon_${i}`, `UI/图标/icon_${ICON(r)}.png`); }
             else { v.setText('reward_7_coin', r.hints ? `${r.coins} +` : `${r.coins}`); v.setText('reward_7_hint', r.hints || ''); v.setVisible('icon_hint', r.hints > 0); }
         }
@@ -165,7 +165,7 @@ export class DailyPresenter {
             this.frame(v, `task_${i}_icon`, `UI/任务/task_icon_${TASK_ICON[t.type]}.png`);
             v.setText(`task_${i}_description`, TASK_TEXT[t.type](t.target));
             v.setText(`task_${i}_progress`, `${t.progress}/${t.target}`);
-            v.setText(`task_${i}_coins`, reward(rules, row.rewardId).coins);
+            v.setText(`task_${i}_coins`, payout(this.game.state, rules, row.rewardId).coins);
             setProgress(v.element(`task_${i}_progress_fill`), t.progress / t.target);
             const art = t.claimed ? 'btn_grey_normal' : complete ? 'btn_green_normal' : 'btn_blue_normal';
             v.setText(`task_${i}_action_label`, t.claimed ? '已领取' : complete ? '领取' : '前往');
@@ -173,7 +173,7 @@ export class DailyPresenter {
         }
         const done = tasks.filter(t => t.progress >= t.target).length, all = tasks.length > 0 && done === tasks.length;
         v.setText('completion_progress', `今日完成 ${done}/${tasks.length}`);
-        v.setText('completion_coin', reward(rules, rules.daily.chestRewardId).coins);
+        v.setText('completion_coin', payout(this.game.state, rules, rules.daily.chestRewardId).coins);
         v.setText('completion_claim_text', d.chestClaimed ? '已领取' : all ? '领取宝箱' : '完成后领取');
         this.frame(v, 'icon_chest_closed', `UI/图标/icon_chest_${d.chestClaimed && !this.chestOpening ? 'open' : 'closed'}.png`);
         this.button(v, 'completion_claim', all && !d.chestClaimed, `UI/通用/btn_green_${all && !d.chestClaimed ? 'normal' : 'disabled'}.png`);

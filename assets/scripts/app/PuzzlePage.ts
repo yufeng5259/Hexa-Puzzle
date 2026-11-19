@@ -10,7 +10,7 @@ import type { Reward } from '../core/Rules';
 import type { DisplayEvent } from '../core/State';
 import { BoardFx } from '../features/fx/BoardFx';
 import type { Attempt } from '../core/State';
-import { LevelCatalog, type LevelDefinition } from '../features/puzzle/data/LevelCatalog';
+import { LevelCatalog, transformLevel, type LevelDefinition } from '../features/puzzle/data/LevelCatalog';
 import { PuzzleBoardPresentation } from '../features/puzzle/presentation/PuzzleBoardPresentation';
 import { PuzzleController } from '../features/puzzle/controller/PuzzleController';
 import { PuzzleSession, type PuzzleSessionSnapshot } from '../features/puzzle/session/PuzzleSession';
@@ -122,7 +122,8 @@ export class PuzzlePage {
         const request = ++this.request;
         try {
             const catalog = await this.loadCatalog();
-            const level = catalog.getById(mainlineLevel(this.game.rules, attempt.levelNo).puzzleId);
+            // Looped rounds (level 111+) show the same question under a board symmetry.
+            const row = mainlineLevel(this.game.rules, attempt.levelNo), level = transformLevel(catalog.getById(row.puzzleId), row.transform);
             // The board and pieces are built while the transition (or the faded-out board) still covers it.
             let presented: Promise<void> = Promise.resolve(), fx: BoardFx | null = null;
             const view = await this.nav.replacePage(level.mode === 'challenge' ? 'S05' : 'S04', id => this.onAction(id), {

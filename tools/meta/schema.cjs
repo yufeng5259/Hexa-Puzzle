@@ -3,8 +3,8 @@
 // Every key here is one independent workbook config/excel/<name>.xlsx.
 const schemas = {
  Constants: {id:'string',valueType:'string',value:'string'},
- Rewards: {id:'string',coins:'int',energy:'int',hints:'int'},
- Maps: {id:'string',order:'int',name:'string',backgroundAssetId:'string',nextMapId:'string?',completionRewardId:'string?'},
+ Rewards: {id:'string',coins:'int',energy:'int',hints:'int',scaleByMap:'bool'},
+ Maps: {id:'string',order:'int',name:'string',chapter:'string',subtitle:'string',incomeMult:'number',backgroundAssetId:'string',thumbAssetId:'string',placeholderOf:'string?',nextMapId:'string?',completionRewardId:'string?'},
  MapBuildings: {id:'string',mapId:'string',slot:'int',name:'string',feetX:'number',feetY:'number',anchorX:'number',anchorY:'number',widthFraction:'number',flipX:'bool',zIndex:'int',maxRewardId:'string?'},
  BuildingStages: {id:'string',buildingId:'string',level:'int',cost:'int',assetId:'string'},
  Mainline: {id:'string',levelNo:'int',puzzleId:'string',kind:'string',firstClearRewardId:'string',replayRewardId:'string'},
@@ -23,7 +23,7 @@ const schemas = {
 const constants = {
  initialCoins:'int', initialHints:'int',
  energyMax:'int', energyInitial:'int', energyRecoverSeconds:'int', energyStartCost:'int', energyFirstLevelFree:'bool',
- welcomeRewardId:'string', guideBuildingId:'string', firstMapId:'string',
+ welcomeRewardId:'string', guideBuildingId:'string', firstMapId:'string', mainlineLoopTransforms:'json',
  buildExpPerUpgrade:'int', buildConstructionSeconds:'number', 
  buildFxScaffoldEnd:'number', buildFxCarryStart:'number', buildFxCarryEnd:'number', buildFxHammerStart:'number', buildFxCloudStart:'number',
  buildFxRevealAt:'number', buildFxSparkleSeconds:'number', buildFxBeeFraction:'number', buildFxResumeFrom:'number',

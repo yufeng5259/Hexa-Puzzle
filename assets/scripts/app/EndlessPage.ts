@@ -6,7 +6,7 @@ import {
     boardCells, boardLines, canPlace, claimEndlessStage, endEndlessGame, endlessOutcome, endlessSummary, hammerCell, key, newEndlessGame, placeShape, refreshWeek,
     swapTray, toolBlock, toolsLeft, type EndlessOutcome, type EndlessTool, type ToolBlock,
 } from '../core/Endless';
-import { reward, RuleError, type EndlessShape } from '../core/Rules';
+import { payout, RuleError, type EndlessShape } from '../core/Rules';
 import { EndlessFx, type EndlessArt } from '../features/fx/EndlessFx';
 import { axialPoint, centeredCells, fitCells, nearestAxial, type Point2 } from '../features/puzzle/presentation/PuzzleLayout';
 import type { LayoutView } from '../features/ui/LayoutView';
@@ -156,7 +156,7 @@ export class EndlessPage {
         const marks = ['mark_check', 'stage_1_mark', 'mark_lock', 'mark_lock_2'];
         stages.slice(0, 4).forEach((stage, i) => {
             const reached = e.weekScore >= stage.score, claimed = e.claimedStages.includes(i);
-            const r = reward(rules, stage.rewardId);
+            const r = payout(this.game.state, rules, stage.rewardId);
             v.setText(`stage_${i}_threshold`, stage.score.toLocaleString('en-US'));
             if (i < 3) v.setText(`stage_${i}_reward`, r.coins ? `金币 ×${r.coins}` : r.hints ? `提示 ×${r.hints}` : `体力 ×${r.energy}`);
             else { v.setText('stage_3_coin', `金币×${r.coins}`); v.setText('stage_3_energy', `体力×${r.energy}`); }

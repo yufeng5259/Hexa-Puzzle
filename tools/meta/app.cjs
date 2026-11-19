@@ -54,6 +54,8 @@ function validate(tables,levels){
   check(C[id],'valueType',C[id].valueType===type,`expected ${type}`);
   if(type==='int'||type==='number')check(C[id],'value',C[id].value>=0,'must not be negative');
  }
+ const loop=C.mainlineLoopTransforms.value;
+ check(C.mainlineLoopTransforms,'value',Array.isArray(loop)&&loop.every(t=>Number.isSafeInteger(t)&&t>=1&&t<=11)&&new Set(loop).size===loop.length,'a list of distinct transforms 1..11 (empty = mainline ends after the last level)');
  const k=id=>C[id].value;
  if(k('energyMax')<1||k('energyRecoverSeconds')<1||k('energyInitial')>k('energyMax'))error('Constants.xlsx','invalid energy bounds');
  if(k('endlessRadius')<1||k('endlessTraySize')<1||k('dailyTaskCount')<1)error('Constants.xlsx','radius, tray size and task count must be positive');
@@ -67,6 +69,8 @@ function validate(tables,levels){
   check(map,'order',map.order===i+1,'orders must be 1..n');
   check(map,'nextMapId',map.nextMapId===(maps[i+1]?.id??null),'must point to the next map by order');
   ref(map,'completionRewardId','Rewards');
+  check(map,'incomeMult',map.incomeMult>0,'must be positive');
+  if(i)check(map,'incomeMult',map.incomeMult>=maps[i-1].incomeMult,'must not fall from the previous map');
   const slots=list('MapBuildings').filter(b=>b.mapId===map.id).sort((a,b)=>a.slot-b.slot);
   check(map,'id',slots.length>0&&slots.every((b,j)=>b.slot===j+1),'buildings need slots 1..n');
  });

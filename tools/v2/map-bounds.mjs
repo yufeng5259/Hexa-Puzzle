@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { PROJECT } from './env.mjs';
-import { extensions, stableUuid } from './import-art.mjs';
+import { deliveredMaps, extensions, stableUuid } from './import-art.mjs';
 const sharp = createRequire(import.meta.url)('sharp');
 
 const W = 853, H = 1844;
@@ -34,7 +34,7 @@ export async function pictureRect(original, ext, w, h) {
 
 export async function mapBounds() {
     const result = {}, ext = extensions();
-    for (const map of ['M01', 'M02', 'M03']) {
+    for (const map of deliveredMaps()) {
         const layout = JSON.parse(fs.readFileSync(path.join(PROJECT, `docs/v2/地图/${map}_建筑布局.json`), 'utf8'));
         let top = Infinity, bottom = -Infinity, left = Infinity, right = -Infinity;
         for (const p of layout.placements) {

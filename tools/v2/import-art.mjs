@@ -81,9 +81,14 @@ const extended = (ext, source) => ext.get(source)?.file ?? source;
 const UNUSED = new Set(['bg_pad_side_light', 'bg_pad_side_dark', 'pad_frame_edge']);
 
 /** Each entry: registry id, bundle, path inside the bundle (no extension), source file under docs/v2. */
+/** Maps whose art is delivered (地图/Mxx_建筑布局.json exists), in order; the others stand in with these. */
+export function deliveredMaps() {
+    return fs.readdirSync(path.join(DOCS, '地图')).map(f => /^(M\d\d)_建筑布局\.json$/.exec(f)?.[1]).filter(Boolean).sort();
+}
+
 export function plan() {
     const items = [], ext = extensions();
-    for (const map of ['M01', 'M02', 'M03']) {
+    for (const map of deliveredMaps()) {
         const layout = JSON.parse(fs.readFileSync(path.join(DOCS, `地图/${map}_建筑布局.json`), 'utf8'));
         items.push({ id: `map.${map}.background`, bundle: 'map', path: `backgrounds/${map}`, source: extended(ext, layout.background), original: layout.background });
         for (const p of layout.placements) for (const s of p.stages)

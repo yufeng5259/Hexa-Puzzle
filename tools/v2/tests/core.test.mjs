@@ -145,7 +145,7 @@ test('25/25 completes the map once with building-max and level rewards, then mov
     assert.equal(types.at(-1), 'mapComplete');
     assert.throws(() => store.commit(st => Prog.startBuild(st, rules, 'M01', 'B01', 'x')));
     assert.equal(store.commit(st => Prog.goToNextMap(st, rules)), true);
-    assert.equal(Prog.upgradeCost(store.state, rules, 'M02', 'B06'), 64);
+    assert.equal(Prog.upgradeCost(store.state, rules, 'M02', 'B06'), 60); // docs/v2/14 §4.2
 });
 
 test('sign-in is cumulative: one claim per day, missed days not lost, seventh then restarts', () => {
@@ -193,8 +193,8 @@ test('daily rotation: endless tasks once endless opens, fallback when nothing el
     assert.match(store.state.daily.tasks[2].type, /endless|build/);
     const allDone = JSON.parse(JSON.stringify(store.state));
     allDone.mainline.cleared = { 1: true };
-    allDone.maps.currentMapId = 'M03';
-    allDone.maps.completed.M03 = true;
+    allDone.maps.currentMapId = 'M30';
+    allDone.maps.completed.M30 = true;
     assert.equal(Daily.pickDailyTasks(allDone, rules, DAY)[2].id, 'place_10');
 });
 

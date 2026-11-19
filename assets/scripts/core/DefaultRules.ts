@@ -11,8 +11,7 @@ const rewards: Record<string, Reward> = {
     welcome: r(100, 0, 1),
     clear_normal: r(100), clear_challenge: r(150),
     replay_normal: r(20), replay_challenge: r(30),
-    building_max: r(30),
-    m01_done: r(200), m02_done: r(300), m03_done: r(500),
+    building_max: r(30), map_done: r(200),
     level_up: r(0, 1), level_up_5: r(0, 1, 1),
     sign_1: r(50), sign_2: r(0, 1), sign_3: r(100), sign_4: r(0, 0, 1), sign_5: r(150), sign_6: r(0, 2), sign_7: r(200, 0, 1),
     task_30: r(30), task_50: r(50),
@@ -32,21 +31,57 @@ export function puzzleIdFor(levelNo: number): string {
 function mainline(count: number): MainlineLevel[] {
     return Array.from({ length: count }, (_, i) => {
         const levelNo = i + 1, puzzleId = puzzleIdFor(levelNo), kind = puzzleId.startsWith('challenge') ? 'challenge' : 'normal';
-        return { levelNo, puzzleId, kind, firstClearRewardId: `clear_${kind}`, replayRewardId: `replay_${kind}` };
+        return { levelNo, puzzleId, kind, firstClearRewardId: `clear_${kind}`, replayRewardId: `replay_${kind}`, transform: 0 };
     });
 }
 
-const MAPS: readonly [string, number, readonly string[]][] = [
-    ['M01', 1, ['B01', 'B02', 'B03', 'B04', 'B05']],
-    ['M02', 1.6, ['B06', 'B07', 'B08', 'B09', 'B10']],
-    ['M03', 2.4, ['B11', 'B12', 'B13', 'B14', 'B15']],
+/**
+ * docs/v2/14 §4.2: 30 maps, income multiplier and the per-level cost of each of the 5 buildings
+ * (same on one map). Map n owns buildings B(5n−4)–B(5n).
+ */
+export const MAPS30: readonly (readonly [string, number, readonly number[]])[] = [
+    ['M01', 1.0, [40, 60, 80, 100, 120]],
+    ['M02', 1.5, [60, 100, 130, 160, 200]],
+    ['M03', 2.0, [100, 160, 210, 260, 310]],
+    ['M04', 2.5, [150, 230, 300, 380, 460]],
+    ['M05', 3.0, [200, 300, 400, 500, 600]],
+    ['M06', 3.25, [250, 350, 500, 600, 700]],
+    ['M07', 3.5, [250, 400, 550, 700, 800]],
+    ['M08', 3.75, [300, 450, 600, 750, 900]],
+    ['M09', 4.0, [350, 500, 700, 850, 1050]],
+    ['M10', 4.25, [400, 600, 750, 950, 1150]],
+    ['M11', 4.5, [400, 650, 850, 1050, 1250]],
+    ['M12', 4.75, [450, 700, 900, 1150, 1350]],
+    ['M13', 5.0, [500, 750, 1000, 1200, 1450]],
+    ['M14', 5.25, [500, 800, 1050, 1300, 1550]],
+    ['M15', 5.5, [550, 850, 1100, 1400, 1700]],
+    ['M16', 5.65, [600, 900, 1200, 1450, 1750]],
+    ['M17', 5.8, [600, 900, 1250, 1550, 1850]],
+    ['M18', 5.95, [650, 950, 1300, 1600, 1950]],
+    ['M19', 6.1, [650, 1000, 1350, 1700, 2000]],
+    ['M20', 6.25, [700, 1050, 1400, 1750, 2100]],
+    ['M21', 6.4, [750, 1100, 1450, 1850, 2200]],
+    ['M22', 6.55, [750, 1150, 1550, 1900, 2300]],
+    ['M23', 6.7, [800, 1200, 1600, 2000, 2400]],
+    ['M24', 6.85, [850, 1250, 1650, 2100, 2500]],
+    ['M25', 7.0, [850, 1300, 1750, 2150, 2600]],
+    ['M26', 7.15, [900, 1350, 1800, 2250, 2700]],
+    ['M27', 7.3, [950, 1400, 1850, 2350, 2800]],
+    ['M28', 7.45, [950, 1450, 1950, 2400, 2900]],
+    ['M29', 7.6, [1000, 1500, 2000, 2500, 3000]],
+    ['M30', 7.75, [1050, 1550, 2100, 2600, 3100]],
 ];
-const maps: MapRule[] = MAPS.map(([id, factor, ids], i) => ({
+const bid = (n: number) => `B${String(n).padStart(2, '0')}`;
+const maps: MapRule[] = MAPS30.map(([id, incomeMult, costs], i) => ({
     id,
-    nextMapId: MAPS[i + 1]?.[0] ?? null,
-    completionRewardId: `${id.toLowerCase()}_done`,
-    buildings: ids.map((b): BuildingRule => ({ id: b, costs: [40, 60, 80, 100, 120].map(c => Math.round(c * factor)), maxRewardId: 'building_max' })),
+    nextMapId: MAPS30[i + 1]?.[0] ?? null,
+    completionRewardId: 'map_done',
+    incomeMult,
+    buildings: [1, 2, 3, 4, 5].map((slot): BuildingRule => ({ id: bid(i * 5 + slot), costs, maxRewardId: 'building_max' })),
 }));
+/** Coin rewards that grow with the map being built (14 §4.1); energy and hints never scale. */
+const SCALED = ['clear_normal', 'clear_challenge', 'replay_normal', 'replay_challenge', 'building_max', 'map_done',
+    'sign_1', 'sign_3', 'sign_5', 'sign_7', 'task_30', 'task_50', 'endless_1', 'endless_2', 'endless_4'];
 
 const tasks: DailyTaskRule[] = [
     { id: 'win_1', type: 'win', target: 1, rewardId: 'task_30', slot: 'fixed', weight: 0 },
@@ -138,10 +173,12 @@ export function defaultRules(): Rules {
         initialCoins: 0,
         initialHints: 5,
         energy: { max: 5, initial: 5, recoverSeconds: 300, startCost: 1, firstLevelFree: true },
-        rewards,
+        rewards, scaledRewards: [...SCALED].sort(),
         welcomeRewardId: 'welcome',
         guideBuildingId: 'B01',
         mainline: mainline(110),
+        // After level 110 the same order repeats: rotate 180°, mirror, then the other symmetries.
+        loopTransforms: [3, 6, 1, 9, 2, 7, 4, 10, 5, 8, 11],
         maps,
         firstMapId: 'M01',
         build: {
@@ -158,7 +195,7 @@ export function defaultRules(): Rules {
             endlessSwapOutSeconds: 0.12, endlessSwapInSeconds: 0.2, endlessHammerSeconds: 0.15, endlessShatterSeconds: 0.2,
         },
         // Linear 100 exp per level; every level gives 1 energy, levels 6/11/16… also a hint.
-        levels: Array.from({ length: 30 }, (_, i) => ({ expToNext: 100, rewardId: i === 0 ? null : (i + 1) % 5 === 1 ? 'level_up_5' : 'level_up' })),
+        levels: Array.from({ length: 160 }, (_, i) => ({ expToNext: 100, rewardId: i === 0 ? null : (i + 1) % 5 === 1 ? 'level_up_5' : 'level_up' })),
         signIn: ['sign_1', 'sign_2', 'sign_3', 'sign_4', 'sign_5', 'sign_6', 'sign_7'],
         daily: { tasks, chestRewardId: 'task_50', count: 3 },
         endless: {

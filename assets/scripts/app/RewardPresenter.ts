@@ -77,10 +77,14 @@ export class RewardPresenter {
             void Promise.all([shown, wait(TOAST_MS)]).then(() => { if (v.isValid) this.next(); });
         });
         else if (event.type === 'mapComplete') void this.nav.showDialog('S15', id => this.onMapComplete(id), v => {
-            const map = this.game.rules.maps.find(m => m.id === event.detail!.mapId)!;
+            const map = this.game.rules.maps.find(m => m.id === event.detail!.mapId)!, views = this.game.config.maps;
+            const view = views.find(m => m.id === map.id)!, next = views.find(m => m.id === map.nextMapId);
+            v.setText('title', `${view.name}完工`);
             v.setText('map_progress', `${map.buildings.length * 5}/${map.buildings.length * 5}`);
+            // 14 §6.3: the honey of this map; a finished chapter says so and names the next one.
+            v.setText('map_complete', next && next.chapter !== view.chapter ? `${view.chapter}章节完成！下一站：${next.chapter}` : `收获${view.subtitle}`);
             v.setText('map_reward', `+${r.coins}`);
-            if (!map.nextMapId) v.setText('claim_next_text', '现有地图已完成');
+            v.setText('claim_next_text', next ? `前往${next.name}` : '现有地图已完成');
             void this.afterPopIn(v, () => this.collect(r, ids, { owner: v.node, from: v.element('panel_inner'), sources: { coins: v.element('icon_coin') } }));
         });
         else { this.game.ackDisplay(ids); this.drain(); }

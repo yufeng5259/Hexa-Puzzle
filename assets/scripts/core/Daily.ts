@@ -1,4 +1,4 @@
-import { DailyTaskType, reward, RuleError, Rules } from './Rules';
+import { DailyTaskType, payout, RuleError, Rules } from './Rules';
 import { DailyTask, DisplayEvent, GameState, grantAndShow } from './State';
 import { allBuildingsDone, dailyUnlocked, endlessUnlocked } from './Progress';
 
@@ -48,7 +48,7 @@ export function claimDailyTask(state: GameState, rules: Rules, day: string, task
     if (task.claimed) throw new RuleError('claimed', 'Task reward already claimed');
     if (task.progress < task.target) throw new RuleError('locked', 'Task not complete');
     task.claimed = true;
-    return show(state, { id: `daily:${day}:${taskId}`, type: 'dailyTask', reward: reward(rules, row.rewardId), detail: { taskId } });
+    return show(state, { id: `daily:${day}:${taskId}`, type: 'dailyTask', reward: payout(state, rules, row.rewardId), detail: { taskId } });
 }
 
 export function claimDailyChest(state: GameState, rules: Rules, day: string): DisplayEvent | null {
@@ -56,7 +56,7 @@ export function claimDailyChest(state: GameState, rules: Rules, day: string): Di
     if (state.daily.chestClaimed) throw new RuleError('claimed', 'Chest already claimed');
     if (!state.daily.tasks.length || state.daily.tasks.some(t => t.progress < t.target)) throw new RuleError('locked', 'Not all tasks complete');
     state.daily.chestClaimed = true;
-    return show(state, { id: `dailyChest:${day}`, type: 'dailyChest', reward: reward(rules, rules.daily.chestRewardId) });
+    return show(state, { id: `dailyChest:${day}`, type: 'dailyChest', reward: payout(state, rules, rules.daily.chestRewardId) });
 }
 
 /** Seven-day cumulative sign-in: one claim per local day, missed days are not lost or refilled. */
@@ -71,7 +71,7 @@ export function claimSignIn(state: GameState, rules: Rules, day: string): Displa
     const slot = signInSlot(state, rules);
     state.signIn.claimedCount += 1;
     state.signIn.lastClaimDay = day;
-    return show(state, { id: `signIn:${state.signIn.claimedCount}`, type: 'signIn', reward: reward(rules, rules.signIn[slot]), detail: { day: slot + 1 } });
+    return show(state, { id: `signIn:${state.signIn.claimedCount}`, type: 'signIn', reward: payout(state, rules, rules.signIn[slot]), detail: { day: slot + 1 } });
 }
 
 /** null: this receipt was already paid, so nothing was granted and nothing is to be shown. */

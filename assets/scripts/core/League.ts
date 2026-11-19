@@ -1,6 +1,6 @@
 import { dayId, msUntilNextDay, msUntilNextWeek, weekId } from './Clock';
 import type { LeagueBoard, LeagueBot, LeagueGift, LeagueRewardRule, LeagueTier, Reward, Rules } from './Rules';
-import { RuleError } from './Rules';
+import { incomeMult, RuleError } from './Rules';
 import type { DisplayEvent, GameState, LeagueEntry, LeagueGroup, LeagueSettlement, LeagueState } from './State';
 import { grantAndShow } from './State';
 
@@ -69,11 +69,6 @@ export function bot(rules: Rules, id: string): LeagueBot {
 export function rewardRow(rules: Rules, board: 'daily' | 'weekly', rank: number): LeagueRewardRule | null {
     return rules.league.rewards.find(r => r.board === board && rank >= r.rankFrom && rank <= r.rankTo) ?? null;
 }
-/**
- * Map income multiplier of docs/v2/14 §4.1 (league coins grow with the map being built).
- * Maps have no multiplier yet, so this is 1 until the 30-map economy lands.
- */
-export function incomeMult(_state: Readonly<GameState>, _rules: Rules): number { return 1; }
 const round5 = (value: number) => Math.round(value / 5) * 5;
 /** Reward of a rank: coins × tier reward multiplier × map income multiplier; energy and hints as configured. */
 export function rankReward(state: Readonly<GameState>, rules: Rules, board: 'daily' | 'weekly', rank: number, tier: number): { reward: Reward; stars: number; gift: LeagueGift } {

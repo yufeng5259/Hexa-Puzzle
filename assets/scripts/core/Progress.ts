@@ -1,4 +1,4 @@
-import { mapRule, reward, RuleError, Rules } from './Rules';
+import { mapRule, payout, reward, RuleError, Rules } from './Rules';
 import { buildingLevel, GameState, grantAndShow } from './State';
 import { recordDaily } from './Daily';
 
@@ -57,12 +57,12 @@ export function finishBuild(state: GameState, rules: Rules, buildId: string, day
     state.pendingBuild = null;
     addExp(state, rules, rules.build.expPerUpgrade, `build:${buildId}`);
     if (pending.toLevel === building.costs.length && building.maxRewardId) {
-        grantAndShow(state, { id: `buildingMax:${map.id}:${building.id}`, type: 'buildingMax', reward: reward(rules, building.maxRewardId), detail: { mapId: map.id, buildingId: building.id } });
+        grantAndShow(state, { id: `buildingMax:${map.id}:${building.id}`, type: 'buildingMax', reward: payout(state, rules, building.maxRewardId), detail: { mapId: map.id, buildingId: building.id } });
     }
     const progress = mapProgress(state, rules, map.id);
     if (progress.built === progress.total && !state.maps.completed[map.id]) {
         state.maps.completed[map.id] = true;
-        if (map.completionRewardId) grantAndShow(state, { id: `mapComplete:${map.id}`, type: 'mapComplete', reward: reward(rules, map.completionRewardId), detail: { mapId: map.id } });
+        if (map.completionRewardId) grantAndShow(state, { id: `mapComplete:${map.id}`, type: 'mapComplete', reward: payout(state, rules, map.completionRewardId), detail: { mapId: map.id } });
     }
     recordDaily(state, rules, dayId, 'build', 1);
 }

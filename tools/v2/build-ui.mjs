@@ -561,6 +561,8 @@ function listRig(b, layout, mapListId) {
     view16.nodes.push(ref(replay)); view16.nodeIds.push('ReplayList');
 }
 
+/** Height of the chapter title row above a chapter's first S16 card (design px); MapPage adds it to the list. */
+export const MAP_CHAPTER_ROW = 64;
 /** One S16 card in every state: drawn as the current card, plus the locked row of the next card. */
 function buildMapCard() {
     const layout = progressSlots(readable(JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S16.json'), 'utf8')))), el = id => layout.elements.find(e => e.id === id);
@@ -579,6 +581,16 @@ function buildMapCard() {
         else if (e.progress) addProgress(b, node, { ...e, id }, w, h);
         else addSprite(b, node, e);
         if (id === 'enter') b.button(node, b.root, 'LayoutView', 'onAction', 'enter');
+    }
+    // docs/v2/14 §6: the speciality honey on the thumbnail's lower left, and the chapter title above
+    // the first card of each chapter (hidden here; MapPage shows it and makes room for it).
+    const thumb = el('m01_thumbnail').rect, extra = [
+        { id: 'subtitle', type: 'label', text: '晨露花蜜', rect: [thumb[0] + 18, thumb[1] + thumb[3] - 62, 420, 50], fontSize: 30, color: '#FFFFFF', bold: true, align: 'left', outlineColor: '#5B3A16', outlineWidth: 3 },
+        { id: 'chapter', type: 'label', text: '第一章 · 家园启程', rect: [card[0], card[1] - MAP_CHAPTER_ROW, card[2], MAP_CHAPTER_ROW - 6], fontSize: 36, color: '#FFFFFF', bold: true, align: 'center', outlineColor: '#A2530B', outlineWidth: 4, hidden: true },
+    ];
+    for (const e of extra) {
+        const [x, y, w, h] = e.rect, node = b.node(e.id, b.root, { x: x + w / 2 - cx, y: cy - (y + h / 2), width: w, height: h }, !e.hidden);
+        nodes.push(ref(node)); nodeIds.push(e.id); labels.push(ref(addLabel(b, node, e))); labelIds.push(e.id);
     }
     b.component(b.root, VIEW, { pageId: 'MapCard', nodes, nodeIds, labels, labelIds });
     return { name: 'MapCard', objects: b.finish() };

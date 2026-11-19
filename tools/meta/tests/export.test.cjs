@@ -11,12 +11,12 @@ function rejects(name,fn,pattern){const input=fixture(),output=path.join(input,'
 
 test('sixteen workbooks export deterministically and the committed JSON is current',()=>{
  const output=path.join(scratch,'valid.json'),report=exportConfig({output});
- assert.equal(report.tables,16);assert.equal(report.rows.Mainline,110);assert.equal(report.rows.BuildingStages,90);
+ assert.equal(report.tables,16);assert.equal(report.rows.Mainline,110);assert.equal(report.rows.Maps,30);assert.equal(report.rows.BuildingStages,900);assert.equal(report.rows.PlayerLevels,160);
  const bytes=fs.readFileSync(output,'utf8');exportConfig({output});assert.equal(fs.readFileSync(output,'utf8'),bytes);
  assert.equal(fs.readFileSync(path.join(project,'assets/resources/config/game-config.json'),'utf8'),bytes,'run npm run config:export after editing Excel');
 });
 test('duplicate ids name workbook and row; previous output survives',()=>{
- rejects('Rewards',data=>{data.push([...data[3]]);},/Rewards.xlsx\/Data\/row28\/id: duplicate/);
+ rejects('Rewards',data=>{data.push([...data[3]]);},/Rewards.xlsx\/Data\/row26\/id: duplicate/);
 });
 test('reference, order and economy errors are rejected before publishing',()=>{
  rejects('Mainline',data=>{data[3][col(data,'firstClearRewardId')]='missing';},/Mainline.xlsx\/Data\/row4\/firstClearRewardId/);
@@ -26,6 +26,8 @@ test('reference, order and economy errors are rejected before publishing',()=>{
  rejects('BuildingStages',data=>{data.splice(data.indexOf(row(data,'B03_L2')),1);},/continuous from level 0/);
  rejects('Maps',data=>{row(data,'M01')[col(data,'nextMapId')]='M03';},/next map by order/);
  rejects('MapBuildings',data=>{row(data,'B02')[col(data,'feetX')]=1.5;},/outside 0..1/);
+ rejects('Maps',data=>{row(data,'M05')[col(data,'incomeMult')]=1;},/must not fall/);
+ rejects('Constants',data=>{row(data,'mainlineLoopTransforms')[2]='[3,3]';},/distinct transforms/);
  rejects('Constants',data=>{row(data,'welcomeRewardId')[2]='missing';},/welcomeRewardId/);
  rejects('Constants',data=>{row(data,'guideBuildingId')[2]='B06';},/first map/);
  rejects('Constants',data=>{row(data,'energyInitial')[2]='9';},/energy bounds/);
@@ -56,7 +58,7 @@ test('guide drags must solve the first level exactly',()=>{
  rejects('GuideSteps',data=>{row(data,'welcome')[col(data,'step')]='goBuild';},/guide order|missing step/);
 });
 test('blank optionals stay null; zero is not blank; types are strict',()=>{
- const keys=Object.keys(schemas.Maps),rows=parseRows('Maps',[keys,Object.values(schemas.Maps),keys,['a',1,'name','bg','','']]);
- assert.equal(rows.a.nextMapId,null);assert.equal(rows.a.completionRewardId,null);
+ const keys=Object.keys(schemas.Maps),rows=parseRows('Maps',[keys,Object.values(schemas.Maps),keys,['a',1,'name','ch','honey',1,'bg','thumb','','','']]);
+ assert.equal(rows.a.nextMapId,null);assert.equal(rows.a.completionRewardId,null);assert.equal(rows.a.placeholderOf,null);
  assert.equal(convert(0,'int','t'),0);assert.equal(convert(1,'bool','t'),true);assert.throws(()=>convert('maybe','bool','t'),/expected/);assert.throws(()=>convert(1.5,'int','t'),/invalid/);
 });

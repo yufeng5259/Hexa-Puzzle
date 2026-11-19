@@ -1,4 +1,4 @@
-import { EndlessShape, reward, RuleError, Rules } from './Rules';
+import { EndlessShape, payout, RuleError, Rules } from './Rules';
 import { DisplayEvent, EndlessGame, GameState, grantAndShow } from './State';
 import { recordDaily } from './Daily';
 
@@ -271,7 +271,7 @@ export function claimEndlessStage(state: GameState, rules: Rules, week: string, 
     if (state.endless.claimedStages.includes(index)) throw new RuleError('claimed', 'Stage already claimed');
     if (state.endless.weekScore < stage.score) throw new RuleError('locked', 'Stage score not reached');
     state.endless.claimedStages.push(index);
-    const event: DisplayEvent = { id: `endlessStage:${week}:${index}`, type: 'endlessStage', reward: reward(rules, stage.rewardId), detail: { stage: index } };
+    const event: DisplayEvent = { id: `endlessStage:${week}:${index}`, type: 'endlessStage', reward: payout(state, rules, stage.rewardId), detail: { stage: index } };
     const granted = grantAndShow(state, event);
     return granted ? event : null;
 }

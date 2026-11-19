@@ -18,7 +18,15 @@ export interface BuildingLayout {
     /** assetIds[level] for level 0..max. */
     readonly assetIds: readonly string[];
 }
-export interface MapView { readonly id: string; readonly name: string; readonly backgroundAssetId: string; readonly buildings: readonly BuildingLayout[] }
+export interface MapView {
+    readonly id: string; readonly name: string;
+    /** Chapter name (shown above its first map on S16) and the map's speciality honey (docs/v2/14 §6). */
+    readonly chapter: string; readonly subtitle: string;
+    readonly backgroundAssetId: string; readonly thumbAssetId: string;
+    /** Map whose art stands in until this map's own art is delivered; null = own art. */
+    readonly placeholderOf: string | null;
+    readonly buildings: readonly BuildingLayout[];
+}
 export interface GuideStepRow { readonly id: string; readonly order: number; readonly step: string; readonly pageId: string; readonly targetId: string | null; readonly textKey: string | null; readonly params: Readonly<Record<string, unknown>> }
 
 /** Everything loaded from game-config.json: pure rules for core plus display data for views. */
@@ -62,8 +70,12 @@ export function parseGameConfig(json: unknown): GameConfig {
     for (const row of tableRows(t, 'Constants')) constants[str(row, 'id')] = row.value;
     const k = <T>(id: string, type: 'number' | 'string' | 'boolean'): T => { const v = constants[id]; if (typeof v !== type) fail(`constant ${id} must be ${type}`); return v as T; };
 
-    const rewards: Record<string, Reward> = Object.create(null);
-    for (const row of tableRows(t, 'Rewards')) rewards[str(row, 'id')] = { coins: num(row, 'coins'), energy: num(row, 'energy'), hints: num(row, 'hints') };
+    const rewards: Record<string, Reward> = Object.create(null), scaledRewards: string[] = [];
+    for (const row of tableRows(t, 'Rewards')) {
+        rewards[str(row, 'id')] = { coins: num(row, 'coins'), energy: num(row, 'energy'), hints: num(row, 'hints') };
+        if (row.scaleByMap === true) scaledRewards.push(str(row, 'id'));
+    }
+    scaledRewards.sort();
     const rewardRef = (id: string | null): string | null => { if (id !== null && !rewards[id]) fail(`unknown reward ${id}`); return id; };
 
     const stages = tableRows(t, 'BuildingStages').sort(by('level'));
@@ -83,17 +95,20 @@ export function parseGameConfig(json: unknown): GameConfig {
             };
         });
         maps.push({
-            id, nextMapId: optStr(m, 'nextMapId'), completionRewardId: rewardRef(optStr(m, 'completionRewardId')),
+            id, nextMapId: optStr(m, 'nextMapId'), completionRewardId: rewardRef(optStr(m, 'completionRewardId')), incomeMult: num(m, 'incomeMult'),
             buildings: own.map(b => ({ id: str(b, 'id'), costs: stages.filter(s => s.buildingId === b.id && num(s, 'level') > 0).map(s => num(s, 'cost')), maxRewardId: rewardRef(optStr(b, 'maxRewardId')) })),
         });
-        views.push({ id, name: str(m, 'name'), backgroundAssetId: str(m, 'backgroundAssetId'), buildings: layouts });
+        views.push({
+            id, name: str(m, 'name'), chapter: str(m, 'chapter'), subtitle: str(m, 'subtitle'),
+            backgroundAssetId: str(m, 'backgroundAssetId'), thumbAssetId: str(m, 'thumbAssetId'), placeholderOf: optStr(m, 'placeholderOf'), buildings: layouts,
+        });
     }
 
     const mainline = tableRows(t, 'Mainline').sort(by('levelNo')).map((row, i) => {
         if (num(row, 'levelNo') !== i + 1) fail('mainline numbers must be continuous');
         const kind = str(row, 'kind');
         if (kind !== 'normal' && kind !== 'challenge') fail(`mainline ${i + 1} kind`);
-        return { levelNo: i + 1, puzzleId: str(row, 'puzzleId'), kind, firstClearRewardId: rewardRef(str(row, 'firstClearRewardId'))!, replayRewardId: rewardRef(str(row, 'replayRewardId'))! } as const;
+        return { levelNo: i + 1, puzzleId: str(row, 'puzzleId'), kind, firstClearRewardId: rewardRef(str(row, 'firstClearRewardId'))!, replayRewardId: rewardRef(str(row, 'replayRewardId'))!, transform: 0 } as const;
     });
     const levels = tableRows(t, 'PlayerLevels').sort(by('level')).map(row => ({ expToNext: num(row, 'expToNext'), rewardId: rewardRef(optStr(row, 'rewardId')) }));
     const signIn = tableRows(t, 'SignIn').sort(by('day')).map(row => rewardRef(str(row, 'rewardId'))!);
@@ -128,12 +143,14 @@ export function parseGameConfig(json: unknown): GameConfig {
         activeFrom: num(row, 'activeFrom'), activeTo: num(row, 'activeTo'), sprintShare: num(row, 'sprintShare'), tierMin: num(row, 'tierMin'), tierMax: num(row, 'tierMax'),
     }));
 
+    const loop = constants.mainlineLoopTransforms;
+    if (!Array.isArray(loop) || loop.some(v => !Number.isSafeInteger(v) || v < 1 || v > 11)) fail('constant mainlineLoopTransforms must list transforms 1..11');
     const rules: Rules = {
         initialCoins: k('initialCoins', 'number'), initialHints: k('initialHints', 'number'),
         energy: { max: k('energyMax', 'number'), initial: k('energyInitial', 'number'), recoverSeconds: k('energyRecoverSeconds', 'number'), startCost: k('energyStartCost', 'number'), firstLevelFree: k('energyFirstLevelFree', 'boolean') },
-        rewards, welcomeRewardId: rewardRef(k('welcomeRewardId', 'string'))!,
+        rewards, scaledRewards, welcomeRewardId: rewardRef(k('welcomeRewardId', 'string'))!,
         guideBuildingId: k('guideBuildingId', 'string'),
-        mainline, maps, firstMapId: k('firstMapId', 'string'),
+        mainline, loopTransforms: loop, maps, firstMapId: k('firstMapId', 'string'),
         build: {
             expPerUpgrade: k('buildExpPerUpgrade', 'number'), constructionSeconds: k('buildConstructionSeconds', 'number'),
             fx: {

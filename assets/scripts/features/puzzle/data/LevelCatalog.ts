@@ -1,7 +1,7 @@
 import { HexCell, LevelCatalogData, LevelDefinition, LevelPieceDefinition } from './LevelDefinition';
-import { mainlineNumberFor } from './HexCoordinates';
+import { mainlineNumberFor, transformCell } from './HexCoordinates';
 export * from './LevelDefinition';
-export { mainlineNumberFor, offsetToAxial } from './HexCoordinates';
+export { mainlineNumberFor, offsetToAxial, transformCell } from './HexCoordinates';
 
 function fail(path: string): never { throw new Error('Invalid level catalog: ' + path); }
 function record(value: unknown, keys: string[], path: string): Record<string, unknown> {
@@ -97,4 +97,17 @@ export class LevelCatalog {
         if (!entry) throw new Error('Unknown level id: ' + id);
         return entry;
     }
+}
+
+/**
+ * The same question under a board symmetry (looped mainline rounds, docs/v2/14 §5). Piece and
+ * level ids stay the original ones, so saves, hints and the 110-question identity are unchanged;
+ * each piece keeps cells[0] = (0, 0) as its anchor.
+ */
+export function transformLevel(level: LevelDefinition, t: number): LevelDefinition {
+    if (t === 0) return level;
+    const map = (cells: readonly HexCell[]) => Object.freeze(cells.map(c => Object.freeze(transformCell(c, t))));
+    return Object.freeze({ ...level,
+        pieces: Object.freeze(level.pieces.map(p => Object.freeze({ ...p, cells: map(p.cells), targetCells: map(p.targetCells) }))),
+        targetCells: map(level.targetCells), obstacleCells: map(level.obstacleCells) });
 }

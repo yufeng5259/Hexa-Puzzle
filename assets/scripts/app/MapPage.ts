@@ -1,8 +1,8 @@
-import { UITransform } from 'cc';
+import { Color, Node, ScrollView, Sprite, UITransform, Vec2 } from 'cc';
 import type { Game } from '../core/Game';
 import { mainlineFinished, startCost } from '../core/Mainline';
 import { mapProgress } from '../core/Progress';
-import { reward, type Rules } from '../core/Rules';
+import { mainlineLevel, payout, type Rules } from '../core/Rules';
 import type { GameState } from '../core/State';
 import { VirtualList } from '../framework/ui/VirtualList';
 import type { LayoutView } from '../features/ui/LayoutView';
@@ -11,6 +11,9 @@ import { showEnergy, showLevel } from './EnergyHud';
 import { setProgress } from '../features/ui/ProgressBar';
 
 const CARD_GAP = 18;
+/** Chapter title row above a chapter's first card (tools/v2/build-ui.mjs MAP_CHAPTER_ROW). */
+const CHAPTER_ROW = 64;
+const CHAPTER_NO = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
 const LOCKED = { card: 388, thumbTop: 19, thumbHeight: 268, row: 332 };
 type CardState = 'current' | 'done' | 'locked';
 
@@ -39,17 +42,33 @@ export class MapPage {
         view.setText('title', '蜂群地图');
         view.setText('return_home_text', '返回家园');
         const list = view.element('MapList'), content = list.getChildByName('MapView')!.getChildByName('MapContent')!;
-        const cards = this.game.config.maps;
-        let y = 0;
-        for (const map of cards) {
+        const cards = this.game.config.maps, request = this.request;
+        let y = 0, chapters = 0, current: Node | null = null;
+        for (let i = 0; i < cards.length; i++) {
+            const map = cards[i], first = i === 0 || cards[i - 1].chapter !== map.chapter;
             const card = await this.nav.instantiate('MapCard', content, id => { if (id === 'enter') this.enter(map.id); });
-            if (!view.isValid) return;
+            if (!view.isValid || request !== this.request) { if (card.isValid) card.node.destroy(); return; }
             this.paintCard(card, map.id);
+            if (first) {
+                // The chapter title sits in the row above the card; the card moves down by that row.
+                card.setVisible('chapter', true);
+                card.setText('chapter', `第${CHAPTER_NO[chapters] ?? chapters + 1}章 · ${map.chapter}`);
+                chapters++;
+                y += CHAPTER_ROW;
+            }
             const h = card.node.getComponent(UITransform)!.height, w = content.getComponent(UITransform)!.width;
             card.node.setPosition(w / 2, -y - h / 2, 0);
+            if (map.id === this.game.state.maps.currentMapId) current = card.node;
             y += h + CARD_GAP;
         }
-        content.getComponent(UITransform)!.height = Math.max(y - CARD_GAP, list.getComponent(UITransform)!.height);
+        const listHeight = list.getComponent(UITransform)!.height;
+        content.getComponent(UITransform)!.height = Math.max(y - CARD_GAP, listHeight);
+        // Open on the map being built (30 cards do not fit one screen).
+        const scroll = list.getComponent(ScrollView);
+        if (current && scroll) {
+            const top = -current.position.y - current.getComponent(UITransform)!.height / 2 - CHAPTER_ROW;
+            scroll.scrollToOffset(new Vec2(0, Math.max(0, Math.min(top, content.getComponent(UITransform)!.height - listHeight))), 0);
+        }
     }
 
     /** S16-B: every cleared level, newest first; choosing one does not spend energy yet. */
@@ -57,7 +76,7 @@ export class MapPage {
         const view = await this.open();
         if (!view) return;
         const s = this.game.state, rules = this.game.rules;
-        this.levels = rules.mainline.map(l => l.levelNo).filter(n => s.mainline.cleared[n]).reverse();
+        this.levels = Object.keys(s.mainline.cleared).map(Number).filter(n => Number.isSafeInteger(n) && n > 0).sort((a, b) => b - a);
         this.selected = 0;
         view.setText('title', mainlineFinished(s, rules) ? '选择已通关关卡' : '复玩已通关关卡');
         view.setVisible('MapList', false);
@@ -85,8 +104,13 @@ export class MapPage {
         const map = this.game.config.maps.find(m => m.id === mapId)!, index = rules.maps.findIndex(m => m.id === mapId);
         const p = mapProgress(s, rules, mapId);
         card.setText('name', map.name);
+        card.setText('subtitle', map.subtitle);
         this.frame(card, 'card', `UI/地图选择/map_card_${state}.png`);
-        this.frame(card, 'thumbnail', `UI/地图选择/map_thumb_${mapId.toLowerCase()}.png`);
+        this.frame(card, 'thumbnail', map.thumbAssetId);
+        // Locked maps: the thumbnail greyed and dimmed instead of its own art (docs/v2/15 §8).
+        const thumb = card.element('thumbnail').getComponent(Sprite);
+        if (thumb) { thumb.grayscale = state === 'locked'; const v = state === 'locked' ? 170 : 255; thumb.color = new Color(v, v, v, 255); }
+        card.setVisible('subtitle', state !== 'locked');
         const open = state !== 'locked';
         for (const id of ['progress_bg', 'progress_fill', 'progress', 'enter', 'enter_text']) card.setVisible(id, open);
         for (const id of ['lock', 'condition']) card.setVisible(id, !open);
@@ -119,11 +143,11 @@ export class MapPage {
 
     private renderReplay(v: LayoutView): void {
         const list = v.element('ReplayList').getComponent(VirtualList)!, rules = this.game.rules;
-        list.setData(this.levels.map((n, i) => ({ title: `第${n}关 · ${rules.mainline[n - 1].kind === 'challenge' ? '挑战' : '普通'} · 已通关`, selected: i === this.selected })),
+        list.setData(this.levels.map((n, i) => ({ title: `第${n}关 · ${mainlineLevel(rules, n).kind === 'challenge' ? '挑战' : '普通'} · 已通关`, selected: i === this.selected })),
             index => { this.selected = index; this.renderReplay(v); list.jumpTo(Math.max(0, index - 2)); });
         const levelNo = this.levels[this.selected];
         if (levelNo === undefined) { v.setText('return_home_text', '返回家园'); return; }
-        const prize = reward(rules, rules.mainline[levelNo - 1].replayRewardId);
+        const prize = payout(this.game.state, rules, mainlineLevel(rules, levelNo).replayRewardId);
         v.setText('return_home_text', `复玩第${levelNo}关 · ${startCost(this.game.state, rules, levelNo)}体力 · 金币+${prize.coins}`);
     }
 

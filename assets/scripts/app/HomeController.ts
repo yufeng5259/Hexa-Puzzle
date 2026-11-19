@@ -11,7 +11,7 @@ import { finishBuild, mapProgress, startBuild, upgradeCost } from '../core/Progr
 import { guideAllowsBuild } from '../core/Guide';
 import { mainlineFinished } from '../core/Mainline';
 import { endlessUnlocked } from '../core/Progress';
-import { reward, RuleError } from '../core/Rules';
+import { payout, reward, RuleError } from '../core/Rules';
 import { rewardText } from '../core/Display';
 import { buildingLevel } from '../core/State';
 import type { LayoutView } from '../features/ui/LayoutView';
@@ -112,7 +112,7 @@ export class HomeController {
         mount.removeAllChildren();
         this.buildings.clear();
         // The outpainted picture reaches past the design area so wide/tall screens see more map.
-        const pic = this.picture(map.id);
+        const pic = this.picture(map.placeholderOf ?? map.id);
         this.sprite(mount, 'background', map.backgroundAssetId, pic.width, pic.height, 0.5, 0.5, pic.x, pic.y);
         for (const b of [...map.buildings].sort((x, y) => x.zIndex - y.zIndex)) {
             const size = b.widthFraction * W, level = buildingLevel(this.game.state, map.id, b.id);
@@ -128,11 +128,11 @@ export class HomeController {
      * The build page's anchor layer gets the same transform; its capsules keep their size.
      */
     private placeMapNodes(): void {
-        const map = this.map, b = this.mapBounds[map.id], fit = ScreenFit.current, frame = fit.frame;
+        const map = this.map, b = this.mapBounds[map.placeholderOf ?? map.id], fit = ScreenFit.current, frame = fit.frame;
         // Fill to the screen edges (under notches and rounded corners).
         const cover = fit.tablet ? { x: 0, y: -frame.y, width: frame.width, height: fit.visible.height }
             : { x: -frame.x, y: -frame.y, width: fit.visible.width, height: fit.visible.height };
-        const p = b ? placeMap(frame, { top: b.top - H / 2, bottom: b.bottom - H / 2 }, { width: W, height: H }, cover, this.picture(map.id))
+        const p = b ? placeMap(frame, { top: b.top - H / 2, bottom: b.bottom - H / 2 }, { width: W, height: H }, cover, this.picture(map.placeholderOf ?? map.id))
             : { scale: Math.max(frame.width / W, frame.height / H), offsetY: 0 };
         for (const view of [this.home, this.build]) {
             if (!view?.isValid) continue;
@@ -142,7 +142,8 @@ export class HomeController {
         }
         for (const anchor of this.anchors.values()) if (anchor.isValid) anchor.node.setScale(1 / p.scale, 1 / p.scale, 1);
     }
-    private picture(mapId: string): Picture { return this.mapBounds[mapId]?.picture ?? { x: 0, y: 0, width: W, height: H }; }
+    /** Bounds are measured per art set; a placeholder map uses its stand-in's art. */
+    private picture(artId: string): Picture { return this.mapBounds[artId]?.picture ?? { x: 0, y: 0, width: W, height: H }; }
     private sprite(parent: Node, name: string, assetId: string, w: number, h: number, ax: number, ay: number, x: number, y: number): Sprite {
         const node = new Node(name);
         node.parent = parent;
@@ -396,7 +397,7 @@ export class HomeController {
     /** Build-mode gift: the completion reward of the map being built. */
     private giftInfo(): void {
         const s = this.game.state, rules = this.game.rules, map = rules.maps.find(m => m.id === s.maps.currentMapId)!;
-        const p = mapProgress(s, rules, map.id), prize = map.completionRewardId ? rewardText(reward(rules, map.completionRewardId)) : '';
+        const p = mapProgress(s, rules, map.id), prize = map.completionRewardId ? rewardText(payout(s, rules, map.completionRewardId)) : '';
         this.guide.flash(s.maps.completed[map.id] ? '本地图已完工，奖励已发放' : `建设进度 ${p.built}/${p.total}\n完工奖励 ${prize}`);
     }
     private play(): void { this.guide.clear(); this.onPlay?.(); }

@@ -1,9 +1,10 @@
-import { mainlineLevel, reward, RuleError, Rules } from './Rules';
+import { mainlineLevel, payout, RuleError, Rules } from './Rules';
 import { Attempt, GameState, grantAndShow } from './State';
 import { spendEnergy } from './Energy';
 import { recordDaily } from './Daily';
 
-export function mainlineFinished(state: GameState, rules: Rules): boolean { return state.mainline.nextLevelNo > rules.mainline.length; }
+/** True only when no loop round follows the authored levels (Mainline loop constants empty). */
+export function mainlineFinished(state: GameState, rules: Rules): boolean { return !rules.loopTransforms.length && state.mainline.nextLevelNo > rules.mainline.length; }
 
 /** Energy a new attempt of this level costs; the first level is free until first cleared. */
 export function startCost(state: GameState, rules: Rules, levelNo: number): number {
@@ -53,10 +54,10 @@ export function completeAttempt(state: GameState, rules: Rules, attemptId: strin
         kind = 'firstClear';
         state.mainline.cleared[level.levelNo] = true;
         state.mainline.nextLevelNo = Math.max(state.mainline.nextLevelNo, level.levelNo + 1);
-        grantAndShow(state, { id: winEventId('firstClear', level.levelNo, attemptId), type: 'firstClear', reward: reward(rules, level.firstClearRewardId), detail: { levelNo: level.levelNo } });
+        grantAndShow(state, { id: winEventId('firstClear', level.levelNo, attemptId), type: 'firstClear', reward: payout(state, rules, level.firstClearRewardId), detail: { levelNo: level.levelNo } });
     } else {
         kind = 'replay';
-        grantAndShow(state, { id: winEventId('replay', level.levelNo, attemptId), type: 'replay', reward: reward(rules, level.replayRewardId), detail: { levelNo: level.levelNo } });
+        grantAndShow(state, { id: winEventId('replay', level.levelNo, attemptId), type: 'replay', reward: payout(state, rules, level.replayRewardId), detail: { levelNo: level.levelNo } });
     }
     recordDaily(state, rules, day, 'win', 1);
     return kind;
