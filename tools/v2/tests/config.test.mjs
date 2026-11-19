@@ -17,8 +17,10 @@ test('the exported Excel config produces exactly the planning default rules', ()
 test('map views carry the art layout and one asset per building level', () => {
     const { maps, guide } = parseGameConfig(raw());
     assert.equal(maps.length, 30);
-    assert.deepEqual(maps.slice(0, 3).map(m => m.placeholderOf), [null, null, null]);
-    assert.deepEqual([maps[3].name, maps[3].chapter, maps[3].subtitle, maps[3].placeholderOf], ['风车花海', '家园启程', '郁金香蜜', 'M01']);
+    // Delivered maps use their own art; the rest borrow delivered maps in turn (docs/v2/15 §9).
+    const delivered = fs.readdirSync(path.join(PROJECT, 'docs/v2/地图')).map(f => /^(M\d\d)_建筑布局\.json$/.exec(f)?.[1]).filter(Boolean).sort();
+    for (const m of maps) assert.equal(m.placeholderOf, delivered.includes(m.id) ? null : delivered[maps.indexOf(m) % delivered.length], m.id);
+    assert.deepEqual([maps[3].name, maps[3].chapter, maps[3].subtitle], ['风车花海', '家园启程', '郁金香蜜']);
     assert.equal(maps[29].buildings[4].name, '蜂后星冠');
     assert.equal(maps[0].name, '晨露蜂园');
     const b01 = maps[0].buildings[0];
