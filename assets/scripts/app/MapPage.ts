@@ -41,7 +41,11 @@ export class MapPage {
         if (!view) return;
         view.setText('title', '蜂群地图');
         view.setText('return_home_text', '返回家园');
-        const list = view.element('MapList'), content = list.getChildByName('MapView')!.getChildByName('MapContent')!;
+        // Resize the scroll list to fit between the back button and the return-home button after
+        // bandScale is applied (bottom band grows on wide phones, pushing the button up into the list).
+        const list = view.element('MapList');
+        this.fitListBounds(view, list, 'hud_btn_square_blue', 'return_home');
+        const content = list.getChildByName('MapView')!.getChildByName('MapContent')!;
         const cards = this.game.config.maps, request = this.request;
         let y = 0, chapters = 0, current: Node | null = null;
         for (let i = 0; i < cards.length; i++) {
@@ -84,6 +88,22 @@ export class MapPage {
         view.setVisible('MapList', false);
         view.setVisible('ReplayList', true);
         this.renderReplay(view);
+    }
+
+    /** Shrinks the list mount to sit strictly between the two anchor buttons' actual on-screen edges. */
+    private fitListBounds(view: LayoutView, list: Node, topButtonId: string, bottomButtonId: string, gap = 8): void {
+        const topBtn = view.element(topButtonId), botBtn = view.element(bottomButtonId);
+        const topUi = topBtn.getComponent(UITransform)!, botUi = botBtn.getComponent(UITransform)!;
+        // World-space bottom of the top button, and top of the bottom button (y-up).
+        const topEdge = topBtn.getWorldPosition().y - topUi.height * (1 - topUi.anchorY) * Math.abs(topBtn.scale.y);
+        const botEdge = botBtn.getWorldPosition().y + botUi.height * botUi.anchorY * Math.abs(botBtn.scale.y);
+        // Convert to the list parent's local space.
+        const parent = list.parent!, parentPos = parent.getWorldPosition();
+        const localTop = topEdge - parentPos.y, localBot = botEdge - parentPos.y;
+        const newTop = localTop - gap, newBot = localBot + gap, newH = newTop - newBot;
+        const ui = list.getComponent(UITransform)!;
+        list.setPosition(list.position.x, (newTop + newBot) / 2, list.position.z);
+        ui.setContentSize(ui.width, newH);
     }
 
     private async open(): Promise<LayoutView | null> {

@@ -29,6 +29,14 @@ const RECOVER_TEXT_HEIGHT = 520;
 export class RewardPresenter {
     /** S10 "去无尽" (shown once endless is unlocked). */
     public onEndless: (() => void) | null = null;
+    /**
+     * Called when a non-terminal map finishes; the caller plays the honeycomb transition and
+     * shows a toast. The presenter has already paid the reward and acknowledged the event.
+     * Signature: (doneMapId, doneView, nextView).
+     */
+    /** Called when the player taps "返回首页" on the last-map complete dialog. */
+    public onReturnHome: (() => void) | null = null;
+    public onMapTransition: ((doneId: string, done: import('../core/Config').MapView, next: import('../core/Config').MapView) => void) | null = null;
     /** drains=false: closing a dialog does not pull in queued home rewards (used on the puzzle page). */
     public constructor(private readonly game: Game, private readonly nav: Navigator, private readonly changed: () => void, private readonly drains = true, private readonly guide: GuideCoach | null = null) {}
 
@@ -76,17 +84,27 @@ export class RewardPresenter {
             const shown = this.afterPopIn(v, () => this.collect(r, ids, { owner: v.node, from: v.element('hud_capsule_light'), sources: { coins: v.element('hud_capsule_light') } }));
             void Promise.all([shown, wait(TOAST_MS)]).then(() => { if (v.isValid) this.next(); });
         });
-        else if (event.type === 'mapComplete') void this.nav.showDialog('S15', id => this.onMapComplete(id), v => {
+        else if (event.type === 'mapComplete') {
             const map = this.game.rules.maps.find(m => m.id === event.detail!.mapId)!, views = this.game.config.maps;
             const view = views.find(m => m.id === map.id)!, next = views.find(m => m.id === map.nextMapId);
-            v.setText('title', `${view.name}完工`);
-            v.setText('map_progress', `${map.buildings.length * 5}/${map.buildings.length * 5}`);
-            // 14 §6.3: the honey of this map; a finished chapter says so and names the next one.
-            v.setText('map_complete', next && next.chapter !== view.chapter ? `${view.chapter}章节完成！下一站：${next.chapter}` : `收获${view.subtitle}`);
-            v.setText('map_reward', `+${r.coins}`);
-            v.setText('claim_next_text', next ? `前往${next.name}` : '现有地图已完成');
-            void this.afterPopIn(v, () => this.collect(r, ids, { owner: v.node, from: v.element('panel_inner'), sources: { coins: v.element('icon_coin') } }));
-        });
+            if (next && this.onMapTransition) {
+                // Non-last map: collect coins on the current page, then the caller plays transition.
+                void this.collect(r, ids, { owner: this.nav.topPage?.node ?? null, from: null, sources: {} }).then(() => {
+                    void this.onMapTransition!(map.id, view, next);
+                    this.drain();
+                });
+            } else {
+                // Last map (no next) or no transition callback: show the S15 dialog.
+                void this.nav.showDialog('S15', id => this.onMapComplete(id), v => {
+                    v.setText('title', `${view.name}完工`);
+                    v.setText('map_progress', `${map.buildings.length * 5}/${map.buildings.length * 5}`);
+                    v.setText('map_complete', next ? (next.chapter !== view.chapter ? `${view.chapter}章节完成！下一站：${next.chapter}` : `收获${view.subtitle}`) : '敬请期待更多地图');
+                    v.setText('map_reward', `+${r.coins}`);
+                    v.setText('claim_next_text', next ? `前往${next.name}` : '返回首页');
+                    void this.afterPopIn(v, () => this.collect(r, ids, { owner: v.node, from: v.element('panel_inner'), sources: { coins: v.element('icon_coin') } }));
+                });
+            }
+        }
         else { this.game.ackDisplay(ids); this.drain(); }
     }
     /** Page rewards the app closed on before their page showed them: one short note, never paid again. */
@@ -109,9 +127,15 @@ export class RewardPresenter {
     }
     private onMapComplete(id: string): void {
         if (id === 'claim_next') {
-            try { this.game.act(s => goToNextMap(s, this.game.rules)); } catch (error) { console.error(error); }
+            const hasNext = !!this.game.rules.maps.find(m => m.id === this.game.state.maps.currentMapId)?.nextMapId;
+            if (hasNext) {
+                try { this.game.act(s => goToNextMap(s, this.game.rules)); } catch (error) { console.error(error); }
+            } else {
+                // Last map: "返回首页" navigates home without advancing.
+                this.onReturnHome?.();
+            }
             this.next();
-        } else if (id === 'stay') this.next();
+        } else if (id === 'stay' || id === 'btn_close_dialog') this.next();
     }
     private welcome(): void {
         const reward = this.game.rules.rewards[this.game.rules.welcomeRewardId];

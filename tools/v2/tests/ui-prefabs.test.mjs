@@ -270,7 +270,8 @@ test('HomeController only touches element ids that exist on S02 / S03 / BuildAnc
     const src = fs.readFileSync(path.join(PROJECT, 'assets/scripts/app/HomeController.ts'), 'utf8');
     const used = src.split('\n').filter(l => /setVisible|setText|element\(/.test(l)).flatMap(l => [...l.matchAll(/'([a-z][a-z0-9_]+)'/g)].map(m => m[1]));
     assert.ok(used.length > 10);
-    assert.deepEqual([...new Set(used)].filter(id => !ids.has(id) && !['build', 'left', 'upgrade', 'drag1'].includes(id)), []);
+    // building_complete is on S14 (map-transition toast); upgrade/drag1/left are runtime-only.
+    assert.deepEqual([...new Set(used)].filter(id => !ids.has(id) && !['build', 'left', 'upgrade', 'drag1', 'building_complete'].includes(id)), []);
 });
 
 test('readability: every button is easy to tap and no text is smaller than the minimum (build-ui UI_RULES)', async () => {

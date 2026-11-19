@@ -7,7 +7,7 @@ import type { MapView } from '../core/Config';
 import type { Game } from '../core/Game';
 import { hudText, hudValue, showEnergy, showLevel } from './EnergyHud';
 import { setProgress } from '../features/ui/ProgressBar';
-import { finishBuild, mapProgress, startBuild, upgradeCost } from '../core/Progress';
+import { finishBuild, goToNextMap, mapProgress, startBuild, upgradeCost } from '../core/Progress';
 import { guideAllowsBuild } from '../core/Guide';
 import { mainlineFinished } from '../core/Mainline';
 import { endlessUnlocked } from '../core/Progress';
@@ -70,6 +70,8 @@ export class HomeController {
         this.scope = loader.createScope();
         this.rewards = new RewardPresenter(game, nav, () => this.render(), true, guide);
         this.rewards.onEndless = () => this.onEndless?.();
+        this.rewards.onMapTransition = (doneId, done, next) => void this.mapTransition(doneId, done, next);
+        this.rewards.onReturnHome = () => void this.enter();
         this.daily = new DailyPresenter(game, nav, this.rewards, { play: () => this.play(), build: () => void this.openBuild(), endless: () => this.onEndless?.() });
     }
 
@@ -142,6 +144,35 @@ export class HomeController {
         }
         for (const anchor of this.anchors.values()) if (anchor.isValid) anchor.node.setScale(1 / p.scale, 1 / p.scale, 1);
     }
+    /**
+     * Non-terminal map complete (docs/v2/14 §6.3): honeycomb covers, game switches to the next
+     * map, then reveals the new map. A short toast slides down and auto-dismisses.
+     */
+    private async mapTransition(doneId: string, done: MapView, next: MapView): Promise<void> {
+        // Switch the game state under the transition cover.
+        await this.nav.coverWhile(() => {
+            try { this.game.act(st => goToNextMap(st, this.game.rules)); } catch (e) { console.error(e); }
+            this.viewMapId = null; this.mapId = ''; void this.renderMap();
+        });
+        this.render();
+        // Toast: label slides down from above the HUD, stays 2.5 s, slides back up.
+        void this.showMapToast(done, next);
+    }
+
+    private async showMapToast(done: MapView, next: MapView): Promise<void> {
+        if (!this.home?.isValid) return;
+        const isCrossChapter = done.chapter !== next.chapter;
+        const line = isCrossChapter
+            ? `${done.chapter}完成 · 下一章：${next.chapter} · ${next.name}`
+            : `${next.name} · ${next.subtitle}`;
+        // S14 is the building-done toast; reuse it as a non-modal auto-dismiss banner.
+        const toast = await this.nav.showDialog('S14', () => undefined, v => {
+            v.setText('building_complete', line);
+        });
+        await new Promise(r => setTimeout(r, 2500));
+        if (toast?.isValid) toast.fadeOutAndClose();
+    }
+
     /** Bounds are measured per art set; a placeholder map uses its stand-in's art. */
     private picture(artId: string): Picture { return this.mapBounds[artId]?.picture ?? { x: 0, y: 0, width: W, height: H }; }
     private sprite(parent: Node, name: string, assetId: string, w: number, h: number, ax: number, ay: number, x: number, y: number): Sprite {
