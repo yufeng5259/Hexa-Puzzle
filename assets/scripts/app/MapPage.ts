@@ -12,7 +12,7 @@ import { setProgress } from '../features/ui/ProgressBar';
 
 const CARD_GAP = 18;
 /** Chapter title row above a chapter's first card (tools/v2/build-ui.mjs MAP_CHAPTER_ROW). */
-const CHAPTER_ROW = 64;
+const CHAPTER_ROW = 70;
 const CHAPTER_NO = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
 const LOCKED = { card: 388, thumbTop: 19, thumbHeight: 268, row: 332 };
 type CardState = 'current' | 'done' | 'locked';
@@ -58,6 +58,8 @@ export class MapPage {
             }
             const h = card.node.getComponent(UITransform)!.height, w = content.getComponent(UITransform)!.width;
             card.node.setPosition(w / 2, -y - h / 2, 0);
+            // Locked cards are shorter: the chapter row always sits right above the card's own top.
+            if (first) card.element('chapter').setPosition(0, h / 2 + CHAPTER_ROW / 2 - 2, 0);
             if (map.id === this.game.state.maps.currentMapId) current = card.node;
             y += h + CARD_GAP;
         }
@@ -66,7 +68,7 @@ export class MapPage {
         // Open on the map being built (30 cards do not fit one screen).
         const scroll = list.getComponent(ScrollView);
         if (current && scroll) {
-            const top = -current.position.y - current.getComponent(UITransform)!.height / 2 - CHAPTER_ROW;
+            const top = -current.position.y - current.getComponent(UITransform)!.height / 2 - CHAPTER_ROW - 8;
             scroll.scrollToOffset(new Vec2(0, Math.max(0, Math.min(top, content.getComponent(UITransform)!.height - listHeight))), 0);
         }
     }
@@ -123,7 +125,8 @@ export class MapPage {
             // S16 draws locked cards shorter: card 388, thumbnail 268 from 19, name row centred at 332 (layout px from the card top).
             const k = 1844 / 1842, h = LOCKED.card * k, top = h / 2;
             card.node.getComponent(UITransform)!.height = h;
-            card.element('card').getComponent(UITransform)!.height = h;
+            // 2x nine-slice frames are laid out at twice their size and scaled by ½: set the height in the node's own units.
+            card.element('card').getComponent(UITransform)!.height = h / Math.abs(card.element('card').scale.y || 1);
             card.element('card').setPosition(0, 0, 0);
             card.element('thumbnail').getComponent(UITransform)!.height = LOCKED.thumbHeight * k;
             card.element('thumbnail').setPosition(0, top - (LOCKED.thumbTop + LOCKED.thumbHeight / 2) * k, 0);

@@ -73,9 +73,10 @@ export class LayoutView extends BaseView {
         const o = this.node.getComponent(UIOpacity) ?? this.node.addComponent(UIOpacity);
         tween(o).to(seconds, { opacity: 0 }).call(() => this.close()).start();
     }
+    /** Judged on the displayed size: 2x nine-slice art is laid out at twice its size and scaled by ½. */
     private isFullScreen(node: Node): boolean {
         const ui = node.getComponent(UITransform);
-        return !!ui && ui.width >= DESIGN_WIDTH - 20 && ui.height >= DESIGN_HEIGHT - 60;
+        return !!ui && ui.width * Math.abs(node.scale.x) >= DESIGN_WIDTH - 20 && ui.height * Math.abs(node.scale.y) >= DESIGN_HEIGHT - 60;
     }
     private labelIndex: Map<string, Label> | null = null;
 
@@ -125,7 +126,7 @@ export class LayoutView extends BaseView {
             if (!ui || !node.isValid || node.parent !== this.node) continue;
             const height = ui.height * Math.abs(d.scale.y);
             const top = DESIGN_HEIGHT / 2 - (at.y + height * (1 - ui.anchorY)), bottom = DESIGN_HEIGHT / 2 - (at.y - height * ui.anchorY);
-            if (d.width >= DESIGN_WIDTH - 20 && ui.height >= DESIGN_HEIGHT - 60) {
+            if (d.width * Math.abs(d.scale.x) >= DESIGN_WIDTH - 20 && ui.height * Math.abs(d.scale.y) >= DESIGN_HEIGHT - 60) {
                 // Full-screen pictures (backgrounds, dims) cover the whole screen; data mounts (no Sprite,
                 // e.g. the home map) are placed by their feature code.
                 if (node.getComponent(Sprite)) { const s = coverScale(ui.width, ui.height); node.setScale(s * Math.sign(node.scale.x || 1), s, 1); node.setPosition(0, 0, at.z); }

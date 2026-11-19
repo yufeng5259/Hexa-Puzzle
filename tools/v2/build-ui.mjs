@@ -562,7 +562,7 @@ function listRig(b, layout, mapListId) {
 }
 
 /** Height of the chapter title row above a chapter's first S16 card (design px); MapPage adds it to the list. */
-export const MAP_CHAPTER_ROW = 64;
+export const MAP_CHAPTER_ROW = 70;
 /** One S16 card in every state: drawn as the current card, plus the locked row of the next card. */
 function buildMapCard() {
     const layout = progressSlots(readable(JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S16.json'), 'utf8')))), el = id => layout.elements.find(e => e.id === id);
@@ -586,7 +586,7 @@ function buildMapCard() {
     // the first card of each chapter (hidden here; MapPage shows it and makes room for it).
     const thumb = el('m01_thumbnail').rect, extra = [
         { id: 'subtitle', type: 'label', text: '晨露花蜜', rect: [thumb[0] + 18, thumb[1] + thumb[3] - 62, 420, 50], fontSize: 30, color: '#FFFFFF', bold: true, align: 'left', outlineColor: '#5B3A16', outlineWidth: 3 },
-        { id: 'chapter', type: 'label', text: '第一章 · 家园启程', rect: [card[0], card[1] - MAP_CHAPTER_ROW, card[2], MAP_CHAPTER_ROW - 6], fontSize: 36, color: '#FFFFFF', bold: true, align: 'center', outlineColor: '#A2530B', outlineWidth: 4, hidden: true },
+        { id: 'chapter', type: 'label', text: '第一章 · 家园启程', rect: [card[0], card[1] - MAP_CHAPTER_ROW, card[2], MAP_CHAPTER_ROW - 6], fontSize: 42, color: '#FFFFFF', bold: true, align: 'center', outlineColor: '#8A4A0C', outlineWidth: 5, hidden: true },
     ];
     for (const e of extra) {
         const [x, y, w, h] = e.rect, node = b.node(e.id, b.root, { x: x + w / 2 - cx, y: cy - (y + h / 2), width: w, height: h }, !e.hidden);
