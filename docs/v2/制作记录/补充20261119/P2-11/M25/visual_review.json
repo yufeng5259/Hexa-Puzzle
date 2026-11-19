@@ -1,0 +1,44 @@
+{
+  "map": "M25",
+  "iterations": [
+    {
+      "iteration": 1,
+      "evidence": [
+        "raw/B121_key.png",
+        "raw/B122_key.png",
+        "raw/B123_key.png",
+        "raw/B124_key.png",
+        "raw/B125_key.png",
+        "raw/background.png"
+      ],
+      "observations": [
+        "真竖屏；前景地面比深色天空亮；建筑蜂巢蜂翼元素清晰，六态同机位，未见文字数字或礼拜标志。",
+        "B125月光喷泉L3–L5偏向房屋遮棚，需改为无遮挡独立喷泉；其他四栋角色明确，花瓣缆车可辨。"
+      ],
+      "decision": "重制B125独立开放喷泉"
+    },
+    {
+      "iteration": 2,
+      "evidence": [
+        "../../对照/M25_满级组合检查.png",
+        "../../对照/M25_L0地基组合检查.png",
+        "../../对照/B121_三底六态对照.png",
+        "../../对照/B122_三底六态对照.png",
+        "../../对照/B123_三底六态对照.png",
+        "../../对照/B124_三底六态对照.png",
+        "../../对照/B125_三底六态对照.png"
+      ],
+      "observations": [
+        "B125修订为开放多层月光喷泉，无房屋屋顶；L1到L5增加花瓣池、喷泉层级、蜜光灯与蜂翼冠饰。",
+        "满级与L0按JSON组合，背景地面明亮、暖色蜂巢建筑清楚，无遮挡；三底边缘干净，蜂翼保持半透明。"
+      ],
+      "decision": "PASS；保留技术报告中的近似高度/原生alpha色彩警告，不放宽断言。",
+      "technicalErrors": [],
+      "technicalWarnings": [
+        "B121: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly",
+        "B121: 59 opaque overlap pixels (0 core); requires visual review"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

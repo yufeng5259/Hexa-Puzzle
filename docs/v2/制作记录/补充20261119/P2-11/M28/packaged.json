@@ -1,0 +1,1174 @@
+{
+  "batch": "P2-11",
+  "map": "M28",
+  "name": "星环空港",
+  "template": "A",
+  "background": {
+    "file": "地图/M28_星环空港_背景.png",
+    "size": [
+      854,
+      1842
+    ],
+    "mode": "RGB",
+    "sha256": "206b876044549abd5461ee3b0086d23b0ea2c2cad62b8e80bf1804adf3512bc7"
+  },
+  "extension": {
+    "file": "地图/M28_星环空港_背景_扩展.png",
+    "size": [
+      1120,
+      2040
+    ],
+    "mode": "RGB",
+    "sha256": "26f222beb86fe805c3cc8cf510399889ff14095b42fcfcdc8da8977e9c744001",
+    "original": "地图/M28_星环空港_背景.png",
+    "originalOffset": [
+      133,
+      99
+    ]
+  },
+  "layout": {
+    "file": "地图/M28_建筑布局.json",
+    "sha256": "d107f4938c88930c8d995fed214c1351cd1c39d956727505dd9b9c68216dd19f",
+    "template": "A"
+  },
+  "buildings": [
+    {
+      "id": "B136",
+      "map": "M28",
+      "name": "环形蜂巢舱",
+      "atlas": "图集/建筑/B136_环形蜂巢舱_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "9379e7b3f85e3fa83b3ee86226120291416f207db7cfe022333ad97aff2247a0",
+      "source": "制作记录/补充20261119/P2-11/M28/raw/B136_key.png",
+      "source_sha256": "da95ff104666be61b1b4db50636091078da5bdcff1e47b01b068a0b64ba7d92b",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            520,
+            441
+          ],
+          "source_visible_bbox": [
+            83,
+            192,
+            460,
+            404
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            100,
+            333,
+            475,
+            544
+          ],
+          "sha256": "07fd5d7356d38f7d370e7d7858625abb9ae3734eea87cfeebc2785940012c9fd"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            520,
+            0,
+            1008,
+            441
+          ],
+          "source_visible_bbox": [
+            61,
+            130,
+            435,
+            404
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            101,
+            272,
+            475,
+            544
+          ],
+          "sha256": "6341bab2d60c7b256ed94fcce5b0163bfd244c94af3a89b260f5904b3becd2b0"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1008,
+            0,
+            1536,
+            441
+          ],
+          "source_visible_bbox": [
+            53,
+            82,
+            449,
+            404
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            90,
+            224,
+            486,
+            544
+          ],
+          "sha256": "31b215090362417936a09e101d54d7d8971f367adf2250ec933aba768bd1fd20"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            441,
+            515,
+            1024
+          ],
+          "source_visible_bbox": [
+            72,
+            122,
+            471,
+            456
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            89,
+            210,
+            487,
+            544
+          ],
+          "sha256": "3d4a1fdfe7424d80d13d9e26976730d65158f2ea1fc6cba9122892b4f910edff"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            515,
+            441,
+            1009,
+            1024
+          ],
+          "source_visible_bbox": [
+            45,
+            86,
+            462,
+            457
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            80,
+            173,
+            496,
+            544
+          ],
+          "sha256": "680081a05e0d19cb8fc7cc2c2732a0559662f8d8fc27d70acb1d24d3f1ace0a5"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1009,
+            441,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            33,
+            39,
+            465,
+            462
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            72,
+            121,
+            503,
+            544
+          ],
+          "sha256": "2e3f05cd71cde8a07146c6d54c5a1424a616888a4a3919a2d83bf4eddf838687"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 430
+    },
+    {
+      "id": "B137",
+      "map": "M28",
+      "name": "星尘提炼厂",
+      "atlas": "图集/建筑/B137_星尘提炼厂_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "e58d505e221ed346a5bc998d9764e3f0506679271927104b743393aa45c99484",
+      "source": "制作记录/补充20261119/P2-11/M28/raw/B137_key.png",
+      "source_sha256": "b1dd3516c754f1e8c5f5509a53190f5ca1d01e18f3d717734fa6076fcbbf83a1",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            509,
+            470
+          ],
+          "source_visible_bbox": [
+            101,
+            248,
+            441,
+            433
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            119,
+            360,
+            457,
+            544
+          ],
+          "sha256": "9fad8d72b4a78a61bf7d85f31c4468d59c16f98c813e84b2a23293c8ec1f450d"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            509,
+            0,
+            993,
+            470
+          ],
+          "source_visible_bbox": [
+            70,
+            148,
+            420,
+            434
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            113,
+            258,
+            462,
+            544
+          ],
+          "sha256": "2457d4476730eb7d23a2f3dfe1e00832af71f875dfd6235ae8cda95e050d16b9"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            993,
+            0,
+            1536,
+            470
+          ],
+          "source_visible_bbox": [
+            66,
+            102,
+            446,
+            433
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            98,
+            214,
+            478,
+            544
+          ],
+          "sha256": "f8875506b02912cd3e3585a2bba77987a3bacc68b0a31c97966a093272e93161"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            470,
+            504,
+            1024
+          ],
+          "source_visible_bbox": [
+            61,
+            114,
+            466,
+            477
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            86,
+            181,
+            490,
+            544
+          ],
+          "sha256": "b452f14bff57bf5492c2a083c44e15208527be4bba3f757c3d84c0e2bc8071fd"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            504,
+            470,
+            992,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            74,
+            455,
+            479
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            80,
+            140,
+            495,
+            544
+          ],
+          "sha256": "1bd5833c4fccd5f2784a5638ba8a7deea270d64e01605e0e35ff6655ad2a81df"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            992,
+            470,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            34,
+            36,
+            495,
+            480
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            58,
+            102,
+            517,
+            544
+          ],
+          "sha256": "43905fa589bf4f638b68eca7f4e76e4dc440d8be3416181362587cb9feebd3f8"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B138",
+      "map": "M28",
+      "name": "货运码头",
+      "atlas": "图集/建筑/B138_货运码头_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "738c49f0d64c05ce9a8a9219418215358b1418a164c5e1bd1f4de24afecaca41",
+      "source": "制作记录/补充20261119/P2-11/M28/raw/B138_key.png",
+      "source_sha256": "9b8e8fb4a26c5addd8a05a01c63bec94401090b610a3c96c74e5eb3374cbec22",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B138_货运码头/B138_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            502,
+            454
+          ],
+          "source_visible_bbox": [
+            109,
+            236,
+            437,
+            419
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            124,
+            363,
+            452,
+            544
+          ],
+          "sha256": "452c0a2aaeb6652ad85423dc4487decef3f165c6e8cedd52c671e6ebd1fec3b0"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B138_货运码头/B138_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            502,
+            0,
+            979,
+            454
+          ],
+          "source_visible_bbox": [
+            66,
+            194,
+            407,
+            419
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            118,
+            319,
+            458,
+            544
+          ],
+          "sha256": "deb466c88b2c53c5a076a66c8f0fd08d40cdc1a1c9521d0f01f7374756415bc4"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B138_货运码头/B138_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            979,
+            0,
+            1536,
+            454
+          ],
+          "source_visible_bbox": [
+            73,
+            91,
+            444,
+            419
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            103,
+            217,
+            473,
+            544
+          ],
+          "sha256": "bcd561ef9533bbf4d64aba5039e00f0256a24ed2e528a6828a008536f3f99f15"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B138_货运码头/B138_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            454,
+            498,
+            1024
+          ],
+          "source_visible_bbox": [
+            75,
+            150,
+            472,
+            499
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            90,
+            196,
+            486,
+            544
+          ],
+          "sha256": "352b411848dc410e598b88ef143ffffdb6b509524fd42edb15c70966a261378e"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B138_货运码头/B138_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            498,
+            454,
+            979,
+            1024
+          ],
+          "source_visible_bbox": [
+            27,
+            87,
+            460,
+            499
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            72,
+            133,
+            504,
+            544
+          ],
+          "sha256": "a1d78868ad7d120557de756a794daf751a14e3332114f1384d771f5014444d46"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B138_货运码头/B138_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            979,
+            454,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            23,
+            37,
+            504,
+            501
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            48,
+            81,
+            528,
+            544
+          ],
+          "sha256": "d6e4b484b1d55cc4a28e9d3c64a363b142a3182307afabdc4673abddc6a69626"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B139",
+      "map": "M28",
+      "name": "飞碟停机坪",
+      "atlas": "图集/建筑/B139_飞碟停机坪_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "608b5275a4ceca9358324e24bdc7a50f2a0bf237b52370e08348797e26181131",
+      "source": "制作记录/补充20261119/P2-11/M28/raw/B139_key.png",
+      "source_sha256": "d6fe95d5a1ea2072cfd36af35189848bea06be16662e61354a0e8bc2542c931a",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            525,
+            453
+          ],
+          "source_visible_bbox": [
+            109,
+            244,
+            459,
+            413
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            113,
+            376,
+            462,
+            544
+          ],
+          "sha256": "88f950e8738b642408e10e1fcd72aa93e2ab50db7b4ffe8a705a0b96dc436695"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            525,
+            0,
+            1003,
+            453
+          ],
+          "source_visible_bbox": [
+            67,
+            135,
+            415,
+            413
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            114,
+            266,
+            462,
+            544
+          ],
+          "sha256": "0cb7ec3bc1b81c46400a57f6ad3781f27effff3f88005e902dc30112947dd47e"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1003,
+            0,
+            1536,
+            453
+          ],
+          "source_visible_bbox": [
+            65,
+            102,
+            435,
+            413
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            103,
+            234,
+            473,
+            544
+          ],
+          "sha256": "76160d844ee35472e37e4c1d71566efbc3f5942a3984268240e996a181444c0a"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            453,
+            518,
+            1024
+          ],
+          "source_visible_bbox": [
+            93,
+            129,
+            479,
+            491
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            95,
+            183,
+            481,
+            544
+          ],
+          "sha256": "babb8abf1343261e90e46f2fc426a43078206b576362582717ccb121da2058bc"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            518,
+            453,
+            997,
+            1024
+          ],
+          "source_visible_bbox": [
+            41,
+            89,
+            445,
+            491
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            87,
+            142,
+            489,
+            544
+          ],
+          "sha256": "68f2430f89bc9aef5bdf465daf02214a2da576b73e2347591a7102dab2d4e2c1"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            997,
+            453,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            35,
+            43,
+            473,
+            492
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            69,
+            95,
+            507,
+            544
+          ],
+          "sha256": "7bbf7f228a250a8afa53b2e43bedc7957915dac6dec241b68c9737b9aa602153"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B140",
+      "map": "M28",
+      "name": "星环望远镜",
+      "atlas": "图集/建筑/B140_星环望远镜_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "aedceb62057aa5b3d5e545039496f3fecd74e08a3411e42f0bdad9062345af65",
+      "source": "制作记录/补充20261119/P2-11/M28/raw/B140_key.png",
+      "source_sha256": "c5c7889fe028e843efbb06e4b71e012c7fc8060fcacf870b1c072f220180dddc",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B140_星环望远镜/B140_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            518,
+            448
+          ],
+          "source_visible_bbox": [
+            129,
+            239,
+            443,
+            417
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            132,
+            367,
+            444,
+            544
+          ],
+          "sha256": "a07f60879ace2aafda87f7393e0fc16fcb91bf7663bae9ef56945f99149d0143"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B140_星环望远镜/B140_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            518,
+            0,
+            997,
+            448
+          ],
+          "source_visible_bbox": [
+            78,
+            153,
+            398,
+            417
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            128,
+            282,
+            448,
+            544
+          ],
+          "sha256": "5a52ed592b319410eb738255c2bd49799124b6ade0651dea18bc63d0430e974a"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B140_星环望远镜/B140_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            997,
+            0,
+            1536,
+            448
+          ],
+          "source_visible_bbox": [
+            82,
+            101,
+            417,
+            417
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            121,
+            229,
+            455,
+            544
+          ],
+          "sha256": "e5b61790864bd9f1d9f556208835835433a56a0970ea6955e51f248cca555fca"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B140_星环望远镜/B140_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            448,
+            506,
+            1024
+          ],
+          "source_visible_bbox": [
+            98,
+            126,
+            441,
+            488
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            117,
+            183,
+            459,
+            544
+          ],
+          "sha256": "0ee2a874c1db6324084113725fd9cf5dd3550e378a0b4779f99749dec87a260d"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B140_星环望远镜/B140_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            506,
+            448,
+            991,
+            1024
+          ],
+          "source_visible_bbox": [
+            66,
+            104,
+            433,
+            488
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            105,
+            161,
+            471,
+            544
+          ],
+          "sha256": "54939f1d29eef67d8d6a5e97bd61bc7d05ffc612b1948e1b330ceaea3200b143"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B140_星环望远镜/B140_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            991,
+            448,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            54,
+            33,
+            469,
+            488
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            81,
+            91,
+            495,
+            544
+          ],
+          "sha256": "3d9d2bbddc03d905eb429fc7d783ff0ddca98011c8955e8dcc4ace5e6de2d624"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    }
+  ],
+  "thumbnail": {
+    "file": "素材/UI/地图选择/map_thumb_m28.png",
+    "size": [
+      768,
+      350
+    ],
+    "mode": "RGBA",
+    "sha256": "60ee3a571d14356e26014586371d74604e935ee176b5e127b28aea78e67eb8ef",
+    "cropRect": [
+      0,
+      952,
+      854,
+      1341
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "landmarkBBox": [
+      513,
+      983,
+      812,
+      1311
+    ],
+    "landmarkFullyInsideCrop": true
+  },
+  "extensionComparison": {
+    "map": "M28",
+    "original": "地图/M28_星环空港_背景.png",
+    "extended": "地图/M28_星环空港_背景_扩展.png",
+    "offset": [
+      133,
+      99
+    ],
+    "max_channel_difference": 0,
+    "changed_pixels": 0,
+    "exact": true
+  },
+  "layoutAlphaObjective": 0.0,
+  "observations": [
+    "Main hive height capped at 430 px to respect template plus top 18% HUD; all six levels keep one common extraction scale. Height is recorded rather than falsely claiming 85% occupancy."
+  ],
+  "backgroundDerivation": {
+    "source": "制作记录/补充20261119/P2-11/M28/raw/background.png",
+    "source_sha256": "270142944a8e45e11ab40eb046d7d93375ba9111de19ed0c82b227f74d2309ee",
+    "source_size": [
+      854,
+      1842
+    ],
+    "cover_scale": 1.3114754098360655,
+    "source_crop_rect": [
+      -5.684341886080802e-14,
+      143.2499999999999,
+      854.0,
+      1698.75
+    ],
+    "extended_output_size": [
+      1120,
+      2040
+    ],
+    "central_crop_rect": [
+      133,
+      99,
+      987,
+      1941
+    ],
+    "method": "One generated full scene proportionally cover-fitted to extended canvas, then central map cropped pixel-identically. Not an outpaint of a pre-existing map; source dimensions and any upsampling are explicitly recorded."
+  }
+}

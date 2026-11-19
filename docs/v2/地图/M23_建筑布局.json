@@ -1,0 +1,238 @@
+{
+  "map": "M23",
+  "name": "世界之树",
+  "background": "地图/M23_世界之树_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B111",
+      "name": "根须蜂宫",
+      "normalized_feet": [
+        0.515,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B112",
+      "name": "符文工坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B112_符文工坊/B112_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B112_符文工坊/B112_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B112_符文工坊/B112_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B112_符文工坊/B112_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B112_符文工坊/B112_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B112_符文工坊/B112_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B113",
+      "name": "金蜜窖",
+      "normalized_feet": [
+        0.79,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B113_金蜜窖/B113_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B113_金蜜窖/B113_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B113_金蜜窖/B113_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B113_金蜜窖/B113_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B113_金蜜窖/B113_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B113_金蜜窖/B113_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B114",
+      "name": "彩虹桥",
+      "normalized_feet": [
+        0.22,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.51,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B114_彩虹桥/B114_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B114_彩虹桥/B114_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B114_彩虹桥/B114_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B114_彩虹桥/B114_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B114_彩虹桥/B114_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B114_彩虹桥/B114_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B115",
+      "name": "世界树冠灯",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-11; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00235194; full-resolution overlap/HUD weighted pixels=137; independent validation recorded separately. No runtime config mutation."
+}

@@ -1,0 +1,48 @@
+{
+  "map": "M24",
+  "iterations": [
+    {
+      "iteration": 1,
+      "evidence": [
+        "raw/B116_key.png",
+        "raw/B117_key.png",
+        "raw/B118_key.png",
+        "raw/B119_key.png",
+        "raw/B120_key.png",
+        "raw/background.png"
+      ],
+      "observations": [
+        "背景真竖屏，熔岩局限边缘，平地可读；B116–B118六态清楚、蜂巢造型、无文字。",
+        "B119虽然有龙翼棚顶和鞍具，但龙骑功能不够明确；B120睡龙被普通屋门和屋顶弱化为房屋。"
+      ],
+      "decision": "重制B119龙骑站与B120独立睡龙岩地标；保留通过的背景和前三栋。"
+    },
+    {
+      "iteration": 2,
+      "evidence": [
+        "../../对照/M24_满级组合检查.png",
+        "../../对照/M24_L0地基组合检查.png",
+        "../../对照/B116_三底六态对照.png",
+        "../../对照/B117_三底六态对照.png",
+        "../../对照/B118_三底六态对照.png",
+        "../../对照/B119_三底六态对照.png",
+        "../../对照/B120_三底六态对照.png"
+      ],
+      "observations": [
+        "B119修订后每个已建等级有可见红龙、鞍具和开放棚；B120修订为独立睡龙岩，无屋门屋顶。",
+        "满级与L0按JSON组合，主体互不遮挡且全部避开顶底UI区；三种底色边缘干净，地基对比充分。",
+        "B118的少量紫红检测像素为宝藏内紫色宝石，不是透明边污染。"
+      ],
+      "decision": "PASS；保留技术报告中的近似高度/原生alpha色彩警告，不放宽断言。",
+      "technicalErrors": [],
+      "technicalWarnings": [
+        "B116: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly",
+        "B118 L2: 50 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B118 L3: 42 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B118 L4: 36 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B118 L5: 25 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

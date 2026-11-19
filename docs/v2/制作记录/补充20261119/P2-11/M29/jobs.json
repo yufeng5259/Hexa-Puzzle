@@ -1,0 +1,194 @@
+[
+  {
+    "id": "M29",
+    "kind": "background",
+    "map": "M29",
+    "name": "星云水晶",
+    "size": "1120x2048",
+    "prompt": "VERTICAL PORTRAIT GAME MAP, height nearly twice width. Production bare portrait environment for 星云水晶. Match the supplied original bee-village references: polished clean premium 2.5D mobile game art, lightly elevated front-right view, chunky rounded solid forms, crisp smooth bevels, soft matte stone/wood, amber honey accents, soft upper-left light. Not photorealistic, not painterly, not flat vector. No text, letters, numbers, logos, watermarks, UI, real flags, religious worship symbols or people. References are STYLE ONLY, do not copy their buildings, scenery or palette.\nTheme: soft lavender-pink nebula sky, clear pale rose crystal terrain, transparent luminous crystal clusters at perimeter, bright pearl lilac landing clearings; terrain brighter than sky. FULL BLEED TALL PORTRAIT canvas is the extended landscape. Distant sky ONLY top18%, lower82% uninterrupted spacious playable terrain, no horizon across middle. Playable center crop 854x1842 at offset (133,99), upper18% and bottom12% of crop are UI margins. NO buildings, houses, ruins, characters, furniture, construction props or roofs. Five broad flat softly lighter empty terrain clearings, feet/front-edge centers normalized to full canvas: x=0.500 y=0.374; x=0.698 y=0.509; x=0.294 y=0.712; x=0.698 y=0.699; x=0.306 y=0.852. Each clearing at least 0.35 canvas width, smoothly continuous terrain not outlined circles. Main upper clearing extends UP behind feet point. Paths connect sites. Water, trees, large rocks restricted to margins away from sites; no canal through a clearing. Leave bottom left and bottom right sites especially clear. Do not paint buildings or future building shadows.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\地图\\M01_晨露蜂园_背景.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\raw\\background.png",
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\prompts\\M29.txt",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "referenceSha256": {
+      "地图\\M01_晨露蜂园_背景.png": "5c89a5646ca9e337a8e0f71682cef6f9417e80b73aa02b34bef3455fa103e869",
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b"
+    },
+    "actual_size": [
+      854,
+      1842
+    ],
+    "actual_mode": "RGB",
+    "selected_sha256": "b5eda5fd7065e4fa89047241654292ce048321d6efff92f96b38f9b33b6a1a78",
+    "selected_raw": "制作记录/补充20261119/P2-11/M29/raw/background.png",
+    "method": "imagegen skill CLI; configured matching provider; no credentials persisted"
+  },
+  {
+    "id": "B141",
+    "kind": "building",
+    "map": "M29",
+    "name": "水晶蜂巢",
+    "size": "3072x2048",
+    "prompt": "Production six-state upgrade SPRITE SHEET for ONE building 水晶蜂巢: wide faceted crystal honeybee hive building with translucent lilac hexagonal cells, amber honey core and warm golden edge light. Match the supplied original bee-village references: polished clean premium 2.5D mobile game art, lightly elevated front-right view, chunky rounded solid forms, crisp smooth bevels, soft matte stone/wood, amber honey accents, soft upper-left light. Not photorealistic, not painterly, not flat vector. No text, letters, numbers, logos, watermarks, UI, real flags, religious worship symbols or people. References are STYLE ONLY, do not copy their buildings, scenery or palette.\nEvery building including foundation must display obvious honeybee identity: amber hexagonal honeycomb, honey jar, beeswax, bee wings or bee antenna ornament. Theme colors and materials: soft lavender-pink nebula sky, clear pale rose crystal terrain, transparent luminous crystal clusters at perimeter, bright pearl lilac landing clearings; terrain brighter than sky. Use blue-violet, rose-gold and lilac materials where the theme requires purple; never use saturated magenta as an object material.\nEXACTLY THREE COLUMNS by TWO ROWS of equal cells. Top row L0 L1 L2; bottom row L3 L4 L5. EXACTLY six whole separate objects, no seventh object, no grid, no labels. All same camera, same physical pixel scale and same centered footing; generous 12 percent empty margins all sides. L0 ONLY low empty structural foundation with honeycomb stakes, NO walls/roof. L1 small functional starter version about 60 percent final height. L2 adds real functional geometry. L3 complete recognizable function about 80 percent final height. L4 taller richer architecture. L5 largest most elaborate, ornate bee-wing/honeycomb roof crest, warm amber lamps, enriched functional equipment. Never shrink later stages; genuine architectural growth, NOT six recolors or scaled copies. All important silhouette parts connected.\nBackground perfectly flat pure MAGENTA #FF00FF everywhere including gaps. NO checkerboard, gradient, cast shadow or scenery. No magenta on object. No broad ground slab, grass, snow or water tile; small structural base only. Transport slot must retain its named vehicle, bridge or lift in all built levels, not become an ordinary house. No detached ornament outside cell. Large finished version must fit wholly with margins.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\raw\\B141_key.png",
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\prompts\\B141.txt",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "referenceSha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "5d75795fe64de1d682624927544d826c1f676bdcaf68dcf4da98114138f2bc0a",
+    "selected_raw": "制作记录/补充20261119/P2-11/M29/raw/B141_key.png",
+    "method": "imagegen skill CLI; configured matching provider; no credentials persisted"
+  },
+  {
+    "id": "B142",
+    "kind": "building",
+    "map": "M29",
+    "name": "能量花工坊",
+    "size": "3072x2048",
+    "prompt": "Production six-state upgrade SPRITE SHEET for ONE building 能量花工坊: energy flower workshop with stylized luminous petals feeding glass honeycomb vessels. Match the supplied original bee-village references: polished clean premium 2.5D mobile game art, lightly elevated front-right view, chunky rounded solid forms, crisp smooth bevels, soft matte stone/wood, amber honey accents, soft upper-left light. Not photorealistic, not painterly, not flat vector. No text, letters, numbers, logos, watermarks, UI, real flags, religious worship symbols or people. References are STYLE ONLY, do not copy their buildings, scenery or palette.\nEvery building including foundation must display obvious honeybee identity: amber hexagonal honeycomb, honey jar, beeswax, bee wings or bee antenna ornament. Theme colors and materials: soft lavender-pink nebula sky, clear pale rose crystal terrain, transparent luminous crystal clusters at perimeter, bright pearl lilac landing clearings; terrain brighter than sky. Use blue-violet, rose-gold and lilac materials where the theme requires purple; never use saturated magenta as an object material.\nEXACTLY THREE COLUMNS by TWO ROWS of equal cells. Top row L0 L1 L2; bottom row L3 L4 L5. EXACTLY six whole separate objects, no seventh object, no grid, no labels. All same camera, same physical pixel scale and same centered footing; generous 12 percent empty margins all sides. L0 ONLY low empty structural foundation with honeycomb stakes, NO walls/roof. L1 small functional starter version about 60 percent final height. L2 adds real functional geometry. L3 complete recognizable function about 80 percent final height. L4 taller richer architecture. L5 largest most elaborate, ornate bee-wing/honeycomb roof crest, warm amber lamps, enriched functional equipment. Never shrink later stages; genuine architectural growth, NOT six recolors or scaled copies. All important silhouette parts connected.\nBackground perfectly flat pure MAGENTA #FF00FF everywhere including gaps. NO checkerboard, gradient, cast shadow or scenery. No magenta on object. No broad ground slab, grass, snow or water tile; small structural base only. Transport slot must retain its named vehicle, bridge or lift in all built levels, not become an ordinary house. No detached ornament outside cell. Large finished version must fit wholly with margins.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\raw\\B142_key.png",
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\prompts\\B142.txt",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "referenceSha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "dc933fec8256be7a42199c2c2fd7e1e0e4c2a7cc99b524da71c1719a5b268639",
+    "selected_raw": "制作记录/补充20261119/P2-11/M29/raw/B142_key.png",
+    "method": "imagegen skill CLI; configured matching provider; no credentials persisted"
+  },
+  {
+    "id": "B143",
+    "kind": "building",
+    "map": "M29",
+    "name": "晶石仓",
+    "size": "3072x2048",
+    "prompt": "Production six-state upgrade SPRITE SHEET for ONE building 晶石仓: crystal ore warehouse with stacked faceted blue lavender crystals and honeycomb gate. Match the supplied original bee-village references: polished clean premium 2.5D mobile game art, lightly elevated front-right view, chunky rounded solid forms, crisp smooth bevels, soft matte stone/wood, amber honey accents, soft upper-left light. Not photorealistic, not painterly, not flat vector. No text, letters, numbers, logos, watermarks, UI, real flags, religious worship symbols or people. References are STYLE ONLY, do not copy their buildings, scenery or palette.\nEvery building including foundation must display obvious honeybee identity: amber hexagonal honeycomb, honey jar, beeswax, bee wings or bee antenna ornament. Theme colors and materials: soft lavender-pink nebula sky, clear pale rose crystal terrain, transparent luminous crystal clusters at perimeter, bright pearl lilac landing clearings; terrain brighter than sky. Use blue-violet, rose-gold and lilac materials where the theme requires purple; never use saturated magenta as an object material.\nEXACTLY THREE COLUMNS by TWO ROWS of equal cells. Top row L0 L1 L2; bottom row L3 L4 L5. EXACTLY six whole separate objects, no seventh object, no grid, no labels. All same camera, same physical pixel scale and same centered footing; generous 12 percent empty margins all sides. L0 ONLY low empty structural foundation with honeycomb stakes, NO walls/roof. L1 small functional starter version about 60 percent final height. L2 adds real functional geometry. L3 complete recognizable function about 80 percent final height. L4 taller richer architecture. L5 largest most elaborate, ornate bee-wing/honeycomb roof crest, warm amber lamps, enriched functional equipment. Never shrink later stages; genuine architectural growth, NOT six recolors or scaled copies. All important silhouette parts connected.\nBackground perfectly flat pure MAGENTA #FF00FF everywhere including gaps. NO checkerboard, gradient, cast shadow or scenery. No magenta on object. No broad ground slab, grass, snow or water tile; small structural base only. Transport slot must retain its named vehicle, bridge or lift in all built levels, not become an ordinary house. No detached ornament outside cell. Large finished version must fit wholly with margins.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\raw\\B143_key.png",
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\prompts\\B143.txt",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "referenceSha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "db370c771166d1736c8b2f11a7b5f8a686362ba332fbd1b65621eb0990aae816",
+    "selected_raw": "制作记录/补充20261119/P2-11/M29/raw/B143_key.png",
+    "method": "imagegen skill CLI; configured matching provider; no credentials persisted"
+  },
+  {
+    "id": "B144",
+    "kind": "building",
+    "map": "M29",
+    "name": "传送门",
+    "size": "3072x2048",
+    "prompt": "Production six-state upgrade SPRITE SHEET for ONE building 传送门: freestanding circular teleport gateway with warm golden honeycomb frame and pale cyan light aperture, all functional geometry connected. Match the supplied original bee-village references: polished clean premium 2.5D mobile game art, lightly elevated front-right view, chunky rounded solid forms, crisp smooth bevels, soft matte stone/wood, amber honey accents, soft upper-left light. Not photorealistic, not painterly, not flat vector. No text, letters, numbers, logos, watermarks, UI, real flags, religious worship symbols or people. References are STYLE ONLY, do not copy their buildings, scenery or palette.\nEvery building including foundation must display obvious honeybee identity: amber hexagonal honeycomb, honey jar, beeswax, bee wings or bee antenna ornament. Theme colors and materials: soft lavender-pink nebula sky, clear pale rose crystal terrain, transparent luminous crystal clusters at perimeter, bright pearl lilac landing clearings; terrain brighter than sky. Use blue-violet, rose-gold and lilac materials where the theme requires purple; never use saturated magenta as an object material.\nEXACTLY THREE COLUMNS by TWO ROWS of equal cells. Top row L0 L1 L2; bottom row L3 L4 L5. EXACTLY six whole separate objects, no seventh object, no grid, no labels. All same camera, same physical pixel scale and same centered footing; generous 12 percent empty margins all sides. L0 ONLY low empty structural foundation with honeycomb stakes, NO walls/roof. L1 small functional starter version about 60 percent final height. L2 adds real functional geometry. L3 complete recognizable function about 80 percent final height. L4 taller richer architecture. L5 largest most elaborate, ornate bee-wing/honeycomb roof crest, warm amber lamps, enriched functional equipment. Never shrink later stages; genuine architectural growth, NOT six recolors or scaled copies. All important silhouette parts connected.\nBackground perfectly flat pure MAGENTA #FF00FF everywhere including gaps. NO checkerboard, gradient, cast shadow or scenery. No magenta on object. No broad ground slab, grass, snow or water tile; small structural base only. Transport slot must retain its named vehicle, bridge or lift in all built levels, not become an ordinary house. No detached ornament outside cell. Large finished version must fit wholly with margins.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\raw\\B144_key.png",
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\prompts\\B144.txt",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "referenceSha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "393e57d5233482f72aadcc19850198902e8773b53184876c611d4ea992f51904",
+    "selected_raw": "制作记录/补充20261119/P2-11/M29/raw/B144_key.png",
+    "method": "imagegen skill CLI; configured matching provider; no credentials persisted"
+  },
+  {
+    "id": "B145",
+    "kind": "building",
+    "map": "M29",
+    "name": "光之花",
+    "size": "3072x2048",
+    "prompt": "Production six-state upgrade SPRITE SHEET for ONE building 光之花: magnificent sculptural luminous flower landmark with translucent opal petals, honeycomb central gem and golden bee-wing leaf ornaments. Match the supplied original bee-village references: polished clean premium 2.5D mobile game art, lightly elevated front-right view, chunky rounded solid forms, crisp smooth bevels, soft matte stone/wood, amber honey accents, soft upper-left light. Not photorealistic, not painterly, not flat vector. No text, letters, numbers, logos, watermarks, UI, real flags, religious worship symbols or people. References are STYLE ONLY, do not copy their buildings, scenery or palette.\nEvery building including foundation must display obvious honeybee identity: amber hexagonal honeycomb, honey jar, beeswax, bee wings or bee antenna ornament. Theme colors and materials: soft lavender-pink nebula sky, clear pale rose crystal terrain, transparent luminous crystal clusters at perimeter, bright pearl lilac landing clearings; terrain brighter than sky. Use blue-violet, rose-gold and lilac materials where the theme requires purple; never use saturated magenta as an object material.\nEXACTLY THREE COLUMNS by TWO ROWS of equal cells. Top row L0 L1 L2; bottom row L3 L4 L5. EXACTLY six whole separate objects, no seventh object, no grid, no labels. All same camera, same physical pixel scale and same centered footing; generous 12 percent empty margins all sides. L0 ONLY low empty structural foundation with honeycomb stakes, NO walls/roof. L1 small functional starter version about 60 percent final height. L2 adds real functional geometry. L3 complete recognizable function about 80 percent final height. L4 taller richer architecture. L5 largest most elaborate, ornate bee-wing/honeycomb roof crest, warm amber lamps, enriched functional equipment. Never shrink later stages; genuine architectural growth, NOT six recolors or scaled copies. All important silhouette parts connected.\nBackground perfectly flat pure MAGENTA #FF00FF everywhere including gaps. NO checkerboard, gradient, cast shadow or scenery. No magenta on object. No broad ground slab, grass, snow or water tile; small structural base only. Transport slot must retain its named vehicle, bridge or lift in all built levels, not become an ordinary house. No detached ornament outside cell. Large finished version must fit wholly with margins.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\raw\\B145_key.png",
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-11\\M29\\prompts\\B145.txt",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "referenceSha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "subjectRevisions": [
+      {
+        "promptFile": "prompts\\B145_subject_revision.txt",
+        "rejected": "rejected\\B145_key_subject_rejected.png",
+        "rejectedSha256": "0bb139fa4c89088c0e22e9b866548d9a8c53f7e760b85fc741ef29aa91b60957",
+        "selectedSha256": "a997e50a8b777d636c43ab41b05d1a0112c0164afef7b894180e46487caa42c4",
+        "actualSize": [
+          1536,
+          1024
+        ],
+        "reason": "Visual subject fidelity correction"
+      },
+      {
+        "promptFile": "prompts\\B145_alpha_revision.txt",
+        "rejected": "rejected\\B145_key_alpha_rejected.png",
+        "rejectedSha256": "a997e50a8b777d636c43ab41b05d1a0112c0164afef7b894180e46487caa42c4",
+        "selectedSha256": "7b1e1acf2989f903dd49b579cda530d5e1c847ccfaa922d4fb3ea78d077f38f2",
+        "actualSize": [
+          1536,
+          1024
+        ],
+        "reason": "Visual subject fidelity correction"
+      }
+    ],
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "7b1e1acf2989f903dd49b579cda530d5e1c847ccfaa922d4fb3ea78d077f38f2",
+    "selected_raw": "制作记录/补充20261119/P2-11/M29/raw/B145_key.png",
+    "method": "imagegen skill CLI; configured matching provider; no credentials persisted"
+  }
+]

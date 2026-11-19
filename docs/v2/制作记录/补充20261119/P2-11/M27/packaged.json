@@ -1,0 +1,1174 @@
+{
+  "batch": "P2-11",
+  "map": "M27",
+  "name": "红沙火星",
+  "template": "B",
+  "background": {
+    "file": "地图/M27_红沙火星_背景.png",
+    "size": [
+      854,
+      1842
+    ],
+    "mode": "RGB",
+    "sha256": "8990fabe018ba7df2065f132e402c96a529d496454a093ab060c3f6b07fc5ea9"
+  },
+  "extension": {
+    "file": "地图/M27_红沙火星_背景_扩展.png",
+    "size": [
+      1120,
+      2040
+    ],
+    "mode": "RGB",
+    "sha256": "41f28ca3035baaec8941f6f79220ebe6d4ddc58847d0e60b4daf2e4b5908975a",
+    "original": "地图/M27_红沙火星_背景.png",
+    "originalOffset": [
+      133,
+      99
+    ]
+  },
+  "layout": {
+    "file": "地图/M27_建筑布局.json",
+    "sha256": "6880903d197c94093576e7d9ef59c12d0f4e4e892308437779e9c4606cf62f3b",
+    "template": "B"
+  },
+  "buildings": [
+    {
+      "id": "B131",
+      "map": "M27",
+      "name": "红岩蜂窟",
+      "atlas": "图集/建筑/B131_红岩蜂窟_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "e2949d047bce8f0875bf218cc269b6c0c2adcaae6a2b3e617e79fc779eb99662",
+      "source": "制作记录/补充20261119/P2-11/M27/raw/B131_key.png",
+      "source_sha256": "879ebc262da902c0365f323bd86c6f28e9e398e7588ee5e0fdd9d3fb0d6dc5c7",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            517,
+            456
+          ],
+          "source_visible_bbox": [
+            107,
+            268,
+            452,
+            420
+          ],
+          "source_common_scale": 0.9388646288209607,
+          "visible_bbox": [
+            126,
+            401,
+            449,
+            544
+          ],
+          "sha256": "6f633b3ec37e1c7fe8ccfb8f4dda14b82fdbd32a942dbd5807cf57d07bdf12a3"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            517,
+            0,
+            997,
+            456
+          ],
+          "source_visible_bbox": [
+            67,
+            167,
+            425,
+            420
+          ],
+          "source_common_scale": 0.9388646288209607,
+          "visible_bbox": [
+            120,
+            307,
+            455,
+            544
+          ],
+          "sha256": "0d5598dfed4b442828b570d159306cdbf680740d242de82c54dc7c34b886addb"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            997,
+            0,
+            1536,
+            456
+          ],
+          "source_visible_bbox": [
+            57,
+            114,
+            446,
+            420
+          ],
+          "source_common_scale": 0.9388646288209607,
+          "visible_bbox": [
+            105,
+            257,
+            470,
+            544
+          ],
+          "sha256": "984deaaecb0d63c6710a3af119969f01c8613763324b4274af0f43bd3b06f8a3"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            456,
+            515,
+            1024
+          ],
+          "source_visible_bbox": [
+            78,
+            121,
+            486,
+            495
+          ],
+          "source_common_scale": 0.9388646288209607,
+          "visible_bbox": [
+            97,
+            194,
+            479,
+            544
+          ],
+          "sha256": "67460bafa362469360d8d0e39420c3002aa10a096dafd87e1b10574d60b589fa"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            515,
+            456,
+            984,
+            1024
+          ],
+          "source_visible_bbox": [
+            31,
+            67,
+            448,
+            495
+          ],
+          "source_common_scale": 0.9388646288209607,
+          "visible_bbox": [
+            92,
+            143,
+            484,
+            544
+          ],
+          "sha256": "51a323b5fa6ad4c7ea71fda841cd6b12cb0e3fbc75b6eb46cda9828dd7c10702"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            984,
+            456,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            23,
+            37,
+            477,
+            495
+          ],
+          "source_common_scale": 0.9388646288209607,
+          "visible_bbox": [
+            75,
+            114,
+            500,
+            544
+          ],
+          "sha256": "f59881728d6c742912af03bf3d5fbc57cee9b776aa5fe418cfef4303dc427f87"
+        }
+      ],
+      "source_common_scale": 0.9388646288209607,
+      "height_limit": 430
+    },
+    {
+      "id": "B132",
+      "map": "M27",
+      "name": "温室花圃",
+      "atlas": "图集/建筑/B132_温室花圃_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "9833f3eadaf9d99e48c910c0f6373025c465076f12937b1871c6c07d511391df",
+      "source": "制作记录/补充20261119/P2-11/M27/raw/B132_key.png",
+      "source_sha256": "5d7267bb0b70d17166db8f83e2bff0e5e7ea9eff42e0e7f8b2cb82ee829bda38",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B132_温室花圃/B132_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            528,
+            453
+          ],
+          "source_visible_bbox": [
+            123,
+            243,
+            454,
+            414
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            122,
+            373,
+            453,
+            544
+          ],
+          "sha256": "4eba10bed933d6ee31fb48f5e06cbe16ce5db8714d7a1619bd149194cf8d3cd9"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B132_温室花圃/B132_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            528,
+            0,
+            987,
+            453
+          ],
+          "source_visible_bbox": [
+            75,
+            150,
+            376,
+            413
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            138,
+            281,
+            438,
+            544
+          ],
+          "sha256": "2c7f4f8077cb3e2097c17cf75d222cba9126db88dc81c461490b4c194c0ab7bf"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B132_温室花圃/B132_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            987,
+            0,
+            1536,
+            453
+          ],
+          "source_visible_bbox": [
+            84,
+            105,
+            432,
+            416
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            114,
+            234,
+            461,
+            544
+          ],
+          "sha256": "8c00334b41236ca373d3b21b98cc67f8a796452ce5f3b95018b2ffa15660845f"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B132_温室花圃/B132_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            453,
+            501,
+            1024
+          ],
+          "source_visible_bbox": [
+            90,
+            119,
+            452,
+            477
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            107,
+            187,
+            468,
+            544
+          ],
+          "sha256": "fa078a16798687ac8437673d9ce4e00c2955b4a7fedd099c614e7d251b888295"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B132_温室花圃/B132_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            501,
+            453,
+            983,
+            1024
+          ],
+          "source_visible_bbox": [
+            51,
+            75,
+            446,
+            477
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            91,
+            142,
+            485,
+            544
+          ],
+          "sha256": "73e003c5ebc11e757fc58a38f36cac593de9e0e13a094d03cd18578f31eb291e"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B132_温室花圃/B132_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            983,
+            453,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            38,
+            482,
+            480
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            67,
+            104,
+            508,
+            544
+          ],
+          "sha256": "01ceb8327b76d5fa7731367d6bd4c63e21ed08cbc4541a9e473690570a7de055"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B133",
+      "map": "M27",
+      "name": "冰矿仓",
+      "atlas": "图集/建筑/B133_冰矿仓_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "721af5b4cf299830db39bcc1c4762fbe2129cc4fc972bcba25fff367731b66a5",
+      "source": "制作记录/补充20261119/P2-11/M27/raw/B133_key.png",
+      "source_sha256": "c7482fe7da0ffd509d64abb227a4bda750fba75df5ac593073ca21d383ebc472",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B133_冰矿仓/B133_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            509,
+            462
+          ],
+          "source_visible_bbox": [
+            94,
+            222,
+            433,
+            411
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            119,
+            355,
+            457,
+            544
+          ],
+          "sha256": "cfbf834376c360e7df2082a513e0de798d2ebe7f65a173c648e5542f2abd3d5d"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B133_冰矿仓/B133_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            509,
+            0,
+            988,
+            462
+          ],
+          "source_visible_bbox": [
+            78,
+            155,
+            407,
+            412
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            123,
+            287,
+            452,
+            544
+          ],
+          "sha256": "cd483b2ae507325118b0b4c8c7da8cb048cd150e2389c57745392a38562d6a35"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B133_冰矿仓/B133_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            988,
+            0,
+            1536,
+            462
+          ],
+          "source_visible_bbox": [
+            73,
+            97,
+            464,
+            412
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            92,
+            231,
+            483,
+            544
+          ],
+          "sha256": "97a6e054730789aecb889b858d586093cdf072f6c55b8b16adb518809f544b77"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B133_冰矿仓/B133_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            462,
+            495,
+            1024
+          ],
+          "source_visible_bbox": [
+            67,
+            126,
+            457,
+            474
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            93,
+            197,
+            482,
+            544
+          ],
+          "sha256": "49326bc02041871f30817c29086646bf8bd2dd4f596db108301df02908f521b9"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B133_冰矿仓/B133_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            495,
+            462,
+            997,
+            1024
+          ],
+          "source_visible_bbox": [
+            38,
+            78,
+            467,
+            478
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            74,
+            146,
+            502,
+            544
+          ],
+          "sha256": "9a63e35589572a0c161ce4738a9cfdac48cc308af1e28c2298be80e80377ede7"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B133_冰矿仓/B133_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            997,
+            462,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            36,
+            51,
+            490,
+            483
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            61,
+            114,
+            515,
+            544
+          ],
+          "sha256": "32ec883af92854f6dbc3cc7d94d2b79ae8a6e73f28a1aafbe945fa206b920a32"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B134",
+      "map": "M27",
+      "name": "磁悬轨道站",
+      "atlas": "图集/建筑/B134_磁悬轨道站_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "9dc96411c49147ff250acb482a7dcd04eee7621fbf7b21734f4f569d1ca19a3d",
+      "source": "制作记录/补充20261119/P2-11/M27/raw/B134_key.png",
+      "source_sha256": "35bcaf4d2ff42d0fb49357526d122fbd7c9fe84fa75f524d4b7fd569837a695b",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            512,
+            451
+          ],
+          "source_visible_bbox": [
+            118,
+            239,
+            437,
+            421
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            129,
+            363,
+            447,
+            544
+          ],
+          "sha256": "b974ca3299902ece7e32cdf6f73d18cf72d965bb8994deab61aca948b69910e4"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            512,
+            0,
+            989,
+            451
+          ],
+          "source_visible_bbox": [
+            77,
+            143,
+            398,
+            421
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            127,
+            266,
+            448,
+            544
+          ],
+          "sha256": "0fba3e4812848d28bbddd87ba8a0ffa461a4cec2e405ad61460e11cc0de4f9fa"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            989,
+            0,
+            1536,
+            451
+          ],
+          "source_visible_bbox": [
+            80,
+            114,
+            433,
+            422
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            112,
+            237,
+            464,
+            544
+          ],
+          "sha256": "3c476a27aca34024351cd4e037533f7e9b82cc68a8da9f29699f269fce5da220"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            451,
+            495,
+            1024
+          ],
+          "source_visible_bbox": [
+            67,
+            113,
+            450,
+            481
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            97,
+            176,
+            479,
+            544
+          ],
+          "sha256": "816c89babad6bb565fdb93679f904dc27ee0bec98172b565bdcd44f68863b70b"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            495,
+            451,
+            981,
+            1024
+          ],
+          "source_visible_bbox": [
+            44,
+            65,
+            453,
+            481
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            84,
+            128,
+            491,
+            544
+          ],
+          "sha256": "0cccb8470adec820e6628d0463d306b92a923c8550e6ee197aff3b4396aee87b"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            981,
+            451,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            35,
+            31,
+            508,
+            482
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            52,
+            94,
+            524,
+            544
+          ],
+          "sha256": "91c222a4ecd46582524dd77a24780bff9b54ffa36fd9ff06f8f2c9caa9baeddd"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B135",
+      "map": "M27",
+      "name": "信号塔",
+      "atlas": "图集/建筑/B135_信号塔_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "aa4ea9d594080da2d55139e898caff063fe466cded8770c78689a28bad4a08f0",
+      "source": "制作记录/补充20261119/P2-11/M27/raw/B135_key.png",
+      "source_sha256": "c8ea5120ada17114fc276c7d4f7c445ae53fdc39d7396420b981ad84b3bd9ccc",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B135_信号塔/B135_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            513,
+            450
+          ],
+          "source_visible_bbox": [
+            128,
+            296,
+            428,
+            424
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            138,
+            416,
+            437,
+            544
+          ],
+          "sha256": "d481b5a0d92161e43ea9d15161061fb9578f2cc69443c4406e40228d629e42b0"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B135_信号塔/B135_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            513,
+            0,
+            1010,
+            450
+          ],
+          "source_visible_bbox": [
+            88,
+            128,
+            409,
+            424
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            128,
+            248,
+            448,
+            544
+          ],
+          "sha256": "c92f79a70d644a84e0cd9c1c8ec4c9b9b91ada2bb2238cfa2eac0d4a9cfceb1e"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B135_信号塔/B135_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1010,
+            0,
+            1536,
+            450
+          ],
+          "source_visible_bbox": [
+            90,
+            58,
+            413,
+            424
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            127,
+            178,
+            449,
+            544
+          ],
+          "sha256": "3b9655c4a507e961e590e821b22ab0966e2314791087bfe660e62a68dd38d563"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B135_信号塔/B135_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            450,
+            518,
+            1024
+          ],
+          "source_visible_bbox": [
+            117,
+            99,
+            435,
+            499
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            129,
+            146,
+            446,
+            544
+          ],
+          "sha256": "ba03ef2ac8c97e9921e0eea6ccfe50e5fa3e5d853bc3459bedcc2e19c4223b13"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B135_信号塔/B135_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            518,
+            450,
+            1007,
+            1024
+          ],
+          "source_visible_bbox": [
+            84,
+            58,
+            410,
+            499
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            125,
+            105,
+            451,
+            544
+          ],
+          "sha256": "20144c0a4860f34dcdaf0ea83fe987e828b58b78ad05b61700c6a773bd8085a0"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B135_信号塔/B135_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1007,
+            450,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            81,
+            27,
+            453,
+            499
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            102,
+            73,
+            474,
+            544
+          ],
+          "sha256": "bd9f508f30d79e3b6556bd319b01077c4d409aefcccbfd226f8eb2c86c2a7bab"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    }
+  ],
+  "thumbnail": {
+    "file": "素材/UI/地图选择/map_thumb_m27.png",
+    "size": [
+      768,
+      350
+    ],
+    "mode": "RGBA",
+    "sha256": "8c9430aa114fb9eff4649c4038238d99458b2ba10168b12de128dba07c257783",
+    "cropRect": [
+      0,
+      1256,
+      854,
+      1645
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "landmarkBBox": [
+      76,
+      1316,
+      290,
+      1586
+    ],
+    "landmarkFullyInsideCrop": true
+  },
+  "extensionComparison": {
+    "map": "M27",
+    "original": "地图/M27_红沙火星_背景.png",
+    "extended": "地图/M27_红沙火星_背景_扩展.png",
+    "offset": [
+      133,
+      99
+    ],
+    "max_channel_difference": 0,
+    "changed_pixels": 0,
+    "exact": true
+  },
+  "layoutAlphaObjective": 0.0,
+  "observations": [
+    "Main hive height capped at 430 px to respect template plus top 18% HUD; all six levels keep one common extraction scale. Height is recorded rather than falsely claiming 85% occupancy."
+  ],
+  "backgroundDerivation": {
+    "source": "制作记录/补充20261119/P2-11/M27/raw/background.png",
+    "source_sha256": "d1d97456c991975f0a90556f78909162439fe960471975ec7956bc0a55532646",
+    "source_size": [
+      854,
+      1842
+    ],
+    "cover_scale": 1.3114754098360655,
+    "source_crop_rect": [
+      -5.684341886080802e-14,
+      143.2499999999999,
+      854.0,
+      1698.75
+    ],
+    "extended_output_size": [
+      1120,
+      2040
+    ],
+    "central_crop_rect": [
+      133,
+      99,
+      987,
+      1941
+    ],
+    "method": "One generated full scene proportionally cover-fitted to extended canvas, then central map cropped pixel-identically. Not an outpaint of a pre-existing map; source dimensions and any upsampling are explicitly recorded."
+  }
+}

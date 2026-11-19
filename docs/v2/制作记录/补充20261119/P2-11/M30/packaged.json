@@ -1,0 +1,1174 @@
+{
+  "batch": "P2-11",
+  "map": "M30",
+  "name": "蜂后星宫",
+  "template": "A",
+  "background": {
+    "file": "地图/M30_蜂后星宫_背景.png",
+    "size": [
+      854,
+      1842
+    ],
+    "mode": "RGB",
+    "sha256": "66a1b0c4fdc52f07edcd50156eddace80ec4a1c404286d1353ccc5382c668d7d"
+  },
+  "extension": {
+    "file": "地图/M30_蜂后星宫_背景_扩展.png",
+    "size": [
+      1120,
+      2040
+    ],
+    "mode": "RGB",
+    "sha256": "ff1010d76aa798f232deb2709890cb252a886301760779eb99cd79451fe3811b",
+    "original": "地图/M30_蜂后星宫_背景.png",
+    "originalOffset": [
+      133,
+      99
+    ]
+  },
+  "layout": {
+    "file": "地图/M30_建筑布局.json",
+    "sha256": "c4cee1aa78f983a4263d237fb911a883afbbef8ab8258e42a6c9e60d51bebe14",
+    "template": "A"
+  },
+  "buildings": [
+    {
+      "id": "B146",
+      "map": "M30",
+      "name": "星光主巢",
+      "atlas": "图集/建筑/B146_星光主巢_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "6755a14ea032f4e88b196d91e9e26d3b0ca84b56260bc185d22fef0d6460858c",
+      "source": "制作记录/补充20261119/P2-11/M30/raw/B146_key.png",
+      "source_sha256": "6d60d97e6da60b36b2791d67e4af30dbf700c83fa5ca16372c59ef636a1a9651",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B146_星光主巢/B146_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            523,
+            449
+          ],
+          "source_visible_bbox": [
+            95,
+            247,
+            451,
+            419
+          ],
+          "source_common_scale": 0.9492273730684326,
+          "visible_bbox": [
+            119,
+            381,
+            456,
+            544
+          ],
+          "sha256": "ea1f6a7e05424fdcf79eff940fce39642d65090ca0daa50464fafc42057738df"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B146_星光主巢/B146_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            523,
+            0,
+            975,
+            449
+          ],
+          "source_visible_bbox": [
+            74,
+            125,
+            384,
+            419
+          ],
+          "source_common_scale": 0.9492273730684326,
+          "visible_bbox": [
+            141,
+            266,
+            435,
+            544
+          ],
+          "sha256": "2140e629b2fd637806358afbb6bc771ceddf4d24ebddf705db57697b0c71d7b0"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B146_星光主巢/B146_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            975,
+            0,
+            1536,
+            449
+          ],
+          "source_visible_bbox": [
+            70,
+            87,
+            454,
+            419
+          ],
+          "source_common_scale": 0.9492273730684326,
+          "visible_bbox": [
+            106,
+            229,
+            470,
+            544
+          ],
+          "sha256": "56fbecb4ab15c0b978f99e711a4194f0c562f084e62b1245f28dae1dc3e6fcc5"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B146_星光主巢/B146_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            449,
+            497,
+            1024
+          ],
+          "source_visible_bbox": [
+            58,
+            124,
+            462,
+            485
+          ],
+          "source_common_scale": 0.9492273730684326,
+          "visible_bbox": [
+            96,
+            202,
+            479,
+            544
+          ],
+          "sha256": "520a5620006181ef4e7ca65c09d8af83354e58db6e4e7029e1cbc96475dbc6a9"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B146_星光主巢/B146_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            497,
+            449,
+            986,
+            1024
+          ],
+          "source_visible_bbox": [
+            36,
+            104,
+            454,
+            484
+          ],
+          "source_common_scale": 0.9492273730684326,
+          "visible_bbox": [
+            89,
+            183,
+            486,
+            544
+          ],
+          "sha256": "4291dded08732df11b48efcb95dedfd03cb2c6d0dfd75333f29fb1b296f2966c"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B146_星光主巢/B146_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            986,
+            449,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            36,
+            32,
+            486,
+            485
+          ],
+          "source_common_scale": 0.9492273730684326,
+          "visible_bbox": [
+            75,
+            116,
+            501,
+            544
+          ],
+          "sha256": "e7d1fd4018579775b9bdb18f8682b4de12d79342042c2ed14b4f084471749320"
+        }
+      ],
+      "source_common_scale": 0.9492273730684326,
+      "height_limit": 430
+    },
+    {
+      "id": "B147",
+      "map": "M30",
+      "name": "银河蜜泉坊",
+      "atlas": "图集/建筑/B147_银河蜜泉坊_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "ce8059f9f4dab87cddcce5db493d7dda06017ecc45065181789f91f1263741a8",
+      "source": "制作记录/补充20261119/P2-11/M30/raw/B147_key.png",
+      "source_sha256": "df159d68d846c35c574fd30f5bbb8465462d26fd982da6b03a2a325c99060747",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B147_银河蜜泉坊/B147_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            506,
+            463
+          ],
+          "source_visible_bbox": [
+            109,
+            252,
+            423,
+            416
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            132,
+            382,
+            444,
+            544
+          ],
+          "sha256": "b07f55153f8834459f8f107c744a3f82452a925d5faeac0e12b8fa43f38492f0"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B147_银河蜜泉坊/B147_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            506,
+            0,
+            996,
+            463
+          ],
+          "source_visible_bbox": [
+            85,
+            130,
+            412,
+            416
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            125,
+            258,
+            450,
+            544
+          ],
+          "sha256": "ab2c5547d178cb67bacf31a7b234d4077d3b6e908589210ed6f870726a86d16a"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B147_银河蜜泉坊/B147_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            996,
+            0,
+            1536,
+            463
+          ],
+          "source_visible_bbox": [
+            81,
+            99,
+            448,
+            416
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            105,
+            227,
+            471,
+            544
+          ],
+          "sha256": "4291ff764a640dfd071435af1724855d1fd67011de4c7386bdede26f1de1bb27"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B147_银河蜜泉坊/B147_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            463,
+            495,
+            1024
+          ],
+          "source_visible_bbox": [
+            74,
+            115,
+            454,
+            460
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            99,
+            200,
+            477,
+            544
+          ],
+          "sha256": "9aaafd7f830b71fa66cfea4ed3e6ab5b58d28d7f5c10705c1167aaa24f4cb789"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B147_银河蜜泉坊/B147_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            495,
+            463,
+            982,
+            1024
+          ],
+          "source_visible_bbox": [
+            44,
+            82,
+            444,
+            464
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            88,
+            162,
+            488,
+            544
+          ],
+          "sha256": "c6366060e3ea2352f3b42e67d7019e6ac9506a32642b1dcefbff27faea964af5"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B147_银河蜜泉坊/B147_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            982,
+            463,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            45,
+            48,
+            503,
+            484
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            59,
+            109,
+            516,
+            544
+          ],
+          "sha256": "ba068acffee2499a7ab0fd49f7ab5d02841c4e2eef95262d0ea7a08b534eb33c"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B148",
+      "map": "M30",
+      "name": "星辰宝库",
+      "atlas": "图集/建筑/B148_星辰宝库_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "5d3ab044307a2c95e9a061095ced58bd7db1fd31cb689ef37d7b6f2d1d796868",
+      "source": "制作记录/补充20261119/P2-11/M30/raw/B148_key.png",
+      "source_sha256": "0bb132ac537bf6dbf7ad5c4489944a57bebb24fb37b6321dbc3954ac0d08a54b",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B148_星辰宝库/B148_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            519,
+            477
+          ],
+          "source_visible_bbox": [
+            101,
+            277,
+            448,
+            433
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            114,
+            389,
+            461,
+            544
+          ],
+          "sha256": "d226c592c5677d111d7592351c62e7da66fb71b917c934baf22bfae943411aef"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B148_星辰宝库/B148_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            519,
+            0,
+            1005,
+            477
+          ],
+          "source_visible_bbox": [
+            72,
+            141,
+            420,
+            433
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            114,
+            252,
+            462,
+            544
+          ],
+          "sha256": "0b253cc262df83938c1e85ef61959cefd0ac6adcd04b924c1d23a9486314dab6"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B148_星辰宝库/B148_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1005,
+            0,
+            1536,
+            477
+          ],
+          "source_visible_bbox": [
+            67,
+            91,
+            444,
+            436
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            100,
+            201,
+            475,
+            544
+          ],
+          "sha256": "6f74d3f64eb4516a12eb47a90337531cdcbd18ebfd7baa88bfaa73b77b2d7c76"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B148_星辰宝库/B148_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            477,
+            510,
+            1024
+          ],
+          "source_visible_bbox": [
+            83,
+            100,
+            452,
+            480
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            104,
+            164,
+            472,
+            544
+          ],
+          "sha256": "a1a8e8f190a71ecb42c273da23d05875d377b1877fa664d302b748ea01eaabe8"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B148_星辰宝库/B148_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            510,
+            477,
+            1002,
+            1024
+          ],
+          "source_visible_bbox": [
+            59,
+            69,
+            438,
+            482
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            99,
+            131,
+            476,
+            544
+          ],
+          "sha256": "ba8cbf92994c8ccd6ba6cb1c2b728a87d60886704f596f2f78d5af665f2bc86a"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B148_星辰宝库/B148_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1002,
+            477,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            57,
+            43,
+            460,
+            483
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            86,
+            105,
+            489,
+            544
+          ],
+          "sha256": "ef4001c6f96c481513a0d21ecd2fedc41d59a4db7a297bf296738f4bffd7c96e"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B149",
+      "map": "M30",
+      "name": "流星轨道",
+      "atlas": "图集/建筑/B149_流星轨道_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "1141f4491403f29ecd4461985c8364a828cda1fcd37157339c4bded122cddf95",
+      "source": "制作记录/补充20261119/P2-11/M30/raw/B149_key.png",
+      "source_sha256": "0f41014b721a546df47ed09bb6b8bf242a83be143c0469ae9a6dbb2908ec15fc",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B149_流星轨道/B149_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            515,
+            463
+          ],
+          "source_visible_bbox": [
+            119,
+            256,
+            444,
+            428
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            126,
+            373,
+            450,
+            544
+          ],
+          "sha256": "b981e2d3646b5af73f948815b97b1ca4dcb795cbdece1ef462e5a20ca2e95cff"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B149_流星轨道/B149_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            515,
+            0,
+            994,
+            463
+          ],
+          "source_visible_bbox": [
+            71,
+            145,
+            406,
+            428
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            121,
+            262,
+            455,
+            544
+          ],
+          "sha256": "f3e5dc953a6ce3d43c07e5978f54d5a70174f6de5edf9b7a9a66ecf9913ac9d6"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B149_流星轨道/B149_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            994,
+            0,
+            1536,
+            463
+          ],
+          "source_visible_bbox": [
+            75,
+            93,
+            427,
+            428
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            112,
+            210,
+            464,
+            544
+          ],
+          "sha256": "776b291694330e2a939d4b4456b8ac7e6221817159dd9150bf5f31563ce4a62a"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B149_流星轨道/B149_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            463,
+            504,
+            1024
+          ],
+          "source_visible_bbox": [
+            84,
+            88,
+            456,
+            466
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            102,
+            167,
+            473,
+            544
+          ],
+          "sha256": "9f12d6b4c4ab6c8f56b97ff409a5d2a1075372163b783e99b9c17778e64067e4"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B149_流星轨道/B149_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            504,
+            463,
+            990,
+            1024
+          ],
+          "source_visible_bbox": [
+            49,
+            57,
+            444,
+            466
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            91,
+            136,
+            484,
+            544
+          ],
+          "sha256": "7cf5164e5e806f9fae271c6bae67ad18cb462b54b3a56c7776d313afedd52aab"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B149_流星轨道/B149_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            990,
+            463,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            43,
+            37,
+            473,
+            475
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            73,
+            106,
+            503,
+            544
+          ],
+          "sha256": "467fa7cc6cbf01041766dfb44797ace71c79e51bf12eedc28cd1fdcdf3f4193a"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B150",
+      "map": "M30",
+      "name": "蜂后星冠",
+      "atlas": "图集/建筑/B150_蜂后星冠_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "77a1fc590242fe82097e160d0db2db3f27b416cc5e2633e6646f98b37659fc46",
+      "source": "制作记录/补充20261119/P2-11/M30/raw/B150_key.png",
+      "source_sha256": "3fef90c5f46325a6655ad108c8ddc803bd313113850f355a7bbf3094f3d2637c",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B150_蜂后星冠/B150_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            519,
+            424
+          ],
+          "source_visible_bbox": [
+            122,
+            259,
+            427,
+            417
+          ],
+          "source_common_scale": 0.9642184557438794,
+          "visible_bbox": [
+            141,
+            392,
+            435,
+            544
+          ],
+          "sha256": "71ecfb7b0380967d68a623e6b9e074da8f252ef27b9e0f324a06a36ac75288db"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B150_蜂后星冠/B150_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            519,
+            0,
+            985,
+            424
+          ],
+          "source_visible_bbox": [
+            92,
+            173,
+            369,
+            404
+          ],
+          "source_common_scale": 0.9642184557438794,
+          "visible_bbox": [
+            154,
+            322,
+            421,
+            544
+          ],
+          "sha256": "f86d8259d81eb6d5eb130d7b72fab9168a767b95b606049ba52ace58093dbedb"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B150_蜂后星冠/B150_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            985,
+            0,
+            1536,
+            424
+          ],
+          "source_visible_bbox": [
+            98,
+            96,
+            428,
+            404
+          ],
+          "source_common_scale": 0.9642184557438794,
+          "visible_bbox": [
+            130,
+            248,
+            446,
+            544
+          ],
+          "sha256": "3abd802949cb87382547c695a81dfc9efbc2147eae246a6fd6cff1d1653ba2e6"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B150_蜂后星冠/B150_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            424,
+            486,
+            1024
+          ],
+          "source_visible_bbox": [
+            62,
+            121,
+            462,
+            467
+          ],
+          "source_common_scale": 0.9642184557438794,
+          "visible_bbox": [
+            95,
+            210,
+            481,
+            544
+          ],
+          "sha256": "af138bba9ec95e02bfa8f4868534a9d1cd509d4b6ec3068cc4dd8ed286891d5a"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B150_蜂后星冠/B150_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            486,
+            424,
+            963,
+            1024
+          ],
+          "source_visible_bbox": [
+            25,
+            83,
+            461,
+            478
+          ],
+          "source_common_scale": 0.9642184557438794,
+          "visible_bbox": [
+            78,
+            165,
+            498,
+            544
+          ],
+          "sha256": "9fe5e27980286437913dda1048dd852289ac0f939ca8048762aaa2bc309dbf4f"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B150_蜂后星冠/B150_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            963,
+            424,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            18,
+            8,
+            549,
+            499
+          ],
+          "source_common_scale": 0.9642184557438794,
+          "visible_bbox": [
+            32,
+            72,
+            544,
+            544
+          ],
+          "sha256": "063cf356d576628e2badb239cda5884665814886281e2dfbf2bb08513e29469a"
+        }
+      ],
+      "source_common_scale": 0.9642184557438794,
+      "height_limit": 480
+    }
+  ],
+  "thumbnail": {
+    "file": "素材/UI/地图选择/map_thumb_m30.png",
+    "size": [
+      768,
+      350
+    ],
+    "mode": "RGBA",
+    "sha256": "7a8f853414e72463b54ca1e3a86a56b834dcfef8652e1dad8d66a3196404b133",
+    "cropRect": [
+      0,
+      963,
+      854,
+      1352
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "landmarkBBox": [
+      471,
+      1005,
+      802,
+      1310
+    ],
+    "landmarkFullyInsideCrop": true
+  },
+  "extensionComparison": {
+    "map": "M30",
+    "original": "地图/M30_蜂后星宫_背景.png",
+    "extended": "地图/M30_蜂后星宫_背景_扩展.png",
+    "offset": [
+      133,
+      99
+    ],
+    "max_channel_difference": 0,
+    "changed_pixels": 0,
+    "exact": true
+  },
+  "layoutAlphaObjective": 0.0,
+  "observations": [
+    "Main hive height capped at 430 px to respect template plus top 18% HUD; all six levels keep one common extraction scale. Height is recorded rather than falsely claiming 85% occupancy."
+  ],
+  "backgroundDerivation": {
+    "source": "制作记录/补充20261119/P2-11/M30/raw/background.png",
+    "source_sha256": "939339e3f347b0c786dd716565ca437e7ff44f83b2917f4caf41ba2e852c8987",
+    "source_size": [
+      854,
+      1842
+    ],
+    "cover_scale": 1.3114754098360655,
+    "source_crop_rect": [
+      -5.684341886080802e-14,
+      143.2499999999999,
+      854.0,
+      1698.75
+    ],
+    "extended_output_size": [
+      1120,
+      2040
+    ],
+    "central_crop_rect": [
+      133,
+      99,
+      987,
+      1941
+    ],
+    "method": "One generated full scene proportionally cover-fitted to extended canvas, then central map cropped pixel-identically. Not an outpaint of a pre-existing map; source dimensions and any upsampling are explicitly recorded."
+  }
+}

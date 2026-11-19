@@ -1,0 +1,1633 @@
+{
+  "batch": "P2-11",
+  "status": "PASS",
+  "runtime_png_count": 330,
+  "layout_json_count": 10,
+  "building_atlas_count": 50,
+  "protected_existing_files": 2510,
+  "maps": [
+    {
+      "map": "M21",
+      "errors": [],
+      "warnings": [
+        "B101: main-hive HUD clearance yields L5 height 418px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B101",
+          "hud_pixels": 0,
+          "opaque_pixels": 98580,
+          "placement": [
+            0.515,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            208,
+            271,
+            316,
+            346,
+            387,
+            418
+          ],
+          "widths": [
+            338,
+            343,
+            376,
+            393,
+            392,
+            438
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B102",
+          "hud_pixels": 0,
+          "opaque_pixels": 72925,
+          "placement": [
+            0.215,
+            0.535
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            172,
+            308,
+            352,
+            367,
+            426,
+            463
+          ],
+          "widths": [
+            325,
+            334,
+            343,
+            375,
+            374,
+            419
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B103",
+          "hud_pixels": 0,
+          "opaque_pixels": 53073,
+          "placement": [
+            0.73,
+            0.535
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            165,
+            299,
+            362,
+            416,
+            432,
+            453
+          ],
+          "widths": [
+            268,
+            304,
+            353,
+            380,
+            392,
+            438
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B104",
+          "hud_pixels": 0,
+          "opaque_pixels": 81851,
+          "placement": [
+            0.22,
+            0.725
+          ],
+          "render_width_fraction": 0.51,
+          "heights": [
+            174,
+            286,
+            318,
+            364,
+            418,
+            447
+          ],
+          "widths": [
+            346,
+            337,
+            379,
+            397,
+            412,
+            465
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B105",
+          "hud_pixels": 0,
+          "opaque_pixels": 25226,
+          "placement": [
+            0.745,
+            0.71
+          ],
+          "render_width_fraction": 0.43,
+          "heights": [
+            132,
+            232,
+            291,
+            380,
+            433,
+            480
+          ],
+          "widths": [
+            249,
+            248,
+            252,
+            251,
+            249,
+            252
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M22",
+      "errors": [],
+      "warnings": [
+        "B106: main-hive HUD clearance yields L5 height 429px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B106",
+          "hud_pixels": 0,
+          "opaque_pixels": 109507,
+          "placement": [
+            0.47,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            196,
+            273,
+            328,
+            361,
+            381,
+            429
+          ],
+          "widths": [
+            350,
+            379,
+            414,
+            432,
+            441,
+            493
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B107",
+          "hud_pixels": 0,
+          "opaque_pixels": 58187,
+          "placement": [
+            0.73,
+            0.54
+          ],
+          "render_width_fraction": 0.43,
+          "heights": [
+            151,
+            280,
+            338,
+            362,
+            428,
+            453
+          ],
+          "widths": [
+            335,
+            313,
+            364,
+            377,
+            396,
+            430
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B108",
+          "hud_pixels": 0,
+          "opaque_pixels": 64881,
+          "placement": [
+            0.2,
+            0.705
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            180,
+            274,
+            318,
+            385,
+            411,
+            436
+          ],
+          "widths": [
+            320,
+            331,
+            392,
+            404,
+            427,
+            485
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B109",
+          "hud_pixels": 0,
+          "opaque_pixels": 65521,
+          "placement": [
+            0.76,
+            0.72
+          ],
+          "render_width_fraction": 0.45,
+          "heights": [
+            174,
+            263,
+            315,
+            380,
+            410,
+            437
+          ],
+          "widths": [
+            291,
+            366,
+            387,
+            418,
+            454,
+            501
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B110",
+          "hud_pixels": 0,
+          "opaque_pixels": 38495,
+          "placement": [
+            0.215,
+            0.86
+          ],
+          "render_width_fraction": 0.38,
+          "heights": [
+            150,
+            289,
+            351,
+            413,
+            443,
+            478
+          ],
+          "widths": [
+            284,
+            289,
+            295,
+            298,
+            339,
+            385
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M23",
+      "errors": [],
+      "warnings": [
+        "B111: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly",
+        "B111: 137 opaque overlap pixels (0 core); requires visual review"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B111",
+          "hud_pixels": 0,
+          "opaque_pixels": 96508,
+          "placement": [
+            0.515,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            154,
+            260,
+            303,
+            333,
+            399,
+            430
+          ],
+          "widths": [
+            306,
+            312,
+            345,
+            363,
+            381,
+            428
+          ],
+          "overlap_pixels": 137,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B112",
+          "hud_pixels": 0,
+          "opaque_pixels": 74895,
+          "placement": [
+            0.215,
+            0.535
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            151,
+            274,
+            307,
+            372,
+            409,
+            448
+          ],
+          "widths": [
+            310,
+            325,
+            360,
+            360,
+            389,
+            450
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B113",
+          "hud_pixels": 0,
+          "opaque_pixels": 62525,
+          "placement": [
+            0.79,
+            0.535
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            183,
+            269,
+            303,
+            378,
+            440,
+            479
+          ],
+          "widths": [
+            317,
+            317,
+            342,
+            371,
+            394,
+            435
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B114",
+          "hud_pixels": 0,
+          "opaque_pixels": 76945,
+          "placement": [
+            0.22,
+            0.725
+          ],
+          "render_width_fraction": 0.51,
+          "heights": [
+            166,
+            273,
+            326,
+            355,
+            393,
+            442
+          ],
+          "widths": [
+            358,
+            372,
+            385,
+            388,
+            403,
+            435
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B115",
+          "hud_pixels": 0,
+          "opaque_pixels": 68150,
+          "placement": [
+            0.775,
+            0.71
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            143,
+            297,
+            321,
+            363,
+            397,
+            440
+          ],
+          "widths": [
+            302,
+            306,
+            314,
+            343,
+            393,
+            430
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M24",
+      "errors": [],
+      "warnings": [
+        "B116: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly",
+        "B118 L2: 50 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B118 L3: 42 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B118 L4: 36 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B118 L5: 25 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B116",
+          "hud_pixels": 0,
+          "opaque_pixels": 100147,
+          "placement": [
+            0.47,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            169,
+            283,
+            341,
+            368,
+            404,
+            430
+          ],
+          "widths": [
+            328,
+            326,
+            357,
+            370,
+            383,
+            418
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B117",
+          "hud_pixels": 0,
+          "opaque_pixels": 64731,
+          "placement": [
+            0.73,
+            0.54
+          ],
+          "render_width_fraction": 0.43,
+          "heights": [
+            173,
+            313,
+            365,
+            398,
+            426,
+            474
+          ],
+          "widths": [
+            333,
+            333,
+            384,
+            394,
+            418,
+            460
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B118",
+          "hud_pixels": 0,
+          "opaque_pixels": 63778,
+          "placement": [
+            0.2,
+            0.705
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            147,
+            265,
+            326,
+            379,
+            425,
+            451
+          ],
+          "widths": [
+            347,
+            353,
+            385,
+            407,
+            416,
+            457
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B119",
+          "hud_pixels": 0,
+          "opaque_pixels": 68077,
+          "placement": [
+            0.76,
+            0.72
+          ],
+          "render_width_fraction": 0.45,
+          "heights": [
+            166,
+            278,
+            342,
+            374,
+            420,
+            467
+          ],
+          "widths": [
+            336,
+            340,
+            377,
+            392,
+            430,
+            474
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B120",
+          "hud_pixels": 0,
+          "opaque_pixels": 64728,
+          "placement": [
+            0.245,
+            0.86
+          ],
+          "render_width_fraction": 0.43,
+          "heights": [
+            183,
+            256,
+            309,
+            376,
+            405,
+            439
+          ],
+          "widths": [
+            348,
+            355,
+            372,
+            405,
+            433,
+            468
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M25",
+      "errors": [],
+      "warnings": [
+        "B121: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly",
+        "B121: 59 opaque overlap pixels (0 core); requires visual review"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B121",
+          "hud_pixels": 0,
+          "opaque_pixels": 93653,
+          "placement": [
+            0.52,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            126,
+            261,
+            314,
+            363,
+            396,
+            430
+          ],
+          "widths": [
+            260,
+            244,
+            306,
+            361,
+            354,
+            398
+          ],
+          "overlap_pixels": 59,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B122",
+          "hud_pixels": 0,
+          "opaque_pixels": 72203,
+          "placement": [
+            0.215,
+            0.525
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            165,
+            293,
+            328,
+            358,
+            437,
+            462
+          ],
+          "widths": [
+            300,
+            295,
+            335,
+            361,
+            379,
+            436
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B123",
+          "hud_pixels": 0,
+          "opaque_pixels": 58253,
+          "placement": [
+            0.79,
+            0.525
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            168,
+            279,
+            334,
+            356,
+            428,
+            454
+          ],
+          "widths": [
+            295,
+            346,
+            409,
+            418,
+            430,
+            455
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B124",
+          "hud_pixels": 0,
+          "opaque_pixels": 92512,
+          "placement": [
+            0.235,
+            0.73
+          ],
+          "render_width_fraction": 0.56,
+          "heights": [
+            131,
+            267,
+            306,
+            345,
+            391,
+            426
+          ],
+          "widths": [
+            309,
+            352,
+            402,
+            431,
+            445,
+            484
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B125",
+          "hud_pixels": 0,
+          "opaque_pixels": 61525,
+          "placement": [
+            0.775,
+            0.71
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            134,
+            231,
+            281,
+            374,
+            406,
+            470
+          ],
+          "widths": [
+            291,
+            308,
+            326,
+            375,
+            403,
+            439
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M26",
+      "errors": [],
+      "warnings": [
+        "B126: main-hive HUD clearance yields L5 height 429px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B126",
+          "hud_pixels": 0,
+          "opaque_pixels": 101232,
+          "placement": [
+            0.52,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            161,
+            293,
+            340,
+            368,
+            409,
+            429
+          ],
+          "widths": [
+            315,
+            305,
+            335,
+            353,
+            370,
+            426
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B127",
+          "hud_pixels": 0,
+          "opaque_pixels": 76179,
+          "placement": [
+            0.215,
+            0.535
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            171,
+            289,
+            336,
+            379,
+            425,
+            458
+          ],
+          "widths": [
+            311,
+            331,
+            391,
+            391,
+            404,
+            462
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B128",
+          "hud_pixels": 0,
+          "opaque_pixels": 58051,
+          "placement": [
+            0.73,
+            0.535
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            200,
+            248,
+            340,
+            379,
+            400,
+            432
+          ],
+          "widths": [
+            316,
+            335,
+            362,
+            381,
+            409,
+            443
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B129",
+          "hud_pixels": 0,
+          "opaque_pixels": 80135,
+          "placement": [
+            0.22,
+            0.725
+          ],
+          "render_width_fraction": 0.51,
+          "heights": [
+            141,
+            305,
+            337,
+            357,
+            405,
+            432
+          ],
+          "widths": [
+            354,
+            353,
+            402,
+            407,
+            427,
+            440
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B130",
+          "hud_pixels": 0,
+          "opaque_pixels": 60104,
+          "placement": [
+            0.775,
+            0.71
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            169,
+            314,
+            356,
+            396,
+            409,
+            429
+          ],
+          "widths": [
+            321,
+            335,
+            364,
+            386,
+            403,
+            434
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M27",
+      "errors": [],
+      "warnings": [
+        "B131: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly",
+        "B132 L4: 5 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B131",
+          "hud_pixels": 0,
+          "opaque_pixels": 102297,
+          "placement": [
+            0.47,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            143,
+            237,
+            287,
+            350,
+            401,
+            430
+          ],
+          "widths": [
+            323,
+            335,
+            365,
+            382,
+            392,
+            425
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B132",
+          "hud_pixels": 0,
+          "opaque_pixels": 52587,
+          "placement": [
+            0.73,
+            0.54
+          ],
+          "render_width_fraction": 0.43,
+          "heights": [
+            171,
+            263,
+            310,
+            356,
+            401,
+            440
+          ],
+          "widths": [
+            331,
+            300,
+            347,
+            361,
+            394,
+            441
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B133",
+          "hud_pixels": 0,
+          "opaque_pixels": 93665,
+          "placement": [
+            0.23,
+            0.705
+          ],
+          "render_width_fraction": 0.54,
+          "heights": [
+            189,
+            257,
+            313,
+            347,
+            398,
+            430
+          ],
+          "widths": [
+            338,
+            329,
+            391,
+            389,
+            428,
+            454
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B134",
+          "hud_pixels": 0,
+          "opaque_pixels": 63686,
+          "placement": [
+            0.76,
+            0.72
+          ],
+          "render_width_fraction": 0.45,
+          "heights": [
+            181,
+            278,
+            307,
+            368,
+            416,
+            450
+          ],
+          "widths": [
+            318,
+            321,
+            352,
+            382,
+            407,
+            471
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B135",
+          "hud_pixels": 0,
+          "opaque_pixels": 38650,
+          "placement": [
+            0.215,
+            0.86
+          ],
+          "render_width_fraction": 0.38,
+          "heights": [
+            128,
+            296,
+            366,
+            398,
+            439,
+            471
+          ],
+          "widths": [
+            299,
+            320,
+            322,
+            317,
+            326,
+            372
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M28",
+      "errors": [],
+      "warnings": [
+        "B136: main-hive HUD clearance yields L5 height 423px; requirement approximate 85% is not claimed exactly",
+        "B137 L2: 370 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B137 L3: 43 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B138 L4: 36 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B139 L2: 22 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B139 L3: 28 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B139 L4: 50 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B139 L5: 67 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B136",
+          "hud_pixels": 0,
+          "opaque_pixels": 105304,
+          "placement": [
+            0.5,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            211,
+            272,
+            320,
+            334,
+            371,
+            423
+          ],
+          "widths": [
+            375,
+            374,
+            396,
+            398,
+            416,
+            431
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B137",
+          "hud_pixels": 0,
+          "opaque_pixels": 74372,
+          "placement": [
+            0.245,
+            0.535
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            184,
+            286,
+            330,
+            363,
+            404,
+            442
+          ],
+          "widths": [
+            338,
+            349,
+            380,
+            404,
+            415,
+            459
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B138",
+          "hud_pixels": 0,
+          "opaque_pixels": 63653,
+          "placement": [
+            0.73,
+            0.535
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            181,
+            225,
+            327,
+            348,
+            411,
+            462
+          ],
+          "widths": [
+            328,
+            339,
+            370,
+            396,
+            432,
+            480
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B139",
+          "hud_pixels": 0,
+          "opaque_pixels": 83683,
+          "placement": [
+            0.22,
+            0.725
+          ],
+          "render_width_fraction": 0.51,
+          "heights": [
+            168,
+            278,
+            310,
+            361,
+            401,
+            449
+          ],
+          "widths": [
+            349,
+            347,
+            370,
+            386,
+            402,
+            438
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B140",
+          "hud_pixels": 0,
+          "opaque_pixels": 66698,
+          "placement": [
+            0.775,
+            0.71
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            177,
+            262,
+            315,
+            361,
+            382,
+            453
+          ],
+          "widths": [
+            312,
+            320,
+            334,
+            342,
+            366,
+            414
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M29",
+      "errors": [],
+      "warnings": [
+        "B141 L0: 163 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B141 L1: 156 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B141 L2: 3193 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B141 L3: 3977 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B141 L4: 3643 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B141 L5: 3996 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B141: main-hive HUD clearance yields L5 height 429px; requirement approximate 85% is not claimed exactly",
+        "B142 L0: 488 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B142 L1: 802 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B142 L2: 1009 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B142 L3: 687 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B142 L4: 1483 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B142 L5: 1829 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B143 L1: 163 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B143 L2: 920 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B143 L3: 931 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B143 L4: 570 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B143 L5: 1390 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B144 L0: 1992 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B144 L1: 1895 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B144 L2: 1984 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B144 L3: 1825 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B144 L4: 2262 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B144 L5: 2062 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B145 L2: 1 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B145 L3: 22 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B145 L4: 14 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B145 L5: 13 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B141",
+          "hud_pixels": 0,
+          "opaque_pixels": 100458,
+          "placement": [
+            0.47,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            159,
+            267,
+            341,
+            380,
+            404,
+            429
+          ],
+          "widths": [
+            315,
+            327,
+            354,
+            364,
+            383,
+            437
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B142",
+          "hud_pixels": 0,
+          "opaque_pixels": 58509,
+          "placement": [
+            0.73,
+            0.54
+          ],
+          "render_width_fraction": 0.43,
+          "heights": [
+            157,
+            284,
+            326,
+            362,
+            385,
+            432
+          ],
+          "widths": [
+            346,
+            357,
+            396,
+            406,
+            443,
+            485
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B143",
+          "hud_pixels": 0,
+          "opaque_pixels": 62644,
+          "placement": [
+            0.2,
+            0.705
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            137,
+            280,
+            329,
+            388,
+            431,
+            447
+          ],
+          "widths": [
+            338,
+            341,
+            386,
+            382,
+            390,
+            488
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B144",
+          "hud_pixels": 0,
+          "opaque_pixels": 58705,
+          "placement": [
+            0.76,
+            0.72
+          ],
+          "render_width_fraction": 0.45,
+          "heights": [
+            151,
+            262,
+            319,
+            360,
+            406,
+            447
+          ],
+          "widths": [
+            342,
+            339,
+            364,
+            381,
+            398,
+            456
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B145",
+          "hud_pixels": 0,
+          "opaque_pixels": 32584,
+          "placement": [
+            0.215,
+            0.86
+          ],
+          "render_width_fraction": 0.38,
+          "heights": [
+            83,
+            276,
+            309,
+            397,
+            418,
+            479
+          ],
+          "widths": [
+            179,
+            166,
+            165,
+            224,
+            295,
+            437
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "map": "M30",
+      "errors": [],
+      "warnings": [
+        "B146 L1: 738 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B146 L2: 2606 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B146 L3: 2787 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B146 L4: 2010 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B146 L5: 5600 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B146: main-hive HUD clearance yields L5 height 428px; requirement approximate 85% is not claimed exactly",
+        "B147 L1: 1175 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B147 L2: 1479 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B147 L3: 1306 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B147 L4: 2114 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B147 L5: 3210 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B148 L3: 1427 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B148 L4: 5532 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B148 L5: 8511 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B149 L1: 2177 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B149 L2: 2463 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B149 L3: 2800 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B149 L4: 2946 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B149 L5: 3323 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B150 L2: 1712 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B150 L3: 5630 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B150 L4: 7281 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B150 L5: 10616 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0,
+      "composition": [
+        {
+          "building": "B146",
+          "hud_pixels": 0,
+          "opaque_pixels": 93391,
+          "placement": [
+            0.5,
+            0.39
+          ],
+          "render_width_fraction": 0.6,
+          "heights": [
+            163,
+            278,
+            315,
+            342,
+            361,
+            428
+          ],
+          "widths": [
+            337,
+            294,
+            364,
+            383,
+            397,
+            426
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B147",
+          "hud_pixels": 0,
+          "opaque_pixels": 71317,
+          "placement": [
+            0.215,
+            0.535
+          ],
+          "render_width_fraction": 0.48,
+          "heights": [
+            162,
+            286,
+            317,
+            344,
+            382,
+            435
+          ],
+          "widths": [
+            312,
+            325,
+            366,
+            378,
+            399,
+            457
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B148",
+          "hud_pixels": 0,
+          "opaque_pixels": 53070,
+          "placement": [
+            0.73,
+            0.535
+          ],
+          "render_width_fraction": 0.44,
+          "heights": [
+            155,
+            292,
+            343,
+            380,
+            413,
+            439
+          ],
+          "widths": [
+            347,
+            348,
+            375,
+            368,
+            377,
+            403
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B149",
+          "hud_pixels": 0,
+          "opaque_pixels": 75089,
+          "placement": [
+            0.22,
+            0.725
+          ],
+          "render_width_fraction": 0.51,
+          "heights": [
+            171,
+            282,
+            333,
+            377,
+            408,
+            438
+          ],
+          "widths": [
+            324,
+            334,
+            352,
+            371,
+            393,
+            430
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        },
+        {
+          "building": "B150",
+          "hud_pixels": 0,
+          "opaque_pixels": 52451,
+          "placement": [
+            0.745,
+            0.71
+          ],
+          "render_width_fraction": 0.43,
+          "heights": [
+            152,
+            222,
+            296,
+            333,
+            379,
+            472
+          ],
+          "widths": [
+            294,
+            266,
+            316,
+            386,
+            420,
+            512
+          ],
+          "overlap_pixels": 0,
+          "core_occluded_pixels": 0,
+          "core_occluded_fraction": 0.0
+        }
+      ]
+    }
+  ]
+}

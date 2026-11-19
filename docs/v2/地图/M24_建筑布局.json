@@ -1,0 +1,238 @@
+{
+  "map": "M24",
+  "name": "巨龙山谷",
+  "background": "地图/M24_巨龙山谷_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B116",
+      "name": "龙鳞蜂屋",
+      "normalized_feet": [
+        0.47,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B116_龙鳞蜂屋/B116_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B116_龙鳞蜂屋/B116_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B116_龙鳞蜂屋/B116_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B116_龙鳞蜂屋/B116_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B116_龙鳞蜂屋/B116_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B116_龙鳞蜂屋/B116_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B117",
+      "name": "熔岩锻炉",
+      "normalized_feet": [
+        0.73,
+        0.54
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B117_熔岩锻炉/B117_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B117_熔岩锻炉/B117_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B117_熔岩锻炉/B117_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B117_熔岩锻炉/B117_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B117_熔岩锻炉/B117_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B117_熔岩锻炉/B117_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B118",
+      "name": "宝藏洞窟",
+      "normalized_feet": [
+        0.2,
+        0.705
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": true,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B118_宝藏洞窟/B118_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B118_宝藏洞窟/B118_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B118_宝藏洞窟/B118_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B118_宝藏洞窟/B118_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B118_宝藏洞窟/B118_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B118_宝藏洞窟/B118_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B119",
+      "name": "龙骑驿站",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B119_龙骑驿站/B119_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B119_龙骑驿站/B119_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B119_龙骑驿站/B119_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B119_龙骑驿站/B119_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B119_龙骑驿站/B119_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B119_龙骑驿站/B119_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B120",
+      "name": "沉睡巨龙岩",
+      "normalized_feet": [
+        0.245,
+        0.86
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B120_沉睡巨龙岩/B120_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B120_沉睡巨龙岩/B120_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B120_沉睡巨龙岩/B120_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B120_沉睡巨龙岩/B120_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B120_沉睡巨龙岩/B120_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B120_沉睡巨龙岩/B120_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-11; template B; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

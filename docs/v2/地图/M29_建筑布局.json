@@ -1,0 +1,238 @@
+{
+  "map": "M29",
+  "name": "星云水晶",
+  "background": "地图/M29_星云水晶_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B141",
+      "name": "水晶蜂巢",
+      "normalized_feet": [
+        0.47,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B141_水晶蜂巢/B141_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B141_水晶蜂巢/B141_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B141_水晶蜂巢/B141_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B141_水晶蜂巢/B141_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B141_水晶蜂巢/B141_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B141_水晶蜂巢/B141_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B142",
+      "name": "能量花工坊",
+      "normalized_feet": [
+        0.73,
+        0.54
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B142_能量花工坊/B142_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B142_能量花工坊/B142_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B142_能量花工坊/B142_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B142_能量花工坊/B142_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B142_能量花工坊/B142_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B142_能量花工坊/B142_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B143",
+      "name": "晶石仓",
+      "normalized_feet": [
+        0.2,
+        0.705
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": true,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B143_晶石仓/B143_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B143_晶石仓/B143_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B143_晶石仓/B143_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B143_晶石仓/B143_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B143_晶石仓/B143_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B143_晶石仓/B143_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B144",
+      "name": "传送门",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B144_传送门/B144_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B144_传送门/B144_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B144_传送门/B144_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B144_传送门/B144_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B144_传送门/B144_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B144_传送门/B144_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B145",
+      "name": "光之花",
+      "normalized_feet": [
+        0.215,
+        0.86
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.38,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B145_光之花/B145_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B145_光之花/B145_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B145_光之花/B145_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B145_光之花/B145_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B145_光之花/B145_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B145_光之花/B145_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-11; template B; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

@@ -1,0 +1,238 @@
+{
+  "map": "M25",
+  "name": "月光精灵林",
+  "background": "地图/M25_月光精灵林_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B121",
+      "name": "蘑菇蜂屋",
+      "normalized_feet": [
+        0.52,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B121_蘑菇蜂屋/B121_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B121_蘑菇蜂屋/B121_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B121_蘑菇蜂屋/B121_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B121_蘑菇蜂屋/B121_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B121_蘑菇蜂屋/B121_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B121_蘑菇蜂屋/B121_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B122",
+      "name": "花露工坊",
+      "normalized_feet": [
+        0.215,
+        0.525
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B122_花露工坊/B122_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B122_花露工坊/B122_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B122_花露工坊/B122_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B122_花露工坊/B122_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B122_花露工坊/B122_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B122_花露工坊/B122_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B123",
+      "name": "萤火仓",
+      "normalized_feet": [
+        0.79,
+        0.525
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B123_萤火仓/B123_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B123_萤火仓/B123_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B123_萤火仓/B123_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B123_萤火仓/B123_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B123_萤火仓/B123_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B123_萤火仓/B123_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B124",
+      "name": "花瓣缆车",
+      "normalized_feet": [
+        0.235,
+        0.73
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.56,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B124_花瓣缆车/B124_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B124_花瓣缆车/B124_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B124_花瓣缆车/B124_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B124_花瓣缆车/B124_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B124_花瓣缆车/B124_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B124_花瓣缆车/B124_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B125",
+      "name": "月光喷泉",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B125_月光喷泉/B125_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B125_月光喷泉/B125_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B125_月光喷泉/B125_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B125_月光喷泉/B125_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B125_月光喷泉/B125_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B125_月光喷泉/B125_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-11; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00707661; full-resolution overlap/HUD weighted pixels=59; independent validation recorded separately. No runtime config mutation."
+}

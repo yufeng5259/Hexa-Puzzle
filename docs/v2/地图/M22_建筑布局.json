@@ -1,0 +1,238 @@
+{
+  "map": "M22",
+  "name": "众神云顶",
+  "background": "地图/M22_众神云顶_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B106",
+      "name": "大理石蜂殿",
+      "normalized_feet": [
+        0.47,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B106_大理石蜂殿/B106_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B106_大理石蜂殿/B106_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B106_大理石蜂殿/B106_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B106_大理石蜂殿/B106_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B106_大理石蜂殿/B106_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B106_大理石蜂殿/B106_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B107",
+      "name": "锻造工坊",
+      "normalized_feet": [
+        0.73,
+        0.54
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B107_锻造工坊/B107_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B107_锻造工坊/B107_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B107_锻造工坊/B107_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B107_锻造工坊/B107_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B107_锻造工坊/B107_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B107_锻造工坊/B107_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B108",
+      "name": "金苹果园仓",
+      "normalized_feet": [
+        0.2,
+        0.705
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": true,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B108_金苹果园仓/B108_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B108_金苹果园仓/B108_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B108_金苹果园仓/B108_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B108_金苹果园仓/B108_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B108_金苹果园仓/B108_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B108_金苹果园仓/B108_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B109",
+      "name": "飞马马厩",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B109_飞马马厩/B109_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B109_飞马马厩/B109_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B109_飞马马厩/B109_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B109_飞马马厩/B109_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B109_飞马马厩/B109_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B109_飞马马厩/B109_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B110",
+      "name": "闪电神柱",
+      "normalized_feet": [
+        0.215,
+        0.86
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.38,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B110_闪电神柱/B110_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B110_闪电神柱/B110_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B110_闪电神柱/B110_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B110_闪电神柱/B110_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B110_闪电神柱/B110_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B110_闪电神柱/B110_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-11; template B; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

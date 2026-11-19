@@ -1,0 +1,1174 @@
+{
+  "batch": "P2-11",
+  "map": "M21",
+  "name": "仙山云阁",
+  "template": "A",
+  "background": {
+    "file": "地图/M21_仙山云阁_背景.png",
+    "size": [
+      854,
+      1842
+    ],
+    "mode": "RGB",
+    "sha256": "95a318b92a97d12c261274a9d3632461f02d48b2bdef29b5beb668c81fe29971"
+  },
+  "extension": {
+    "file": "地图/M21_仙山云阁_背景_扩展.png",
+    "size": [
+      1120,
+      2040
+    ],
+    "mode": "RGB",
+    "sha256": "41865a86d75e9512b4821d026413cc0d6dcf2032247f7b72a5fb764e77618f7a",
+    "original": "地图/M21_仙山云阁_背景.png",
+    "originalOffset": [
+      133,
+      99
+    ]
+  },
+  "layout": {
+    "file": "地图/M21_建筑布局.json",
+    "sha256": "e4d5c053226114436ea128504bb23ebf452de36f7709a427d67a84d7d6fa4eb4",
+    "template": "A"
+  },
+  "buildings": [
+    {
+      "id": "B101",
+      "map": "M21",
+      "name": "云阁蜂殿",
+      "atlas": "图集/建筑/B101_云阁蜂殿_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "5ce2e56b62f974454fb55d08b45190bc99b44f64931ded070df0a78b0b702691",
+      "source": "制作记录/补充20261119/P2-11/M21/raw/B101_key.png",
+      "source_sha256": "14457ed5afedc0efa3c4a464561eb12061a0453075fff939c84321bea11d9861",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            500,
+            446
+          ],
+          "source_visible_bbox": [
+            94,
+            198,
+            432,
+            406
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            119,
+            336,
+            457,
+            544
+          ],
+          "sha256": "31340c7cf3fb2c683cdb542fa5712bd747d21e587f3cc3ca4a5d47cacf16d3f1"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            500,
+            0,
+            980,
+            446
+          ],
+          "source_visible_bbox": [
+            69,
+            134,
+            412,
+            406
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            116,
+            273,
+            459,
+            544
+          ],
+          "sha256": "2ea5a313c1a6bd0009545c37d6eaa6b4314153bbb711a8a8df1a116f995b7d41"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            980,
+            0,
+            1536,
+            446
+          ],
+          "source_visible_bbox": [
+            69,
+            89,
+            445,
+            406
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            100,
+            228,
+            476,
+            544
+          ],
+          "sha256": "bfab40a7dc38276d51301ec1c80fa0897981e266fb2f308fa0be685623a4962d"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            446,
+            515,
+            1024
+          ],
+          "source_visible_bbox": [
+            80,
+            112,
+            474,
+            459
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            91,
+            198,
+            484,
+            544
+          ],
+          "sha256": "01a18aef03557e06aeb762c56063fc02feac2a458564c79aa0ad310578c51018"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            515,
+            446,
+            984,
+            1024
+          ],
+          "source_visible_bbox": [
+            43,
+            72,
+            436,
+            459
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            92,
+            157,
+            484,
+            544
+          ],
+          "sha256": "a3733f6dc4f74cd9248baaa8b0e94b4d74ead7340bd5f36d45d77cc5df61b1dc"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            984,
+            446,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            36,
+            41,
+            474,
+            461
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            69,
+            125,
+            507,
+            544
+          ],
+          "sha256": "fd1158b7e985429d102c573b6e0ee9ca61840626aadd1401cb4ff84be60e671d"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 430
+    },
+    {
+      "id": "B102",
+      "map": "M21",
+      "name": "仙丹蜜坊",
+      "atlas": "图集/建筑/B102_仙丹蜜坊_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "b8b4678c3ad0bd742f0c8819712791cbda602fb35bc21da5f37b9047c9063269",
+      "source": "制作记录/补充20261119/P2-11/M21/raw/B102_key.png",
+      "source_sha256": "5760cb2f4dcf524564f1d505dfb49c77685d1b5df188d8acc9c8fa4df63e5e4f",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            512,
+            465
+          ],
+          "source_visible_bbox": [
+            106,
+            251,
+            432,
+            424
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            125,
+            372,
+            450,
+            544
+          ],
+          "sha256": "12e3c298663ce42b0c77c117f4fc85b41aac9b51a134bc9732a0789222174ce2"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            512,
+            0,
+            1009,
+            465
+          ],
+          "source_visible_bbox": [
+            80,
+            115,
+            415,
+            424
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            121,
+            236,
+            455,
+            544
+          ],
+          "sha256": "132424db97cf026ac26d3315a98607876681af67f208795480262e7dfa9815f2"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1009,
+            0,
+            1536,
+            465
+          ],
+          "source_visible_bbox": [
+            83,
+            71,
+            426,
+            423
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            116,
+            192,
+            459,
+            544
+          ],
+          "sha256": "1df0fa2ad1293b4433d02a3345c7cbf0263ba0e93e68e2462a2ab3336afca3d4"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            465,
+            506,
+            1024
+          ],
+          "source_visible_bbox": [
+            73,
+            139,
+            449,
+            507
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            100,
+            177,
+            475,
+            544
+          ],
+          "sha256": "fb9d175ad1caf26292ec244a77b80c9ee5f6e5491f991a097f3b0c80a1a20c27"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            506,
+            465,
+            996,
+            1024
+          ],
+          "source_visible_bbox": [
+            59,
+            80,
+            434,
+            507
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            101,
+            118,
+            475,
+            544
+          ],
+          "sha256": "b306dec67d9bfc46b86fb7e7df90d252df5e18e98b89ece0af55457c28447179"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            996,
+            465,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            58,
+            42,
+            478,
+            507
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            78,
+            81,
+            497,
+            544
+          ],
+          "sha256": "97ea762ea8138880d5c67f2c608ca7a895f6366f9702673da808641354b0734e"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B103",
+      "map": "M21",
+      "name": "宝葫芦仓",
+      "atlas": "图集/建筑/B103_宝葫芦仓_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "811d168ac1990c708eb3e7c7b926ab716f0926506cfdcd6e9b6c1ead1ea8a6fa",
+      "source": "制作记录/补充20261119/P2-11/M21/raw/B103_key.png",
+      "source_sha256": "f9a7f9a3cf562cde2dd7f1dcc9c950940951ca8d0b5c783d74d5a6ceb5355e30",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            486,
+            456
+          ],
+          "source_visible_bbox": [
+            116,
+            254,
+            385,
+            420
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            154,
+            379,
+            422,
+            544
+          ],
+          "sha256": "c4524c2215de8a2728ba66803a54c99cf8bf9ccc7c2b8f6d7cd6c21b7c4813ee"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            486,
+            0,
+            989,
+            456
+          ],
+          "source_visible_bbox": [
+            102,
+            119,
+            408,
+            419
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            136,
+            245,
+            440,
+            544
+          ],
+          "sha256": "5e1f99a8ed4d3ff2cd221d936057c9eea85690bf0da7cbb6ed0c462febcb06b4"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            989,
+            0,
+            1536,
+            456
+          ],
+          "source_visible_bbox": [
+            96,
+            57,
+            451,
+            420
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            111,
+            182,
+            464,
+            544
+          ],
+          "sha256": "2cff5a33d1ec01814d27cc8c39cc1d8e7dac56bd98169796375b9a597a117ec6"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            456,
+            499,
+            1024
+          ],
+          "source_visible_bbox": [
+            71,
+            73,
+            452,
+            490
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            98,
+            128,
+            478,
+            544
+          ],
+          "sha256": "cdf554d4be04ec359400a97f530ad3e7502f0b428e82c188f639b77766f7361c"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            499,
+            456,
+            984,
+            1024
+          ],
+          "source_visible_bbox": [
+            48,
+            54,
+            441,
+            488
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            92,
+            112,
+            484,
+            544
+          ],
+          "sha256": "4124408c573f776d0fb252f5b5c269ec8b2edabb1ab442b0518eb5bd78bf6963"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            984,
+            456,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            46,
+            38,
+            485,
+            492
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            68,
+            91,
+            507,
+            544
+          ],
+          "sha256": "090263451b6ef2d288526492b1d05358d76c3cfcfa33c1e4fb78245a3a6d9d2e"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B104",
+      "map": "M21",
+      "name": "仙鹤驿站",
+      "atlas": "图集/建筑/B104_仙鹤驿站_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "1780ba3befcd83e0d14e9e944848b173aebb4c3eee8f3a120a66ffb5533d2655",
+      "source": "制作记录/补充20261119/P2-11/M21/raw/B104_key.png",
+      "source_sha256": "857c7382fc0e955b07286e4860514721362246b556a211147a6bcf42b9f65ad6",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            507,
+            464
+          ],
+          "source_visible_bbox": [
+            101,
+            262,
+            447,
+            438
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            115,
+            370,
+            461,
+            544
+          ],
+          "sha256": "e6fdcfbf5b7d213b51f65efe270563cc8a5ff2d5c69105709210fd7d5d334b29"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            507,
+            0,
+            969,
+            464
+          ],
+          "source_visible_bbox": [
+            61,
+            145,
+            398,
+            433
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            119,
+            258,
+            456,
+            544
+          ],
+          "sha256": "b100cc45180632bcc672db216a5b3e910f5bf069b1d7adc6ba6ac2f6a015e7a1"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            969,
+            0,
+            1536,
+            464
+          ],
+          "source_visible_bbox": [
+            65,
+            116,
+            444,
+            435
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            98,
+            226,
+            477,
+            544
+          ],
+          "sha256": "de42453b455f7e02ae9d346885a64fcff5f4f2350d16a4fa784f3c4e4e0edc5a"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            464,
+            491,
+            1024
+          ],
+          "source_visible_bbox": [
+            57,
+            111,
+            455,
+            476
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            89,
+            180,
+            486,
+            544
+          ],
+          "sha256": "f8dc376f53e4302ad652de3fc57a4aeee7c60d10c5c6987bc85bc31cdd71738b"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            491,
+            464,
+            976,
+            1024
+          ],
+          "source_visible_bbox": [
+            37,
+            57,
+            450,
+            476
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            82,
+            125,
+            494,
+            544
+          ],
+          "sha256": "2ceaa606c4f20e5ea168c7e32730881e5fe1f28979fa34d47cadde8c323286d3"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            976,
+            464,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            36,
+            29,
+            502,
+            477
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            55,
+            96,
+            520,
+            544
+          ],
+          "sha256": "fa945973154c940bbf4833b632dc722afe64da534face9864615a685c888d0af"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B105",
+      "map": "M21",
+      "name": "九层云塔",
+      "atlas": "图集/建筑/B105_九层云塔_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "3e650b5506cf48e32529694daab7ca30839f34f35e0faf0387c0acfb5a54f8f3",
+      "source": "制作记录/补充20261119/P2-11/M21/raw/B105_key.png",
+      "source_sha256": "52822b2059856d037fcb9f23c2d874f99f783b322bba65ab116884e48d037954",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B105_九层云塔/B105_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            522,
+            410
+          ],
+          "source_visible_bbox": [
+            142,
+            233,
+            423,
+            382
+          ],
+          "source_common_scale": 0.8888888888888888,
+          "visible_bbox": [
+            163,
+            412,
+            412,
+            544
+          ],
+          "sha256": "addecc4f0a91532a882d78ef57ba915d645d015a8a1d26cccbc1ceb2b57bb344"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B105_九层云塔/B105_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            522,
+            0,
+            1006,
+            410
+          ],
+          "source_visible_bbox": [
+            102,
+            121,
+            382,
+            382
+          ],
+          "source_common_scale": 0.8888888888888888,
+          "visible_bbox": [
+            163,
+            312,
+            412,
+            544
+          ],
+          "sha256": "d7d7efa5dfbda5706eb37ff3db9751756c86816e6a71d19cf0f4f35c653711df"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B105_九层云塔/B105_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1006,
+            0,
+            1536,
+            410
+          ],
+          "source_visible_bbox": [
+            104,
+            55,
+            387,
+            382
+          ],
+          "source_common_scale": 0.8888888888888888,
+          "visible_bbox": [
+            162,
+            253,
+            414,
+            544
+          ],
+          "sha256": "170d8bdd211fc0e790ae6e40ec777eeb95f58fcf2c5dbf045cdaa3535454bdfb"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B105_九层云塔/B105_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            410,
+            526,
+            1024
+          ],
+          "source_visible_bbox": [
+            145,
+            134,
+            428,
+            562
+          ],
+          "source_common_scale": 0.8888888888888888,
+          "visible_bbox": [
+            162,
+            164,
+            413,
+            544
+          ],
+          "sha256": "721d47362bbc76dd51cbd774eae150b02a96b61c1d497b6ed1a2ef8e010b042b"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B105_九层云塔/B105_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            526,
+            410,
+            1007,
+            1024
+          ],
+          "source_visible_bbox": [
+            100,
+            75,
+            380,
+            562
+          ],
+          "source_common_scale": 0.8888888888888888,
+          "visible_bbox": [
+            163,
+            111,
+            412,
+            544
+          ],
+          "sha256": "1f66635f60d3ef238267cc0bf4847004ebe58df2aa0bb8d94699d8ffe978c16e"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B105_九层云塔/B105_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1007,
+            410,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            102,
+            22,
+            385,
+            562
+          ],
+          "source_common_scale": 0.8888888888888888,
+          "visible_bbox": [
+            162,
+            64,
+            414,
+            544
+          ],
+          "sha256": "0369654092a13da940ede10700bb9df1e3cb873df07784d7b4cbf6cd6c79a69b"
+        }
+      ],
+      "source_common_scale": 0.8888888888888888,
+      "height_limit": 480
+    }
+  ],
+  "thumbnail": {
+    "file": "素材/UI/地图选择/map_thumb_m21.png",
+    "size": [
+      768,
+      350
+    ],
+    "mode": "RGBA",
+    "sha256": "45037e2ca1c4b5dd4d88bf937b9e41addd8851a786020ce3db72792e96b97b27",
+    "cropRect": [
+      0,
+      960,
+      854,
+      1349
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "landmarkBBox": [
+      554,
+      1000,
+      719,
+      1310
+    ],
+    "landmarkFullyInsideCrop": true
+  },
+  "extensionComparison": {
+    "map": "M21",
+    "original": "地图/M21_仙山云阁_背景.png",
+    "extended": "地图/M21_仙山云阁_背景_扩展.png",
+    "offset": [
+      133,
+      99
+    ],
+    "max_channel_difference": 0,
+    "changed_pixels": 0,
+    "exact": true
+  },
+  "layoutAlphaObjective": 0.0004375410194705754,
+  "observations": [
+    "Main hive height capped at 430 px to respect template plus top 18% HUD; all six levels keep one common extraction scale. Height is recorded rather than falsely claiming 85% occupancy."
+  ],
+  "backgroundDerivation": {
+    "source": "制作记录/补充20261119/P2-11/M21/raw/background.png",
+    "source_sha256": "b2e66441744dfec08cd7a0e3b52b04c479a4d5cddcf202595e1b8d0d5c8e724b",
+    "source_size": [
+      854,
+      1842
+    ],
+    "cover_scale": 1.3114754098360655,
+    "source_crop_rect": [
+      -5.684341886080802e-14,
+      143.2499999999999,
+      854.0,
+      1698.75
+    ],
+    "extended_output_size": [
+      1120,
+      2040
+    ],
+    "central_crop_rect": [
+      133,
+      99,
+      987,
+      1941
+    ],
+    "method": "One generated full scene proportionally cover-fitted to extended canvas, then central map cropped pixel-identically. Not an outpaint of a pre-existing map; source dimensions and any upsampling are explicitly recorded."
+  }
+}

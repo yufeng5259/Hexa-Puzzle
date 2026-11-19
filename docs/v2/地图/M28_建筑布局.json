@@ -1,0 +1,238 @@
+{
+  "map": "M28",
+  "name": "星环空港",
+  "background": "地图/M28_星环空港_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B136",
+      "name": "环形蜂巢舱",
+      "normalized_feet": [
+        0.5,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B136_环形蜂巢舱/B136_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B137",
+      "name": "星尘提炼厂",
+      "normalized_feet": [
+        0.245,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B137_星尘提炼厂/B137_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B138",
+      "name": "货运码头",
+      "normalized_feet": [
+        0.73,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B138_货运码头/B138_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B138_货运码头/B138_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B138_货运码头/B138_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B138_货运码头/B138_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B138_货运码头/B138_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B138_货运码头/B138_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B139",
+      "name": "飞碟停机坪",
+      "normalized_feet": [
+        0.22,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.51,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B139_飞碟停机坪/B139_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B140",
+      "name": "星环望远镜",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B140_星环望远镜/B140_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B140_星环望远镜/B140_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B140_星环望远镜/B140_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B140_星环望远镜/B140_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B140_星环望远镜/B140_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B140_星环望远镜/B140_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-11; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

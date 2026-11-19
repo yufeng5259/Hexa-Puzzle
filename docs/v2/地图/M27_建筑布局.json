@@ -1,0 +1,238 @@
+{
+  "map": "M27",
+  "name": "红沙火星",
+  "background": "地图/M27_红沙火星_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B131",
+      "name": "红岩蜂窟",
+      "normalized_feet": [
+        0.47,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B131_红岩蜂窟/B131_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B132",
+      "name": "温室花圃",
+      "normalized_feet": [
+        0.73,
+        0.54
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B132_温室花圃/B132_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B132_温室花圃/B132_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B132_温室花圃/B132_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B132_温室花圃/B132_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B132_温室花圃/B132_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B132_温室花圃/B132_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B133",
+      "name": "冰矿仓",
+      "normalized_feet": [
+        0.23,
+        0.705
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.54,
+      "flip_x": true,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B133_冰矿仓/B133_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B133_冰矿仓/B133_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B133_冰矿仓/B133_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B133_冰矿仓/B133_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B133_冰矿仓/B133_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B133_冰矿仓/B133_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B134",
+      "name": "磁悬轨道站",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B134_磁悬轨道站/B134_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B135",
+      "name": "信号塔",
+      "normalized_feet": [
+        0.215,
+        0.86
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.38,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B135_信号塔/B135_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B135_信号塔/B135_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B135_信号塔/B135_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B135_信号塔/B135_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B135_信号塔/B135_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B135_信号塔/B135_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-11; template B; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

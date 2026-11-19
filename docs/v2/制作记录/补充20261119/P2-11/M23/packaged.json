@@ -1,0 +1,1174 @@
+{
+  "batch": "P2-11",
+  "map": "M23",
+  "name": "世界之树",
+  "template": "A",
+  "background": {
+    "file": "地图/M23_世界之树_背景.png",
+    "size": [
+      854,
+      1842
+    ],
+    "mode": "RGB",
+    "sha256": "0048a2ed9ee6a2b704908a25db44fd5babbcc00c702b05315db62900f281853c"
+  },
+  "extension": {
+    "file": "地图/M23_世界之树_背景_扩展.png",
+    "size": [
+      1120,
+      2040
+    ],
+    "mode": "RGB",
+    "sha256": "ed979ea12256803bd37d1e3c55a4055dd180ac8bc19d3cd71fd7fdeb27d5bf72",
+    "original": "地图/M23_世界之树_背景.png",
+    "originalOffset": [
+      133,
+      99
+    ]
+  },
+  "layout": {
+    "file": "地图/M23_建筑布局.json",
+    "sha256": "34b5661a4b1444106f6eb58328d5764cf36da0f43df4ab862aaa1c692d936106",
+    "template": "A"
+  },
+  "buildings": [
+    {
+      "id": "B111",
+      "map": "M23",
+      "name": "根须蜂宫",
+      "atlas": "图集/建筑/B111_根须蜂宫_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "9f4ab2a2bd8dfe044e0b15d56ee2cddb9a3ad2c504ac3983a032004b3e943a29",
+      "source": "制作记录/补充20261119/P2-11/M23/raw/B111_key.png",
+      "source_sha256": "63c7d6f9d83144d00ea10ef88cc7a032dd8ba7361ecc6daa48623d15ff207847",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            516,
+            443
+          ],
+          "source_visible_bbox": [
+            117,
+            240,
+            444,
+            405
+          ],
+          "source_common_scale": 0.9368191721132898,
+          "visible_bbox": [
+            135,
+            390,
+            441,
+            544
+          ],
+          "sha256": "94aeb347a2aa5b457754450a55de0343d63518eb99c91685d483b4523dbada82"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            516,
+            0,
+            995,
+            443
+          ],
+          "source_visible_bbox": [
+            74,
+            128,
+            407,
+            406
+          ],
+          "source_common_scale": 0.9368191721132898,
+          "visible_bbox": [
+            132,
+            284,
+            444,
+            544
+          ],
+          "sha256": "175c7ab864e54f71faa8609536b3c85ece79d18bb88f6853296e78777b4044fd"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            995,
+            0,
+            1536,
+            443
+          ],
+          "source_visible_bbox": [
+            73,
+            81,
+            442,
+            406
+          ],
+          "source_common_scale": 0.9368191721132898,
+          "visible_bbox": [
+            115,
+            241,
+            460,
+            544
+          ],
+          "sha256": "744ba68d8105db462ccfaaeac3562f170ab3fc1f542350c20e7302431e08f128"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            443,
+            492,
+            1024
+          ],
+          "source_visible_bbox": [
+            65,
+            138,
+            453,
+            495
+          ],
+          "source_common_scale": 0.9368191721132898,
+          "visible_bbox": [
+            106,
+            211,
+            469,
+            544
+          ],
+          "sha256": "70f58e4f5d3862fc197091eef9ffef0ba4bbea7d54d1abb0ea173989105db11c"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            492,
+            443,
+            973,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            68,
+            447,
+            495
+          ],
+          "source_common_scale": 0.9368191721132898,
+          "visible_bbox": [
+            97,
+            145,
+            478,
+            544
+          ],
+          "sha256": "0c40e95d4ebb565726e4ef46755ee39f0ad38dcdda9d057aa87125d4deb19f48"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B111_根须蜂宫/B111_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            973,
+            443,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            35,
+            39,
+            492,
+            498
+          ],
+          "source_common_scale": 0.9368191721132898,
+          "visible_bbox": [
+            74,
+            114,
+            502,
+            544
+          ],
+          "sha256": "3a200b80409ebf38a7008b8543c9c815f5bb8491a43357aca3b1d0bef116825c"
+        }
+      ],
+      "source_common_scale": 0.9368191721132898,
+      "height_limit": 430
+    },
+    {
+      "id": "B112",
+      "map": "M23",
+      "name": "符文工坊",
+      "atlas": "图集/建筑/B112_符文工坊_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "71613460d797561da9bea5e1afc6fd8f704c32d38b10589748f0f24dc304d102",
+      "source": "制作记录/补充20261119/P2-11/M23/raw/B112_key.png",
+      "source_sha256": "04b27f81d4c2c240ee7ab44e43f94b4b03e0e74f141ebe9767957bc64dce496b",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B112_符文工坊/B112_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            507,
+            444
+          ],
+          "source_visible_bbox": [
+            121,
+            260,
+            442,
+            417
+          ],
+          "source_common_scale": 0.9656652360515021,
+          "visible_bbox": [
+            133,
+            393,
+            443,
+            544
+          ],
+          "sha256": "04da66f49894c92d0728e2195cb1d82dee8a4b072e7ecf08f7355f7e45ce410d"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B112_符文工坊/B112_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            507,
+            0,
+            979,
+            444
+          ],
+          "source_visible_bbox": [
+            66,
+            132,
+            404,
+            417
+          ],
+          "source_common_scale": 0.9656652360515021,
+          "visible_bbox": [
+            125,
+            270,
+            450,
+            544
+          ],
+          "sha256": "f9395a2d5bb61746607e9fc417b951ac32d8e61c5d1838029d174817dfeef248"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B112_符文工坊/B112_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            979,
+            0,
+            1536,
+            444
+          ],
+          "source_visible_bbox": [
+            70,
+            97,
+            444,
+            417
+          ],
+          "source_common_scale": 0.9656652360515021,
+          "visible_bbox": [
+            108,
+            237,
+            468,
+            544
+          ],
+          "sha256": "aad9a4443a7122a73937241c33e7c162c2335803f5d315b672666b8a82fc8b58"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B112_符文工坊/B112_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            444,
+            492,
+            1024
+          ],
+          "source_visible_bbox": [
+            81,
+            109,
+            455,
+            495
+          ],
+          "source_common_scale": 0.9656652360515021,
+          "visible_bbox": [
+            108,
+            171,
+            468,
+            544
+          ],
+          "sha256": "fc74f54d239d51e1f193aa6778d848ba35ea9b366737defbe57483c94da1dae0"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B112_符文工坊/B112_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            492,
+            444,
+            965,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            70,
+            444,
+            495
+          ],
+          "source_common_scale": 0.9656652360515021,
+          "visible_bbox": [
+            93,
+            135,
+            483,
+            544
+          ],
+          "sha256": "08da61102a9090054b8fe565ab68dfa60223bf18be882bd2c434735240b3e4f6"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B112_符文工坊/B112_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            965,
+            444,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            32,
+            29,
+            499,
+            495
+          ],
+          "source_common_scale": 0.9656652360515021,
+          "visible_bbox": [
+            63,
+            96,
+            513,
+            544
+          ],
+          "sha256": "e22d64e21b34fe8f5820ec48deac305b3a71225d31cd4865dfc3658116bc1992"
+        }
+      ],
+      "source_common_scale": 0.9656652360515021,
+      "height_limit": 450
+    },
+    {
+      "id": "B113",
+      "map": "M23",
+      "name": "金蜜窖",
+      "atlas": "图集/建筑/B113_金蜜窖_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "a82a494939b4457a8ea0548c3926bdc00e03b633086f5ff34b8f1467e392955a",
+      "source": "制作记录/补充20261119/P2-11/M23/raw/B113_key.png",
+      "source_sha256": "df89f642fd749a2cf1b275c1bb545cf6d04c9c763a41396d2a649d20d2ebe07f",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B113_金蜜窖/B113_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            510,
+            433
+          ],
+          "source_visible_bbox": [
+            109,
+            209,
+            435,
+            398
+          ],
+          "source_common_scale": 0.975609756097561,
+          "visible_bbox": [
+            129,
+            361,
+            446,
+            544
+          ],
+          "sha256": "d0678aaeb7751f905cc07f202cf4979e285152f1ad4ef371399d96820f7df0a0"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B113_金蜜窖/B113_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            510,
+            0,
+            994,
+            433
+          ],
+          "source_visible_bbox": [
+            76,
+            121,
+            402,
+            399
+          ],
+          "source_common_scale": 0.975609756097561,
+          "visible_bbox": [
+            129,
+            275,
+            446,
+            544
+          ],
+          "sha256": "a01ccc3bebaf5156a1219c2737dd6bb710bc0db5410590d6191b4114a3d81743"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B113_金蜜窖/B113_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            994,
+            0,
+            1536,
+            433
+          ],
+          "source_visible_bbox": [
+            82,
+            90,
+            433,
+            402
+          ],
+          "source_common_scale": 0.975609756097561,
+          "visible_bbox": [
+            117,
+            241,
+            459,
+            544
+          ],
+          "sha256": "c0e50c2cc82cfd1b47b002eb7b7e7374671ac3a3f33b476cf04bac1a26f4ab34"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B113_金蜜窖/B113_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            433,
+            493,
+            1024
+          ],
+          "source_visible_bbox": [
+            66,
+            119,
+            446,
+            507
+          ],
+          "source_common_scale": 0.975609756097561,
+          "visible_bbox": [
+            102,
+            166,
+            473,
+            544
+          ],
+          "sha256": "8d3c471b7ecb2519f87c92231ee5bdbe2c03ea1532175ba04894619ae0cc3f0d"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B113_金蜜窖/B113_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            493,
+            433,
+            984,
+            1024
+          ],
+          "source_visible_bbox": [
+            47,
+            69,
+            452,
+            521
+          ],
+          "source_common_scale": 0.975609756097561,
+          "visible_bbox": [
+            91,
+            104,
+            485,
+            544
+          ],
+          "sha256": "9448ea5b67a3467fec858cdad7e74bc36ed1e95097cfaf5eb31427b4bedac27a"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B113_金蜜窖/B113_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            984,
+            433,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            41,
+            31,
+            487,
+            523
+          ],
+          "source_common_scale": 0.975609756097561,
+          "visible_bbox": [
+            70,
+            65,
+            505,
+            544
+          ],
+          "sha256": "71fb742518a3064cab499fcbc2f8c11a7627c0f006ea0633a7d6e102b9edd463"
+        }
+      ],
+      "source_common_scale": 0.975609756097561,
+      "height_limit": 480
+    },
+    {
+      "id": "B114",
+      "map": "M23",
+      "name": "彩虹桥",
+      "atlas": "图集/建筑/B114_彩虹桥_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "5694cb09ac52834bb1986b4b71697834e79ada838dc0f35b36e886fc40954015",
+      "source": "制作记录/补充20261119/P2-11/M23/raw/B114_key.png",
+      "source_sha256": "82ce0f52af498f7287b518ca6d52bea025d7b78f2374b9d9094d724b0edaa3ee",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B114_彩虹桥/B114_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            499,
+            453
+          ],
+          "source_visible_bbox": [
+            81,
+            249,
+            440,
+            416
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            109,
+            378,
+            467,
+            544
+          ],
+          "sha256": "89da5081c4c657d2fdb6060b3bb5685d9dbe59a03ee951e8a176a927eeb2794a"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B114_彩虹桥/B114_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            499,
+            0,
+            995,
+            453
+          ],
+          "source_visible_bbox": [
+            61,
+            142,
+            434,
+            416
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            102,
+            271,
+            474,
+            544
+          ],
+          "sha256": "0477d2fd6a97fefef04405e9dc11bd56bf44856cde4cb9c9341c102e62a9676e"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B114_彩虹桥/B114_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            995,
+            0,
+            1536,
+            453
+          ],
+          "source_visible_bbox": [
+            64,
+            89,
+            450,
+            416
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            95,
+            218,
+            480,
+            544
+          ],
+          "sha256": "06ecfa6e2ebff5082d80b53a5c085836cdf75542ff3b6d624fa5db57d6014ae5"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B114_彩虹桥/B114_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            453,
+            501,
+            1024
+          ],
+          "source_visible_bbox": [
+            67,
+            115,
+            455,
+            471
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            94,
+            189,
+            482,
+            544
+          ],
+          "sha256": "00b2367930ffbc87dd8191b461db71aea01f60a4d91479e32f7be6f589dcb42f"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B114_彩虹桥/B114_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            501,
+            453,
+            992,
+            1024
+          ],
+          "source_visible_bbox": [
+            47,
+            77,
+            451,
+            471
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            86,
+            151,
+            489,
+            544
+          ],
+          "sha256": "e8ccba4fc01bd3c98ce3e536845808034851f3980bbad49277d3eea0cfd20044"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B114_彩虹桥/B114_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            992,
+            453,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            42,
+            38,
+            478,
+            481
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            70,
+            102,
+            505,
+            544
+          ],
+          "sha256": "45ef63aa17887cb61c899a9eccd84364bbf490e3cbe8cda76eae10b86adf859d"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B115",
+      "map": "M23",
+      "name": "世界树冠灯",
+      "atlas": "图集/建筑/B115_世界树冠灯_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "ccb32b497a7baf7aba35518609054a27f4cea85c5193800205fb48ac0f450be1",
+      "source": "制作记录/补充20261119/P2-11/M23/raw/B115_key.png",
+      "source_sha256": "c37bac8f54951acf06bfe4eb10c02b514d854815d1e7a2a1367073eade1cd718",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            511,
+            451
+          ],
+          "source_visible_bbox": [
+            114,
+            266,
+            416,
+            410
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            137,
+            401,
+            439,
+            544
+          ],
+          "sha256": "29f430cf81f19d899de7871eef658214c720d95f0f8e8a7948f9a52a78e7e1df"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            511,
+            0,
+            1009,
+            451
+          ],
+          "source_visible_bbox": [
+            95,
+            112,
+            403,
+            410
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            135,
+            247,
+            441,
+            544
+          ],
+          "sha256": "300cb129021bfcc65a3104d3a0d24ec2c11285bc0446eed4eaa4e1fd70594675"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1009,
+            0,
+            1536,
+            451
+          ],
+          "source_visible_bbox": [
+            98,
+            87,
+            413,
+            410
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            131,
+            223,
+            445,
+            544
+          ],
+          "sha256": "dd86f784fe84baafcc4a0a89c54e861cc95bccc9919c51dc51cfe2d39199c3e6"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            451,
+            503,
+            1024
+          ],
+          "source_visible_bbox": [
+            97,
+            116,
+            441,
+            479
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            116,
+            181,
+            459,
+            544
+          ],
+          "sha256": "95fe1ed697e4acdea6aeadf8cc826c9a16195d0d000baed4583ed9f607f1753c"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            503,
+            451,
+            1004,
+            1024
+          ],
+          "source_visible_bbox": [
+            63,
+            82,
+            456,
+            480
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            91,
+            147,
+            484,
+            544
+          ],
+          "sha256": "92ed545245b94cefbd16c8c747652e143e0f5534465925e78671ab69d95e7c22"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B115_世界树冠灯/B115_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1004,
+            451,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            47,
+            42,
+            478,
+            483
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            73,
+            104,
+            503,
+            544
+          ],
+          "sha256": "b4bdec72dbe5b3d6306a07ad3f268f8c553f2500bccd9a8beec59f307bc58923"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    }
+  ],
+  "thumbnail": {
+    "file": "素材/UI/地图选择/map_thumb_m23.png",
+    "size": [
+      768,
+      350
+    ],
+    "mode": "RGBA",
+    "sha256": "ca3e7ac4824fe89731ea6f4ea142dbddfa5bce6425752ce67dde923ef4664050",
+    "cropRect": [
+      0,
+      958,
+      854,
+      1347
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "landmarkBBox": [
+      507,
+      993,
+      817,
+      1311
+    ],
+    "landmarkFullyInsideCrop": true
+  },
+  "extensionComparison": {
+    "map": "M23",
+    "original": "地图/M23_世界之树_背景.png",
+    "extended": "地图/M23_世界之树_背景_扩展.png",
+    "offset": [
+      133,
+      99
+    ],
+    "max_channel_difference": 0,
+    "changed_pixels": 0,
+    "exact": true
+  },
+  "layoutAlphaObjective": 0.0023519350010690614,
+  "observations": [
+    "Main hive height capped at 430 px to respect template plus top 18% HUD; all six levels keep one common extraction scale. Height is recorded rather than falsely claiming 85% occupancy."
+  ],
+  "backgroundDerivation": {
+    "source": "制作记录/补充20261119/P2-11/M23/raw/background.png",
+    "source_sha256": "82c6507516cbfad2caa4fc52e26c53c023753db2960a0e161dd6d7994e5b14e6",
+    "source_size": [
+      854,
+      1842
+    ],
+    "cover_scale": 1.3114754098360655,
+    "source_crop_rect": [
+      -5.684341886080802e-14,
+      143.2499999999999,
+      854.0,
+      1698.75
+    ],
+    "extended_output_size": [
+      1120,
+      2040
+    ],
+    "central_crop_rect": [
+      133,
+      99,
+      987,
+      1941
+    ],
+    "method": "One generated full scene proportionally cover-fitted to extended canvas, then central map cropped pixel-identically. Not an outpaint of a pre-existing map; source dimensions and any upsampling are explicitly recorded."
+  }
+}

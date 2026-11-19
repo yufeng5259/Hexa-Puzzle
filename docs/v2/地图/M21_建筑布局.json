@@ -1,0 +1,238 @@
+{
+  "map": "M21",
+  "name": "仙山云阁",
+  "background": "地图/M21_仙山云阁_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B101",
+      "name": "云阁蜂殿",
+      "normalized_feet": [
+        0.515,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B101_云阁蜂殿/B101_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B102",
+      "name": "仙丹蜜坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B102_仙丹蜜坊/B102_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B103",
+      "name": "宝葫芦仓",
+      "normalized_feet": [
+        0.73,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B103_宝葫芦仓/B103_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B104",
+      "name": "仙鹤驿站",
+      "normalized_feet": [
+        0.22,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.51,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B104_仙鹤驿站/B104_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B105",
+      "name": "九层云塔",
+      "normalized_feet": [
+        0.745,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B105_九层云塔/B105_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B105_九层云塔/B105_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B105_九层云塔/B105_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B105_九层云塔/B105_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B105_九层云塔/B105_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B105_九层云塔/B105_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-11; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00043754; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

@@ -1,0 +1,66 @@
+{
+  "map": "M26",
+  "iterations": [
+    {
+      "iteration": 1,
+      "evidence": [
+        "raw/B126_key.png",
+        "raw/B127_key.png",
+        "raw/B128_key.png",
+        "raw/B129_key.png",
+        "raw/B130_key.png",
+        "raw/background.png"
+      ],
+      "observations": [
+        "真竖屏；前景地面比深色天空亮；建筑蜂巢蜂翼元素清晰，六态同机位，未见文字数字或礼拜标志。",
+        "穹顶蜂舍、压力罐蜜厂、货舱、可见月球车与发射架造型准确；背景蓝地球与环形坑清楚。"
+      ],
+      "decision": "源图通过，等待组合与三底复核"
+    },
+    {
+      "iteration": 2,
+      "evidence": [
+        "raw/background.png",
+        "../../对照/M26_满级组合检查.png"
+      ],
+      "observations": [
+        "源图蓝地球太靠顶部，cover适配扩展后中央地图裁切使地球不可见；其余建筑组合、三底清楚且无遮挡。"
+      ],
+      "decision": "定向编辑源背景将蓝地球下移至source y0.20，保留全部地形及留空落位。"
+    },
+    {
+      "iteration": 3,
+      "evidence": [
+        "raw/background_revised.png"
+      ],
+      "observations": [
+        "第一次编辑地球仍偏大且靠右上，中央裁切边缘会切地球。"
+      ],
+      "decision": "再次编辑，明确源图像素目标(center600,500; diameter80)，并将原始整图作为编辑输入。"
+    },
+    {
+      "iteration": 4,
+      "evidence": [
+        "raw/background.png",
+        "../../对照/M26_满级组合检查.png",
+        "../../对照/M26_L0地基组合检查.png",
+        "../../对照/B126_三底六态对照.png",
+        "../../对照/B127_三底六态对照.png",
+        "../../对照/B128_三底六态对照.png",
+        "../../对照/B129_三底六态对照.png",
+        "../../对照/B130_三底六态对照.png"
+      ],
+      "observations": [
+        "最终中央地图可见完整蓝地球圆球，天空与月面主题明确；主巢及四栋建筑主体无遮挡、避开顶底UI区。",
+        "三底透明边干净；月球车、火箭、太空罐、补给舱、玻璃穹顶功能明确。",
+        "未见文字数字、真实人物或礼拜符号；蜂巢蜂翼元素清楚；六态建筑真实增建。"
+      ],
+      "decision": "PASS，冻结源及全部33运行PNG；保留主巢约430px高度警告。",
+      "technicalErrors": [],
+      "technicalWarnings": [
+        "B126: main-hive HUD clearance yields L5 height 429px; requirement approximate 85% is not claimed exactly"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,1174 @@
+{
+  "batch": "P2-11",
+  "map": "M26",
+  "name": "月面基地",
+  "template": "A",
+  "background": {
+    "file": "地图/M26_月面基地_背景.png",
+    "size": [
+      854,
+      1842
+    ],
+    "mode": "RGB",
+    "sha256": "917862f7ec092a56f634319130bd811f582ca07f5fe0d9b82791545c1bfe8278"
+  },
+  "extension": {
+    "file": "地图/M26_月面基地_背景_扩展.png",
+    "size": [
+      1120,
+      2040
+    ],
+    "mode": "RGB",
+    "sha256": "29d4156566d688d369e9ef312b6dbf794f08817ee40a1fde673c78d26b47cd05",
+    "original": "地图/M26_月面基地_背景.png",
+    "originalOffset": [
+      133,
+      99
+    ]
+  },
+  "layout": {
+    "file": "地图/M26_建筑布局.json",
+    "sha256": "c3c942174d80434f8465e6bf72ce4a8bd99c6a0ff8617328c3072d9b386ec7c8",
+    "template": "A"
+  },
+  "buildings": [
+    {
+      "id": "B126",
+      "map": "M26",
+      "name": "穹顶蜂舍",
+      "atlas": "图集/建筑/B126_穹顶蜂舍_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "7881478a5fc99ea608639c4cb2b4dba34e1b8bbf0b173abf78a4750890b7fd56",
+      "source": "制作记录/补充20261119/P2-11/M26/raw/B126_key.png",
+      "source_sha256": "44be24f2b8062dd583f25d7039d73de7dc0bfc3d8c9c2db1024f2b1fcc4647d9",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B126_穹顶蜂舍/B126_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            524,
+            462
+          ],
+          "source_visible_bbox": [
+            124,
+            261,
+            445,
+            425
+          ],
+          "source_common_scale": 0.9839816933638444,
+          "visible_bbox": [
+            130,
+            383,
+            445,
+            544
+          ],
+          "sha256": "52ed92024efdab5326835d35c40ab472ae253e251233089f8a5a5a7c790c78d3"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B126_穹顶蜂舍/B126_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            524,
+            0,
+            990,
+            462
+          ],
+          "source_visible_bbox": [
+            81,
+            128,
+            391,
+            427
+          ],
+          "source_common_scale": 0.9839816933638444,
+          "visible_bbox": [
+            135,
+            251,
+            440,
+            544
+          ],
+          "sha256": "e6dbc026837376d843a6c495611484439fb6f304aca7c8c5ddb9c5dfbbcc549d"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B126_穹顶蜂舍/B126_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            990,
+            0,
+            1536,
+            462
+          ],
+          "source_visible_bbox": [
+            75,
+            81,
+            417,
+            428
+          ],
+          "source_common_scale": 0.9839816933638444,
+          "visible_bbox": [
+            120,
+            204,
+            456,
+            544
+          ],
+          "sha256": "a516e12319dfbb9181a74e5132d1b8fb4f290eac1f31c8cf11c838b1fbc85193"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B126_穹顶蜂舍/B126_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            462,
+            516,
+            1024
+          ],
+          "source_visible_bbox": [
+            107,
+            96,
+            467,
+            471
+          ],
+          "source_common_scale": 0.9839816933638444,
+          "visible_bbox": [
+            111,
+            176,
+            464,
+            544
+          ],
+          "sha256": "3265af1a681f8d79941ff963fac6352f63b6c475799196581e4ff5bd481df8b3"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B126_穹顶蜂舍/B126_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            516,
+            462,
+            981,
+            1024
+          ],
+          "source_visible_bbox": [
+            51,
+            54,
+            428,
+            471
+          ],
+          "source_common_scale": 0.9839816933638444,
+          "visible_bbox": [
+            103,
+            135,
+            473,
+            544
+          ],
+          "sha256": "241c6539c0b1434197fd05d6590fdf30af373479f333ae1071ef136e7bba6c13"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B126_穹顶蜂舍/B126_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            981,
+            462,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            36,
+            472,
+            473
+          ],
+          "source_common_scale": 0.9839816933638444,
+          "visible_bbox": [
+            75,
+            115,
+            501,
+            544
+          ],
+          "sha256": "7e9e6bf13e3a34faa781562aeec337671e2192d353befd97493733bf3ee50ec8"
+        }
+      ],
+      "source_common_scale": 0.9839816933638444,
+      "height_limit": 430
+    },
+    {
+      "id": "B127",
+      "map": "M26",
+      "name": "太空蜜罐厂",
+      "atlas": "图集/建筑/B127_太空蜜罐厂_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "7f38b95ffdc5c9f4eb1de07ad90b8165df53bfba8383e97388bd6979be19ad4f",
+      "source": "制作记录/补充20261119/P2-11/M26/raw/B127_key.png",
+      "source_sha256": "cfcf7c6971a84e08808a07a296186f290d0a7d04c8dc2de14a580976f950c6ff",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B127_太空蜜罐厂/B127_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            499,
+            453
+          ],
+          "source_visible_bbox": [
+            115,
+            255,
+            428,
+            427
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            132,
+            373,
+            443,
+            544
+          ],
+          "sha256": "725a1dc6e1145244ee9c0a28e48f89c035c643a1ef6b2a041c7b6271bf14ef9d"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B127_太空蜜罐厂/B127_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            499,
+            0,
+            972,
+            453
+          ],
+          "source_visible_bbox": [
+            73,
+            139,
+            404,
+            429
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            122,
+            255,
+            453,
+            544
+          ],
+          "sha256": "99cf36a3feb1bb2b4114b9c00c664188c2135df436cb4e408ae5e2108996d5ec"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B127_太空蜜罐厂/B127_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            972,
+            0,
+            1536,
+            453
+          ],
+          "source_visible_bbox": [
+            71,
+            91,
+            463,
+            428
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            92,
+            208,
+            483,
+            544
+          ],
+          "sha256": "060a0e1e7e4548ee7de05c42c8b2522eb1ccea6a008fe548495b8ddfa2764657"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B127_太空蜜罐厂/B127_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            453,
+            494,
+            1024
+          ],
+          "source_visible_bbox": [
+            64,
+            106,
+            457,
+            486
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            92,
+            165,
+            483,
+            544
+          ],
+          "sha256": "c09234a4d06a727a4e244eed658ebc3ceaadcfdc9fa34cf9ec0938f0bcf39781"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B127_太空蜜罐厂/B127_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            494,
+            453,
+            973,
+            1024
+          ],
+          "source_visible_bbox": [
+            37,
+            59,
+            443,
+            485
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            86,
+            118,
+            490,
+            544
+          ],
+          "sha256": "1a6d7a105016b5b75888b56de8be2cadce37c9a33e59b8fb0baa70b36e69756e"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B127_太空蜜罐厂/B127_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            973,
+            453,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            37,
+            26,
+            500,
+            486
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            57,
+            86,
+            519,
+            544
+          ],
+          "sha256": "32d2b9653ae2358a2cb0b49da9aa82cd56985b1772e1295c1d52f66a56111cd2"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B128",
+      "map": "M26",
+      "name": "补给舱",
+      "atlas": "图集/建筑/B128_补给舱_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "46cbd891708961a179fab0941b44cbb39b543086ae4a9fdb2eec701820515e99",
+      "source": "制作记录/补充20261119/P2-11/M26/raw/B128_key.png",
+      "source_sha256": "a58fe654863be4956dcd10824ae64f752b010b50bf9d2b1e79a23fa728b17889",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B128_补给舱/B128_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            518,
+            468
+          ],
+          "source_visible_bbox": [
+            141,
+            230,
+            457,
+            430
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            130,
+            344,
+            446,
+            544
+          ],
+          "sha256": "1de8a7886edfebc9935f1464d52f5b274cf66afdc28dfccd996b13cebdf475ea"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B128_补给舱/B128_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            518,
+            0,
+            982,
+            468
+          ],
+          "source_visible_bbox": [
+            62,
+            185,
+            397,
+            434
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            120,
+            296,
+            455,
+            544
+          ],
+          "sha256": "0992e02ec51dc30c8d52e810a0792485bf881adad116aa3149604ba71c057055"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B128_补给舱/B128_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            982,
+            0,
+            1536,
+            468
+          ],
+          "source_visible_bbox": [
+            68,
+            94,
+            431,
+            434
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            107,
+            204,
+            469,
+            544
+          ],
+          "sha256": "49f92c30a3a43f13234f8045102b806165b2424d9d3957ba54d8b13bf774d48b"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B128_补给舱/B128_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            468,
+            505,
+            1024
+          ],
+          "source_visible_bbox": [
+            88,
+            88,
+            470,
+            467
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            97,
+            165,
+            478,
+            544
+          ],
+          "sha256": "35521df6f2ce480e1b8842315ac4d9b93ec0596d9e65ac78b74b5468785fd5b6"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B128_补给舱/B128_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            505,
+            468,
+            986,
+            1024
+          ],
+          "source_visible_bbox": [
+            37,
+            66,
+            448,
+            467
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            83,
+            144,
+            492,
+            544
+          ],
+          "sha256": "f35663ff129ee7d2b91b1bb904e1e0e632e410545445663dd67679893b01767e"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B128_补给舱/B128_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            986,
+            468,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            35,
+            36,
+            479,
+            468
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            66,
+            112,
+            509,
+            544
+          ],
+          "sha256": "7c55c9758483e61f2d655acce86438af43f7b72a00e4837b236286a52a9aa09f"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B129",
+      "map": "M26",
+      "name": "月球车库",
+      "atlas": "图集/建筑/B129_月球车库_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "e1b4716a8f5dc30535d35037240f4480f977643a27f96cf1c0c9a3ec834d8394",
+      "source": "制作记录/补充20261119/P2-11/M26/raw/B129_key.png",
+      "source_sha256": "8eccc945342457bf44d0bd857b11264f5ed32d55ebbd7dd078430526c0a5d331",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B129_月球车库/B129_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            507,
+            474
+          ],
+          "source_visible_bbox": [
+            86,
+            291,
+            441,
+            432
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            111,
+            403,
+            465,
+            544
+          ],
+          "sha256": "7d790dc79bf174f625fa0ffdaaba4eec548889f345e9eb850688a03d76b255ce"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B129_月球车库/B129_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            507,
+            0,
+            992,
+            474
+          ],
+          "source_visible_bbox": [
+            68,
+            127,
+            422,
+            433
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            111,
+            239,
+            464,
+            544
+          ],
+          "sha256": "f4fb89e9b1cb75901fec4d4f60acedb9a47635c39ae5fd69313ba64600d0e645"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B129_月球车库/B129_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            992,
+            0,
+            1536,
+            474
+          ],
+          "source_visible_bbox": [
+            64,
+            95,
+            467,
+            433
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            87,
+            207,
+            489,
+            544
+          ],
+          "sha256": "dab712834df9c70d12e44bf0f73c856c7c7ee246f979ee5060b37383bc183594"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B129_月球车库/B129_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            474,
+            504,
+            1024
+          ],
+          "source_visible_bbox": [
+            55,
+            116,
+            462,
+            475
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            84,
+            187,
+            491,
+            544
+          ],
+          "sha256": "23b6c445b0165bc6c399c9c2668f9a37fe946455620ddac46c391b91264d340d"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B129_月球车库/B129_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            504,
+            474,
+            1009,
+            1024
+          ],
+          "source_visible_bbox": [
+            43,
+            68,
+            470,
+            475
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            74,
+            139,
+            501,
+            544
+          ],
+          "sha256": "1bd87137da228a6f0adffb7a8e0b61d8a9cb025fc6a7900ce6593d07228a2df7"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B129_月球车库/B129_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1009,
+            474,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            38,
+            43,
+            478,
+            477
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            68,
+            112,
+            508,
+            544
+          ],
+          "sha256": "187f4f146b6a7f159105aae632390ed7a4dbd57656dd480b95624b979d008100"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B130",
+      "map": "M26",
+      "name": "发射塔",
+      "atlas": "图集/建筑/B130_发射塔_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "f5b42af90781f67025e489cd5b3fa51c3cc778021b27a073fe4949f5abe8bb50",
+      "source": "制作记录/补充20261119/P2-11/M26/raw/B130_key.png",
+      "source_sha256": "0a86fc56a538f2510b4b6a91d32bceaa86f08f0aad6f98ce101bafb0de920d06",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B130_发射塔/B130_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            514,
+            479
+          ],
+          "source_visible_bbox": [
+            120,
+            273,
+            443,
+            443
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            127,
+            375,
+            448,
+            544
+          ],
+          "sha256": "723223a353de9efb1875cd8a36a3f005161f513e55d92ffa7c28ab5aad19784e"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B130_发射塔/B130_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            514,
+            0,
+            993,
+            479
+          ],
+          "source_visible_bbox": [
+            71,
+            127,
+            408,
+            443
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            120,
+            230,
+            455,
+            544
+          ],
+          "sha256": "3b1f94fad1a09b67f7882572a6deb37713a40779d21a9e33e351ad88ee9644d0"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B130_发射塔/B130_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            993,
+            0,
+            1536,
+            479
+          ],
+          "source_visible_bbox": [
+            72,
+            86,
+            438,
+            443
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            106,
+            188,
+            470,
+            544
+          ],
+          "sha256": "870da8bbfd58d5ed378a4d0d9fdde1fbe050ddc38ed3befc4899d360b7df1ca0"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B130_发射塔/B130_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            479,
+            502,
+            1024
+          ],
+          "source_visible_bbox": [
+            73,
+            70,
+            461,
+            466
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            95,
+            148,
+            481,
+            544
+          ],
+          "sha256": "fc71e6b44d2e67b8e7372c4ab1b3735be513d52bf7bc0c8b5398aba633dd63cc"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B130_发射塔/B130_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            502,
+            479,
+            987,
+            1024
+          ],
+          "source_visible_bbox": [
+            43,
+            56,
+            447,
+            466
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            86,
+            135,
+            489,
+            544
+          ],
+          "sha256": "e53870c76a6d85cb489d7967544bf90710c928c2e11e28d2fc1069bb1bfd996d"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B130_发射塔/B130_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            987,
+            479,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            37,
+            474,
+            466
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            71,
+            115,
+            505,
+            544
+          ],
+          "sha256": "e64b9eea4a28b3ca33aa203b1b7fcf9d3398482af1f73da46155b300781c48e5"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    }
+  ],
+  "thumbnail": {
+    "file": "素材/UI/地图选择/map_thumb_m26.png",
+    "size": [
+      768,
+      350
+    ],
+    "mode": "RGBA",
+    "sha256": "a4301a1d92a73bdd530c6a3115b4964a290e2ac66b7fbd8279cc03435ecc96d1",
+    "cropRect": [
+      0,
+      961,
+      854,
+      1350
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "landmarkBBox": [
+      506,
+      1001,
+      819,
+      1310
+    ],
+    "landmarkFullyInsideCrop": true
+  },
+  "extensionComparison": {
+    "map": "M26",
+    "original": "地图/M26_月面基地_背景.png",
+    "extended": "地图/M26_月面基地_背景_扩展.png",
+    "offset": [
+      133,
+      99
+    ],
+    "max_channel_difference": 0,
+    "changed_pixels": 0,
+    "exact": true
+  },
+  "layoutAlphaObjective": 0.0018781302170283807,
+  "observations": [
+    "Main hive height capped at 430 px to respect template plus top 18% HUD; all six levels keep one common extraction scale. Height is recorded rather than falsely claiming 85% occupancy."
+  ],
+  "backgroundDerivation": {
+    "source": "制作记录/补充20261119/P2-11/M26/raw/background.png",
+    "source_sha256": "e8808f45618a8810149f8b326e170e72422903304f439f50dbc475dede509b8b",
+    "source_size": [
+      854,
+      1842
+    ],
+    "cover_scale": 1.3114754098360655,
+    "source_crop_rect": [
+      -5.684341886080802e-14,
+      143.2499999999999,
+      854.0,
+      1698.75
+    ],
+    "extended_output_size": [
+      1120,
+      2040
+    ],
+    "central_crop_rect": [
+      133,
+      99,
+      987,
+      1941
+    ],
+    "method": "One generated full scene proportionally cover-fitted to extended canvas, then central map cropped pixel-identically. Not an outpaint of a pre-existing map; source dimensions and any upsampling are explicitly recorded."
+  }
+}

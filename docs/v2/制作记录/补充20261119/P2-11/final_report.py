@@ -1,0 +1,47 @@
+"""Build a delivery summary from freshly executed QA reports."""
+from pathlib import Path
+import json
+R=Path(__file__).resolve().parent
+V=R.parents[2]
+def load(p):return json.loads(p.read_text(encoding='utf8'))
+def finish():
+ independent=load(R/'independent_report.json')
+ reports=[load(R/f'M{i}/verification.json') for i in range(21,31)]
+ assert not independent['errors'] and all(not x['errors'] for x in reports)
+ summary=dict(batch='P2-11',status='PASS',runtime_png_count=330,layout_json_count=10,building_atlas_count=50,protected_existing_files=independent['protected_files'],maps=[dict(map=r['map'],errors=r['errors'],warnings=r['warnings'],runtime_png_count=r['runtime_png_count'],extension_changed_pixels=r['extension_changed_pixels'],composition=r['composition']) for r in reports])
+ (R/'交付核验汇总.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+ rows=[]
+ for r in reports:
+  main=r['composition'][0];core=sum(x['core_occluded_pixels'] for x in r['composition'])
+  rows.append(f"| {r['map']} | 33 | 0 | {sum(x['hud_pixels'] for x in r['composition'])} | {core} | {main['heights'][5]} |")
+ body="""# P2-11 M21–M30 交付与逐条自检
+
+日期：2026-11-19。依据：15 文档第 2–7 节及 14 文档第 6 节；风格与拆件方式沿用 P2-9/P2-10。仅交付 docs/v2 离线素材，不导入 assets，不修改程序、配表或旧美术。
+
+## 第 7 节逐条自检
+
+1. **数量、命名、尺寸与引用**：10 图各 33 张运行 PNG，共 330 张；10 份落位 JSON；50 张六态图集。背景 854×1842 RGB、扩展 1120×2040 RGB、建筑 300 张 576×576 RGBA、圆角缩略图 10 张 768×350 RGBA。模板 B 为 M22/M24/M27/M29，其余用 A；位移与宽度在文档容差内，脚底 y 与 z_index 顺序核验通过。
+2. **六态成长与锚点**：每栋从同一六态原稿提取，用同一缩放比例放入统一画布，并非缩放同一张 L5 冒充升级。实际 alpha 脚底按 y=544 对齐，六态偏差不超过 4px；相机、左上照明及 L5 成长经源图与三底六态视觉复核。主巢因顶部 HUD 的限制延续前批约 430px 限高策略，实际高度见下表，不声称占画布高度精确达到 85%。
+3. **内容约束与蜂元素**：源图、六态与组合图均已视觉复核。无运行文字/字母/数字、国旗、真实人物及宗教礼拜标志；每栋含六角蜂巢、蜜罐、蜂翼或触角。M21–M25 使用云、柱、世界树、彩虹、友善龙等象征；M23符文为几何图形。B105明确九层，B120独立友善睡龙岩，B125独立喷泉，B145独立光之花。B150已从蜂屋加冠修订为开放层叠金冠、星晶、蜂翼、蜜滴组成的终章地标。
+4. **落位、遮挡与安全区**：满级及 L0 按实际 JSON 合成；对照图按 853 宽并叠顶 18% / 底 12% 半透明区域。独立核验同时检查 L0/L5 不进入遮挡带；遮挡按实际 alpha 与主体腐蚀掩码计算，具体像素见下表及 independent_report.json。技术门槛沿用前批主体 3%，微量屋檐/边饰交叠由视觉逐例判断，不把门槛通过写成零像素交叠。
+5. **透明边与扩展一致**：50 张白/深蓝 #0E2A5C/草绿 #7CC44E 三底六态对照与 50 张锚点叠图已交。保留接口返回的原生 alpha 并清除边缘残色；紫晶材料可能触发品红近色检测，已结合三底复核，不按颜色直接删除材质。扩展偏移 (133,99)，十图中央逐像素差均为 0，JSON 与差异图在对照目录。
+6. **风格与色调**：M01–M30 按地图顺序的缩略图总览已交；相邻图的云白/石白金/树绿/熔岩红/夜青/月灰/火星橙/星环蓝/晶粉/蜂巢金有明确区分，均维持圆润轻俯视蜂群家园风格。M26 蓝地球、M27 双卫星核对的是最终裁切背景，而非只检查原稿。
+7. **登记与 SHA**：美术交付清单 independentPNGs、p2Extensions、uiAssets 已追加 P2-11、P1、source、SHA256；建筑 atlas_manifest、Building_Catalog.csv 和说明第 5 节地图表同步追加。旧数组条目与旧文件按基线复核保留，来源 SHA、缩略图全部合成依赖及运行文件 SHA 已重新计算核对。
+
+## 数据摘要
+
+| 地图 | 运行 PNG | 扩展差异像素 | L5 HUD 像素 | L5 主体交叠像素 | 主巢 L5 alpha 高度 px |
+|---|---:|---:|---:|---:|---:|
+"""+'\n'.join(rows)+"""
+
+## 来源、证据及边界
+
+- 使用 imagegen 技能的已授权 CLI 备用方式，gpt-image-2，匹配本机已配置图片接口；凭据只注入调用子进程，未写入项目。每图 prompts、jobs、raw、rejected（有修订时）、packaged.json、visual_review.json 可追溯生成与修订。
+- 请求尺寸与接口实际尺寸分别记录；本次接口实际多数背景为 854×1842、六态图为 1536×1024，不能把请求的较大尺寸当成原生输出。扩展由完整 AI 画面等比适配得到，中央原图由扩展裁出；此方法沿用前批，是新地图统一派生，并非对既有 M01–M20 原图扩画。真实源尺寸、适配比例和裁切范围见各图 backgroundDerivation。
+- 对照目录：`../对照/`，包含 20 张满级/L0组合、50 张三底六态、50 张锚点叠放、M01–M30总览、10 份扩展像素报告与10张差异图。组合原图另存 `../地图建筑/`。
+- 技术核验：`verify_art.py --maps M21 ... M30 --require-manifest`；独立核验：`independent_qa.py verify`；结果分别为各图 verification.json、independent_report.json、交付核验汇总.json。独立补充审计见 audit_review.md。
+- 仅离线美术验收，不宣称已导入 Cocos、完成 Prefab 或实机建造验收。用户本轮禁止修改运行工程，后续程序侧按 15 文档第 9 节接入。
+"""
+ (R/'验收记录.md').write_text(body,encoding='utf8')
+ print('Delivery summary and seven-point report written')
+if __name__=='__main__':finish()
