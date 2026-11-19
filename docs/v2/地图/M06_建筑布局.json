@@ -1,0 +1,238 @@
+{
+  "map": "M06",
+  "name": "竹林茶山",
+  "background": "地图/M06_竹林茶山_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B26",
+      "name": "竹楼蜂舍",
+      "normalized_feet": [
+        0.5,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B26_竹楼蜂舍/B26_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B26_竹楼蜂舍/B26_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B26_竹楼蜂舍/B26_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B26_竹楼蜂舍/B26_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B26_竹楼蜂舍/B26_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B26_竹楼蜂舍/B26_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B27",
+      "name": "制茶坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B27_制茶坊/B27_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B27_制茶坊/B27_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B27_制茶坊/B27_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B27_制茶坊/B27_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B27_制茶坊/B27_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B27_制茶坊/B27_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B28",
+      "name": "茶叶仓",
+      "normalized_feet": [
+        0.79,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B28_茶叶仓/B28_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B28_茶叶仓/B28_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B28_茶叶仓/B28_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B28_茶叶仓/B28_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B28_茶叶仓/B28_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B28_茶叶仓/B28_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B29",
+      "name": "竹索缆车",
+      "normalized_feet": [
+        0.22,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.51,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B29_竹索缆车/B29_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B29_竹索缆车/B29_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B29_竹索缆车/B29_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B29_竹索缆车/B29_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B29_竹索缆车/B29_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B29_竹索缆车/B29_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B30",
+      "name": "六角宝塔",
+      "normalized_feet": [
+        0.745,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B30_六角宝塔/B30_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B30_六角宝塔/B30_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B30_六角宝塔/B30_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B30_六角宝塔/B30_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B30_六角宝塔/B30_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B30_六角宝塔/B30_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-9; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution validation recorded separately. No runtime config mutation."
+}

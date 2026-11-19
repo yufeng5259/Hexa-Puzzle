@@ -1,0 +1,76 @@
+{
+  "map": "M10",
+  "reviewScope": "AI原稿视觉复核；最终切图、落位合成、透明边逐态验证由集成人另行执行",
+  "status": "raws visually reviewed; composition alignment pending",
+  "checks": {
+    "sixCompleteObjectsPerBuilding": true,
+    "architecturalGrowthL0toL5": true,
+    "sameCameraUpperLeftLight": true,
+    "beeElementsRecognizable": true,
+    "noTextFlagsReligionPeople": true,
+    "themePalette": true
+  },
+  "notes": [
+    "建筑图在深蓝底合成检查：含蜜罐、六角窗、蜂翅/蜂巢冠饰；完整六态，不是同图缩放复制。",
+    "背景与建筑风格保持圆润立体，原稿不以模型承诺尺寸冒充实际尺寸。",
+    "五地块位置由模型近似生成；需最终组合核对，不把raw单独看过当作落位验收通过。",
+    "橘红地面+孔雀蓝水渠定向修订通过，绿草初稿仅留 rejected 追溯，不作为正式原稿。",
+    "B49 L3–L5补足清晰双轮、轮辐、车架与右侧车辕，保6态原建筑成长；修正raw为不透明品红键底，最终包装需抠色。"
+  ],
+  "files": [
+    {
+      "file": "raw/B46_key.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "dd339343f903df47a0f23eabe7253cde90f794b4a05456235e845e6945401ca1"
+    },
+    {
+      "file": "raw/B47_key.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "d553b3c0620266820150e38613f00c54796efe20b9d1e8a7743fee42650fa423"
+    },
+    {
+      "file": "raw/B48_key.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "34ed2cfa3fd36dea02002b1c10764072b7dd8224cc41fd6e96616f3c3e44ac14"
+    },
+    {
+      "file": "raw/B49_key.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "0f02addeb733da546cebc0f91ed3e711744f7daafe76c0f0a71ed671e6520e95"
+    },
+    {
+      "file": "raw/B50_key.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "316bd4912c810c7291e43c855876f8395fc5b719f6c688197cfd82e02a16ea86"
+    },
+    {
+      "file": "raw/background.png",
+      "size": [
+        854,
+        1842
+      ],
+      "mode": "RGB",
+      "sha256": "265535a171287c2c87aba7e5605ee8efa8d38a1d096d780e330a1d8539e9cd53"
+    }
+  ]
+}

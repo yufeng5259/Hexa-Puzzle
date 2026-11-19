@@ -1,0 +1,212 @@
+[
+  {
+    "id": "M07",
+    "kind": "background",
+    "map": "M07",
+    "name": "樱花古町",
+    "prompt": "Production game environment: 樱花古町. Match the supplied original bee-village references in polished clean 2.5D mobile game art, chunky rounded solid volumes, crisp smooth edges, broad bevels, soft matte wood/stone, restrained glossy amber honey details, bright neutral daylight from upper left, camera frontal and slightly elevated seeing front and right. Not flat vector, not realistic photographic, not painterly. No text, letters, digits, caption, logo, watermark, UI, real flags, religious objects, religious symbols, shrine, torii gate or people. Every building must show a substantial hexagonal honeycomb, honey pot, honey drip or bee-wing architectural motif. The references are style only; do NOT copy their scenery or green/cyan roofs when the specified theme differs.\nCreate a full-bleed portrait bare background, 1120x2048, theme: pale pink and ivory cherry blossom petals on warm pale gray paving, deep charcoal slate accents, small clear turquoise stream along the lower left, curving flagstone paths, rounded flowering cherry trees at edges and soft pink-white distant hills. No buildings, houses, huts, ruins, mechanical structures, people, bees, foundations, UI, furniture or letters anywhere. The final playable original is the central 854x1842 crop at (133,103); top 18 percent and bottom 12 percent of that inner crop are UI-safe scenic margin. Five future building sites must be broad naturally flat softly lighter terrain clearings centered approximately as follows: feet center at x=0.5, y=0.374 of full image; feet center at x=0.698, y=0.509 of full image; feet center at x=0.294, y=0.711 of full image; feet center at x=0.698, y=0.698 of full image; feet center at x=0.306, y=0.851 of full image. Keep each clearing at least 0.35 of full image width, without visibly painted circles, outlines or pads. On a hillside use broad terraces. Paths connect the clearings, sparse scenery at outside edges only; no path, large tree, pond or rock through a site. Lightly elevated perspective consistent with reference. Main upper middle clearing's feet point is its FRONT edge: clear terrain must extend UP behind that point for the building. Landscape behind top UI continues naturally. Do not copy the reference houses.",
+    "size": "1120x2048",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\raw\\background.png",
+    "references": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\地图\\M01_晨露蜂园_背景.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png"
+    ],
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\prompts\\M07.txt",
+    "reference_sha256": {
+      "地图\\M01_晨露蜂园_背景.png": "5c89a5646ca9e337a8e0f71682cef6f9417e80b73aa02b34bef3455fa103e869",
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b"
+    },
+    "selected_raw": "raw/background.png",
+    "actual_size": [
+      889,
+      1770
+    ],
+    "actual_mode": "RGB",
+    "selected_sha256": "ee1f4d9cbcb301f676fe65e920ccbbbd6b8a5645ac3b3f7951e1d70d9c203faa",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "generation": "imagegen bundled CLI edit, configured project image provider; references are original style only",
+    "correction_prompt": "prompts/M07_bridge_stream.txt",
+    "correction_reference": "raw/M07_bridge_background_reference.png",
+    "correction_reference_sha256": "52c52fba56285593d00ae92aa69232e8337cc0562efe66b3529986bcf54d43d8",
+    "rejected_raws": {
+      "rejected/background_before_bridge.png": "B34 bridge slot had no stream; river incorrectly only at lower-left"
+    },
+    "correction_note": "定向编辑窄溪穿过当前B34脚底槽，并与左下原河相连。画布由API返回889x1770，后续等比cover1120x2040后中央派生原图。",
+    "final_deliverable_source": {
+      "method": "local monotone stream alignment, not a new AI generation",
+      "source": "rejected/background_ext_before_local_alignment.png",
+      "sourceSHA256": "6864458c12a219ad714dde7b584e14b470478bb9edb16116614c463250f0e26e",
+      "output": "raw/background.png",
+      "outputSHA256": "4cedbfa39b8d63a0430ce1e5eb46c089c38b0b75b9d854ec9d7597845c8fa24e",
+      "originalViewShiftPx": 120,
+      "originalViewArchCenter": [
+        595,
+        1310
+      ],
+      "verticalTaperHalfHeightPx": 210,
+      "note": "Move water through the arch; leave both stone feet on the banks. Final background and extension are cropped from this same corrected image."
+    }
+  },
+  {
+    "id": "B31",
+    "kind": "building",
+    "map": "M07",
+    "name": "町屋蜂舍",
+    "prompt": "Production upgrade SPRITE SHEET for ONE building 町屋蜂舍: wide compact traditional machiya bee residence, cream walls with warm timber framing, dark slate curved tile roofs and coral-peach cherry petal decorations, amber honeycomb window and roof crest; NOT a shrine. Match the supplied original bee-village references in polished clean 2.5D mobile game art, chunky rounded solid volumes, crisp smooth edges, broad bevels, soft matte wood/stone, restrained glossy amber honey details, bright neutral daylight from upper left, camera frontal and slightly elevated seeing front and right. Not flat vector, not realistic photographic, not painterly. No text, letters, digits, caption, logo, watermark, UI, real flags, religious objects, religious symbols, shrine, torii gate or people. Every building must show a substantial hexagonal honeycomb, honey pot, honey drip or bee-wing architectural motif. The references are style only; do NOT copy their scenery or green/cyan roofs when the specified theme differs.\nCanvas EXACTLY THREE COLUMNS by TWO ROWS, six equally sized cells. Top row left-right L0 L1 L2; bottom row left-right L3 L4 L5. EXACTLY SIX complete separate objects, no detached objects outside their own cell. All 6 states in same viewpoint, physical pixel scale and feet baseline, with generous empty margins each side (at least 10 percent cell width) and no cropped parts. L0 is ONLY low empty architectural honeycomb foundation with small bamboo/stone pegs, no finished roof or walls. L1 a simple functional small building, approximately 60 percent L5 height; L2 adds actual new functional structure; L3 complete function, approximately 80 percent L5 height; L4 adds architectural volume and useful equipment; L5 largest most elaborate version with richer roof, honeycomb crest, warm amber lanterns and ornaments. Progressive building growth and functional geometry changes, NOT 6 recolors, NOT 6 scaled copies. L5 never shrinks below earlier levels. Keep main walls/structures continuous not fragmented.\nBackground MUST be perfectly flat solid pure magenta #FF00FF including all gaps under eaves and between rails. Magenta is the removable background only, not part of buildings. Avoid magenta/pink building colors: any cherry petals are coral-peach, not purple or magenta. NO green lawn tile, no water tile, no landscape base or ground plane, no cast shadow on magenta. Small structural plinth belongs to object; isolated object only. No grid lines, no labels, no level text. Do not reproduce the reference UI or complete village. Render only this specified ONE building in six upgrades.",
+    "size": "3072x2048",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\raw\\B31_key.png",
+    "references": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\prompts\\B31.txt",
+    "reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "selected_raw": "raw/B31_key.png",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "b0d953f4063ecb6efc56c45307425efe08fa37595f077f44e13e6718a5d02ae1",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "generation": "imagegen bundled CLI edit, configured project image provider; references are original style only"
+  },
+  {
+    "id": "B32",
+    "kind": "building",
+    "map": "M07",
+    "name": "蜜饼工坊",
+    "prompt": "Production upgrade SPRITE SHEET for ONE building 蜜饼工坊: honey cake workshop with dark slate tile roof, timber cream walls, visible tiny honey cake trays and a copper oven, warm amber honeycomb vent, no sign or writing. Match the supplied original bee-village references in polished clean 2.5D mobile game art, chunky rounded solid volumes, crisp smooth edges, broad bevels, soft matte wood/stone, restrained glossy amber honey details, bright neutral daylight from upper left, camera frontal and slightly elevated seeing front and right. Not flat vector, not realistic photographic, not painterly. No text, letters, digits, caption, logo, watermark, UI, real flags, religious objects, religious symbols, shrine, torii gate or people. Every building must show a substantial hexagonal honeycomb, honey pot, honey drip or bee-wing architectural motif. The references are style only; do NOT copy their scenery or green/cyan roofs when the specified theme differs.\nCanvas EXACTLY THREE COLUMNS by TWO ROWS, six equally sized cells. Top row left-right L0 L1 L2; bottom row left-right L3 L4 L5. EXACTLY SIX complete separate objects, no detached objects outside their own cell. All 6 states in same viewpoint, physical pixel scale and feet baseline, with generous empty margins each side (at least 10 percent cell width) and no cropped parts. L0 is ONLY low empty architectural honeycomb foundation with small bamboo/stone pegs, no finished roof or walls. L1 a simple functional small building, approximately 60 percent L5 height; L2 adds actual new functional structure; L3 complete function, approximately 80 percent L5 height; L4 adds architectural volume and useful equipment; L5 largest most elaborate version with richer roof, honeycomb crest, warm amber lanterns and ornaments. Progressive building growth and functional geometry changes, NOT 6 recolors, NOT 6 scaled copies. L5 never shrinks below earlier levels. Keep main walls/structures continuous not fragmented.\nBackground MUST be perfectly flat solid pure magenta #FF00FF including all gaps under eaves and between rails. Magenta is the removable background only, not part of buildings. Avoid magenta/pink building colors: any cherry petals are coral-peach, not purple or magenta. NO green lawn tile, no water tile, no landscape base or ground plane, no cast shadow on magenta. Small structural plinth belongs to object; isolated object only. No grid lines, no labels, no level text. Do not reproduce the reference UI or complete village. Render only this specified ONE building in six upgrades.",
+    "size": "3072x2048",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\raw\\B32_key.png",
+    "references": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\prompts\\B32.txt",
+    "reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "selected_raw": "raw/B32_key.png",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "1bc8598a0b5c9692bf5c707eb16f1a85d290344b4f19f182d4c6c24e26812531",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "generation": "imagegen bundled CLI edit, configured project image provider; references are original style only"
+  },
+  {
+    "id": "B33",
+    "kind": "building",
+    "map": "M07",
+    "name": "米仓",
+    "prompt": "Production upgrade SPRITE SHEET for ONE building 米仓: raised rice granary, ivory plaster and warm timber slats, deep charcoal tile roof, straw rice sacks, amber hexagonal honeycomb vent. Match the supplied original bee-village references in polished clean 2.5D mobile game art, chunky rounded solid volumes, crisp smooth edges, broad bevels, soft matte wood/stone, restrained glossy amber honey details, bright neutral daylight from upper left, camera frontal and slightly elevated seeing front and right. Not flat vector, not realistic photographic, not painterly. No text, letters, digits, caption, logo, watermark, UI, real flags, religious objects, religious symbols, shrine, torii gate or people. Every building must show a substantial hexagonal honeycomb, honey pot, honey drip or bee-wing architectural motif. The references are style only; do NOT copy their scenery or green/cyan roofs when the specified theme differs.\nCanvas EXACTLY THREE COLUMNS by TWO ROWS, six equally sized cells. Top row left-right L0 L1 L2; bottom row left-right L3 L4 L5. EXACTLY SIX complete separate objects, no detached objects outside their own cell. All 6 states in same viewpoint, physical pixel scale and feet baseline, with generous empty margins each side (at least 10 percent cell width) and no cropped parts. L0 is ONLY low empty architectural honeycomb foundation with small bamboo/stone pegs, no finished roof or walls. L1 a simple functional small building, approximately 60 percent L5 height; L2 adds actual new functional structure; L3 complete function, approximately 80 percent L5 height; L4 adds architectural volume and useful equipment; L5 largest most elaborate version with richer roof, honeycomb crest, warm amber lanterns and ornaments. Progressive building growth and functional geometry changes, NOT 6 recolors, NOT 6 scaled copies. L5 never shrinks below earlier levels. Keep main walls/structures continuous not fragmented.\nBackground MUST be perfectly flat solid pure magenta #FF00FF including all gaps under eaves and between rails. Magenta is the removable background only, not part of buildings. Avoid magenta/pink building colors: any cherry petals are coral-peach, not purple or magenta. NO green lawn tile, no water tile, no landscape base or ground plane, no cast shadow on magenta. Small structural plinth belongs to object; isolated object only. No grid lines, no labels, no level text. Do not reproduce the reference UI or complete village. Render only this specified ONE building in six upgrades.",
+    "size": "3072x2048",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\raw\\B33_key.png",
+    "references": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\prompts\\B33.txt",
+    "reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "selected_raw": "raw/B33_key.png",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "d9bc00453ae16d236cc9228af0e6f40ecad053de0e9c98b825d0471871d217fe",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "generation": "imagegen bundled CLI edit, configured project image provider; references are original style only"
+  },
+  {
+    "id": "B34",
+    "kind": "building",
+    "map": "M07",
+    "name": "红木拱桥",
+    "prompt": "Production upgrade SPRITE SHEET for ONE building 红木拱桥: freestanding compact red-brown timber arched footbridge, honeycomb lattice railings, round amber post caps and peach cherry petal ornaments; bridge only, no attached river or ground. Match the supplied original bee-village references in polished clean 2.5D mobile game art, chunky rounded solid volumes, crisp smooth edges, broad bevels, soft matte wood/stone, restrained glossy amber honey details, bright neutral daylight from upper left, camera frontal and slightly elevated seeing front and right. Not flat vector, not realistic photographic, not painterly. No text, letters, digits, caption, logo, watermark, UI, real flags, religious objects, religious symbols, shrine, torii gate or people. Every building must show a substantial hexagonal honeycomb, honey pot, honey drip or bee-wing architectural motif. The references are style only; do NOT copy their scenery or green/cyan roofs when the specified theme differs.\nCanvas EXACTLY THREE COLUMNS by TWO ROWS, six equally sized cells. Top row left-right L0 L1 L2; bottom row left-right L3 L4 L5. EXACTLY SIX complete separate objects, no detached objects outside their own cell. All 6 states in same viewpoint, physical pixel scale and feet baseline, with generous empty margins each side (at least 10 percent cell width) and no cropped parts. L0 is ONLY low empty architectural honeycomb foundation with small bamboo/stone pegs, no finished roof or walls. L1 a simple functional small building, approximately 60 percent L5 height; L2 adds actual new functional structure; L3 complete function, approximately 80 percent L5 height; L4 adds architectural volume and useful equipment; L5 largest most elaborate version with richer roof, honeycomb crest, warm amber lanterns and ornaments. Progressive building growth and functional geometry changes, NOT 6 recolors, NOT 6 scaled copies. L5 never shrinks below earlier levels. Keep main walls/structures continuous not fragmented.\nBackground MUST be perfectly flat solid pure magenta #FF00FF including all gaps under eaves and between rails. Magenta is the removable background only, not part of buildings. Avoid magenta/pink building colors: any cherry petals are coral-peach, not purple or magenta. NO green lawn tile, no water tile, no landscape base or ground plane, no cast shadow on magenta. Small structural plinth belongs to object; isolated object only. No grid lines, no labels, no level text. Do not reproduce the reference UI or complete village. Render only this specified ONE building in six upgrades.",
+    "size": "3072x2048",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\raw\\B34_key.png",
+    "references": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\prompts\\B34.txt",
+    "reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "selected_raw": "raw/B34_key.png",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA",
+    "selected_sha256": "230c2f311f01acf5ce4307316fb4f500f0736f78394e8c5f6856328483427fef",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "generation": "imagegen bundled CLI edit, configured project image provider; references are original style only"
+  },
+  {
+    "id": "B35",
+    "kind": "building",
+    "map": "M07",
+    "name": "樱花天守阁",
+    "prompt": "Production upgrade SPRITE SHEET for ONE building 樱花天守阁: secular playful multi-tiered Japanese castle keep, ivory plaster walls, broad charcoal slate eaves, honeycomb gold window and roof crest, coral-peach cherry petal ornaments, clearly a village castle and NOT a shrine or temple. Match the supplied original bee-village references in polished clean 2.5D mobile game art, chunky rounded solid volumes, crisp smooth edges, broad bevels, soft matte wood/stone, restrained glossy amber honey details, bright neutral daylight from upper left, camera frontal and slightly elevated seeing front and right. Not flat vector, not realistic photographic, not painterly. No text, letters, digits, caption, logo, watermark, UI, real flags, religious objects, religious symbols, shrine, torii gate or people. Every building must show a substantial hexagonal honeycomb, honey pot, honey drip or bee-wing architectural motif. The references are style only; do NOT copy their scenery or green/cyan roofs when the specified theme differs.\nCanvas EXACTLY THREE COLUMNS by TWO ROWS, six equally sized cells. Top row left-right L0 L1 L2; bottom row left-right L3 L4 L5. EXACTLY SIX complete separate objects, no detached objects outside their own cell. All 6 states in same viewpoint, physical pixel scale and feet baseline, with generous empty margins each side (at least 10 percent cell width) and no cropped parts. L0 is ONLY low empty architectural honeycomb foundation with small bamboo/stone pegs, no finished roof or walls. L1 a simple functional small building, approximately 60 percent L5 height; L2 adds actual new functional structure; L3 complete function, approximately 80 percent L5 height; L4 adds architectural volume and useful equipment; L5 largest most elaborate version with richer roof, honeycomb crest, warm amber lanterns and ornaments. Progressive building growth and functional geometry changes, NOT 6 recolors, NOT 6 scaled copies. L5 never shrinks below earlier levels. Keep main walls/structures continuous not fragmented.\nBackground MUST be perfectly flat solid pure magenta #FF00FF including all gaps under eaves and between rails. Magenta is the removable background only, not part of buildings. Avoid magenta/pink building colors: any cherry petals are coral-peach, not purple or magenta. NO green lawn tile, no water tile, no landscape base or ground plane, no cast shadow on magenta. Small structural plinth belongs to object; isolated object only. No grid lines, no labels, no level text. Do not reproduce the reference UI or complete village. Render only this specified ONE building in six upgrades.",
+    "size": "3072x2048",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\raw\\B35_key.png",
+    "references": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "prompt_file": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M07\\prompts\\B35.txt",
+    "reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "selected_raw": "raw/B35_key.png",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGB",
+    "selected_sha256": "a0dac203ea1a0d23b81a508af779522bc7bb38e4ab86e280afbf2b36b95f2896",
+    "model": "gpt-image-2",
+    "quality": "high",
+    "generation": "imagegen bundled CLI edit, configured project image provider; references are original style only",
+    "correction_prompt": "prompts/B35_correction_key.txt",
+    "correction_reference": "raw/B35_correction_reference.png",
+    "rejected_raws": {
+      "rejected/B35_key-original.png": "L4/L5 unintended waterwheel",
+      "rejected/B35_corrected-checker.png": "background checkerboard/glow baked by model"
+    }
+  },
+  {
+    "id": "M07-stream-alignment",
+    "method": "local monotone stream alignment, not a new AI generation",
+    "source": "rejected/background_ext_before_local_alignment.png",
+    "sourceSHA256": "6864458c12a219ad714dde7b584e14b470478bb9edb16116614c463250f0e26e",
+    "output": "raw/background.png",
+    "outputSHA256": "4cedbfa39b8d63a0430ce1e5eb46c089c38b0b75b9d854ec9d7597845c8fa24e",
+    "originalViewShiftPx": 120,
+    "originalViewArchCenter": [
+      595,
+      1310
+    ],
+    "verticalTaperHalfHeightPx": 210,
+    "note": "Move water through the arch; leave both stone feet on the banks. Final background and extension are cropped from this same corrected image."
+  }
+]

@@ -1,0 +1,238 @@
+{
+  "map": "M04",
+  "name": "风车花海",
+  "background": "地图/M04_风车花海_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B16",
+      "name": "花田蜂舍",
+      "normalized_feet": [
+        0.47,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B16_花田蜂舍/B16_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B16_花田蜂舍/B16_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B16_花田蜂舍/B16_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B16_花田蜂舍/B16_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B16_花田蜂舍/B16_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B16_花田蜂舍/B16_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B17",
+      "name": "花蜜榨坊",
+      "normalized_feet": [
+        0.73,
+        0.54
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B17_花蜜榨坊/B17_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B17_花蜜榨坊/B17_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B17_花蜜榨坊/B17_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B17_花蜜榨坊/B17_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B17_花蜜榨坊/B17_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B17_花蜜榨坊/B17_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B18",
+      "name": "球根温室",
+      "normalized_feet": [
+        0.26,
+        0.705
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.54,
+      "flip_x": true,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B18_球根温室/B18_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B18_球根温室/B18_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B18_球根温室/B18_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B18_球根温室/B18_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B18_球根温室/B18_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B18_球根温室/B18_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B19",
+      "name": "运河花船",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B19_运河花船/B19_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B19_运河花船/B19_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B19_运河花船/B19_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B19_运河花船/B19_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B19_运河花船/B19_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B19_运河花船/B19_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B20",
+      "name": "大风车",
+      "normalized_feet": [
+        0.215,
+        0.86
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.38,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B20_大风车/B20_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B20_大风车/B20_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B20_大风车/B20_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B20_大风车/B20_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B20_大风车/B20_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B20_大风车/B20_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-9; template B; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

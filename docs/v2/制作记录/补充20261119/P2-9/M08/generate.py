@@ -1,0 +1,44 @@
+from pathlib import Path
+import json,subprocess,sys,hashlib,time
+from concurrent.futures import ThreadPoolExecutor,as_completed
+V=Path('F:/qiguobing/git/Hexa Puzzle/Project/docs/v2'); R=V/'制作记录/补充20261119/P2-9'; LAUNCH='D:/CodexData/Temp/P2-9/run_cli.py'
+S03=V/'效果图/S03_建造页_BlockHexa风格.png'; OLD=V/'素材/建筑/B01_蜂巢主屋/B01_L5.png'
+DATA=[('M08','水上花市','B','turquoise water, warm golden wooden boardwalks and tropical foliage; broad lagoon, coconut palms and waterlilies around edges, five open raised wooden platforms joined by slender boardwalks',[(36,'高脚蜂屋','a charming southeast Asian stilt bee house, raised timber dwelling with warm gold layered leaf roof, teal shutters and honeycomb balcony'),(37,'椰糖工坊','coconut sugar workshop, sturdy timber open workshop with clay boiling vats and coconut palm frond roof, honey droplet trim'),(38,'水上货仓','floating timber cargo warehouse on short sturdy stilts, honey jars, woven baskets and honeycomb lattice vents'),(39,'长尾船码头','freestanding compact long-tail boat dock, one moored golden timber boat with long-tail motor, small roofed landing shelter, honeycomb prow; no attached water plane'),(40,'莲花观景台','secular lotus-shaped viewing pavilion, gold lotus petal canopy above teal columns and honeycomb railings; no religious shrine')]),('M09','沙漠驿站','A','golden sand, warm peach sandstone and a vivid turquoise oasis; rounded dunes, date palms around edges, gentle winding camel trail, five broad clean flat sandstone building pads',[(41,'圆顶土屋','round adobe bee dwelling with friendly squat terracotta dome, teal shutters, hexagonal golden honey window; no crescents, minarets or mosque features'),(42,'枣蜜作坊','date honey workshop of warm adobe and timber, date press and round amber honey vats, teal canopy and hexagonal honey windows'),(43,'香料仓','sandstone spice warehouse with rounded terracotta roof, neatly stacked spice jars and sacks, gold honeycomb vents'),(44,'骆驼驿站','camel caravan rest station, timber shade canopy, compact adobe stable and gentle stylized camel-shaped ornamental hitching post, honeycomb saddle motif; no real humans'),(45,'风塔','secular desert windcatcher tower, chunky adobe tower with four cooling vents, turquoise bands and gold hexagonal honey finial; no religious symbols')]),('M10','香料宫苑','A','warm orange-red garden paths, rich peacock-blue geometric water channels, saffron flowers and elegant trimmed gardens; five flat peach paving pads, ornamental garden vegetation around perimeter',[(46,'宫苑蜂舍','a friendly palace-garden bee residence, rounded saffron-orange terracotta walls, peacock-blue scalloped roof, gold hexagonal honeycomb doorway and bee-wing crown; secular palace, no religion'),(47,'香料磨坊','spice mill workshop, rounded orange sandstone building with peacock-blue roof, small wooden milling wheel and spice grinder, golden honeycomb vents'),(48,'丝绸库','silk storage warehouse, compact warm orange pavilion with teal-blue roof and rolled bright silk bolts, honeycomb screen windows'),(49,'花车驿站','flower-carriage station, small roofed garden carriage port with a flower cart, golden honeycomb wheels and teal canopy; no horses or people'),(50,'镜湖凉亭','secular mirror-lake garden pavilion, airy peacock-blue petal canopy on warm orange columns, small hexagonal stone dais and honey-gold railing, no water plane')])]
+STYLE='Match the original reference mobile bee village game: polished clean premium 2.5D, lightly elevated front-right view, rounded chunky solid architecture, soft broad bevels, crisp readable silhouettes, upper-left daylight, cream highlights and golden honey accents. Not photorealistic, not painterly, not flat vector. No text, lettering, numerals, logos, national flags, religious worship symbols or real people.'
+J=[]
+for mid,name,template,terrain,bs in DATA:
+ d=R/mid
+ for q in [d/'prompts',d/'raw']:q.mkdir(parents=True,exist_ok=True)
+ # desired feet translated to full extension coordinates
+ coords=[(.50,.39),(.245,.535),(.76,.535),(.25,.755),(.775,.74)] if template=='A' else [(.5,.39),(.76,.54),(.23,.765),(.76,.75),(.245,.86)]
+ slots=', '.join(f'({(133+854*x)/1120:.3f},{(99+1842*y)/2040:.3f})' for x,y in coords)
+ prompt=f'''Use case: stylized-concept game environment. {STYLE}
+Reference is STYLE AND CAMERA only. Create a NEW bare portrait landscape for {name}: {terrain}. The full canvas is the extended background. No buildings, houses, roofs, bridges as buildings, characters, UI, price tags or construction props. Five future building FEET anchors in normalized full canvas coordinates are {slots}. Leave a broad spacious flat slightly brighter empty building site at each anchor; platforms on water should be generous enough for a future building, with no railings obstructing the site. The building extends upward from its feet. Terrain and paths align with these five sites. Upper 20 percent is calm sky/distant scene, no key content; bottom 12 percent simple terrain. Main sites must remain clear, no trees growing through them. Full bleed natural scene, no margins, no page frames, no diagram labels. Distinct thematic landscape; this is not a recolor of the reference.'''
+ jobs=[dict(id=mid,kind='background',name=name,size='1120x2048',prompt=prompt,refs=[str(V/'地图/M01_晨露蜂园_背景.png')],out=str(d/'raw/background.png'))]
+ for num,bname,desc in bs:
+  bid=f'B{num}'
+  prompt=f'''Use case: stylized-concept upgrade sprite sheet. {STYLE}
+Reference 1 is only visual game STYLE. Reference 2 is an example standalone building material and camera, NOT the requested design. Create {bname}: {desc}. Every stage must have visible honeybee identity, such as hexagonal windows, honeycomb bricks, honey jars, beeswax or bee-wing architecture.
+EXACTLY six separate complete objects in a regular THREE COLUMN by TWO ROW grid. Six equal cells. Top row levels 0,1,2, bottom row levels 3,4,5. No grid lines, numbers, labels or captions. No extra seventh object. All six objects whole, with generous empty margin per cell; do not touch cell boundaries. All use identical perspective and centered feet baseline. Uniform removable pure magenta #FF00FF fills entire background and openings. No checkerboard, no backdrop gradients, no cast shadow on background. Avoid magenta, fuchsia and saturated purple on the building itself. No attached large ground tile, grass or water; only small structural footing/plinth.
+Level0 is just a tiny low empty hexagonal foundation with honeycomb construction stakes; no usable walls or roof. Level1 is a simple small usable starter version about 60 percent final height. Level2 adds a distinct functional volume. Level3 is about 80 percent final height, full recognizable functional building. Level4 adds taller architecture, wings and enriched roof. Level5 is the largest most ornate complete version, rich honeycomb finial, warm lamps, additional functional details and decorative bee-wing ornaments. Genuine architectural progression, NOT six resized duplicates or color variants. Keep core identity from levels1 to5, stable viewpoint and footing position. Left upper sunlight. Largest level5 must fit with wide margin inside its grid cell.'''
+  jobs.append(dict(id=bid,kind='building',name=bname,map=mid,size='3072x2048',prompt=prompt,refs=[str(S03),str(OLD)],out=str(d/f'raw/{bid}_key.png')))
+ for j in jobs:(d/f'prompts/{j["id"]}.txt').write_text(j['prompt'],encoding='utf-8')
+ (d/'jobs.json').write_text(json.dumps([{**j,'referenceSha256':{x:hashlib.sha256(Path(x).read_bytes()).hexdigest() for x in j['refs']}} for j in jobs],ensure_ascii=False,indent=2),encoding='utf-8')
+ J+=jobs
+
+def run(j):
+ out=Path(j['out'])
+ if out.exists():return j['id'],'existing'
+ args=[sys.executable,LAUNCH,'edit']
+ for ref in j['refs']:args+=['--image',ref]
+ args+=['--prompt-file',str(out.parent.parent/f'prompts/{j["id"]}.txt'),'--model','gpt-image-2','--size',j['size'],'--quality','high','--no-augment','--out',str(out)]
+ start=time.time();r=subprocess.run(args,capture_output=True,text=True,encoding='utf-8',errors='replace')
+ Path(f'D:/CodexData/Temp/P2-9/{j["id"]}-gen.log').write_text(r.stdout+'\n'+r.stderr,encoding='utf-8')
+ return j['id'],('ok' if r.returncode==0 else 'FAILED'),round(time.time()-start)
+if __name__=='__main__':
+ if '--setup-only' in sys.argv:sys.exit()
+ first=run(J[0]);print(first,flush=True)
+ if first[1]=='FAILED':sys.exit(1)
+ with ThreadPoolExecutor(max_workers=2) as pool:
+  for f in as_completed([pool.submit(run,j)for j in J[1:]]):print(f.result(),flush=True)
+

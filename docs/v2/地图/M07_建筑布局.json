@@ -1,0 +1,238 @@
+{
+  "map": "M07",
+  "name": "樱花古町",
+  "background": "地图/M07_樱花古町_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B31",
+      "name": "町屋蜂舍",
+      "normalized_feet": [
+        0.47,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B31_町屋蜂舍/B31_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B31_町屋蜂舍/B31_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B31_町屋蜂舍/B31_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B31_町屋蜂舍/B31_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B31_町屋蜂舍/B31_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B31_町屋蜂舍/B31_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B32",
+      "name": "蜜饼工坊",
+      "normalized_feet": [
+        0.73,
+        0.54
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B32_蜜饼工坊/B32_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B32_蜜饼工坊/B32_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B32_蜜饼工坊/B32_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B32_蜜饼工坊/B32_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B32_蜜饼工坊/B32_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B32_蜜饼工坊/B32_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B33",
+      "name": "米仓",
+      "normalized_feet": [
+        0.2,
+        0.705
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": true,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B33_米仓/B33_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B33_米仓/B33_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B33_米仓/B33_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B33_米仓/B33_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B33_米仓/B33_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B33_米仓/B33_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B34",
+      "name": "红木拱桥",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B34_红木拱桥/B34_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B34_红木拱桥/B34_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B34_红木拱桥/B34_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B34_红木拱桥/B34_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B34_红木拱桥/B34_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B34_红木拱桥/B34_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B35",
+      "name": "樱花天守阁",
+      "normalized_feet": [
+        0.245,
+        0.86
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B35_樱花天守阁/B35_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B35_樱花天守阁/B35_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B35_樱花天守阁/B35_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B35_樱花天守阁/B35_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B35_樱花天守阁/B35_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B35_樱花天守阁/B35_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-9; template B; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

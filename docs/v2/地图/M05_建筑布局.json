@@ -1,0 +1,238 @@
+{
+  "map": "M05",
+  "name": "蜂蜜港湾",
+  "background": "地图/M05_蜂蜜港湾_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B21",
+      "name": "灯塔蜂屋",
+      "normalized_feet": [
+        0.5,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B21_灯塔蜂屋/B21_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B21_灯塔蜂屋/B21_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B21_灯塔蜂屋/B21_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B21_灯塔蜂屋/B21_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B21_灯塔蜂屋/B21_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B21_灯塔蜂屋/B21_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B22",
+      "name": "装瓶工坊",
+      "normalized_feet": [
+        0.215,
+        0.505
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B22_装瓶工坊/B22_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B22_装瓶工坊/B22_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B22_装瓶工坊/B22_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B22_装瓶工坊/B22_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B22_装瓶工坊/B22_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B22_装瓶工坊/B22_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B23",
+      "name": "码头货仓",
+      "normalized_feet": [
+        0.73,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B23_码头货仓/B23_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B23_码头货仓/B23_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B23_码头货仓/B23_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B23_码头货仓/B23_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B23_码头货仓/B23_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B23_码头货仓/B23_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B24",
+      "name": "起重吊臂",
+      "normalized_feet": [
+        0.25,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.56,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B24_起重吊臂/B24_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B24_起重吊臂/B24_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B24_起重吊臂/B24_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B24_起重吊臂/B24_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B24_起重吊臂/B24_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B24_起重吊臂/B24_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B25",
+      "name": "远航蜂船",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B25_远航蜂船/B25_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B25_远航蜂船/B25_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B25_远航蜂船/B25_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B25_远航蜂船/B25_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B25_远航蜂船/B25_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B25_远航蜂船/B25_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-9; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

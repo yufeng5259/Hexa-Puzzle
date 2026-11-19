@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-19",
+  "scope": "原稿视觉复核，不代替正式576切图、落位组合、三底透明边或引擎验收",
+  "map": "M07",
+  "no_text_digits_flags_religious_objects_real_people": true,
+  "camera_light_style_matches_reference": true,
+  "six_distinct_architectural_states_each": true,
+  "reference_note": "S03/B01仅作为画风参考；不修改或交付旧图副本",
+  "items": [
+    {
+      "id": "M07",
+      "selected": "raw/background.png",
+      "sha256": "ee1f4d9cbcb301f676fe65e920ccbbbd6b8a5645ac3b3f7951e1d70d9c203faa",
+      "size": [
+        889,
+        1770
+      ],
+      "verdict": "通过原稿语义与构图核查；透明边/脚底/正式尺寸由后续切图包装验收",
+      "notes": "粉白樱花/石板路背景，B34槽新增连通窄溪。按当前布局和实际L5叠图复核，拱桥跨水，其余四地块清楚；仅为包装前组合检查。"
+    },
+    {
+      "id": "B31",
+      "selected": "raw/B31_key.png",
+      "sha256": "b0d953f4063ecb6efc56c45307425efe08fa37595f077f44e13e6718a5d02ae1",
+      "size": [
+        1536,
+        1024
+      ],
+      "verdict": "通过原稿语义与构图核查；透明边/脚底/正式尺寸由后续切图包装验收",
+      "notes": "町屋蜂舍，黛瓦木构蜂窗樱花"
+    },
+    {
+      "id": "B32",
+      "selected": "raw/B32_key.png",
+      "sha256": "1bc8598a0b5c9692bf5c707eb16f1a85d290344b4f19f182d4c6c24e26812531",
+      "size": [
+        1536,
+        1024
+      ],
+      "verdict": "通过原稿语义与构图核查；透明边/脚底/正式尺寸由后续切图包装验收",
+      "notes": "蜜饼工坊，烤炉与饼盘，蜂巢饰"
+    },
+    {
+      "id": "B33",
+      "selected": "raw/B33_key.png",
+      "sha256": "d9bc00453ae16d236cc9228af0e6f40ecad053de0e9c98b825d0471871d217fe",
+      "size": [
+        1536,
+        1024
+      ],
+      "verdict": "通过原稿语义与构图核查；透明边/脚底/正式尺寸由后续切图包装验收",
+      "notes": "米仓，米袋与挑高木仓，蜂巢窗"
+    },
+    {
+      "id": "B34",
+      "selected": "raw/B34_key.png",
+      "sha256": "230c2f311f01acf5ce4307316fb4f500f0736f78394e8c5f6856328483427fef",
+      "size": [
+        1536,
+        1024
+      ],
+      "verdict": "通过原稿语义与构图核查；透明边/脚底/正式尺寸由后续切图包装验收",
+      "notes": "红木拱桥，六角栏杆、拱形桥体，后期加顶饰"
+    },
+    {
+      "id": "B35",
+      "selected": "raw/B35_key.png",
+      "sha256": "a0dac203ea1a0d23b81a508af779522bc7bb38e4ab86e280afbf2b36b95f2896",
+      "size": [
+        1536,
+        1024
+      ],
+      "verdict": "通过原稿语义与构图核查；透明边/脚底/正式尺寸由后续切图包装验收",
+      "notes": "樱花城楼，已去除误生成水车，侧阳台/六角窗，非神社"
+    }
+  ],
+  "bridge_correction": {
+    "reference": "raw/M07_bridge_background_reference.png",
+    "candidate_selected": "raw/background.png",
+    "result": "bridge now spans connected stream, other four sites retained",
+    "review": "raw/background_bridge_composite_review.png"
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "map": "M09",
+  "name": "沙漠驿站",
+  "background": "地图/M09_沙漠驿站_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B41",
+      "name": "圆顶土屋",
+      "normalized_feet": [
+        0.485,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B41_圆顶土屋/B41_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B41_圆顶土屋/B41_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B41_圆顶土屋/B41_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B41_圆顶土屋/B41_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B41_圆顶土屋/B41_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B41_圆顶土屋/B41_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B42",
+      "name": "枣蜜作坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B42_枣蜜作坊/B42_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B42_枣蜜作坊/B42_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B42_枣蜜作坊/B42_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B42_枣蜜作坊/B42_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B42_枣蜜作坊/B42_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B42_枣蜜作坊/B42_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B43",
+      "name": "香料仓",
+      "normalized_feet": [
+        0.79,
+        0.51
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B43_香料仓/B43_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B43_香料仓/B43_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B43_香料仓/B43_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B43_香料仓/B43_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B43_香料仓/B43_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B43_香料仓/B43_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B44",
+      "name": "骆驼驿站",
+      "normalized_feet": [
+        0.25,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.56,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B44_骆驼驿站/B44_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B44_骆驼驿站/B44_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B44_骆驼驿站/B44_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B44_骆驼驿站/B44_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B44_骆驼驿站/B44_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B44_骆驼驿站/B44_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B45",
+      "name": "风塔",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B45_风塔/B45_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B45_风塔/B45_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B45_风塔/B45_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B45_风塔/B45_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B45_风塔/B45_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B45_风塔/B45_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-9; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00210693; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

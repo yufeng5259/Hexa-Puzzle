@@ -1,0 +1,149 @@
+[
+  {
+    "map": "M05",
+    "id": "background",
+    "prompt": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\prompts\\background.txt",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\raw\\background.png",
+    "size": "1120x2048",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\地图\\M01_晨露蜂园_背景.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png"
+    ],
+    "model": "gpt-image-2",
+    "quality": "high",
+    "source_reference_sha256": {
+      "地图\\M01_晨露蜂园_背景.png": "5c89a5646ca9e337a8e0f71682cef6f9417e80b73aa02b34bef3455fa103e869",
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b"
+    },
+    "output_sha256": "8bf094e0d5f58c98c895331dda029056423b63a8f9bdf8e8333891560a380bd3",
+    "actual_size": [
+      929,
+      1693
+    ],
+    "actual_mode": "RGB",
+    "initial_output": "rejected/background-initial.png",
+    "selected_revision": "prompts/background-water.txt",
+    "revision_output": "raw/background-water.png",
+    "revision_method": "Image API edit with original configured provider; targeted terrain correction, then original-byte copy to fixed selected output"
+  },
+  {
+    "map": "M05",
+    "id": "B21",
+    "name": "灯塔蜂屋",
+    "prompt": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\prompts\\B21.txt",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\raw\\B21_key.png",
+    "size": "3072x2048",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png"
+    ],
+    "model": "gpt-image-2",
+    "quality": "high",
+    "source_reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png": "d6893d226dd52f9bfa0691ebce2c74609856a85d7f9519e818cdd3a5fccecf4f"
+    },
+    "output_sha256": "f049a59c5c7c6a1a1994bdef0241347226a502560e8e12f36bb2af88760a84c1",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA"
+  },
+  {
+    "map": "M05",
+    "id": "B22",
+    "name": "装瓶工坊",
+    "prompt": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\prompts\\B22.txt",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\raw\\B22_key.png",
+    "size": "3072x2048",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png"
+    ],
+    "model": "gpt-image-2",
+    "quality": "high",
+    "source_reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png": "d6893d226dd52f9bfa0691ebce2c74609856a85d7f9519e818cdd3a5fccecf4f"
+    },
+    "output_sha256": "129a1b82aadea3b1db992d8651d6493a21a011d56ad3fde4169fdc084ebe3153",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA"
+  },
+  {
+    "map": "M05",
+    "id": "B23",
+    "name": "码头货仓",
+    "prompt": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\prompts\\B23.txt",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\raw\\B23_key.png",
+    "size": "3072x2048",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png"
+    ],
+    "model": "gpt-image-2",
+    "quality": "high",
+    "source_reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png": "d6893d226dd52f9bfa0691ebce2c74609856a85d7f9519e818cdd3a5fccecf4f"
+    },
+    "output_sha256": "c301707102dd40a2bf9421557de879bef7f5a2d9bd3cd60984067c2b68b6e290",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA"
+  },
+  {
+    "map": "M05",
+    "id": "B24",
+    "name": "起重吊臂",
+    "prompt": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\prompts\\B24.txt",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\raw\\B24_key.png",
+    "size": "3072x2048",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png"
+    ],
+    "model": "gpt-image-2",
+    "quality": "high",
+    "source_reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png": "d6893d226dd52f9bfa0691ebce2c74609856a85d7f9519e818cdd3a5fccecf4f"
+    },
+    "output_sha256": "7844538a938c819707cb12d4e95657f843a1cec15114a7ef382637da86b9fc01",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA"
+  },
+  {
+    "map": "M05",
+    "id": "B25",
+    "name": "远航蜂船",
+    "prompt": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\prompts\\B25.txt",
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M05\\raw\\B25_key.png",
+    "size": "3072x2048",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png"
+    ],
+    "model": "gpt-image-2",
+    "quality": "high",
+    "source_reference_sha256": {
+      "效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "制作记录\\扩展美术20261112\\地图建筑\\raw\\B01_蜂巢主屋_key.png": "d6893d226dd52f9bfa0691ebce2c74609856a85d7f9519e818cdd3a5fccecf4f"
+    },
+    "output_sha256": "ea58e1553a6cd59678cfc6e3dd3dc355399ec343937fb8064f47d75f93f8edcd",
+    "actual_size": [
+      1536,
+      1024
+    ],
+    "actual_mode": "RGBA"
+  }
+]

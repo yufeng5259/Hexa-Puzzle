@@ -1,0 +1,27 @@
+{
+  "map": "M05",
+  "batch": "P2-9",
+  "review_scope": "AI原稿视觉核查；最终切图、落位、组合及透明边缘量测由集成人另行完成",
+  "selected_background": "raw/background.png",
+  "selected_background_sha256": "8bf094e0d5f58c98c895331dda029056423b63a8f9bdf8e8333891560a380bd3",
+  "rejected_background": "rejected/background-initial.png",
+  "buildings": [
+    "B21",
+    "B22",
+    "B23",
+    "B24",
+    "B25"
+  ],
+  "observations": [
+    "六态依3列2行排列，L0无完整房屋，L1到L5建筑功能与装饰增长，每栋均有蜂巢/蜂翼/蜜滴图形。",
+    "逐件检查未发现文字、数字、真实人物、国旗及宗教礼拜标志。",
+    "输出建筑为原生RGBA而非提示词预期的品红RGB，必须保留原alpha并对半透明边做最终三底复核。",
+    "API返回尺寸与请求不同，保留原始字节并登记实回尺寸，不把请求尺寸当实际尺寸。"
+  ],
+  "terrain_correction": "港湾改为奶白岸地和大面积碧水，去掉圆形地块标记；左下吊臂码头与右下空船位需最终组合核对",
+  "unverified": [
+    "最终运行文件33件/图尺寸和清单SHA",
+    "脚底锚点≤4px及按模板落位约束",
+    "最终组合HUD/建筑重叠遮挡检查"
+  ]
+}

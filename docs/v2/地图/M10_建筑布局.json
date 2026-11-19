@@ -1,0 +1,238 @@
+{
+  "map": "M10",
+  "name": "香料宫苑",
+  "background": "地图/M10_香料宫苑_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B46",
+      "name": "宫苑蜂舍",
+      "normalized_feet": [
+        0.5,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B46_宫苑蜂舍/B46_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B46_宫苑蜂舍/B46_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B46_宫苑蜂舍/B46_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B46_宫苑蜂舍/B46_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B46_宫苑蜂舍/B46_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B46_宫苑蜂舍/B46_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B47",
+      "name": "香料磨坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B47_香料磨坊/B47_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B47_香料磨坊/B47_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B47_香料磨坊/B47_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B47_香料磨坊/B47_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B47_香料磨坊/B47_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B47_香料磨坊/B47_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B48",
+      "name": "丝绸库",
+      "normalized_feet": [
+        0.76,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B48_丝绸库/B48_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B48_丝绸库/B48_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B48_丝绸库/B48_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B48_丝绸库/B48_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B48_丝绸库/B48_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B48_丝绸库/B48_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B49",
+      "name": "花车驿站",
+      "normalized_feet": [
+        0.22,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.51,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B49_花车驿站/B49_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B49_花车驿站/B49_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B49_花车驿站/B49_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B49_花车驿站/B49_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B49_花车驿站/B49_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B49_花车驿站/B49_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B50",
+      "name": "镜湖凉亭",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B50_镜湖凉亭/B50_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B50_镜湖凉亭/B50_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B50_镜湖凉亭/B50_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B50_镜湖凉亭/B50_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B50_镜湖凉亭/B50_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B50_镜湖凉亭/B50_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-9; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

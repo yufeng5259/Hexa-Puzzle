@@ -1,0 +1,125 @@
+[
+  {
+    "id": "M10",
+    "kind": "background",
+    "name": "香料宫苑",
+    "size": "1120x2048",
+    "prompt": "Use case: stylized-concept game environment. Match the original reference mobile bee village game: polished clean premium 2.5D, lightly elevated front-right view, rounded chunky solid architecture, soft broad bevels, crisp readable silhouettes, upper-left daylight, cream highlights and golden honey accents. Not photorealistic, not painterly, not flat vector. No text, lettering, numerals, logos, national flags, religious worship symbols or real people.\nReference is STYLE AND CAMERA only. Create a NEW bare portrait landscape for 香料宫苑: warm orange-red garden paths, rich peacock-blue geometric water channels, saffron flowers and elegant trimmed gardens; five flat peach paving pads, ornamental garden vegetation around perimeter. The full canvas is the extended background. No buildings, houses, roofs, bridges as buildings, characters, UI, price tags or construction props. Five future building FEET anchors in normalized full canvas coordinates are (0.500,0.401), (0.306,0.532), (0.698,0.532), (0.309,0.730), (0.710,0.717). Leave a broad spacious flat slightly brighter empty building site at each anchor; platforms on water should be generous enough for a future building, with no railings obstructing the site. The building extends upward from its feet. Terrain and paths align with these five sites. Upper 20 percent is calm sky/distant scene, no key content; bottom 12 percent simple terrain. Main sites must remain clear, no trees growing through them. Full bleed natural scene, no margins, no page frames, no diagram labels. Distinct thematic landscape; this is not a recolor of the reference.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\地图\\M01_晨露蜂园_背景.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M10\\raw\\background.png",
+    "referenceSha256": {
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\地图\\M01_晨露蜂园_背景.png": "5c89a5646ca9e337a8e0f71682cef6f9417e80b73aa02b34bef3455fa103e869"
+    },
+    "revision": {
+      "promptFile": "prompts/M10_ground_revision.txt",
+      "reference": "rejected/background_green_draft.png",
+      "referenceSha256": "465f4fcd04f04275ea19e69f659218e3173a6808da362042407e602cb9855643",
+      "reason": "原稿绿草地占比过高；改成橘红宫苑铺地和孔雀蓝水渠，保留5地块与机位",
+      "model": "gpt-image-2",
+      "quality": "high",
+      "requestedSize": "1120x2048"
+    }
+  },
+  {
+    "id": "B46",
+    "kind": "building",
+    "name": "宫苑蜂舍",
+    "map": "M10",
+    "size": "3072x2048",
+    "prompt": "Use case: stylized-concept upgrade sprite sheet. Match the original reference mobile bee village game: polished clean premium 2.5D, lightly elevated front-right view, rounded chunky solid architecture, soft broad bevels, crisp readable silhouettes, upper-left daylight, cream highlights and golden honey accents. Not photorealistic, not painterly, not flat vector. No text, lettering, numerals, logos, national flags, religious worship symbols or real people.\nReference 1 is only visual game STYLE. Reference 2 is an example standalone building material and camera, NOT the requested design. Create 宫苑蜂舍: a friendly palace-garden bee residence, rounded saffron-orange terracotta walls, peacock-blue scalloped roof, gold hexagonal honeycomb doorway and bee-wing crown; secular palace, no religion. Every stage must have visible honeybee identity, such as hexagonal windows, honeycomb bricks, honey jars, beeswax or bee-wing architecture.\nEXACTLY six separate complete objects in a regular THREE COLUMN by TWO ROW grid. Six equal cells. Top row levels 0,1,2, bottom row levels 3,4,5. No grid lines, numbers, labels or captions. No extra seventh object. All six objects whole, with generous empty margin per cell; do not touch cell boundaries. All use identical perspective and centered feet baseline. Uniform removable pure magenta #FF00FF fills entire background and openings. No checkerboard, no backdrop gradients, no cast shadow on background. Avoid magenta, fuchsia and saturated purple on the building itself. No attached large ground tile, grass or water; only small structural footing/plinth.\nLevel0 is just a tiny low empty hexagonal foundation with honeycomb construction stakes; no usable walls or roof. Level1 is a simple small usable starter version about 60 percent final height. Level2 adds a distinct functional volume. Level3 is about 80 percent final height, full recognizable functional building. Level4 adds taller architecture, wings and enriched roof. Level5 is the largest most ornate complete version, rich honeycomb finial, warm lamps, additional functional details and decorative bee-wing ornaments. Genuine architectural progression, NOT six resized duplicates or color variants. Keep core identity from levels1 to5, stable viewpoint and footing position. Left upper sunlight. Largest level5 must fit with wide margin inside its grid cell.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M10\\raw\\B46_key.png",
+    "referenceSha256": {
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    }
+  },
+  {
+    "id": "B47",
+    "kind": "building",
+    "name": "香料磨坊",
+    "map": "M10",
+    "size": "3072x2048",
+    "prompt": "Use case: stylized-concept upgrade sprite sheet. Match the original reference mobile bee village game: polished clean premium 2.5D, lightly elevated front-right view, rounded chunky solid architecture, soft broad bevels, crisp readable silhouettes, upper-left daylight, cream highlights and golden honey accents. Not photorealistic, not painterly, not flat vector. No text, lettering, numerals, logos, national flags, religious worship symbols or real people.\nReference 1 is only visual game STYLE. Reference 2 is an example standalone building material and camera, NOT the requested design. Create 香料磨坊: spice mill workshop, rounded orange sandstone building with peacock-blue roof, small wooden milling wheel and spice grinder, golden honeycomb vents. Every stage must have visible honeybee identity, such as hexagonal windows, honeycomb bricks, honey jars, beeswax or bee-wing architecture.\nEXACTLY six separate complete objects in a regular THREE COLUMN by TWO ROW grid. Six equal cells. Top row levels 0,1,2, bottom row levels 3,4,5. No grid lines, numbers, labels or captions. No extra seventh object. All six objects whole, with generous empty margin per cell; do not touch cell boundaries. All use identical perspective and centered feet baseline. Uniform removable pure magenta #FF00FF fills entire background and openings. No checkerboard, no backdrop gradients, no cast shadow on background. Avoid magenta, fuchsia and saturated purple on the building itself. No attached large ground tile, grass or water; only small structural footing/plinth.\nLevel0 is just a tiny low empty hexagonal foundation with honeycomb construction stakes; no usable walls or roof. Level1 is a simple small usable starter version about 60 percent final height. Level2 adds a distinct functional volume. Level3 is about 80 percent final height, full recognizable functional building. Level4 adds taller architecture, wings and enriched roof. Level5 is the largest most ornate complete version, rich honeycomb finial, warm lamps, additional functional details and decorative bee-wing ornaments. Genuine architectural progression, NOT six resized duplicates or color variants. Keep core identity from levels1 to5, stable viewpoint and footing position. Left upper sunlight. Largest level5 must fit with wide margin inside its grid cell.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M10\\raw\\B47_key.png",
+    "referenceSha256": {
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    }
+  },
+  {
+    "id": "B48",
+    "kind": "building",
+    "name": "丝绸库",
+    "map": "M10",
+    "size": "3072x2048",
+    "prompt": "Use case: stylized-concept upgrade sprite sheet. Match the original reference mobile bee village game: polished clean premium 2.5D, lightly elevated front-right view, rounded chunky solid architecture, soft broad bevels, crisp readable silhouettes, upper-left daylight, cream highlights and golden honey accents. Not photorealistic, not painterly, not flat vector. No text, lettering, numerals, logos, national flags, religious worship symbols or real people.\nReference 1 is only visual game STYLE. Reference 2 is an example standalone building material and camera, NOT the requested design. Create 丝绸库: silk storage warehouse, compact warm orange pavilion with teal-blue roof and rolled bright silk bolts, honeycomb screen windows. Every stage must have visible honeybee identity, such as hexagonal windows, honeycomb bricks, honey jars, beeswax or bee-wing architecture.\nEXACTLY six separate complete objects in a regular THREE COLUMN by TWO ROW grid. Six equal cells. Top row levels 0,1,2, bottom row levels 3,4,5. No grid lines, numbers, labels or captions. No extra seventh object. All six objects whole, with generous empty margin per cell; do not touch cell boundaries. All use identical perspective and centered feet baseline. Uniform removable pure magenta #FF00FF fills entire background and openings. No checkerboard, no backdrop gradients, no cast shadow on background. Avoid magenta, fuchsia and saturated purple on the building itself. No attached large ground tile, grass or water; only small structural footing/plinth.\nLevel0 is just a tiny low empty hexagonal foundation with honeycomb construction stakes; no usable walls or roof. Level1 is a simple small usable starter version about 60 percent final height. Level2 adds a distinct functional volume. Level3 is about 80 percent final height, full recognizable functional building. Level4 adds taller architecture, wings and enriched roof. Level5 is the largest most ornate complete version, rich honeycomb finial, warm lamps, additional functional details and decorative bee-wing ornaments. Genuine architectural progression, NOT six resized duplicates or color variants. Keep core identity from levels1 to5, stable viewpoint and footing position. Left upper sunlight. Largest level5 must fit with wide margin inside its grid cell.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M10\\raw\\B48_key.png",
+    "referenceSha256": {
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    }
+  },
+  {
+    "id": "B49",
+    "kind": "building",
+    "name": "花车驿站",
+    "map": "M10",
+    "size": "3072x2048",
+    "prompt": "Use case: stylized-concept upgrade sprite sheet. Match the original reference mobile bee village game: polished clean premium 2.5D, lightly elevated front-right view, rounded chunky solid architecture, soft broad bevels, crisp readable silhouettes, upper-left daylight, cream highlights and golden honey accents. Not photorealistic, not painterly, not flat vector. No text, lettering, numerals, logos, national flags, religious worship symbols or real people.\nReference 1 is only visual game STYLE. Reference 2 is an example standalone building material and camera, NOT the requested design. Create 花车驿站: flower-carriage station, small roofed garden carriage port with a flower cart, golden honeycomb wheels and teal canopy; no horses or people. Every stage must have visible honeybee identity, such as hexagonal windows, honeycomb bricks, honey jars, beeswax or bee-wing architecture.\nEXACTLY six separate complete objects in a regular THREE COLUMN by TWO ROW grid. Six equal cells. Top row levels 0,1,2, bottom row levels 3,4,5. No grid lines, numbers, labels or captions. No extra seventh object. All six objects whole, with generous empty margin per cell; do not touch cell boundaries. All use identical perspective and centered feet baseline. Uniform removable pure magenta #FF00FF fills entire background and openings. No checkerboard, no backdrop gradients, no cast shadow on background. Avoid magenta, fuchsia and saturated purple on the building itself. No attached large ground tile, grass or water; only small structural footing/plinth.\nLevel0 is just a tiny low empty hexagonal foundation with honeycomb construction stakes; no usable walls or roof. Level1 is a simple small usable starter version about 60 percent final height. Level2 adds a distinct functional volume. Level3 is about 80 percent final height, full recognizable functional building. Level4 adds taller architecture, wings and enriched roof. Level5 is the largest most ornate complete version, rich honeycomb finial, warm lamps, additional functional details and decorative bee-wing ornaments. Genuine architectural progression, NOT six resized duplicates or color variants. Keep core identity from levels1 to5, stable viewpoint and footing position. Left upper sunlight. Largest level5 must fit with wide margin inside its grid cell.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M10\\raw\\B49_key.png",
+    "referenceSha256": {
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    },
+    "revision": {
+      "promptFile": "prompts/B49_cart_revision.txt",
+      "reference": "B49_edit_input_magenta.png",
+      "referenceSha256": "c87d2862f89e672a28c2affa670ee256279795055b2fc85e3b40cc3deb4fae0d",
+      "rejectedOriginal": "rejected/B49_without_cart_wheels_late_levels.png",
+      "rejectedSha256": "29b546a7ca98ab90f3424f40ae3eeb838c19d13bbf80e30bf6f859dcea19c8bb",
+      "reason": "L3–L5交通槽身份缺失，门前花箱改清晰双轮花车与车辕",
+      "model": "gpt-image-2",
+      "quality": "high",
+      "actualSize": [
+        1536,
+        1024
+      ],
+      "alpha": "RGB magenta chroma key; requires key extraction"
+    }
+  },
+  {
+    "id": "B50",
+    "kind": "building",
+    "name": "镜湖凉亭",
+    "map": "M10",
+    "size": "3072x2048",
+    "prompt": "Use case: stylized-concept upgrade sprite sheet. Match the original reference mobile bee village game: polished clean premium 2.5D, lightly elevated front-right view, rounded chunky solid architecture, soft broad bevels, crisp readable silhouettes, upper-left daylight, cream highlights and golden honey accents. Not photorealistic, not painterly, not flat vector. No text, lettering, numerals, logos, national flags, religious worship symbols or real people.\nReference 1 is only visual game STYLE. Reference 2 is an example standalone building material and camera, NOT the requested design. Create 镜湖凉亭: secular mirror-lake garden pavilion, airy peacock-blue petal canopy on warm orange columns, small hexagonal stone dais and honey-gold railing, no water plane. Every stage must have visible honeybee identity, such as hexagonal windows, honeycomb bricks, honey jars, beeswax or bee-wing architecture.\nEXACTLY six separate complete objects in a regular THREE COLUMN by TWO ROW grid. Six equal cells. Top row levels 0,1,2, bottom row levels 3,4,5. No grid lines, numbers, labels or captions. No extra seventh object. All six objects whole, with generous empty margin per cell; do not touch cell boundaries. All use identical perspective and centered feet baseline. Uniform removable pure magenta #FF00FF fills entire background and openings. No checkerboard, no backdrop gradients, no cast shadow on background. Avoid magenta, fuchsia and saturated purple on the building itself. No attached large ground tile, grass or water; only small structural footing/plinth.\nLevel0 is just a tiny low empty hexagonal foundation with honeycomb construction stakes; no usable walls or roof. Level1 is a simple small usable starter version about 60 percent final height. Level2 adds a distinct functional volume. Level3 is about 80 percent final height, full recognizable functional building. Level4 adds taller architecture, wings and enriched roof. Level5 is the largest most ornate complete version, rich honeycomb finial, warm lamps, additional functional details and decorative bee-wing ornaments. Genuine architectural progression, NOT six resized duplicates or color variants. Keep core identity from levels1 to5, stable viewpoint and footing position. Left upper sunlight. Largest level5 must fit with wide margin inside its grid cell.",
+    "refs": [
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png"
+    ],
+    "out": "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\制作记录\\补充20261119\\P2-9\\M10\\raw\\B50_key.png",
+    "referenceSha256": {
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\效果图\\S03_建造页_BlockHexa风格.png": "75aa8417cb32fcf73f267c35a6a5e090596e385c38946e4ec9034450156d432b",
+      "F:\\qiguobing\\git\\Hexa Puzzle\\Project\\docs\\v2\\素材\\建筑\\B01_蜂巢主屋\\B01_L5.png": "9e635dee4ede09ab14d9035342cd52e4708e50f623e34a9e910aff33c28cda6d"
+    }
+  }
+]
