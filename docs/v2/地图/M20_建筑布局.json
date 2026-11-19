@@ -1,0 +1,238 @@
+{
+  "map": "M20",
+  "name": "珊瑚沉城",
+  "background": "地图/M20_珊瑚沉城_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B96",
+      "name": "珊瑚蜂宫",
+      "normalized_feet": [
+        0.515,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B97",
+      "name": "珍珠工坊",
+      "normalized_feet": [
+        0.215,
+        0.505
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B98",
+      "name": "贝壳仓",
+      "normalized_feet": [
+        0.73,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B98_贝壳仓/B98_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B98_贝壳仓/B98_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B98_贝壳仓/B98_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B98_贝壳仓/B98_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B98_贝壳仓/B98_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B98_贝壳仓/B98_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B99",
+      "name": "气泡电梯",
+      "normalized_feet": [
+        0.25,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.56,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B99_气泡电梯/B99_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B99_气泡电梯/B99_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B99_气泡电梯/B99_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B99_气泡电梯/B99_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B99_气泡电梯/B99_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B99_气泡电梯/B99_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B100",
+      "name": "海底柱廊",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B100_海底柱廊/B100_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B100_海底柱廊/B100_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B100_海底柱廊/B100_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B100_海底柱廊/B100_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B100_海底柱廊/B100_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B100_海底柱廊/B100_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-10; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00148846; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

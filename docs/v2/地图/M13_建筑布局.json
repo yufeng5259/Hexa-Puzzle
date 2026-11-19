@@ -1,0 +1,238 @@
+{
+  "map": "M13",
+  "name": "蓝顶海岛",
+  "background": "地图/M13_蓝顶海岛_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B61",
+      "name": "白墙蜂屋",
+      "normalized_feet": [
+        0.52,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B61_白墙蜂屋/B61_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B61_白墙蜂屋/B61_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B61_白墙蜂屋/B61_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B61_白墙蜂屋/B61_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B61_白墙蜂屋/B61_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B61_白墙蜂屋/B61_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B62",
+      "name": "橄榄榨坊",
+      "normalized_feet": [
+        0.215,
+        0.525
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B62_橄榄榨坊/B62_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B62_橄榄榨坊/B62_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B62_橄榄榨坊/B62_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B62_橄榄榨坊/B62_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B62_橄榄榨坊/B62_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B62_橄榄榨坊/B62_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B63",
+      "name": "海盐仓",
+      "normalized_feet": [
+        0.73,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B63_海盐仓/B63_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B63_海盐仓/B63_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B63_海盐仓/B63_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B63_海盐仓/B63_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B63_海盐仓/B63_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B63_海盐仓/B63_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B64",
+      "name": "小帆船港",
+      "normalized_feet": [
+        0.25,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.56,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B64_小帆船港/B64_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B64_小帆船港/B64_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B64_小帆船港/B64_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B64_小帆船港/B64_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B64_小帆船港/B64_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B64_小帆船港/B64_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B65",
+      "name": "蓝顶观景台",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B65_蓝顶观景台/B65_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B65_蓝顶观景台/B65_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B65_蓝顶观景台/B65_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B65_蓝顶观景台/B65_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B65_蓝顶观景台/B65_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B65_蓝顶观景台/B65_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-10; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00283286; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

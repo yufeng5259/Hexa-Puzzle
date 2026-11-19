@@ -1,0 +1,238 @@
+{
+  "map": "M11",
+  "name": "葡萄园古堡",
+  "background": "地图/M11_葡萄园古堡_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B51",
+      "name": "石砌蜂舍",
+      "normalized_feet": [
+        0.5,
+        0.385
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B51_石砌蜂舍/B51_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B51_石砌蜂舍/B51_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B51_石砌蜂舍/B51_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B51_石砌蜂舍/B51_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B51_石砌蜂舍/B51_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B51_石砌蜂舍/B51_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B52",
+      "name": "果酱坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B52_果酱坊/B52_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B52_果酱坊/B52_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B52_果酱坊/B52_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B52_果酱坊/B52_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B52_果酱坊/B52_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B52_果酱坊/B52_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B53",
+      "name": "地窖仓",
+      "normalized_feet": [
+        0.79,
+        0.52
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B53_地窖仓/B53_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B53_地窖仓/B53_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B53_地窖仓/B53_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B53_地窖仓/B53_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B53_地窖仓/B53_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B53_地窖仓/B53_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B54",
+      "name": "热气球站",
+      "normalized_feet": [
+        0.22,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.51,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B54_热气球站/B54_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B54_热气球站/B54_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B54_热气球站/B54_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B54_热气球站/B54_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B54_热气球站/B54_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B54_热气球站/B54_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B55",
+      "name": "古堡塔楼",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B55_古堡塔楼/B55_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B55_古堡塔楼/B55_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B55_古堡塔楼/B55_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B55_古堡塔楼/B55_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B55_古堡塔楼/B55_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B55_古堡塔楼/B55_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-10; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.01914399; full-resolution overlap/HUD weighted pixels=620; independent validation recorded separately. No runtime config mutation."
+}

@@ -1,0 +1,238 @@
+{
+  "map": "M16",
+  "name": "金字塔绿洲",
+  "background": "地图/M16_金字塔绿洲_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B76",
+      "name": "泥砖蜂屋",
+      "normalized_feet": [
+        0.53,
+        0.385
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B76_泥砖蜂屋/B76_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B76_泥砖蜂屋/B76_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B76_泥砖蜂屋/B76_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B76_泥砖蜂屋/B76_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B76_泥砖蜂屋/B76_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B76_泥砖蜂屋/B76_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B77",
+      "name": "莎草纸坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B77_莎草纸坊/B77_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B77_莎草纸坊/B77_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B77_莎草纸坊/B77_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B77_莎草纸坊/B77_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B77_莎草纸坊/B77_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B77_莎草纸坊/B77_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B78",
+      "name": "粮仓",
+      "normalized_feet": [
+        0.79,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B78_粮仓/B78_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B78_粮仓/B78_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B78_粮仓/B78_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B78_粮仓/B78_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B78_粮仓/B78_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B78_粮仓/B78_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B79",
+      "name": "河畔帆船坞",
+      "normalized_feet": [
+        0.22,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.51,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B79_河畔帆船坞/B79_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B79_河畔帆船坞/B79_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B79_河畔帆船坞/B79_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B79_河畔帆船坞/B79_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B79_河畔帆船坞/B79_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B79_河畔帆船坞/B79_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B80",
+      "name": "六角蜂巢金字塔",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B80_六角蜂巢金字塔/B80_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B80_六角蜂巢金字塔/B80_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B80_六角蜂巢金字塔/B80_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B80_六角蜂巢金字塔/B80_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B80_六角蜂巢金字塔/B80_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B80_六角蜂巢金字塔/B80_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-10; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00913938; full-resolution overlap/HUD weighted pixels=38; independent validation recorded separately. No runtime config mutation."
+}

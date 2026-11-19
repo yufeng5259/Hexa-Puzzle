@@ -1,0 +1,110 @@
+{
+  "batch": "P2-10",
+  "status": "PASS",
+  "runtime_png_count": 330,
+  "layout_json_count": 10,
+  "building_atlas_count": 50,
+  "protected_existing_files": 1760,
+  "maps": [
+    {
+      "map": "M11",
+      "errors": [],
+      "warnings": [
+        "B51: main-hive HUD clearance yields L5 height 424px; requirement approximate 85% is not claimed exactly",
+        "B52 L1: 254 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B52 L2: 391 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B52 L3: 1382 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B52 L4: 1452 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B52 L5: 368 magenta-like pixels in native-alpha art; color alone is not proof of key spill, inspect visually",
+        "B51: 620 opaque overlap pixels (445 core); requires visual review"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M12",
+      "errors": [],
+      "warnings": [
+        "B56: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M13",
+      "errors": [],
+      "warnings": [
+        "B61: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M14",
+      "errors": [],
+      "warnings": [
+        "B66: main-hive HUD clearance yields L5 height 428px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M15",
+      "errors": [],
+      "warnings": [
+        "B71: main-hive HUD clearance yields L5 height 419px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M16",
+      "errors": [],
+      "warnings": [
+        "B76: main-hive HUD clearance yields L5 height 426px; requirement approximate 85% is not claimed exactly",
+        "B76: 38 opaque overlap pixels (0 core); requires visual review"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M17",
+      "errors": [],
+      "warnings": [
+        "B81: main-hive HUD clearance yields L5 height 429px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M18",
+      "errors": [],
+      "warnings": [
+        "B86: main-hive HUD clearance yields L5 height 428px; requirement approximate 85% is not claimed exactly",
+        "B86: 445 opaque overlap pixels (213 core); requires visual review"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M19",
+      "errors": [],
+      "warnings": [
+        "B91: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    },
+    {
+      "map": "M20",
+      "errors": [],
+      "warnings": [
+        "B96: main-hive HUD clearance yields L5 height 430px; requirement approximate 85% is not claimed exactly"
+      ],
+      "runtime_png_count": 33,
+      "extension_changed_pixels": 0
+    }
+  ],
+  "visual_verdict": "视觉复核.json",
+  "independent": "independent_report.json"
+}

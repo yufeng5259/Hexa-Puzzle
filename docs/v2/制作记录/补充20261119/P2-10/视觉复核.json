@@ -1,0 +1,47 @@
+{
+  "batch": "P2-10",
+  "date": "2026-11-19",
+  "status": "offline-art-pass",
+  "scope": "M11–M20 / B51–B100",
+  "runtimePNGs": 330,
+  "evidence": {
+    "technical": "independent_report.json",
+    "perMap": "Mxx/verification.json",
+    "compositions": "../对照/Mxx_满级组合检查.png and Mxx_L0地基组合检查.png",
+    "edges": "../对照/Bnn_三底六态对照.png",
+    "overview": "../对照/P2-10_M01-M20_缩略图总览.png"
+  },
+  "iterations": [
+    {
+      "step": 1,
+      "verdict": "revise",
+      "issues": [
+        "Initial background overcopied green reference or landscape aspect; regenerate 10 portrait themes",
+        "B80/B85/B90 landmark subject fidelity",
+        "M19 background real moai faces and B95 bee-faced house"
+      ],
+      "resolution": "New theme-specific backgrounds; targeted edits; rejected sources and prompts retained per map"
+    },
+    {
+      "step": 2,
+      "verdict": "pass",
+      "review": "Revised B80 stepped honeycomb pyramid, B85 roofless ancient terrace, B90 open-air gnomon sundial, B95 complete bee stone statue; M19 faceless natural basalt. Repackaged all affected artifacts."
+    },
+    {
+      "step": 3,
+      "verdict": "pass",
+      "review": "Independent visual pass over 50 buildings × 6 states on all three backgrounds, ten full-level scenes and M01–M20 thumbnails; no visible fringe, residual background, clipped parts or subject-obscuring overlap."
+    }
+  ],
+  "observations": [
+    "B52 purple material belongs to internal grape/jam content, not key-color spill",
+    "B54 L1–L2 basket/frame develops to complete balloon from L3",
+    "Main-hive silhouettes capped at <=430px for HUD clearance; approximate85% occupancy not claimed",
+    "Tiny edge intersections remain: maximum core occlusion ~0.459%, no visible subject obstruction",
+    "Ten extensions have zero changed central pixels; L0/L5 HUD intersections zero"
+  ],
+  "tool": "imagegen skill; authorized CLI fallback; gpt-image-2 high",
+  "limitations": [
+    "offline art delivery; no Creator import, Prefab, real-device or platform-build verification"
+  ]
+}

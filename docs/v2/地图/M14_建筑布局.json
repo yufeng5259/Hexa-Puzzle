@@ -1,0 +1,238 @@
+{
+  "map": "M14",
+  "name": "稀树草原",
+  "background": "地图/M14_稀树草原_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B66",
+      "name": "茅顶蜂屋",
+      "normalized_feet": [
+        0.47,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B66_茅顶蜂屋/B66_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B66_茅顶蜂屋/B66_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B66_茅顶蜂屋/B66_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B66_茅顶蜂屋/B66_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B66_茅顶蜂屋/B66_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B66_茅顶蜂屋/B66_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B67",
+      "name": "彩珠工坊",
+      "normalized_feet": [
+        0.76,
+        0.51
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B67_彩珠工坊/B67_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B67_彩珠工坊/B67_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B67_彩珠工坊/B67_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B67_彩珠工坊/B67_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B67_彩珠工坊/B67_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B67_彩珠工坊/B67_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B68",
+      "name": "猴面包树仓",
+      "normalized_feet": [
+        0.26,
+        0.705
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": true,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B68_猴面包树仓/B68_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B68_猴面包树仓/B68_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B68_猴面包树仓/B68_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B68_猴面包树仓/B68_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B68_猴面包树仓/B68_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B68_猴面包树仓/B68_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B69",
+      "name": "观光车站",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B69_观光车站/B69_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B69_观光车站/B69_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B69_观光车站/B69_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B69_观光车站/B69_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B69_观光车站/B69_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B69_观光车站/B69_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B70",
+      "name": "落日瞭望塔",
+      "normalized_feet": [
+        0.215,
+        0.86
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.38,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B70_落日瞭望塔/B70_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B70_落日瞭望塔/B70_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B70_落日瞭望塔/B70_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B70_落日瞭望塔/B70_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B70_落日瞭望塔/B70_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B70_落日瞭望塔/B70_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-10; template B; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

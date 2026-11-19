@@ -1,0 +1,238 @@
+{
+  "map": "M15",
+  "name": "极光冰原",
+  "background": "地图/M15_极光冰原_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B71",
+      "name": "冰屋蜂舍",
+      "normalized_feet": [
+        0.515,
+        0.385
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B71_冰屋蜂舍/B71_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B71_冰屋蜂舍/B71_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B71_冰屋蜂舍/B71_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B71_冰屋蜂舍/B71_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B71_冰屋蜂舍/B71_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B71_冰屋蜂舍/B71_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B72",
+      "name": "暖蜜炉坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B72_暖蜜炉坊/B72_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B72_暖蜜炉坊/B72_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B72_暖蜜炉坊/B72_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B72_暖蜜炉坊/B72_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B72_暖蜜炉坊/B72_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B72_暖蜜炉坊/B72_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B73",
+      "name": "冰窖",
+      "normalized_feet": [
+        0.73,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B73_冰窖/B73_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B73_冰窖/B73_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B73_冰窖/B73_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B73_冰窖/B73_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B73_冰窖/B73_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B73_冰窖/B73_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B74",
+      "name": "雪橇驿站",
+      "normalized_feet": [
+        0.22,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.51,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B74_雪橇驿站/B74_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B74_雪橇驿站/B74_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B74_雪橇驿站/B74_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B74_雪橇驿站/B74_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B74_雪橇驿站/B74_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B74_雪橇驿站/B74_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B75",
+      "name": "极光观测塔",
+      "normalized_feet": [
+        0.745,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B75_极光观测塔/B75_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B75_极光观测塔/B75_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B75_极光观测塔/B75_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B75_极光观测塔/B75_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B75_极光观测塔/B75_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B75_极光观测塔/B75_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-10; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00521059; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

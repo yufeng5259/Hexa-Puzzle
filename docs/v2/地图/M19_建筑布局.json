@@ -1,0 +1,238 @@
+{
+  "map": "M19",
+  "name": "石像海岛",
+  "background": "地图/M19_石像海岛_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B91",
+      "name": "草顶蜂屋",
+      "normalized_feet": [
+        0.47,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B91_草顶蜂屋/B91_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B91_草顶蜂屋/B91_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B91_草顶蜂屋/B91_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B91_草顶蜂屋/B91_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B91_草顶蜂屋/B91_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B91_草顶蜂屋/B91_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B92",
+      "name": "椰子工坊",
+      "normalized_feet": [
+        0.73,
+        0.54
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.43,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B92_椰子工坊/B92_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B92_椰子工坊/B92_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B92_椰子工坊/B92_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B92_椰子工坊/B92_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B92_椰子工坊/B92_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B92_椰子工坊/B92_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B93",
+      "name": "渔获仓",
+      "normalized_feet": [
+        0.26,
+        0.705
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.54,
+      "flip_x": true,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B93_渔获仓/B93_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B93_渔获仓/B93_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B93_渔获仓/B93_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B93_渔获仓/B93_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B93_渔获仓/B93_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B93_渔获仓/B93_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B94",
+      "name": "独木舟港",
+      "normalized_feet": [
+        0.76,
+        0.72
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.45,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B94_独木舟港/B94_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B94_独木舟港/B94_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B94_独木舟港/B94_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B94_独木舟港/B94_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B94_独木舟港/B94_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B94_独木舟港/B94_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B95",
+      "name": "巨石蜂像",
+      "normalized_feet": [
+        0.215,
+        0.86
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.38,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B95_巨石蜂像/B95_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B95_巨石蜂像/B95_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B95_巨石蜂像/B95_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B95_巨石蜂像/B95_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B95_巨石蜂像/B95_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B95_巨石蜂像/B95_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-10; template B; bounded per-slot adjustment; quarter-resolution alpha search objective=0.00000000; full-resolution overlap/HUD weighted pixels=0; independent validation recorded separately. No runtime config mutation."
+}

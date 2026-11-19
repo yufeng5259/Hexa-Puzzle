@@ -1,0 +1,238 @@
+{
+  "map": "M18",
+  "name": "云端梯城",
+  "background": "地图/M18_云端梯城_背景.png",
+  "background_size": [
+    854,
+    1842
+  ],
+  "coordinate_system": "normalized image x left to right, y top to bottom; anchor is sprite feet",
+  "placements": [
+    {
+      "building": "B86",
+      "name": "石墙蜂屋",
+      "normalized_feet": [
+        0.53,
+        0.39
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.6,
+      "flip_x": false,
+      "z_index": 100,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B86_石墙蜂屋/B86_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B86_石墙蜂屋/B86_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B86_石墙蜂屋/B86_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B86_石墙蜂屋/B86_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B86_石墙蜂屋/B86_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B86_石墙蜂屋/B86_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B87",
+      "name": "毛纺坊",
+      "normalized_feet": [
+        0.215,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 101,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B87_毛纺坊/B87_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B87_毛纺坊/B87_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B87_毛纺坊/B87_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B87_毛纺坊/B87_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B87_毛纺坊/B87_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B87_毛纺坊/B87_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B88",
+      "name": "梯田粮仓",
+      "normalized_feet": [
+        0.79,
+        0.535
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.44,
+      "flip_x": false,
+      "z_index": 102,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B88_梯田粮仓/B88_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B88_梯田粮仓/B88_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B88_梯田粮仓/B88_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B88_梯田粮仓/B88_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B88_梯田粮仓/B88_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B88_梯田粮仓/B88_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B89",
+      "name": "云中吊桥",
+      "normalized_feet": [
+        0.25,
+        0.725
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.56,
+      "flip_x": false,
+      "z_index": 104,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B89_云中吊桥/B89_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B89_云中吊桥/B89_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B89_云中吊桥/B89_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B89_云中吊桥/B89_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B89_云中吊桥/B89_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B89_云中吊桥/B89_L5.png"
+        }
+      ]
+    },
+    {
+      "building": "B90",
+      "name": "日晷石台",
+      "normalized_feet": [
+        0.775,
+        0.71
+      ],
+      "anchor": [
+        0.5,
+        0.9444444444444444
+      ],
+      "sprite_canvas": [
+        576,
+        576
+      ],
+      "render_width_fraction": 0.48,
+      "flip_x": false,
+      "z_index": 103,
+      "stages": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B90_日晷石台/B90_L0.png"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B90_日晷石台/B90_L1.png"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B90_日晷石台/B90_L2.png"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B90_日晷石台/B90_L3.png"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B90_日晷石台/B90_L4.png"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B90_日晷石台/B90_L5.png"
+        }
+      ]
+    }
+  ],
+  "notes": "P2-10; template A; bounded per-slot adjustment; quarter-resolution alpha search objective=0.01418440; full-resolution overlap/HUD weighted pixels=445; independent validation recorded separately. No runtime config mutation."
+}

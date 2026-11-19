@@ -1,0 +1,1174 @@
+{
+  "batch": "P2-10",
+  "map": "M20",
+  "name": "珊瑚沉城",
+  "template": "A",
+  "background": {
+    "file": "地图/M20_珊瑚沉城_背景.png",
+    "size": [
+      854,
+      1842
+    ],
+    "mode": "RGB",
+    "sha256": "7ef5eccc0002c10132b22f720dec86c5753bc24e9833c902e2c693bf50eb382f"
+  },
+  "extension": {
+    "file": "地图/M20_珊瑚沉城_背景_扩展.png",
+    "size": [
+      1120,
+      2040
+    ],
+    "mode": "RGB",
+    "sha256": "4328b167a2870aab1f48cf65a6fc2ab465138c40736a32ea04cd22ad7fc8619c",
+    "original": "地图/M20_珊瑚沉城_背景.png",
+    "originalOffset": [
+      133,
+      99
+    ]
+  },
+  "layout": {
+    "file": "地图/M20_建筑布局.json",
+    "sha256": "9d3ea856f058db6d63ab11010ec73be1a1fa215ca20d2b7283d190aacae1477b",
+    "template": "A"
+  },
+  "buildings": [
+    {
+      "id": "B96",
+      "map": "M20",
+      "name": "珊瑚蜂宫",
+      "atlas": "图集/建筑/B96_珊瑚蜂宫_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "a25f1b5ba1cd11e711b0c2aa0da72c41882445cd205dd833f25e9d5e9ca6937b",
+      "source": "制作记录/补充20261119/P2-10/M20/raw/B96_key.png",
+      "source_sha256": "2c2c734bb347e92a81d59dd9fe539a35e357dfec9ec07963aa965a1e31b644a5",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            504,
+            448
+          ],
+          "source_visible_bbox": [
+            88,
+            247,
+            425,
+            408
+          ],
+          "source_common_scale": 0.9267241379310345,
+          "visible_bbox": [
+            132,
+            396,
+            443,
+            544
+          ],
+          "sha256": "2298c310533b800d6b9bdfd59496d208596edc928bdf44712b6ece890d8d4946"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            504,
+            0,
+            995,
+            448
+          ],
+          "source_visible_bbox": [
+            80,
+            129,
+            416,
+            410
+          ],
+          "source_common_scale": 0.9267241379310345,
+          "visible_bbox": [
+            132,
+            284,
+            443,
+            544
+          ],
+          "sha256": "909096a7e78fdbc7bcfe01b1120a9bc1934306cbd1c78b9207f56ea36c8c9150"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            995,
+            0,
+            1536,
+            448
+          ],
+          "source_visible_bbox": [
+            77,
+            66,
+            444,
+            410
+          ],
+          "source_common_scale": 0.9267241379310345,
+          "visible_bbox": [
+            118,
+            225,
+            458,
+            544
+          ],
+          "sha256": "991ab375bd53684c338a1d6930d1f0b3d4e83a75d37b4ccb7c1816872c427fbe"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            448,
+            496,
+            1024
+          ],
+          "source_visible_bbox": [
+            70,
+            99,
+            443,
+            498
+          ],
+          "source_common_scale": 0.9267241379310345,
+          "visible_bbox": [
+            115,
+            174,
+            461,
+            544
+          ],
+          "sha256": "470aebc4df90b61b4dbd5755540974ba0af7f157fbf15d9581a719c1651a33ff"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            496,
+            448,
+            993,
+            1024
+          ],
+          "source_visible_bbox": [
+            54,
+            66,
+            456,
+            499
+          ],
+          "source_common_scale": 0.9267241379310345,
+          "visible_bbox": [
+            102,
+            144,
+            474,
+            544
+          ],
+          "sha256": "0a4d00c86fc6a73a81a486b12a435c4242f23696be110a55b95f222a032f72f1"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B96_珊瑚蜂宫/B96_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            993,
+            448,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            42,
+            40,
+            483,
+            504
+          ],
+          "source_common_scale": 0.9267241379310345,
+          "visible_bbox": [
+            83,
+            114,
+            492,
+            544
+          ],
+          "sha256": "44c26237b296be2ee30204a7dcc73e6893ff035ba3190f4a09254e2ca26ead3d"
+        }
+      ],
+      "source_common_scale": 0.9267241379310345,
+      "height_limit": 430
+    },
+    {
+      "id": "B97",
+      "map": "M20",
+      "name": "珍珠工坊",
+      "atlas": "图集/建筑/B97_珍珠工坊_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "ba91b0c7e409d041ab8f2652b9db621926b47bad2ccab66cac94936ac6183a26",
+      "source": "制作记录/补充20261119/P2-10/M20/raw/B97_key.png",
+      "source_sha256": "7d1bfba37012293391b60df20abfc232bc7070d76f77d92cae020735561a0c9b",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            515,
+            462
+          ],
+          "source_visible_bbox": [
+            98,
+            254,
+            442,
+            418
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            117,
+            381,
+            459,
+            544
+          ],
+          "sha256": "e9a5507387f71c831daac2a50c2872cf86efec6e39a06f885463c2dab75c889b"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            515,
+            0,
+            1011,
+            462
+          ],
+          "source_visible_bbox": [
+            76,
+            145,
+            423,
+            417
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            114,
+            272,
+            461,
+            544
+          ],
+          "sha256": "c9edaf135c0c49f2669553457d876774a2aee70905b47ac8decec73e4e9db60d"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1011,
+            0,
+            1536,
+            462
+          ],
+          "source_visible_bbox": [
+            75,
+            93,
+            429,
+            417
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            111,
+            221,
+            464,
+            544
+          ],
+          "sha256": "4d68fb89d34eef49c4db43dbb8b453bf110ef275fe9f8723ce84a6e6c3db7dbf"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            462,
+            522,
+            1024
+          ],
+          "source_visible_bbox": [
+            86,
+            112,
+            483,
+            466
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            90,
+            191,
+            486,
+            544
+          ],
+          "sha256": "f6877a57768607b32fa21ea048864572378b965da6d457999094b2d21e73a794"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            522,
+            462,
+            1011,
+            1024
+          ],
+          "source_visible_bbox": [
+            40,
+            91,
+            455,
+            465
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            81,
+            170,
+            495,
+            544
+          ],
+          "sha256": "321f14ba7c236e09c93dd6c9efcedb73dd70fff1088293e5189fc12fd4acfd24"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B97_珍珠工坊/B97_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            1011,
+            462,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            36,
+            46,
+            455,
+            466
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            79,
+            126,
+            497,
+            544
+          ],
+          "sha256": "28808d4c7d826c49650206df405305c8dabaea59706ada9cc4a91f6e8be5d0ae"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B98",
+      "map": "M20",
+      "name": "贝壳仓",
+      "atlas": "图集/建筑/B98_贝壳仓_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "4edbf8beb35fe6713f87bd29a46a206bdf633e763c4278502cdd90c6cf5921bc",
+      "source": "制作记录/补充20261119/P2-10/M20/raw/B98_key.png",
+      "source_sha256": "01c9d45416f304b54be6f2e042a915289880ae2d8e365c53196f2b454c787d05",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B98_贝壳仓/B98_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            500,
+            462
+          ],
+          "source_visible_bbox": [
+            106,
+            271,
+            432,
+            416
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            125,
+            400,
+            450,
+            544
+          ],
+          "sha256": "6c421f32a2eb13225709b9063b6805fe45dfe8295ae0c408fbf0496ce1087959"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B98_贝壳仓/B98_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            500,
+            0,
+            983,
+            462
+          ],
+          "source_visible_bbox": [
+            70,
+            158,
+            420,
+            418
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            113,
+            284,
+            462,
+            544
+          ],
+          "sha256": "280d0d9d9e97c41cd594b3de9a8b647aed8f417fe6f9af259995d9325ff486fe"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B98_贝壳仓/B98_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            983,
+            0,
+            1536,
+            462
+          ],
+          "source_visible_bbox": [
+            66,
+            98,
+            470,
+            422
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            86,
+            222,
+            490,
+            544
+          ],
+          "sha256": "966a93e55f34e1a3372719fe9d98d49705159dcdf2ea1cc2d945a97e6e1ad08e"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B98_贝壳仓/B98_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            462,
+            493,
+            1024
+          ],
+          "source_visible_bbox": [
+            77,
+            111,
+            455,
+            479
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            99,
+            177,
+            477,
+            544
+          ],
+          "sha256": "0ae0bfa7cb6e0ef17b6b257a4aeab9feebe3ef308f13d87710d2ee24c8240d3e"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B98_贝壳仓/B98_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            493,
+            462,
+            977,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            71,
+            447,
+            479
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            84,
+            137,
+            492,
+            544
+          ],
+          "sha256": "2e36f5726a7fc2b8986a64557413b736ac120cbd0616fe97fa31da8b0619128e"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B98_贝壳仓/B98_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            977,
+            462,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            41,
+            495,
+            481
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            60,
+            105,
+            516,
+            544
+          ],
+          "sha256": "c2b70482e4accb7fbf6b4a9f531498ad66390559306dbeb408a3539272967ee1"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B99",
+      "map": "M20",
+      "name": "气泡电梯",
+      "atlas": "图集/建筑/B99_气泡电梯_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "0d4cba11a3c7db3a82bc74a16b9c4d3f298245da26b324244c185b1581d986d1",
+      "source": "制作记录/补充20261119/P2-10/M20/raw/B99_key.png",
+      "source_sha256": "f95417931123fe7633035f97f61a010b926dda0209316b66766e45e513d6eb53",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B99_气泡电梯/B99_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            506,
+            466
+          ],
+          "source_visible_bbox": [
+            100,
+            289,
+            438,
+            437
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            119,
+            396,
+            457,
+            544
+          ],
+          "sha256": "4a22e3d69f5e31cb6b05e6e9469f5b2bd357b274dc82a96e3fbb691e809892a7"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B99_气泡电梯/B99_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            506,
+            0,
+            999,
+            466
+          ],
+          "source_visible_bbox": [
+            70,
+            153,
+            428,
+            439
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            109,
+            260,
+            467,
+            544
+          ],
+          "sha256": "12c3e65c44b279bd587addeab6d98ce76cd475f812a9acb612498624461cc761"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B99_气泡电梯/B99_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            999,
+            0,
+            1536,
+            466
+          ],
+          "source_visible_bbox": [
+            66,
+            63,
+            431,
+            437
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            106,
+            171,
+            470,
+            544
+          ],
+          "sha256": "adef463377fe763b1b32db7988aa1d9cc363abcec14c275f2e248637728b1293"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B99_气泡电梯/B99_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            466,
+            513,
+            1024
+          ],
+          "source_visible_bbox": [
+            97,
+            96,
+            459,
+            483
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            107,
+            157,
+            468,
+            544
+          ],
+          "sha256": "1f5ccf178bfd25da07db76fcd4e3811ae5c9622edac6074c9273b2fbc345f118"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B99_气泡电梯/B99_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            513,
+            466,
+            990,
+            1024
+          ],
+          "source_visible_bbox": [
+            54,
+            59,
+            431,
+            485
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            100,
+            119,
+            476,
+            544
+          ],
+          "sha256": "9e0806f62244bec1a26ebabaeaa69b3cea9d7e20efbc8536242e45a5b2b56da7"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B99_气泡电梯/B99_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            990,
+            466,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            48,
+            30,
+            468,
+            487
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            79,
+            88,
+            497,
+            544
+          ],
+          "sha256": "8da29a009e63ef3d479cae74357b7429ddef0527e138a632ae9ae0b756daf55b"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    },
+    {
+      "id": "B100",
+      "map": "M20",
+      "name": "海底柱廊",
+      "atlas": "图集/建筑/B100_海底柱廊_0至5级.png",
+      "atlas_size": [
+        1728,
+        1420
+      ],
+      "atlas_sha256": "0e2b98ad5446377bd3b62a6f751768a9647e389850374e159a0dace35b327bb8",
+      "source": "制作记录/补充20261119/P2-10/M20/raw/B100_key.png",
+      "source_sha256": "13ff3a988f10dc191e1bf200f7ae21b24a923ed53cabc1607625cf29669878ec",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "native_alpha_preserved": true,
+      "states": [
+        {
+          "level": 0,
+          "file": "素材/建筑/B100_海底柱廊/B100_L0.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            0,
+            511,
+            449
+          ],
+          "source_visible_bbox": [
+            109,
+            269,
+            441,
+            422
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            122,
+            392,
+            453,
+            544
+          ],
+          "sha256": "1a28331bde37f531e0e12670407f1fccd1526dd48781b92db63c59b7dd82788d"
+        },
+        {
+          "level": 1,
+          "file": "素材/建筑/B100_海底柱廊/B100_L1.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            511,
+            0,
+            987,
+            449
+          ],
+          "source_visible_bbox": [
+            72,
+            148,
+            395,
+            422
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            127,
+            271,
+            449,
+            544
+          ],
+          "sha256": "65919fd75dc93af86118e1d56e4a6c15c3d9bd40451dfe60f3e1036b1cd11885"
+        },
+        {
+          "level": 2,
+          "file": "素材/建筑/B100_海底柱廊/B100_L2.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            987,
+            0,
+            1536,
+            449
+          ],
+          "source_visible_bbox": [
+            82,
+            92,
+            430,
+            425
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            114,
+            211,
+            461,
+            544
+          ],
+          "sha256": "7d3abd2f3f1d5b753e3bb06ca22a7a1c68e73e5b5ade78616ab3da37dabee491"
+        },
+        {
+          "level": 3,
+          "file": "素材/建筑/B100_海底柱廊/B100_L3.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            0,
+            449,
+            482,
+            1024
+          ],
+          "source_visible_bbox": [
+            58,
+            131,
+            445,
+            482
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            94,
+            193,
+            481,
+            544
+          ],
+          "sha256": "12fa014e889e2514026299f892e32ef0d28aceb37383e3fa1abf05b11929804d"
+        },
+        {
+          "level": 4,
+          "file": "素材/建筑/B100_海底柱廊/B100_L4.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            482,
+            449,
+            974,
+            1024
+          ],
+          "source_visible_bbox": [
+            39,
+            60,
+            453,
+            483
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            81,
+            123,
+            495,
+            544
+          ],
+          "sha256": "e425ccb79866d94caebcf80aded191356de00f5e30b0dcaf5daa5f2e7f9e102a"
+        },
+        {
+          "level": 5,
+          "file": "素材/建筑/B100_海底柱廊/B100_L5.png",
+          "size": [
+            576,
+            576
+          ],
+          "anchor": [
+            0.5,
+            0.9444444444444444
+          ],
+          "source_rect": [
+            974,
+            449,
+            1536,
+            1024
+          ],
+          "source_visible_bbox": [
+            40,
+            25,
+            491,
+            485
+          ],
+          "source_common_scale": 1.0,
+          "visible_bbox": [
+            63,
+            85,
+            513,
+            544
+          ],
+          "sha256": "a589ccbb412e1f2e26da8b37a4be558753fe11aab1b2f249b7a81673f8d38900"
+        }
+      ],
+      "source_common_scale": 1.0,
+      "height_limit": 480
+    }
+  ],
+  "thumbnail": {
+    "file": "素材/UI/地图选择/map_thumb_m20.png",
+    "size": [
+      768,
+      350
+    ],
+    "mode": "RGBA",
+    "sha256": "8309da4188032225d74ff7a43bfa11f625fc99c786e1da33abe6e1257b78fbf9",
+    "cropRect": [
+      0,
+      951,
+      854,
+      1340
+    ],
+    "sourceSize": [
+      854,
+      1842
+    ],
+    "landmarkBBox": [
+      499,
+      980,
+      825,
+      1311
+    ],
+    "landmarkFullyInsideCrop": true
+  },
+  "extensionComparison": {
+    "map": "M20",
+    "original": "地图/M20_珊瑚沉城_背景.png",
+    "extended": "地图/M20_珊瑚沉城_背景_扩展.png",
+    "offset": [
+      133,
+      99
+    ],
+    "max_channel_difference": 0,
+    "changed_pixels": 0,
+    "exact": true
+  },
+  "layoutAlphaObjective": 0.0014884644008930786,
+  "observations": [
+    "Main hive height capped at 430 px to respect template plus top 18% HUD; all six levels keep one common extraction scale. Height is recorded rather than falsely claiming 85% occupancy."
+  ],
+  "backgroundDerivation": {
+    "source": "制作记录/补充20261119/P2-10/M20/raw/background.png",
+    "source_sha256": "85c5be92d09c8d874841cc6c2ba4df53039f1fdf3c19be4a1413ca8404c91516",
+    "source_size": [
+      896,
+      1754
+    ],
+    "cover_scale": 1.25,
+    "source_crop_rect": [
+      0.0,
+      61.0,
+      896.0,
+      1693.0
+    ],
+    "extended_output_size": [
+      1120,
+      2040
+    ],
+    "central_crop_rect": [
+      133,
+      99,
+      987,
+      1941
+    ],
+    "method": "One generated full scene proportionally cover-fitted to extended canvas, then central map cropped pixel-identically. Not an outpaint of a pre-existing map; source dimensions and any upsampling are explicitly recorded."
+  }
+}
