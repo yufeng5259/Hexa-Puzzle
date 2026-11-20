@@ -165,11 +165,12 @@ export class HomeController {
             ? `${done.chapter}完成 · 下一章：${next.chapter} · ${next.name}`
             : `${next.name} · ${next.subtitle}`;
         // S14 is the building-done toast; reuse it as a non-modal auto-dismiss banner.
-        const toast = await this.nav.showDialog('S14', () => undefined, v => {
+        // Must go through nav.closeDialog() so Navigator.dialog is cleared and dialogOpen resets.
+        await this.nav.showDialog('S14', () => undefined, v => {
             v.setText('building_complete', line);
         });
         await new Promise(r => setTimeout(r, 2500));
-        if (toast?.isValid) toast.fadeOutAndClose();
+        this.nav.closeDialog();
     }
 
     /** Bounds are measured per art set; a placeholder map uses its stand-in's art. */
