@@ -1,4 +1,5 @@
 import { type Camera, type EventTouch, Node, Sprite, SpriteFrame, Tween, tween, UITransform, Vec3 } from 'cc';
+import { TooltipBubble, type TooltipItem } from '../features/ui/TooltipBubble';
 import { BuildFx } from '../features/fx/BuildFx';
 import { revealSeconds, startSeconds } from '../features/fx/BuildTimeline';
 import type { ResourceLoader } from '../framework/resources/ResourceLoader';
@@ -65,6 +66,7 @@ export class HomeController {
     private lastTick = 0;
     /** Finger down on the map page (world point), to tell a building tap from a drag. */
     private press: { pointer: number; x: number; y: number } | null = null;
+    private beePatrol: Tween<Node> | null = null;
 
     public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly guide: GuideCoach, private readonly inputCamera: Camera | null = null) {
         this.scope = loader.createScope();
@@ -148,29 +150,14 @@ export class HomeController {
      * Non-terminal map complete (docs/v2/14 §6.3): honeycomb covers, game switches to the next
      * map, then reveals the new map. A short toast slides down and auto-dismisses.
      */
-    private async mapTransition(_doneId: string, done: MapView, next: MapView): Promise<void> {
+    private async mapTransition(_doneId: string, _done: MapView, _next: MapView): Promise<void> {
         // Advance the game state now, then close the build page and navigate home.
+        // The Transition (honeycomb cover/reveal) already plays inside enter() via replacePage,
+        // so no extra toast is shown — the new map simply appears after the hexagons open.
         try { this.game.act(st => goToNextMap(st, this.game.rules)); } catch (e) { console.error(e); }
         this.viewMapId = null;
-        // Close build mode (S03) if open, then enter() replaces S02 with the new map behind the transition.
         if (this.build?.isValid) this.nav.popPage();
         await this.enter();
-        void this.showMapToast(done, next);
-    }
-
-    private async showMapToast(done: MapView, next: MapView): Promise<void> {
-        if (!this.home?.isValid) return;
-        const isCrossChapter = done.chapter !== next.chapter;
-        const line = isCrossChapter
-            ? `${done.chapter}完成 · 下一章：${next.chapter} · ${next.name}`
-            : `${next.name} · ${next.subtitle}`;
-        // S14 is the building-done toast; reuse it as a non-modal auto-dismiss banner.
-        // Must go through nav.closeDialog() so Navigator.dialog is cleared and dialogOpen resets.
-        await this.nav.showDialog('S14', () => undefined, v => {
-            v.setText('building_complete', line);
-        });
-        await new Promise(r => setTimeout(r, 2500));
-        this.nav.closeDialog();
     }
 
     /** Bounds are measured per art set; a placeholder map uses its stand-in's art. */
@@ -261,6 +248,7 @@ export class HomeController {
         // Only the operation layer changes: hide S02 controls, keep its map.
         for (const id of this.home!.nodeIds) if (id !== 'MapMount') this.home!.setVisible(id, false);
         await this.makeAnchors();
+        this.startBeePatrol();
     }
     /**
      * One upgrade anchor (level dots + cost) per building of the shown map. Old anchors are removed
@@ -331,6 +319,8 @@ export class HomeController {
     }
     private closeBuild(): void {
         if (this.construction) return; // leaving is locked while building
+        this.stopBeePatrol();
+        TooltipBubble.dismiss();
         this.nav.popPage();
         this.build = null; this.anchors.clear(); this.anchorsMapId = ''; this.anchorsRequest++; this.shownBuilt = null;
         for (const id of this.home!.nodeIds) this.home!.setVisible(id, true);
@@ -425,11 +415,76 @@ export class HomeController {
         const prize = next ? rewardText(reward(rules, next)) : '';
         this.guide.flash(`等级 ${s.player.level} · 经验 ${s.player.exp}/${row.expToNext}${prize ? `\n升级奖励 ${prize}` : ''}`);
     }
+
+    // ---- bee patrol (S03 build page idle animation) -------------------------
+
+    /**
+     * Four fixed waypoints the bee flies between in the build scene.
+     * Coordinates are design-space (853×1844, centre=0,0), chosen to stay
+     * clear of buildings and the HUD band.  The bee hovers at each stop
+     * with a gentle bob before flying to the next.
+     */
+    private static readonly BEE_WAYPOINTS: readonly Vec3[] = [
+        new Vec3(  80, -540, 0),   // lower-left area
+        new Vec3(-130, -380, 0),   // mid-left
+        new Vec3( 160, -260, 0),   // mid-right
+        new Vec3( -60, -610, 0),   // bottom-centre
+    ];
+    private static readonly BEE_FLY_S = 1.4;   // seconds per hop
+    private static readonly BEE_BOB_S = 0.55;  // seconds per bob half-cycle
+    private static readonly BEE_BOB_Y = 10;    // bob amplitude (px)
+
+    private startBeePatrol(): void {
+        const bee = this.build?.element('bee_wave');
+        if (!bee?.isValid) return;
+        this.stopBeePatrol();
+        const pts = HomeController.BEE_WAYPOINTS;
+        let idx = 0;
+        const flyNext = (): void => {
+            if (!bee.isValid || !this.build?.isValid) return;
+            const dest = pts[idx % pts.length];
+            idx++;
+            // face direction of travel
+            const dx = dest.x - bee.position.x;
+            if (Math.abs(dx) > 10) bee.setScale(dx < 0 ? -1 : 1, 1, 1);
+            const bobBase = dest.y;
+            this.beePatrol = tween(bee)
+                .to(HomeController.BEE_FLY_S, { position: dest }, { easing: 'sineInOut' })
+                // hover: bob up
+                .to(HomeController.BEE_BOB_S, { position: new Vec3(dest.x, bobBase + HomeController.BEE_BOB_Y, 0) }, { easing: 'sineInOut' })
+                // bob down
+                .to(HomeController.BEE_BOB_S, { position: new Vec3(dest.x, bobBase - HomeController.BEE_BOB_Y, 0) }, { easing: 'sineInOut' })
+                // bob up again then fly next
+                .to(HomeController.BEE_BOB_S, { position: new Vec3(dest.x, bobBase, 0) }, { easing: 'sineInOut' })
+                .call(flyNext)
+                .start();
+        };
+        // small initial delay so the page settles first
+        setTimeout(flyNext, 800);
+    }
+
+    private stopBeePatrol(): void {
+        this.beePatrol?.stop();
+        this.beePatrol = null;
+        const bee = this.build?.element('bee_wave');
+        if (bee?.isValid) Tween.stopAllByTarget(bee);
+    }
     /** Build-mode gift: the completion reward of the map being built. */
     private giftInfo(): void {
         const s = this.game.state, rules = this.game.rules, map = rules.maps.find(m => m.id === s.maps.currentMapId)!;
-        const p = mapProgress(s, rules, map.id), prize = map.completionRewardId ? rewardText(payout(s, rules, map.completionRewardId)) : '';
-        this.guide.flash(s.maps.completed[map.id] ? '本地图已完工，奖励已发放' : `建设进度 ${p.built}/${p.total}\n完工奖励 ${prize}`);
+        const p = mapProgress(s, rules, map.id), prize = map.completionRewardId ? payout(s, rules, map.completionRewardId) : null;
+        const anchor = this.build?.element('icon_gift');
+        if (!anchor) return;
+        const items: TooltipItem[] = [];
+        if (s.maps.completed[map.id]) {
+            items.push({ icon: '✅', label: '本地图已完工，奖励已发放' });
+        } else {
+            items.push({ icon: '🏗️', label: `建设进度 ${p.built}/${p.total}` });
+            if (prize?.coins) items.push({ icon: '🪙', label: `金币 ×${prize.coins}` });
+            if (prize?.energy) items.push({ icon: '❤️', label: `体力 ×${prize.energy}` });
+            if (prize?.hints) items.push({ icon: '💡', label: `提示 ×${prize.hints}` });
+        }
+        TooltipBubble.show(anchor, items, '完工奖励');
     }
     private play(): void { this.guide.clear(); this.onPlay?.(); }
     private onHomeAction(id: string): void {
