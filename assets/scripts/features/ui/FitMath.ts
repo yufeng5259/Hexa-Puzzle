@@ -52,6 +52,19 @@ export function bandScale(fit: { tablet: boolean; frame: { width: number } }): n
     return fit.tablet ? 1 : Math.min(BAND_SCALE_MAX, Math.max(1, fit.frame.width / DESIGN.width));
 }
 
+/**
+ * Dialog growth (2026-11-20): dialogs fill the frame width like the reference art on phones
+ * wider than the design, while the HUD and bottom bands keep the design size (bandScale).
+ * Capped so a dialog still fits the frame height, and at DIALOG_SCALE_MAX on very wide screens.
+ */
+export const DIALOG_SCALE_MAX = 1.25;
+/** Tallest dialog content (S17 sign-in, ribbon to button) in design px, centred: it must stay in the frame. */
+export const DIALOG_CONTENT_HEIGHT = 1500;
+export function dialogScale(fit: { tablet: boolean; frame: { width: number; height: number } }): number {
+    if (fit.tablet) return 1;
+    return Math.min(DIALOG_SCALE_MAX, fit.frame.height / DIALOG_CONTENT_HEIGHT, Math.max(1, fit.frame.width / DESIGN.width));
+}
+
 /** UI bands over the map: HUD bottom and bottom-bar top, in design units from the frame top. */
 export const MAP_BANDS = { hudBottom: 160, barTop: 1550 } as const;
 /** A picture's extent relative to a reference centre: centre offset (y up) and size, design units. */

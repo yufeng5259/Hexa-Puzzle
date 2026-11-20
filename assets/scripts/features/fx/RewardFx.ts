@@ -1,6 +1,6 @@
 import { BlockInputEvents, Color, game as engine, Game as Engine, Label, Node, Sprite, SpriteFrame, UIOpacity, UITransform, Vec3, view } from 'cc';
 import type { Reward } from '../../core/Rules';
-import { bandScale } from '../ui/FitMath';
+import { dialogScale } from '../ui/FitMath';
 import { ScreenFit } from '../ui/ScreenFit';
 import {
     cardScale, chestIntro, planReward, pulseScale, REWARD_FADE, rewardItems, RewardRun, rolledValue,
@@ -115,7 +115,7 @@ export class RewardFx {
     }
 
     private build(r: Running, targets: Map<RewardKind, RewardTarget>): void {
-        const { show, root } = r, plan = r.run!.plan, fit = ScreenFit.current, k = bandScale(fit);
+        const { show, root } = r, plan = r.run!.plan, fit = ScreenFit.current, k = dialogScale(fit);
         if (show.chest?.node.isValid) {
             const node = show.chest.node, glow = this.sprite(root, ART.glow, CHEST.glow * k, CHEST.glow * k);
             glow.setPosition(this.local(root, node)); glow.active = false;

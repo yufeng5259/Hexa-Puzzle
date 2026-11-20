@@ -2,7 +2,7 @@ import { Color, game as engine, Game as Engine, Graphics, isValid, Mask, Node, S
 import { PresentationItem } from '../presentation/PresentationItem';
 import type { PuzzleBoardPresentation } from '../puzzle/presentation/PuzzleBoardPresentation';
 import type { PuzzleSessionSnapshot } from '../puzzle/session/PuzzleSession';
-import { bandScale } from '../ui/FitMath';
+import { dialogScale } from '../ui/FitMath';
 import { ScreenFit } from '../ui/ScreenFit';
 import {
     barOffset, beePose, bounceScale, cellProgress, confettiPieces, confettoPose, failDim, failShake, fireworkFrame, FIREWORK_FRAMES, FIREWORK_STARTS,
@@ -105,7 +105,7 @@ export class BoardFx {
         }
         const t = this.t, plan = planWave(cells, origin, t), marks = winMarks(t), radius = board.boardFit.radius;
         const sparks = Array.from({ length: Math.min(SPARKS, cells.length) }, (_, i) => Math.floor((i + 0.5) * cells.length / Math.min(SPARKS, cells.length)));
-        const mountBase = mount!.scale.clone(), k = bandScale(ScreenFit.current);
+        const mountBase = mount!.scale.clone(), k = dialogScale(ScreenFit.current);
         const shape = this.shapeBox(level.targetCells, radius);
         const deco: Node[] = [];
 

@@ -4,7 +4,7 @@ import { BaseView } from '../../framework/ui/BaseView';
 import { requireBinding } from '../../framework/components/Binding';
 import type { ResourceScope } from '../../framework/resources/ResourceScope';
 import { ScreenFit } from './ScreenFit';
-import { bandScale } from './FitMath';
+import { bandScale, dialogScale } from './FitMath';
 import { EdgePin, EdgeSide } from './EdgePin';
 const { ccclass, property } = _decorator;
 
@@ -133,7 +133,7 @@ export class LayoutView extends BaseView {
                 if (node.getComponent(Sprite)) { const s = coverScale(ui.width, ui.height); node.setScale(s * Math.sign(node.scale.x || 1), s, 1); node.setPosition(0, 0, at.z); }
                 continue;
             }
-            if (this.dialog) { node.setPosition(frame.x + at.x * k, frame.y + at.y * k, at.z); node.setScale(d.scale.x * k, d.scale.y * k, d.scale.z); continue; }
+            if (this.dialog) { const g = dialogScale(fit); node.setPosition(frame.x + at.x * g, frame.y + at.y * g, at.z); node.setScale(d.scale.x * g, d.scale.y * g, d.scale.z); continue; }
             const pin = node.getComponent(EdgePin), band = bottom <= TOP_BAND ? 'top' : top >= BOTTOM_BAND ? 'bottom' : null;
             const s = band || pin ? k : 1;
             // HUD band hugs the frame top, the bottom button band its bottom, the rest its centre;

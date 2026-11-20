@@ -366,8 +366,10 @@ test('no generated picture is distorted or squeezed', () => {
         }
     })(path.join(PROJECT, 'assets'));
     const problems = [];
-    for (const file of fs.readdirSync(OUT).filter(f => f.endsWith('.prefab'))) {
-        const objects = JSON.parse(fs.readFileSync(path.join(OUT, file), 'utf8'));
+    // Every generated prefab, the start-scene loading page included.
+    const prefabs = [...fs.readdirSync(OUT).filter(f => f.endsWith('.prefab')).map(f => path.join(OUT, f)), path.join(PROJECT, 'assets/boot/Loading.prefab')];
+    for (const full of prefabs) {
+        const file = path.basename(full), objects = JSON.parse(fs.readFileSync(full, 'utf8'));
         for (const sprite of objects.filter(o => o.__type__ === 'cc.Sprite' && o._spriteFrame)) {
             const node = objects[sprite.node.__id__], ui = objects[node._components[0].__id__]._contentSize, f = frames.get(sprite._spriteFrame.__uuid__);
             if (!f) continue;
@@ -381,4 +383,28 @@ test('no generated picture is distorted or squeezed', () => {
         }
     }
     assert.deepEqual(problems, []);
+});
+
+test('loading page goes through the shared layout pipeline; its bar is the slim reference capsule', async () => {
+    const src = fs.readFileSync(path.join(PROJECT, 'tools/v2/build-ui.mjs'), 'utf8');
+    assert.match(src, /function buildLoading\(\) \{[\s\S]{0,200}pageLayout\('S01\.json'\)/, 'buildLoading uses pageLayout');
+    const { pageLayout } = await import('../build-ui.mjs');
+    const els = pageLayout('S01.json').elements, el = id => els.find(e => e.id === id);
+    assert.match(el('home_bottom_bar').asset, /hud_capsule_light/);
+    assert.ok(el('home_bottom_bar').rect[3] <= 140, 'frame no taller than the reference');
+    const bee = el('bee_loading').rect;
+    assert.ok(Math.abs(bee[2] / bee[3] - 384 / 400) < 0.03, 'bee drawn at its own proportions');
+});
+
+test('dialogs fill the frame width like the reference art; HUD and bottom bands keep the design size', async () => {
+    const { loader } = await import('../env.mjs');
+    const F = loader()('assets/scripts/features/ui/FitMath');
+    const fit = (w, h) => F.computeFit({ width: w, height: h }, { top: 0, bottom: 0, left: 0, right: 0 }, false);
+    for (const [w, h] of [[1080, 1920], [1080, 2340], [1440, 2560], [720, 1600]]) {
+        const f = fit(w, h), g = F.dialogScale(f);
+        assert.equal(F.bandScale(f), 1, `${w}x${h}: bands at design size`);
+        assert.ok(712 * g / f.frame.width >= 0.8, `${w}x${h}: dialog panel ${(712 * g / f.frame.width).toFixed(2)} of the width`);
+        assert.ok(1351 * g <= f.frame.height, `${w}x${h}: tallest dialog stays on screen`);
+    }
+    assert.equal(F.dialogScale(F.computeFit({ width: 1600, height: 2560 }, { top: 0, bottom: 0, left: 0, right: 0 }, true)), 1, 'tablets keep the design size');
 });

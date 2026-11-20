@@ -119,7 +119,24 @@ function winDialog(layout) {
     return { ...layout, elements };
 }
 /** Page-level layout changes decided after the reference art; applied before building and pinning. */
+/**
+ * S01 loading bar as in the reference art (2026-11-20): a slim cream capsule (the frame of the home
+ * build bar is a thick bevel panel, 155 tall, that made it look swollen) tightly around the bar.
+ * Reference S01: capsule 26–828 × 1504–1640, bar 69–785 × 1536–1610. The bee: the layout box was
+ * measured on another drawing; the delivered bee (384×400, ~15% clear margin) is sized so its body is
+ * as tall as the reference bee (≈470) and its feet stand where the reference bee's do (y ≈ 1378).
+ */
+function loadingBar(layout) {
+    return { ...layout, elements: layout.elements.map(e =>
+        e.id === 'bee_loading' ? { ...e, rect: [182, 882, 501, 522] }
+        : e.id === 'home_bottom_bar' ? { ...e, asset: 'UI/HUD/hud_capsule_light.png', slice: true, rect: [26, 1504, 802, 136] }
+        : e.id === 'bar_bg' ? { ...e, rect: [69, 1536, 716, 74] }
+        : e.id === 'bar_fill_green' ? { ...e, rect: [73, 1540, 708, 66] }
+        : e.id === 'loading_percent' ? { ...e, rect: [320, 1539, 214, 68] }
+        : e) };
+}
 const LAYOUT_PATCH = {
+    S01: loadingBar,
     ...Object.fromEntries(ENERGY_PAGES.map(p => [p, layout => {
         // HUD as drawn in the reference art (2026-11-20): small heart with "4/5" in the capsule,
         // light capsules on the map pages. The 2026-11-14 enlarged heart / dark map HUD is retired.
@@ -330,9 +347,10 @@ function grown(e) {
 /**
  * Capsule art (buttons, tags, HUD capsules): both ends are half circles whose radius is the
  * picture's height, so the nine-slice may only stretch them in width. Their width is never
- * changed at runtime (progress bars are, so they are not listed).
+ * changed at runtime. Progress tracks and fills qualify too: only the fill's mask viewport changes
+ * width, the picture inside keeps the full slot (progressSlots), so their round ends stay round.
  */
-const CAPSULE = /^(btn_|tag_|hud_capsule_|home_play_btn$|home_btn_build$|build_cost_capsule$|map_tag_current$|signin_today_tag$|puzzle_steps_plate$|home_side_label$|ribbon_win_gold$)/;
+const CAPSULE = /^(btn_|tag_|hud_capsule_|home_play_btn$|home_btn_build$|build_cost_capsule$|map_tag_current$|signin_today_tag$|puzzle_steps_plate$|home_side_label$|ribbon_win_gold$|bar_bg$|bar_fill_green$)/;
 
 /** Pixel size of an imported picture (its sprite frame in the texture meta); null when not imported. */
 function texturePixels(asset) {
@@ -765,7 +783,8 @@ const manifestSlices = new Map(JSON.parse(fs.readFileSync(path.join(PROJECT, 'do
  * Outpainted backgrounds are drawn from their wider file (see grown).
  */
 function buildLoading() {
-    const layout = progressSlots(JSON.parse(fs.readFileSync(path.join(LAYOUTS, 'S01.json'), 'utf8')));
+    // Same layout pipeline as every page (patch, readability, aspect fitting, progress slots).
+    const layout = pageLayout('S01.json');
     const ext = extensions(), copies = new Map(layout.elements.filter(e => e.asset).map(e => {
         const file = e.asset.replace(/^\.\.\//, ''), src = `素材/${file}`, draw = ext.get(src)?.file ?? src;
         return [e.asset, importImageTo(draw, `${BOOT}/textures/${path.basename(file)}`, manifestSlices.get(file) ?? null)];
