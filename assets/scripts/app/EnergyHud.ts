@@ -1,4 +1,3 @@
-import { secondsToNextEnergy } from '../core/Energy';
 import type { Game } from '../core/Game';
 import type { RewardFx, RewardTarget } from '../features/fx/RewardFx';
 import { sumRewards } from '../core/Display';
@@ -6,19 +5,13 @@ import type { RewardKind } from '../features/fx/RewardTimeline';
 import type { LayoutView } from '../features/ui/LayoutView';
 import { setProgress } from '../features/ui/ProgressBar';
 
-/** "已满" when full, otherwise the countdown to the next point (m:ss). */
-export function energyStatus(left: number | null): string {
-    return left === null ? '已满' : `${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`;
-}
-
-/** HUD energy: the count sits in the heart, the capsule shows energyStatus. Pages without it are skipped. */
+/** HUD energy as in the reference art: "4/5" beside the heart. Pages without it are skipped. */
 export function showEnergy(view: LayoutView | null | undefined, game: Game, fx?: RewardFx): void {
-    if (!view?.isValid || !view.has('energy_count')) return;
-    hudText(view, 'energy_count', hudValue(game, 'energy'), fx);
-    // While an energy reward still waits to land, "已满" would contradict the lower count shown.
-    if (sumRewards(game.displays).energy > 0 || fx?.holds(view.label('energy_count'))) return;
-    view.setText('energy_value', energyStatus(secondsToNextEnergy(game.state, game.rules, game.now())));
+    if (!view?.isValid || !view.labelIds.includes('energy_value') || fx?.holds(view.label('energy_value'))) return;
+    view.setText('energy_value', formatEnergy(game)(hudValue(game, 'energy')));
 }
+/** "value/max" (the value may exceed max after a reward). */
+export function formatEnergy(game: Game): (n: number) => string { return n => `${n}/${game.rules.energy.max}`; }
 
 /** HUD level badge and experience bar. */
 export function showLevel(view: LayoutView, game: Game): void {
@@ -28,14 +21,14 @@ export function showLevel(view: LayoutView, game: Game): void {
 }
 
 /** HUD element (icon, value label) each reward kind flies to; hints go to the puzzle hint badge. */
-const HUD: Record<RewardKind, readonly [string, string]> = { coins: ['coin_icon', 'coin_value'], energy: ['energy_icon', 'energy_count'], hints: ['puzzle_badge_count', 'hint_count'] };
+const HUD: Record<RewardKind, readonly [string, string]> = { coins: ['coin_icon', 'coin_value'], energy: ['energy_icon', 'energy_value'], hints: ['puzzle_badge_count', 'hint_count'] };
 
 /** Reward targets on a page's HUD; kinds the page does not show (or hides) have none. */
 export function hudTargets(view: LayoutView | null | undefined, game: Game): (kind: RewardKind) => RewardTarget | null {
     return kind => {
         const [icon, label] = HUD[kind];
         if (!view?.isValid || !view.has(icon) || !view.element(icon).activeInHierarchy) return null;
-        return { node: view.element(icon), label: view.labelIds.includes(label) ? view.label(label) : null, value: () => hudValue(game, kind), format: kind === 'coins' ? formatCoins : undefined };
+        return { node: view.element(icon), label: view.labelIds.includes(label) ? view.label(label) : null, value: () => hudValue(game, kind), format: kind === 'coins' ? formatCoins : kind === 'energy' ? formatEnergy(game) : undefined };
     };
 }
 

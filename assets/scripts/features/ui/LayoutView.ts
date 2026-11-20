@@ -10,7 +10,8 @@ const { ccclass, property } = _decorator;
 
 export const DESIGN_WIDTH = 853, DESIGN_HEIGHT = 1844;
 /** Elements entirely above / below these design-y edges (from the top) belong to the HUD / bottom button band. */
-const TOP_BAND = 140, BOTTOM_BAND = DESIGN_HEIGHT - 254;
+/** Band limits in design px from the top; the HUD backdrop (bottom 147) belongs to the top band and spans the screen. */
+const TOP_BAND = 150, BOTTOM_BAND = DESIGN_HEIGHT - 254;
 
 /** Uniform scale that makes a w×h picture cover the whole screen (backgrounds bleed under notches). */
 export function coverScale(w: number, h: number): number {

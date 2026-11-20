@@ -183,7 +183,7 @@ test('edge pins: HUD / bottom band groups follow their side, centre stays, child
     const pins = edgePins(pageLayout('S02.json'));
     for (const id of ['hud_level_badge', 'player_level', 'signin_entry', 'signin_text', 'home_btn_build', 'build_text', 'build_reddot', 'home_btn_back', 'back_text']) assert.equal(pins.get(id), 0, id);
     for (const id of ['hud_btn_square_purple', 'icon_settings', 'hud_coin', 'coin_value', 'endless_entry']) assert.equal(pins.get(id), 1, id);
-    for (const id of ['hud_energy', 'energy_icon', 'energy_count', 'home_play_btn', 'play_text', 'map_name']) assert.equal(pins.has(id), false, id);
+    for (const id of ['hud_energy', 'energy_icon', 'home_play_btn', 'play_text', 'map_name']) assert.equal(pins.has(id), false, id);
     const s03 = edgePins(pageLayout('S03.json'));
     assert.equal(s03.get('home_btn_home'), 0); assert.equal(s03.get('icon_gift'), 1);
 });
@@ -206,14 +206,21 @@ test('S02 bottom: no bar or home button; square build button bottom-left, Play c
     for (const id of ['home_btn_build', 'home_btn_back', 'home_play_btn']) assert.ok(actions.includes(id), id);
 });
 
-test('HUD energy: count label drawn over the enlarged heart on every page with the energy capsule', async () => {
+test('HUD as in the reference art: every HUD element keeps its drawn rect; energy reads "n/max" beside the heart', async () => {
     const { pageLayout } = await import('../build-ui.mjs');
+    // Progress fills are left out: they become masked full-slot viewports (09 §9).
+    const hud = /^(hud_|energy_|coin_|player_level$|bar_bg$|icon_settings$|icon_home$)/;
     for (const page of ['S02', 'S03', 'S04', 'S05', 'S16']) {
-        const els = pageLayout(`${page}.json`).elements, ids = els.map(e => e.id), el = id => els.find(e => e.id === id);
-        assert.equal(ids.indexOf('energy_count'), ids.indexOf('energy_icon') + 1, `${page}: count right above the heart`);
-        const heart = el('energy_icon').rect, capsule = el('hud_energy').rect, value = el('energy_value').rect;
-        assert.ok(heart[3] > capsule[3], `${page}: heart taller than the capsule`);
-        assert.ok(value[0] >= heart[0] + heart[2] && value[0] + value[2] <= capsule[0] + capsule[2], `${page}: status text inside the capsule, right of the heart`);
+        const drawn = new Map(JSON.parse(fs.readFileSync(path.join(PROJECT, `docs/v2/素材/布局/${page}.json`), 'utf8')).elements.map(e => [e.id, e]));
+        const els = pageLayout(`${page}.json`).elements;
+        assert.ok(!els.some(e => e.id === 'energy_count' || e.id === 'hud_level_capsule'), `${page}: no enlarged-heart parts`);
+        for (const e of els.filter(e => hud.test(e.id) && drawn.has(e.id) && e.rect && e.rect[1] < 160 && e.type !== 'label')) {
+            const d = drawn.get(e.id), [w, h] = e.rect.slice(2), [dw, dh] = d.rect.slice(2);
+            // Same box, or the picture fitted inside it at its own aspect (no stretching).
+            assert.ok(w <= dw + 0.5 && h <= dh + 0.5 && (Math.abs(w - dw) < 0.5 || Math.abs(h - dh) < 0.5), `${page}/${e.id} size ${w}x${h} vs ${dw}x${dh}`);
+            assert.equal(e.asset ?? null, d.asset ?? null, `${page}/${e.id} art`);
+        }
+        assert.match(els.find(e => e.id === 'energy_value').text, /^\d+\/\d+$/, `${page}: energy text`);
     }
 });
 

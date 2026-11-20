@@ -58,48 +58,9 @@ function homeRow(layout) {
     const dot = { id: 'build_reddot', asset: 'UI/通用/reddot.png', rect: [side + h - 34, y - 4, 38, 38], hidden: true };
     return { ...layout, elements: [...elements, ...tile('build', 'UI/图标/icon_build.png', '建造', false), ...tile('back', 'UI/图标/icon_back.png', '返回', true), dot] };
 }
-/**
- * HUD energy (decided 2026-11-14): the heart grows past the capsule's left end and carries the
- * energy count; the capsule shows "已满" or the countdown to the next point.
- */
-const ENERGY = {
-    light: { heart: [-13, -10, 109, 92], value: [98, 9, 84, 54], count: 46 },
-    dark: { heart: [2, -7, 119, 100], value: [126, 15, 84, 55], count: 50 },
-};
-function energyHud(layout) {
-    const capsule = layout.elements.find(e => e.id === 'hud_energy');
-    if (!capsule || !layout.elements.some(e => e.id === 'energy_value')) return layout;
-    // Offsets from the capsule's top-left corner.
-    const spec = ENERGY[capsule.asset.includes('dark') ? 'dark' : 'light'], at = ([x, y, w, h]) => [capsule.rect[0] + x, capsule.rect[1] + y, w, h];
-    const [hx, hy, hw, hh] = at(spec.heart);
-    const count = { id: 'energy_count', type: 'label', text: '5', rect: [hx, hy + 8, hw, hh - 22], fontSize: spec.count, color: '#FFFFFF', bold: true,
-        align: 'center', verticalAlign: 'center', outlineColor: '#9C1230', outlineWidth: 4 };
-    const elements = layout.elements.flatMap(e => e.id === 'energy_icon' ? [{ ...e, rect: at(spec.heart) }, count]
-        : e.id === 'energy_value' ? [{ ...e, rect: at(spec.value), fontSize: 34, text: '已满' }] : [e]);
-    return { ...layout, elements };
-}
-/**
- * HUD of the map pages (decided 2026-11-14): no full-width backdrop (it stretched on wide
- * screens); level, energy and coins each sit in their own dark capsule like the puzzle HUD,
- * settings stays a square button. Layout units (854 wide).
- */
-const HUD_PAGES = new Set(['S02', 'S03', 'S16']);
-const HUD_RECTS = {
-    hud_level_capsule: [62, 46, 232, 80], hud_level_badge: [12, 26, 110, 118], player_level: [22, 52, 90, 72],
-    bar_bg: [124, 63, 154, 46], bar_fill_green: [130, 68, 142, 36],
-    hud_energy: [310, 46, 212, 80], hud_coin: [536, 46, 194, 80], coin_icon: [524, 40, 88, 88], coin_value: [608, 58, 112, 56],
-    hud_btn_square_purple: [744, 36, 98, 100], icon_settings: [762, 54, 62, 65],
-};
-const DARK_CAPSULE = 'UI/HUD/hud_capsule_dark.png';
-function hudBar(layout) {
-    const elements = layout.elements.flatMap(e => {
-        if (e.id === 'hud_bar_bg') return [{ id: 'hud_level_capsule', asset: DARK_CAPSULE, slice: true, rect: HUD_RECTS.hud_level_capsule }];
-        // Capsule text was dark on the light capsules; white on the dark ones, as on the puzzle HUD.
-        const white = e.id === 'energy_value' || e.id === 'coin_value' ? { color: '#FFFFFF' } : {};
-        if (!HUD_RECTS[e.id]) return [{ ...e, ...white }];
-        return [{ ...e, rect: HUD_RECTS[e.id], ...white, ...(/^hud_(energy|coin)$/.test(e.id) ? { asset: DARK_CAPSULE } : {}) }];
-    });
-    return { ...layout, elements };
+/** HUD energy as in the reference art: the capsule's value label reads "4/5"; tapping the capsule shows the countdown. */
+function energyText(layout) {
+    return { ...layout, elements: layout.elements.map(e => e.id === 'energy_value' ? { ...e, text: '5/5' } : e) };
 }
 /**
  * Progress bars (09 §9): the fill element becomes a left-anchored viewport with a rect Mask over
@@ -160,7 +121,9 @@ function winDialog(layout) {
 /** Page-level layout changes decided after the reference art; applied before building and pinning. */
 const LAYOUT_PATCH = {
     ...Object.fromEntries(ENERGY_PAGES.map(p => [p, layout => {
-        const hud = energyHud(HUD_PAGES.has(p) ? hudBar(layout) : layout);
+        // HUD as drawn in the reference art (2026-11-20): small heart with "4/5" in the capsule,
+        // light capsules on the map pages. The 2026-11-14 enlarged heart / dark map HUD is retired.
+        const hud = energyText(layout);
         return p === 'S02' ? homeRow(hud) : p === 'S05' ? puzzleRow(hud) : hud;
     }])),
     // Home and back both left the activity: one home button, as on S20.
