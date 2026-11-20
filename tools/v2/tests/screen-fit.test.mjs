@@ -76,6 +76,6 @@ test('band scale: HUD and bottom bands grow with the width on wide phones only, 
     const fit = (w, h, tablet = false) => F.computeFit({ width: w, height: h }, none, tablet);
     near(F.bandScale(fit(1080, 2400)), 1, 1e-9);
     near(F.bandScale(fit(1080, 1920)), F.BAND_SCALE_MAX, 1e-9);
-    near(F.bandScale(fit(1080, 2100)), (1080 / 2100 * 1844) / 853, 1e-6);
+    near(F.bandScale(fit(1080, 2100)), Math.min(F.BAND_SCALE_MAX, (1080 / 2100 * 1844) / 853), 1e-6);
     near(F.bandScale(fit(1536, 2048, true)), 1, 1e-9);
 });

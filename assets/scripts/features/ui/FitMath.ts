@@ -41,8 +41,12 @@ export function isTablet(smallestWidthDp: number | null, screen: { width: number
     return smallestWidthDp !== null ? smallestWidthDp >= TABLET_MIN_DP : screen.width / screen.height > TABLET_ASPECT;
 }
 
-/** Largest growth of the HUD / bottom bands (LayoutView) on phones wider than the design (16:9 ≈ 1.22). */
-export const BAND_SCALE_MAX = 1.2;
+/**
+ * Largest growth of the HUD / bottom bands (LayoutView) on phones wider than the design.
+ * 1 = the bands keep the design size on every screen (HUD and buttons as drawn); the map and
+ * backgrounds still fill the screen. Raise it only if wide phones need bigger controls.
+ */
+export const BAND_SCALE_MAX = 1;
 /** Band growth: the frame width over the design width, 1 on long phones and tablets. */
 export function bandScale(fit: { tablet: boolean; frame: { width: number } }): number {
     return fit.tablet ? 1 : Math.min(BAND_SCALE_MAX, Math.max(1, fit.frame.width / DESIGN.width));
