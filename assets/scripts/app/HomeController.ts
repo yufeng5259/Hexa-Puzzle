@@ -148,14 +148,13 @@ export class HomeController {
      * Non-terminal map complete (docs/v2/14 §6.3): honeycomb covers, game switches to the next
      * map, then reveals the new map. A short toast slides down and auto-dismisses.
      */
-    private async mapTransition(doneId: string, done: MapView, next: MapView): Promise<void> {
-        // Switch the game state under the transition cover.
-        await this.nav.coverWhile(() => {
-            try { this.game.act(st => goToNextMap(st, this.game.rules)); } catch (e) { console.error(e); }
-            this.viewMapId = null; this.mapId = ''; void this.renderMap();
-        });
-        this.render();
-        // Toast: label slides down from above the HUD, stays 2.5 s, slides back up.
+    private async mapTransition(_doneId: string, done: MapView, next: MapView): Promise<void> {
+        // Advance the game state now, then close the build page and navigate home.
+        try { this.game.act(st => goToNextMap(st, this.game.rules)); } catch (e) { console.error(e); }
+        this.viewMapId = null;
+        // Close build mode (S03) if open, then enter() replaces S02 with the new map behind the transition.
+        if (this.build?.isValid) this.nav.popPage();
+        await this.enter();
         void this.showMapToast(done, next);
     }
 

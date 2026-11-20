@@ -41,10 +41,7 @@ export class MapPage {
         if (!view) return;
         view.setText('title', '蜂群地图');
         view.setText('return_home_text', '返回家园');
-        // Resize the scroll list to fit between the back button and the return-home button after
-        // bandScale is applied (bottom band grows on wide phones, pushing the button up into the list).
         const list = view.element('MapList');
-        this.fitListBounds(view, list, 'hud_btn_square_blue', 'return_home');
         const content = list.getChildByName('MapView')!.getChildByName('MapContent')!;
         const cards = this.game.config.maps, request = this.request;
         let y = 0, chapters = 0, current: Node | null = null;
@@ -67,13 +64,23 @@ export class MapPage {
             if (map.id === this.game.state.maps.currentMapId) current = card.node;
             y += h + CARD_GAP;
         }
+        // Set content height now.
+        const totalH = Math.max(y - CARD_GAP, 1);
+        content.getComponent(UITransform)!.height = totalH;
+        // Defer fitListBounds one frame so LayoutView.fitScreen has fully shifted button positions.
+        await new Promise<void>(resolve => setTimeout(resolve, 0));
+        if (!view.isValid || request !== this.request) return;
+        this.fitListBounds(view, list, 'hud_btn_square_blue', 'return_home');
         const listHeight = list.getComponent(UITransform)!.height;
-        content.getComponent(UITransform)!.height = Math.max(y - CARD_GAP, listHeight);
-        // Open on the map being built (30 cards do not fit one screen).
+        content.getComponent(UITransform)!.height = Math.max(totalH, listHeight);
+        // Scroll to the map being built.
         const scroll = list.getComponent(ScrollView);
         if (current && scroll) {
-            const top = -current.position.y - current.getComponent(UITransform)!.height / 2 - CHAPTER_ROW - 8;
-            scroll.scrollToOffset(new Vec2(0, Math.max(0, Math.min(top, content.getComponent(UITransform)!.height - listHeight))), 0);
+            // Scroll to put the current card fully visible at the top of the list.
+            // content y=0 is the content top; card position is in content local (y-down from top).
+            const cardTopInContent = -current.position.y - current.getComponent(UITransform)!.height / 2;
+            const offset = Math.max(0, Math.min(cardTopInContent, content.getComponent(UITransform)!.height - listHeight));
+            scroll.scrollToOffset(new Vec2(0, offset), 0);
         }
     }
 
@@ -90,20 +97,32 @@ export class MapPage {
         this.renderReplay(view);
     }
 
-    /** Shrinks the list mount to sit strictly between the two anchor buttons' actual on-screen edges. */
+    /**
+     * Shrinks the list scroll view to stay clear of the two anchor buttons after fitScreen.
+     * Reads node.position.y (local, already shifted by fitScreen) and accounts for anchor/scale.
+     */
     private fitListBounds(view: LayoutView, list: Node, topButtonId: string, bottomButtonId: string, gap = 8): void {
         const topBtn = view.element(topButtonId), botBtn = view.element(bottomButtonId);
-        const topUi = topBtn.getComponent(UITransform)!, botUi = botBtn.getComponent(UITransform)!;
-        // World-space bottom of the top button, and top of the bottom button (y-up).
-        const topEdge = topBtn.getWorldPosition().y - topUi.height * (1 - topUi.anchorY) * Math.abs(topBtn.scale.y);
-        const botEdge = botBtn.getWorldPosition().y + botUi.height * botUi.anchorY * Math.abs(botBtn.scale.y);
-        // Convert to the list parent's local space.
-        const parent = list.parent!, parentPos = parent.getWorldPosition();
-        const localTop = topEdge - parentPos.y, localBot = botEdge - parentPos.y;
-        const newTop = localTop - gap, newBot = localBot + gap, newH = newTop - newBot;
+        const topUi = topBtn.getComponent(UITransform)!;
+        const botUi = botBtn.getComponent(UITransform)!;
+        // Local bottom of the top button (y-up local coords, anchor-aware).
+        const topBotEdge = topBtn.position.y - topUi.height * (1 - topUi.anchorY) * Math.abs(topBtn.scale.y);
+        // Local top of the bottom button.
+        const botTopEdge = botBtn.position.y + botUi.height * botUi.anchorY * Math.abs(botBtn.scale.y);
         const ui = list.getComponent(UITransform)!;
-        list.setPosition(list.position.x, (newTop + newBot) / 2, list.position.z);
+        const newH = (topBotEdge - gap) - (botTopEdge + gap);
+        if (newH < 100) return;
+        // MapList has anchorY=0.5; setPosition sets the centre.
+        const newCentreY = (topBotEdge - gap + botTopEdge + gap) / 2;
+        list.setPosition(list.position.x, newCentreY, list.position.z);
         ui.setContentSize(ui.width, newH);
+        // The inner MapView (mask + scroll viewport) must match the new size; it has anchorY=1.
+        const mapView = list.getChildByName('MapView');
+        if (mapView) {
+            const mvUi = mapView.getComponent(UITransform)!;
+            mapView.setPosition(-ui.width / 2, newH / 2, mapView.position.z);
+            mvUi.setContentSize(ui.width, newH);
+        }
     }
 
     private async open(): Promise<LayoutView | null> {

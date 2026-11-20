@@ -88,11 +88,13 @@ export class RewardPresenter {
             const map = this.game.rules.maps.find(m => m.id === event.detail!.mapId)!, views = this.game.config.maps;
             const view = views.find(m => m.id === map.id)!, next = views.find(m => m.id === map.nextMapId);
             if (next && this.onMapTransition) {
-                // Non-last map: collect coins on the current page, then the caller plays transition.
-                void this.collect(r, ids, { owner: this.nav.topPage?.node ?? null, from: null, sources: {} }).then(() => {
-                    void this.onMapTransition!(map.id, view, next);
-                    this.drain();
-                });
+                // Non-last map: ack the reward (coins were already written to the wallet by grantAndShow),
+                // then fire the transition; skip the fx animation so the cover plays immediately.
+                this.game.ackDisplay(ids);
+                this.changed();
+                void this.onMapTransition!(map.id, view, next);
+                // levelUp / other queued events will drain when enter() finishes.
+                return;
             } else {
                 // Last map (no next) or no transition callback: show the S15 dialog.
                 void this.nav.showDialog('S15', id => this.onMapComplete(id), v => {
