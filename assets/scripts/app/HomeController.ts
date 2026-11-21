@@ -67,6 +67,8 @@ export class HomeController {
     /** Finger down on the map page (world point), to tell a building tap from a drag. */
     private press: { pointer: number; x: number; y: number } | null = null;
     private beePatrol: Tween<Node> | null = null;
+    /** True after enter() completes; reset on each enter() so the auto sign-in fires once per visit. */
+    private autoSignInPending = false;
 
     public constructor(private readonly game: Game, private readonly nav: Navigator, loader: ResourceLoader, private readonly guide: GuideCoach, private readonly inputCamera: Camera | null = null) {
         this.scope = loader.createScope();
@@ -97,6 +99,7 @@ export class HomeController {
         const pending = this.game.state.pendingBuild;
         if (pending) { await this.openBuild(); this.beginConstruction(pending.buildId, pending.buildingId, true); }
         else this.rewards.drain(true);
+        this.autoSignInPending = true;
     }
 
     public update(dt: number): void {
@@ -213,6 +216,15 @@ export class HomeController {
         if (this.build?.isValid) this.renderBuild();
         this.renderEnergy();
         this.renderGuide();
+        // Auto sign-in: once per visit, after rewards have drained and no other dialog is open.
+        if (this.autoSignInPending && !this.build?.isValid && !this.nav.dialogOpen && !this.nav.transitioning) {
+            if (this.daily.signInDot()) {
+                this.autoSignInPending = false;
+                this.daily.openSignIn();
+            } else {
+                this.autoSignInPending = false;
+            }
+        }
     }
     /** Light build prompt: some building on the current map is affordable now. */
     private canBuild(): boolean {
