@@ -99,6 +99,12 @@ export class HomeController {
         const pending = this.game.state.pendingBuild;
         if (pending) { await this.openBuild(); this.beginConstruction(pending.buildId, pending.buildingId, true); }
         else this.rewards.drain(true);
+        // After rewards settle, auto-open sign-in if today's not claimed yet.
+        // A short delay lets drain() and any queued dialogs open first.
+        setTimeout(() => {
+            if (this.home?.isValid && !this.build?.isValid && !this.nav.dialogOpen && this.daily.signInDot())
+                this.daily.openSignIn();
+        }, 600);
     }
 
     public update(dt: number): void {
