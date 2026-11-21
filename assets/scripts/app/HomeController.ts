@@ -244,6 +244,8 @@ export class HomeController {
     }
     private async pushBuild(): Promise<void> {
         this.build = await this.nav.pushPage('S03', id => this.onBuildAction(id));
+        // Sync HUD values immediately so S03's labels show correct numbers on the first fadeIn frame.
+        this.render();
         this.listen(this.build);
         // Only the operation layer changes: hide S02 controls, keep its map.
         for (const id of this.home!.nodeIds) if (id !== 'MapMount') this.home!.setVisible(id, false);
@@ -430,9 +432,10 @@ export class HomeController {
         new Vec3( 160, -260, 0),   // mid-right
         new Vec3( -60, -610, 0),   // bottom-centre
     ];
-    private static readonly BEE_FLY_S = 1.4;   // seconds per hop
-    private static readonly BEE_BOB_S = 0.55;  // seconds per bob half-cycle
+    private static readonly BEE_FLY_S = 2.5;   // seconds per hop
+    private static readonly BEE_BOB_S = 0.7;   // seconds per bob half-cycle
     private static readonly BEE_BOB_Y = 10;    // bob amplitude (px)
+    private static readonly BEE_BOB_REPS = 4;  // bob repetitions per stop
 
     private startBeePatrol(): void {
         const bee = this.build?.element('bee_wave');
@@ -448,16 +451,15 @@ export class HomeController {
             const dx = dest.x - bee.position.x;
             if (Math.abs(dx) > 10) bee.setScale(dx < 0 ? -1 : 1, 1, 1);
             const bobBase = dest.y;
-            this.beePatrol = tween(bee)
-                .to(HomeController.BEE_FLY_S, { position: dest }, { easing: 'sineInOut' })
-                // hover: bob up
-                .to(HomeController.BEE_BOB_S, { position: new Vec3(dest.x, bobBase + HomeController.BEE_BOB_Y, 0) }, { easing: 'sineInOut' })
-                // bob down
-                .to(HomeController.BEE_BOB_S, { position: new Vec3(dest.x, bobBase - HomeController.BEE_BOB_Y, 0) }, { easing: 'sineInOut' })
-                // bob up again then fly next
-                .to(HomeController.BEE_BOB_S, { position: new Vec3(dest.x, bobBase, 0) }, { easing: 'sineInOut' })
-                .call(flyNext)
-                .start();
+            const reps = HomeController.BEE_BOB_REPS;
+            const bs = HomeController.BEE_BOB_S, by = HomeController.BEE_BOB_Y;
+            // Build bob sequence dynamically: up→down repeated reps times, then back to base
+            let t = tween(bee).to(HomeController.BEE_FLY_S, { position: dest }, { easing: 'sineInOut' });
+            for (let i = 0; i < reps; i++) {
+                t = t.to(bs, { position: new Vec3(dest.x, bobBase + by, 0) }, { easing: 'sineInOut' })
+                     .to(bs, { position: new Vec3(dest.x, bobBase - by, 0) }, { easing: 'sineInOut' });
+            }
+            this.beePatrol = t.to(bs, { position: dest }, { easing: 'sineInOut' }).call(flyNext).start();
         };
         // small initial delay so the page settles first
         setTimeout(flyNext, 800);
