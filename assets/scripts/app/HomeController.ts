@@ -74,8 +74,7 @@ export class HomeController {
         this.rewards.onEndless = () => this.onEndless?.();
         this.rewards.onMapTransition = (doneId, done, next) => void this.mapTransition(doneId, done, next);
         this.rewards.onReturnHome = () => void this.enter();
-        // After all queued rewards are shown, auto-open sign-in if today's not claimed yet.
-        this.rewards.onIdle = () => { if (!this.build?.isValid && this.daily.signInDot()) this.daily.openSignIn(); };
+        this.rewards.onIdle = () => this.checkAutoSignIn();
         this.daily = new DailyPresenter(game, nav, this.rewards, { play: () => this.play(), build: () => void this.openBuild(), endless: () => this.onEndless?.() });
     }
 
@@ -99,12 +98,13 @@ export class HomeController {
         const pending = this.game.state.pendingBuild;
         if (pending) { await this.openBuild(); this.beginConstruction(pending.buildId, pending.buildingId, true); }
         else this.rewards.drain(true);
-        // After rewards settle, auto-open sign-in if today's not claimed yet.
-        // A short delay lets drain() and any queued dialogs open first.
-        setTimeout(() => {
-            if (this.home?.isValid && !this.build?.isValid && !this.nav.dialogOpen && this.daily.signInDot())
-                this.daily.openSignIn();
-        }, 600);
+        setTimeout(() => this.checkAutoSignIn(), 600);
+    }
+
+    /** Shows the sign-in dialog once per day on first visit to home, after all reward dialogs settle. */
+    private checkAutoSignIn(): void {
+        if (this.build?.isValid || this.nav.dialogOpen || this.nav.transitioning) return;
+        if (this.daily.signInDot()) this.daily.openSignIn();
     }
 
     public update(dt: number): void {
@@ -335,6 +335,7 @@ export class HomeController {
         this.build = null; this.anchors.clear(); this.anchorsMapId = ''; this.anchorsRequest++; this.shownBuilt = null;
         for (const id of this.home!.nodeIds) this.home!.setVisible(id, true);
         this.render();
+        this.checkAutoSignIn();
     }
     private renderBuild(): void {
         const s = this.game.state, map = this.map, progress = mapProgress(s, this.game.rules, map.id);
