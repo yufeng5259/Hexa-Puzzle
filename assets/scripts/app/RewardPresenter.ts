@@ -29,6 +29,8 @@ const RECOVER_TEXT_HEIGHT = 520;
 export class RewardPresenter {
     /** S10 "去无尽" (shown once endless is unlocked). */
     public onEndless: (() => void) | null = null;
+    /** Called when drain() finds nothing left to show (all rewards shown, no guide step pending). */
+    public onIdle: (() => void) | null = null;
     /**
      * Called when a non-terminal map finishes; the caller plays the honeycomb transition and
      * shows a toast. The presenter has already paid the reward and acknowledged the event.
@@ -66,6 +68,7 @@ export class RewardPresenter {
         if (next?.kind === 'recover') this.recover(next.events);
         else if (next) this.show(next.events);
         else if (guideStep(this.game.state, this.game.rules) === 'welcome') this.welcome();
+        else this.onIdle?.();
     }
     private next = (): void => { this.guide?.clear(); this.nav.closeDialog(); this.changed(); if (this.drains) this.drain(); };
 
