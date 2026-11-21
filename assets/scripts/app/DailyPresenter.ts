@@ -105,7 +105,21 @@ export class DailyPresenter {
     private claimSignIn(): void {
         const slot = signInSlot(this.game.state, this.game.rules);
         const cell = this.view!.element(slot === DAYS - 1 ? 'signin_cell_big_7' : `signin_cell_${slot + 1}`);
-        this.claim(s => claimSignIn(s, this.game.rules, this.game.day()), cell);
+        const v = this.view;
+        if (!v?.isValid || this.nav.fx.busy) return;
+        let event: DisplayEvent | null;
+        try { event = this.game.act(s => claimSignIn(s, this.game.rules, this.game.day())); }
+        catch (error) {
+            if (!(error instanceof RuleError)) { this.close(); this.rewards.failure(error); return; }
+            console.warn((error as Error).message);
+            this.repaint();
+            return;
+        }
+        this.repaint();
+        if (!event) return;
+        bounce(cell);
+        void this.rewards.collect(event.reward, [event.id], { owner: v.node, from: cell })
+            .then(() => { this.close(); });
     }
     private claimChest(): void { this.claim(s => claimDailyChest(s, this.game.rules, this.game.day()), this.view!.element('icon_chest_closed'), true); }
     private taskAction(index: number): void {

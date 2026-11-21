@@ -36,7 +36,7 @@ export interface RewardShow {
 const ICON: Record<RewardKind, string> = { coins: 'UI/图标/icon_coin.png', energy: 'UI/图标/icon_energy.png', hints: 'UI/图标/icon_hint.png' };
 const PARTICLE: Record<RewardKind, string> = { coins: 'UI/特效/fx_coin_fly.png', energy: ICON.energy, hints: ICON.hints };
 const ART = { card: 'UI/HUD/hud_capsule_dark.png', check: 'UI/通用/mark_check.png', glow: 'UI/特效/fx_glow_burst.png' };
-const CARD = { width: 176, height: 72, gap: 16, lift: 110, icon: 56, particle: 44, check: 40, margin: 12 };
+const CARD = { width: 200, height: 120, gap: 16, lift: 110, icon: 60, particle: 44, check: 40, margin: 12 };
 const TEXT = new Color(0xff, 0xff, 0xff, 255);
 /** Scatter radius around the card and the height of the flight arc (design units). */
 const SPREAD = { min: 24, max: 60 }, ARC = 140;
